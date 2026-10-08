@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-3 電子組態與週期表｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a class="on" href="u1-3.html"><span>1-3</span>電子組態與週期表</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第1章 原子結構與週期表</div>
+<h1><span class="uid">1-3</span>電子組態與週期表</h1>
+<div class="tools"><span class="cnt">本單元 45 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、電子組態</h3>
+<h4>1. 定義</h4>
+<p>原子中各電子占有軌域的排列方式，稱為該原子的「<strong>電子組態</strong>」。<br />
+寫法：<strong>3d<sup>4</sup></strong> → 3 是主量子數、d 是軌域種類、右上角 4 是電子數。</p>
+<h4>2. 電子填充軌域的三大原則</h4>
+<p><strong>(1) 遞建原理（構築原理）</strong>：電子先進入能階較低的軌域，填滿後再進入較高的軌域。</p>
+<blockquote>
+<p>1s ＜ 2s ＜ 2p ＜ 3s ＜ 3p ＜ 4s ＜ 3d ＜ 4p ＜ 5s ＜ 4d ＜ 5p ＜ 6s ＜ 4f ＜ 5d ＜ 6p ＜ 7s …</p>
+</blockquote>
+<figure class="fig"><img class="figimg" src="img/A016_30p5_42p5_x68-97.jpg" width="590" height="374" loading="lazy" alt="講義一 第16頁" data-page="講義一 p.16"><figcaption>電子填充順序（斜線法）</figcaption></figure>
+<p><strong>(2) 包立不相容原理</strong>：每個軌域<strong>最多 2 個電子</strong>，且兩電子<strong>自轉方向相反</strong>（同一原子中不會有四個量子數完全相同的兩個電子）。</p>
+<ul>
+<li>例：He 的兩個電子 (n, ℓ, m<sub>ℓ</sub>, m<sub>s</sub>) ＝ (1, 0, 0, ＋1/2) 與 (1, 0, 0, −1/2)。</li>
+<li>軌域內不可能出現「↑↑」或「↑↓↑」。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>軌域</th>
+<th>s</th>
+<th>p</th>
+<th>d</th>
+<th>f</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>軌域個數</td>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+</tr>
+<tr>
+<td>最多電子數</td>
+<td>2</td>
+<td>6</td>
+<td>10</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(3) 洪德定則</strong>：電子進入<strong>能量相同</strong>的一組軌域（如 2p<sub>x</sub>、2p<sub>y</sub>、2p<sub>z</sub>）時，先以<strong>相同自旋方向分別進入不同軌域</strong>而不成對；每個軌域都有一個電子後，才開始成對。</p>
+<figure class="fig"><img class="figimg" src="img/A016_84_92.jpg" width="1400" height="172" loading="lazy" alt="講義一 第16頁" data-page="講義一 p.16"><figcaption>2p<sup>1</sup>～2p<sup>4</sup> 的填法</figcaption></figure>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>2p<sup>2</sup> 的四種寫法：<br />
+- ↑ ↑ □（p<sub>x</sub>、p<sub>y</sub>）或 ↑ □ ↑：符合洪德定則 → <strong>基態</strong><br />
+- ↑↓ □ □（成對）、↑ ↓ □（自旋相反）：違反洪德定則 → <strong>激發態</strong></p></aside>
+<h4>3. 表示法</h4>
+<p>依主層順序排列，同一主層依 s、p、d、f 次序，電子數寫在右上角。依填充原則得到的能量最低組態稱為<strong>基態電子組態</strong>。</p>
+<figure class="fig"><img class="figimg" src="img/A017_60p5_79p5.jpg" width="1400" height="461" loading="lazy" alt="講義一 第17頁" data-page="講義一 p.17"><figcaption>原子序 1～18 的基態電子組態</figcaption></figure>
+<ul>
+<li>碳：1s<sup>2</sup>2s<sup>2</sup>2p<sup>2</sup>，完整寫法 1s<sup>2</sup>2s<sup>2</sup>2p<sub>x</sub><sup>1</sup>2p<sub>y</sub><sup>1</sup></li>
+<li>原子序較大時，內層可用前一週期<strong>鈍氣</strong>符號加中括號：</li>
+<li><sub>17</sub>Cl：1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>5</sup> ＝ [Ne]3s<sup>2</sup>3p<sup>5</sup></li>
+<li><sub>20</sub>Ca：[Ar]4s<sup>2</sup></li>
+</ul>
+<p><strong>第四週期過渡元素（21～30）</strong>：填電子時<strong>先填 4s 再填 3d</strong>，但<strong>寫組態時依 n 由小到大（先寫 3d 再寫 4s）</strong>。<br />
+例：<sub>23</sub>V：1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>3d<sup>3</sup>4s<sup>2</sup>；<sub>28</sub>Ni：…3d<sup>8</sup>4s<sup>2</sup></p>
+<figure class="fig"><img class="figimg" src="img/A018_51_74.jpg" width="1400" height="554" loading="lazy" alt="講義一 第18頁" data-page="講義一 p.18"><figcaption>原子序 19～36 的基態電子組態</figcaption></figure>
+
+<aside class="box box-warn"><div class="box-h">注意</div><p><strong>特殊組態：鉻與銅</strong>（d 軌域半填滿 d<sup>5</sup>、全填滿 d<sup>10</sup> 較穩定）<br />
+- <sub>24</sub>Cr：[Ar]<strong>3d<sup>5</sup>4s<sup>1</sup></strong>（寫成 3d<sup>4</sup>4s<sup>2</sup> 是激發態）<br />
+- <sub>29</sub>Cu：[Ar]<strong>3d<sup>10</sup>4s<sup>1</sup></strong>（寫成 3d<sup>9</sup>4s<sup>2</sup> 是激發態）</p></aside>
+<h4>4. 離子的電子組態</h4>
+<ul>
+<li><strong>陰離子</strong>：多出的電子依遞建原理填入能量較低的軌域。Cl → Cl<sup>−</sup>：1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup></li>
+<li><strong>陽離子</strong>：先寫出中性原子的組態，再從<strong>主層數 n 最高</strong>的軌域先拿走電子（過渡元素先拿 4s！）。</li>
+<li><sub>21</sub>Sc：[Ar]3d<sup>1</sup>4s<sup>2</sup> → Sc<sup>+</sup>：[Ar]3d<sup>1</sup>4s<sup>1</sup></li>
+</ul>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><sub>26</sub>Fe<sup>+</sup>、<sub>27</sub>Co<sup>2+</sup>、<sub>28</sub>Ni<sup>3+</sup> 都有 25 個電子，但組態<strong>不一定相同</strong>：<br />
+- Fe<sup>+</sup>：[Ar]3d<sup>6</sup>4s<sup>1</sup><br />
+- Co<sup>2+</sup>：[Ar]3d<sup>7</sup><br />
+- Ni<sup>3+</sup>：[Ar]3d<sup>7</sup></p></aside>
+<h4>5. 不符合填充原則的組態</h4>
+<ul>
+<li>違反<strong>遞建原理</strong>或<strong>洪德定則</strong> → <strong>激發態</strong></li>
+<li>違反<strong>包立不相容原理</strong> → <strong>不存在</strong></li>
+</ul>
+<p>例（<sub>8</sub>O，基態 1s<sup>2</sup>2s<sup>2</sup>2p<sub>x</sub><sup>2</sup>2p<sub>y</sub><sup>1</sup>2p<sub>z</sub><sup>1</sup>）：<br />
+- 1s<sup>2</sup>2s<sup>2</sup>2p<sub>x</sub><sup>2</sup>2p<sub>y</sub><sup>2</sup>：違反洪德 → 激發態<br />
+- 1s<sup>2</sup>2s<sup>2</sup>2p<sub>x</sub><sup>1</sup>2p<sub>y</sub><sup>1</sup>2p<sub>z</sub><sup>1</sup>3s<sup>1</sup>：違反遞建 → 激發態<br />
+- 1s<sup>2</sup>2s<sup>3</sup>2p<sub>x</sub><sup>1</sup>2p<sub>y</sub><sup>1</sup>2p<sub>z</sub><sup>1</sup>：違反包立 → 不存在</p>
+<h3>二、週期表與電子組態</h3>
+<h4>1. 每週期的元素個數</h4>
+<p>每一週期的第一個元素是電子開始填入<strong>新主層</strong>的 s 軌域。</p>
+<figure class="fig"><img class="figimg" src="img/A021_49_68p5.jpg" width="1400" height="438" loading="lazy" alt="講義一 第21頁" data-page="講義一 p.21"><figcaption>週期表中各區對應的填入軌域</figcaption></figure>
+<table>
+<thead>
+<tr>
+<th>週期</th>
+<th>填入軌域</th>
+<th>元素數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1s</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2s、2p</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3s、3p（3d 能量高於 4s，不在此週期）</td>
+<td>8</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4s、3d、4p</td>
+<td>18</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5s、4d、5p</td>
+<td>18</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6s、4f、5d、6p</td>
+<td>32</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7s、5f、6d、7p</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>用鈍氣原子序推位置</strong>：鈍氣 He 2、Ne 10、Ar 18、Kr 36、Xe 54、Rn 86，同族相鄰週期原子序差 2、8、8、18、18、32、32。<br />
+- 已知 C 為 6，Pb（同族第 6 週期）＝ 6＋8＋18＋18＋32 ＝ <strong>82</strong><br />
+- 原子序 51：比 Xe(54) 少 3 → 第 5 週期 <strong>5A 族</strong>（Sb）</p></aside>
+<h4>2. 元素的分類</h4>
+<p><strong>(1) 主族元素（A 族、典型元素）</strong>：最後一個電子填入 <strong>s 或 p</strong> 軌域。</p>
+<ul>
+<li>位於 1A～8A 族，包含金屬與非金屬。</li>
+<li>價軌域：ns 與 np；<strong>族數 ＝ 價電子數</strong>（He 除外）。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>族</th>
+<th>1A</th>
+<th>2A</th>
+<th>3A</th>
+<th>4A</th>
+<th>5A</th>
+<th>6A</th>
+<th>7A</th>
+<th>8A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>價電子組態</td>
+<td>ns<sup>1</sup></td>
+<td>ns<sup>2</sup></td>
+<td>ns<sup>2</sup>np<sup>1</sup></td>
+<td>ns<sup>2</sup>np<sup>2</sup></td>
+<td>ns<sup>2</sup>np<sup>3</sup></td>
+<td>ns<sup>2</sup>np<sup>4</sup></td>
+<td>ns<sup>2</sup>np<sup>5</sup></td>
+<td>ns<sup>2</sup>np<sup>6</sup></td>
+</tr>
+<tr>
+<td>價電子數</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>價電子</strong>：最外層、被束縛較鬆的電子，決定元素的化學性質。</li>
+<li>鈍氣：8A 族，價電子組態 ns<sup>2</sup>np<sup>6</sup>（He 為 1s<sup>2</sup>），化性極不活潑的無色無臭氣體。1A～7A 元素反應時傾向形成鈍氣組態。</li>
+</ul>
+<p><strong>(2) 過渡元素（B 族）</strong>：最後一個電子填入 <strong>d</strong> 軌域，全為金屬。價軌域：ns 與 (n−1)d。</p>
+<table>
+<thead>
+<tr>
+<th>族</th>
+<th>3B</th>
+<th>4B</th>
+<th>5B</th>
+<th>6B</th>
+<th>7B</th>
+<th>8B</th>
+<th>1B</th>
+<th>2B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>元素</td>
+<td>Sc</td>
+<td>Ti</td>
+<td>V</td>
+<td>Cr</td>
+<td>Mn</td>
+<td>Fe～Ni</td>
+<td>Cu</td>
+<td>Zn</td>
+</tr>
+<tr>
+<td>價電子組態</td>
+<td>3d<sup>1</sup>4s<sup>2</sup></td>
+<td>3d<sup>2</sup>4s<sup>2</sup></td>
+<td>3d<sup>3</sup>4s<sup>2</sup></td>
+<td>3d<sup>5</sup>4s<sup>1</sup></td>
+<td>3d<sup>5</sup>4s<sup>2</sup></td>
+<td>3d<sup>6</sup>4s<sup>2</sup>～3d<sup>8</sup>4s<sup>2</sup></td>
+<td>3d<sup>10</sup>4s<sup>1</sup></td>
+<td>3d<sup>10</sup>4s<sup>2</sup></td>
+</tr>
+<tr>
+<td>價電子數</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8～10</td>
+<td>11</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(3) 內過渡元素</strong>：最後一個電子填入 <strong>f</strong> 軌域。<br />
+- 鑭系：第 6 週期，填 4f；錒系：第 7 週期，填 5f。價軌域：ns、(n−1)d、(n−2)f。</p>
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q56">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">洪德定則</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A017_27_35p8.jpg" width="1400" height="239" loading="lazy" alt="講義一 第17頁" data-page="講義一 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>洪德定則：同能量軌域要「先分開、同方向」，全都有一個之後才成對。<br />
+- (A) ✗ 2 個電子擠在同一軌域，應該分開放。<br />
+- (B) ○ 三個分開且同方向。<br />
+- (C) ○ 5 個電子：先各放一個，再有兩個成對，剩一個單獨，符合。<br />
+- (D) ○ 2 個電子分別在不同軌域且同方向（哪兩個軌域都可以）。<br />
+- (E) ✗ 分開了但自旋方向相反，應該相同。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q57">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A017_40_45.jpg" width="1400" height="119" loading="lazy" alt="講義一 第17頁" data-page="講義一 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>p 軌域只有 3 個，最多 6 個電子，<strong>4p<sup>7</sup></strong> 不可能。<br />
+s 最多 2、d 最多 10、f 最多 14，其餘皆合理。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q58">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">基態電子組態</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A019_7_17.jpg" width="1400" height="268" loading="lazy" alt="講義一 第19頁" data-page="講義一 p.19"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ Be：1s<sup>2</sup>2s<sup>2</sup></li>
+<li>(B) ○ N：三個 2p 各一個，符合洪德定則。</li>
+<li>(C) ✗ Sc 基態應為 …3d<sup>1</sup><strong>4s<sup>2</sup></strong>，此為激發態。</li>
+<li>(D) ✗ O 應為 2p<sub>x</sub><sup>2</sup>2p<sub>y</sub><sup>1</sup>2p<sub>z</sub><sup>1</sup>，此寫法違反洪德定則（激發態）。</li>
+<li>(E) ✗ Cr 基態為 3d<sup>5</sup>4s<sup>1</sup>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q59">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A019_28p5_33.jpg" width="1400" height="120" loading="lazy" alt="講義一 第19頁" data-page="講義一 p.19"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>最安定 ＝ 基態：1s<sup>2</sup>2s<sup>2</sup>2p<sub>x</sub><sup>1</sup>2p<sub>y</sub><sup>1</sup>。<br />
+(A) 2s 電子跑到 2p（違反遞建）；(C)(D) 兩個 2p 電子擠同一軌域（違反洪德），皆為激發態。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q60">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">基態電子組態與未成對電子・93指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A019_38_50.jpg" width="1400" height="315" loading="lazy" alt="講義一 第19頁" data-page="講義一 p.19"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>N：1s<sup>2</sup>2s<sup>2</sup>2p<sup>3</sup>，三個 2p 各一個 → <strong>3 個</strong>未成對電子。<br />
+- (A) B 2p<sup>1</sup>：1 個<br />
+- (B) C 2p<sup>2</sup>：2 個<br />
+- (C) V 3d<sup>3</sup>4s<sup>2</sup>：<strong>3 個</strong> ✓<br />
+- (D) Ti 3d<sup>2</sup>4s<sup>2</sup>：2 個<br />
+- (E) Ni 3d<sup>8</sup>4s<sup>2</sup>：五個 d 軌域放 8 個 → 3 對＋2 個單 → 2 個</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q61">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A019_74p5_79p3.jpg" width="1400" height="123" loading="lazy" alt="講義一 第19頁" data-page="講義一 p.19"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>半填滿軌域 ＝ 只有一個電子的軌域：<br />
+- V 3d<sup>3</sup>4s<sup>2</sup>：3<br />
+- Cr <strong>3d<sup>5</sup>4s<sup>1</sup></strong>：5＋1 ＝ <strong>6</strong>（最多）<br />
+- Mn 3d<sup>5</sup>4s<sup>2</sup>：5<br />
+- Fe 3d<sup>6</sup>4s<sup>2</sup>：4</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q62">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">離子電子組態</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A020_34_51.jpg" width="1400" height="427" loading="lazy" alt="講義一 第20頁" data-page="講義一 p.20"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ Cl<sup>−</sup>：18 個電子，1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup></li>
+<li>(B) ✗ Cu：[Ar]3d<sup>10</sup>4s<sup>1</sup>，失去 4s 電子 → Cu<sup>+</sup>：[Ar]<strong>3d<sup>10</sup></strong></li>
+<li>(C) ○ S<sup>2−</sup> 與 Ca<sup>2+</sup> 都是 18 個電子、[Ar] 組態</li>
+<li>(D) ✗ V<sup>2+</sup>：[Ar]3d<sup>3</sup>；Ti<sup>+</sup>：[Ar]3d<sup>2</sup>4s<sup>1</sup>，不同</li>
+<li>(E) ○ Ni：[Ar]3d<sup>8</sup>4s<sup>2</sup> → Ni<sup>+</sup>：[Ar]3d<sup>8</sup>4s<sup>1</sup>，3d 有 2 個＋4s 有 1 個 ＝ <strong>3 個</strong>未成對</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q63">
+<header class="qh"><span class="qn">類題 4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A020_62p5_67.jpg" width="1400" height="114" loading="lazy" alt="講義一 第20頁" data-page="講義一 p.20"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) Co<sup>+</sup>：[Ar]3d<sup>7</sup>4s<sup>1</sup> → 有未成對電子 ✓</li>
+<li>(B) K<sup>+</sup>：[Ar]，全成對</li>
+<li>(C) Cu<sup>+</sup>：[Ar]3d<sup>10</sup>，全成對</li>
+<li>(D) Al<sup>+</sup>：1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>，全成對</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q64">
+<header class="qh"><span class="qn">例題 5</span><span class="qtag">激發態與基態</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A021_7_22.jpg" width="1400" height="363" loading="lazy" alt="講義一 第21頁" data-page="講義一 p.21"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>① 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>：基態（Ne）</li>
+<li>② 2d<sup>1</sup>：沒有 2d 軌域 → 寫法錯誤</li>
+<li>③ 1s<sup>2</sup>2s<sup>2</sup>3s<sup>1</sup>：跳過 2p → 激發態</li>
+<li>④ 2s<sup>3</sup>：s 軌域最多 2 個 → 寫法錯誤</li>
+<li>⑤ 3d<sup>4</sup>4s<sup>2</sup>：Cr 基態是 3d<sup>5</sup>4s<sup>1</sup> → 激發態</li>
+<li>⑥ 2p<sub>x</sub><sup>2</sup>2p<sub>y</sub><sup>1</sup>（2p<sub>z</sub> 空著）：違反洪德 → 激發態</li>
+<li>⑦ 2p<sub>x</sub><sup>1</sup>2p<sub>y</sub><sup>1</sup>2p<sub>z</sub><sup>1</sup>：基態（N）</li>
+</ul>
+<p>基態 a ＝ 2（①⑦）、激發態 b ＝ 3（③⑤⑥）、錯誤 c ＝ 2（②④）⇒ <strong>(2, 3, 2)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q65">
+<header class="qh"><span class="qn">例題 6</span><span class="qtag">週期表之應用</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A022_46p5_54.jpg" width="1400" height="208" loading="lazy" alt="講義一 第22頁" data-page="講義一 p.22"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 13 Al、31 Ga、49 In：3A 族 ✓</li>
+<li>(B) 6 C、24 Cr、56 Ba：<strong>不同族</strong> ✗</li>
+<li>(C) 12 Mg、38 Sr、56 Ba：2A 族 ✓</li>
+<li>(D) 28 Ni、46 Pd、78 Pt：第 10 族 ✓</li>
+</ul>
+<p>技巧：同族往下原子序差依序 8、8、18、18、32（看跨越的週期）。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q66">
+<header class="qh"><span class="qn">類題 5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A022_68p5_82.jpg" width="1400" height="323" loading="lazy" alt="講義一 第22頁" data-page="講義一 p.22"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>37 是 Rb（第 5 週期 1A 族），上方是 K(19)、右邊是 Sr(38)、Sr 上方是 Ca(20)、下方是 Ba(56)。<br />
+- (A) 19 下方是 37，M 在其右下方 → 38 ✗<br />
+- (B) 20(Ca) 下方是 38(Sr)，M 在 Sr 左邊 → <strong>37</strong> ✓（再下方 56 Ba 也吻合）<br />
+- (C) 27 下方 → 45 ✗<br />
+- (D) 17 下方 35，M 在 35 右邊 → 36 ✗</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q67">
+<header class="qh"><span class="qn">例題 7</span><span class="qtag">元素與週期表</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A024_6p5_18p5.jpg" width="1400" height="322" loading="lazy" alt="講義一 第24頁" data-page="講義一 p.24"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>甲：8、第4週期、8A族；乙：4、第3週期、4A族；丙：5、第5週期、5B族；丁：11、第4週期、1B族；戊：1、第6週期、1A族</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>甲 …3d<sup>10</sup>4s<sup>2</sup>4p<sup>6</sup>：最外層 4s<sup>2</sup>4p<sup>6</sup> → 價電子 <strong>8</strong>、第 <strong>4</strong> 週期、<strong>8A 族</strong>（Kr）</li>
+<li>乙 …2p<sup>6</sup>3s<sup>2</sup>3p<sup>2</sup>：價電子 <strong>4</strong>、第 <strong>3</strong> 週期、<strong>4A 族</strong>（Si）</li>
+<li>丙 …4p<sup>6</sup>4d<sup>3</sup>5s<sup>2</sup>：過渡元素，價電子 4d<sup>3</sup>5s<sup>2</sup> ＝ <strong>5</strong>、第 <strong>5</strong> 週期、<strong>5B 族</strong>（Nb）</li>
+<li>丁 …3p<sup>6</sup>3d<sup>10</sup>4s<sup>1</sup>：價電子 3d<sup>10</sup>4s<sup>1</sup> ＝ <strong>11</strong>、第 <strong>4</strong> 週期、<strong>1B 族</strong>（Cu）</li>
+<li>戊 …4d<sup>10</sup>5p<sup>6</sup>6s<sup>1</sup>：價電子 <strong>1</strong>、第 <strong>6</strong> 週期、<strong>1A 族</strong>（Cs）</li>
+</ul>
+<p>判斷週期：看最大的 n（丙 5s → 第 5 週期）。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q68">
+<header class="qh"><span class="qn">類題 6</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A024_34p5_41p5.jpg" width="1400" height="170" loading="lazy" alt="講義一 第24頁" data-page="講義一 p.24"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>依本講義的價電子定義，過渡元素價電子 ＝ ns ＋ (n−1)d 電子數。<br />
+Cu：3d<sup>10</sup>4s<sup>1</sup> → 價電子 <strong>11</strong>，(C) 寫 1 錯誤。<br />
+（Na 1A 1 個、Sc 3B 3 個、Br 7A 7 個、Mn 7B 7 個，皆正確）</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q69">
+<header class="qh"><span class="qn">類題 7</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A024_45_52p5.jpg" width="1400" height="171" loading="lazy" alt="講義一 第24頁" data-page="講義一 p.24"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>最外層 n＝3 → 第 3 週期；價電子 3s<sup>2</sup>3p<sup>2</sup> ＝ 4 → 4A 族 ＝ <strong>第 14 族</strong>（Si）。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q70">
+<header class="qh"><span class="qn">例題 8</span><span class="qtag">週期性的預測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A024_57_68p5.jpg" width="1400" height="278" loading="lazy" alt="講義一 第24頁" data-page="講義一 p.24"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>第七週期最後一個元素：原子序 86＋32 ＝ <strong>118</strong>（Og，鈍氣族）。<br />
+- (A) ✗ 應與鈍氣（如 Rn）相似，不是鈾。<br />
+- (B) ○ 價電子組態 7s<sup>2</sup>7p<sup>6</sup><br />
+- (C) ✗ 超重元素都具放射性。<br />
+- (D) ✗ 電子數 118。<br />
+- (E) ○ 離子只改變電子數，質子數仍為 118。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q71">
+<header class="qh"><span class="qn">類題 8</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A024_82p5_88.jpg" width="1400" height="181" loading="lazy" alt="講義一 第24頁" data-page="講義一 p.24"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>116 ＝ 118 − 2 → 第 7 週期、6A 族，價電子組態 <strong>7s<sup>2</sup>7p<sup>4</sup></strong>，6 個價電子。(C) 寫 7p<sup>5</sup> 錯誤。</p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q72">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_16_22.jpg" width="1400" height="143" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 兩個電子在不同軌域、同方向（中間空著也可以）。</li>
+<li>(B) ○</li>
+<li>(C) ✗ 應先分開放。</li>
+<li>(D) ✗ 三個都應同方向。</li>
+<li>(E) ○ 4 個電子：一對＋兩個同向單電子。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q73">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_22_26p5.jpg" width="1400" height="100" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>(B) 3s<sup>3</sup>：s 軌域最多 2 個電子，違反包立不相容原理 → 不存在。<br />
+(A) 1s<sup>2</sup>2s<sup>2</sup>3p<sup>4</sup> 是激發態（跳過 2p），仍可存在。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q74">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_26p5_32p5.jpg" width="1400" height="143" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>Sc（21）：[Ar]3d<sup>1</sup>4s<sup>2</sup>，內層用前一週期鈍氣 <strong>Ar</strong> 表示。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q75">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_32p5_38p8.jpg" width="1400" height="146" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>Cu：1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>3d<sup>10</sup>4s<sup>1</sup><br />
+- s：2＋2＋2＋1 ＝ 7<br />
+- p：6＋6 ＝ 12<br />
+- d：10</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q76">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_38p8_42p8.jpg" width="1400" height="99" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>4s<sup>1</sup>：K（[Ar]4s<sup>1</sup>）、Cr（3d<sup>5</sup>4s<sup>1</sup>）、Cu（3d<sup>10</sup>4s<sup>1</sup>）。<br />
+Sc、Mn 都是 4s<sup>2</sup>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q77">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_42p8_46p8.jpg" width="1400" height="94" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>3d 半填滿 ＝ 3d<sup>5</sup>：Mn（3d<sup>5</sup>4s<sup>2</sup>）、Cr（3d<sup>5</sup>4s<sup>1</sup>）。<br />
+Cu 3d<sup>10</sup>、Fe 3d<sup>6</sup>、Ni 3d<sup>8</sup>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q78">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_46p8_50p8.jpg" width="1400" height="99" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>未成對電子數：C（2p<sup>2</sup>）2、S（3p<sup>4</sup>）2、Ca（4s<sup>2</sup>）0、Fe（3d<sup>6</sup>）4、Ni（3d<sup>8</sup>）2。<br />
+相同的是 C、S、Ni（都是 2 個）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q79">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_50p8_56p8.jpg" width="1400" height="143" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>3d 只有 1 個軌域填滿 2 個電子 ⇒ 3d<sup>6</sup>（五個軌域先各 1 個，第 6 個成對）→ [Ar]3d<sup>6</sup>4s<sup>2</sup> ＝ <strong>Fe（26）</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q80">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_56p8_64p8.jpg" width="1400" height="193" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>離子電子數 ＝ 2＋8＋12 ＝ 22，為 ＋2 價 ⇒ 原子有 24 個電子 ＝ Cr。<br />
+Cr 基態：[Ar]<strong>3d<sup>5</sup></strong>4s<sup>1</sup> → 3d 有 5 個電子。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q81">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_64p8_69p3.jpg" width="1400" height="106" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>6p<sup>2</sup>：第 6 週期 4A 族 ＝ Pb。Rn 為 86，往回 4 個 ⇒ <strong>82</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q82">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_72p5_78p8.jpg" width="1400" height="154" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>＋3 價離子 [Ar]3d<sup>5</sup> 有 23 個電子 → 原子 26 個電子 ＝ Fe（[Ar]3d<sup>6</sup>4s<sup>2</sup>，失去 4s<sup>2</sup> 和 1 個 3d）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q83">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_78p8_82p8.jpg" width="1400" height="98" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) Ni：3d<sup>8</sup> → 2 個未成對 ✓</li>
+<li>(B) N：2p<sup>3</sup> → 3 個 ✓</li>
+<li>(C) Cu<sup>+</sup>：3d<sup>10</sup> 全成對</li>
+<li>(D) S<sup>2−</sup>：[Ar] 全成對</li>
+<li>(E) Mn<sup>2+</sup>：3d<sup>5</sup> → 5 個 ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q84">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A025_82p8_89p3.jpg" width="1400" height="160" loading="lazy" alt="講義一 第25頁" data-page="講義一 p.25"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) Fe<sup>3+</sup>：[Ar]3d<sup>5</sup>；Mn<sup>2+</sup>：[Ar]3d<sup>5</sup> ✓</li>
+<li>(B) Sc<sup>3+</sup>：[Ar]；Ar ✓</li>
+<li>(C) Cr：[Ar]3d<sup>5</sup>4s<sup>1</sup>；Co<sup>3+</sup>：[Ar]3d<sup>6</sup> ✗</li>
+<li>(D) P<sup>3−</sup>：[Ar]；Mg<sup>2+</sup>：[Ne] ✗</li>
+<li>(E) Cl<sup>−</sup>、S<sup>2−</sup>：都是 [Ar] ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q85">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題2・105指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A026_6p5_17p3.jpg" width="1400" height="277" loading="lazy" alt="講義一 第26頁" data-page="講義一 p.26"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>甲 ○ C 基態 1s<sup>2</sup>2s<sup>2</sup>2p<sup>2</sup></li>
+<li>乙 ✗ 把一個 2p 電子激發到 3s，1s<sup>2</sup>2s<sup>2</sup>2p<sup>5</sup>3s<sup>1</sup> <strong>正是</strong> Ne 可能的激發態。</li>
+<li>丙 ○ Mn：3d<sup>5</sup>4s<sup>2</sup>（5 個未成對）；Mn<sup>2+</sup>：3d<sup>5</sup>（5 個未成對）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q86">
+<header class="qh"><span class="qn">練習 15</span><span class="qtag">主題3・95指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A026_21_25p5.jpg" width="1400" height="106" loading="lazy" alt="講義一 第26頁" data-page="講義一 p.26"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>鹼土族（2A）基態價電子組態 ns<sup>2</sup>：(D) 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>（Mg）。<br />
+(E) 1s<sup>2</sup>2s<sup>2</sup>2p<sup>5</sup>3s<sup>2</sup> 也是 12 個電子，但是激發態。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q87">
+<header class="qh"><span class="qn">練習 16</span><span class="qtag">主題3・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A026_25p5_31p4.jpg" width="1400" height="144" loading="lazy" alt="講義一 第26頁" data-page="講義一 p.26"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) Be 基態</li>
+<li>(B) C：2p<sub>x</sub><sup>2</sup> 兩電子擠同軌域，違反洪德 → 激發態 ✓</li>
+<li>(C) Cr：基態應為 3d<sup>5</sup>4s<sup>1</sup> → 激發態 ✓</li>
+<li>(D) Mn：基態應為 3d<sup>5</sup>4s<sup>2</sup> → 激發態 ✓</li>
+<li>(E) Sc 基態</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q88">
+<header class="qh"><span class="qn">練習 17</span><span class="qtag">主題3・103指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A026_31p4_38p8.jpg" width="1400" height="193" loading="lazy" alt="講義一 第26頁" data-page="講義一 p.26"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>放出能量 ＝ 由高能量組態變成低能量組態。<br />
+- (A) ○ 氫只看 n：4 → 3，能量降低。<br />
+- (B) ○ Cu 由激發態 3d<sup>9</sup>4s<sup>2</sup> 變成基態 3d<sup>10</sup>4s<sup>1</sup>。<br />
+- (C) ✗ V 由基態變成激發態，要吸收能量。<br />
+- (D) ✗ 3p<sub>y</sub><sup>1</sup> → 3p<sub>z</sub><sup>1</sup> 同能量，沒有能量變化。<br />
+- (E) ✗ C 由基態變成 2s<sup>1</sup>2p<sup>3</sup>（激發態），吸收能量。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q89">
+<header class="qh"><span class="qn">練習 18</span><span class="qtag">主題3・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A026_38p8_59p5.jpg" width="1400" height="504" loading="lazy" alt="講義一 第26頁" data-page="講義一 p.26"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 2s 只有 1 個、2p 卻有 5 個 → 違反遞建，激發態。</li>
+<li>(B) ○ 2p 兩個單電子自旋相反 → 違反洪德，激發態。</li>
+<li>(C) ✗ 2p 為 1 對＋2 個同向單電子，<strong>符合</strong>洪德定則，是基態。</li>
+<li>(D) ✗ 2s 軌域放了 3 個電子 → 違反<strong>包立</strong>不相容原理，不存在（不是違反洪德）。</li>
+<li>(E) ○ 同一軌域兩個電子自旋相同 → 違反包立，不存在。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q90">
+<header class="qh"><span class="qn">練習 19</span><span class="qtag">主題3・109指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A026_59p5_78.jpg" width="1400" height="434" loading="lazy" alt="講義一 第26頁" data-page="講義一 p.26"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>Li 有 3 個電子，能量：1s ＜ 2s ＜ 2p。<br />
+- 丁 1s<sup>2</sup>2s<sup>1</sup>：基態，<strong>最低</strong><br />
+- 甲 1s<sup>1</sup>2s<sup>2</sup>：1 個電子離開 1s<br />
+- 乙 1s<sup>0</sup>2s<sup>2</sup>2p<sup>1</sup>：2 個電子離開 1s（其中一個到 2p）<br />
+- 丙 1s<sup>0</sup>2s<sup>1</sup>2p<sup>2</sup>：2 個電子離開 1s，且有 2 個在更高的 2p → <strong>最高</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q91">
+<header class="qh"><span class="qn">練習 20</span><span class="qtag">主題3・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A026_78_90p8.jpg" width="1400" height="290" loading="lazy" alt="講義一 第26頁" data-page="講義一 p.26"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) A、D、H　(2) B、G　(3) C、E、F</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 1s<sup>2</sup>2p<sup>1</sup>：跳過 2s → 激發態</li>
+<li>(B) 1s<sup>2</sup>2s<sup>2</sup>2p<sup>1</sup>：基態（B）</li>
+<li>(C) 2d<sup>1</sup>：無 2d 軌域 → 不合理</li>
+<li>(D) 1s<sup>2</sup>2s<sup>2</sup>2p<sup>3</sup>3d<sup>1</sup>：跳過 3s、3p → 激發態</li>
+<li>(E) 2s<sup>3</sup>：違反包立 → 不合理</li>
+<li>(F) 2p<sup>7</sup>：p 最多 6 個 → 不合理</li>
+<li>(G) 1s<sup>2</sup>2s<sup>2</sup>2p<sup>3</sup>：基態（N）</li>
+<li>(H) 2p<sub>x</sub><sup>2</sup>2p<sub>y</sub><sup>1</sup>（2p<sub>z</sub> 空）：違反洪德 → 激發態</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q92">
+<header class="qh"><span class="qn">練習 21</span><span class="qtag">主題4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_9p5_15.jpg" width="1400" height="104" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) [Ar]3d<sup>5</sup>4s<sup>2</sup>：Mn（過渡）</li>
+<li>(B) [Ar]3d<sup>10</sup>4s<sup>2</sup>：Zn（2B 族，本講義歸為過渡元素）</li>
+<li>(C) [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>1</sup>：Ga，最後電子填入 <strong>p</strong> → 主族元素 ✓</li>
+<li>(D) [Kr]4d<sup>1</sup>5s<sup>2</sup>：Y（過渡）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q93">
+<header class="qh"><span class="qn">練習 22</span><span class="qtag">主題4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_15_22p5.jpg" width="1400" height="189" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>甲 He（8A 鈍氣）、乙 Be（2A）、丙 Mg（2A）、丁 Sc（3B）、戊 Zn（2B）。<br />
+雖然都是 ns<sup>2</sup> 結尾，但只有 <strong>Be、Mg</strong> 同屬 2A 族。He 是鈍氣，Zn 是 2B 族。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q94">
+<header class="qh"><span class="qn">練習 23</span><span class="qtag">主題4・100指考改編</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_22p5_28p8.jpg" width="1400" height="147" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><sup>58</sup><sub>28</sub>X：原子序 28 ＝ Ni，[Ar]3d<sup>8</sup>4s<sup>2</sup>。<br />
+- (A) ✗ 質子數 28（58 是質量數）<br />
+- (B) ✗ 價電子 3d<sup>8</sup>4s<sup>2</sup> ＝ 10<br />
+- (C) ✗ 核心組態為 [Ar]<br />
+- (D) ✗ 第四週期<strong>過渡</strong>元素<br />
+- (E) ○ Ni<sup>2+</sup>：失去 4s<sup>2</sup> → 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>3d<sup>8</sup></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q95">
+<header class="qh"><span class="qn">練習 24</span><span class="qtag">主題4・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_28p8_35p3.jpg" width="1400" height="144" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>X<sup>3+</sup> 有 18 個電子 → X 有 21 個電子 ＝ <strong>Sc</strong>（[Ar]3d<sup>1</sup>4s<sup>2</sup>）。<br />
+- (A) ○<br />
+- (B) ✗ 價電子組態 3d<sup>1</sup>4s<sup>2</sup><br />
+- (C) ○ 金屬，可導電<br />
+- (D) ✗ Sc 在第 4 週期，Cl 在第 3 週期<br />
+- (E) ✗ Sc 是 3B 族，Al 是 3A 族</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q96">
+<header class="qh"><span class="qn">練習 25</span><span class="qtag">主題4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_35p3_42p8.jpg" width="1400" height="192" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>6p<sup>3</sup> 結尾：第 6 週期 5A 族 ＝ Bi（86 − 3 ＝ <strong>83</strong>）。<br />
+- (A) ○ 83 (B) ○ 209 − 83 ＝ 126 (C) ○ 5A 族，與 N 同族 (E) ○<br />
+- (D) ✗ Bi 是<strong>金屬</strong>元素</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q97">
+<header class="qh"><span class="qn">練習 26</span><span class="qtag">主題4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_42p8_48p3.jpg" width="1400" height="144" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>Fr 在第 7 週期，第 7 週期有 32 個元素 ⇒ 下一個鹼金屬 ＝ 87 ＋ 32 ＝ <strong>119</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q98">
+<header class="qh"><span class="qn">練習 27</span><span class="qtag">主題4・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_48p3_60.jpg" width="1400" height="288" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>丙為第 12 族，則甲下方為第 13 族、丁為第 14 族、乙為第 11 族。甲在第 3 週期 → 下排是第 4 週期。<br />
+甲 ＝ Al(13)、乙 ＝ Cu(29)、丙 ＝ Zn(30)、丁 ＝ Ge(32)<br />
+- (A) ○ (B) ○<br />
+- (C) ✗ Ge：[Ar]<strong>3d<sup>10</sup></strong>4s<sup>2</sup>4p<sup>2</sup>，少了 3d<sup>10</sup><br />
+- (D) ○ Cu 價電子 3d<sup>10</sup>4s<sup>1</sup> ＝ 11<br />
+- (E) ✗ Al、Zn 都是金屬，不是類金屬</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q99">
+<header class="qh"><span class="qn">練習 28</span><span class="qtag">主題4・109指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_60_76p8.jpg" width="1400" height="388" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>Og 在第 18 族（鈍氣族），價電子組態 7s<sup>2</sup>7p<sup>6</sup>。<br />
+- (A) ✗ 不是鹵素（17 族）<br />
+- (B) ✗ 依週期表位置屬非金屬的鈍氣族<br />
+- (C) ○ s、p 軌域全填滿<br />
+- (D) ✗ 118 是質子數，中子數題目無法得知<br />
+- (E) ✗ 鈍氣以單原子分子存在</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q100">
+<header class="qh"><span class="qn">練習 29</span><span class="qtag">主題4・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A027_76p8_86p8.jpg" width="1400" height="240" loading="lazy" alt="講義一 第27頁" data-page="講義一 p.27"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 14　(2) A：P、B：As　(3) 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>3d<sup>10</sup>4s<sup>2</sup>4p<sup>3</sup></div>
+<div class="exp"><b class="exp-h">解</b><p>設 A 的原子序為 z，則 C ＝ z − 1。B 在 A 正下方：若跨過第 3→4 週期的 p 區，B ＝ z ＋ 18；若是 2→3 週期，B ＝ z ＋ 8。<br />
+- 試 z＋18：z ＋ (z−1) ＋ (z＋18) ＝ 62 ⇒ 3z ＝ 45 ⇒ z ＝ 15 ✓<br />
+- 試 z＋8：3z ＋ 7 ＝ 62 ⇒ z 不是整數 ✗</p>
+<p>A ＝ 15（P）、C ＝ 14（Si）、B ＝ 33（As）<br />
+(3) As：[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>3</sup></p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u1-2.html">← 1-2 原子軌域</a><a href="u1-4.html">1-4 原子性質的週期性 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

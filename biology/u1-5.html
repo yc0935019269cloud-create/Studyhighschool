@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-5 物質進出細胞的方式｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a class="on" href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a><ul class="subtoc"><li><a href="#s1">一張圖記住：物質怎麼進出細胞？</a></li><li><a href="#s2">被動運輸：擴散與滲透</a></li><li><a href="#s3">主動運輸</a></li><li><a href="#s4">大分子的運輸：胞吐與胞吞</a></li><li><a href="#s5">經典演練</a></li></ul></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第1單元 細胞學</div>
+<h1><span class="uid">1-5</span>物質進出細胞的方式</h1>
+<div class="tools"><span class="cnt">本單元 6 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">一張圖記住：物質怎麼進出細胞？</h2>
+<p>細胞膜是「選擇性通透膜」，不是什麼都能過。物質要進出細胞，先問兩件事：<strong>分子大還是小？要不要花能量？</strong></p>
+<table>
+<thead>
+<tr>
+<th>大類</th>
+<th>方式</th>
+<th>耗能？</th>
+<th>需要膜蛋白？</th>
+<th>方向／特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小分子（被動運輸）</td>
+<td><strong>簡單擴散</strong></td>
+<td>否</td>
+<td>否（直接穿過雙層磷脂）</td>
+<td>順濃度梯度；<strong>不具專一性</strong></td>
+</tr>
+<tr>
+<td>小分子（被動運輸）</td>
+<td><strong>促進性擴散</strong>（通道蛋白、載體蛋白）</td>
+<td>否</td>
+<td>是</td>
+<td>順濃度梯度；<strong>具專一性</strong>；載體蛋白有<strong>飽和現象</strong></td>
+</tr>
+<tr>
+<td>小分子</td>
+<td><strong>主動運輸</strong></td>
+<td><strong>耗能（ATP）</strong></td>
+<td>載體蛋白（幫浦蛋白）</td>
+<td><strong>逆</strong>濃度梯度</td>
+</tr>
+<tr>
+<td>大分子</td>
+<td><strong>胞吐作用</strong></td>
+<td>耗能</td>
+<td>靠囊泡</td>
+<td>內容物排出細胞</td>
+</tr>
+<tr>
+<td>大分子</td>
+<td><strong>胞吞作用</strong>：吞噬、胞飲、受體媒介胞吞</td>
+<td>耗能</td>
+<td>靠囊泡</td>
+<td>攝入細胞</td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A027_68_92.jpg" width="1400" height="606" loading="lazy" alt="生物講義 第27頁" data-page="生物講義 p.27"><figcaption>簡單擴散與促進性擴散（通道蛋白、載體蛋白）</figcaption></figure>
+
+<h2 class="section " id="s2">被動運輸：擴散與滲透</h2>
+<p><strong>簡單擴散</strong>：物質<strong>不需依賴膜蛋白協助</strong>就能進出細胞，直接通過雙層磷脂（不具專一性）。<br />
+- 非極性的小分子或氣體：O₂、CO₂；<br />
+- 極性但未帶電的小分子：乙醇、H₂O。</p>
+<p><strong>促進性擴散</strong>：分子太大或帶電，無法通過磷脂雙層，要靠<strong>膜中特定蛋白質</strong>幫忙（<strong>具專一性</strong>），如葡萄糖、胺基酸和部分離子。<br />
+- <strong>通道蛋白</strong>：有一定口徑和電荷分布，允許特定離子通過，如 K⁺、Na⁺、H₂O；<br />
+- <strong>載體蛋白</strong>：靠與分子結合／離開而改變形狀，讓分子通過，如葡萄糖、胺基酸；<strong>有飽和現象</strong>，所以運輸速率有<strong>最高值</strong>。</p>
+<p><strong>滲透作用</strong>：<strong>水</strong>分子通過選擇性通透膜的擴散（包括簡單擴散及促進性擴散）。水從<strong>低張</strong>（濃度低）處擴散到<strong>高張</strong>（濃度高）處。</p>
+<table>
+<thead>
+<tr>
+<th>溶液</th>
+<th>動物細胞（如紅血球）</th>
+<th>植物細胞</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高張</strong>（外面濃度高）</td>
+<td>水流出 → <strong>皺縮</strong></td>
+<td><strong>質離現象</strong>（細胞膜與細胞壁分離）</td>
+</tr>
+<tr>
+<td><strong>等張</strong></td>
+<td>正常</td>
+<td>鬆弛</td>
+</tr>
+<tr>
+<td><strong>低張</strong>（外面濃度低）</td>
+<td>水流入 → <strong>膨脹</strong>（可能破裂）</td>
+<td><strong>膨脹</strong>（有細胞壁，受<strong>膨壓</strong>支撐，不會破）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>不同生物的等張溶液不同：蛙用 <strong>0.65%</strong> 食鹽水、哺乳動物紅血球用 <strong>0.9%</strong> 食鹽水。</li>
+<li>滲透的方向<strong>只由溶質的總濃度決定</strong>，不受溶質種類影響。</li>
+<li><strong>膨壓</strong>：水滲入植物細胞，液泡膨脹壓迫細胞壁，液泡對細胞壁產生的壓力；能維持細胞形狀，並提供草本植物支撐力。</li>
+<li><strong>滲透度的測量</strong>：在選擇性通透膜袋內裝 5% 蔗糖溶液，袋上連玻璃管，液面達平衡時，水柱產生的<strong>淨水壓（h）</strong>即蔗糖溶液的滲透度。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/A028_38_63.jpg" width="1400" height="615" loading="lazy" alt="生物講義 第28頁" data-page="生物講義 p.28"><figcaption>動、植物細胞在高張、等張、低張溶液中的變化</figcaption></figure>
+
+<aside class="box box-warn"><div class="box-h">迷思</div><ul>
+<li><strong>質離</strong>是<strong>植物細胞</strong>的現象，動物細胞沒有細胞壁，只會皺縮。</li>
+<li>判斷高張／低張，要比的是<strong>溶質總濃度</strong>（溶質分子或離子的總數），不是溶質的種類。</li>
+<li>滲透是<strong>水</strong>在動，不是溶質在動。</li>
+</ul></aside>
+
+<h2 class="section " id="s3">主動運輸</h2>
+<p><strong>定義</strong>：藉<strong>消耗能量</strong>改變載體蛋白的構形，將物質<strong>逆著濃度梯度</strong>運送。例：葡萄糖進入肝臟細胞；植物根部細胞自土壤吸收無機鹽；人體甲狀腺吸收碘。</p>
+<ul>
+<li>主動運輸是細胞維持<strong>內部小分子濃度和周圍環境不同</strong>的主要動力；</li>
+<li>靠細胞膜上的<strong>載體蛋白</strong>進行，這類載體蛋白又稱<strong>幫浦蛋白</strong>：</li>
+<li>以 <strong>ATP</strong> 作為能量；載體蛋白本身就是 <strong>ATP 水解酶</strong>；</li>
+<li>ATP 把末端磷酸基<strong>直接轉移</strong>到載體蛋白上，使蛋白<strong>改變形狀</strong>，把與它結合的溶質分子運過細胞膜。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/A029_33_60.jpg" width="1400" height="640" loading="lazy" alt="生物講義 第29頁" data-page="生物講義 p.29"><figcaption>幫浦蛋白的運輸</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>促進性擴散 vs 主動運輸</strong>（都要載體蛋白，差在方向與能量）：<br />
+- 促進性擴散：<strong>順</strong>濃度梯度、<strong>不耗能</strong>、有飽和現象；<br />
+- 主動運輸：<strong>逆</strong>濃度梯度、<strong>耗 ATP</strong>、有飽和現象。<br />
+加入呼吸作用抑制劑（ATP 不足）後，只有<strong>主動運輸</strong>會受影響。</p></aside>
+
+<h2 class="section " id="s4">大分子的運輸：胞吐與胞吞</h2>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>定義</th>
+<th>專一性</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>胞吐作用</strong></td>
+<td>囊泡與細胞膜<strong>融合</strong>，把內容物釋出細胞外</td>
+<td>—</td>
+<td>胰臟細胞分泌胰島素、分泌蛋白</td>
+</tr>
+<tr>
+<td><strong>吞噬作用</strong></td>
+<td>細胞以<strong>偽足</strong>攝入顆粒或固體</td>
+<td>無專一性</td>
+<td>變形蟲捕食、白血球吞噬病原體</td>
+</tr>
+<tr>
+<td><strong>胞飲作用</strong></td>
+<td>細胞以膜內陷方式攝入<strong>細胞外液及溶於其中的溶質</strong></td>
+<td>無專一性</td>
+<td>成熟卵細胞從周圍營養細胞攝取養分</td>
+</tr>
+<tr>
+<td><strong>受體媒介胞吞</strong></td>
+<td>分子與細胞表面<strong>專一性受體</strong>結合後，膜內陷形成小囊泡，獲得大量特定物質</td>
+<td><strong>具專一性</strong></td>
+<td>細胞藉特殊受體與含膽固醇的脂蛋白結合而攝入</td>
+</tr>
+</tbody>
+</table>
+<p>胞吞（細胞膜內陷）＋胞吐（囊泡融合）都要<strong>耗能</strong>，且都靠<strong>膜融合</strong>（囊泡與細胞膜）。</p>
+<figure class="fig"><img class="figimg" src="img/A029_63_76_x50-99.jpg" width="962" height="454" loading="lazy" alt="生物講義 第29頁" data-page="生物講義 p.29"><figcaption>胞吐作用</figcaption></figure>
+
+<figure class="fig"><img class="figimg" src="img/A030_10_42.jpg" width="1400" height="734" loading="lazy" alt="生物講義 第30頁" data-page="生物講義 p.30"><figcaption>吞噬作用、胞飲作用與受體媒介胞吞作用</figcaption></figure>
+
+<aside class="box box-warn"><div class="box-h">迷思</div><p><strong>「穿越幾層磷脂」</strong>：胞吐、胞吞靠囊泡與膜融合，<strong>不穿越</strong>磷脂雙層（0 層）；簡單擴散穿越 2 層磷脂分子（1 次膜＝2 層磷脂分子）。</p></aside>
+
+<h2 class="section " id="s5">經典演練</h2>
+
+<article class="q q-pr" id="q26">
+<header class="qh"><span class="qn">經典演練 1</span><span class="qtag">物質進入細胞的方法・題組 1（106 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>細胞內部需維持適當環境，以提供能量的轉變及各種化學反應的進行。細胞膜的主要成分為不溶於水的磷脂，許多水溶性物質無法自由進出細胞，需經由特定方式通過細胞膜，以調節細胞內部環境的化學組成，維持細胞的正常生理作用。有些物質通過細胞膜時不需消耗能量，此運輸方式稱為被動運輸，而需要消耗能量的運輸方式則稱為主動運輸。下圖 A～C 各圖表示在一定濃度範圍內，細胞膜外小分子物質進入細胞膜內的三種不同情況。<br />
+下列物質進入細胞的方法，哪些正確？（多選）<br />
+(A) 水以滲透作用進入仙人掌之根細胞　(B) 氧經由簡單擴散進入狗之肺泡細胞　(C) 酒精經主動運輸通過人腦細胞之細胞膜　(D) 澱粉由運輸蛋白進入馬鈴薯之塊莖細胞　(E) 碘離子以促進性擴散進入海帶之葉狀體細胞</p></div><div class="qimgs"><img class="qimg" src="img/A030_64_75.jpg" width="1400" height="261" loading="lazy" alt="生物講義 第30頁" data-page="生物講義 p.30"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 水進入根細胞是<strong>滲透作用</strong>。</li>
+<li>(B) ○ 氧是非極性小分子，<strong>簡單擴散</strong>進入肺泡細胞。</li>
+<li>(C) ✗ 酒精（乙醇）是小分子，用<strong>簡單擴散</strong>。</li>
+<li>(D) ✗ 澱粉是大分子，且馬鈴薯塊莖的澱粉是細胞自己用葡萄糖合成並儲存的，不是由運輸蛋白送進去。</li>
+<li>(E) ✗ 海帶體內碘離子濃度遠高於海水，是<strong>主動運輸</strong>（逆濃度梯度）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q27">
+<header class="qh"><span class="qn">經典演練 2</span><span class="qtag">辨認運輸方式的曲線・題組 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>請寫出圖中 A、B、C 所代表的物質運輸方式。（A：運輸速率與細胞外濃度成<strong>直線</strong>上升；B：運輸速率隨細胞外濃度上升而<strong>趨於飽和</strong>；C：隨時間，<strong>細胞內濃度高過細胞外濃度</strong>。）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>A：簡單擴散；B：促進性擴散；C：主動運輸</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>A：速率與濃度成<strong>正比</strong>，沒有飽和 ⇒ 直接穿過磷脂的<strong>簡單擴散</strong>。</li>
+<li>B：有<strong>飽和</strong>（載體蛋白數量有限），且順濃度梯度 ⇒ <strong>促進性擴散</strong>。</li>
+<li>C：細胞內濃度升到<strong>高於</strong>細胞外 ⇒ 逆濃度梯度 ⇒ <strong>主動運輸</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q28">
+<header class="qh"><span class="qn">經典演練 3</span><span class="qtag">呼吸作用抑制劑・題組 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>承第 2 題，上列三種運輸方式中，哪一種加入呼吸作用的抑制劑後，曲線會發生變化（以代號回答）？為什麼？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>C（主動運輸）；因為主動運輸需要 ATP，抑制呼吸作用使 ATP 產生不足。</div>
+<div class="exp"><b class="exp-h">解</b><p>呼吸作用提供 ATP。只有<strong>主動運輸</strong>要消耗 ATP，抑制劑使 ATP 減少，C 的細胞內濃度就不能再升高到超過細胞外。簡單擴散（A）與促進性擴散（B）都是被動運輸，不耗能，不受影響。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q29">
+<header class="qh"><span class="qn">經典演練 4</span><span class="qtag">物質通過細胞膜的說法・題組 4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>細胞必須透過細胞膜由外界獲得養分，以維持生命現象，不同的物質進出細胞的方式也不一樣。下圖 A～F 是物質通過細胞膜的方式（依圖判讀——A：直接穿過磷脂；B：通道蛋白；C：載體蛋白；D：偽足包圍顆粒的吞噬；E：膜內陷攝入液體的胞飲；F：囊泡與細胞膜融合釋出物質的胞吐）。<br />
+下列有關物質通過細胞膜的說法，何者正確？<br />
+(A) 分泌蛋白質的過程需要能量，但不需要細胞膜上的載體蛋白　(B) 小分子物質都是通過簡單擴散進入細胞　(C) 蛋白質等較大的分子只能藉由主動運輸進入細胞　(D) 當物質濃度高於細胞外液濃度時會發生質離現象</p></div><div class="qimgs"><img class="qimg" src="img/A031_11_34_x63-99.jpg" width="690" height="714" loading="lazy" alt="生物講義 第31頁" data-page="生物講義 p.31"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 分泌蛋白靠<strong>胞吐</strong>，耗能但<strong>靠囊泡</strong>，不需要載體蛋白。</li>
+<li>(B) ✗ 小分子也可能靠促進性擴散或主動運輸（葡萄糖、離子）。</li>
+<li>(C) ✗ 蛋白質等大分子靠<strong>胞吞</strong>進入，不是主動運輸。</li>
+<li>(D) ✗ 質離現象發生在<strong>細胞外液濃度高於細胞內</strong>（外面高張）時。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q30">
+<header class="qh"><span class="qn">經典演練 5</span><span class="qtag">沒有發生膜融合的過程・題組 5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列何種生理過程沒有發生膜融合？<br />
+(A) 原生質體的融合　(B) 受精作用形成受精卵　(C) 葡萄糖進入小腸絨毛上皮細胞　(D) 胰臟細胞分泌胰島素</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 原生質體融合：細胞膜融合。 (B) 受精：精卵細胞膜融合。 (D) 分泌胰島素＝<strong>胞吐</strong>：囊泡與細胞膜融合。</li>
+<li>(C) 葡萄糖進入小腸絨毛上皮細胞靠<strong>載體蛋白</strong>（促進性擴散或主動運輸），不涉及膜融合。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q31">
+<header class="qh"><span class="qn">經典演練 6</span><span class="qtag">變形蟲有而大腸桿菌沒有的運輸方式・題組 6</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>圖示 A～F 中，哪些是變形蟲有而大腸桿菌沒有的運輸方式？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>D、E、F</div>
+<div class="exp"><b class="exp-h">解</b><p>大腸桿菌是<strong>原核生物</strong>，沒有膜狀胞器與內膜系統，也不能進行<strong>胞吞、胞吐</strong>；A（簡單擴散）、B（通道蛋白）、C（載體蛋白）兩者都有。變形蟲是真核生物，能行吞噬（D）、胞飲（E）、胞吐（F）。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u1-4.html">← 1-4 細胞的構造與功能</a><a href="u1-6.html">1-6 細胞的生殖與分化 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

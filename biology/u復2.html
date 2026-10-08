@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復2 細胞學難題（下）：酵素、細胞週期、分裂與分化｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a class="on" href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">酵素</a></li><li><a href="#s3">細胞週期與細胞分裂</a></li><li><a href="#s4">分化與細胞死亡</a></li></ul></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 單元 1 細胞學＋單元 2 維持生命現象的能量</div>
+<h1><span class="uid">復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</h1>
+<div class="tools"><span class="cnt">本單元 20 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁 10 題，順序是<strong>酵素（1～3）→ 細胞週期與有絲／減數分裂（4～8）→ 分化與細胞死亡（9、10）</strong>。每題 ★ 是難度，<strong>請先讀「考前速記」，自己寫完再點開詳解</strong>。標示「改編」者取自基隆市立中山高中 109～113 學年度第 1 學期第 1 次段考（高一生物）的題型。</p></aside>
+
+<h2 class="section " id="s2">酵素</h2>
+
+<article class="q q-pr" id="q183">
+<header class="qh"><span class="qn">難題 1</span><span class="qtag">酵素的性質・改編（110～113 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>本質</strong>：絕大多數酵素是<strong>蛋白質</strong>；一種酵素只催化一種或少數反應（<strong>專一性</strong>，鎖鑰假說）。</li>
+<li><strong>周轉性</strong>：酵素參與反應後<strong>不被消耗</strong>，可重複使用，微量即可催化大量受質。</li>
+<li><strong>觸媒性</strong>：提供活化能較低的路徑，<strong>降低活化能</strong>；不改變反應方向與平衡。</li>
+<li><strong>提醒</strong>：高溫使酵素<strong>變性</strong>（不可逆）；低溫只降低活性（可恢復）。</li>
+</ul></div></details><div class="qtext"><p>下列有關酵素的敘述，哪些正確？（多選）<br />
+(A) 酵素的本質多數是蛋白質<br />
+(B) 酵素參與反應後，本身會被消耗<br />
+(C) 酵素的作用是降低反應所需的活化能<br />
+(D) 酵素可以改變反應的平衡方向<br />
+(E) 一種酵素通常只能催化一種或少數幾種反應<br />
+(F) 低溫會使酵素永久變性</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：酵素三大性質與兩個常見迷思（會被消耗、低溫變性）。</p>
+<ul>
+<li>(A) ○　(C) ○　(E) ○。</li>
+<li>(B) ✗ 酵素有<strong>周轉性</strong>，反應後恢復原狀。</li>
+<li>(D) ✗ 酵素只加速反應到達平衡，<strong>不改變方向與平衡</strong>。</li>
+<li>(F) ✗ 低溫只是降低活性，回溫可恢復；<strong>高溫</strong>才造成永久變性。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>專一性＝鎖鑰、周轉性＝不消耗、觸媒性＝降低活化能；<strong>高溫變性不可逆、低溫只是變慢</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q184">
+<header class="qh"><span class="qn">類題｜難題 1</span><span class="qtag">簡單版・酵素如何加速反應・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>酵素能加速化學反應，主要是因為它能做到下列何者？<br />
+(A) 改變反應的總能量變化　(B) 降低反應所需的活化能　(C) 使反應朝相反方向進行　(D) 提高反應物的能量</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>酵素提供一條<strong>活化能較低</strong>的反應路徑；反應前後的總能量變化（ΔH）與反應方向都不改變。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q185">
+<header class="qh"><span class="qn">難題 2</span><span class="qtag">溫度與酵素活性・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>溫度曲線</strong>：像山丘，最高點為<strong>最適溫度</strong>；溫度過高，活性急速降為 0。</li>
+<li><strong>高溫</strong>：蛋白質變性、結構破壞，<strong>不可逆</strong>（降溫無法恢復）。</li>
+<li><strong>低溫</strong>：分子運動慢、碰撞少，活性低，<strong>可逆</strong>（回溫可恢復）。</li>
+</ul></div></details><div class="qtext"><p>某酵素在不同溫度下反應相同時間，測得的相對活性如下：</p>
+<table>
+<thead>
+<tr>
+<th>溫度（°C）</th>
+<th>10</th>
+<th>20</th>
+<th>30</th>
+<th>40</th>
+<th>50</th>
+<th>60</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相對活性</td>
+<td>4</td>
+<td>8</td>
+<td>14</td>
+<td>20</td>
+<td>6</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 此酵素的最適溫度約為多少？<br />
+(2) 60 °C 時活性為 0，原因為何？<br />
+(3) 將 60 °C 處理過的酵素降溫到 40 °C，活性會恢復嗎？<br />
+(4) 將 10 °C 的酵素升溫到 40 °C，活性會恢復到約 20 嗎？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 約 40 °C　(2) 高溫使酵素變性　(3) 不會恢復　(4) 會</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：最適溫度的判讀，以及高溫與低溫影響的差別。</p>
+<p>(1) 活性最大值 20 發生在 <strong>40 °C</strong>。</p>
+<p>(2) 60 °C 使蛋白質（酵素）<strong>變性</strong>，活性部位結構被破壞。</p>
+<p>(3) <strong>不會</strong>。變性是不可逆的，降溫也無法恢復原來的結構。</p>
+<p>(4) <strong>會</strong>。10 °C 只是低溫使活性降低，酵素結構沒被破壞，升溫後恢復。</p><div class="qsum"><b class="qsum-h">小結</b><p>溫度曲線：<strong>最高點＝最適溫度；過高＝變性不可逆；過低＝只是變慢、可逆</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q186">
+<header class="qh"><span class="qn">類題｜難題 2</span><span class="qtag">簡單版・溫度與活性・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某酵素在 20、30、40、50、60 °C 下的活性分別為 5、12、18、8、0。(1) 最適溫度約多少？(2) 60 °C 活性為 0 的原因？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 約 40 °C　(2) 酵素受高溫變性</div>
+<div class="exp"><b class="exp-h">解</b><p>活性最大（18）的溫度是 <strong>40 °C</strong>；60 °C 時酵素的立體結構被高溫破壞（變性），所以活性為 0。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q187">
+<header class="qh"><span class="qn">難題 3</span><span class="qtag">受質濃度、酵素量與反應速率・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>受質濃度曲線</strong>：未飽和時，速率隨受質濃度<strong>上升</strong>；<strong>飽和</strong>後（所有酵素都忙著）速率不再增加，成<strong>水平線</strong>＝最大速率。</li>
+<li><strong>增加酵素量</strong>：未飽和時各濃度速率提高；<strong>最大速率也跟著提高</strong>（工人變多）。</li>
+<li><strong>增加受質</strong>：只能把速率提高到最大速率為止。</li>
+</ul></div></details><div class="qtext"><p>某酵素反應在不同受質濃度下的速率如下（其他條件固定）：</p>
+<table>
+<thead>
+<tr>
+<th>受質濃度（mM）</th>
+<th>0.1</th>
+<th>0.2</th>
+<th>0.4</th>
+<th>0.8</th>
+<th>1.6</th>
+<th>3.2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速率（μmol/min）</td>
+<td>2</td>
+<td>4</td>
+<td>7</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 此酵素的最大反應速率為多少？<br />
+(2) 受質濃度由 0.1 增為 0.2 mM 時，速率變為 2 倍，說明什麼？<br />
+(3) 受質濃度為 3.2 mM 時，若要再提高反應速率，應如何做？<br />
+(4) 若酵素量加倍，最大反應速率大約變為多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 10 μmol/min　(2) 此範圍受質未飽和，速率與受質濃度成正比　(3) 增加酵素量　(4) 約 20 μmol/min</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：飽和曲線的讀法，以及「受質」與「酵素」兩種增加方式的差別。</p>
+<p>(1) 速率到 10 之後不再增加 ⇒ 最大速率 <strong>10 μmol/min</strong>（約在 0.8 mM 起飽和）。</p>
+<p>(2) 0.1→0.2 mM 速率 2→4，成正比，表示酵素<strong>還有空閒</strong>，受質愈多愈快（未飽和）。</p>
+<p>(3) 已飽和，再加受質無效；要增加速率只能<strong>增加酵素量</strong>（或改變溫度、pH 到最適）。</p>
+<p>(4) 酵素量加倍 ⇒ 最大速率約<strong>加倍為 20 μmol/min</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>受質曲線：<strong>先上升後水平</strong>；水平段再增加受質沒用，要<strong>增加酵素量</strong>才能提高最大速率。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q188">
+<header class="qh"><span class="qn">類題｜難題 3</span><span class="qtag">簡單版・飽和曲線・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某酵素的反應速率在受質濃度 1、2、4、8、16 mM 時分別為 3、6、9、10、10。(1) 最大速率？(2) 16 mM 時如何提高速率？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 10　(2) 增加酵素量</div>
+<div class="exp"><b class="exp-h">解</b><p>速率在 8 mM 起不再增加，最大速率是 <strong>10</strong>；此時酵素已飽和，增加受質沒用，只有<strong>增加酵素量</strong>才能提高速率。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">細胞週期與細胞分裂</h2>
+
+<article class="q q-pr" id="q189">
+<header class="qh"><span class="qn">難題 4</span><span class="qtag">細胞週期的順序・改編（111、112 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>細胞週期</strong>＝間期（G₁＋S＋G₂，約占 90%）＋分裂期（核分裂＋細胞質分裂）。</li>
+<li><strong>順序</strong>：<strong>S 期</strong>染色質複製 → 前期（核膜、核仁消失，染色體濃縮）→ 中期（排列在赤道面）→ 後期（姊妹染色分體分離）→ 末期（核膜重現、細胞質分裂：動物形成<strong>分裂溝</strong>、植物形成細胞板）。</li>
+<li><strong>提醒</strong>：染色質的<strong>複製在間期</strong>，不是分裂期。</li>
+</ul></div></details><div class="qtext"><p>(甲) 染色質複製；(乙) 核膜、核仁開始消失；(丙) 染色體排列於細胞中央；(丁) 細胞形成分裂溝。以上為有關細胞週期的敘述，其發生順序何者正確？<br />
+(A) 甲乙丙丁　(B) 甲丙乙丁　(C) 甲丁乙丙　(D) 乙丁甲丙</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：細胞週期各事件的先後。</p>
+<p>先複製（甲，S 期）→ 前期核膜消失（乙）→ 中期排列赤道面（丙）→ 末期細胞質分裂（丁）。順序為<strong>甲 → 乙 → 丙 → 丁</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>記順序：<strong>複製（間期）→ 前（核膜消失）→ 中（赤道面）→ 後（分離）→ 末（細胞質分裂）</strong>；染色質複製在間期。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q190">
+<header class="qh"><span class="qn">類題｜難題 4</span><span class="qtag">簡單版・有絲分裂的時期・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>有絲分裂的下列事件，依發生先後排列正確的是？(甲) 姊妹染色分體分離；(乙) 染色體排列在赤道面；(丙) 核膜重新形成；(丁) 染色體濃縮、核膜消失<br />
+(A) 丁乙甲丙　(B) 乙丁甲丙　(C) 丁甲乙丙　(D) 乙甲丁丙</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>前期（丁：染色體濃縮、核膜消失）→ 中期（乙）→ 後期（甲）→ 末期（丙：核膜重現）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q191">
+<header class="qh"><span class="qn">難題 5</span><span class="qtag">有絲分裂與減數分裂的比較・改編（110、111、113 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>有絲</strong>：複製 1 次、分裂 1 次，<strong>2 個</strong>子細胞，染色體數與母細胞<strong>相同</strong>，<strong>無聯會</strong>。</li>
+<li><strong>減數</strong>：複製 1 次、分裂 <strong>2 次</strong>，<strong>4 個</strong>子細胞（卵為 1 個＋極體），染色體數<strong>減半</strong>，減 I 前期有<strong>聯會</strong>。</li>
+<li><strong>姊妹染色分體分離</strong>：有絲分裂後期、<strong>減數分裂 II 後期</strong>（兩者都有）；<strong>同源染色體分離</strong>：只有減 I。</li>
+</ul></div></details><div class="qtext"><p>下列有關有絲分裂與減數分裂的比較，哪些正確？（多選）<br />
+(A) 產生子細胞的數目：減數分裂 4 個，有絲分裂 2 個<br />
+(B) 染色體複製次數：減數分裂 2 次，有絲分裂 1 次<br />
+(C) 聯會：減數分裂有，有絲分裂無<br />
+(D) 子細胞染色體數：減數分裂為母細胞的一半，有絲分裂與母細胞相同<br />
+(E) 姊妹染色分體分離：減數分裂沒有，有絲分裂有</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：兩種分裂的比較表，常被改一格來設陷阱。</p>
+<ul>
+<li>(A) ○　(C) ○　(D) ○。</li>
+<li>(B) ✗ 兩者染色體<strong>都只複製 1 次</strong>；減數分裂是「複製一次、分裂兩次」。</li>
+<li>(E) ✗ 減數分裂 <strong>II 後期</strong>也有姊妹染色分體分離。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>比較表記四格：<strong>4 vs 2、半 vs 同、有聯會 vs 無、複製都是 1 次</strong>；姊妹分體分離兩者都有。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q192">
+<header class="qh"><span class="qn">類題｜難題 5</span><span class="qtag">簡單版・減數分裂的特徵・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些是<strong>減數分裂</strong>才有、有絲分裂沒有的特徵？（多選）<br />
+(A) 同源染色體聯會　(B) 紡錘絲形成　(C) 子細胞染色體數減半　(D) 染色體複製</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>只有減數分裂有<strong>聯會</strong>與<strong>染色體數減半</strong>；紡錘絲、染色體複製兩種分裂都有。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q193">
+<header class="qh"><span class="qn">難題 6</span><span class="qtag">染色體套數的變化・改編（111、112 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>套數</strong>：體細胞 2n、配子 n。<strong>減數分裂 I</strong>：同源染色體分離 ⇒ 2n → n（套數減半）；<strong>減數分裂 II</strong>：姊妹分體分離，套數不變（n → n）。</li>
+<li><strong>受精</strong>：精子（n）＋卵（n）→ 受精卵 2n（套數加倍）。</li>
+<li><strong>提醒</strong>：排卵只是排出次級卵母細胞，套數不變；動物沒有「減數分裂 III」。</li>
+</ul></div></details><div class="qtext"><p>動物生殖與發生的過程中，哪些會發生染色體套數的改變？（多選）<br />
+(A) 減數分裂 I　(B) 減數分裂 II　(C) 減數分裂 III　(D) 排卵　(E) 受精</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：哪一步的套數真的變。</p>
+<ul>
+<li>(A) ○ 減 I 時同源染色體分離，2n → n。</li>
+<li>(B) ✗ 減 II 套數不變（n → n）。</li>
+<li>(C) ✗ 沒有減數分裂 III。</li>
+<li>(D) ✗ 排卵只是細胞排出，套數不變。</li>
+<li>(E) ○ 受精 n ＋ n → 2n。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>套數只在<strong>減 I（2n→n）</strong>與<strong>受精（n→2n）</strong>改變；減 II 與排卵不變。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q194">
+<header class="qh"><span class="qn">類題｜難題 6</span><span class="qtag">簡單版・人類細胞的套數・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列人類細胞哪些具有<strong>單套</strong>（n）染色體？（多選）<br />
+(A) 受精卵　(B) 精子　(C) 體細胞　(D) 第一次減數分裂產生的子細胞　(E) 次級卵母細胞</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>單套（n）：精子、卵、第一次減數分裂產生的子細胞（次級精／卵母細胞）。受精卵與體細胞是 2n。注意次級卵母細胞（減 I 完成後）也是單套，只是每條染色體仍含兩條染色分體。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q195">
+<header class="qh"><span class="qn">難題 7</span><span class="qtag">人類卵的形成・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>卵的形成</strong>：卵原細胞（2n，胚胎期有絲分裂產生）→ <strong>出生時</strong>已成<strong>初級卵母細胞</strong>（停在減 I 前期，數目不再增加）→ 青春期每月一個完成<strong>減 I</strong>，產生<strong>次級卵母細胞＋極體</strong>（細胞質不均等分裂）→ <strong>排卵時</strong>停在<strong>減 II 中期</strong> → <strong>受精時</strong>才完成減 II。</li>
+<li><strong>對照精子</strong>：1 個初級精母細胞 → <strong>4 個</strong>精細胞（均等分裂）；1 個初級卵母細胞 → <strong>1 個卵＋極體</strong>。</li>
+<li><strong>提醒</strong>：極體不會受精，最後會退化。</li>
+</ul></div></details><div class="qtext"><p>下列有關人類卵形成的敘述，何者正確？<br />
+(A) 出生時卵巢內的卵細胞已是成熟的卵<br />
+(B) 排卵時排出的是次級卵母細胞，停在減數分裂 II 的中期<br />
+(C) 一個初級卵母細胞經減數分裂可產生 4 個成熟的卵<br />
+(D) 卵原細胞在青春期後仍持續進行有絲分裂以增加數目<br />
+(E) 極體可以和精子受精</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：卵形成的時間軸（比精子複雜）。</p>
+<ul>
+<li>(A) ✗ 出生時是<strong>初級卵母細胞</strong>（停在減 I 前期），未成熟。</li>
+<li>(B) ○ 排卵時是<strong>次級卵母細胞</strong>，停在減 II 中期，受精後才完成減 II。</li>
+<li>(C) ✗ 一個初級卵母細胞只產生 <strong>1 個卵</strong>（另外是極體）。</li>
+<li>(D) ✗ 卵原細胞在胚胎期就已停止增加，青春期後不再有絲分裂增生。</li>
+<li>(E) ✗ 極體不具受精能力，會退化。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>卵的時間軸：<strong>胚胎期卵原細胞 → 出生初級卵母細胞 → 排卵＝次級卵母細胞（停減 II 中期）→ 受精才完成</strong>；<strong>1 個卵＋極體</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q196">
+<header class="qh"><span class="qn">類題｜難題 7</span><span class="qtag">簡單版・精子與卵的比較・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>一個初級精母細胞與一個初級卵母細胞，分別經減數分裂可產生幾個成熟的配子？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>初級精母細胞 4 個精子；初級卵母細胞 1 個卵（另有極體）</div>
+<div class="exp"><b class="exp-h">解</b><p>精子形成時兩次分裂細胞質都均等分裂 ⇒ 4 個精細胞 ⇒ 精子。卵形成時細胞質<strong>不均等</strong>分裂，集中在一個細胞（卵），其餘是極體 ⇒ 1 個卵。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q197">
+<header class="qh"><span class="qn">難題 8</span><span class="qtag">染色體數與 DNA 量的變化・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>相對量</strong>（以體細胞 G₁ 期 DNA＝2 計）：S 期複製 ⇒ DNA 加倍（4），但<strong>染色體數不變</strong>（姊妹分體連在一起仍算 1 條）。</li>
+<li><strong>有絲後期</strong>：著絲點分離，染色體數<strong>暫時加倍</strong>（2n → 4n），DNA 仍為 4。</li>
+<li><strong>減數</strong>：減 I 後 DNA 與染色體數<strong>減半</strong>（2n→n、DNA 4→2）；減 II 後 DNA 再減半（2→1）。</li>
+</ul></div></details><div class="qtext"><p>某動物體細胞染色體數 2n＝8，體細胞 G₁ 期 DNA 相對量為 2。填寫下表各時期的染色體數與 DNA 相對量：</p>
+<table>
+<thead>
+<tr>
+<th>時期</th>
+<th>染色體數</th>
+<th>DNA 相對量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(a) 有絲分裂 G₂ 期</td>
+<td>？</td>
+<td>？</td>
+</tr>
+<tr>
+<td>(b) 有絲分裂後期</td>
+<td>？</td>
+<td>？</td>
+</tr>
+<tr>
+<td>(c) 有絲分裂結束後的子細胞</td>
+<td>？</td>
+<td>？</td>
+</tr>
+<tr>
+<td>(d) 減數分裂 I 後期</td>
+<td>？</td>
+<td>？</td>
+</tr>
+<tr>
+<td>(e) 減數分裂 II 中期</td>
+<td>？</td>
+<td>？</td>
+</tr>
+<tr>
+<td>(f) 精細胞</td>
+<td>？</td>
+<td>？</td>
+</tr>
+</tbody>
+</table></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(a) 8、4　(b) 16、4　(c) 8、2　(d) 8、4　(e) 4、2　(f) 4、1</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：「染色體數」與「DNA 量」不同步的關鍵——複製只加倍 DNA，著絲點分離才加倍染色體數。</p>
+<table>
+<thead>
+<tr>
+<th>時期</th>
+<th>染色體數</th>
+<th>DNA 相對量</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(a) 有絲 G₂</td>
+<td><strong>8</strong></td>
+<td><strong>4</strong></td>
+<td>已複製，DNA 加倍；染色體仍 8 條（含姊妹分體）</td>
+</tr>
+<tr>
+<td>(b) 有絲後期</td>
+<td><strong>16</strong></td>
+<td><strong>4</strong></td>
+<td>著絲點分離，染色體暫時 16 條</td>
+</tr>
+<tr>
+<td>(c) 子細胞</td>
+<td><strong>8</strong></td>
+<td><strong>2</strong></td>
+<td>回到與體細胞相同</td>
+</tr>
+<tr>
+<td>(d) 減 I 後期</td>
+<td><strong>8</strong></td>
+<td><strong>4</strong></td>
+<td>同源染色體尚未分到不同細胞，仍是 2n、DNA 4</td>
+</tr>
+<tr>
+<td>(e) 減 II 中期</td>
+<td><strong>4</strong></td>
+<td><strong>2</strong></td>
+<td>減 I 後染色體數、DNA 都減半</td>
+</tr>
+<tr>
+<td>(f) 精細胞</td>
+<td><strong>4</strong></td>
+<td><strong>1</strong></td>
+<td>減 II 姊妹分體分離，DNA 再減半</td>
+</tr>
+</tbody>
+</table><div class="qsum"><b class="qsum-h">小結</b><p><strong>複製→DNA 加倍（染色體數不變）；著絲點分離→染色體數暫時加倍；減 I→染色體數、DNA 減半；減 II→DNA 再減半</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q198">
+<header class="qh"><span class="qn">類題｜難題 8</span><span class="qtag">簡單版・有絲分裂的染色體數與 DNA・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某動物體細胞 2n＝4，體細胞 G₁ 期 DNA 相對量為 2。(1) 有絲分裂前期的染色體數與 DNA 相對量？(2) 有絲分裂後期的染色體數？(3) 減數分裂產生的精細胞的染色體數與 DNA 相對量？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 4 條、4　(2) 8 條　(3) 2 條、1</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 前期已複製：DNA 加倍為 4，染色體數仍 <strong>4 條</strong>。(2) 後期著絲點分離，染色體數暫時加倍為 <strong>8 條</strong>。(3) 精細胞是 n，染色體數 <strong>2</strong>，DNA <strong>1</strong>。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">分化與細胞死亡</h2>
+
+<article class="q q-pr" id="q199">
+<header class="qh"><span class="qn">難題 9</span><span class="qtag">幹細胞與細胞分化・改編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>分化</strong>：同一個體的細胞<strong>基因組成相同</strong>（來自受精卵），因為<strong>基因差異表現</strong>而特化。</li>
+<li><strong>幹細胞</strong>：全潛能（可發育成完整個體，如受精卵至 8 細胞期）；富潛能（各種組織，不能成完整個體）；多潛能（如造血幹細胞→各種血球）；單潛能。</li>
+<li><strong>iPS 細胞</strong>：由已分化的體細胞導入基因誘導而成，具多功能分化能力（山中伸彌，2012 諾貝爾獎）。</li>
+</ul></div></details><div class="qtext"><p>下列有關細胞分化與幹細胞的敘述，哪些正確？（多選）<br />
+(A) 受精卵屬於全潛能幹細胞<br />
+(B) 造血幹細胞可分化成人體各種組織的細胞<br />
+(C) 成人的骨髓內仍有成體幹細胞<br />
+(D) 不同種類的細胞含有的基因不同，所以會特化成不同功能<br />
+(E) iPS 細胞可由已分化的體細胞經誘導而成</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：分化的原因與幹細胞的分類。</p>
+<ul>
+<li>(A) ○ 受精卵可發育成完整個體。</li>
+<li>(B) ✗ 造血幹細胞是<strong>多潛能</strong>，只能分化成各種<strong>血球</strong>。</li>
+<li>(C) ○ 成體幹細胞存在於骨髓等組織，幫助更新。</li>
+<li>(D) ✗ 同一個體所有體細胞的<strong>基因相同</strong>，分化是<strong>基因差異表現</strong>。</li>
+<li>(E) ○ 山中伸彌用四個基因讓體細胞轉變為 iPS 細胞。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>分化＝<strong>基因相同、表現不同</strong>；全潛能（完整個體）＞富潛能＞多潛能＞單潛能；iPS＝體細胞「重新編程」。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q200">
+<header class="qh"><span class="qn">類題｜難題 9</span><span class="qtag">簡單版・細胞分化・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>人體的神經細胞與肌肉細胞，何者敘述正確？<br />
+(A) 兩者含有的基因完全不同　(B) 兩者含有相同的基因，只是表現的基因不同　(C) 兩者染色體數目不同　(D) 神經細胞已失去全部基因</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>同一個體所有體細胞都由受精卵分裂而來，<strong>基因與染色體數相同</strong>；分化是不同基因被開啟或關閉（差異表現）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q201">
+<header class="qh"><span class="qn">難題 10</span><span class="qtag">細胞凋亡、壞死與老化・改編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>壞死</strong>：<strong>被動</strong>死亡（受傷、燙傷），細胞破裂、內容物外溢，<strong>引起發炎</strong>；<strong>凋亡</strong>：<strong>主動</strong>的程序性死亡（特定基因調控），崩解成凋亡體被吞噬，<strong>不發炎</strong>（如蝌蚪尾消失、手指間蹼消失）。</li>
+<li><strong>端粒</strong>：染色體末端重複序列（人類 TTAGGG）；<strong>每分裂一次就縮短</strong>；端粒酶可延長端粒，<strong>癌細胞與胚胎幹細胞活性高</strong>。</li>
+<li><strong>提醒</strong>：癌細胞不會衰老，可無限增殖。</li>
+</ul></div></details><div class="qtext"><p>下列有關細胞死亡與老化的敘述，哪些正確？（多選）<br />
+(A) 細胞凋亡是細胞受傷後的被動死亡<br />
+(B) 細胞壞死時內容物外溢，常引起發炎<br />
+(C) 蝌蚪變成青蛙時尾巴消失，是細胞凋亡的結果<br />
+(D) 一般體細胞每分裂一次，端粒就縮短一些<br />
+(E) 癌細胞的端粒酶活性很低，所以分裂幾次就衰老</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：凋亡 vs 壞死的比較，與端粒的觀念。</p>
+<ul>
+<li>(A) ✗ 凋亡是<strong>主動</strong>、由基因調控的死亡；被動死亡是壞死。</li>
+<li>(B) ○ 壞死細胞破裂，引起發炎。</li>
+<li>(C) ○ 蝌蚪尾巴消失是典型的細胞凋亡。</li>
+<li>(D) ○ 端粒縮短，是細胞分裂次數有限的原因之一。</li>
+<li>(E) ✗ 癌細胞端粒酶活性<strong>高</strong>，端粒不縮短，可無限分裂。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>凋亡＝主動、基因調控、不發炎；壞死＝被動、受傷、發炎</strong>；端粒每分裂縮短，癌細胞靠高活性端粒酶無限分裂。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q202">
+<header class="qh"><span class="qn">類題｜難題 10</span><span class="qtag">簡單版・凋亡與壞死・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列現象各屬於細胞凋亡還是細胞壞死？(1) 胚胎發育時手指間的蹼狀組織消失 (2) 皮膚被燙傷後的細胞死亡</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 細胞凋亡　(2) 細胞壞死</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 是<strong>程序性、由基因調控</strong>的正常發育現象 ⇒ 凋亡。(2) 是受到外界傷害的<strong>被動</strong>死亡 ⇒ 壞死。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復1.html">← 復1 細胞學難題（上）：學說、物質、胞器、膜與運輸</a><a href="u復3.html">復3 能量難題：光合作用、呼吸作用、ATP →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

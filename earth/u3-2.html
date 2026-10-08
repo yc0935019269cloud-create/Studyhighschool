@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3-2 主題 13　板塊運動｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a class="on" href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a><ul class="subtoc"><li><a href="#s1">大陸漂移學說（1912，章格納）</a></li><li><a href="#s2">海底擴張學說（1962，海斯）</a></li><li><a href="#s3">板塊構造學說（1967～1968，麥肯齊、摩根）</a></li><li><a href="#s4">板塊邊界的各種地質作用與構造</a></li><li><a href="#s5">如何辨別斷層種類</a></li><li><a href="#s6">小試身手</a></li></ul></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">單元 3 地質</div>
+<h1><span class="uid">3-2</span>主題 13　板塊運動</h1>
+<div class="tools"><span class="cnt">本單元 11 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">大陸漂移學說（1912，章格納）</h2>
+
+<figure class="fig"><img class="figimg" src="img/A078_17p07_96p34_x0-100.jpg" width="983" height="1316" loading="lazy" alt="地科1 第78頁" data-page="地科1 p.78"><figcaption>大陸漂移學說：提出者、內容與證據（講義 p.78）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ul>
+<li><strong>章格納（1912）</strong>：各大陸塊在兩億多年前聚合成一個超級大陸——<strong>盤古大陸</strong>。</li>
+<li><strong>證據</strong>：<br />
+  1. 南美洲東岸與非洲西岸的邊緣形狀<strong>大致吻合</strong>（外力作用使海岸無法 100％吻合）。<br />
+  2. <strong>無法橫渡海洋的生物</strong>（陸生或淡水爬蟲類，如水龍獸、中龍）化石分布在不同大陸，表示當時陸塊是相連的；有些植物（舌羊齒）無法靠風力跨洋傳送。<br />
+  3. <strong>古冰川</strong>移動的刮蝕痕跡可以拼合南美、非洲、印度、南極、澳洲 ⇒ 拼出古大陸。<br />
+  4. <strong>不同緯度的氣候證據</strong>：<strong>煤層</strong>（潮溼沼澤）與<strong>沙漠沉積</strong>（溫帶乾燥區）的分布，要用盤古大陸的位置才合理。</li>
+<li><strong>不被當時採納的原因</strong>：大陸漂移的<strong>動力來源無合理解釋</strong>。</li>
+</ul></aside>
+
+<h2 class="section " id="s2">海底擴張學說（1962，海斯）</h2>
+
+<figure class="fig"><img class="figimg" src="img/A079_6p48_53p76_x0-100.jpg" width="1008" height="747" loading="lazy" alt="地科1 第79頁" data-page="地科1 p.79"><figcaption>海底擴張學說與地磁（講義 p.79）</figcaption></figure>
+
+<figure class="fig"><img class="figimg" src="img/A079_53p76_95p21_x0-100.jpg" width="1008" height="651" loading="lazy" alt="地科1 第79頁" data-page="地科1 p.79"><figcaption>海床磁性條紋以中洋脊為中心對稱（講義 p.79）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>海斯（1962）</strong>：海洋地殼在<strong>中洋脊裂谷新生</strong>，然後往兩側移動，最終在<strong>海溝</strong>處隱沒入地函。</p>
+<p>支持證據（以中洋脊為中心，兩側<strong>互相對稱</strong>）：<br />
+1. 中洋脊附近海洋地殼<strong>熱流值較高</strong>。<br />
+2. <strong>岩石年齡</strong>：離中洋脊愈遠，海洋地殼年齡愈<strong>老</strong>。<br />
+3. <strong>沉積物厚度</strong>：離中洋脊愈遠，存在愈久、累積的沉積物愈<strong>厚</strong>。<br />
+4. <strong>地磁倒轉紀錄</strong>：岩漿降溫時，磁性礦物會依<strong>當時地磁方向</strong>排列；兩側條紋的磁場方向與年代以中洋脊為對稱中心；<strong>地磁倒轉沒有固定週期</strong>。<br />
+   - 與目前地磁<strong>同向</strong>：<strong>正磁場</strong>時期；與目前地磁<strong>相反</strong>：<strong>反磁場</strong>時期。</p></aside>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><ul>
+<li>地球磁場成因（一種解釋）：<strong>外核高溫流動的金屬鐵鎳</strong>產生類似電流的效果。</li>
+<li>右手安培定則：大拇指＝N 極，四指彎曲方向＝電流方向。地磁<strong>S 極在北、N 極在南</strong>，所以現今外核電流方向（從北極上方俯視）約為<strong>順時針</strong>，與地球自轉方向（逆時針）<strong>相反</strong>；<strong>反磁場</strong>時期則電流方向反過來（與自轉相同）。</li>
+</ul></aside>
+
+<h2 class="section " id="s3">板塊構造學說（1967～1968，麥肯齊、摩根）</h2>
+
+<figure class="fig"><img class="figimg" src="img/A080_4p96_61p33_x0-100.jpg" width="1030" height="1009" loading="lazy" alt="地科1 第80頁" data-page="地科1 p.80"><figcaption>板塊構造學說與全球板塊分布（講義 p.80）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ul>
+<li>地球的表層是由冷而堅硬的<strong>岩石圈</strong>組成，岩石圈碎成數塊，受到<strong>地函熱對流</strong>帶動；相鄰板塊可能<strong>分離（張裂）、聚合、水平錯動</strong>。</li>
+<li>全球除了七大板塊外，還有數個小板塊。</li>
+<li>板塊邊界均為<strong>地震帶</strong>；臺灣位於<strong>環太平洋地震帶</strong>，此地震帶主要是板塊<strong>聚合</strong>活動造成，且板塊隱沒常引發火山活動，所以同時也是<strong>火山帶（火環）</strong>。</li>
+</ul></aside>
+
+<h2 class="section " id="s4">板塊邊界的各種地質作用與構造</h2>
+<h3>1. 張裂型板塊邊界</h3>
+<figure class="fig"><img class="figimg" src="img/A080_64p25_95p79_x0-100.jpg" width="1030" height="558" loading="lazy" alt="地科1 第80頁" data-page="地科1 p.80"><figcaption>張裂型：海洋岩石圈（中洋脊）（講義 p.80）</figcaption></figure>
+
+<figure class="fig"><img class="figimg" src="img/A081_1p88_16p25_x0-100.jpg" width="1063" height="248" loading="lazy" alt="地科1 第81頁" data-page="地科1 p.81"><figcaption>張裂型：大陸岩石圈（裂谷）（講義 p.81）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>張裂的位置</th>
+<th>形成地形</th>
+<th>特徵</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>海洋岩石圈</td>
+<td><strong>中洋脊</strong>（中央斷裂谷）</td>
+<td>熱對流上升，物質溫度高、密度小 ⇒ 中洋脊相對兩側海床<strong>高度較高</strong>；火山活動頻繁，新的<strong>玄武岩質</strong>海洋地殼在此產生；受<strong>張力</strong>，常見<strong>正斷層</strong></td>
+</tr>
+<tr>
+<td>大陸岩石圈</td>
+<td><strong>裂谷</strong>（例：東非裂谷）</td>
+<td>張力作用形成裂谷，常見<strong>正斷層</strong>並有火山活動</td>
+</tr>
+</tbody>
+</table></aside>
+<h3>2. 聚合型板塊邊界</h3>
+<figure class="fig"><img class="figimg" src="img/A081_17p81_87p5_x0-100.jpg" width="1063" height="1140" loading="lazy" alt="地科1 第81頁" data-page="地科1 p.81"><figcaption>聚合型：海—陸、海—海、陸—陸（講義 p.81）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ul>
+<li>兩板塊聚合，只要其中有一個板塊上搭載的是<strong>海洋地殼</strong>，就會發生板塊<strong>隱沒</strong>，形成<strong>隱沒帶</strong>。</li>
+<li><strong>密度較大</strong>的岩石圈隱沒入地函：<br />
+  ① 海洋岩石圈密度 ＞ 大陸岩石圈 ⇒ 海洋隱沒到大陸之下；<br />
+  ② <strong>老</strong>的海洋岩石圈密度 ＞ <strong>年輕</strong>的海洋岩石圈 ⇒ 老的隱沒到年輕的之下。</li>
+<li>隱沒帶形成彼此平行的<strong>海溝</strong>與<strong>火山島弧（火山弧）</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>例子</th>
+<th>地形與火成岩</th>
+<th>地震</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>海—陸</strong></td>
+<td>南美洲西岸（秘魯—智利海溝、安地斯山脈）</td>
+<td>海溝＋<strong>火山弧</strong>（安山岩質）；隱沒的岩石與沉積物因高溫高壓<strong>脫水</strong>，水分使地函岩石<strong>部分熔融</strong>形成岩漿</td>
+<td>淺、中、深源都有</td>
+</tr>
+<tr>
+<td><strong>海—海</strong></td>
+<td>馬里亞納海溝＋馬里亞納火山島弧</td>
+<td>海溝＋火山島弧；隱沒的通常是<strong>較老</strong>的海洋岩石圈</td>
+<td>淺、中、深源都有</td>
+</tr>
+<tr>
+<td><strong>陸—陸</strong></td>
+<td>喜馬拉雅山脈（印澳板塊 vs 歐亞板塊）</td>
+<td><strong>不會隱沒</strong>（密度都小）；形成<strong>造山帶</strong>：大量<strong>變質岩</strong>、<strong>逆斷層</strong>、<strong>褶皺</strong></td>
+<td>以<strong>淺、中源</strong>為主</td>
+</tr>
+</tbody>
+</table></aside>
+
+<aside class="box box-warn"><div class="box-h">注意</div><p>聚合型板塊邊界大範圍受到<strong>壓力</strong>作用，因此多以<strong>逆斷層</strong>為主；但仍有區域受到局部張力與剪力，因此也會有正斷層與平移斷層。</p></aside>
+<h3>3. 錯動型板塊邊界</h3>
+<figure class="fig"><img class="figimg" src="img/A082_4p03_40p32_x0-100.jpg" width="1027" height="653" loading="lazy" alt="地科1 第82頁" data-page="地科1 p.82"><figcaption>錯動型板塊邊界：轉形斷層與破裂帶（講義 p.82）</figcaption></figure>
+
+<figure class="fig"><img class="figimg" src="img/A082_40p32_71p43_x0-100.jpg" width="1027" height="541" loading="lazy" alt="地科1 第82頁" data-page="地科1 p.82"><figcaption>轉形斷層銜接的三種類型（講義 p.82）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ul>
+<li>兩板塊沿交界帶互相<strong>水平錯移</strong> ⇒ <strong>錯動型</strong>板塊邊界，最常見的就是 <strong>AB 段＝轉形斷層</strong>。</li>
+<li><strong>CD 破裂帶</strong>：AC 兩側均為甲板塊（均往左）、BD 兩側均為乙板塊（均往右）⇒ <strong>不是板塊邊界</strong>，沒有相對錯動，所以<strong>沒有地震</strong>。</li>
+<li>轉形斷層因為<strong>無張裂、也無板塊隱沒</strong>，因此<strong>少有火山活動</strong>。</li>
+<li>轉形斷層是「銜接」不同板塊邊界的構造，分三種：<br />
+  ① 銜接兩段<strong>中洋脊</strong>（例：大西洋中洋脊的斷裂）；<br />
+  ② 銜接兩段<strong>海溝</strong>（例：紐西蘭阿爾卑斯斷層）；<br />
+  ③ 銜接<strong>一段中洋脊與一段海溝</strong>（例：聖安德列斯斷層：北美洲板塊／太平洋板塊，死海斷層）。</li>
+</ul></aside>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>熱點火山</strong>：深處的熾熱地函物質上湧形成<strong>熱柱</strong>，位置近乎<strong>不動</strong>；熱柱上方的火山是<strong>活火山</strong>，隨著板塊移動，老的火山被帶離熱柱成為<strong>死火山</strong>，依序形成<strong>老到年輕</strong>的<strong>熱點火山島鏈</strong>（例：夏威夷—皇帝海山鏈）⇒ 可由火山年齡分布<strong>推知板塊移動方向</strong>（<strong>年輕的一端指向熱點、老的一端是板塊前進方向</strong>）。</p></aside>
+
+<figure class="fig"><img class="figimg" src="img/A082_71p43_93p89_x0-100.jpg" width="1027" height="395" loading="lazy" alt="地科1 第82頁" data-page="地科1 p.82"><figcaption>觀念一點通：從熱點火山年齡分布推知板塊移動方向（講義 p.82）</figcaption></figure>
+<h3>三種板塊邊界的地震與比較</h3>
+<figure class="fig"><img class="figimg" src="img/A083_6p04_44p08_x0-100.jpg" width="1018" height="682" loading="lazy" alt="地科1 第83頁" data-page="地科1 p.83"><figcaption>就是愛比較：三種板塊邊界之地震分布（講義 p.83）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>板塊邊界</th>
+<th><strong>張裂型</strong></th>
+<th><strong>聚合型</strong></th>
+<th><strong>錯動型</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>受力</td>
+<td><strong>張力</strong></td>
+<td><strong>壓力</strong></td>
+<td><strong>剪力</strong></td>
+</tr>
+<tr>
+<td>斷層</td>
+<td>主要為<strong>正斷層</strong></td>
+<td>主要為<strong>逆斷層</strong></td>
+<td><strong>轉形斷層</strong></td>
+</tr>
+<tr>
+<td>火成岩</td>
+<td><strong>玄武岩質</strong></td>
+<td><strong>安山岩質</strong>為主</td>
+<td><strong>無火山活動</strong></td>
+</tr>
+<tr>
+<td>震源深度</td>
+<td><strong>淺源</strong></td>
+<td><strong>淺、中、深源</strong>都有（陸—陸造山帶以淺、中源為主）</td>
+<td><strong>淺源</strong></td>
+</tr>
+<tr>
+<td>主要地形</td>
+<td><strong>中洋脊、裂谷</strong></td>
+<td><strong>海溝、火山島弧、褶皺山脈、火山弧</strong></td>
+<td><strong>轉形斷層</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>班尼奧夫帶</strong>：板塊隱沒產生的淺、中、深源<strong>地震帶</strong>；由淺到深的方向可推知哪個板塊隱沒、隱沒方向（<strong>火山地區較有機會測到深源地震，海溝處則是淺源</strong>）。</li>
+<li>愈表層的岩層愈脆，所以就算在聚合型邊界，也是<strong>最容易發生淺源地震</strong>；愈靠近中洋脊，岩石圈愈熱，所以中洋脊附近的地震<strong>頻率與規模</strong>較聚合型板塊邊界低。</li>
+</ul></aside>
+
+<h2 class="section " id="s5">如何辨別斷層種類</h2>
+
+<figure class="fig"><img class="figimg" src="img/A084_1p79_46p65_x0-100.jpg" width="1013" height="770" loading="lazy" alt="地科1 第84頁" data-page="地科1 p.84"><figcaption>小撇步：正斷層與逆斷層（溜滑梯口訣）（講義 p.84）</figcaption></figure>
+
+<figure class="fig"><img class="figimg" src="img/A084_46p65_93p3_x0-100.jpg" width="1013" height="829" loading="lazy" alt="地科1 第84頁" data-page="地科1 p.84"><figcaption>右移／左移斷層、轉形與平移斷層的差別（講義 p.84）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>斷層</th>
+<th>受力</th>
+<th>判斷</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>正斷層</strong></td>
+<td><strong>張力</strong></td>
+<td><strong>上盤相對於下盤往下滑</strong>（坐在溜滑梯上最「正」常的就是往下滑）</td>
+</tr>
+<tr>
+<td><strong>逆斷層</strong></td>
+<td><strong>壓力</strong></td>
+<td><strong>上盤相對於下盤往上滑</strong>（往上滑一定有東西在推你：壓力）</td>
+</tr>
+<tr>
+<td><strong>右移斷層</strong></td>
+<td><strong>剪力</strong></td>
+<td>站在其中一塊，看對面那一塊<strong>往右</strong>移動</td>
+</tr>
+<tr>
+<td><strong>左移斷層</strong></td>
+<td><strong>剪力</strong></td>
+<td>站在其中一塊，看對面那一塊<strong>往左</strong>移動</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>轉形斷層</strong>：斷層面兩側是<strong>不同板塊</strong>（被視為一種特殊的平移斷層）；<strong>平移斷層</strong>：斷層面兩側是<strong>同一板塊</strong>。</li>
+<li>轉形斷層「只有那一段」兩側是不同板塊，且移動方向<strong>相反</strong>。</li>
+</ul></aside>
+
+<figure class="fig"><img class="figimg" src="img/A085_1p27_33p72_x0-100.jpg" width="1022" height="537" loading="lazy" alt="地科1 第85頁" data-page="地科1 p.85"><figcaption>如何利用 GPS 觀測結果判斷斷層類型（講義 p.85）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>用 GPS 判斷斷層類型</strong>（看斷層兩側測站「相對」移動）<br />
+- <strong>逆斷層</strong>：兩地<strong>彼此靠近</strong>，水平距離<strong>縮短</strong>（甲 →｜← 乙）。<br />
+- <strong>正斷層</strong>：兩地<strong>彼此遠離</strong>，水平距離<strong>變長</strong>（甲 ←｜→ 乙）。<br />
+- <strong>平移斷層</strong>：兩地移動方向與斷層線<strong>平行</strong>（一個往北、一個往南）。</p></aside>
+
+<h2 class="section " id="s6">小試身手</h2>
+
+<article class="q q-pr" id="q266">
+<header class="qh"><span class="qn">小試 1</span><span class="qtag">北半球地震分布圖　（應選 2 項，選錯誤）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A085_40p71_70p29.jpg" width="961" height="465" loading="lazy" alt="地科1 第85頁" data-page="地科1 p.85"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：看地震分布圖判斷板塊邊界類型：甲＝陸—陸碰撞造山帶（喜馬拉雅）、乙＝西太平洋隱沒帶、丙＝大西洋中洋脊（冰島附近）。</p>
+<ul>
+<li>(A) ✗ 甲地區（歐亞／印度板塊碰撞）是<strong>陸—陸碰撞造山帶</strong>，不是張裂型裂谷。</li>
+<li>(B) ○ 乙地區有淺、中、深源地震帶 ⇒ 有板塊隱沒。</li>
+<li>(C) ○ 丙地區只有淺源地震 ⇒ 張裂型（中洋脊）或錯動型邊界。</li>
+<li>(D) ○ 甲（造山帶）與乙（隱沒帶）都受壓力，可發現變質岩與褶皺。</li>
+<li>(E) ✗ 乙地區（隱沒帶火山弧）也有火山活動，不是「僅有」丙地區。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q267">
+<header class="qh"><span class="qn">小試 2</span><span class="qtag">板塊運動的敘述　（應選 3 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A085_71p12_92p24.jpg" width="961" height="332" loading="lazy" alt="地科1 第85頁" data-page="地科1 p.85"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：三種板塊邊界的特性與海洋地殼的壽命。</p>
+<ul>
+<li>(A) ✗ 海洋地殼在中洋脊生成，但<strong>也在海溝隱沒</strong>回地函，海洋面積不會一直增大（海洋地殼最老約 1.8 億年，不超過兩億年）。</li>
+<li>(B) ○ 最高的山脈（喜馬拉雅）在<strong>聚合型</strong>板塊邊界（陸—陸碰撞）。</li>
+<li>(C) ✗ 全世界最深的地形是<strong>海溝</strong>，屬於<strong>聚合型</strong>（海洋板塊隱沒），不是張裂型。</li>
+<li>(D) ○ 錯動型邊界：沒有新地殼生成，也沒有舊地殼消失。</li>
+<li>(E) ○ 大陸地殼不會隱沒，所以最老的<strong>大陸地殼年齡 ＞ 最老的海洋地殼年齡</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q268">
+<header class="qh"><span class="qn">小試 3</span><span class="qtag">海洋地殼的地磁條紋</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A086_5p05_24p64.jpg" width="945" height="329" loading="lazy" alt="地科1 第86頁" data-page="地科1 p.86"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) a，反磁場時期</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：海底擴張的<strong>對稱性</strong>與地磁倒轉紀錄。</p>
+<ol>
+<li>中洋脊中央斷裂谷（箭頭 d）是<strong>最新</strong>生成的海洋地殼，磁場方向與<strong>現在相同＝正磁場</strong>；d 是<strong>藍色</strong>，所以<strong>藍色＝正磁場、褐色＝反磁場</strong>。</li>
+<li>以 d 為對稱中心：左側 c、b、a 對應右側 e、f、g（c↔e、b↔f、a↔g）。</li>
+<li>g 的對稱位置是 <strong>a</strong>；g 是褐色 ⇒ <strong>反磁場</strong>時期。</li>
+<li>所以與 g 同時期產生的是 <strong>a</strong>，當時為<strong>反磁場</strong>。</li>
+</ol></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q269">
+<header class="qh"><span class="qn">小試 4</span><span class="qtag">震源深度分布與板塊　（選錯誤）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A086_25p24_47p51.jpg" width="945" height="375" loading="lazy" alt="地科1 第86頁" data-page="地科1 p.86"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：震源深度由淺到深的<strong>方向</strong>＝板塊隱沒的方向。</p>
+<ul>
+<li>圖中震源愈往左（西）愈深（紫色＝400～750 km 深源），表示<strong>板塊從右（東）往左（西）隱沒</strong>；甲在右、丙在左 ⇒ 甲所在的板塊隱沒到丙之下。</li>
+<li>(A) ○ 甲隱沒到丙之下。</li>
+<li>(B) ○ 乙靠近板塊邊界（淺源地震處）＝<strong>海溝</strong>。</li>
+<li>(C) ○ 丙是<strong>上覆板塊</strong>，隱沒的岩石釋放水分使地函熔融，所以有可能有<strong>火山活動</strong>。</li>
+<li>(D) ✗ 甲所在的板塊會<strong>隱沒</strong>，必須帶有<strong>海洋地殼</strong>（大陸地殼密度小、不會隱沒），不可能「全部搭載大陸地殼」。</li>
+<li>(E) ○ 丙板塊可能是海洋板塊（例：海—海隱沒）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q270">
+<header class="qh"><span class="qn">小試 5</span><span class="qtag">現今有火山分布的地區　學測 103</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A086_47p98_65p91.jpg" width="945" height="302" loading="lazy" alt="地科1 第86頁" data-page="地科1 p.86"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 甲乙丁</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：火山多在<strong>隱沒帶、中洋脊、熱點</strong>。</p>
+<ul>
+<li><strong>甲</strong>（日本附近）：西太平洋隱沒帶 ⇒ 有火山。</li>
+<li><strong>乙</strong>（南美洲西岸）：安地斯火山弧 ⇒ 有火山。</li>
+<li><strong>丁</strong>（大西洋北部，冰島）：<strong>中洋脊＋熱點</strong> ⇒ 有火山。</li>
+<li><strong>丙</strong>（澳洲）、<strong>戊</strong>（北美洲內陸）：位於板塊內部，<strong>沒有現今火山</strong>。</li>
+<li>所以是甲乙丁 ⇒ <strong>(D)</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q271">
+<header class="qh"><span class="qn">小試 6</span><span class="qtag">GPS 測得的斷層類型</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A086_66p51_89p07.jpg" width="945" height="379" loading="lazy" alt="地科1 第86頁" data-page="地科1 p.86"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 逆斷層</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：用 GPS 箭頭判斷斷層類型。</p>
+<ul>
+<li>斷層（紅線）<strong>西側</strong>的測站箭頭長，且<strong>朝東南</strong>（朝向斷層）移動；<strong>東側</strong>箭頭短。</li>
+<li>兩側測站<strong>互相靠近</strong>、水平距離<strong>縮短</strong> ⇒ <strong>逆斷層</strong>（受壓力作用）。</li>
+<li>不是正斷層（距離變長）；也不是左／右移（兩側沿斷層線平行移動）；轉形斷層必須是<strong>板塊邊界</strong>，此處是板塊內部的斷層。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q272">
+<header class="qh"><span class="qn">小試 7</span><span class="qtag">板塊構造示意圖：火成岩種類</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A087_2p51_36p65.jpg" width="952" height="544" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"><img class="qimg" src="img/A087_37p09_45p24.jpg" width="952" height="131" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>聚合型海—陸隱沒帶</strong>的火成岩＝<strong>安山岩</strong>；<strong>中洋脊（張裂）</strong>的火成岩＝<strong>玄武岩</strong>。</p>
+<ul>
+<li>甲：大陸邊緣的火山弧（海洋板塊隱沒到大陸板塊之下）⇒ <strong>安山岩質</strong>。</li>
+<li>乙：位於<strong>中洋脊</strong>（張裂型）⇒ <strong>玄武岩質</strong>。</li>
+<li>所以甲：安山岩；乙：玄武岩 ⇒ <strong>(B)</strong>。（花岡岩是<strong>深成</strong>火成岩，不是火山岩；橄欖岩是地函的岩石。）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q273">
+<header class="qh"><span class="qn">小試 8</span><span class="qtag">熱點上的三座火山：哪幾座是活火山？</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A087_2p51_36p65.jpg" width="952" height="544" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"><img class="qimg" src="img/A087_45p43_55p14.jpg" width="952" height="155" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>丙 1；判斷依據：地函熱柱位於其下</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>熱點火山</strong>＝熱柱上方才是活火山。</p>
+<ul>
+<li>熱柱相對於地心<strong>位置固定</strong>，位在<strong>丙 1</strong> 正下方 ⇒ 丙 1 是<strong>活火山</strong>。</li>
+<li>丙 2、丙 3 已被板塊帶離熱柱，無岩漿供應 ⇒ <strong>死火山</strong>（越遠越老）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q274">
+<header class="qh"><span class="qn">小試 9</span><span class="qtag">熱點火山的岩石年齡</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A087_2p51_36p65.jpg" width="952" height="544" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"><img class="qimg" src="img/A087_56p08_71p12.jpg" width="952" height="240" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：離熱點愈遠，火山愈<strong>老</strong>。</p>
+<ul>
+<li>丙 1 在熱柱上 ⇒ 最<strong>年輕</strong>；丙 2 較老；丙 3 最老。</li>
+<li>圖中縱軸往上＝較老、往下＝年輕；橫軸 丙₁→丙₂→丙₃：點由<strong>低（年輕）→高（老）</strong>逐漸上升 ⇒ <strong>(B)</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q275">
+<header class="qh"><span class="qn">小試 10</span><span class="qtag">板塊構造示意圖的判斷　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A087_2p51_36p65.jpg" width="952" height="544" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"><img class="qimg" src="img/A087_71p93_84p59.jpg" width="952" height="202" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：看圖判斷邊界類型、地震深度、斷層種類。</p>
+<ul>
+<li>(A) ✗ 丙地的熱點火山（丙 2、丙 3）不在板塊邊界，並非「均」位於邊界。</li>
+<li>(B) ○ 圖中有<strong>張裂型</strong>（中洋脊）、<strong>聚合型</strong>（海溝隱沒帶）、<strong>錯動型</strong>（轉形斷層）三種邊界。</li>
+<li>(C) ✗ 聚合型邊界（隱沒帶）還有中、深源地震。</li>
+<li>(D) ✗ 還有<strong>轉形斷層（平移）</strong>。</li>
+<li>(E) ○ 板塊＝岩石圈，底部都位於<strong>地函</strong>（軟流圈上方）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q276">
+<header class="qh"><span class="qn">小試 11</span><span class="qtag">從乙到丁：海洋地殼年齡與沉積物厚度</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A087_2p51_36p65.jpg" width="952" height="544" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"><img class="qimg" src="img/A087_85p09_93p98.jpg" width="952" height="141" loading="lazy" alt="地科1 第87頁" data-page="地科1 p.87"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：離中洋脊愈遠 ⇒ 海洋地殼愈<strong>老</strong>、沉積物愈<strong>厚</strong>。</p>
+<ul>
+<li>乙在<strong>中洋脊</strong>（地殼最新、沉積物最薄）；丁在大陸邊緣（遠離中洋脊）。</li>
+<li>從乙到丁：海洋地殼年齡<strong>愈來愈老</strong>、沉積物<strong>愈來愈厚</strong> ⇒ <strong>(A)</strong>。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u3-1.html">← 3-1 主題 12　固體地球的結構</a><a href="u3-3.html">3-3 主題 14　臺灣的板塊構造 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

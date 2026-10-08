@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復0 考前地圖：範圍・脈絡・規則速查｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a class="on" href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a><ul class="subtoc"><li><a href="#s1">先看這頁：這份復習怎麼用</a></li><li><a href="#s2">範圍地圖：單元 1、單元 2</a></li><li><a href="#s3">命題趨勢：我實際讀過的五份段考怎麼出</a></li><li><a href="#s4">規則速查（點開看「為什麼」）</a></li><li><a href="#s5">迷思釐清：十六件最容易被陷阱題抓走的事</a></li><li><a href="#s6">考前猜題熱區（主觀預測，僅供排優先順序）</a></li></ul></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 單元 1 細胞學＋單元 2 維持生命現象的能量</div>
+<h1><span class="uid">復0</span>考前地圖：範圍・脈絡・規則速查</h1>
+<div class="tools"><span class="cnt">本單元 0 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">先看這頁：這份復習怎麼用</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>三步用法</strong>：①先看「範圍地圖」，把兩條主線在腦中串起來；②讀「迷思釐清」，這些是最容易被陷阱題抓走的地方；③做「復1～復3」的題目（<strong>先讀題目前的「考前速記」，自己寫完再點開詳解，看完「小結」再做後面的類題</strong>），最後用「復4 模擬卷」計時演練。</p>
+<p><strong>每題的結構</strong>：「考前速記」（這題要用到的知識點、公式與提醒）→ 題目 → 詳解 → 「小結」→ 一題簡單類題（附完整詳解）。「復4 模擬卷」的速記預設收合，方便先計時自測，需要時再點開；頁面上方的按鈕可整頁隱藏／顯示速記。</p>
+<p><strong>題目來源說明</strong>：本章題目分兩種——<strong>「改編」</strong>＝取自公開考卷的題型或情境，數字與設問重寫；<strong>「自編」</strong>＝針對講義常見弱點新編。公開考卷我實際下載並讀過：<strong>基隆市立中山高中 109～113 學年度第 1 學期第 1 次段考（高一生物）共 5 份</strong>（範圍正好是細胞構造、細胞膜與運輸、細胞分裂、光合作用、呼吸作用、ATP），再加上同校 113 學年第 1 學期第 2 次段考（高二選修生物）作為參考；原卷放在 <code>E:\家教備課\男生\生物\第一次段考復習_考古題來源</code>。<strong>這些原卷大多沒有附完整答案，所有答案與詳解都是我自己重新推導的</strong>，請與學校老師的解答、講義後的簡答交叉核對；學校實際考哪些單元，請以老師公告的範圍為準。</p></aside>
+
+<h2 class="section " id="s2">範圍地圖：單元 1、單元 2</h2>
+<p>講義兩個單元其實是兩條主線：<strong>單元 1 回答「細胞是什麼、怎麼運作、怎麼複製」，單元 2 回答「細胞的能量從哪裡來、怎麼用」</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>單元</th>
+<th>概念</th>
+<th>一句話核心</th>
+<th>最愛考的題型</th>
+<th>講義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 細胞學</td>
+<td>生命現象與細胞學說</td>
+<td>八大生命特徵；細胞學說三點</td>
+<td>科學家配對、細胞學說內容辨識</td>
+<td><a href="u1-1.html">1-1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>維持生物體的基本物質</td>
+<td>水、無機鹽、醣、蛋白質、脂質、核酸、維生素</td>
+<td>元素組成、單體與聚合物、泡麵成分</td>
+<td><a href="u1-2.html">1-2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>酵素與輔酶</td>
+<td>專一性、周轉性、催化（降低活化能）</td>
+<td>曲線圖判讀（溫度、pH、受質濃度）</td>
+<td><a href="u1-3.html">1-3</a></td>
+</tr>
+<tr>
+<td></td>
+<td>細胞的構造與功能</td>
+<td>原核／真核；膜、質、核；各胞器分工</td>
+<td>胞器配對、膜的構造、動植物比較、蛋白質分泌路徑</td>
+<td><a href="u1-4.html">1-4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>物質進出細胞的方式</td>
+<td>被動（擴散、滲透）、主動、胞吞胞吐</td>
+<td>方式判斷、高張低張、曲線辨認</td>
+<td><a href="u1-5.html">1-5</a></td>
+</tr>
+<tr>
+<td></td>
+<td>細胞的生殖與分化</td>
+<td>細胞週期、有絲／減數分裂、幹細胞、凋亡</td>
+<td>有絲 vs 減數比較、DNA 量與染色體圖</td>
+<td><a href="u1-6.html">1-6</a></td>
+</tr>
+<tr>
+<td></td>
+<td>探討活動</td>
+<td>顯微觀察、測微器、有機物檢測、質離</td>
+<td>顯微倍率與視野、試劑顏色</td>
+<td><a href="u1-7.html">1-7</a></td>
+</tr>
+<tr>
+<td>2 能量</td>
+<td>光合作用</td>
+<td>光反應（類囊體）＋固碳反應（基質）；C₃、C₄、CAM</td>
+<td>場所配對、光反應 vs 固碳、植物類型比較</td>
+<td><a href="u2-1.html">2-1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>呼吸作用</td>
+<td>糖解 → 乙醯輔酶 A → 檸檬酸循環 → 電子傳遞鏈；發酵</td>
+<td>哪一步需 O₂／釋出 CO₂、有氧 vs 發酵比較</td>
+<td><a href="u2-2.html">2-2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>細胞代謝與能量</td>
+<td>ATP 的三種機能、同化／異化、ATP／ADP 比值</td>
+<td>ATP 敘述辨識、代謝方向判斷</td>
+<td><a href="u2-3.html">2-3</a></td>
+</tr>
+<tr>
+<td></td>
+<td>探討活動</td>
+<td>色素層析 Rf、希爾反應 DCPIP、酵母菌發酵</td>
+<td>實驗設計與結果判讀</td>
+<td><a href="u2-4.html">2-4</a></td>
+</tr>
+</tbody>
+</table>
+<h3>單元 1 這條鏈：從物質一路推到細胞怎麼複製</h3>
+<ol>
+<li><strong>細胞是生物的基本單位</strong>（細胞學說）→</li>
+<li><strong>組成細胞的物質</strong>：水、無機鹽，以及醣類、蛋白質、脂質、核酸、維生素 →</li>
+<li><strong>酵素</strong>（蛋白質）負責催化細胞內的化學反應，所以反應速率受溫度、pH、受質濃度影響 →</li>
+<li><strong>細胞的構造</strong>：細胞膜控制物質進出，胞器各司其職（內膜系統負責分泌；粒線體、葉綠體負責能量）→</li>
+<li><strong>物質進出的方式</strong>：被動運輸（順梯度、不耗能）、主動運輸（逆梯度、耗 ATP）、胞吞胞吐（大分子）→</li>
+<li><strong>細胞分裂</strong>：有絲分裂（增生，2 個子細胞）、減數分裂（生殖，4 個、染色體減半）。</li>
+</ol>
+<h3>單元 2 這條鏈：能量從太陽一路到 ATP</h3>
+<ol>
+<li><strong>光合作用</strong>：光能 → 化學能（ATP、NADPH）→ 醣類；</li>
+<li><strong>呼吸作用</strong>：醣類的化學能 → ATP（約 40% 轉成 ATP，其餘是熱）；</li>
+<li><strong>ATP</strong> 是細胞直接使用的能量貨幣，供<strong>運輸、機械、化學</strong>三種工作；</li>
+<li><strong>ATP／ADP 比值</strong>決定細胞走同化（合成）或異化（分解）。</li>
+</ol>
+<h2 class="section " id="s3">命題趨勢：我實際讀過的五份段考怎麼出</h2>
+
+<aside class="box box-ref"><div class="box-h">參考資料</div><p>我讀完基隆中山高中 <strong>109、110、111、112、113 學年度第 1 學期第 1 次段考（高一生物）</strong> 五份題目，<strong>每一份都考</strong>下面這幾件事（這是公開試題的觀察，不是官方預測）：</p>
+<table>
+<thead>
+<tr>
+<th>一定出現的題型</th>
+<th>例子（常常連年換個數字再考）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>細胞學說與顯微鏡</strong>（多選）</td>
+<td>虎克、雷文霍克、許來登、魏修的貢獻；哪些是細胞學說的內容</td>
+</tr>
+<tr>
+<td><strong>細胞形態與功能</strong>（多選）</td>
+<td>紅血球雙凹圓盤、肌肉細胞纖維狀、木質部管狀；保衛細胞「不是」保護個體</td>
+</tr>
+<tr>
+<td><strong>泡麵成分哪些是碳水化合物</strong>（多選）</td>
+<td>麵粉、蔗糖是；棕櫚油、大豆卵磷脂是脂質；味精是胺基酸衍生物</td>
+</tr>
+<tr>
+<td><strong>細胞呼吸哪一階段需要氧氣</strong>（單選）</td>
+<td>答案固定：丙酮酸 → CO₂ ＋ H₂O（檸檬酸循環與電子傳遞鏈階段）</td>
+</tr>
+<tr>
+<td><strong>有氧呼吸 vs 發酵作用比較</strong>（單選／多選）</td>
+<td>能量多寡、場所、產物、是否需 O₂</td>
+</tr>
+<tr>
+<td><strong>有絲分裂 vs 減數分裂</strong>（單選／多選）</td>
+<td>子細胞數 2 vs 4、複製次數、聯會、染色體數</td>
+</tr>
+<tr>
+<td><strong>光反應 vs 固碳反應</strong>（單選／多選）</td>
+<td>場所、產物、能量轉換、固碳需要化學能（ATP、NADPH）</td>
+</tr>
+<tr>
+<td><strong>混合題</strong>（綜合題）</td>
+<td>看圖寫胞器名稱與功能、真核細胞呼吸示意圖（甲～丁）、光合作用示意圖（I～IV）、「核苷酸 → 基因 → DNA → 染色體 → 細胞核」由小到大排列</td>
+</tr>
+</tbody>
+</table></aside>
+<p><strong>所以段考的得分關鍵</strong>：不是艱深的計算，而是<strong>把觀念記熟、不被「差一個字」的選項抓走</strong>（例如「單層膜 vs 雙層膜」「同化 vs 異化」「基質 vs 類囊體」）。</p>
+<h2 class="section " id="s4">規則速查（點開看「為什麼」）</h2>
+<p>下面把兩個單元最核心的規則做成卡片。<strong>外面的文字是「怎麼用」，卡片裡是「為什麼」</strong>。</p>
+<h3>一、細胞構造與運輸</h3>
+<p>細胞要記的核心是：<strong>誰有膜、誰是單層／雙層、誰含 DNA</strong>。再加上物質進出的三個判斷（要不要蛋白質？要不要能量？順還是逆梯度？）。</p>
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>胞器速查（膜層數）</strong></p>
+<table>
+<thead>
+<tr>
+<th>類別</th>
+<th>胞器</th>
+<th>膜</th>
+<th>重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>無膜</td>
+<td>核糖體、中心粒</td>
+<td>無</td>
+<td>核糖體合成蛋白質；中心粒只有動物（含低等植物）</td>
+</tr>
+<tr>
+<td>單層膜</td>
+<td>內質網、高基氏體、溶體、液泡、過氧化體</td>
+<td>單層</td>
+<td>內膜系統（過氧化體不屬於）；溶體含水解酶</td>
+</tr>
+<tr>
+<td>雙層膜</td>
+<td>粒線體、葉綠體、細胞核</td>
+<td>雙層</td>
+<td>粒線體、葉綠體＝<strong>半自主胞器</strong>（有自己的 DNA 與核糖體）</td>
+</tr>
+</tbody>
+</table></aside>
+
+<details class="formula"><summary><span class="f-eq">簡單擴散（不需蛋白、順梯度）；促進性擴散（需通道／載體蛋白、順梯度）；主動運輸（需載體蛋白、逆梯度、耗 ATP）；胞吞胞吐（大分子、靠囊泡、耗能）</span><span class="f-tag">物質進出細胞四種方式</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>判斷時依序問：①分子大還是小？大分子 ⇒ 胞吞／胞吐。②要不要蛋白質？不要 ⇒ 簡單擴散。③順梯度還是逆梯度？逆 ⇒ 主動運輸。</li>
+<li>滲透是<strong>水</strong>的擴散：水往<strong>溶質總濃度較高</strong>（高張）的一側移動。動物細胞在高張溶液中皺縮、低張溶液中膨脹破裂；植物細胞在高張溶液中<strong>質離</strong>，低張溶液中因為有細胞壁而膨脹但不破。</li>
+</ul>
+<h5>為什麼</h5>
+<p>磷脂雙層的內部是疏水的，只有小的非極性分子或不帶電小分子能直接穿過；帶電離子與大分子要靠蛋白質。主動運輸要逆著梯度「爬坡」，所以必須耗能（ATP）。</p>
+<h5>常見錯誤</h5>
+<ul>
+<li>把「胞吞」當成主動運輸（它是大分子運輸，靠膜融合）。</li>
+<li>滲透方向看溶質種類，其實只看<strong>總濃度</strong>。</li>
+</ul></div></details>
+
+<details class="formula"><summary><span class="f-eq">蛋白質分泌路徑：粗糙內質網上的核糖體 → 粗糙內質網 → 囊泡 → 高基氏體 → 囊泡 → 細胞膜（胞吐）；全程**沒有穿越**磷脂雙層</span><span class="f-tag">分泌蛋白的旅程</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>要求「穿越幾層磷脂」：分泌蛋白＝0 層；氣體 O₂ 簡單擴散進出一次細胞膜＝2 層磷脂分子（1 次膜）。</li>
+<li>要求「哪些構造在大量分泌時發達」：核糖體、粗糙內質網、高基氏體，加上提供 ATP 的<strong>粒線體</strong>。</li>
+</ul>
+<h5>為什麼</h5>
+<p>囊泡由膜包住內容物，運送時與目標膜融合再釋出，蛋白質不需要直接穿膜，所以不會「穿過」磷脂雙層。</p></div></details>
+<h3>二、酵素與細胞分裂</h3>
+<details class="formula"><summary><span class="f-eq">酵素：專一性（鎖鑰）、周轉性（不消耗、可重複使用）、觸媒性（降低活化能）；影響因素：溫度（高溫變性不可逆、低溫只是活性低）、pH、受質濃度（飽和後平台）、酵素量（決定最大速率）</span><span class="f-tag">酵素</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>溫度曲線像山丘；pH 曲線也是山丘，且每種酵素最適 pH 不同（胃蛋白酶酸性、胰蛋白酶弱鹼）。</li>
+<li>受質濃度曲線：未飽和時成正比，飽和後水平；要提高最大速率只能<strong>增加酵素量</strong>。</li>
+</ul>
+<h5>為什麼</h5>
+<p>酵素活性部位的立體結構要和受質吻合；高溫使蛋白質變性，結構不可逆被破壞。</p>
+<h5>常見錯誤</h5>
+<ul>
+<li>以為低溫會「殺死」酵素（其實可恢復）。</li>
+<li>以為酵素會改變反應的方向或平衡（它只加速到達平衡）。</li>
+</ul></div></details>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>有絲分裂 vs 減數分裂</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>有絲分裂</th>
+<th>減數分裂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目的</td>
+<td>體細胞增生、個體生長</td>
+<td>產生配子（生殖細胞）</td>
+</tr>
+<tr>
+<td>染色體複製</td>
+<td>1 次</td>
+<td>1 次</td>
+</tr>
+<tr>
+<td>分裂次數</td>
+<td>1 次</td>
+<td><strong>2 次</strong></td>
+</tr>
+<tr>
+<td>子細胞數</td>
+<td><strong>2 個</strong></td>
+<td><strong>4 個</strong>（卵只有 1 個＋極體）</td>
+</tr>
+<tr>
+<td>子細胞染色體數</td>
+<td>與母細胞相同</td>
+<td>為母細胞的<strong>一半</strong></td>
+</tr>
+<tr>
+<td>聯會、互換</td>
+<td><strong>無</strong></td>
+<td><strong>有</strong>（減 I 前期）</td>
+</tr>
+<tr>
+<td>姊妹染色分體分離</td>
+<td>後期</td>
+<td>減 II 後期</td>
+</tr>
+<tr>
+<td>同源染色體分離</td>
+<td><strong>無</strong></td>
+<td>減 I 後期</td>
+</tr>
+</tbody>
+</table></aside>
+<h3>三、光合作用與呼吸作用</h3>
+<details class="formula"><summary><span class="f-eq">光合作用：光反應（類囊體膜）：H₂O → O₂、ATP、NADPH；固碳反應（卡爾文循環，基質）：CO₂ ＋ ATP ＋ NADPH → 醣類；呼吸作用：糖解（細胞質液）→ 乙醯輔酶 A → 檸檬酸循環（基質）→ 電子傳遞鏈（內膜，需 O₂）；一分子葡萄糖約 30～32 ATP</span><span class="f-tag">光合與呼吸</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li><strong>場所</strong>：類囊體＝光反應、基質＝固碳；細胞質液＝糖解、粒線體基質＝檸檬酸循環、內膜＝電子傳遞鏈。</li>
+<li><strong>O₂ 在哪裡</strong>：光反應<strong>產生</strong>（來自水）；呼吸電子傳遞鏈<strong>消耗</strong>（最終電子接受者）。</li>
+<li><strong>CO₂ 在哪裡</strong>：固碳反應<strong>消耗</strong>；乙醯輔酶 A 形成與檸檬酸循環<strong>釋出</strong>。</li>
+</ul>
+<h5>為什麼</h5>
+<p>光反應把光能存成 ATP、NADPH；固碳反應用它們把 CO₂ 還原成醣，所以固碳反應「需要化學能」，不直接需要光。呼吸作用相反，把醣的化學能搬到 ATP。</p>
+<h5>常見錯誤</h5>
+<ul>
+<li>O₂ 來自 CO₂（其實來自水）。</li>
+<li>固碳反應「一定要在黑暗中進行」（不對，只是不直接用光）。</li>
+<li>發酵在粒線體進行（發酵全程在細胞質液）。</li>
+</ul></div></details>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>C₃、C₄、CAM</strong>：C₃＝只有卡爾文循環，氣孔白天開；C₄＝<strong>空間</strong>隔離（葉肉先固定成四碳酸，維管束鞘做卡爾文循環）；CAM＝<strong>時間</strong>隔離（夜間開氣孔固定 CO₂ 成四碳酸儲存液泡，白天釋出進卡爾文循環）。最終都要經過卡爾文循環（C₃ 途徑）。</p></aside>
+
+<h2 class="section " id="s5">迷思釐清：十六件最容易被陷阱題抓走的事</h2>
+
+<aside class="box box-warn"><div class="box-h">迷思</div><p>左邊是錯的想法（❌），右邊是正確版本（✅）。最後一行打★的，是這兩個單元最經典的陷阱。</p></aside>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>❌ 常見想法</th>
+<th>✅ 正確觀念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>虎克觀察到活細胞</td>
+<td>虎克看的是<strong>死</strong>的軟木塞；<strong>雷文霍克</strong>才是第一位看到活細胞</td>
+</tr>
+<tr>
+<td>2</td>
+<td>細胞學說包含「DNA 在細胞核內」</td>
+<td>細胞學說只有三點：由細胞組成、細胞是基本單位、細胞來自細胞</td>
+</tr>
+<tr>
+<td>3</td>
+<td>保衛細胞的功能是保護個體</td>
+<td>保衛細胞<strong>控制氣孔開閉</strong>（調節氣體與水分）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>脂質（三酸甘油酯）是細胞膜主要成分</td>
+<td>膜的主要成分是<strong>磷脂質</strong>；中性脂用來儲能</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1 克醣類提供 9 大卡</td>
+<td>醣類、蛋白質 4 大卡，脂質 9 大卡</td>
+</tr>
+<tr>
+<td>6</td>
+<td>高基氏體負責合成脂質與蛋白質</td>
+<td>它負責蛋白質、脂質的<strong>修飾、分類、運輸</strong> ★</td>
+</tr>
+<tr>
+<td>7</td>
+<td>核糖體只附著在內質網上</td>
+<td>核糖體也可游離在細胞質，粒線體、葉綠體內也有</td>
+</tr>
+<tr>
+<td>8</td>
+<td>葉綠體、粒線體的內膜都折疊</td>
+<td>粒線體內膜折成嵴；葉綠體內膜<strong>不折疊</strong>（類囊體另成系統）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>動物細胞沒有液泡、植物細胞才有</td>
+<td>動物也有小液泡；植物成熟細胞有大的中央液泡</td>
+</tr>
+<tr>
+<td>10</td>
+<td>藍綠菌有葉綠體、細菌有細胞核</td>
+<td>藍綠菌是原核生物，<strong>沒有葉綠體</strong>；原核生物沒有細胞核</td>
+</tr>
+<tr>
+<td>11</td>
+<td>酵素在低溫下會被破壞</td>
+<td>低溫只是活性低，<strong>高溫</strong>才使酵素變性 ★</td>
+</tr>
+<tr>
+<td>12</td>
+<td>減數分裂 II 分開的是同源染色體</td>
+<td>減 I 分開同源染色體；減 II 分開<strong>姊妹染色分體</strong> ★</td>
+</tr>
+<tr>
+<td>13</td>
+<td>光合作用的 O₂ 來自 CO₂</td>
+<td>O₂ 來自<strong>水</strong>的裂解（PS II）</td>
+</tr>
+<tr>
+<td>14</td>
+<td>固碳反應不需要光，所以只能在黑暗中進行</td>
+<td>不直接用光，但需要光反應的 ATP、NADPH ★</td>
+</tr>
+<tr>
+<td>15</td>
+<td>發酵作用在粒線體進行，產生很多 ATP</td>
+<td>發酵在<strong>細胞質液</strong>，每分子葡萄糖只產 <strong>2 ATP</strong></td>
+</tr>
+<tr>
+<td>16</td>
+<td>ATP 是核酸</td>
+<td>ATP＝腺苷三磷酸，是一種<strong>核苷酸</strong>（五碳醣是核糖）；含 <strong>2 個</strong>高能磷酸鍵</td>
+</tr>
+</tbody>
+</table>
+<h2 class="section " id="s6">考前猜題熱區（主觀預測，僅供排優先順序）</h2>
+
+<aside class="box box-warn"><div class="box-h">注意</div><p>這是我依據<strong>基隆中山高中五份第一次段考的結構</strong>，以及<strong>講義的題量分布</strong>所做的主觀判斷，<strong>不是官方預測</strong>。你們學校老師平常愛考什麼，才是最重要的線索，請以老師為準。</p></aside>
+<table>
+<thead>
+<tr>
+<th>優先度</th>
+<th>主題</th>
+<th>預測理由</th>
+<th>對應題目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★★★</td>
+<td>細胞學說、科學家貢獻、細胞形態功能</td>
+<td>五份段考每份必考，且常是多選</td>
+<td>復1 難題 1、5</td>
+</tr>
+<tr>
+<td>★★★</td>
+<td>有氧呼吸的步驟（哪一步需 O₂、釋出 CO₂）</td>
+<td>五份都有「丙酮酸 → CO₂＋H₂O」那題</td>
+<td>復3 難題 7、8</td>
+</tr>
+<tr>
+<td>★★★</td>
+<td>有絲分裂 vs 減數分裂、染色體套數</td>
+<td>每份必考，多以表格比較出現</td>
+<td>復2 難題 4、5、6</td>
+</tr>
+<tr>
+<td>★★★</td>
+<td>光反應 vs 固碳反應、場所與產物</td>
+<td>單選、多選、混合題都會出現</td>
+<td>復3 難題 1、2、3</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>胞器構造與功能、蛋白質分泌路徑</td>
+<td>混合題「看圖寫胞器」必考</td>
+<td>復1 難題 6、7、8</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>ATP 敘述、ATP／ADP 比值</td>
+<td>單選「何者錯誤」＋多選</td>
+<td>復3 難題 10、11</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>酵素曲線判讀</td>
+<td>圖形題常出</td>
+<td>復2 難題 1、2、3</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>細胞膜與物質運輸</td>
+<td>圖形辨認、方式判斷</td>
+<td>復1 難題 9、10</td>
+</tr>
+<tr>
+<td>★</td>
+<td>色素層析、希爾反應、酵母菌發酵實驗</td>
+<td>看老師是否強調實驗</td>
+<td>復3 難題 12</td>
+</tr>
+</tbody>
+</table></div><div class="pager"><a href="u2-5.html">← 2-5 單元 2 練習題：滿貫強試出擊＋歷屆考題</a><a href="u復1.html">復1 細胞學難題（上）：學說、物質、胞器、膜與運輸 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

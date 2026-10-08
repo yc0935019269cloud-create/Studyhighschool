@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復2 化學鍵・分子形狀・分子間力難題｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a class="on" href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">形狀與混成：從價層電子對數開始</a></li><li><a href="#s3">σ 鍵與 π 鍵、分子極性</a></li><li><a href="#s4">分子間作用力：沸點排序與氫鍵</a></li><li><a href="#s5">晶體類型與鍵的種類</a></li></ul></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 物質構造＋反應速率</div>
+<h1><span class="uid">復2</span>化學鍵・分子形狀・分子間力難題</h1>
+<div class="tools"><span class="cnt">本單元 24 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁 12 題，順序是<strong>畫結構、寫混成、判形狀（1～3）→ σ／π 與極性（4～6）→ 分子間作用力（7～9）→ 晶體與鍵種（10～12）</strong>。化學鍵是選修化學 II 配分最重的一章（5 年平均 9.4 分），請多花時間。</p>
+<p>每題 ★ 是難度；請<strong>先自己寫，再點開詳解</strong>。標示「改編」者取自公開考卷題型，數字已重寫。解題一律用價層電子對（AXₙEₘ）表示法。</p></aside>
+
+<h2 class="section " id="s2">形狀與混成：從價層電子對數開始</h2>
+
+<article class="q q-pr" id="q465">
+<header class="qh"><span class="qn">難題 1</span><span class="qtag">價鍵理論・畫結構並寫出中心原子混成・改編（台南一中 114-1 題型）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>流程</strong>：①數價電子 ②畫骨架、補孤對電子 ③數<strong>中心原子</strong>的價層電子對數（鍵結對＋孤對；雙鍵、參鍵只算「一個方向」）④查表。</li>
+<li><strong>對照表</strong>：2 對＝sp、直線；3 對＝sp²、平面三角（有 1 對孤對則彎曲）；4 對＝sp³、四面體（1 對孤對＝三角錐、2 對＝彎曲）；5 對＝sp³d；6 對＝sp³d²。</li>
+<li><strong>孤對位置</strong>：5 對時孤對先占赤道面（ClF₃ 是 T 形、SF₄ 是蹺蹺板形）；6 對時第二對孤對在第一對的正對面（XeF₄ 是平面四方）。</li>
+<li><strong>極性</strong>：形狀對稱，而且周圍原子相同 ⇒ 偶極抵消 ⇒ 非極性；形狀不對稱 ⇒ 通常極性。</li>
+</ul></div></details><div class="qtext"><p>畫出下列分子或離子的路易斯結構，指出<strong>中心原子</strong>的價層電子對數、混成方式、分子（離子）形狀與是否有極性（離子則回答形狀是否對稱）：<br />
+(1) CS₂　(2) ClF₃　(3) S₂O₃²⁻（S 為中心，另有一個 S 與三個 O 接在中心 S 上）　(4) XeF₄　(5) NO₃⁻</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) sp，直線，非極性　(2) sp³d，T 形，極性　(3) sp³，四面體（以中心 S 為準），不完全對稱　(4) sp³d²，平面四方，非極性　(5) sp²，平面三角，對稱（有 3 個共振結構）</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：流程固定：①數價電子 ②畫骨架與孤對電子 ③數<strong>中心原子周圍的電子對（鍵結對＋孤對）</strong> ④查表得混成與形狀。</p>
+<table>
+<thead>
+<tr>
+<th>粒子</th>
+<th>中心原子價電子</th>
+<th>鍵結／孤對</th>
+<th>價層電子對數</th>
+<th>混成</th>
+<th>形狀</th>
+<th>極性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CS₂</td>
+<td>C：4</td>
+<td>2 個 C＝S／0</td>
+<td>2</td>
+<td><strong>sp</strong></td>
+<td>直線</td>
+<td>非極性</td>
+</tr>
+<tr>
+<td>ClF₃</td>
+<td>Cl：7</td>
+<td>3 個 Cl－F／2 對孤對</td>
+<td>5（AX₃E₂）</td>
+<td><strong>sp³d</strong></td>
+<td>T 形</td>
+<td>極性</td>
+</tr>
+<tr>
+<td>S₂O₃²⁻</td>
+<td>中心 S：6</td>
+<td>4 個鍵（3 個 O、1 個 S）／0</td>
+<td>4（AX₄）</td>
+<td><strong>sp³</strong></td>
+<td>四面體</td>
+<td>不完全對稱（四個接點不同）</td>
+</tr>
+<tr>
+<td>XeF₄</td>
+<td>Xe：8</td>
+<td>4 個 Xe－F／2 對孤對</td>
+<td>6（AX₄E₂）</td>
+<td><strong>sp³d²</strong></td>
+<td>平面四方</td>
+<td>非極性</td>
+</tr>
+<tr>
+<td>NO₃⁻</td>
+<td>N：5</td>
+<td>3 個 N－O／0</td>
+<td>3（AX₃）</td>
+<td><strong>sp²</strong></td>
+<td>平面三角</td>
+<td>對稱（共振）</td>
+</tr>
+</tbody>
+</table>
+<p>各結構重點：<br />
+- <strong>CS₂</strong>：S＝C＝S，兩個雙鍵，C 用 sp 混成軌域各與一個 S 形成 σ 鍵，兩個未混成的 p 軌域各形成一個 π 鍵。直線形、偶極抵消。<br />
+- <strong>ClF₃</strong>：Cl 有 7 個價電子，3 個用於鍵結，剩 4 個＝2 對孤對。5 個電子對呈三角雙錐，<strong>2 對孤對占赤道面</strong>（斥力最小），所以 3 個 F 排成 <strong>T 形</strong>（F－Cl－F 約 87.5°）。<br />
+- <strong>S₂O₃²⁻</strong>：和 SO₄²⁻ 一樣是四面體，只是把一個 O 換成 S。要小心：中心 S 周圍 4 個接點不全相同（3 個 O、1 個 S），因此並非完全對稱。<br />
+- <strong>XeF₄</strong>：6 個電子對呈八面體，2 對孤對分居<strong>上下兩端</strong>（互相最遠），4 個 F 在赤道面 ⇒ 平面四方，偶極抵消 ⇒ 非極性。<br />
+- <strong>NO₃⁻</strong>：N 用 sp² 軌域形成 3 個 σ 鍵，未混成的 p 軌域與三個 O 形成「離域」的 π 鍵；三個 N－O 完全等價（共振），鍵級＝4/3。</p>
+<p><strong>易錯</strong>：把 ClF₃ 的孤對電子放在上下軸向（會變成 90° 排斥太多）；把 XeF₄ 誤判成四面體。</p><div class="qsum"><b class="qsum-h">小結</b><p>一題串四問的標準流程：<strong>電子對數 → 混成 → 形狀 → 極性</strong>，每一步都從上一步查表；孤對電子是「不對稱」的主因（XeF₂、XeF₄ 是孤對對稱的特例）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q466">
+<header class="qh"><span class="qn">類題｜難題 1</span><span class="qtag">簡單版・電子對數、混成、形狀、極性・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>寫出下列分子的中心原子價層電子對數、混成方式、分子形狀與是否有極性：<br />
+(1) CO₂　(2) SO₂　(3) NH₃　(4) SF₆</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2 對，sp，直線，非極性　(2) 3 對，sp²，彎曲，極性　(3) 4 對，sp³，三角錐，極性　(4) 6 對，sp³d²，八面體，非極性</div>
+<div class="exp"><b class="exp-h">解</b><table>
+<thead>
+<tr>
+<th>分子</th>
+<th>中心價電子</th>
+<th>鍵結／孤對</th>
+<th>價層電子對數</th>
+<th>混成</th>
+<th>形狀</th>
+<th>極性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CO₂</td>
+<td>C：4</td>
+<td>2 個 C＝O／0</td>
+<td>2</td>
+<td><strong>sp</strong></td>
+<td>直線</td>
+<td>非極性（偶極抵消）</td>
+</tr>
+<tr>
+<td>SO₂</td>
+<td>S：6</td>
+<td>2 個 S＝O／1</td>
+<td>3（AX₂E）</td>
+<td><strong>sp²</strong></td>
+<td>彎曲</td>
+<td>極性</td>
+</tr>
+<tr>
+<td>NH₃</td>
+<td>N：5</td>
+<td>3 個 N－H／1</td>
+<td>4（AX₃E）</td>
+<td><strong>sp³</strong></td>
+<td>三角錐</td>
+<td>極性</td>
+</tr>
+<tr>
+<td>SF₆</td>
+<td>S：6</td>
+<td>6 個 S－F／0</td>
+<td>6（AX₆）</td>
+<td><strong>sp³d²</strong></td>
+<td>八面體</td>
+<td>非極性（完全對稱）</td>
+</tr>
+</tbody>
+</table>
+<p>說明：SO₂ 的中心 S 有 2 個鍵結方向＋1 對孤對 ＝ 3 對，電子對呈平面三角，但只看原子的位置是彎曲形；孤對電子讓偶極無法抵消。SF₆ 六個 S－F 兩兩相反，偶極完全抵消。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q467">
+<header class="qh"><span class="qn">難題 2</span><span class="qtag">VSEPR・形狀判斷與孤對電子位置・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>算電子對數</strong>：中心原子價電子數（陰離子加電荷數、陽離子減電荷數）→ 扣掉成鍵用的 → 剩下的兩個一組就是孤對。</li>
+<li><strong>型式</strong>：AXₙEₘ（n＝鍵結原子數，m＝孤對數）；電子對總數＝n＋m，查表得形狀與混成。</li>
+<li><strong>孤對位置</strong>：三角雙錐（5 對）孤對占赤道：AX₄E 蹺蹺板、AX₃E₂ T 形、AX₂E₃ 直線；八面體（6 對）：AX₅E 四角錐、AX₄E₂ 平面四方。</li>
+<li><strong>檢驗</strong>：電子數相同的粒子形狀相同（ClO₃⁻、SO₃²⁻、PCl₃、NH₃ 都是三角錐）。</li>
+</ul></div></details><div class="qtext"><p>填寫下表：SF₄、I₃⁻、BrF₅、SO₃、ClO₃⁻、O₃、ICl₄⁻ 的價層電子對數、孤對電子數、型式（AXₙEₘ）、形狀、中心原子混成，並判斷形狀是否對稱。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>見詳解表格</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：形狀表要能「從電子對數反推」。最容易錯的是 I₃⁻（3 對孤對在赤道上）與 ICl₄⁻、BrF₅。</p>
+<table>
+<thead>
+<tr>
+<th>粒子</th>
+<th>中心價電子（含電荷）</th>
+<th>鍵結對（σ）</th>
+<th>孤對</th>
+<th>價層對數</th>
+<th>型式</th>
+<th>混成</th>
+<th>形狀</th>
+<th>對稱？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SF₄</td>
+<td>S：6</td>
+<td>4</td>
+<td>1</td>
+<td>5</td>
+<td>AX₄E</td>
+<td>sp³d</td>
+<td>蹺蹺板形</td>
+<td>否（極性）</td>
+</tr>
+<tr>
+<td>I₃⁻</td>
+<td>中心 I：7＋1＝8</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>AX₂E₃</td>
+<td>sp³d</td>
+<td>直線</td>
+<td>是</td>
+</tr>
+<tr>
+<td>BrF₅</td>
+<td>Br：7</td>
+<td>5</td>
+<td>1</td>
+<td>6</td>
+<td>AX₅E</td>
+<td>sp³d²</td>
+<td>四角錐</td>
+<td>否（極性）</td>
+</tr>
+<tr>
+<td>SO₃</td>
+<td>S：6</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>AX₃</td>
+<td>sp²</td>
+<td>平面三角</td>
+<td>是（非極性）</td>
+</tr>
+<tr>
+<td>ClO₃⁻</td>
+<td>Cl：7＋1＝8</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>AX₃E</td>
+<td>sp³</td>
+<td>三角錐</td>
+<td>否</td>
+</tr>
+<tr>
+<td>O₃</td>
+<td>中心 O：6</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>AX₂E</td>
+<td>sp²</td>
+<td>彎曲（約 117°）</td>
+<td>否（極性）</td>
+</tr>
+<tr>
+<td>ICl₄⁻</td>
+<td>I：7＋1＝8</td>
+<td>4</td>
+<td>2</td>
+<td>6</td>
+<td>AX₄E₂</td>
+<td>sp³d²</td>
+<td>平面四方</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p><strong>孤對電子位置規則</strong>：<br />
+- 三角雙錐（5 對）：孤對先占<strong>赤道</strong>位置，所以 AX₄E＝蹺蹺板、AX₃E₂＝T 形、AX₂E₃＝直線。<br />
+- 八面體（6 對）：第二對孤對放在<strong>與第一對相反</strong>（180°）的位置，所以 AX₅E＝四角錐、AX₄E₂＝平面四方。</p>
+<p><strong>檢驗技巧</strong>：電子數相同的粒子形狀相同——ClO₃⁻（26 e⁻）與 SO₃²⁻、PCl₃、NH₃ 都是三角錐；I₃⁻ 與 XeF₂ 都是直線。</p><div class="qsum"><b class="qsum-h">小結</b><p>「從電子對數反推形狀」：5 對看孤對有幾對（1／2／3 ⇒ 蹺蹺板／T／直線），6 對看孤對有幾對（1／2 ⇒ 四角錐／平面四方）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q468">
+<header class="qh"><span class="qn">類題｜難題 2</span><span class="qtag">簡單版・形狀表・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>填寫下表：PCl₃、XeF₂、ClO₄⁻ 的價層電子對數、孤對電子數、型式（AXₙEₘ）、形狀、中心原子混成，並判斷形狀是否對稱。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>PCl₃：4 對、1 對孤對、AX₃E、三角錐、sp³、不對稱；XeF₂：5 對、3 對孤對、AX₂E₃、直線、sp³d、對稱；ClO₄⁻：4 對、0、AX₄、四面體、sp³、對稱</div>
+<div class="exp"><b class="exp-h">解</b><table>
+<thead>
+<tr>
+<th>粒子</th>
+<th>中心價電子</th>
+<th>鍵結對</th>
+<th>孤對</th>
+<th>價層對數</th>
+<th>型式</th>
+<th>混成</th>
+<th>形狀</th>
+<th>對稱？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PCl₃</td>
+<td>P：5</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>AX₃E</td>
+<td>sp³</td>
+<td>三角錐</td>
+<td>否（極性）</td>
+</tr>
+<tr>
+<td>XeF₂</td>
+<td>Xe：8</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>AX₂E₃</td>
+<td>sp³d</td>
+<td>直線</td>
+<td>是（非極性）</td>
+</tr>
+<tr>
+<td>ClO₄⁻</td>
+<td>Cl：7＋1＝8</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>AX₄</td>
+<td>sp³</td>
+<td>四面體</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>PCl₃</strong>：P 有 5 個價電子，3 個拿去和 Cl 成鍵，剩 2 個＝1 對孤對 ⇒ 4 對 ⇒ 三角錐（和 NH₃ 同型）。</li>
+<li><strong>XeF₂</strong>：Xe 有 8 個價電子，2 個成鍵，剩 6 個＝3 對孤對 ⇒ 5 對；3 對孤對全放赤道面 ⇒ 兩個 F 剛好在上下兩端 ⇒ <strong>直線</strong>。</li>
+<li><strong>ClO₄⁻</strong>：Cl 的價電子 7＋1（電荷）＝8，四個 σ 鍵（表達成 4 個鍵結方向）、沒有孤對 ⇒ 4 對 ⇒ 正四面體（和 SO₄²⁻ 同型）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q469">
+<header class="qh"><span class="qn">難題 3</span><span class="qtag">VSEPR・鍵角排序與例外・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>理想角度</strong>：2 對＝180°、3 對＝120°、4 對＝109.5°。</li>
+<li><strong>孤對的影響</strong>：孤對電子斥力＞鍵結電子對 ⇒ 把鍵角「壓小」：CH₄ 109.5° ＞ NH₃ 107° ＞ H₂O 104.5°。</li>
+<li><strong>單獨電子</strong>：斥力比孤對小，所以 NO₂（約 134°）比 120° 大；NO₂⁻（有完整孤對）約 115°。</li>
+<li><strong>第三週期以下</strong>：中心原子大、電負度低，氫化物鍵角趨近 90°（PH₃ 93.5°、H₂S 92°）。</li>
+</ul></div></details><div class="qtext"><p>(1) 將 BeCl₂、BF₃、CH₄、NH₃、H₂O 的鍵角由大到小排列，並說明理由。<br />
+(2) 比較 NO₂⁺、NO₂、NO₂⁻ 的鍵角（O－N－O）大小。<br />
+(3) NF₃ 的鍵角（約 102°）為什麼比 NH₃（約 107°）小？PH₃ 的鍵角（約 93.5°）為什麼比 NH₃ 小這麼多？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) BeCl₂（180°）＞ BF₃（120°）＞ CH₄（109.5°）＞ NH₃（107°）＞ H₂O（104.5°）　(2) NO₂⁺（180°）＞ NO₂（約 134°）＞ NO₂⁻（約 115°）　(3) 見詳解</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：鍵角由「價層電子對數 → 理想角度」和「孤對電子的斥力」兩個因素決定。</p>
+<p>(1) 理想角度：2 對＝180°、3 對＝120°、4 對＝109.5°。同樣 4 對：孤對電子斥力大於鍵結電子對，把鍵角「壓小」：CH₄（0 孤對）109.5°＞ NH₃（1 孤對）107° ＞ H₂O（2 孤對）104.5°。<br />
+所以 <strong>BeCl₂ ＞ BF₃ ＞ CH₄ ＞ NH₃ ＞ H₂O</strong>。</p>
+<p>(2) 三者中心 N 都有 2 個 N－O 鍵，差別在剩下的電子：<br />
+- NO₂⁺：沒有孤對電子，2 對價層電子對 ⇒ <strong>180°</strong>（直線，sp）<br />
+- NO₂：多一個「單獨電子」，它的斥力比一對孤對小，把鍵角壓到 <strong>約 134°</strong>（比 120° 大）<br />
+- NO₂⁻：多一對完整孤對電子，斥力最大 ⇒ <strong>約 115°</strong>（比 120° 小）<br />
+排序：<strong>NO₂⁺ ＞ NO₂ ＞ NO₂⁻</strong>。</p>
+<p>(3)<br />
+- <strong>NF₃ ＜ NH₃</strong>：F 電負度很大，把鍵結電子拉向 F 端，離中心 N 較遠，鍵結電子對之間的斥力變小；孤對電子相對來說占優勢，把鍵角壓得更小。<br />
+- <strong>PH₃ ≈ 93.5°</strong>：P 比 N 大，且電負度與 H 相近，鍵結電子離中心遠、鍵結電子對間的斥力小；而且 P 的 3s 與 3p 能量差大，不太混成，近似用純 p 軌域成鍵（p 軌域互相垂直 ⇒ 90°）。H₂S（92°）與 H₂O（104.5°）也是同樣的道理。<br />
+<strong>規則</strong>：第三週期以下的中心原子，形成氫化物時鍵角通常趨近 90°。</p><div class="qsum"><b class="qsum-h">小結</b><p>鍵角 ＝ 理想角度（看電子對數）− 孤對的壓縮（孤對愈多愈小）；第三週期以下的氫化物約 90°。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q470">
+<header class="qh"><span class="qn">類題｜難題 3</span><span class="qtag">簡單版・鍵角排序・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>(1) 將 CO₂、BF₃、CH₄、NH₃ 的鍵角由大到小排列。<br />
+(2) H₂O 與 H₂S 的鍵角哪一個較大？說明原因。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) CO₂（180°）＞ BF₃（120°）＞ CH₄（109.5°）＞ NH₃（107°）　(2) H₂O（104.5°）＞ H₂S（約 92°）</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 先看電子對數決定理想角度：CO₂ 2 對（180°）、BF₃ 3 對（120°）、CH₄ 與 NH₃ 都是 4 對（109.5°）。CH₄ 沒有孤對，NH₃ 有 1 對孤對把鍵角壓小，所以 <strong>CO₂ ＞ BF₃ ＞ CH₄ ＞ NH₃</strong>。</p>
+<p>(2) 兩者都是 AX₂E₂ 的彎曲形，但 <strong>H₂O 較大</strong>（104.5° ＞ 92°）。S 比 O 大、電負度又低，鍵結電子離中心 S 較遠，鍵結電子對之間的斥力小；而且 S 的 3s、3p 能量差較大，較少混成，近似用互相垂直的 p 軌域成鍵，所以角度趨近 90°。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">σ 鍵與 π 鍵、分子極性</h2>
+
+<article class="q q-pr" id="q471">
+<header class="qh"><span class="qn">難題 4</span><span class="qtag">價鍵理論・σ／π 鍵計數與混成・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>σ／π 計數</strong>：單鍵＝1σ；雙鍵＝1σ＋1π；參鍵＝1σ＋2π。</li>
+<li><strong>混成判斷</strong>：混成軌域數＝該原子的 σ 鍵數＋孤對數；2 個＝sp、3 個＝sp²、4 個＝sp³。</li>
+<li><strong>提醒</strong>：π 鍵由未混成的 p 軌域「肩並肩」重疊；苯的 π 電子是環狀離域，算 3 個 π、12 個 σ。</li>
+</ul></div></details><div class="qtext"><p>回答下列問題：<br />
+(1) 丙烯腈（CH₂＝CH－C≡N）有幾個 σ 鍵、幾個 π 鍵？三個 C 與 N 的混成各是什麼？<br />
+(2) 丙二烯（CH₂＝C＝CH₂）有幾個 σ 鍵、幾個 π 鍵？中央 C 的混成為何？兩個 CH₂ 是否在同一平面？<br />
+(3) 乙酸（CH₃COOH）、苯（C₆H₆）各有幾個 σ 鍵與 π 鍵？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 6σ、3π；C 依序 sp²、sp²、sp，N sp　(2) 6σ、2π；中央 C sp；兩個 CH₂ 平面互相垂直　(3) 乙酸 7σ＋1π；苯 12σ＋3π（離域）</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：單鍵＝1σ；雙鍵＝1σ＋1π；參鍵＝1σ＋2π。混成軌域數＝σ 鍵數＋孤對數。</p>
+<p>(1) 丙烯腈：<br />
+- C－H：3 個 σ（CH₂ 有 2 個、CH 有 1 個）<br />
+- C＝C：1σ＋1π；C－C：1σ；C≡N：1σ＋2π<br />
+- 合計 <strong>σ＝3＋1＋1＋1＝6，π＝1＋2＝3</strong>。<br />
+混成（看每個原子的 σ 鍵＋孤對數）：CH₂ 的 C：3 個 σ ⇒ sp²；CH 的 C：3 個 σ ⇒ sp²；C≡N 的 C：2 個 σ ⇒ <strong>sp</strong>；N：1 個 σ＋1 對孤對＝2 ⇒ <strong>sp</strong>。</p>
+<p>(2) 丙二烯：4 個 C－H＋2 個 C＝C 的 σ ＝ <strong>6σ</strong>，2 個 π。中央 C 有 2 個 σ ⇒ <strong>sp</strong>，直線排列 C＝C＝C。中央 C 的兩個未混成的 p 軌域<strong>互相垂直</strong>，分別與兩側 C 形成 π 鍵；為了讓兩個 π 鍵都能重疊，兩端的 CH₂ 平面必須<strong>互相垂直</strong>。所以分子<strong>不是平面分子</strong>。</p>
+<p>(3) 乙酸：3 個 C－H＋1 個 C－C＋C＝O（1σ）＋C－O＋O－H ＝ <strong>7σ</strong>，π 只有 C＝O 中的 <strong>1 個</strong>。<br />
+苯：6 個 C－H＋6 個 C－C σ ＝ <strong>12σ</strong>，3 個 π（電子離域，實際上是環狀共用的 π 電子雲）。</p><div class="qsum"><b class="qsum-h">小結</b><p>先畫完整結構式（包含所有 C－H），逐個鍵數 σ 與 π；混成看「σ 數＋孤對數」，與有沒有 π 無關。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q472">
+<header class="qh"><span class="qn">類題｜難題 4</span><span class="qtag">簡單版・σ／π 與混成・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>(1) 乙烯（CH₂＝CH₂）有幾個 σ 鍵、幾個 π 鍵？C 的混成為何？<br />
+(2) 乙炔（HC≡CH）有幾個 σ 鍵、幾個 π 鍵？C 的混成為何？<br />
+(3) 乙醛（CH₃CHO）有幾個 σ 鍵、幾個 π 鍵？兩個 C 的混成各是什麼？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 5σ、1π；sp²　(2) 3σ、2π；sp　(3) 6σ、1π；CH₃ 的 C 為 sp³，CHO 的 C 為 sp²</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 4 個 C－H ＋ 1 個 C＝C 的 σ ＝ <strong>5σ</strong>；C＝C 的另一個是 π ⇒ <strong>1π</strong>。每個 C 有 3 個 σ ⇒ <strong>sp²</strong>。</p>
+<p>(2) 2 個 C－H ＋ C≡C 的 1 個 σ ＝ <strong>3σ</strong>；C≡C 另外兩個是 π ⇒ <strong>2π</strong>。每個 C 有 2 個 σ ⇒ <strong>sp</strong>。</p>
+<p>(3) CH₃CHO 的結構：H₃C－CH＝O。C－H：3＋1＝4 個；C－C：1 個；C＝O 的 σ：1 個 ⇒ <strong>6σ</strong>；C＝O 的 π：<strong>1π</strong>。CH₃ 的 C 有 4 個 σ ⇒ <strong>sp³</strong>；CHO 的 C 有 3 個 σ（C－H、C－C、C＝O）⇒ <strong>sp²</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q473">
+<header class="qh"><span class="qn">難題 5</span><span class="qtag">鍵極性與分子極性・多選・改編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>判斷步驟</strong>：①先畫形狀 ②各個鍵的偶極是向量，加起來等於 0 嗎？等於 0 ⇒ 非極性；不等於 0 ⇒ 極性。</li>
+<li><strong>非極性</strong>：對稱形狀（直線、平面三角、四面體、三角雙錐、八面體、平面四方）且周圍原子相同：CO₂、BF₃、CCl₄、PCl₅、SF₆、XeF₄。</li>
+<li><strong>極性</strong>：有孤對電子造成不對稱（H₂O、NH₃、SO₂、SF₄、ClF₃），或周圍原子不同（CHCl₃）。</li>
+<li><strong>異構物</strong>：順式雙鍵的偶極同側 ⇒ 極性；反式抵消 ⇒ 非極性。</li>
+</ul></div></details><div class="qtext"><p>下列哪些分子是<strong>極性分子</strong>？（多選）<br />
+(A) SF₄　(B) XeF₄　(C) ClF₃　(D) PCl₅　(E) O₃　(F) 反-1,2-二氯乙烯（ClHC＝CHCl，兩個 Cl 在雙鍵兩側）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：不是看有沒有極性鍵，而是看<strong>偶極矩的向量和</strong>會不會為零，所以要先判形狀。</p>
+<ul>
+<li>(A) ○ SF₄ 蹺蹺板形（有 1 對孤對電子），偶極不抵消 ⇒ <strong>極性</strong>。</li>
+<li>(B) ✗ XeF₄ 平面四方，4 個 Xe－F 偶極兩兩相反抵消 ⇒ 非極性。</li>
+<li>(C) ○ ClF₃ T 形（2 對孤對），偶極不抵消 ⇒ <strong>極性</strong>。</li>
+<li>(D) ✗ PCl₅ 三角雙錐，對稱，偶極抵消 ⇒ 非極性。</li>
+<li>(E) ○ O₃ 彎曲形（中心 O 有 1 對孤對電子），兩個末端 O 分別帶部分負電荷，偶極不抵消（微弱）⇒ <strong>極性</strong>。</li>
+<li>(F) ✗ 反式：兩個 C－Cl 偶極互相相反（再加上兩個 C－H），整體抵消 ⇒ 非極性；順式才有極性。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>有極性鍵 ≠ 極性分子；先判形狀，再看「周圍原子是否相同」和「有沒有孤對」。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q474">
+<header class="qh"><span class="qn">類題｜難題 5</span><span class="qtag">簡單版・分子極性・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些分子是<strong>極性分子</strong>？（多選）<br />
+(A) SO₂　(B) CO₂　(C) CCl₄　(D) NH₃　(E) SF₆　(F) CHCl₃</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)(F)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ SO₂ 彎曲形（中心 S 有 1 對孤對電子），偶極不抵消 ⇒ 極性。</li>
+<li>(B) ✗ CO₂ 直線，兩個 C＝O 偶極相反抵消 ⇒ 非極性。</li>
+<li>(C) ✗ CCl₄ 正四面體，四個 C－Cl 偶極抵消 ⇒ 非極性。</li>
+<li>(D) ○ NH₃ 三角錐，偶極不抵消 ⇒ 極性。</li>
+<li>(E) ✗ SF₆ 八面體，完全對稱 ⇒ 非極性。</li>
+<li>(F) ○ CHCl₃ 雖然是四面體，但周圍是 1 個 H 與 3 個 Cl（原子不同），偶極不抵消 ⇒ 極性。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q475">
+<header class="qh"><span class="qn">難題 6</span><span class="qtag">分子極性與物理性質・順反式與鄰間對位異構物・改編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>沸點</strong>：看分子間作用力（氫鍵＞偶極—偶極＞色散力，先比分子量）。極性大 ⇒ 沸點較高（異構物比較時）。</li>
+<li><strong>熔點</strong>：除了分子間作用力，還要看固態時<strong>堆積得緊不緊</strong>：對稱性高的分子堆積較緊密，熔點較高。</li>
+<li><strong>偶極矩</strong>：順式有偶極、反式為 0；鄰位＞間位＞對位（對位為 0）。</li>
+<li><strong>提醒</strong>：沸點和熔點的高低順序「可以不同」，這是考點。</li>
+</ul></div></details><div class="qtext"><p>下表是兩組異構物的沸點與熔點：</p>
+<table>
+<thead>
+<tr>
+<th>化合物</th>
+<th>沸點（°C）</th>
+<th>熔點（°C）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>順-1,2-二氯乙烯</td>
+<td>60.3</td>
+<td>−80</td>
+</tr>
+<tr>
+<td>反-1,2-二氯乙烯</td>
+<td>47.5</td>
+<td>−50</td>
+</tr>
+<tr>
+<td>鄰-二氯苯</td>
+<td>180.5</td>
+<td>−17</td>
+</tr>
+<tr>
+<td>間-二氯苯</td>
+<td>173</td>
+<td>−25</td>
+</tr>
+<tr>
+<td>對-二氯苯</td>
+<td>174</td>
+<td>53</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 判斷各組異構物的偶極矩大小順序。<br />
+(2) 為什麼順式的沸點比反式高，但熔點卻比反式低？<br />
+(3) 為什麼對-二氯苯的熔點比鄰、間位高很多，但沸點並沒有特別高？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 順＞反（＝0）；鄰＞間＞對（＝0）　(2) 沸點看分子間作用力（極性），熔點還看晶格堆積（對稱性）　(3) 對位最對稱，晶格堆積最緊密</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>沸點與熔點的決定因素不完全相同</strong>。沸點主要取決於分子間作用力（極性、分子量、氫鍵）；熔點除了分子間力，還取決於分子在晶體中的<strong>堆積效率</strong>（對稱性）。</p>
+<p>(1) 順-1,2-二氯乙烯：兩個 C－Cl 偶極同側，向量和不為零 ⇒ <strong>極性</strong>；反式：偶極抵消 ⇒ 偶極矩 0。<br />
+二氯苯：鄰位兩個 C－Cl 夾 60°，向量和最大；間位夾 120°，向量和較小；對位夾 180°，抵消為 0。所以 <strong>鄰＞間＞對（0）</strong>。</p>
+<p>(2) 順式有永久偶極，分子間除了色散力還有<strong>偶極—偶極</strong>作用，所以沸點較高（60.3 ＞ 47.5）。但反式分子比較<strong>對稱</strong>，在固態中堆積得比順式緊密，需要更多能量才能破壞晶格，所以熔點反而較高（−50 ＞ −80）。</p>
+<p>(3) 對位二氯苯高度對稱，是平面、長條形分子，在晶格中堆積最緊密，熔點最高（53°C）。但沸點是液態分子變成氣態的能量，與晶格堆積無關，主要看分子間力：對位沒有偶極，所以沸點略低於（鄰位）甚至與間位相近。</p>
+<p><strong>規則</strong>：對稱性高 ⇒ 熔點較高（異構物比較時）；極性大 ⇒ 沸點較高。</p><div class="qsum"><b class="qsum-h">小結</b><p>異構物比較：<strong>極性大 ⇒ 沸點高；對稱性高 ⇒ 熔點高</strong>。沸點看氣液（分子間力），熔點看固液（還加上堆積）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q476">
+<header class="qh"><span class="qn">類題｜難題 6</span><span class="qtag">簡單版・沸點與熔點的差別・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下表是兩組異構物的沸點與熔點：</p>
+<table>
+<thead>
+<tr>
+<th>化合物</th>
+<th>沸點（°C）</th>
+<th>熔點（°C）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>順-2-丁烯</td>
+<td>3.7</td>
+<td>−139</td>
+</tr>
+<tr>
+<td>反-2-丁烯</td>
+<td>0.9</td>
+<td>−106</td>
+</tr>
+<tr>
+<td>鄰-二甲苯</td>
+<td>144</td>
+<td>−25</td>
+</tr>
+<tr>
+<td>對-二甲苯</td>
+<td>138</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 哪一種丁烯有偶極矩？<br />
+(2) 為什麼順-2-丁烯的沸點比較高，熔點卻比較低？<br />
+(3) 為什麼對-二甲苯的熔點比鄰-二甲苯高很多？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 順式有偶極矩，反式為 0　(2) 順式極性使分子間力較大 ⇒ 沸點高；反式較對稱，堆積較緊密 ⇒ 熔點高　(3) 對位最對稱，晶格堆積最緊密</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 順-2-丁烯的兩個 CH₃ 在雙鍵同側，C－CH₃ 的偶極不抵消 ⇒ <strong>有偶極矩</strong>；反式在兩側，偶極抵消 ⇒ 偶極矩 ≈ 0。</p>
+<p>(2) 順式有永久偶極，分子間除了色散力還有偶極—偶極作用，所以沸點較高（3.7 ＞ 0.9）。反式分子較對稱，固態時排列得更緊密，要更多能量才能拆開晶格，所以熔點反而較高（−106 ＞ −139）。</p>
+<p>(3) 對-二甲苯是高度對稱的長條形分子，晶格堆積最緊密，熔點最高（13°C）；鄰位不對稱，堆積鬆，熔點低（−25°C）。沸點則看分子間力，鄰位略高（144 ＞ 138），所以「熔點高、沸點低」是可以同時發生的。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">分子間作用力：沸點排序與氫鍵</h2>
+
+<article class="q q-pr" id="q477">
+<header class="qh"><span class="qn">難題 7</span><span class="qtag">分子間作用力・沸點排序五連發・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>判斷順序</strong>：①有無氫鍵（H 接在 N、O、F）②分子量／電子數（色散力）③表面積（直鏈＞支鏈，愈圓愈低）④極性。</li>
+<li><strong>同族氫化物</strong>：沸點隨分子量遞增，但 NH₃、H₂O、HF 因為有氫鍵，要「抽出來」放在最高。</li>
+<li><strong>提醒</strong>：H 接在 C 上不能當氫鍵給體（二甲醚、乙醛都沒有分子間氫鍵）。</li>
+</ul></div></details><div class="qtext"><p>將各組物質依沸點由低到高排列，並說明依據：<br />
+(a) CH₄、SiH₄、GeH₄、SnH₄<br />
+(b) H₂O、H₂S、H₂Se、H₂Te<br />
+(c) HF、HCl、HBr、HI<br />
+(d) 正戊烷、異戊烷、新戊烷（分子式皆為 C₅H₁₂）<br />
+(e) 乙醇、二甲醚、丙烷、乙醚（C₂H₅OC₂H₅）<br />
+(f) 為什麼 H₂O（100°C）的沸點比 HF（19.5°C）高這麼多？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(a) CH₄＜SiH₄＜GeH₄＜SnH₄　(b) H₂S＜H₂Se＜H₂Te＜H₂O　(c) HCl＜HBr＜HI＜HF　(d) 新戊烷＜異戊烷＜正戊烷　(e) 丙烷＜二甲醚＜乙醚＜乙醇　(f) 水平均每分子 2 個氫鍵，HF 約 1 個</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：判斷順序：氫鍵 → 分子量（色散力）→ 形狀（表面積）→ 極性。</p>
+<p>(a)(b)(c) 同族氫化物，分子量增加，色散力增強，沸點遞增；但 <strong>H₂O、HF（和 NH₃）因氫鍵，沸點異常地高</strong>，要「抽出來」放在最後：<br />
+- (a)：全為非極性（四面體），沒有氫鍵 ⇒ −162 ＜ −112 ＜ −89 ＜ −52°C。<br />
+- (b)：H₂S −60、H₂Se −41、H₂Te −2、H₂O 100°C。<br />
+- (c)：HCl −85、HBr −67、HI −35、HF 19.5°C。</p>
+<p>(d) 同分異構物，分子量相同。<strong>直鏈分子表面積大，色散力大</strong>；愈接近球形（新戊烷），接觸面積愈小，沸點愈低：新戊烷 9.5 ＜ 異戊烷 28 ＜ 正戊烷 36°C。</p>
+<p>(e) 乙醇有氫鍵 ⇒ 78.4°C 最高；乙醚（分子量 74，微極性）34.6°C；二甲醚（分子量 46，微極性，<strong>沒有氫鍵</strong>，因為 H 接在 C 上）−24°C；丙烷（分子量 44，非極性）−42°C。⇒ <strong>丙烷 ＜ 二甲醚 ＜ 乙醚 ＜ 乙醇</strong>。</p>
+<p>(f) 氫鍵的「總數」不同：一個 H₂O 有 2 個 H、2 對孤對電子，每個分子平均可與鄰居形成 <strong>2 個氫鍵</strong>（構成三維網絡）；HF 只有 1 個 H，每個分子平均只能形成約 <strong>1 個氫鍵</strong>（鏈狀）。氫鍵總數較多，要破壞的作用力就更多，沸點更高。</p><div class="qsum"><b class="qsum-h">小結</b><p>排沸點先找氫鍵，再比分子量；分子量相同看形狀（直鏈高、支鏈低）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q478">
+<header class="qh"><span class="qn">類題｜難題 7</span><span class="qtag">簡單版・沸點排序・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>將各組物質依沸點由低到高排列，並說明依據：<br />
+(a) NH₃、PH₃、AsH₃<br />
+(b) 正丁烷、異丁烷（分子式皆為 C₄H₁₀）<br />
+(c) 乙醇（46）、乙醛（44）、丙烷（44）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(a) PH₃ ＜ AsH₃ ＜ NH₃　(b) 異丁烷 ＜ 正丁烷　(c) 丙烷 ＜ 乙醛 ＜ 乙醇</div>
+<div class="exp"><b class="exp-h">解</b><p>(a) PH₃ 與 AsH₃ 都沒有氫鍵，分子量 AsH₃ ＞ PH₃ ⇒ 色散力 AsH₃ 較大 ⇒ PH₃（−88°C）＜ AsH₃（−62°C）；NH₃ 有氫鍵，沸點最高（−33°C）。所以 <strong>PH₃ ＜ AsH₃ ＜ NH₃</strong>。</p>
+<p>(b) 同分異構物，分子量相同。正丁烷是直鏈，表面積較大，色散力較大；異丁烷較接近球形，色散力較小 ⇒ <strong>異丁烷（−12°C）＜ 正丁烷（−0.5°C）</strong>。</p>
+<p>(c) 乙醇有 O－H，可形成分子間氫鍵（78°C）最高；乙醛有極性的 C＝O，但 H 接在 C 上沒有氫鍵（20°C）；丙烷非極性（−42°C）。⇒ <strong>丙烷 ＜ 乙醛 ＜ 乙醇</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q479">
+<header class="qh"><span class="qn">難題 8</span><span class="qtag">分子間作用力・分子內氫鍵與熔沸點・改編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>分子內氫鍵</strong>：O－H 與同一個分子內鄰近的 O（形成 5～6 員環）形成氫鍵，把「給體 H」和「受體孤對」用掉了。</li>
+<li><strong>結果</strong>：分子間氫鍵變少 ⇒ 熔點、沸點較低、較易揮發、在水中溶解度較小；對位／反式只能形成分子間氫鍵 ⇒ 作用力強。</li>
+<li><strong>冰</strong>：每個水分子形成 4 個氫鍵，開放四面體網絡，空隙大 ⇒ 密度比水小。</li>
+</ul></div></details><div class="qtext"><p>已知：鄰-硝基酚熔點 45°C、對-硝基酚熔點 114°C；水楊酸（鄰-羥基苯甲酸）熔點 159°C、對-羥基苯甲酸熔點 214°C；順-丁烯二酸熔點 135°C、反-丁烯二酸熔點約 287°C。<br />
+(1) 解釋這三組異構物熔點高低的規律。<br />
+(2) 鄰-硝基酚與對-硝基酚，哪一個在水中溶解度較大？哪一個沸點較低、較易用水蒸氣蒸餾分離？<br />
+(3) 水分子的氫鍵為什麼使冰的密度小於水？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 鄰位／順式有分子內氫鍵，分子間氫鍵較少，熔點較低　(2) 對位溶解度較大；鄰位沸點較低、易揮發　(3) 冰中每個水分子形成 4 個氫鍵的開放四面體網絡，空隙大</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>分子內氫鍵</strong>會「消耗」掉原本能形成分子間氫鍵的 H 與孤對電子，使分子間作用力變弱。</p>
+<p>(1) 鄰位、順式異構物中，兩個官能基靠得夠近（5 或 6 員環），OH 的 H 與鄰近基團的 O 在<strong>同一個分子內</strong>形成氫鍵；分子內的氫鍵「用掉了」氫鍵給體和受體，分子間氫鍵變少，所以<strong>熔點較低</strong>（鄰 ＜ 對，順 ＜ 反）。對位、反式的官能基彼此太遠，無法在分子內形成氫鍵，只能與<strong>其他分子</strong>形成氫鍵，分子間作用力較強。</p>
+<p>(2) 對-硝基酚的 O－H 可與水分子形成氫鍵，溶解度較大；鄰-硝基酚的 O－H 被分子內氫鍵「占用」，與水的氫鍵較少，溶解度較小。同樣的原因，鄰-硝基酚分子間作用力較弱 ⇒ 沸點低、較易揮發（可用水蒸氣蒸餾把鄰位蒸出，對位留在瓶中）。</p>
+<p>(3) 冰中每個水分子與 4 個鄰居形成氫鍵（2 個以 H 為給體、2 個以 O 孤對電子為受體），形成開放的四面體網絡，結構中有很大的空隙，所以固態時<strong>體積較大、密度較小</strong>；融化時部分氫鍵斷裂，網絡塌陷，分子靠得更近，所以液態水（4°C 附近）反而更密。</p><div class="qsum"><b class="qsum-h">小結</b><p>分子內氫鍵＝「自己用掉了」⇒ 分子間作用力變小 ⇒ 熔沸點低、易揮發、水溶性差；順／鄰 ＜ 反／對。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q480">
+<header class="qh"><span class="qn">類題｜難題 8</span><span class="qtag">簡單版・分子內氫鍵・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>鄰-羥基苯甲醛（水楊醛）熔點 −7°C，對-羥基苯甲醛熔點 116°C。<br />
+(1) 哪一個異構物含有分子內氫鍵？<br />
+(2) 哪一個在水中溶解度較大？哪一個較容易以水蒸氣蒸餾蒸出？<br />
+(3) 簡述為什麼熔點相差這麼多。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 鄰位　(2) 對位溶解度較大；鄰位容易蒸出　(3) 鄰位的 O－H 被分子內氫鍵占用，分子間作用力小；對位只能形成分子間氫鍵</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 鄰位：－OH 與相鄰的 －CHO 中的 O 距離很近，形成 6 員環的分子內氫鍵 ⇒ <strong>鄰-羥基苯甲醛</strong>含分子內氫鍵。</p>
+<p>(2) 對位的 －OH 可以與水分子形成氫鍵，溶解度較大；鄰位的 －OH 已被分子內氫鍵占用，與水形成氫鍵的機會少，溶解度較小，分子間作用力小、較易揮發，所以鄰位容易隨水蒸氣蒸出，對位留在瓶中。</p>
+<p>(3) 鄰位的氫鍵都「用在自己身上」，分子之間只剩色散力與偶極作用，熔點很低（−7°C）；對位的氫鍵全部是分子間氫鍵，把分子一個個連起來，需要很多能量才能拆開（116°C）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q481">
+<header class="qh"><span class="qn">難題 9</span><span class="qtag">分子間作用力・有機小分子的比較・改編（113 分科題型）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>分子量相近</strong>時，比「有沒有氫鍵、氫鍵多不多、強不強」：羧酸（可形成二聚體）＞ 醇 ＞ 無氫鍵的極性分子（醚、醛）＞ 非極性（烷）。</li>
+<li><strong>氫鍵給體</strong>需要 O－H、N－H、F－H；醚的 O 只能當受體（可與水形成氫鍵，但分子之間沒有）。</li>
+<li><strong>蒸氣壓</strong>與沸點順序相反：作用力愈小，愈容易變成氣體，蒸氣壓愈大。</li>
+<li><strong>互溶</strong>：小分子的醇（OH）可與水氫鍵，互溶；烷烴為非極性，難溶於水。</li>
+</ul></div></details><div class="qtext"><p>化合物甲：C₂H₅OH（乙醇，46）；乙：HCOOH（甲酸，46）；丙：CH₃OCH₃（二甲醚，46）；丁：C₃H₈（丙烷，44）。（括號內為分子量）下列敘述哪些正確？（多選）<br />
+(A) 四者中，乙的沸點最高<br />
+(B) 甲與丙互為同分異構物，甲的沸點比丙高<br />
+(C) 室溫下的蒸氣壓大小順序：丁＞丙＞甲＞乙<br />
+(D) 丙的分子間可形成氫鍵<br />
+(E) 甲與水可以互溶<br />
+(F) 丁在水中的溶解度比丙大</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：分子量近似時，用「有無氫鍵、氫鍵數目與強度」排序；蒸氣壓順序恰與沸點相反。</p>
+<ul>
+<li>(A) ○ 沸點：甲酸 100.8°C ＞ 乙醇 78.4°C ＞ 二甲醚 −24°C ＞ 丙烷 −42°C。甲酸的 －COOH 有一個 O－H（給體）與兩對孤對電子，且分子可以兩兩形成<strong>二聚體</strong>，氫鍵最強最多。</li>
+<li>(B) ○ 乙醇與二甲醚的分子式都是 C₂H₆O，乙醇有 O－H 可形成分子間氫鍵，二甲醚沒有，所以乙醇沸點高很多。</li>
+<li>(C) ○ 蒸氣壓愈大，代表分子間作用力愈小，與沸點順序相反：丁（丙烷）＞丙＞甲＞乙。</li>
+<li>(D) ✗ 二甲醚的 H 都接在 C 上，<strong>不能當氫鍵給體</strong>，二甲醚分子之間不會形成氫鍵（但它可以當受體，與水形成氫鍵）。</li>
+<li>(E) ○ 乙醇的 －OH 與水分子形成氫鍵，可以任意比例互溶。</li>
+<li>(F) ✗ 丙烷是非極性，難溶於水；二甲醚有微極性，且氧原子可與水形成氫鍵，溶解度比丙烷大。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>有機小分子排序流程：先找 O－H／N－H（氫鍵給體）→ 再看極性 → 最後看分子量；蒸氣壓排序＝沸點反過來。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q482">
+<header class="qh"><span class="qn">類題｜難題 9</span><span class="qtag">簡單版・有機小分子比較・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>甲：C₂H₅OH（乙醇，46）；乙：CH₃OCH₃（二甲醚，46）；丙：C₃H₈（丙烷，44）。下列敘述哪些正確？（多選）<br />
+(A) 三者中，甲的沸點最高<br />
+(B) 乙的分子之間可以形成氫鍵<br />
+(C) 室溫下蒸氣壓大小順序：丙＞乙＞甲<br />
+(D) 乙可以和水分子形成氫鍵<br />
+(E) 丙易溶於水</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 甲有 O－H，可形成分子間氫鍵，沸點 78°C；乙 −24°C；丙 −42°C。</li>
+<li>(B) ✗ 乙（二甲醚）的 H 都接在 C 上，不能當氫鍵給體，分子之間沒有氫鍵。</li>
+<li>(C) ○ 蒸氣壓與沸點相反：丙（沸點最低）＞ 乙 ＞ 甲。</li>
+<li>(D) ○ 乙的 O 有孤對電子，可當氫鍵受體，與水分子的 H 形成氫鍵。</li>
+<li>(E) ✗ 丙烷非極性，難溶於水。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s5">晶體類型與鍵的種類</h2>
+
+<article class="q q-pr" id="q483">
+<header class="qh"><span class="qn">難題 10</span><span class="qtag">化學鍵種類・晶體熔點排序・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>晶體類型（粗略）</strong>：網狀共價（SiO₂、鑽石）＞ 離子晶體 ＞ 金屬晶體 ＞ 分子晶體；實際要比較具體物質。</li>
+<li><strong>離子晶體</strong>：引力 ∝ q₊q₋/r——電荷愈大、離子半徑愈小，熔點愈高。</li>
+<li><strong>金屬晶體</strong>：價電子愈多、原子半徑愈小，金屬鍵愈強，熔點愈高。</li>
+<li><strong>分子晶體</strong>：只靠分子間力，熔點低；分子量大、極性、氫鍵都能使熔點升高。</li>
+</ul></div></details><div class="qtext"><p>將各組物質依熔點由高到低排列，並說明依據：<br />
+(a) MgO、NaF、NaCl、NaI<br />
+(b) SiO₂、NaCl、Na、CO₂<br />
+(c) Na、Mg、Al</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(a) MgO＞NaF＞NaCl＞NaI　(b) SiO₂＞NaCl＞Na＞CO₂　(c) Al＞Mg＞Na</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：先判斷晶體類型（網狀共價＞離子＞金屬＞分子，是粗略規律，要看具體物質），再在同類型中比較。</p>
+<p>(a) 都是離子晶體，靜電引力 ∝ (q₊q₋)/r：<br />
+- MgO：Mg²⁺、O²⁻（電荷 2＋、2−）且離子半徑小 ⇒ 熔點極高（約 2852°C）。<br />
+- NaF、NaCl、NaI：電荷相同，陰離子半徑 F⁻＜Cl⁻＜I⁻ ⇒ 引力遞減：NaF 996 ＞ NaCl 801 ＞ NaI 661°C。</p>
+<p>(b) SiO₂：網狀共價固體，每個 Si 與 4 個 O 以共價鍵連成整個晶體，熔點約 1713°C；NaCl：離子晶體 801°C；Na：金屬晶體，只有 1 個價電子，金屬鍵弱，98°C；CO₂：分子晶體，只靠色散力，常壓下直接昇華（約 −78°C）。</p>
+<p>(c) 金屬晶體：價電子數愈多、原子半徑愈小，金屬鍵愈強：Na（1 個）98°C ＜ Mg（2 個）650°C ＜ Al（3 個）660°C。</p><div class="qsum"><b class="qsum-h">小結</b><p>先判斷晶體類型，再在「同一類型」內比較：離子看電荷與半徑，金屬看價電子數與半徑。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q484">
+<header class="qh"><span class="qn">類題｜難題 10</span><span class="qtag">簡單版・熔點排序・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>將各組物質依熔點由高到低排列，並說明依據：<br />
+(a) KCl、KBr、KI<br />
+(b) 鑽石、NaCl、鉀（K）、乾冰（CO₂）<br />
+(c) Li、Na、K</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(a) KCl ＞ KBr ＞ KI　(b) 鑽石 ＞ NaCl ＞ K ＞ CO₂　(c) Li ＞ Na ＞ K</div>
+<div class="exp"><b class="exp-h">解</b><p>(a) 都是離子晶體，陽離子都是 K⁺，電荷相同；陰離子半徑 Cl⁻ ＜ Br⁻ ＜ I⁻，離子間距離愈大引力愈小 ⇒ 熔點 <strong>KCl（770°C）＞ KBr（734°C）＞ KI（681°C）</strong>。</p>
+<p>(b) 鑽石是網狀共價固體，每個 C 以共價鍵與 4 個 C 相連，熔點極高（約 3500°C 以上）；NaCl 是離子晶體（801°C）；鉀是金屬晶體，只有 1 個價電子、金屬鍵弱（63°C）；CO₂ 是分子晶體，只靠色散力（約 −78°C 昇華）。⇒ <strong>鑽石 ＞ NaCl ＞ K ＞ CO₂</strong>。</p>
+<p>(c) 同為 1 個價電子的鹼金屬，原子半徑 Li ＜ Na ＜ K，半徑愈大，金屬鍵愈弱 ⇒ <strong>Li（181°C）＞ Na（98°C）＞ K（63°C）</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q485">
+<header class="qh"><span class="qn">難題 11</span><span class="qtag">價鍵理論・鍵級、鍵長與鍵能・改編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>鍵級</strong>＝（鍵的總數）／（鍵的位置數）；共振結構用平均：CO₃²⁻、NO₃⁻＝4/3；NO₂⁻＝3/2；O₃＝3/2。</li>
+<li><strong>關係</strong>：鍵級愈大 ⇒ 鍵愈短、鍵能愈大。</li>
+<li><strong>σ vs π</strong>：σ 是頭對頭重疊（強），π 是肩並肩重疊（弱），所以雙鍵能量不到單鍵的 2 倍、參鍵不到 3 倍。</li>
+</ul></div></details><div class="qtext"><p>(1) 將 CO、CO₂、CO₃²⁻、CH₃OH 的 C－O 鍵長由短到長排列，並寫出各自的鍵級。<br />
+(2) NO₃⁻ 與 NO₂⁻ 的 N－O 平均鍵級各為多少？<br />
+(3) 乙烷、乙烯、乙炔的 C－C 鍵長為 154、134、120 pm；鍵能為 346、614、839 kJ/mol。為什麼雙鍵的鍵能「不到」單鍵的 2 倍、參鍵不到單鍵的 3 倍？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) CO（3）＜CO₂（2）＜CO₃²⁻（4/3）＜CH₃OH（1）　(2) NO₃⁻ 4/3、NO₂⁻ 3/2　(3) π 鍵由 p 軌域「側面」重疊，重疊程度較差，比 σ 鍵弱</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：鍵級愈大，鍵愈短、愈強；共振結構的鍵級是平均值。</p>
+<p>(1) 鍵級：CO：三鍵＝3；CO₂：C＝O＝2；CO₃²⁻：三個共振結構，每個 C－O 鍵有 1 個雙鍵貢獻 ⇒ (2＋1＋1)/3 ＝ <strong>4/3</strong>；CH₃OH：單鍵＝1。<br />
+鍵長（約）：CO 113 pm ＜ CO₂ 116 pm ＜ CO₃²⁻ 129 pm ＜ CH₃OH 143 pm。<strong>鍵級愈大，鍵長愈短</strong>。</p>
+<p>(2) NO₃⁻：1 個 N＝O＋2 個 N－O，分攤到 3 條鍵 ⇒ (2＋1＋1)/3 ＝ <strong>4/3</strong>。NO₂⁻：1 個 N＝O＋1 個 N－O，分攤到 2 條鍵 ⇒ (2＋1)/2 ＝ <strong>3/2</strong>。</p>
+<p>(3) 第一個 C－C 鍵是 σ 鍵（軌域「頭對頭」重疊，重疊程度大）；第二、第三個是 π 鍵（p 軌域「肩並肩」重疊，重疊程度較小）。所以多重鍵中，後加入的 π 鍵比 σ 鍵弱：<br />
+- 雙鍵比單鍵多出 614 − 346 ＝ 268 kJ/mol（＜ 346）<br />
+- 參鍵比雙鍵多出 839 − 614 ＝ 225 kJ/mol（又更小）<br />
+這也是為什麼烯烴、炔烴容易發生加成反應——弱的 π 鍵容易被打開。</p><div class="qsum"><b class="qsum-h">小結</b><p>共振的鍵級是平均值；鍵級↑ ⇒ 鍵長↓、鍵能↑；多重鍵裡 π 比 σ 弱，所以烯炔烴容易加成。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q486">
+<header class="qh"><span class="qn">類題｜難題 11</span><span class="qtag">簡單版・鍵級與鍵長・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>(1) 將 CO₂、CO₃²⁻、CH₃OH 的 C－O 鍵級由大到小排列，並說明鍵長順序。<br />
+(2) O₃ 的 O－O 平均鍵級為多少？<br />
+(3) C－C 鍵能 346 kJ/mol，C＝C 鍵能 614 kJ/mol。為什麼 C＝C 不到 C－C 的 2 倍？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) CO₂（2）＞ CO₃²⁻（4/3）＞ CH₃OH（1）；鍵長相反　(2) 3/2　(3) 第二個鍵是 π 鍵，重疊較差</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) CO₂ 的 C＝O 鍵級 2；CO₃²⁻ 有 3 個共振結構，每條 C－O 平均 (2＋1＋1)/3 ＝ 4/3；CH₃OH 的 C－O 是單鍵 ＝ 1。鍵級愈大鍵愈短 ⇒ 鍵長 <strong>CO₂ ＜ CO₃²⁻ ＜ CH₃OH</strong>。</p>
+<p>(2) O₃ 有 2 個共振結構，3 個電子對分攤在 2 條 O－O 鍵上：(2＋1)/2 ＝ <strong>3/2</strong>。</p>
+<p>(3) C＝C 的第一個鍵是 σ（軌域頭對頭重疊，重疊多、很強），第二個是 π（p 軌域肩並肩重疊，重疊少、較弱）。所以多出來的 π 鍵只增加 614 − 346 ＝ 268 kJ/mol，小於 346。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q487">
+<header class="qh"><span class="qn">難題 12</span><span class="qtag">化學鍵的種類・離子鍵、配位鍵、極性與非極性共價鍵・改編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>配位鍵</strong>：成鍵的兩個電子由<strong>其中一方單獨提供</strong>。常見：NH₄⁺、H₃O⁺、錯離子（[Ag(NH₃)₂]⁺）、H₃N→BF₃。</li>
+<li><strong>非極性共價鍵</strong>：兩個<strong>相同</strong>原子之間的共價鍵（N₂、Cl₂、H₂O₂ 的 O－O、乙烷的 C－C、O₂²⁻、C₂²⁻）。</li>
+<li><strong>離子化合物</strong>：含離子鍵，<strong>原子團內部</strong>另有共價鍵（NaOH 的 O－H、NH₄Cl 的 N－H）。</li>
+</ul></div></details><div class="qtext"><p>(1) 下列哪些物質含有<strong>配位共價鍵</strong>？（多選）<br />
+(A) NH₄Cl　(B) H₃O⁺　(C) NH₃　(D) [Ag(NH₃)₂]Cl　(E) 由 BF₃ 與 NH₃ 結合而成的 H₃N－BF₃　(F) CH₄<br />
+(2) 下列哪些物質含有<strong>非極性共價鍵</strong>？（多選）<br />
+(A) Na₂O₂　(B) CaC₂　(C) H₂O₂　(D) NaOH　(E) CH₃CH₃　(F) NaCl</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) (A)(B)(D)(E)　(2) (A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：配位鍵＝一個原子<strong>單方面</strong>提供孤對電子；非極性共價鍵＝兩個<strong>相同</strong>原子之間的共價鍵。</p>
+<p>(1)<br />
+- (A) ○ NH₄⁺ 中，N 提供孤對電子與 H⁺ 形成配位鍵（NH₄Cl 另外還有離子鍵）。<br />
+- (B) ○ H₃O⁺：O 提供孤對電子與 H⁺ 形成配位鍵。<br />
+- (C) ✗ NH₃ 只有 3 個一般共價鍵。<br />
+- (D) ○ [Ag(NH₃)₂]⁺：NH₃ 的孤對電子提供給 Ag⁺ 形成配位鍵（錯離子）；與 Cl⁻ 之間還有離子鍵。<br />
+- (E) ○ NH₃ 提供孤對電子，BF₃ 的 B 有空軌域接受 ⇒ N→B 配位鍵。<br />
+- (F) ✗ 甲烷都是一般的 C－H 極性共價鍵。</p>
+<p>(2) 非極性共價鍵出現在<strong>同種原子</strong>之間：<br />
+- (A) ○ Na₂O₂ 含 O₂²⁻，O－O 是非極性共價鍵（另有離子鍵）。<br />
+- (B) ○ CaC₂ 含 C₂²⁻，C≡C 是非極性共價鍵。<br />
+- (C) ○ H₂O₂ 的 O－O 非極性（O－H 是極性）。<br />
+- (D) ✗ NaOH：離子鍵＋O－H 極性共價鍵（兩個不同原子）。<br />
+- (E) ○ 乙烷的 C－C 非極性（C－H 是極性但很弱）。<br />
+- (F) ✗ NaCl 只有離子鍵。</p><div class="qsum"><b class="qsum-h">小結</b><p>配位鍵看「電子由誰出」，非極性共價鍵看「兩端是否同種原子」；離子化合物要拆成「離子鍵＋原子團內的共價鍵」。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q488">
+<header class="qh"><span class="qn">類題｜難題 12</span><span class="qtag">簡單版・鍵的種類・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>(1) 下列哪些物質含有<strong>配位共價鍵</strong>？（多選）<br />
+(A) NH₄NO₃　(B) CH₄　(C) [Cu(NH₃)₄]SO₄　(D) H₂O<br />
+(2) 下列哪些物質含有<strong>非極性共價鍵</strong>？（多選）<br />
+(A) N₂　(B) NH₃　(C) H₂O₂　(D) CCl₄</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) (A)(C)　(2) (A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>(1)</p>
+<ul>
+<li>(A) ○ NH₄⁺ 中的 N 提供孤對電子與 H⁺ 形成配位鍵（NH₄NO₃ 另有離子鍵）。</li>
+<li>(B) ✗ CH₄ 都是一般的 C－H 共價鍵。</li>
+<li>(C) ○ [Cu(NH₃)₄]²⁺ 中，NH₃ 的孤對電子提供給 Cu²⁺ 形成配位鍵。</li>
+<li>(D) ✗ H₂O 只有兩個一般的 O－H 共價鍵。</li>
+</ul>
+<p>(2)</p>
+<ul>
+<li>(A) ○ N≡N 是同種原子之間的非極性共價鍵。</li>
+<li>(B) ✗ N－H 兩種原子，是極性共價鍵。</li>
+<li>(C) ○ H₂O₂ 的 O－O 是非極性鍵（O－H 是極性鍵）。</li>
+<li>(D) ✗ C－Cl 是極性共價鍵。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復1.html">← 復1 原子結構與週期性難題</a><a href="u復3.html">復3 反應速率難題 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

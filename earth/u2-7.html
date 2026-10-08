@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2-7 主題 7　天球中的天體｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a class="on" href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a><ul class="subtoc"><li><a href="#s1">天球</a></li><li><a href="#s2">天球中的恆星與行星</a></li><li><a href="#s3">星座</a></li><li><a href="#s4">不同時空的疊合</a></li><li><a href="#s5">小試身手</a></li></ul></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">單元 2 天文</div>
+<h1><span class="uid">2-7</span>主題 7　天球中的天體</h1>
+<div class="tools"><span class="cnt">本單元 7 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">天球</h2>
+
+<figure class="fig"><img class="figimg" src="img/A039_10p17_59p81.jpg" width="1003" height="871" loading="lazy" alt="地科1 第39頁" data-page="地科1 p.39"><figcaption>天球、天球北極南極、天球赤道、黃道與黃赤交角（講義 p.39）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ol>
+<li>由於地球以外的星體都距離我們很遠，眼睛無法辨別其遠近，感覺所有天體均位於無窮遠處的一個<strong>假想球面</strong>上，此球面稱為<strong>天球</strong>。</li>
+<li>地球轉軸向外延伸與天球相交的點，分別稱為<strong>天球北極</strong>與<strong>天球南極</strong>。</li>
+<li>地球赤道向外延伸投影在天球上，稱為<strong>天球赤道</strong>。</li>
+<li>由於地球自轉軸傾斜 <strong>23.5 度</strong>，當地球繞日公轉時，會使太陽直射緯度一直改變：<strong>夏至</strong>時太陽直射<strong>北回歸線</strong>（太陽位於圖中夏至點）；<strong>冬至</strong>時直射<strong>南回歸線</strong>（冬至點）。隨著地球繞日公轉，太陽在天球上的位置也會一直改變，太陽在天球移動的軌跡稱為<strong>天球黃道</strong>（或黃道）。</li>
+<li>天球赤道面與黃道面交角 23.5 度，即<strong>黃赤交角＝23.5 度</strong>。</li>
+<li>地球繞太陽公轉方向為<strong>逆時針</strong>，使得太陽在天球運行方向也是<strong>逆時針</strong>（<strong>不是順時針</strong>！可參考主題 10 的黃道 13 星座圖）。</li>
+</ol></aside>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>打鐵趁熱</strong>：天球黃道與天球赤道有<strong>兩個交點</strong>（春分點、秋分點）。當太陽位於這兩點時，太陽直射地球<strong>赤道</strong>。</p></aside>
+
+<h2 class="section " id="s2">天球中的恆星與行星</h2>
+
+<figure class="fig"><img class="figimg" src="img/A039_67p58_95p69.jpg" width="1003" height="493" loading="lazy" alt="地科1 第39頁" data-page="地科1 p.39"><figcaption>恆星 vs 行星（講義 p.39）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>比較</th>
+<th>恆星</th>
+<th>行星</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>從地球往外觀測</td>
+<td>太陽以外的恆星距離較遠，要非常長的時間才會觀察出恆星彼此相對位置略有不同；<strong>短時間觀測，恆星彼此之間相對位置是固定不動的</strong>（例：北斗七星一整年都是這樣排列）</td>
+<td>太陽系內的行星比太陽系外的恆星更靠近地球，行星繞太陽公轉時，在地球上的人短時間即可觀察出行星像是在眾星間遊走，即行星<strong>相對於背景恆星位置會改變</strong>，因此稱之為「行」星</td>
+</tr>
+<tr>
+<td>在天球中的位置</td>
+<td><strong>固定不動</strong>，有固定的天球坐標</td>
+<td><strong>不斷改變</strong></td>
+</tr>
+<tr>
+<td>定義</td>
+<td>內部可<strong>核融合反應</strong>而自行發光之星體</td>
+<td><strong>不能</strong>自行核融合發光，環繞恆星公轉，且具有足夠質量清空其公轉軌道鄰近區域的圓球狀天體</td>
+</tr>
+</tbody>
+</table></aside>
+
+<figure class="fig"><img class="figimg" src="img/A040_5p37_19p09.jpg" width="970" height="268" loading="lazy" alt="地科1 第40頁" data-page="地科1 p.40"><figcaption>觀念一點通：最亮的行星與恆星（講義 p.40）</figcaption></figure>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><ol>
+<li>金、木、水、火、土這五顆行星由於亮度較高，且繞日公轉速度較快，因此古人很早就得知它們是行星；天王星與海王星是利用望遠鏡觀測才發現的行星。</li>
+<li><strong>夜空中最亮的「恆」星是天狼星</strong>，而<strong>最亮的星星其實是行星中的金星</strong>，它比天狼星亮！（目應更嚴謹加註「夜空」，就不會有爭議。）</li>
+</ol></aside>
+
+<h2 class="section " id="s3">星座</h2>
+
+<figure class="fig"><img class="figimg" src="img/A040_25p06_88p31.jpg" width="970" height="1111" loading="lazy" alt="地科1 第40頁" data-page="地科1 p.40"><figcaption>星座：獵戶座（講義 p.40）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ol>
+<li>恆星與地球的距離<strong>各自不同</strong>，且彼此之間並無關聯，只是從地球往外看，感覺星體彼此很接近，並加以組合，用希臘神話故事、器具等為之命名（例：獵戶座）。</li>
+<li><strong>國際天文聯合會在 1930 年</strong>統一將天球劃分為 <strong>88 個「區域」</strong>，每個區域各為一個星座。（星座是天空<strong>區域</strong>，不是天體系統。）</li>
+<li>每個星座所涵蓋的範圍大小不同，且星體個數與明亮程度也不同。</li>
+<li>通常依星座中恆星的<strong>亮度順序</strong>為恆星命名，最亮者稱為 <strong>α 星</strong>、次亮者為 <strong>β 星</strong>，以希臘字母順序類推（例：天琴座中最亮的恆星稱為天琴座 α 星）。（只有少數不依此規則）</li>
+</ol></aside>
+
+<h2 class="section " id="s4">不同時空的疊合</h2>
+
+<figure class="fig"><img class="figimg" src="img/A041_4p1_69p67.jpg" width="1021" height="1119" loading="lazy" alt="地科1 第41頁" data-page="地科1 p.41"><figcaption>不同距離的天體（講義 p.41）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ol>
+<li>地球以外的天體都離我們太遠，眼睛無法辨別實際遠近，看起來都位於無窮遠處的天球上；但可利用宇宙結構概念推出遠近。圖中由近到遠依序為：<strong>A 流星 → B 月亮 → C 彗星 → D 星團 → E 星系</strong>。</li>
+<li>星光從該星體到地球需要時間：距離我們 <strong>250 萬光年</strong>的星體，我們此時看到的影像就是該星體 <strong>250 萬年前</strong>的樣子。</li>
+</ol></aside>
+
+<aside class="box box-warn"><div class="box-h">注意</div><p><strong>小撇步：判斷星體的遠近</strong><br />
+1. 我們肉眼可見的任何恆星、星團、星雲均屬於<strong>銀河系之內</strong>；銀河系之外，我們看到的影像都是以<strong>星系</strong>為單位。（宇宙的基本單位是星系！）<br />
+2. 依照宇宙結構判斷：太陽系內的（八大行星、彗星、矮行星）比太陽系外的近；階級比銀河系小的（肉眼可見的恆星、星團、星雲）皆屬於銀河系之內，這些又比銀河系外的（其他星系、星系團）近。<br />
+3. 所以<strong>昴宿星團</strong>（也可以換成織女星、蟹狀星雲，答案不變）一定比仙女座星系近。</p>
+<p><strong>小陷阱</strong>：<br />
+- 愈亮的愈近？<strong>不一定</strong>：亮的恆星可能是因為本身發光強度很高。<br />
+- 愈大的愈近？同一個天體愈靠近地球看起來愈大；但<strong>不同的天體不能這樣比</strong>，因為看起來愈大的可能是本身就很大。</p></aside>
+
+<h2 class="section " id="s5">小試身手</h2>
+
+<article class="q q-pr" id="q86">
+<header class="qh"><span class="qn">小試 1</span><span class="qtag">PH1 行星　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A042_7p07_26p09_x0p28-92p94.jpg" width="997" height="298" loading="lazy" alt="地科1 第42頁" data-page="地科1 p.42"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：行星 PH1 在 4 個太陽（恆星）的系統中運轉，距離地球 5000 光年。</p>
+<ul>
+<li>(A) ✗ 太陽系只有一個太陽，PH1 繞四顆恆星，<strong>不屬於太陽系</strong>。</li>
+<li>(B) ○ 5000 光年的尺度小於銀河系直徑（約 10 萬光年），屬於<strong>銀河系</strong>。</li>
+<li>(C) ✗ 銀河系外的天體都是以星系為單位，看不到單一行星。</li>
+<li>(D) ✗ 行星<strong>不一定</strong>有衛星（水星、金星都沒有）。</li>
+<li>(E) ○ 光走 5000 光年，看到的是 <strong>5000 年前</strong>的情形。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q87">
+<header class="qh"><span class="qn">小試 2</span><span class="qtag">織女星與牛郎星</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A042_26p09_43p48_x0p28-92p94.jpg" width="997" height="343" loading="lazy" alt="地科1 第42頁" data-page="地科1 p.42"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>光行時間（年）＝距離（光年）</strong>；兩星的距離不能直接相減（地球、織女、牛郎不一定在同一條直線）。</p>
+<ul>
+<li>(A) ✗ 恆星相對位置在一夜之內不會明顯靠近。</li>
+<li>(B) ✗ 織女星與牛郎星間的距離不能用 25 − 16＝9 光年計算（三者不在一直線）。</li>
+<li>(C) ○ 牛郎星距地球 16 光年，在牛郎星看地球，看到的是 <strong>16 年前</strong>的地球。</li>
+<li>(D) ✗ 在織女星上看到的地球是 <strong>25 年前</strong>的樣子，不是恐龍時代。</li>
+<li>(E) ✗ 同時從地球發射訊號，<strong>較近的牛郎星先接收</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q88">
+<header class="qh"><span class="qn">小試 3</span><span class="qtag">哈伯望遠鏡的大熊座影像　（應選 2 項）　改自學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A042_44p02_59p78_x0p28-92p94.jpg" width="997" height="339" loading="lazy" alt="地科1 第42頁" data-page="地科1 p.42"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：影像中的<strong>星系</strong>屬銀河系外；散布的<strong>恆星</strong>屬銀河系內。</p>
+<ul>
+<li>(A) ✗ 甲星系看起來較大，不代表實際較大（可能較近）。</li>
+<li>(B) ✗ 乙看起來較小，不一定離地球較遠（可能本身較小）。</li>
+<li>(C) ○ 圖面上散布的<strong>恆星</strong>都屬於銀河系。</li>
+<li>(D) ○ 甲、乙是星系，距離遠，<strong>不屬於銀河系</strong>。</li>
+<li>(E) ✗ 星座是天球上的<strong>區域</strong>，不是宇宙階級，不位於星系之上。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q89">
+<header class="qh"><span class="qn">小試 4</span><span class="qtag">后髮座星系團　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A042_60p33_95p65_x0p28-92p94.jpg" width="997" height="679" loading="lazy" alt="地科1 第42頁" data-page="地科1 p.42"><img class="qimg" src="img/A043_3p6_11p39_x0p28-72p36.jpg" width="777" height="146" loading="lazy" alt="地科1 第43頁" data-page="地科1 p.43"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：宇宙階級的大小；星座是區域，不是階級。</p>
+<ul>
+<li>(A) ✗ 題文提到「<strong>后髮座超星系團</strong>」，所以最高階級是<strong>超星系團</strong>，不是星系團。</li>
+<li>(B) ○ 后髮座星系團（許多星系）比單一星系（銀河系）大。</li>
+<li>(C) ○ 星系團中星系可能彼此靠近，但每個星系都離銀河系很遠。</li>
+<li>(D) ✗ 獅子座與后髮座<strong>同屬后髮座超星系團</strong>，位置應相鄰，不是在地球兩側。</li>
+<li>(E) ✗ 后髮座超星系團是另一個超星系團，不包含本超星系團。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q90">
+<header class="qh"><span class="qn">小試 5</span><span class="qtag">哪一顆可能為行星</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A043_11p99_25p18_x0p28-72p36.jpg" width="777" height="232" loading="lazy" alt="地科1 第43頁" data-page="地科1 p.43"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E) E 星</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>行星</strong>在眾星間遊走，<strong>位置會改變</strong>；恆星彼此位置固定。兩張不同時日的照片中，<strong>E 星的位置移動了</strong>，其餘不動，所以 E 可能是行星。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q91">
+<header class="qh"><span class="qn">小試 6</span><span class="qtag">北斗七星在不同地點的形狀</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A043_25p78_48p56_x0p28-72p36.jpg" width="777" height="387" loading="lazy" alt="地科1 第43頁" data-page="地科1 p.43"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：恆星彼此距離遠，「星座形狀」是從<strong>地球</strong>往外看的投影。<br />
+- <strong>火星</strong>離地球很近（相對於恆星），看到的北斗七星形狀與地球相同。<br />
+- <strong>克卜勒 452B</strong> 距地球約 1400 光年，視角不同，七顆星距離各不相同，形狀就會<strong>改變</strong>。<br />
+所以「在火星相同、在克卜勒 452B 則不同」。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q92">
+<header class="qh"><span class="qn">小試 7</span><span class="qtag">哈伯望遠鏡的三張影像　（單選）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A043_48p86_91p13_x0p28-72p36.jpg" width="777" height="730" loading="lazy" alt="地科1 第43頁" data-page="地科1 p.43"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：星系（一）、星雲（二）、球狀星團（三）。</p>
+<ul>
+<li>(A) ✗ 棒旋星系<strong>不一定</strong>是銀河系的影像（其他星系也可能是棒旋）。</li>
+<li>(B) ✗ 星雲是<strong>氣體與塵埃</strong>，不是由許多恆星聚集。</li>
+<li>(C) ○ 球狀星團的點點星光多由<strong>小質量、年老恆星</strong>構成，分布於<strong>銀暈</strong>。</li>
+<li>(D) ✗ 影像（一）是星系（銀河系外），不是離地球最近。</li>
+<li>(E) ✗ 星系（一）的尺度最大，不是影像（二）。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u2-6.html">← 2-6 主題 6　宇宙的結構與宇宙膨脹</a><a href="u2-8.html">2-8 主題 8　多波段星空觀測及限制 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

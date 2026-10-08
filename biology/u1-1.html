@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-1 生命現象與細胞學說｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a class="on" href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a><ul class="subtoc"><li><a href="#s1">先看這一頁：細胞學要記什麼</a></li><li><a href="#s2">概念 1：生命現象的特徵</a></li><li><a href="#s3">概念 1：細胞的發現與細胞學說</a></li><li><a href="#s4">經典演練</a></li></ul></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第1單元 細胞學</div>
+<h1><span class="uid">1-1</span>生命現象與細胞學說</h1>
+<div class="tools"><span class="cnt">本單元 6 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">先看這一頁：細胞學要記什麼</h2>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>第 1 單元「細胞學」的六個概念</strong>（括號內為講義標示的重要度）：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>一句話核心</th>
+<th>重要度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 生命現象與細胞學說</td>
+<td>生物有哪些共同特徵？細胞學說講什麼？</td>
+<td>★★</td>
+</tr>
+<tr>
+<td>2 維持生物體的基本物質</td>
+<td>水、無機鹽、醣類、蛋白質、脂質、核酸、維生素</td>
+<td>★★★★</td>
+</tr>
+<tr>
+<td>3 酵素與輔酶</td>
+<td>酵素＝生物體內的催化劑；輔酶幫忙酵素</td>
+<td>★★★★</td>
+</tr>
+<tr>
+<td>4 細胞的構造與功能</td>
+<td>膜、質、核；各胞器分工</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>5 物質進出細胞的方式</td>
+<td>被動運輸、主動運輸、胞吞、胞吐</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>6 細胞的生殖與分化</td>
+<td>有絲分裂、減數分裂、分化、凋亡</td>
+<td>★★★★★</td>
+</tr>
+</tbody>
+</table>
+<p>講義最後還有「探討活動」（顯微觀察、有機物檢測、細胞膜通透性、酵素活性），是實驗題的出處。</p></aside>
+
+<h2 class="section " id="s2">概念 1：生命現象的特徵</h2>
+<p>生物和非生物最大的差別，是生物會「自己維持運作」。講義把生命現象整理成八個特徵，段考最常用「配對」或「判斷哪個現象屬於哪個特徵」來考：</p>
+<table>
+<thead>
+<tr>
+<th>特徵</th>
+<th>定義（重點字）</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 構造複雜、組織規律</td>
+<td>細胞是最基本的構造與功能單位</td>
+<td>原子→分子→巨分子→胞器→細胞→組織→器官→系統→個體→族群→群集→生態系→生物圈</td>
+</tr>
+<tr>
+<td>② 新陳代謝</td>
+<td><strong>同化代謝</strong>：利用能量把物質轉換成生物體成分（合成）；<strong>異化代謝</strong>：把物質分解成代謝產物（分解）；兩者<strong>同時</strong>在細胞中進行</td>
+<td>光合作用（同化）、呼吸作用（異化）</td>
+</tr>
+<tr>
+<td>③ 生長與發育</td>
+<td><strong>生長</strong>＝細胞「體積」或「數目」增加；<strong>發育</strong>＝經一系列變化形成一定形態的個體</td>
+<td>小孩長高是生長；蝌蚪變青蛙是發育</td>
+</tr>
+<tr>
+<td>④ 感應</td>
+<td>用受器感應刺激，再用生理或行為改變回應外界</td>
+<td>趨性（<strong>動物</strong>）、向性（<strong>植物</strong>，如向光性、向地性）</td>
+</tr>
+<tr>
+<td>⑤ 適應環境</td>
+<td>生物能適應環境</td>
+<td>北極熊毛厚、仙人掌葉變刺</td>
+</tr>
+<tr>
+<td>⑥ 運動</td>
+<td>動物靠肌肉收縮放鬆移動；高等植物有局部運動</td>
+<td>含羞草的觸發運動</td>
+</tr>
+<tr>
+<td>⑦ 繁殖後代</td>
+<td>目的是<strong>增加個體數目</strong>與<strong>傳遞遺傳物質</strong>；產生的是「同種」個體</td>
+<td>有性生殖、無性生殖</td>
+</tr>
+<tr>
+<td>⑧ 恆定性</td>
+<td>讓一些生理現象維持在一定範圍</td>
+<td>體溫、血糖、離子濃度的穩定</td>
+</tr>
+</tbody>
+</table>
+<aside class="box box-warn"><div class="box-h">迷思</div><p><strong>容易混的三組</strong>：<br />
+1. 趨性（動物對刺激趨向或迴避）vs 向性（<strong>植物</strong>因刺激而朝向或背離的生長反應）——主詞不同。<br />
+2. 生長（變大或變多）vs 發育（形態有系列變化）。<br />
+3. 同化（合成，吸收能量）vs 異化（分解，釋放能量）——兩個不是先後，而是<strong>同時</strong>進行。</p></aside>
+
+<h2 class="section " id="s3">概念 1：細胞的發現與細胞學說</h2>
+<p>按年代記，是這一單元最愛考的「配對題」：</p>
+<table>
+<thead>
+<tr>
+<th>科學家</th>
+<th>貢獻</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>虎克（Robert Hooke）</td>
+<td>1665 年觀察<strong>軟木塞切片</strong>（死細胞），看到規則小格子，命名為細胞（cell，小空室）；著有《微物圖誌》</td>
+<td>命名「細胞」</td>
+</tr>
+<tr>
+<td>雷文霍克（Antoni van Leeuwenhoek）</td>
+<td><strong>第一位觀察活細胞</strong>的人</td>
+<td>看到活細胞</td>
+</tr>
+<tr>
+<td>布朗（Robert Brown）</td>
+<td>19 世紀觀察植物細胞，發現每個細胞都有<strong>細胞核</strong></td>
+<td>發現細胞核</td>
+</tr>
+<tr>
+<td>許來登（Schleiden）＋許旺（Schwann）</td>
+<td>1839 年發表「細胞學說」：動、植物皆由細胞及其衍生物構成</td>
+<td>提出細胞學說</td>
+</tr>
+<tr>
+<td>魏修（Virchow）</td>
+<td>由疾病研究推論：細胞必須由<strong>已存在的細胞</strong>產生</td>
+<td>細胞來自細胞</td>
+</tr>
+</tbody>
+</table>
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>現今「細胞學說」的內容（三點）</strong>：<br />
+1. 所有生物體都是由<strong>一個或多個細胞</strong>組成。<br />
+2. 細胞是所有生物體組成的<strong>最小單位</strong>（構造與功能的基本單位）。<br />
+3. 細胞是由<strong>已經存在的細胞</strong>分裂產生出來的。</p>
+<p>注意：「DNA 位於細胞核」「細胞由膜、質、核構成」<strong>都不是</strong>細胞學說的內容（段考常拿來當錯誤選項）。</p></aside>
+
+<h2 class="section " id="s4">經典演練</h2>
+
+<article class="q q-pr" id="q1">
+<header class="qh"><span class="qn">經典演練 1</span><span class="qtag">新陳代謝與生命現象・題組 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>新陳代謝是生物體內全部的化學變化總稱，因此需要一定的物質基礎和結構基礎。通過新陳代謝，生物體不斷地進行自我更新，表現出生長、發育和生殖的現象，而生物在生殖過程中，又表現出遺傳和變異的特性。生物體只有在新陳代謝的基礎上，才能對外界的刺激表現出一定的感應；生物體只有感應，才能適應周圍的環境。因此，新陳代謝是生物體進行一切生命活動的基礎，是生物與非生物區別的最重要標誌。<br />
+對生命的維持和延續，下列何者最為重要？<br />
+(A) 細胞的結構代謝　(B) 生長發育和遺傳　(C) 新陳代謝和生殖　(D) 生長發育和生殖</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>短文說「新陳代謝是一切生命活動的基礎」，而「生殖」使個體數目與遺傳物質得以延續：<strong>維持靠新陳代謝，延續靠生殖</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q2">
+<header class="qh"><span class="qn">經典演練 2</span><span class="qtag">恆定性・題組 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>若生物體的新陳代謝正常，則其體內進行生化反應之微環境因子，如溫度及離子濃度等，必須保持在一定的範圍內。這種微環境的穩定狀態為何？<br />
+(A) 生態平衡　(B) 環境容忍性　(C) 生化特異性　(D) 生理恆定性</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>生物為了維持生命，使生理現象維持在一定範圍的作用叫<strong>恆定性</strong>（生理恆定）；生態平衡是群落／生態系層次的概念。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q3">
+<header class="qh"><span class="qn">經典演練 3</span><span class="qtag">植物向光生長・題組 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>植物朝向太陽生長的生物現象，在形態上代表該生物有【(1)】，在生理上代表該生物有【(2)】，在生態上代表該生物有【(3)】。請將【　】與下列選項配對：<br />
+(A) 感應　(B) 適應性　(C) 遺傳性　(D) 向光性</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) D　(2) A　(3) B</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>形態（外觀表現）：莖朝光彎曲＝<strong>向光性</strong>。</li>
+<li>生理（受器接受刺激並反應）：<strong>感應</strong>。</li>
+<li>生態（對環境有利、有助生存）：<strong>適應性</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q4">
+<header class="qh"><span class="qn">經典演練 4</span><span class="qtag">弗萊明與青黴素・題組（4～6）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>以下為弗萊明發現青黴素的實驗探究過程：<br />
+觀察及提出問題：培養細菌的培養基中，偶爾長出青黴菌且其周圍沒有細菌生長。為什麼會出現這種現象？<br />
+假設：？（請回答問題 4）<br />
+進行實驗：把青黴菌放在培養液中培養，然後觀察「使用培養過青黴菌再經由過濾後的」培養液對細菌生長的影響。<br />
+結果：這種培養液阻止了細菌的生長和繁殖。<br />
+結論：弗萊明在持續的研究中分離出此物質，分析它的特徵並將其命名為青黴素。<br />
+第 4 題：作為上述科學探究過程的假設，下列敘述何者適當？<br />
+(A) 青黴菌能產生有利於人類的物質　(B) 青黴菌汙染了細菌生長的培養基　(C) 青黴菌侵占了細菌的生活空間　(D) 青黴菌可能產生不利於細菌繁殖的物質</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>假設要能回應觀察到的現象（青黴菌周圍沒有細菌），而且要<strong>可被實驗檢驗</strong>：(D) 青黴菌可能產生抑制細菌的物質，正好對應後面「用培養過青黴菌的培養液」去測試。(A) 與現象無關；(B)(C) 沒有被後續實驗檢驗。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q5">
+<header class="qh"><span class="qn">經典演練 5</span><span class="qtag">對照實驗設計・題組（5）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>為了證明青黴素確實是青黴菌產生的，不是培養液和培養基中的其他物質所產生，則應設計對比實驗，其實施方法為何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>把細菌放在「沒有培養過青黴菌（其他條件完全相同）」的培養液（或培養基）中培養。</div>
+<div class="exp"><b class="exp-h">解</b><p>對照組只改變「有沒有青黴菌」這<strong>一個變因</strong>，其餘（培養液成分、溫度、細菌種類、過濾處理）都相同，才能把結果歸因於青黴菌。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q6">
+<header class="qh"><span class="qn">經典演練 6</span><span class="qtag">對照組的結果・題組（6）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>對照組的實驗結果應為何，才能因此證明青黴菌確實能產生可阻止細菌繁殖的物質？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>細菌能夠正常生長、繁殖。</div>
+<div class="exp"><b class="exp-h">解</b><p>若沒有青黴菌的培養液也能抑制細菌，就表示抑制作用來自培養液本身，不能證明是青黴菌的貢獻；對照組細菌<strong>正常生長</strong>，實驗組被抑制，才有說服力。</p></div>
+</details>
+</article>
+</div><div class="pager"><span></span><a href="u1-2.html">1-2 維持生物體的基本物質（原生質） →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

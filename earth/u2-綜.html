@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2-綜 單元 2 歷屆試題與關鍵考題｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a class="on" href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a><ul class="subtoc"><li><a href="#s1">歷屆試題</a></li><li><a href="#s2">關鍵考題</a></li><li><a href="#s3">混合題</a></li></ul></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">單元 2 天文</div>
+<h1><span class="uid">2-綜</span>單元 2 歷屆試題與關鍵考題</h1>
+<div class="tools"><span class="cnt">本單元 47 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section sec-practice" id="s1">歷屆試題</h2>
+
+<article class="q q-pr" id="q134">
+<header class="qh"><span class="qn">歷屆 1</span><span class="qtag">丙行星的極區緯度　改自學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A063_11p79_33p31_x0p26-88p18.jpg" width="997" height="386" loading="lazy" alt="地科1 第63頁" data-page="地科1 p.63"><img class="qimg" src="img/A063_33p61_40p68_x0p26-70p55.jpg" width="798" height="128" loading="lazy" alt="地科1 第63頁" data-page="地科1 p.63"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 25 度至 90 度</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：極圈緯度＝90° − 自轉軸傾角。丙行星傾角 65° ⇒ 極圈緯度＝90 − 65＝<strong>25°</strong>，極區範圍是 <strong>25°～90°</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q135">
+<header class="qh"><span class="qn">歷屆 2</span><span class="qtag">晝夜溫差最大與最小的行星</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A063_11p79_33p31_x0p26-88p18.jpg" width="997" height="386" loading="lazy" alt="地科1 第63頁" data-page="地科1 p.63"><img class="qimg" src="img/A063_41p27_51p3_x0p26-88p18.jpg" width="997" height="172" loading="lazy" alt="地科1 第63頁" data-page="地科1 p.63"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 最大的是甲行星，最小的是丙行星</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：晝夜溫差與<strong>大氣厚度</strong>（恆溫效果）、<strong>自轉週期</strong>（日照時間長短）有關：大氣愈稀薄、自轉愈慢，溫差愈大。<br />
+- 甲：大氣壓力 0.001 atm（極稀薄）、自轉 42 小時（最慢）⇒ 溫差<strong>最大</strong>。<br />
+- 丙：大氣壓力 1.2 atm（最厚）、自轉 12 小時（最快）⇒ 溫差<strong>最小</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q136">
+<header class="qh"><span class="qn">歷屆 3</span><span class="qtag">望遠鏡的曝光時間與極限星等　學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A063_51p89_60p73_x0p26-88p18.jpg" width="997" height="212" loading="lazy" alt="地科1 第63頁" data-page="地科1 p.63"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 24</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：感光晶片接收光量與曝光時間成<strong>線性</strong>關係，曝光時間變 40 倍 ⇒ 能接收的光量變 <strong>40 倍</strong>，等於能偵測到暗 <strong>2.512ⁿ＝40</strong> 倍的星。<br />
+- 2.512⁴ ≈ 39.8 ≈ 40 ⇒ n ＝ <strong>4 等</strong>。<br />
+- 極限星等由 20 等 ⇒ <strong>24 等</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q137">
+<header class="qh"><span class="qn">歷屆 4</span><span class="qtag">太陽風　102 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A063_61p32_73p11_x0p26-88p18.jpg" width="997" height="164" loading="lazy" alt="地科1 第63頁" data-page="地科1 p.63"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：太陽風是由太陽噴出的<strong>帶電粒子</strong>（質子、氦原子核與電子）。</p>
+<ul>
+<li>(A) ✗ 太陽能的主要來源是<strong>核融合</strong>釋放的輻射能，不是太陽風。</li>
+<li>(B) ✗ 太陽風是<strong>帶電</strong>的高能粒子。</li>
+<li>(C) ✗ 太陽風受地球<strong>磁場</strong>阻擋，且帶電粒子沿磁力線進入<strong>南北兩極</strong>，不是赤道受影響最大。</li>
+<li>(D) ○ 兩極上空的氣體被太陽風帶電粒子撞擊激發，產生<strong>極光</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q138">
+<header class="qh"><span class="qn">歷屆 5</span><span class="qtag">宇宙演化　104 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A063_73p7_90p21_x0p26-88p18.jpg" width="997" height="303" loading="lazy" alt="地科1 第63頁" data-page="地科1 p.63"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 僅有乙、丁</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：</p>
+<ul>
+<li>甲 ✗ 大部分恆星不是在大霹靂時誕生，而是大霹靂後約 <strong>4 億年</strong>第一代恆星才形成。</li>
+<li>乙 ○ 宇宙微波背景輻射在大霹靂後約 <strong>38 萬年</strong>形成，比恆星的光（大霹靂後 4 億年）還古老。</li>
+<li>丙 ✗ 宇宙<strong>持續膨脹</strong>。</li>
+<li>丁 ○ 哈伯定律 <strong>V＝H₀×d</strong>，H₀ 愈大，同樣距離的遠離速度愈快 ⇒ 宇宙膨脹愈快。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q139">
+<header class="qh"><span class="qn">歷屆 6</span><span class="qtag">黑體輻射（選「錯誤」）　106 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A064_4p96_34p14_x0p27-90p74.jpg" width="997" height="545" loading="lazy" alt="地科1 第64頁" data-page="地科1 p.64"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：黑體輻射曲線：任何溫度的物體都會放出<strong>各種波長</strong>，只是強度不同；溫度愈高，最強波段的波長愈短。</p>
+<ul>
+<li>(A) ✗ 8000 K 的恆星<strong>不是</strong>只放射 400 nm 的電磁波；400 nm 只是強度<strong>最強</strong>的波長，其他波長也有輻射。</li>
+<li>(B) ○ 3000 K 時最強波段在紅外線（＞700 nm）。</li>
+<li>(C) ○ 月光是反射太陽光，月球本身也放出紅外線等。</li>
+<li>(D) ○ 紅外線攝影機可拍到人體發出的紅外線。</li>
+<li>(E) ○ 6000 K 與 16000 K 的恆星，都會放射可見光（只是強度不同）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q140">
+<header class="qh"><span class="qn">歷屆 7</span><span class="qtag">地球軌道變成正圓對季節的影響　106 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A064_34p42_47p91_x0p27-90p74.jpg" width="997" height="301" loading="lazy" alt="地科1 第64頁" data-page="地科1 p.64"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 地球仍有季節變化，但夏季和冬季之間的溫差明顯變大</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：季節變化主要由<strong>地軸傾斜</strong>造成，所以仍有季節。目前北半球<strong>夏季在遠日點附近、冬季在近日點附近</strong>，使北半球夏冬溫差被「稍微縮小」；若軌道變成正圓，這個縮小作用消失，<strong>夏冬溫差變得更大</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q141">
+<header class="qh"><span class="qn">歷屆 8</span><span class="qtag">太陽黑子　（應選 3 項）　109 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A064_48p46_66p08_x0p27-90p74.jpg" width="997" height="336" loading="lazy" alt="地科1 第64頁" data-page="地科1 p.64"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：太陽黑子（光球層上較低溫的暗區），數量約 <strong>11 年</strong>為一個週期，黑子多＝太陽活動劇烈。</p>
+<ul>
+<li>(A) ○ 觀測黑子要用投影法或太陽濾鏡，避免強光傷害眼睛。</li>
+<li>(B) ✗ 黑子是<strong>溫度較低</strong>的區域，不是「成分未知的氣體」。</li>
+<li>(C) ✗ 黑子強磁場與地球電離層厚度沒有這樣的關係；影響電離層的主要是太陽的短波輻射與帶電粒子。</li>
+<li>(D) ○ 黑子個數變化週期約 <strong>11 年</strong>。</li>
+<li>(E) ○ 黑子數目多的那幾年太陽活動劇烈，易影響地球環境。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q142">
+<header class="qh"><span class="qn">歷屆 9</span><span class="qtag">星際塵埃與星等修正　（應選 2 項）　109 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A064_67p18_79p85_x0p27-90p74.jpg" width="997" height="246" loading="lazy" alt="地科1 第64頁" data-page="地科1 p.64"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：星際塵埃使星光<strong>變暗</strong> ⇒ 觀測到的星等偏<strong>大</strong>；修正後（還原應有亮度）的星等要<strong>變小</strong>，所以 Δm＜0。</p>
+<ul>
+<li>(A) ✗ Δm＞0 表示修正後更暗，錯。</li>
+<li>(B) ○ Δm＜0。</li>
+<li>(C) ✗ 是否為負值由塵埃<strong>消光</strong>決定，與光譜型態無關。</li>
+<li>(D) ○ 天體距離愈遠，視線上的星際塵埃愈多，影響愈顯著。</li>
+<li>(E) ✗ 銀河系外的天體，光線也要穿過銀河系內塵埃，Δm 不會等於 0。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q143">
+<header class="qh"><span class="qn">歷屆 10</span><span class="qtag">央斯基的不明電波　109 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A064_80p4_90p86_x0p27-90p74.jpg" width="997" height="231" loading="lazy" alt="地科1 第64頁" data-page="地科1 p.64"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 銀河系中心</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：訊號每隔 <strong>23 小時 56 分</strong>（＝1 個<strong>恆星日</strong>）出現一次最大值，代表訊號源<strong>固定在天球上</strong>，隨地球自轉每恆星日經過一次；太陽（太陽日 24 小時）、金星、月球都不是。固定在天球上的訊號源就是<strong>銀河系中心</strong>（射電波很強）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q144">
+<header class="qh"><span class="qn">歷屆 11</span><span class="qtag">星系與星系團的光譜紅移　109 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A064_91p13_98p57_x0p27-90p74.jpg" width="997" height="212" loading="lazy" alt="地科1 第64頁" data-page="地科1 p.64"><img class="qimg" src="img/A065_3p37_10p72_x0p28-94p7.jpg" width="998" height="120" loading="lazy" alt="地科1 第65頁" data-page="地科1 p.65"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E) 甲為星系團，遠離速率較乙大</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：甲質量約乙的 1000 倍 ⇒ 甲是<strong>星系團</strong>、乙是<strong>星系</strong>；甲光譜線波長皆大於乙 ⇒ 甲<strong>紅移較大</strong> ⇒ <strong>遠離速率較大</strong>（距離較遠）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q145">
+<header class="qh"><span class="qn">歷屆 12</span><span class="qtag">宇宙演化階段排序</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A065_11p64_23p28_x0p28-94p7.jpg" width="998" height="221" loading="lazy" alt="地科1 第65頁" data-page="地科1 p.65"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>甲→乙→丙</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<br />
+- 甲：宇宙中大部分粒子為電子與質子，尚未結合成原子（大霹靂後 38 萬年前）。<br />
+- 乙：宇宙中開始出現氫原子（約 38 萬年後，離子結合成原子）。<br />
+- 丙：恆星開始形成（約 4 億年後）。</p>
+<p>順序：<strong>甲 → 乙 → 丙</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q146">
+<header class="qh"><span class="qn">歷屆 13</span><span class="qtag">紅色及藍色玻璃片拍星空　110 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A065_23p59_40p44_x0p28-94p7.jpg" width="998" height="300" loading="lazy" alt="地科1 第65頁" data-page="地科1 p.65"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 比對兩幅影像，能辨別出藍色高溫恆星</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：紅色玻璃片只讓紅光通過，藍色玻璃片只讓藍光通過。<strong>藍色（高溫）恆星</strong>在藍色玻璃片影像中很亮、在紅色玻璃片影像中很暗；比對兩幅影像的亮度差，就能辨別星色（表面溫度）。<br />
+- (A)(B) 不能判斷年齡、距離。(D) 藍色玻璃片中亮的是<strong>高溫</strong>恆星，不是低溫恆星。(E) 在紅色玻璃片中亮的是<strong>紅色低溫</strong>恆星，但敘述「非常明亮」不是重點，也不是題意要找的資訊。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q147">
+<header class="qh"><span class="qn">歷屆 14</span><span class="qtag">火星的描述　（應選 2 項）　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A065_40p75_63p73_x0p28-94p7.jpg" width="998" height="375" loading="lazy" alt="地科1 第65頁" data-page="地科1 p.65"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：火星的特徵：類地行星、有流水痕跡。</p>
+<ul>
+<li>(A) ○ 火星屬類地行星。</li>
+<li>(B) ✗ 火星在地球外側，地球前往火星<strong>會</strong>通過小行星帶？——小行星帶在<strong>火星與木星之間</strong>，地球去火星<strong>不經過</strong>小行星帶。</li>
+<li>(C) ✗ 與地球體積大小最相近的是<strong>金星</strong>。</li>
+<li>(D) ✗ 「大紅斑」是<strong>木星</strong>的特徵。</li>
+<li>(E) ○ 火星表面曾經有流水痕跡，表示曾可能適合生命發展。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q148">
+<header class="qh"><span class="qn">歷屆 15</span><span class="qtag">火星地貌由老到新的順序　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A065_40p75_50p25_x0p28-94p7.jpg" width="998" height="155" loading="lazy" alt="地科1 第65頁" data-page="地科1 p.65"><img class="qimg" src="img/A065_63p73_76p59_x0p28-94p7.jpg" width="998" height="219" loading="lazy" alt="地科1 第65頁" data-page="地科1 p.65"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 丙－甲－乙</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：地貌判斷相對年代（疊置、截切）：<strong>三角洲</strong>（流水沉積，最老）→ <strong>小隕石坑</strong>（在三角洲上切入）→ <strong>風成沙丘</strong>（覆蓋在隕石坑上，最新）。順序：<strong>丙 → 甲 → 乙</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q149">
+<header class="qh"><span class="qn">歷屆 16</span><span class="qtag">甲、乙兩地的星跡照片　（應選 2 項）　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A065_77p21_95p59_x0p28-94p7.jpg" width="998" height="312" loading="lazy" alt="地科1 第65頁" data-page="地科1 p.65"><img class="qimg" src="img/A066_4_10p84_x0p28-99p06.jpg" width="1048" height="146" loading="lazy" alt="地科1 第66頁" data-page="地科1 p.66"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：朝東拍攝的星跡是<strong>直線</strong>；軌跡與地平面的夾角＝90° − 緯度。<br />
+- 甲地：星跡幾乎<strong>垂直</strong>地平面 ⇒ 夾角約 90° ⇒ 緯度約 0° ⇒ <strong>甲地相當接近赤道</strong> ⇒ (C) ○。<br />
+- 乙地：星跡與地平面夾角約 <strong>45°</strong> ⇒ 緯度約 <strong>45°</strong>，且星體往右上方移動（朝東看、右側為南）⇒ 乙地位於<strong>北半球</strong>，緯度約等於 45 度 ⇒ (E) ○。<br />
+- (A)(B)(D) ✗。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q150">
+<header class="qh"><span class="qn">歷屆 17</span><span class="qtag">恆星顏色與表面溫度　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A066_11p13_22p26_x0p28-99p06.jpg" width="1048" height="197" loading="lazy" alt="地科1 第66頁" data-page="地科1 p.66"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 織女星的表面溫度比心宿二高</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：顏色對應表面溫度：藍白色（織女星）＞偏紅（心宿二）；<strong>行星</strong>的顏色與表面組成有關，不能以此比較溫度。</p>
+<ul>
+<li>(A) ○ 織女星藍白色，心宿二偏紅 ⇒ 織女星表面溫度較高。</li>
+<li>(B)(C) ✗ 天王星、火星是<strong>行星</strong>，顏色與大氣、地表組成有關，不能用顏色比溫度。</li>
+<li>(D)(E) ✗ 發光能力（光度）還和表面積有關，不能由顏色判斷。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q151">
+<header class="qh"><span class="qn">歷屆 18</span><span class="qtag">太陽從春分到冬至在天球的移動順序　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A066_22p55_42p24_x0p28-94p34.jpg" width="998" height="355" loading="lazy" alt="地科1 第66頁" data-page="地科1 p.66"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 丁→丙→乙→甲</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：太陽在黃道上的位置：<br />
+- 丁：在天球赤道上、白羊座附近 ⇒ <strong>春分點</strong><br />
+- 丙：在黃道最北、巨蟹座附近 ⇒ <strong>夏至點</strong><br />
+- 乙：在天球赤道上、室女座附近 ⇒ <strong>秋分點</strong><br />
+- 甲：在黃道最南、人馬座附近 ⇒ <strong>冬至點</strong></p>
+<p>春分→夏至→秋分→冬至：<strong>丁→丙→乙→甲</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q152">
+<header class="qh"><span class="qn">歷屆 19</span><span class="qtag">如何推測火星隕石　112 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A066_42p52_57p65_x0p28-99p06.jpg" width="1048" height="279" loading="lazy" alt="地科1 第66頁" data-page="地科1 p.66"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：判斷隕石來源要靠<strong>成分分析</strong>：元素與<strong>同位素比例</strong>符合火星。</p>
+<ul>
+<li>(A) ✗ 至今沒有載人太空船登陸火星（登陸月球才有）。</li>
+<li>(B) ✗ 無法判斷當時有大量火星岩石落到地球。</li>
+<li>(C) ○ 化學分析同位素比例符合火星。</li>
+<li>(D) ✗ 許多天體的岩石都含氧化鐵，不能據此判斷。</li>
+<li>(E) ✗ 很多隕石進入大氣都會有火燒痕跡。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q153">
+<header class="qh"><span class="qn">歷屆 20</span><span class="qtag">火星成為太空移民目標　112 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A066_58p22_74p2_x0p28-99p06.jpg" width="1048" height="287" loading="lazy" alt="地科1 第66頁" data-page="地科1 p.66"><img class="qimg" src="img/A066_74p2_97p03_x0p28-99p06.jpg" width="1048" height="402" loading="lazy" alt="地科1 第66頁" data-page="地科1 p.66"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：火星與地球的比較（表）。</p>
+<ul>
+<li>(A) ✗ 離地球最近的天體是<strong>月球</strong>（金星是最近的行星）。</li>
+<li>(B) ✗ 火星質量僅地球 0.11 倍，表面重力小，不易抓住大氣。</li>
+<li>(C) ✗ 火星與太陽距離較遠，氣壓低，地表溫度太低，水不能以液態存在。</li>
+<li>(D) ✗ 火星的自轉軸指向<strong>天鵝座</strong>，不是小熊座（北極星）。</li>
+<li>(E) ○ 自轉週期與地球相當（24.6 h），日夜溫度變化週期與地球類似。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q154">
+<header class="qh"><span class="qn">歷屆 21</span><span class="qtag">在火星看織女星的顏色　112 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A067_1p86_8p68_x0p29-97p56.jpg" width="997" height="127" loading="lazy" alt="地科1 第67頁" data-page="地科1 p.67"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 藍白色</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：恆星的顏色由表面溫度決定，與觀測位置無關；火星大氣稀薄，更少散射，看得更清楚。織女星仍呈<strong>藍白色</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q155">
+<header class="qh"><span class="qn">歷屆 22</span><span class="qtag">火星與地球的比較　112 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A067_9p31_19p23_x0p29-97p56.jpg" width="997" height="201" loading="lazy" alt="地科1 第67頁" data-page="地科1 p.67"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：火星自轉軸傾角 25.2° ⇒ 北回歸線約在<strong>北緯 25 度</strong>。</p>
+<ul>
+<li>(B) ✗ 火星公轉週期 687 日，四季長度比地球<strong>長</strong>。</li>
+<li>(C) ✗ 火星質量小、離太陽遠，太陽潮汐力比地球<strong>小</strong>。</li>
+<li>(D) ✗ 火星赤道的春分中午太陽仰角應為 <strong>90°</strong>。</li>
+<li>(E) ✗ 火星磁場極弱，抵禦太陽風的能力<strong>遠低於</strong>地球。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q156">
+<header class="qh"><span class="qn">歷屆 23</span><span class="qtag">從火星觀察織女星的絕對星等（填 &gt;、&lt;、＝）　112 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A067_19p23_37p84_x0p29-97p56.jpg" width="997" height="325" loading="lazy" alt="地科1 第67頁" data-page="地科1 p.67"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>＝</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>絕對星等</strong>＝把星體移到 32.6 光年處所得的亮度星等，代表<strong>恆星本身的發光能力</strong>，不會因為觀測位置不同而改變。所以從火星看織女星的絕對星等與地球上觀察的相同，填「＝」。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q157">
+<header class="qh"><span class="qn">歷屆 24</span><span class="qtag">天文觀測的電磁波波段　（應選 2 項）　113 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A067_39p7_45p91_x0p29-97p56.jpg" width="997" height="121" loading="lazy" alt="地科1 第67頁" data-page="地科1 p.67"><img class="qimg" src="img/A067_46p53_65p76_x0p29-97p56.jpg" width="997" height="341" loading="lazy" alt="地科1 第67頁" data-page="地科1 p.67"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：二十世紀天文觀測諾貝爾獎都來自<strong>無線電波</strong>，因為它能穿過大氣窗。</p>
+<ul>
+<li>(A) ✗ 科學家早就知道天體會放出其他電磁波，只是難以在地表觀測。</li>
+<li>(B) ✗ 高能量電磁波能傳遞到地球，只是<strong>被大氣吸收</strong>，不是傳不到。</li>
+<li>(C) ○ 無線電波可以幾乎不受阻礙地穿過大氣層（無線電波大氣窗）。</li>
+<li>(D) ○ 觀測 γ、X 射線等被大氣吸收的波段，要等到 20 世紀中期進入<strong>太空時代</strong>才可能。</li>
+<li>(E) ✗ 手機、基地台等是<strong>干擾</strong>，不是優點。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q158">
+<header class="qh"><span class="qn">歷屆 25</span><span class="qtag">望遠鏡口徑愈來愈大的原因　113 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A067_65p76_82p51_x0p29-97p56.jpg" width="997" height="275" loading="lazy" alt="地科1 第67頁" data-page="地科1 p.67"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：望遠鏡<strong>集光力與口徑²成正比</strong>：口徑愈大，收集到的訊號愈多，能看到<strong>星等數值更大（更暗）</strong>的天體。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s2">關鍵考題</h2>
+
+<article class="q q-pr" id="q159">
+<header class="qh"><span class="qn">關鍵 1</span><span class="qtag">土星上看到的太陽視星等</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A068_16p58_23p96_x0p29-96p9.jpg" width="998" height="129" loading="lazy" alt="地科1 第68頁" data-page="地科1 p.68"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) −21.7 等</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：土星距太陽約為地球的 <strong>10 倍</strong> ⇒ 亮度變 <strong>1/100</strong> ⇒ 視星等<strong>增加 5 等</strong>：−26.7 ＋ 5 ＝ <strong>−21.7</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q160">
+<header class="qh"><span class="qn">關鍵 2</span><span class="qtag">埃拉托斯特尼冬至的太陽軌跡</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A068_24p26_43_x0p29-96p9.jpg" width="998" height="306" loading="lazy" alt="地科1 第68頁" data-page="地科1 p.68"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：亞歷山大港夏至時太陽天頂角 7.2°（賽伊尼直射回歸線，亞歷山大港在其北方）。<br />
+- 夏至太陽位於天頂<strong>偏南</strong> 7.2°。<br />
+- 冬至太陽比夏至再偏南 <strong>23.5° × 2＝47°</strong>，天頂角＝7.2° ＋ 47° ＝ <strong>54.2°</strong>（偏南）。<br />
+- 正午太陽仰角＝90° − 54.2° ＝ 35.8°。<br />
+圖中左為南，所以選天頂角 <strong>54.2° 偏南</strong>的 <strong>(D)</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q161">
+<header class="qh"><span class="qn">關鍵 3</span><span class="qtag">日本與臺灣的落日（12 月）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A068_43_64p5_x0p29-96p9.jpg" width="998" height="355" loading="lazy" alt="地科1 第68頁" data-page="地科1 p.68"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 圖一：紅絲、圖二：威州</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：同一時刻，<strong>較東邊</strong>的地點時間較晚（日本比臺灣東）。同一時刻，日本的太陽已經<strong>更接近地平線</strong>（落下較多）⇒ 圖一（太陽快落完）是<strong>日本的紅絲</strong>；圖二（太陽還在較高處）是<strong>臺灣的威州</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q162">
+<header class="qh"><span class="qn">關鍵 4</span><span class="qtag">哪顆恆星最亮；距離大於 32.6 光年的恆星數　（A～D 選一個；E～G 選一個）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A068_64p8_76p17_x0p29-96p9.jpg" width="998" height="191" loading="lazy" alt="地科1 第68頁" data-page="地科1 p.68"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)；(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：看起來最亮＝視星等最小；距離判斷用 <strong>m 與 M</strong> 比較。</p>
+<table>
+<thead>
+<tr>
+<th>恆星</th>
+<th>m</th>
+<th>M</th>
+<th>m 與 M</th>
+<th>距離</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天狼星</td>
+<td>−1.47</td>
+<td>1.42</td>
+<td>m＜M</td>
+<td>＜32.6 光年</td>
+</tr>
+<tr>
+<td>牛郎星</td>
+<td>0.77</td>
+<td>2.21</td>
+<td>m＜M</td>
+<td>＜32.6 光年</td>
+</tr>
+<tr>
+<td>參宿四</td>
+<td>0.42</td>
+<td>−6.05</td>
+<td>m＞M</td>
+<td><strong>＞32.6 光年</strong></td>
+</tr>
+<tr>
+<td>心宿二</td>
+<td>0.96</td>
+<td>−5.28</td>
+<td>m＞M</td>
+<td><strong>＞32.6 光年</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>最亮：<strong>天狼星</strong>（m＝−1.47）⇒ (A)。</li>
+<li>距離大於 32.6 光年：參宿四、心宿二，共 <strong>2 顆</strong> ⇒ (E)。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q163">
+<header class="qh"><span class="qn">關鍵 5</span><span class="qtag">北斗七星在乙位置的時間</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A068_76p47_88p45_x0p29-96p9.jpg" width="998" height="195" loading="lazy" alt="地科1 第68頁" data-page="地科1 p.68"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 23 點</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：地方時相同的位置星空相同，<strong>經度差異不影響</strong>問題的星空判斷（一個月後同一地方時的星空相同）。</p>
+<ul>
+<li>圖中甲到乙的夾角為 <strong>60°</strong>（繞北極星）；60° ÷ 15°/h ＝ <strong>4 小時</strong>。</li>
+<li>一個月後同一時刻，北斗七星已因周年運動偏西 <strong>30°</strong>。</li>
+<li>還需要的時間：(60° − 30°) ÷ 15°/h ＝ <strong>2 小時</strong>。</li>
+<li>所以北斗七星在乙位置時，約為 21 點＋2 小時＝<strong>23 點</strong>（當地時間）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q164">
+<header class="qh"><span class="qn">關鍵 6</span><span class="qtag">2012 年美國極光　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A069_3p67_25p06_x0p29-98p04.jpg" width="998" height="350" loading="lazy" alt="地科1 第69頁" data-page="地科1 p.69"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：極光是<strong>帶電粒子</strong>沿磁力線進入高緯度<strong>大氣層</strong>，撞擊高層大氣所產生。</p>
+<ul>
+<li>(A) ✗ 極光發生在<strong>高層大氣</strong>（約 100 公里以上），不是對流層。</li>
+<li>(B) ✗ 成因是太陽的<strong>帶電粒子</strong>，不是短波輻射。</li>
+<li>(C) ✗ 黑子週期約 <strong>11 年</strong>，且黑子多（太陽活動強）時極光才明顯。</li>
+<li>(D) ○ 沒有大氣層，就不會有極光。</li>
+<li>(E) ○ 太陽活動劇烈時，極光與流星都可能看到。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q165">
+<header class="qh"><span class="qn">關鍵 7</span><span class="qtag">仙女座星系的光譜</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A069_25p06_42p79_x0p29-98p04.jpg" width="998" height="307" loading="lazy" alt="地科1 第69頁" data-page="地科1 p.69"><img class="qimg" src="img/A069_42p79_50p12_x0p29-98p04.jpg" width="998" height="121" loading="lazy" alt="地科1 第69頁" data-page="地科1 p.69"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 藍移</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：仙女座星系<strong>正在靠近</strong>銀河系 ⇒ 光譜<strong>藍移</strong>（波長變短）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q166">
+<header class="qh"><span class="qn">關鍵 8</span><span class="qtag">仙女座星系與銀河系　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A069_50p73_64p18_x0p29-98p04.jpg" width="998" height="251" loading="lazy" alt="地科1 第69頁" data-page="地科1 p.69"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<br />
+- (A) ○ 仙女座星系是本星系群中<strong>最大的星系</strong>，比銀河系大。<br />
+- (B) ✗ 本星系群<strong>包含</strong>銀河系，本星系群不屬於銀河系。<br />
+- (C) ✗ 太陽從黃色變紅色是<strong>表面溫度下降</strong>，不是組成元素改變。<br />
+- (D) ✗ 地球由藍色變黃褐色是因為<strong>海洋消失、地表乾枯</strong>，不是表面溫度下降。<br />
+- (E) ○ 靠近速度＝距離÷時間＝250 萬光年 ÷ 45 億年 ≈ <strong>5.6×10⁻⁴ 光年／年</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q167">
+<header class="qh"><span class="qn">關鍵 9</span><span class="qtag">菲萊登陸 67P 彗星　（應選 3 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A069_64p79_97p19_x0p29-98p04.jpg" width="998" height="552" loading="lazy" alt="地科1 第69頁" data-page="地科1 p.69"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：彗星（太陽系小天體）。</p>
+<ul>
+<li>(A) ✗ 67P 彗星公轉週期 6.44 年，仍屬<strong>太陽系</strong>。</li>
+<li>(B) ✗ 近日點距離 <strong>1.24 AU ＞ 1 AU</strong>，不比地球更靠近太陽。</li>
+<li>(C) ○ 彗星主要由<strong>冰與塵埃</strong>組成。</li>
+<li>(D) ○ 彗星自轉週期約 12.4 小時，有<strong>晝夜變化</strong>。</li>
+<li>(E) ○ 彗星是<strong>反射太陽光</strong>，與太陽、地球的距離不斷改變，視星等會不斷改變。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q168">
+<header class="qh"><span class="qn">關鍵 10</span><span class="qtag">太陽在天球的軌跡與黃道星座（選「錯誤」）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A070_4p21_39p06_x0p29-98p14.jpg" width="998" height="609" loading="lazy" alt="地科1 第70頁" data-page="地科1 p.70"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：圖一為太陽在天球上的位置（甲～丁），圖二為地球公轉與背景星座（庚為地球公轉軌道右側位置）。</p>
+<ul>
+<li>(A) ○ 人馬座位於圖一的丙處（太陽在丙附近時是冬至，人馬座背景）。</li>
+<li>(B) ○ 地球位於己時，半夜 12 點金牛座位於<strong>東方天空</strong>。</li>
+<li>(C) ○ 圖一中的太陽即將往丁（春分點）方向移動時，地球位於圖二庚→辛之間。</li>
+<li>(D) ✗ 庚位置若是<strong>遠日點</strong>，應是<strong>北半球夏季</strong>（7 月），不是冬季；本題說「此時為北半球的冬季」與遠日點矛盾。</li>
+<li>(E) ○ 秋分點位於室女座，但室女座屬<strong>春季星座</strong>（春季夜晚才容易看到）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q169">
+<header class="qh"><span class="qn">關鍵 11</span><span class="qtag">三顆恆星單位面積的輻射強度曲線</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A070_39p66_60p7_x0p29-98p14.jpg" width="998" height="357" loading="lazy" alt="地科1 第70頁" data-page="地科1 p.70"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 恆星表面溫度：甲 ＞ 乙 ＞ 丙</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：單位面積輻射曲線：溫度愈高，曲線愈高、峰值波長愈短。</p>
+<ul>
+<li>(A) ✗ 看起來的亮度還與<strong>距離</strong>有關，不能只看單位面積輻射強度。</li>
+<li>(B) ✗ 乙在可見光波段不是最高強度（峰值在可見光中間，屬黃色），看起來「呈現白色」說法不對。</li>
+<li>(C) ○ 甲峰值最短、曲線最高 ⇒ 溫度最高（藍白）；丙最低（紅）。</li>
+<li>(D) ✗ 絕對星等還與<strong>表面積</strong>（光度）有關，無法由單位面積輻射判斷。</li>
+<li>(E) ✗ 單位面積輻射量小代表<strong>溫度低</strong>（紅色），不一定是白矮星。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q170">
+<header class="qh"><span class="qn">關鍵 12</span><span class="qtag">五星連珠一個月後的景象</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A070_60p7_88p34_x0p29-98p14.jpg" width="998" height="485" loading="lazy" alt="地科1 第70頁" data-page="地科1 p.70"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：行星相對背景恆星位置會改變，行星之間也因公轉速度不同而改變相對位置；<strong>恆星彼此位置固定</strong>。</p>
+<ul>
+<li>(A)(C) ✗ 周年運動只讓恆星提早升起（1 個月約 2 小時），行星位置還會自己變動，景象不會重現。</li>
+<li>(B) ✗ 五顆行星之間的相對位置也會改變。</li>
+<li>(D) ○ 五顆行星一個月後彼此相對位置，及與兩顆恆星之相對位置均已改變，但參宿四與畢宿五這兩顆<strong>恆星</strong>彼此相對位置不變。</li>
+<li>(E) ✗ 星色與距離無關。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q171">
+<header class="qh"><span class="qn">關鍵 13</span><span class="qtag">莫內《日出》太陽的位置</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A071_1p85_17p59_x0p29-96p62.jpg" width="997" height="305" loading="lazy" alt="地科1 第71頁" data-page="地科1 p.71"><img class="qimg" src="img/A071_17p59_32p72_x0p29-96p62.jpg" width="997" height="249" loading="lazy" alt="地科1 第71頁" data-page="地科1 p.71"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：勒阿弗爾位於北緯 49°：<strong>太陽軌跡與地平面的夾角＝90° − 49°＝41°</strong>；11 月太陽直射南半球，日出方位<strong>東偏南</strong>。</p>
+<ul>
+<li>夾角 41° ⇒ (C)、(D)、(E)；49° 的 (A)(B) ✗。</li>
+<li>太陽東偏南升起：面向東時，南在<strong>右邊</strong>，所以太陽應在正東（▼E）的<strong>右側</strong>，且往<strong>右上方</strong>升起 ⇒ <strong>(C)</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q172">
+<header class="qh"><span class="qn">關鍵 14</span><span class="qtag">6 個月後同一時刻的太陽位置</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A071_32p72_39p51_x0p29-96p62.jpg" width="997" height="120" loading="lazy" alt="地科1 第71頁" data-page="地科1 p.71"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 左上方</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：11 月（直射南半球）→ 隔 6 個月＝5 月（直射北半球）：太陽<strong>升起方位偏北</strong>（面向東，北在左）、同一時刻<strong>仰角較高</strong>（太陽較早升起）⇒ 位於原位置的<strong>左上方</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q173">
+<header class="qh"><span class="qn">關鍵 15</span><span class="qtag">啟明與長庚　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A071_39p51_59p26_x0p29-96p62.jpg" width="997" height="320" loading="lazy" alt="地科1 第71頁" data-page="地科1 p.71"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：金星的軌道在地球內側，<strong>最大角距離</strong>只有約 47°，所以只出現在<strong>日出前</strong>（東方）或<strong>日落後</strong>（西方）。</p>
+<ul>
+<li>(A) ✗ 金星的顏色是<strong>大氣與雲層</strong>反射造成，與表面溫度無關。</li>
+<li>(B) ○ 凌晨（日出前）可見的金星一定位於<strong>東方天空</strong>。</li>
+<li>(C) ✗ 天剛黑時金星在<strong>西方低空</strong>，不在天頂。</li>
+<li>(D) ✗ 金星最亮時是<strong>娥眉</strong>（較近、較大的弦月狀），不是滿月。</li>
+<li>(E) ○ 金星比地球更靠近太陽，所以只出現在天亮前或天剛黑時。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q174">
+<header class="qh"><span class="qn">關鍵 16</span><span class="qtag">延伸面與軸線的夾角　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A071_59p26_74p07_x0p29-96p62.jpg" width="997" height="246" loading="lazy" alt="地科1 第71頁" data-page="地科1 p.71"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：圖為<strong>冬至</strong>（直射南回歸線）。</p>
+<ul>
+<li>(A) ✗ 甲（太陽入射線）與乙（赤道面）夾角＝直射緯度＝<strong>23.5°</strong>，不是 0。</li>
+<li>(B) ○ 地球自轉軸（丙）垂直赤道面（乙）⇒ <strong>90°</strong>。</li>
+<li>(C) ✗ 甲在黃道面（丁）內，夾角 <strong>0°</strong>。</li>
+<li>(D) ✗ 丁（黃道面）與戊（嘉義地平面）夾角應為 <strong>47°</strong>（23.5＋23.5），不是 23.5°。</li>
+<li>(E) ○ 冬至中午嘉義太陽仰角＝90°−(23.5＋23.5)＝<strong>43°</strong>，也就是甲與戊夾角 43°。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q175">
+<header class="qh"><span class="qn">關鍵 17</span><span class="qtag">金星大氣壓力與二氧化碳　（A～B 選一項；C～E 選一項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A071_74p07_98p77_x0p29-96p62.jpg" width="997" height="407" loading="lazy" alt="地科1 第71頁" data-page="地科1 p.71"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)；(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：金星大氣壓力是地球的約 <strong>90 倍</strong>；金星的大氣以 CO₂ 為主。<strong>地球</strong>有大量<strong>液態水</strong>，CO₂ 大量溶入水中（再形成石灰岩），使大氣 CO₂ 少；金星太熱，<strong>沒有液態水</strong>，CO₂ 留在大氣中。<br />
+- (A) ○ 金星大氣壓力較大。<br />
+- (B) ✗。<br />
+- (C) ✗ 溫度高確實反應速率較快，但不是主因（也沒有大量碳反應成 CO₂ 的證據）。<br />
+- (D) ○ 地球的溫度適中，使地表有大量液態水，使原始大氣中的 CO₂ 大量溶入水中。<br />
+- (E) ✗ 大氣被太陽風帶走與否不是壓力差異的主因（金星重力足以抓住大氣）。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">混合題</h2>
+
+<article class="q q-pr" id="q176">
+<header class="qh"><span class="qn">混合 1</span><span class="qtag">哈伯太空望遠鏡與木星（選「錯誤」）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_5p33_32p29_x0p29-97p47.jpg" width="998" height="486" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"><img class="qimg" src="img/A072_32p58_45p62_x0p29-97p47.jpg" width="998" height="229" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：哈伯太空望遠鏡位在地球大氣層外（約 559 公里），繞地一圈約 96～97 分鐘。</p>
+<ul>
+<li>(A) ○ 哈伯放在臭氧層之外（559 km）。</li>
+<li>(B) ○ 在地表時無法利用紫外線觀測（被臭氧層吸收）。</li>
+<li>(C) ○ 地表也能使用可見光觀測，但受大氣干擾。</li>
+<li>(D) ✗ 哈伯繞地球運行，有時會被地球遮住，<strong>不能不間斷觀測木星</strong>。</li>
+<li>(E) ○ 哈伯也可利用近紅外線波段觀測木星。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q177">
+<header class="qh"><span class="qn">混合 2</span><span class="qtag">2019 年從臺灣觀測木星</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_46p21_56p87_x0p29-97p47.jpg" width="998" height="192" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：6 月 27 日木星位於「衝」（地球在太陽與木星之間）⇒ 木星整夜可見，與太陽相反方向（太陽日落時木星升起、半夜中天）。</p>
+<ul>
+<li>(A) ✗ 元旦當天木星在<strong>衝後約 6 個月</strong>，不是日落後升起。</li>
+<li>(B) ✗ 春分日木星與太陽<strong>相差很遠</strong>（不是同時升落）。</li>
+<li>(C) ○ 木星自轉一圈只需 <strong>0.41 日（約 10 小時）</strong>，所以當天有機會看到大紅斑轉到背對地球那一側。</li>
+<li>(D) ✗ 木星公轉週期約 11.86 年，<strong>衝的間隔約 399 天</strong>，不是 3 個月後。</li>
+<li>(E) ✗ 12 月 22 日冬至，木星已過衝約半年，不會在清晨六點升至天頂附近。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q178">
+<header class="qh"><span class="qn">混合 3</span><span class="qtag">木星的平均密度</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_57p46_62p2_x0p29-97p47.jpg" width="998" height="98" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>約 1.32 g/cm³</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：密度＝質量／體積。木星質量是地球的 317.83 倍，體積是地球的 1321 倍 ⇒ 密度＝<strong>5.5 × 317.83／1321 ≈ 1.32 g/cm³</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q179">
+<header class="qh"><span class="qn">混合 4</span><span class="qtag">CL0958+4702 系統發出的星光到達地球要多久</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_63p68_75p83_x0p29-97p47.jpg" width="998" height="236" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"><img class="qimg" src="img/A072_76p42_87p68_x0p29-97p47.jpg" width="998" height="203" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E) 5×10⁹ 年</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：圖中紅移量 z＝<strong>0.37</strong> 對應距離約 <strong>5000 百萬光年＝5×10⁹ 光年</strong> ⇒ 星光到地球需要約 <strong>5×10⁹ 年</strong>（光走 1 光年需 1 年）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q180">
+<header class="qh"><span class="qn">混合 5</span><span class="qtag">哪一個影像是該天體比較久遠以前的影像（簡答）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_63p68_75p83_x0p29-97p47.jpg" width="998" height="236" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"><img class="qimg" src="img/A072_87p68_98p34_x0p29-97p47.jpg" width="998" height="156" loading="lazy" alt="地科1 第72頁" data-page="地科1 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>圖二（GN-z11 星系）</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：根據哈伯定律，<strong>距離愈遠的天體，遠離速度愈快，紅移量愈大</strong>。圖二 GN-z11 的紅移 z＝<strong>11.09</strong>（圖一 0.37）⇒ 距離<strong>更遠</strong>，星光傳到地球所需時間愈長，看到的是<strong>更久遠以前</strong>的影像。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u2-11.html">← 2-11 主題 11　四季變化</a><a href="u復0.html">復0 考前地圖：範圍・脈絡・規則速查 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

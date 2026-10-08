@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-6 細胞的生殖與分化｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a class="on" href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a><ul class="subtoc"><li><a href="#s1">細胞週期</a></li><li><a href="#s2">有絲分裂（連續性的改變）</a></li><li><a href="#s3">減數分裂</a></li><li><a href="#s4">有絲分裂 vs 減數分裂</a></li><li><a href="#s5">人類配子的形成</a></li><li><a href="#s6">細胞的特化與分工</a></li><li><a href="#s7">細胞的衰老與凋亡</a></li><li><a href="#s8">經典演練</a></li></ul></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第1單元 細胞學</div>
+<h1><span class="uid">1-6</span>細胞的生殖與分化</h1>
+<div class="tools"><span class="cnt">本單元 8 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">細胞週期</h2>
+<p><strong>細胞週期</strong>：一個分裂中的細胞，在它的生活史中依序進行的事件，包括 <strong>M（分裂）期、G₁ 期、S（合成）期、G₂ 期</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>時期</th>
+<th>重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>間期</strong>＝G₁＋S＋G₂</td>
+<td>細胞不分裂的時期，約占整個細胞週期的 <strong>90%</strong>（所以顯微鏡下大部分細胞在間期）</td>
+</tr>
+<tr>
+<td><strong>G₁ 期</strong></td>
+<td>細胞內<strong>生化活動最旺盛</strong>，細胞體積顯著增大，酵素、核糖體、粒線體等構造數目幾乎倍增</td>
+</tr>
+<tr>
+<td><strong>S 期</strong></td>
+<td><strong>合成 DNA</strong>（DNA 複製）的時期</td>
+</tr>
+<tr>
+<td><strong>G₂ 期</strong></td>
+<td>合成有絲分裂時，兩個子細胞分離所需的各種特殊構造</td>
+</tr>
+<tr>
+<td><strong>M 期</strong></td>
+<td>有絲分裂（核分裂）＋細胞質分裂</td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A031_63_80_x68-94.jpg" width="498" height="544" loading="lazy" alt="生物講義 第31頁" data-page="生物講義 p.31"><figcaption>真核細胞的細胞週期</figcaption></figure>
+
+<aside class="box box-warn"><div class="box-h">迷思</div><ul>
+<li>間期<strong>不是休息期</strong>：G₁ 生長、S 期複製 DNA、G₂ 準備分裂，只是看不到棒狀染色體。</li>
+<li>在顯微鏡下看到的細胞，多數在間期，是因為<strong>間期占時間最長</strong>，不是因為間期分裂最快。</li>
+</ul></aside>
+
+<h2 class="section " id="s2">有絲分裂（連續性的改變）</h2>
+<p><strong>用途</strong>：單細胞真核生物用來行<strong>無性生殖</strong>；多細胞真核生物的<strong>個體生長</strong>（細胞數目增加）及某些無性生殖。<strong>一次複製、一次分裂，產生 2 個與母細胞染色體數相同的子細胞。</strong></p>
+<p><strong>核分裂過程</strong>（記法：前、中、後、末）：</p>
+<table>
+<thead>
+<tr>
+<th>時期</th>
+<th>重點事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>前期</strong></td>
+<td>核仁消失；<strong>線狀染色體濃縮成棒狀</strong>；兩對中心粒間產生由微管組成的<strong>紡錘絲</strong>，沿細胞核延長而分離（紡錘體開始形成）；<strong>核膜碎裂</strong>，部分紡錘絲附著於<strong>著絲點</strong>，使染色體開始移動</td>
+</tr>
+<tr>
+<td><strong>中期</strong></td>
+<td>染色體排列在<strong>中期板</strong>（赤道面，假想平面）</td>
+</tr>
+<tr>
+<td><strong>後期</strong></td>
+<td>姊妹染色分體的<strong>中節（著絲點）分離</strong>，後期終了時細胞兩極完全平分染色體（<strong>子染色體</strong>）</td>
+</tr>
+<tr>
+<td><strong>末期</strong></td>
+<td>紡錘絲消失；核膜由碎片與內膜系統重新合成；核仁重現；棒狀染色體鬆開，呈非緊密纏繞</td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A032_11_71_x18-98.jpg" width="1400" height="1731" loading="lazy" alt="生物講義 第32頁" data-page="生物講義 p.32"><figcaption>有絲分裂核分裂過程</figcaption></figure>
+<p><strong>細胞質分裂</strong>緊接在核分裂之後，把細胞分為幾乎相等的兩部分：<br />
+- <strong>動物細胞</strong>：末期時，中期板處的細胞膜<strong>緊縮</strong>，表面出現<strong>分割溝</strong>，分成兩個細胞；<br />
+- <strong>植物細胞</strong>：末期時，中期板的部分產生<strong>細胞板</strong>（由<strong>高基氏體</strong>產生的小囊泡所形成），細胞板邊緣與細胞膜癒合，形成兩個子細胞。</p>
+<figure class="fig"><img class="figimg" src="img/A032_82_96_x18-98.jpg" width="1400" height="409" loading="lazy" alt="生物講義 第32頁" data-page="生物講義 p.32"><figcaption>動物（分割溝）與植物（細胞板）的細胞質分裂</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>有絲分裂的記憶表</strong>：<br />
+- 染色體<strong>複製</strong>：發生在<strong>間期（S 期）</strong>，不是分裂期。<br />
+- 前期：染色體濃縮、核膜消失、紡錘體形成；<br />
+- 中期：排在<strong>赤道面</strong>；<br />
+- 後期：<strong>姊妹染色分體分離</strong>；<br />
+- 末期：核膜重現、細胞質分裂；<br />
+- 同源染色體在有絲分裂<strong>不聯會、不配對</strong>。<br />
+- 植物（高等）<strong>沒有中心粒</strong>，仍能形成紡錘絲；動物才有中心粒。</p></aside>
+
+<h2 class="section " id="s3">減數分裂</h2>
+<p><strong>減數分裂</strong>：多細胞生物行有性生殖過程中<strong>形成配子</strong>的步驟。<br />
+- 意義：①維持親代和子代<strong>染色體數相同</strong>；②產生<strong>多種染色體組合</strong>的配子。<br />
+- <strong>一次複製、兩次分裂</strong>，產生 <strong>4 個</strong>子細胞，染色體數為母細胞的<strong>一半</strong>。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>減數分裂 I（第一階段）</th>
+<th>減數分裂 II（第二階段）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前期</td>
+<td>線狀染色體變棒狀；<strong>聯會</strong>：同源染色體縱向並列成<strong>四分體</strong>；前期終了核膜、核仁消失，紡錘體形成</td>
+<td>紡錘體產生，染色體移向中期板</td>
+</tr>
+<tr>
+<td>中期</td>
+<td>染色體（四分體）排列在中期板</td>
+<td>染色體排列在中期板</td>
+</tr>
+<tr>
+<td>後期</td>
+<td>紡錘絲將成對的<strong>同源染色體</strong>分別向兩極牽引（<strong>姊妹染色分體仍以中節相連</strong>）</td>
+<td><strong>姊妹染色分體</strong>的中節分離，各自移向兩極</td>
+</tr>
+<tr>
+<td>末期</td>
+<td>染色體移至兩極；立即進行細胞質分裂，形成 <strong>2 個</strong>子細胞</td>
+<td>細胞核形成；細胞質分裂</td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A033_24_93_x15-92.jpg" width="1400" height="2070" loading="lazy" alt="生物講義 第33頁" data-page="生物講義 p.33"><figcaption>減數分裂的過程（左：第一階段、右：第二階段）</figcaption></figure>
+
+<aside class="box box-warn"><div class="box-h">迷思</div><p><strong>一句話分清</strong>：減數分裂 <strong>I 分開的是「同源染色體」</strong>（染色體數減半）；減數分裂 <strong>II 分開的是「姊妹染色分體」</strong>（和有絲分裂相似）。「四分體」是<strong>同源染色體聯會</strong>（一對同源染色體複製後共 4 條染色分體）的構造，<strong>有絲分裂沒有</strong>。</p></aside>
+
+<h2 class="section " id="s4">有絲分裂 vs 減數分裂</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>目的</th>
+<th>複製次數</th>
+<th>分裂次數</th>
+<th>子細胞數</th>
+<th>子細胞染色體數</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>有絲分裂</strong></td>
+<td>體細胞的增生</td>
+<td>1 次</td>
+<td>1 次</td>
+<td><strong>2 個</strong></td>
+<td>與母細胞一樣</td>
+<td>無聯會</td>
+</tr>
+<tr>
+<td><strong>減數分裂</strong></td>
+<td>生殖細胞的產生</td>
+<td>1 次</td>
+<td>2 次</td>
+<td><strong>4 個</strong></td>
+<td>為母細胞的一半</td>
+<td>有聯會、可互換</td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A034_12_40.jpg" width="1400" height="681" loading="lazy" alt="生物講義 第34頁" data-page="生物講義 p.34"><figcaption>細胞分裂時 DNA 量的變化（左：有絲分裂；右：減數分裂）</figcaption></figure>
+<p><strong>DNA 量怎麼看圖</strong>：間期 S 期 DNA 由 2 增加到 4；有絲分裂結束時回到 2；減數分裂 I 結束降為 2、II 結束降為 1。</p>
+<h2 class="section " id="s5">人類配子的形成</h2>
+<p><strong>精子的形成</strong>（睪丸細精管）：<br />
+1. 胚胎時，原始生殖細胞分化為雙套（2n）的<strong>精原細胞</strong>；<br />
+2. 青春期後，精原細胞不斷<strong>有絲分裂</strong>，增加精原細胞數量；<br />
+3. 精原細胞分化為<strong>初級精母細胞</strong>；<br />
+4. 初級精母細胞行<strong>減數分裂 I</strong> → 2 個<strong>次級精母細胞</strong> → <strong>減數分裂 II</strong> → 4 個<strong>精細胞</strong> → 發育成有鞭毛的<strong>精子</strong>；<br />
+5. 精子由精原細胞到成熟約需兩個月，連續進行，一次射精可排出 2 億 5 千萬到 4 億個精子。</p>
+<p><strong>卵的形成</strong>（卵巢）：<br />
+1. 胚胎早期，原始生殖細胞有絲分裂產生 2n 的<strong>卵原細胞</strong>；<br />
+2. <strong>出生時</strong>，所有卵原細胞都已進入減數分裂 I 前期，成為<strong>初級卵母細胞</strong>，<strong>不能再有絲分裂</strong>（數目不再增加）；<br />
+3. 由出生到青春期，初級卵母細胞在小濾泡中<strong>休眠</strong>；<br />
+4. 青春期後受 <strong>FSH</strong> 週期性刺激濾泡生長，每月一個初級卵母細胞完成減數分裂 I，形成 <strong>1 個次級卵母細胞＋1 個極體</strong>（細胞質不均等分裂）；<br />
+5. <strong>排卵時</strong>，次級卵母細胞停在<strong>減數分裂 II 的中期</strong>，<strong>受精時</strong>才完成減數分裂 II。</p>
+<figure class="fig"><img class="figimg" src="img/A034_46_72.jpg" width="1400" height="622" loading="lazy" alt="生物講義 第34頁" data-page="生物講義 p.34"><figcaption>精子的形成</figcaption></figure>
+
+<figure class="fig"><img class="figimg" src="img/A035_11_36.jpg" width="1400" height="560" loading="lazy" alt="生物講義 第35頁" data-page="生物講義 p.35"><figcaption>卵的形成</figcaption></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>精子</th>
+<th>卵</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一個初級細胞產生</td>
+<td><strong>4 個</strong>精細胞</td>
+<td><strong>1 個</strong>卵＋極體</td>
+</tr>
+<tr>
+<td>細胞質分裂</td>
+<td>均等</td>
+<td><strong>不均等</strong>（產生極體）</td>
+</tr>
+<tr>
+<td>開始時間</td>
+<td>青春期</td>
+<td>胚胎期開始、出生時停在減數分裂 I 前期</td>
+</tr>
+<tr>
+<td>持續時間</td>
+<td>持續製造</td>
+<td>數目有限，不再增加</td>
+</tr>
+</tbody>
+</table>
+<h2 class="section " id="s6">細胞的特化與分工</h2>
+<p><strong>基因的控制</strong>：<br />
+- 多細胞生物由一個受精卵（合子）發育而成，所以有核的細胞都帶有<strong>全套遺傳基因</strong>；<br />
+- 細胞特化是因為細胞核的基因<strong>被活化或抑制</strong>——<strong>基因的差異表現</strong>；<br />
+- 基因的組織特異性表現，是由<strong>細胞質中的訊息</strong>所控制。<strong>蛙的細胞核移植實驗</strong>：以蛙皮膚細胞的核取代（用紫外線破壞核的）未受精的蛙卵細胞核，經適當刺激仍能發育成完整個體，證明分化後的細胞核仍保有全套基因。</p>
+<figure class="fig"><img class="figimg" src="img/A036_11_27.jpg" width="1400" height="354" loading="lazy" alt="生物講義 第36頁" data-page="生物講義 p.36"><figcaption>蛙的細胞核移植實驗</figcaption></figure>
+<p><strong>人體的幹細胞</strong>（依發育時期）：</p>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>定義</th>
+<th>分類</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>胚胎幹細胞</strong></td>
+<td>胚胎中仍保持分化出不同組織細胞與器官的能力</td>
+<td><strong>全潛能</strong>：每個細胞都可發育成完整個體</td>
+<td>受精卵至 <strong>8 個細胞期</strong>的胚胎細胞</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><strong>富潛能</strong>：可發育成各種組織、器官，但<strong>不能</strong>發育成完整個體</td>
+<td>受精後第 4 天的部分胚胎細胞</td>
+</tr>
+<tr>
+<td><strong>成體幹細胞</strong></td>
+<td>成體內仍保留一群尚未完全分化的細胞，能不斷分裂增殖並分化；幫助組織更新與受傷修補</td>
+<td><strong>多潛能</strong>：分化出多種功能類似的細胞</td>
+<td>造血幹細胞→各種血球；神經幹細胞→神經元或神經膠細胞</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><strong>單潛能</strong>：只能分化出一種細胞（前驅細胞）</td>
+<td>皮膚表皮幹細胞→表皮細胞；心臟幹細胞→心肌細胞</td>
+</tr>
+</tbody>
+</table>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>iPS 細胞（誘導性多潛能幹細胞）</strong>：2006 年日本<strong>山中伸彌</strong>用四個轉殖基因（Oct3/4、Sox2、c-Myc、Klf4，簡稱 OSKM），讓老鼠纖維母細胞轉變成具多功能分化能力的細胞；2012 年獲諾貝爾醫學獎。可分化成各種體細胞，是再生醫學的期待。</p></aside>
+
+<figure class="fig"><img class="figimg" src="img/A037_15_48.jpg" width="1400" height="806" loading="lazy" alt="生物講義 第37頁" data-page="生物講義 p.37"><figcaption>幹細胞的來源：受精卵、胚胎幹細胞、骨髓成體幹細胞</figcaption></figure>
+
+<h2 class="section " id="s7">細胞的衰老與凋亡</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>細胞壞死</th>
+<th>細胞凋亡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>性質</td>
+<td><strong>被動</strong>死亡：細胞受不可逆傷害</td>
+<td><strong>主動</strong>的程序性死亡：由<strong>特定基因</strong>調控</td>
+</tr>
+<tr>
+<td>範圍</td>
+<td>通常是<strong>成群</strong>細胞集體死亡</td>
+<td>個別細胞</td>
+</tr>
+<tr>
+<td>過程</td>
+<td>無基因調控；DNA <strong>無規律碎裂</strong>、溶體與細胞膜破裂、內容物外溢，<strong>引起發炎</strong></td>
+<td>細胞萎縮、染色體濃縮斷裂、核皺縮裂解，細胞膜與胞器相對完整，最後崩解成<strong>凋亡體</strong>，由吞噬細胞吞噬分解，<strong>不發炎</strong></td>
+</tr>
+<tr>
+<td>例子</td>
+<td>燙傷、受傷</td>
+<td>蝌蚪尾巴消失；胚胎手指間蹼狀組織消失；月經時子宮內膜脫落</td>
+</tr>
+</tbody>
+</table>
+<p><strong>細胞衰老</strong>：隨時間，生理功能逐漸衰退、趨向死亡的<strong>不可逆</strong>過程。<br />
+- 主因：<strong>端粒變短</strong>（也與代謝廢物堆積、自由基傷害、粒線體 DNA 突變、衰老基因表現有關）；<br />
+- <strong>端粒</strong>：染色體<strong>末端</strong>重複的核苷酸序列（人類是 <strong>TTAGGG</strong>，約重複 3000 次）；每次細胞分裂染色體末端縮短 25～200 個鹼基，端粒的存在使縮短發生在端粒上，不會損失重要遺傳訊息；<br />
+- <strong>端粒酶</strong>：催化端粒延長，在<strong>胚胎幹細胞、癌細胞</strong>活性最高，可無限分裂；一般體幹細胞分裂約 20～50 次後，端粒縮短影響到正常基因，細胞衰老。</p>
+<p><strong>細胞癌變</strong>：<br />
+- <strong>癌細胞</strong>：低度分化，可分裂與自我更新，但<strong>不會衰老</strong>，可無限增殖；<br />
+- 原因：<strong>原致癌基因</strong>突變（原本調控細胞週期與凋亡）→ 轉變為致癌基因；<strong>抑瘤基因</strong>突變（修補 DNA、控制細胞黏著，失去防止累積癌性突變的功能）；<strong>感染腫瘤病毒</strong>（帶有致癌基因）；<br />
+- 引起突變的因子：<strong>自發性突變</strong>（內在因子，機率極低，每基因約 10⁻⁶）；<strong>誘導性突變</strong>（外在因子：紫外線、亞硝酸、病毒感染）。</p>
+<aside class="box box-warn"><div class="box-h">迷思</div><p><strong>端粒酶與癌細胞</strong>：癌細胞與胚胎幹細胞端粒酶活性高 ⇒ 端粒不會縮短 ⇒ 可無限分裂；一般體細胞沒有足夠端粒酶 ⇒ 分裂 20～50 次後衰老。</p></aside>
+
+<h2 class="section " id="s8">經典演練</h2>
+
+<article class="q q-pr" id="q32">
+<header class="qh"><span class="qn">經典演練 1</span><span class="qtag">洋蔥根尖的取材・題組 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>有絲分裂可使一個細胞分裂成兩個相同的子細胞，單細胞生物可由此增加個體數目，而多細胞生物可使個體生長。洋蔥是觀察有絲分裂常用的材料之一（圖為經過一段時間培養後的洋蔥：根在水中長出）。若利用此洋蔥觀察植物細胞的有絲分裂，則取材部位應是何處？該部位用肉眼觀察呈現何種顏色？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>根尖；乳白色</div>
+<div class="exp"><b class="exp-h">解</b><p>根尖的<strong>分生組織</strong>細胞持續進入分裂，分裂比例高；肉眼看根尖呈<strong>乳白色</strong>（綠色葉片或成熟部位分裂比例低）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q33">
+<header class="qh"><span class="qn">經典演練 2</span><span class="qtag">大部分細胞的時期・題組 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>使用顯微鏡觀察時，發現大部分的細胞最接近細胞週期的哪一個時期？原因為何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>間期；間期占細胞週期約 90%，時間最長</div>
+<div class="exp"><b class="exp-h">解</b><p>不同步的細胞群中，各期細胞所占比例反映各期持續時間；間期（G₁＋S＋G₂）遠長於 M 期。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q34">
+<header class="qh"><span class="qn">經典演練 3</span><span class="qtag">洋蔥根尖可見的特徵・題組 3（多選）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>利用此洋蔥觀察植物細胞的有絲分裂時，可觀察到下列哪些特徵的細胞？（多選）<br />
+(A) 看不到核膜的細胞　(B) 中心粒在兩端的細胞　(C) 染色體排列成四分體的細胞　(D) 具紡錘絲的細胞　(E) 具細胞板的細胞</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 前期後段到後期核膜消失。</li>
+<li>(B) ✗ 高等植物<strong>沒有中心粒</strong>。</li>
+<li>(C) ✗ 四分體是減數分裂 I 才有（同源染色體聯會）。</li>
+<li>(D) ○ 植物仍有紡錘絲（微管組成）。</li>
+<li>(E) ○ 末期細胞質分裂時形成細胞板。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q35">
+<header class="qh"><span class="qn">經典演練 4</span><span class="qtag">不會出現的現象・題組 4（多選）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些敘述不會出現在此洋蔥有絲分裂的過程？（多選）<br />
+(A) 染色體排列在細胞的中央　(B) 同源染色體的配對　(C) 同源染色體濃縮變短　(D) 姊妹染色分體的形成　(E) 同源染色體的基因互換</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 中期可見； (C) 染色體在前期濃縮變短（有絲分裂中同源染色體也各自濃縮，只是不配對）； (D) 姊妹染色分體在 S 期複製形成。</li>
+<li>(B) 同源染色體配對（聯會）、(E) 互換，是<strong>減數分裂 I</strong> 的事件。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q36">
+<header class="qh"><span class="qn">經典演練 5</span><span class="qtag">DNA、染色體、染色分體的柱狀圖・題組 5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>圖㈠、圖㈡分別表示某二倍體雄性動物（2n＝4）體內細胞正常分裂過程中，不同時期細胞內 DNA 含量、染色分體數和染色體數的關係以及細胞分裂示意圖。圖㈠為柱狀圖，I～IV 四個時期各有 a、b、c 三項（相對值）：I：a＝2、b＝2、c＝0；II：a＝4、b＝2、c＝4；III：a＝2、b＝1、c＝2；IV：a＝1、b＝1、c＝0。圖㈡為甲、乙、丙三個細胞：甲＝有絲分裂後期（兩極各 4 條子染色體，共 8 條）；乙＝4 條複製後的染色體在細胞中；丙＝2 條複製後的染色體排列在赤道面（減數分裂 II 中期）。<br />
+圖㈠中，有關 a、b、c 的敘述，下列何者正確？<br />
+(A) a 代表染色體數　(B) b 代表染色分體數　(C) c 代表 DNA 含量　(D) a 代表 DNA 含量　(E) c 代表染色體數</p></div><div class="qimgs"><img class="qimg" src="img/A039_57_70.jpg" width="1400" height="312" loading="lazy" alt="生物講義 第39頁" data-page="生物講義 p.39"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>關鍵證據：<strong>複製時 a 加倍（II 時 a 由 2 變 4）、b 不變</strong> ⇒ a＝<strong>DNA 含量</strong>、b＝<strong>染色體數</strong>；c 只在複製後到姊妹分離前出現（I、IV 為 0）⇒ c＝<strong>染色分體數</strong>。所以只有 (D) 正確。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q37">
+<header class="qh"><span class="qn">經典演練 6</span><span class="qtag">甲、乙、丙細胞的染色體對數・題組 6（多選）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>圖㈡中，有關甲、乙、丙細胞的敘述，下列哪些正確？（多選）（2n＝4）<br />
+(A) 甲細胞內含有 4 對染色體　(B) 乙細胞內含有 4 對染色體　(C) 丙細胞內含有 2 對染色體　(D) 乙細胞內含有 2 對染色體　(E) 丙細胞內含有 1 對染色體</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>2n＝4 的體細胞有 2 對同源染色體。<br />
+- 甲：有絲分裂後期，染色體數暫時加倍成 8 條 ⇒ <strong>4 對</strong>（A ○）。<br />
+- 乙：4 條染色體（複製後，每條有兩條染色分體）⇒ <strong>2 對</strong>（D ○，B ✗）。<br />
+- 丙：減數分裂 II 中期，只有 2 條染色體，<strong>沒有同源染色體成對</strong>（C、E ✗）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q38">
+<header class="qh"><span class="qn">經典演練 7</span><span class="qtag">哪些時期有同源染色體・題組 7</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>圖㈠ I～IV 細胞中，何者存在同源染色體？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>I、II</div>
+<div class="exp"><b class="exp-h">解</b><p>同源染色體要看「染色體套數」（柱狀圖 b）：I、II 的 b＝2（二倍體，有同源染色體）；III、IV 的 b＝1（單倍體，已完成減數分裂 I，同源染色體分離）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q39">
+<header class="qh"><span class="qn">經典演練 8</span><span class="qtag">丙細胞對應的時期與子細胞・題組 8</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>圖㈡中丙細胞對應於圖㈠中的哪一個時期？產生的子細胞並成熟後的名稱為何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>III；精子</div>
+<div class="exp"><b class="exp-h">解</b><p>丙是<strong>減數分裂 II 中期</strong>：DNA 2、染色體套數 1、染色分體 2 ⇒ 對應 <strong>III</strong>。此為雄性動物，減數分裂 II 產生的是<strong>精細胞</strong>，再發育成<strong>精子</strong>。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u1-5.html">← 1-5 物質進出細胞的方式</a><a href="u1-7.html">1-7 探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

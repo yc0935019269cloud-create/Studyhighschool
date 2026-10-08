@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復3 能量難題：光合作用、呼吸作用、ATP｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a class="on" href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">光合作用</a></li><li><a href="#s3">呼吸作用</a></li><li><a href="#s4">ATP 與細胞代謝</a></li><li><a href="#s5">實驗判讀</a></li></ul></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 單元 1 細胞學＋單元 2 維持生命現象的能量</div>
+<h1><span class="uid">復3</span>能量難題：光合作用、呼吸作用、ATP</h1>
+<div class="tools"><span class="cnt">本單元 24 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁 12 題，順序是<strong>光合作用（1～6）→ 呼吸作用（7～9）→ ATP 與代謝方向（10、11）→ 實驗判讀（12）</strong>。每題 ★ 是難度，<strong>請先讀「考前速記」，自己寫完再點開詳解</strong>。標示「改編」者取自基隆市立中山高中 109～113 學年度第 1 學期第 1 次段考（高一生物）的題型。</p></aside>
+
+<h2 class="section " id="s2">光合作用</h2>
+
+<article class="q q-pr" id="q203">
+<header class="qh"><span class="qn">難題 1</span><span class="qtag">光反應的產物・改編（113 段考）　★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>光反應</strong>（類囊體膜）：吸收光能 → 水裂解（放出 <strong>O₂</strong>）→ 電子傳遞 → 合成 <strong>ATP</strong> 與 <strong>NADPH</strong>。</li>
+<li><strong>固碳反應</strong>（卡爾文循環，基質）：用 ATP、NADPH 把 <strong>CO₂ 固定並還原成醣類</strong>。</li>
+<li><strong>提醒</strong>：醣類（葡萄糖）、CO₂ 都<strong>不是</strong>光反應的產物。</li>
+</ul></div></details><div class="qtext"><p>下列哪些是光合作用<strong>光反應</strong>的產物？（多選）<br />
+(A) C₆H₁₂O₆　(B) O₂　(C) ATP　(D) NADPH　(E) CO₂</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：光反應與固碳反應的產物分工。</p>
+<p>光反應的產物：<strong>O₂（水裂解）、ATP、NADPH</strong>。C₆H₁₂O₆ 是<strong>固碳反應</strong>的產物；CO₂ 是固碳反應的<strong>原料</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>光反應＝<strong>H₂O → O₂ ＋ ATP ＋ NADPH</strong>；固碳反應＝<strong>CO₂ ＋ ATP ＋ NADPH → 醣</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q204">
+<header class="qh"><span class="qn">類題｜難題 1</span><span class="qtag">簡單版・固碳反應的原料與產物・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些是光合作用<strong>固碳反應</strong>的原料？（多選）<br />
+(A) CO₂　(B) O₂　(C) ATP　(D) NADPH　(E) H₂O</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>固碳反應用 <strong>CO₂</strong>，並由光反應提供的 <strong>ATP</strong> 與 <strong>NADPH</strong> 提供能量與還原力，產生醣類。O₂ 是光反應產物；H₂O 是光反應的原料。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q205">
+<header class="qh"><span class="qn">難題 2</span><span class="qtag">光反應與固碳反應的比較・改編（111 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>光反應</strong>：場所＝<strong>類囊體</strong>；反應物＝<strong>水</strong>；產物＝O₂、ATP、NADPH；能量轉換＝<strong>光能 → 化學能（ATP、NADPH）</strong>；受<strong>光</strong>影響。</li>
+<li><strong>固碳反應</strong>：場所＝<strong>基質</strong>；反應物＝<strong>CO₂</strong>、ATP、NADPH；產物＝醣類；能量轉換＝<strong>化學能 → 醣類的化學能</strong>；受<strong>溫度</strong>影響（酵素催化）。</li>
+<li><strong>提醒</strong>：光反應<strong>不產生 H₂</strong>（產生 O₂）；「氧濃度」不是影響光反應的因子。</li>
+</ul></div></details><div class="qtext"><p>下列有關植物光反應與固碳反應的比較，哪些正確？（多選）</p>
+<table>
+<thead>
+<tr>
+<th>選項</th>
+<th>光反應</th>
+<th>固碳反應</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(A) 影響因子</td>
+<td>氧濃度</td>
+<td>溫度、光</td>
+</tr>
+<tr>
+<td>(B) 反應場所</td>
+<td>葉綠體類囊體</td>
+<td>葉綠體基質</td>
+</tr>
+<tr>
+<td>(C) 反應物</td>
+<td>水</td>
+<td>二氧化碳</td>
+</tr>
+<tr>
+<td>(D) 產物</td>
+<td>H₂ 與 O₂</td>
+<td>醣類</td>
+</tr>
+<tr>
+<td>(E) 能量轉移</td>
+<td>光能 → ATP＋NADPH</td>
+<td>ATP＋NADPH → 醣類</td>
+</tr>
+</tbody>
+</table></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：兩個反應的對照表，找出被改掉的格子。</p>
+<ul>
+<li>(A) ✗ 光反應的影響因子是<strong>光</strong>（光強度、波長），不是氧濃度；固碳反應主要受溫度、CO₂ 影響（對光不直接依賴）。</li>
+<li>(B) ○ 類囊體 vs 基質。</li>
+<li>(C) ○ 光反應用水、固碳反應用 CO₂。</li>
+<li>(D) ✗ 光反應產物是 <strong>O₂（與 ATP、NADPH）</strong>，沒有 H₂。</li>
+<li>(E) ○ 光能 → ATP、NADPH → 醣類。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>對照表口訣：<strong>類囊體／水／O₂＋ATP＋NADPH／光；基質／CO₂／醣／溫度</strong>；光反應沒有 H₂。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q206">
+<header class="qh"><span class="qn">類題｜難題 2</span><span class="qtag">簡單版・光合作用場所配對・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>光合作用的下列反應，各發生在葉綠體的哪裡？(1) 光反應的電子傳遞鏈　(2) 卡爾文循環</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 類囊體膜　(2) 基質</div>
+<div class="exp"><b class="exp-h">解</b><p>光反應在<strong>類囊體膜</strong>上進行（有光合色素與電子傳遞鏈）；卡爾文循環（固碳反應）在<strong>葉綠體基質</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q207">
+<header class="qh"><span class="qn">難題 3</span><span class="qtag">固碳反應的敘述・改編（110、111 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>固碳反應</strong>（卡爾文循環）：場所＝<strong>基質</strong>；需要光反應的 <strong>ATP 與 NADPH</strong>（化學能）；用 CO₂（不需要葉綠素直接參與、也不用水）。</li>
+<li><strong>步驟</strong>：CO₂ ＋ RuBP（五碳）→ 2 個 3-PG（三碳）→ 以 ATP、NADPH 還原成 G3P → 一部分合成醣類，一部分再生 RuBP。</li>
+<li><strong>提醒</strong>：固碳反應不直接用光，但<strong>不等於「一定在黑暗中進行」</strong>。</li>
+</ul></div></details><div class="qtext"><p>下列關於固碳反應的敘述，何者正確？<br />
+(A) 需要葉綠素直接參與　(B) 需要水參與　(C) 在類囊體內進行　(D) 需要化學能（ATP、NADPH）才能進行</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：固碳反應的條件與場所。</p>
+<ul>
+<li>(A) ✗ 吸收光能的是光反應；固碳反應中葉綠素不直接參與。</li>
+<li>(B) ✗ 固碳反應用的是 <strong>CO₂</strong>，水在光反應中被裂解。</li>
+<li>(C) ✗ 在<strong>葉綠體基質</strong>進行，不是類囊體。</li>
+<li>(D) ○ 要把 CO₂ 還原成醣類，必須靠光反應提供的 <strong>ATP 與 NADPH</strong>。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>固碳反應＝<strong>基質、CO₂ 當原料、靠 ATP＋NADPH 提供能量</strong>；不直接需要葉綠素或光。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q208">
+<header class="qh"><span class="qn">類題｜難題 3</span><span class="qtag">簡單版・卡爾文循環的第一步・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>在卡爾文循環中，CO₂ 與哪一種五碳化合物結合，生成兩分子的 3-磷酸甘油酸（3-PG）？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>RuBP（雙磷酸核酮糖）</div>
+<div class="exp"><b class="exp-h">解</b><p>酵素 Rubisco 催化 CO₂ 與 <strong>RuBP</strong> 反應，生成 2 分子三碳的 3-PG；之後被 ATP、NADPH 還原成 G3P。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q209">
+<header class="qh"><span class="qn">難題 4</span><span class="qtag">光合色素與作用光譜・改編（111、112 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>位置</strong>：光合色素在<strong>類囊體膜</strong>（不是外膜、內膜或基質）。</li>
+<li><strong>葉綠素 a</strong>（藍綠色）：唯一<strong>直接</strong>參與光反應的色素（反應中心）；<strong>葉綠素 b、類胡蘿蔔素</strong>＝天線色素，把吸收的能量傳給葉綠素 a。</li>
+<li><strong>作用光譜</strong>（英格曼）：好氧菌聚集在<strong>紫、藍光與紅光</strong>的位置 ⇒ 該處產氧多、光合作用效率高；<strong>綠光效率最低</strong>（被反射）。</li>
+</ul></div></details><div class="qtext"><p>下列有關光合色素與作用光譜的敘述，哪些正確？（多選）<br />
+(A) 光合色素位於類囊體膜上<br />
+(B) 葉綠素 a 呈藍綠色，是直接參與光反應的色素<br />
+(C) 類胡蘿蔔素吸收的光能可傳遞給葉綠素 a<br />
+(D) 綠光對光合作用的效率最高<br />
+(E) 英格曼的實驗中，好氧菌聚集在紅光與藍紫光的部位，表示該處產生的氧最多</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：光合色素的位置、角色與作用光譜。</p>
+<ul>
+<li>(A)(B)(C) ○。</li>
+<li>(D) ✗ 綠光被葉綠素反射、吸收最少，效率<strong>最低</strong>。</li>
+<li>(E) ○ 好氧菌需要 O₂，聚集處就是光合作用強、產氧多的地方。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>色素在<strong>類囊體膜</strong>；<strong>葉綠素 a＝反應中心，b 與類胡蘿蔔素＝天線</strong>；作用光譜的高峰在<strong>紅光與藍紫光</strong>，綠光最低。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q210">
+<header class="qh"><span class="qn">類題｜難題 4</span><span class="qtag">簡單版・色素位置・改編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>綠色植物進行光合作用所需的光合色素，位於何處？<br />
+(A) 葉綠體外膜　(B) 葉綠體內膜　(C) 類囊體膜　(D) 葉綠體基質</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>光合色素（葉綠素、類胡蘿蔔素）嵌在<strong>類囊體膜</strong>上，是光反應的場所；基質是固碳反應的場所。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q211">
+<header class="qh"><span class="qn">難題 5</span><span class="qtag">光合作用 O₂ 的來源・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>范尼爾</strong>（1929）：硫化細菌 CO₂ ＋ 2H₂S → CH₂O ＋ H₂O ＋ 2S（放出 S），推論植物以<strong>水</strong>為氫源、放出 O₂。</li>
+<li><strong>同位素追蹤</strong>：用 ¹⁸O 標記，若 O₂ 帶標記 ⇒ O₂ 來自被標記的物質。</li>
+<li><strong>結論</strong>：光合作用放出的 <strong>O₂ 來自水（PS II 的水裂解）</strong>，不是來自 CO₂。</li>
+</ul></div></details><div class="qtext"><p>科學家以含 ¹⁸O 的水（H₂¹⁸O）與一般 CO₂ 讓綠藻行光合作用，下列哪一個產物會偵測到 ¹⁸O？<br />
+(A) 葡萄糖　(B) 氧氣　(C) 反應中新生成的水　(D) 二氧化碳</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：O₂ 的來源，以及怎麼用標記實驗證明。</p>
+<p>反應：CO₂ ＋ 2H₂¹⁸O → CH₂O ＋ H₂O ＋ ¹⁸O₂。<strong>水裂解放出 O₂，所以 O₂ 帶 ¹⁸O</strong>。醣類與新生成水中的氧來自 CO₂，沒有標記；CO₂ 是原料。若改用 C¹⁸O₂ 與一般水，則 O₂ <strong>沒有</strong>標記，標記出現在醣類與新生成的水裡。</p><div class="qsum"><b class="qsum-h">小結</b><p><strong>O₂ 來自水</strong>：標記水 ⇒ O₂ 有標記；標記 CO₂ ⇒ O₂ 沒標記（標記在醣類與新生成的水）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q212">
+<header class="qh"><span class="qn">類題｜難題 5</span><span class="qtag">簡單版・另一種標記・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>若改用一般的水與含 ¹⁸O 的 CO₂（C¹⁸O₂）進行光合作用，下列哪一個產物<strong>沒有</strong> ¹⁸O？<br />
+(A) 醣類　(B) 氧氣　(C) 新生成的水</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>C¹⁸O₂ 的氧會進入醣類（CH₂¹⁸O）與新生成的水（H₂¹⁸O）；而 <strong>O₂ 來自一般的水</strong>，所以沒有 ¹⁸O。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q213">
+<header class="qh"><span class="qn">難題 6</span><span class="qtag">光補償點、光飽和點與植物的適應・自編（參考 113 段考題組）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>淨 CO₂ 吸收量</strong>（縱軸）＝光合作用固定量 − 呼吸作用釋出量；<strong>0 光強度時＝−呼吸速率</strong>。</li>
+<li><strong>光補償點</strong>：淨吸收量＝0（光合＝呼吸）；<strong>光飽和點</strong>：光合速率不再隨光強度增加的最低光強度。</li>
+<li><strong>陽性植物</strong>：光補償點與光飽和點都<strong>較高</strong>，適合強光；<strong>陰性植物</strong>：兩者都<strong>較低</strong>，適合弱光。</li>
+<li><strong>真正（總）光合速率</strong>＝淨吸收量 ＋ 呼吸速率。</li>
+</ul></div></details><div class="qtext"><p>下表為甲、乙兩種植物在不同光強度下的 CO₂ 淨吸收量（μmol/m²·s；負值表示釋出 CO₂）：</p>
+<table>
+<thead>
+<tr>
+<th>光強度（klux）</th>
+<th>0</th>
+<th>2</th>
+<th>4</th>
+<th>6</th>
+<th>8</th>
+<th>10</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>甲</td>
+<td>−2</td>
+<td>0</td>
+<td>4</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>乙</td>
+<td>−4</td>
+<td>−2</td>
+<td>0</td>
+<td>4</td>
+<td>8</td>
+<td>12</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 甲、乙的光補償點各為多少 klux？<br />
+(2) 光強度 6 klux 時，甲、乙的 CO₂ 淨吸收量各為多少？<br />
+(3) 哪一種植物可能是陽性植物？判斷依據？<br />
+(4) 光強度為 2 klux 時，甲的光合作用速率與呼吸作用速率有何關係？<br />
+(5) 甲在光飽和時，真正（總）光合速率為多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 甲 2、乙 4　(2) 甲 6、乙 4　(3) 乙；光補償點與光飽和點較高　(4) 兩者相等　(5) 8 μmol/m²·s</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：圖表判讀——補償點、飽和點、淨速率與總速率的差別。</p>
+<p>(1) 淨吸收量＝0 的光強度：甲在 <strong>2 klux</strong>，乙在 <strong>4 klux</strong>。</p>
+<p>(2) 查表：甲 <strong>6</strong>、乙 <strong>4</strong>。</p>
+<p>(3) 乙。乙的光補償點（4）高於甲（2），而且到 12 klux 仍在上升（光飽和點高），甲在 6 klux 就飽和 ⇒ 乙適合強光（<strong>陽性</strong>），甲適合弱光（陰性）。</p>
+<p>(4) 2 klux 時甲的淨吸收量＝0，光合作用速率＝呼吸作用速率（這就是<strong>補償點</strong>）。</p>
+<p>(5) 甲的呼吸速率＝光強度 0 時的釋出量＝2；光飽和時淨吸收量 6 ⇒ 總光合速率 ＝ 6 ＋ 2 ＝ <strong>8</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p><strong>補償點＝淨吸收 0（光合＝呼吸）；總光合＝淨吸收＋呼吸；陽性植物補償點、飽和點都高</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q214">
+<header class="qh"><span class="qn">類題｜難題 6</span><span class="qtag">簡單版・補償點與總光合速率・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某植物在光強度 0、2、4、6、8 klux 時，CO₂ 淨吸收量分別為 −3、0、3、6、6（μmol/m²·s）。(1) 光補償點？(2) 光飽和點約為多少 klux？(3) 光強度 8 klux 時的總光合速率？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2 klux　(2) 6 klux　(3) 9 μmol/m²·s</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 淨吸收量＝0 的光強度＝<strong>2 klux</strong>。(2) 淨吸收量到 6 klux 起不再增加，光飽和點約 <strong>6 klux</strong>。(3) 呼吸速率＝3（光強度 0 時），總光合速率＝淨吸收量 6 ＋ 呼吸速率 3 ＝ <strong>9</strong>。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">呼吸作用</h2>
+
+<article class="q q-pr" id="q215">
+<header class="qh"><span class="qn">難題 7</span><span class="qtag">哪一個階段需要氧氣・改編（五份段考皆考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>有氧呼吸四階段</strong>：糖解（細胞質液）→ 乙醯輔酶 A（粒線體基質）→ 檸檬酸循環（基質）→ 電子傳遞鏈（內膜）。</li>
+<li><strong>O₂ 的角色</strong>：電子傳遞鏈的<strong>最終電子接受者</strong>（O₂ ＋ 電子 ＋ H⁺ → H₂O），沒有 O₂ 時鏈就停了，檸檬酸循環也因 NADH 無法氧化而停。</li>
+<li><strong>題型對照</strong>：葡萄糖 → 丙酮酸（糖解，<strong>不需 O₂</strong>）；丙酮酸 → CO₂ ＋ H₂O（<strong>需 O₂</strong>）；丙酮酸 → 乙醇＋CO₂（酒精發酵，<strong>不需 O₂</strong>）；丙酮酸 → 乳酸（<strong>不需 O₂</strong>）。</li>
+</ul></div></details><div class="qtext"><p>細胞呼吸的過程中，哪一階段需要氧氣的參與？<br />
+(A) 葡萄糖 → 丙酮酸　(B) 丙酮酸 → CO₂ ＋ H₂O　(C) 丙酮酸 → 乙醇 ＋ CO₂　(D) 丙酮酸 → 乳酸</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：每年都考的標準題——O₂ 只在「丙酮酸徹底分解（檸檬酸循環＋電子傳遞鏈）」那一段參與。</p>
+<ul>
+<li>(A) 糖解作用有氧、無氧都可進行，不需 O₂。</li>
+<li>(B) ○ 丙酮酸進入粒線體被徹底氧化，最後 O₂ 接收電子生成水。</li>
+<li>(C)(D) 兩種發酵都是<strong>無氧</strong>的丙酮酸代謝。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>糖解不需 O₂、發酵不需 O₂、丙酮酸徹底氧化（電子傳遞鏈）才需要 O₂</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q216">
+<header class="qh"><span class="qn">類題｜難題 7</span><span class="qtag">簡單版・O₂ 與電子傳遞鏈・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>有氧呼吸中，O₂ 的作用為何？在哪裡進行？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>作為最終電子接受者，與電子、H⁺ 結合生成水；在粒線體內膜（電子傳遞鏈）</div>
+<div class="exp"><b class="exp-h">解</b><p>O₂ 在電子傳遞鏈的末端接收電子並與 H⁺ 結合成水，使電子傳遞鏈能持續運作、產生大量 ATP。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q217">
+<header class="qh"><span class="qn">難題 8</span><span class="qtag">有氧呼吸的過程總覽・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>糖解</strong>：細胞質液；不需 O₂；<strong>淨 2 ATP</strong>、2 NADH、2 丙酮酸；無 CO₂。</li>
+<li><strong>乙醯輔酶 A 形成</strong>：粒線體基質；<strong>釋出第一個 CO₂</strong>、1 NADH。<strong>檸檬酸循環</strong>：基質；每分子乙醯輔酶 A 產 3 NADH、1 FADH₂、1 ATP、<strong>2 CO₂</strong>。</li>
+<li><strong>電子傳遞鏈</strong>：粒線體<strong>內膜</strong>；NADH、FADH₂ 提供電子，<strong>O₂ 為最終接受者</strong>，生成大量 ATP 與 H₂O。一分子葡萄糖總共約 <strong>30～32 ATP</strong>。</li>
+</ul></div></details><div class="qtext"><p>下列有關真核細胞有氧呼吸的敘述，哪些正確？（多選）<br />
+(A) 糖解作用在細胞質液中進行<br />
+(B) 糖解作用需要 O₂ 的參與<br />
+(C) 丙酮酸形成乙醯輔酶 A 時，會釋出 CO₂<br />
+(D) 電子傳遞鏈位於粒線體內膜上<br />
+(E) 一分子葡萄糖經有氧呼吸最多只能產生 2 分子 ATP</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：有氧呼吸各階段的場所、需求與產物。</p>
+<ul>
+<li>(A) ○ 糖解在細胞質液。</li>
+<li>(B) ✗ 糖解不需要 O₂。</li>
+<li>(C) ○ 丙酮酸 → 乙醯輔酶 A ＋ NADH ＋ CO₂。</li>
+<li>(D) ○ 電子傳遞鏈與 ATP 合成酶在內膜。</li>
+<li>(E) ✗ 約產生 <strong>30～32 ATP</strong>；只有糖解那一步淨 2 ATP。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>場所</strong>：糖解＝細胞質液，其餘＝粒線體；<strong>CO₂ 在乙醯輔酶 A 形成與檸檬酸循環釋出</strong>；總產量約 30～32 ATP。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q218">
+<header class="qh"><span class="qn">類題｜難題 8</span><span class="qtag">簡單版・CO₂ 與 NADH 的來源・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>真核細胞的有氧呼吸中，(1) 哪些階段會釋放 CO₂？(2) 哪些階段會產生 NADH？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 乙醯輔酶 A 的形成、檸檬酸循環　(2) 糖解作用、乙醯輔酶 A 的形成、檸檬酸循環</div>
+<div class="exp"><b class="exp-h">解</b><p>糖解不產生 CO₂ 但產生 NADH；電子傳遞鏈是<strong>消耗</strong> NADH，不產生。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q219">
+<header class="qh"><span class="qn">難題 9</span><span class="qtag">有氧呼吸與發酵作用的比較・改編（110、111、113 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>有氧呼吸</strong>：細胞質液（糖解）＋粒線體；最終電子接受者＝<strong>O₂</strong>；產物＝CO₂＋H₂O；ATP 約 <strong>30～32</strong>。</li>
+<li><strong>發酵</strong>（酒精發酵、乳酸發酵）：<strong>全程在細胞質液</strong>；最終電子接受者＝<strong>有機物</strong>（丙酮酸或其衍生物）；ATP 僅 <strong>2</strong>；酒精發酵產生 CO₂，乳酸發酵<strong>不產生</strong>。</li>
+<li><strong>相同點</strong>：都經過<strong>糖解作用</strong>，都需要<strong>酵素</strong>。</li>
+</ul></div></details><div class="qtext"><p>下列有關有氧呼吸與發酵作用的比較，哪些正確？（多選）<br />
+(A) 發酵作用不需要酵素<br />
+(B) 有氧呼吸的最終電子接受者是 O₂<br />
+(C) 發酵作用全在細胞質液進行，有氧呼吸後段在粒線體進行<br />
+(D) 一分子葡萄糖經有氧呼吸產生的 ATP 比發酵多<br />
+(E) 酒精發酵與乳酸發酵都會釋出 CO₂</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：兩種能量代謝的比較表。</p>
+<ul>
+<li>(A) ✗ 所有代謝反應都靠酵素催化。</li>
+<li>(B) ○ O₂ 是有氧呼吸電子傳遞鏈的最終電子接受者。</li>
+<li>(C) ○ 發酵只在細胞質液；有氧呼吸前段（糖解）在細胞質液、後段在粒線體。</li>
+<li>(D) ○ 約 30～32 ATP 對 2 ATP。</li>
+<li>(E) ✗ <strong>乳酸發酵不產生 CO₂</strong>（產物只有乳酸）。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>發酵＝<strong>細胞質液、2 ATP、酒精發酵才有 CO₂</strong>；有氧呼吸＝<strong>粒線體、O₂ 當最終電子接受者、30～32 ATP</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q220">
+<header class="qh"><span class="qn">類題｜難題 9</span><span class="qtag">簡單版・酒精與乳酸發酵・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些是酒精發酵與乳酸發酵的<strong>共同點</strong>？（多選）<br />
+(A) 都在細胞質液進行　(B) 都會產生 CO₂　(C) 每分子葡萄糖都淨產生 2 ATP　(D) 都需要 O₂</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>兩者都在細胞質液進行、都靠糖解作用淨產 2 ATP；<strong>只有酒精發酵放出 CO₂</strong>，乳酸發酵不放；兩者都<strong>不需要</strong> O₂。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">ATP 與細胞代謝</h2>
+
+<article class="q q-pr" id="q221">
+<header class="qh"><span class="qn">難題 10</span><span class="qtag">ATP 的敘述・改編（111、112、113 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>ATP</strong>＝<strong>腺苷三磷酸</strong>：腺嘌呤＋<strong>核糖</strong>＋3 個磷酸；是一種<strong>核苷酸</strong>（不是核酸）；含 <strong>2 個高能磷酸鍵</strong>；水解 ATP → ADP ＋ Pi 放出能量。</li>
+<li><strong>機能</strong>：供應運輸（主動運輸）、機械（肌肉收縮）、化學（生合成）三種工作。</li>
+<li><strong>ATP／ADP 比值高</strong> ＝ 能量充足，促進合成；比值低 ＝ 缺能量，促進分解。</li>
+</ul></div></details><div class="qtext"><p>下列有關 ATP 的敘述，哪些正確？（多選）<br />
+(A) 是一種含有高能量的核酸<br />
+(B) 中文名稱為腺苷三磷酸<br />
+(C) 由去氧核糖、腺嘌呤和三個磷酸所構成<br />
+(D) 可分解成 ADP 和一個磷酸，並釋出能量<br />
+(E) 當細胞內 ATP 較多時，有利於進行合成反應</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：ATP 的名稱、結構與功能。</p>
+<ul>
+<li>(A) ✗ ATP 是<strong>核苷酸</strong>（單一分子），不是核酸（聚合物）。</li>
+<li>(B) ○ 腺苷<strong>三</strong>磷酸（腺苷二磷酸是 ADP）。</li>
+<li>(C) ✗ 五碳醣是<strong>核糖</strong>，不是去氧核糖。</li>
+<li>(D) ○ ATP → ADP ＋ Pi ＋ 能量。</li>
+<li>(E) ○ ATP／ADP 比值高代表能量充足，細胞加速合成（同化）反應。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>ATP＝腺苷三磷酸＝腺嘌呤＋核糖＋3 磷酸，2 個高能鍵</strong>；是核苷酸不是核酸；能量充足時促進合成。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q222">
+<header class="qh"><span class="qn">類題｜難題 10</span><span class="qtag">簡單版・ATP 的組成・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關 ATP 的敘述，何者<strong>錯誤</strong>？<br />
+(A) 為具有高能量的化學物質　(B) 中文名稱為腺苷二磷酸　(C) 是一種核苷酸　(D) 組成的五碳醣為核糖</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>ATP 的中文名稱是腺苷<strong>三</strong>磷酸；<strong>腺苷二磷酸是 ADP</strong>。其餘三項正確。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q223">
+<header class="qh"><span class="qn">難題 11</span><span class="qtag">ATP／ADP 比值與代謝方向・改編（109 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>ATP／ADP 比值高（ADP／ATP 低）</strong>：能量充足 ⇒ 細胞<strong>加速同化代謝</strong>（合成）：合成葡萄糖、肝糖、醣類轉脂質等。</li>
+<li><strong>ATP／ADP 比值低</strong>：能量缺乏 ⇒ 加速<strong>異化代謝</strong>（分解）以生成 ATP：分解蛋白質、脂質、糖等。</li>
+<li><strong>同化＝合成、耗能；異化＝分解、釋能</strong>，兩者同時進行。</li>
+</ul></div></details><div class="qtext"><p>當細胞內 ADP／ATP 的比值太低（即 ATP／ADP 偏高）時，可能會促使細胞進行下列哪些反應？（多選）<br />
+(A) 葡萄糖的合成　(B) 肝糖的合成　(C) 醣類轉化成脂質　(D) 蛋白質分解成胺基酸　(E) 脂質的分解</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：能量充足 ⇒ 走合成（同化）；能量不足 ⇒ 走分解（異化）。</p>
+<p>ADP／ATP 太低＝ATP 多＝能量充足，細胞傾向<strong>合成</strong>：葡萄糖合成（A）、肝糖合成（B）、醣類轉成脂質儲存（C）。(D) 蛋白質分解、(E) 脂質分解是<strong>分解反應</strong>，在<strong>缺乏能量</strong>時才加強。</p><div class="qsum"><b class="qsum-h">小結</b><p><strong>ATP 多 → 合成（同化）；ATP 少 → 分解（異化）</strong>；看到「合成」就選能量充足、看到「分解」就選能量不足。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q224">
+<header class="qh"><span class="qn">類題｜難題 11</span><span class="qtag">簡單版・能量不足時・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>當細胞內 ATP／ADP 的比值偏<strong>低</strong>時，細胞會傾向加速同化代謝還是異化代謝？目的為何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>加速異化代謝；分解有機物以產生 ATP 供細胞使用</div>
+<div class="exp"><b class="exp-h">解</b><p>ATP／ADP 低＝能量缺乏，細胞會加速分解（異化）代謝來生成 ATP，同時減少耗能的合成反應。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s5">實驗判讀</h2>
+
+<article class="q q-pr" id="q225">
+<header class="qh"><span class="qn">難題 12</span><span class="qtag">光合色素層析與 Rf 值・自編（參考講義探討活動）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>Rf 值</strong>＝色素上升距離 ÷ 展開液上升距離（≤ 1）；Rf 愈大，色素跑得愈遠、移動愈快。</li>
+<li><strong>Rf 順序</strong>：<strong>胡蘿蔔素 ＞ 葉黃素 ＞ 葉綠素 a ＞ 葉綠素 b</strong>；由上而下的顏色：橙黃、淡黃、深綠、淡綠。</li>
+<li><strong>操作</strong>：色素點要<strong>高於展開液面</strong>；展開液上升至濾紙全長約 90% 時取出；萃取用<strong>丙酮</strong>。</li>
+</ul></div></details><div class="qtext"><p>光合色素層析實驗中，展開液前緣距原點 8.0 cm，四種色素上升的距離為：胡蘿蔔素 7.6 cm、葉黃素 5.6 cm、葉綠素 a 4.0 cm、葉綠素 b 3.2 cm。<br />
+(1) 各色素的 Rf 值為何？<br />
+(2) 由上而下，濾紙上色素帶的顏色順序為何？<br />
+(3) 若改變展開液的成分，各色素的 Rf 值會不會改變？<br />
+(4) 為什麼色素點的位置要高於展開液的液面？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 胡蘿蔔素 0.95、葉黃素 0.70、葉綠素 a 0.50、葉綠素 b 0.40　(2) 橙黃、淡黃、深綠、淡綠　(3) 會　(4) 避免色素直接溶入展開液</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：Rf 的計算與色層分析的基本操作。</p>
+<p>(1) Rf ＝ 色素上升距離 ÷ 展開液上升距離：7.6/8.0 ＝ <strong>0.95</strong>；5.6/8.0 ＝ <strong>0.70</strong>；4.0/8.0 ＝ <strong>0.50</strong>；3.2/8.0 ＝ <strong>0.40</strong>。</p>
+<p>(2) Rf 大者在上：胡蘿蔔素（<strong>橙黃</strong>）→ 葉黃素（<strong>淡黃</strong>）→ 葉綠素 a（<strong>深綠</strong>）→ 葉綠素 b（<strong>淡綠</strong>）。</p>
+<p>(3) <strong>會</strong>。Rf 取決於色素在展開液的溶解度與和濾紙的親和力，換展開液，這兩個因素都改變。</p>
+<p>(4) 色素點若浸在展開液中，色素會直接溶出而不是隨展開液上升，無法分離。</p><div class="qsum"><b class="qsum-h">小結</b><p><strong>Rf＝色素距離 ÷ 展開液距離；順序＝胡、葉黃、a、b（上→下：橙黃、淡黃、深綠、淡綠）</strong>；點要高於液面、換展開液 Rf 會變。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q226">
+<header class="qh"><span class="qn">類題｜難題 12</span><span class="qtag">簡單版・希爾反應的顏色・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>希爾反應中，氧化還原指示劑 DCPIP 氧化態為藍色、還原態為無色。(1) 有葉綠體並照光的試管，顏色如何變化？為什麼？(2) 沒有葉綠體但照光的試管，顏色如何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 藍色變淺（褪色）；葉綠體在光下釋出電子，DCPIP 被還原　(2) 維持藍色（對照組）</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 光反應中葉綠體釋出電子，DCPIP 當電子接受者被<strong>還原</strong>成無色。(2) 沒有葉綠體就沒有電子來源，DCPIP 不被還原，仍為藍色。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復2.html">← 復2 細胞學難題（下）：酵素、細胞週期、分裂與分化</a><a href="u復4.html">復4 考前猜題模擬卷：單元 1 細胞學＋單元 2 能量 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復2 天文難題｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a class="on" href="u復2.html"><span>復2</span>天文難題</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">星等、光度與距離</a></li><li><a href="#s3">太陽系、彗星與地球的防護罩</a></li><li><a href="#s4">宇宙的結構與膨脹</a></li><li><a href="#s5">周日運動、周年運動與四季</a></li><li><a href="#s6">多波段觀測</a></li></ul></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 地球的歷史＋天文</div>
+<h1><span class="uid">復2</span>天文難題</h1>
+<div class="tools"><span class="cnt">本單元 30 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁 15 題，順序是<strong>星等與光度（1～4）→ 太陽系與防護罩（5～8）→ 宇宙結構與膨脹（9、10）→ 周日／周年運動與四季（11～14）→ 多波段觀測（15）</strong>。<strong>請先自己做，再點開詳解</strong>。</p>
+<p>天文部分我<strong>找不到公開的完整高一段考卷</strong>，所以題目以<strong>自編</strong>為主（題型照學測與常見段考設計）；標示「取自」的是基隆中山高中 112-1 第 1 次段考的太陽系原題。每題 ★ 是難度。需要時：1 pc＝3.26 光年；肉眼極限視星等 6 等。</p></aside>
+
+<h2 class="section " id="s2">星等、光度與距離</h2>
+
+<article class="q q-pr" id="q205">
+<header class="qh"><span class="qn">難題 1</span><span class="qtag">星等與亮度的倍數・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>星等愈小愈亮</strong>；肉眼極限 <strong>6 等</strong>。</li>
+<li><strong>亮度比＝2.512<sup>星等差</sup></strong>；星等差 5 ⇒ 100 倍；星等差 2.5 ⇒ 10 倍。</li>
+<li><strong>距離效應</strong>：距離 ×k ⇒ 亮度 ×1/k²；距離 ×10 ⇒ 星等<strong>＋5</strong>；距離 ×1/10 ⇒ 星等 <strong>−5</strong>。</li>
+</ul></div></details><div class="qtext"><p>甲星視星等 1 等，乙星視星等 6 等，丙星視星等 −4 等。<br />
+(1) 甲星亮度是乙星的幾倍？<br />
+(2) 丙星亮度是甲星的幾倍？<br />
+(3) 哪幾顆星在肉眼可見的範圍內？<br />
+(4) 若乙星的距離縮短為原來的 1/10，視星等變成幾等？亮度變為原來的幾倍？<br />
+(5) 若甲星的距離變為原來的 10 倍，視星等變成幾等？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 100 倍　(2) 100 倍　(3) 甲、乙、丙（視星等 ≤ 6 都可見）　(4) 1 等；100 倍　(5) 6 等</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 星等差 6−1＝5 ⇒ 亮度差 <strong>100 倍</strong>（甲較亮）。</p>
+<p>(2) 星等差 1−(−4)＝5 ⇒ <strong>100 倍</strong>（丙較亮）。</p>
+<p>(3) 肉眼極限 6 等：甲 1、乙 6、丙 −4 <strong>都可見</strong>（乙剛好在極限）。</p>
+<p>(4) 距離 ×1/10 ⇒ 亮度 ×100 ⇒ 星等 <strong>−5</strong>：6 − 5 ＝ <strong>1 等</strong>。</p>
+<p>(5) 距離 ×10 ⇒ 亮度 ×1/100 ⇒ 星等 <strong>＋5</strong>：1 ＋ 5 ＝ <strong>6 等</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>星等題＝<strong>差 5 ⇒ 100 倍</strong>；距離 ×10 ⇒ 星等 ＋5。算倍數前先確認「誰亮誰暗」。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q206">
+<header class="qh"><span class="qn">類題｜難題 1</span><span class="qtag">簡單版・星等與亮度・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>甲星視星等 2 等，乙星視星等 7 等。<br />
+(1) 哪一顆較亮？亮度差幾倍？<br />
+(2) 乙星肉眼看得到嗎？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 甲較亮，100 倍　(2) 看不到</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 星等差 7−2＝5 ⇒ 亮度差 <strong>100 倍</strong>；星等數字小的<strong>甲</strong>較亮。</p>
+<p>(2) 肉眼極限是 6 等，乙星 7 等 ＞ 6 ⇒ <strong>看不到</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q207">
+<header class="qh"><span class="qn">難題 2</span><span class="qtag">視星等、絕對星等與距離・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>視星等 m</strong>：地球上看到的亮度（受距離影響）；<strong>絕對星等 M</strong>：把星移到 <strong>32.6 光年（10 秒差距）</strong>處的亮度（只看光度）。</li>
+<li><strong>判遠近</strong>：m ＜ M ⇒ 比 32.6 光年<strong>近</strong>；m ＝ M ⇒ 剛好 32.6 光年；m ＞ M ⇒ 比 32.6 光年<strong>遠</strong>；<strong>m − M 愈大愈遠</strong>。</li>
+<li><strong>本身發光強度</strong>看 <strong>M</strong>（愈小愈亮）；地球上看起來最亮看 <strong>m</strong>。</li>
+</ul></div></details><div class="qtext"><p>下表是四顆恆星的星等：</p>
+<table>
+<thead>
+<tr>
+<th>恆星</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>視星等 m</td>
+<td>1</td>
+<td>0</td>
+<td>7</td>
+<td>3</td>
+</tr>
+<tr>
+<td>絕對星等 M</td>
+<td>1</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 哪幾顆星與地球的距離小於 32.6 光年？<br />
+(2) 哪一顆離地球最遠？<br />
+(3) 哪一顆本身的發光強度（光度）最大？<br />
+(4) 哪一顆在地球上看起來最亮？哪一顆用肉眼看不到？<br />
+(5) 若 C 星的距離縮短為原來的 1/10，它的視星等變為幾等？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) B、D　(2) C　(3) A　(4) 最亮：B；看不到：C　(5) 2 等</div>
+<div class="exp"><b class="exp-h">解</b><p>先算 m − M：A＝0、B＝−5、C＝＋5、D＝−2。</p>
+<p>(1) m − M ＜ 0 ⇒ 比 32.6 光年<strong>近</strong>：<strong>B（−5）、D（−2）</strong>。A 的 m − M＝0，剛好是 32.6 光年，不算「小於」。</p>
+<p>(2) m − M 最大的是 <strong>C（＋5）</strong>，最遠。</p>
+<p>(3) 光度看<strong>絕對星等</strong>，數字最小最亮：A 的 M＝1 最小 ⇒ <strong>A</strong>。</p>
+<p>(4) 地球上看起來最亮看<strong>視星等</strong>：B 的 m＝0 最小 ⇒ <strong>B</strong>；C 的 m＝7 ＞ 6 ⇒ <strong>肉眼看不到</strong>。</p>
+<p>(5) 距離 ×1/10 ⇒ 視星等 −5：7 − 5 ＝ <strong>2 等</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>看到「兩種星等」先算 <strong>m − M</strong>：負＝近、零＝32.6 光年、正＝遠；<strong>光度看 M、亮度看 m</strong>，不要混用。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q208">
+<header class="qh"><span class="qn">類題｜難題 2</span><span class="qtag">簡單版・m 與 M・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>兩顆恆星：甲星 m＝2、M＝2；乙星 m＝1、M＝6。<br />
+(1) 哪一顆離地球較近？<br />
+(2) 哪一顆本身的發光強度較大？<br />
+(3) 哪一顆在地球上看起來較亮？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 乙　(2) 甲　(3) 乙</div>
+<div class="exp"><b class="exp-h">解</b><p>m − M：甲＝0（剛好 32.6 光年）、乙＝−5（較近）。</p>
+<p>(1) m − M 較小的乙較近。</p>
+<p>(2) 光度看 M：甲的 M＝2 ＜ 乙的 M＝6 ⇒ <strong>甲</strong>本身較亮。</p>
+<p>(3) 看起來的亮度看 m：乙的 m＝1 ＜ 甲的 m＝2 ⇒ <strong>乙</strong>看起來較亮（它離得近）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q209">
+<header class="qh"><span class="qn">難題 3</span><span class="qtag">光度、表面溫度與恆星大小・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>光度 ∝ 表面積 × T⁴</strong>，即 <strong>L ∝ R²T⁴</strong>；單位面積輻射量只看 <strong>T⁴</strong>。</li>
+<li><strong>顏色 ↔ 溫度</strong>：藍（約 3 萬 K）＞白（約 1 萬 K）＞黃（約 6000 K，太陽）＞橘＞紅（約 3000 K）。</li>
+<li><strong>光度比 ↔ 絕對星等差</strong>：光度差 100 倍 ⇒ 星等差 5；光度差約 16 倍 ⇒ 星等差約 3。</li>
+</ul></div></details><div class="qtext"><p>A 星表面溫度約 12000 K，B 星約 6000 K。<br />
+(1) A、B 兩星各約是什麼顏色？<br />
+(2) A、B 單位面積輻射量的比是多少？<br />
+(3) 若兩星半徑相同，A 的光度是 B 的幾倍？兩者絕對星等相差約多少？<br />
+(4) 若 A 星半徑只有 B 星的 1/4，兩者光度比是多少？<br />
+(5) 為什麼「紅色的恆星，光度不一定比藍色的恆星小」？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) A 藍白色、B 黃色　(2) 16：1　(3) 16 倍；約 3 等　(4) 1：1　(5) 紅超巨星表面積很大，光度可以很大</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 12000 K 偏藍白；6000 K（和太陽一樣）偏黃。</p>
+<p>(2) 單位面積輻射 ∝ T⁴：(12000/6000)⁴ ＝ 2⁴ ＝ <strong>16</strong>，比是 <strong>16：1</strong>。</p>
+<p>(3) 半徑相同 ⇒ 光度比＝溫度 T⁴ 比＝<strong>16 倍</strong>；光度差約 16 倍 ⇒ 2.512³≈15.9 ⇒ 絕對星等差約 <strong>3 等</strong>（A 較亮）。</p>
+<p>(4) L ∝ R²T⁴：L_A/L_B ＝ (1/4)² × 2⁴ ＝ (1/16)×16 ＝ <strong>1</strong>，光度<strong>相同</strong>。</p>
+<p>(5) 光度 ＝ 單位面積輻射 × 表面積。紅色星溫度低（單位面積輻射小），但<strong>紅超巨星</strong>的表面積極大，總光度反而可以遠大於小而熱的藍色星。</p><div class="qsum"><b class="qsum-h">小結</b><p>光度公式 <strong>L∝R²T⁴</strong>：溫度的四次方最有威力，但半徑的平方也能翻盤；顏色只告訴你溫度，不告訴你光度。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q210">
+<header class="qh"><span class="qn">類題｜難題 3</span><span class="qtag">簡單版・光度與溫度・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>甲、乙兩顆星大小（半徑）相同，甲的表面溫度是乙的 2 倍。<br />
+(1) 甲的單位面積輻射量是乙的幾倍？<br />
+(2) 甲的光度是乙的幾倍？<br />
+(3) 若乙的半徑是甲的 4 倍，兩星光度比 L甲：L乙＝？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 16 倍　(2) 16 倍　(3) 1：1</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 單位面積輻射 ∝ T⁴：2⁴＝<strong>16</strong>。</p>
+<p>(2) 半徑相同，光度比＝單位面積輻射比＝<strong>16 倍</strong>。</p>
+<p>(3) L ∝ R²T⁴：L甲/L乙 ＝ (R甲/R乙)²×(T甲/T乙)⁴ ＝ (1/4)²×2⁴ ＝ 1 ⇒ <strong>1：1</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q211">
+<header class="qh"><span class="qn">難題 4</span><span class="qtag">距離單位、光行時間與視差・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>光年</strong>：光一年走的距離，<strong>光行時間（年）＝距離（光年）</strong>；看到的是<strong>過去</strong>的樣子。</li>
+<li><strong>秒差距（pc）</strong>：視差角 1 角秒對應的距離；<strong>1 pc＝3.26 光年</strong>；距離(pc)＝1／視差角(角秒)。</li>
+<li><strong>天文單位（AU）</strong>：日地平均距離，約 1.5×10⁸ km；光走 1 AU 約 <strong>8.3 分鐘</strong>。</li>
+</ul></div></details><div class="qtext"><p>(1) 仙女座星系距離地球約 250 萬光年，我們現在看到的是它多久以前的樣子？<br />
+(2) 太陽光到達地球約需幾分鐘？（日地距離 1.5×10⁸ km，光速 3×10⁵ km/s）<br />
+(3) 某恆星的視差角為 0.1 角秒，距離約多少秒差距？合多少光年？<br />
+(4) 絕對星等是把恆星移到多少光年處的亮度？<br />
+(5) 某恆星距離 16 光年，我們此時看到的是幾年前的光？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 250 萬年前　(2) 約 8.3 分鐘　(3) 10 pc；約 32.6 光年　(4) 32.6 光年　(5) 16 年前</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 光行時間＝距離＝<strong>250 萬年</strong>，看到的是它 250 萬年前的樣子。</p>
+<p>(2) 時間＝距離/速率＝1.5×10⁸ ÷ 3×10⁵ ＝ 500 秒 ≈ <strong>8.3 分鐘</strong>。</p>
+<p>(3) 距離(pc)＝1/0.1＝<strong>10 pc</strong>；10×3.26＝<strong>32.6 光年</strong>。</p>
+<p>(4) 絕對星等定義為移到 <strong>32.6 光年（＝10 pc）</strong>處的亮度。</p>
+<p>(5) 光行時間＝距離 ⇒ <strong>16 年前</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>距離單位三件事：<strong>光行時間＝距離（光年）</strong>、<strong>1 pc＝3.26 ly</strong>、<strong>絕對星等的標準距離＝10 pc＝32.6 ly</strong>；視差角愈小，距離愈遠。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q212">
+<header class="qh"><span class="qn">類題｜難題 4</span><span class="qtag">簡單版・距離與光行時間・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>(1) 某恆星距離 8.6 光年，現在看到的是它幾年前的光？<br />
+(2) 某恆星視差角 0.5 角秒，距離約多少秒差距？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 8.6 年前　(2) 2 pc</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 光行時間＝距離 ⇒ <strong>8.6 年前</strong>。</p>
+<p>(2) 距離＝1/視差角＝1/0.5＝<strong>2 pc</strong>（約 6.5 光年）。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">太陽系、彗星與地球的防護罩</h2>
+
+<article class="q q-pr" id="q213">
+<header class="qh"><span class="qn">難題 5</span><span class="qtag">太陽星雲學說・取自基隆中山 112-1（原卷 5、12、13 題）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>太陽星雲學說</strong>：低溫的氣體與塵埃（氫、氦為主）<strong>受重力收縮</strong> → 旋轉 → <strong>扁平盤狀</strong> → 核心升溫到能<strong>氫核融合</strong>時，太陽誕生；內側高溫留下岩石金屬（類地行星），外側氣體、冰（類木行星）。</li>
+<li><strong>能解釋</strong>：行星公轉方向相同、軌道幾乎在同一平面。</li>
+<li><strong>提醒</strong>：太陽系是<strong>重力收縮</strong>形成，<strong>不是爆炸</strong>；太陽靠的是<strong>氫</strong>核融合。</li>
+</ul></div></details><div class="qtext"><p>(1) 對於太陽系形成過程的描述，何者正確？<br />
+(A) 太陽系是一團高溫、高密度的氣體和塵埃收縮爆炸所形成　(B) 因氣體和塵埃的收縮，中心物質溫度增高到進行氫核分裂反應才稱為太陽　(C) 平行轉軸的部分收縮較慢，垂直轉軸的部分收縮較快，故在太陽周圍形成扁平狀的盤面　(D) 盤面的氣體局部收縮，形成類木行星　(E) 初始星雲的溫度不高，而且是重力收縮形成太陽，不是爆炸產生的<br />
+(2)（選「錯誤」）有關太陽系的形成，目前最被接受的是太陽星雲假說，下列敘述何者錯誤？<br />
+(A) 大約在 46 億年前形成　(B) 星雲重力塌縮形成盤狀結構　(C) 點燃氦核融合反應始形成太陽　(D) 類木行星以氣體和冰為主　(E) 類地行星以岩石和金屬為主<br />
+(3) 科學家為了了解太陽系的起源，近年致力於研究彗星及小行星，為什麼有助於了解起源？<br />
+(A) 因為和太陽同時形成　(B) 因為遠離太陽，訊息不易被陽光破壞　(C) 因為組成成分和太陽相同　(D) 因為形狀不規則　(E) 因為質量小，自身變化不大</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1)(E)　(2)(C)　(3)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：星雲學說的各步驟，與「為什麼彗星、小行星保存早期資訊」。</p>
+<p>(1) (A) ✗ 不是爆炸，是重力收縮；(B) ✗ 是氫核<strong>融合</strong>（不是分裂）；(C) ✗ 說法<strong>剛好相反</strong>：<strong>垂直</strong>轉軸的方向有離心作用、收縮較慢；<strong>平行</strong>轉軸的方向收縮較快，才壓成扁平的盤面；(D) ✗ 盤面局部收縮形成的是行星，且類木行星主要是外側氣體；(E) ○ 初始星雲溫度不高，是重力收縮形成太陽。</p>
+<p>(2) 太陽的核融合是<strong>氫</strong>融合成氦，不是氦核融合 ⇒ <strong>(C) 錯誤</strong>。</p>
+<p>(3) 彗星與小行星<strong>質量小</strong>，形成後幾乎沒有再被加熱或地質作用改造，<strong>自身變化不大</strong>，保存著太陽系早期的原始物質，所以有助於研究起源。</p><div class="qsum"><b class="qsum-h">小結</b><p>星雲學說關鍵字：<strong>重力收縮（不是爆炸）、扁平盤、氫核融合、內岩外氣</strong>；小天體＝<strong>太陽系的化石</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q214">
+<header class="qh"><span class="qn">類題｜難題 5</span><span class="qtag">簡單版・星雲學說・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述，哪些正確？（應選 2 項）<br />
+(A) 太陽星雲主要由氫、氦組成<br />
+(B) 太陽誕生時，核心進行的是氦核融合<br />
+(C) 太陽星雲學說可解釋八大行星公轉方向相同<br />
+(D) 類地行星主要由氣體組成</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 星雲主要是氫、氦。</li>
+<li>(B) ✗ 核心進行的是<strong>氫</strong>核融合。</li>
+<li>(C) ○ 星雲收縮旋轉成扁平盤，行星公轉方向、軌道面趨於一致。</li>
+<li>(D) ✗ 類地行星以<strong>岩石與金屬</strong>為主；氣體為主的是類木行星。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q215">
+<header class="qh"><span class="qn">難題 6</span><span class="qtag">太陽系成員的分類與行星特性・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>三類</strong>：<strong>行星</strong>（近圓球＋清除軌道）、<strong>矮行星</strong>（近圓球、<strong>無法清除軌道</strong>：冥王星、穀神星、鬩神星）、<strong>太陽系小天體</strong>（不成圓球：多數小行星、彗星）。</li>
+<li><strong>類地</strong>（水金地火）：岩石金屬、密度大、小、衛星少、自轉慢；<strong>類木</strong>（木土天海）：氣體為主、密度小、大、衛星多、<strong>都有環</strong>、自轉快。</li>
+<li><strong>區域</strong>：小行星帶（火星與木星之間）、<strong>柯伊伯帶</strong>（短週期彗星來源）、<strong>歐特雲</strong>（長週期彗星來源）。</li>
+</ul></div></details><div class="qtext"><p>下列敘述，哪些正確？（應選 4 項，共 6 個選項）<br />
+(A) 類地行星的平均密度比類木行星大<br />
+(B) 木星是八大行星中密度最小的<br />
+(C) 冥王星因為無法清除其軌道附近的天體，被歸類為矮行星<br />
+(D) 穀神星位於小行星帶，屬於矮行星<br />
+(E) 柯伊伯帶是長週期彗星的發源地<br />
+(F) 水星沒有大氣，所以晝夜溫差很大</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)(F)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 類地行星以岩石金屬為主，密度大。</li>
+<li>(B) ✗ 密度最小的是<strong>土星</strong>（比水還小）。</li>
+<li>(C) ○ 矮行星的條件之一：無法清除軌道附近的天體。</li>
+<li>(D) ○ 穀神星位於火星與木星之間的小行星帶，是矮行星。</li>
+<li>(E) ✗ 柯伊伯帶是<strong>短</strong>週期彗星的發源地；<strong>長</strong>週期彗星來自歐特雲。</li>
+<li>(F) ○ 水星沒有大氣，沒有恆溫效果，晝夜溫差約 −200～400°C。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>太陽系分類記三點：<strong>矮行星＝圓球＋沒清空軌道</strong>；<strong>柯伊伯帶＝短週期、歐特雲＝長週期</strong>；<strong>類地＝岩石金屬＋密度大，類木＝氣體＋有環</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q216">
+<header class="qh"><span class="qn">類題｜難題 6</span><span class="qtag">簡單版・太陽系分類・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述，哪些正確？（應選 2 項）<br />
+(A) 金星的大氣壓力約是地球的 90 倍，溫室效應強<br />
+(B) 土星是八大行星中質量最大的<br />
+(C) 歐特雲是短週期彗星的發源地<br />
+(D) 火星呈紅色，是因為地表有大量氧化鐵</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 金星大氣以 CO₂ 為主，壓力約地球 90 倍，溫室效應劇烈（平均約 464°C）。</li>
+<li>(B) ✗ 質量最大的是<strong>木星</strong>。</li>
+<li>(C) ✗ 歐特雲是<strong>長</strong>週期彗星的發源地。</li>
+<li>(D) ○ 火星地表覆蓋氧化鐵，呈紅色。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q217">
+<header class="qh"><span class="qn">難題 7</span><span class="qtag">彗星、彗尾與流星雨・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>彗星</strong>＝冰與塵埃團塊，靠近太陽時長出<strong>彗髮、彗尾</strong>，<strong>反射太陽光</strong>發亮（所以在無大氣的地方也看得到）。</li>
+<li><strong>彗尾</strong>：<strong>永遠背對太陽</strong>；<strong>愈靠近太陽彗尾愈長</strong>；離子尾筆直、塵埃尾稍彎（偏向前進方向的後方）。</li>
+<li><strong>流星</strong>：碎屑高速進入大氣，<strong>與大氣摩擦生熱發光</strong>；沒有大氣的地方（如月球）沒有流星；<strong>流星雨</strong>每年約固定日期出現。</li>
+</ul></div></details><div class="qtext"><p>下列有關彗星與流星的敘述，哪些正確？（應選 4 項，共 6 個選項）<br />
+(A) 彗星的彗尾永遠背向太陽<br />
+(B) 離子尾筆直背離太陽，塵埃尾稍微彎向前進方向的後方<br />
+(C) 彗星運行到遠日點附近時，彗尾最長<br />
+(D) 流星是彗星反射太陽光所造成的發光現象<br />
+(E) 在沒有大氣的月球上，不會看到流星<br />
+(F) 流星雨的輻射點位在某星座，就稱為該星座流星雨</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)(F)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 彗尾受太陽輻射與太陽風推壓，永遠背對太陽。</li>
+<li>(B) ○ 離子尾筆直；塵埃尾質量較大，受太陽引力影響，稍向後甩。</li>
+<li>(C) ✗ 彗尾是靠近太陽才長出來，<strong>近日點</strong>附近最長，遠日點附近幾乎沒有。</li>
+<li>(D) ✗ 流星是碎屑與<strong>大氣摩擦生熱</strong>而發光；「反射太陽光」是彗星的發光原因。</li>
+<li>(E) ○ 沒有大氣就沒有摩擦，不會有流星。</li>
+<li>(F) ○ 輻射點在哪個星座就稱為哪個星座流星雨。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>彗星＝<strong>反射</strong>、流星＝<strong>摩擦</strong>；彗尾<strong>背向太陽、近日點最長</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q218">
+<header class="qh"><span class="qn">類題｜難題 7</span><span class="qtag">簡單版・彗星與流星・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些正確？（應選 2 項）<br />
+(A) 彗星靠近太陽時，彗尾會變長<br />
+(B) 彗尾永遠指向前進方向<br />
+(C) 流星是隕石與大氣摩擦發光的現象<br />
+(D) 流星雨是每隔數百年才出現一次的現象</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 愈靠近太陽，物質揮發愈多、受太陽風推壓，彗尾愈長。</li>
+<li>(B) ✗ 彗尾永遠<strong>背對太陽</strong>。</li>
+<li>(C) ○ 摩擦生熱發光。</li>
+<li>(D) ✗ 流星雨<strong>每年</strong>約在固定日期出現（地球公轉再度經過同一個碎屑群）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q219">
+<header class="qh"><span class="qn">難題 8</span><span class="qtag">地球的防護罩：誰擋誰？・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>帶電粒子</strong>（太陽風、宇宙射線）→ 主要由<strong>磁層</strong>阻擋；衝進磁層的被<strong>范艾倫輻射帶</strong>捕獲（粒子沿磁力線運動時放出 <strong>X 射線</strong>）；從兩極進入高緯度大氣 ⇒ <strong>極光</strong>。</li>
+<li><strong>非帶電的短波輻射</strong> → 靠<strong>大氣層</strong>：<strong>電離層</strong>（約 50 公里以上）吸收 γ、X 射線與短波紫外線；<strong>臭氧層</strong>（平流層）吸收中、長波紫外線。</li>
+<li><strong>太陽活動指標</strong>：黑子數、日冕範圍、閃焰頻率；活動劇烈 ⇒ 短波輻射與帶電粒子增多 ⇒ 極光機率大增。</li>
+</ul></div></details><div class="qtext"><p>下列敘述，哪些正確？（應選 4 項，共 6 個選項）<br />
+(A) 太陽風主要由帶電粒子組成，主要被地球的磁場阻擋<br />
+(B) X 射線與短波紫外線主要由電離層吸收<br />
+(C) 臭氧層位於平流層，吸收中、長波紫外線<br />
+(D) 極光發生在赤道地區的上空<br />
+(E) 黑子數量增多，代表太陽活動變劇烈<br />
+(F) 地球磁場可以吸收太陽發出的 X 射線</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 太陽風＝質子、氦核、電子等帶電粒子，被磁層阻擋。</li>
+<li>(B) ○ 電離層吸收 γ、X 射線與短波紫外線。</li>
+<li>(C) ○ 臭氧層在平流層，吸收中、長波紫外線。</li>
+<li>(D) ✗ 極光發生在<strong>南北兩極附近的高緯度</strong>，帶電粒子沿磁力線進入。</li>
+<li>(E) ○ 黑子多、日冕大、閃焰頻繁，代表太陽活動劇烈。</li>
+<li>(F) ✗ 磁場擋的是<strong>帶電粒子</strong>；X 射線（電磁波）由大氣擋。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>帶電粒子→磁場；輻射（X、紫外線）→大氣</strong>；極光＝帶電粒子沿磁力線進入<strong>高緯度</strong>大氣。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q220">
+<header class="qh"><span class="qn">類題｜難題 8</span><span class="qtag">簡單版・防護罩・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述，哪些正確？（應選 2 項）<br />
+(A) 地球磁場主要阻擋帶電粒子<br />
+(B) 臭氧層主要吸收 X 射線<br />
+(C) 太陽閃焰頻繁時，極光出現機率增加<br />
+(D) 月球沒有大氣，但有很強的磁層保護它</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 磁場擋帶電粒子。</li>
+<li>(B) ✗ 臭氧層吸收的是<strong>紫外線</strong>；X 射線由電離層吸收。</li>
+<li>(C) ○ 太陽活動劇烈，帶電粒子增多，極光機率大增。</li>
+<li>(D) ✗ 月球既沒有大氣，也沒有足夠強的磁場，表面受到的輻射更強。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">宇宙的結構與膨脹</h2>
+
+<article class="q q-pr" id="q221">
+<header class="qh"><span class="qn">難題 9</span><span class="qtag">宇宙階級、星團與星雲・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>階級（由大到小）</strong>：宇宙 → 超星系團 → 星系團／星系群 → <strong>星系</strong>（宇宙基本單位）→ 恆星／星團／星雲 → 行星 → 衛星。<strong>銀河系＝棒旋星系</strong>，所在：本星系群、本超星系團。</li>
+<li><strong>星團</strong>：<strong>球狀星團</strong>（較老、星多、恆星質量小、重元素少、在<strong>銀暈</strong>）vs <strong>疏散星團</strong>（較年輕、重元素多、在<strong>銀河盤面</strong>）。</li>
+<li><strong>星雲</strong>：暗星雲（遮蔽後方星光）、反射星雲（反射星光）、發射星雲（受恆星激發而發光）。</li>
+</ul></div></details><div class="qtext"><p>(1) 把下列天體由大到小排序：太陽系、銀河系、本超星系團、本星系群、地球<br />
+(2) 球狀星團與疏散星團比較，哪一種恆星年齡較老？哪一種重元素含量較多？哪一種位於銀河盤面？<br />
+(3) 為什麼疏散星團中看不到老恆星？<br />
+(4) 暗星雲、反射星雲、發射星雲各是怎麼被我們看見的？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 本超星系團 ＞ 本星系群 ＞ 銀河系 ＞ 太陽系 ＞ 地球　(2) 球狀較老；疏散重元素較多；疏散位於銀河盤面　(3) 質量大的恆星壽命短，早就死亡了　(4) 暗：遮住背景星光；反射：反射鄰近恆星光；發射：受恆星激發而發光</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 超星系團 ＞ 星系群 ＞ 星系 ＞ 恆星系統 ＞ 行星：<strong>本超星系團 ＞ 本星系群 ＞ 銀河系 ＞ 太陽系 ＞ 地球</strong>。</p>
+<p>(2) <strong>球狀星團</strong>較老（也較少重元素，位在銀暈）；<strong>疏散星團</strong>較年輕，重元素含量較多（後來形成的恆星撿到前代恆星核融合、超新星爆炸造出的重元素），位於<strong>銀河盤面</strong>。</p>
+<p>(3) 疏散星團裡質量大的恆星核融合劇烈，<strong>壽命很短</strong>，已經死亡；留下的都是較年輕的恆星。</p>
+<p>(4) 暗星雲：濃密的雲氣<strong>遮蔽後方星光</strong>，呈現黑影（如馬頭星雲）；反射星雲：<strong>反射</strong>鄰近恆星的光；發射星雲：受內部恆星影響而<strong>發射</strong>光芒（如北美洲星雲）。</p><div class="qsum"><b class="qsum-h">小結</b><p>階級口訣：<strong>超星系團 &gt; 星系團 &gt; 星系 &gt; 恆星系統</strong>；球狀星團＝老、少重元素、在銀暈；疏散星團＝年輕、多重元素、在盤面。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q222">
+<header class="qh"><span class="qn">類題｜難題 9</span><span class="qtag">簡單版・宇宙階級・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述，哪些正確？（應選 2 項）<br />
+(A) 構成宇宙的基本單位是星系<br />
+(B) 銀河系屬於橢圓星系<br />
+(C) 星座是天球上的區域，不是宇宙結構的一個階級<br />
+(D) 銀河系位於本星系群之外</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 星系是宇宙的基本單位。</li>
+<li>(B) ✗ 銀河系是<strong>棒旋</strong>星系。</li>
+<li>(C) ○ 星座只是天球上的分區（共 88 個）。</li>
+<li>(D) ✗ 銀河系<strong>屬於</strong>本星系群。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q223">
+<header class="qh"><span class="qn">難題 10</span><span class="qtag">大霹靂、紅移與哈伯定律・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>哈伯定律</strong>：V＝H₀×d（星系遠離速度 ∝ 距離）；<strong>宇宙年齡 T≈1/H₀</strong>。</li>
+<li><strong>證據一</strong>：遙遠星系光譜<strong>紅移</strong>（譜線往長波移動）⇒ 在遠離；<strong>證據二</strong>：宇宙微波背景輻射（約 <strong>3 K</strong>，大霹靂後約 <strong>38 萬年</strong>）。</li>
+<li><strong>提醒</strong>：只有<strong>星系之間</strong>的空間在膨脹；鄰近的<strong>仙女座星系</strong>因重力正靠近（藍移）。</li>
+</ul></div></details><div class="qtext"><p>取哈伯常數 H₀＝70 km/s／Mpc（1 Mpc＝3.26×10⁶ 光年）。<br />
+(1) 距離 100 Mpc 的星系，遠離速度約多少 km/s？<br />
+(2) 距離 200 Mpc 的星系，遠離速度是上一個星系的幾倍？<br />
+(3) 若 Hα 譜線的原波長為 656.3 nm，(1) 中的星系觀測到的波長約為多少 nm？（光速 3×10⁵ km/s，用 Δλ／λ＝V／c）<br />
+(4) 宇宙年齡約為 1/H₀，約多少年？（1 Mpc＝3.086×10¹⁹ km）<br />
+(5) 為什麼仙女座星系的光譜是藍移，並不推翻「宇宙在膨脹」？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 7000 km/s　(2) 2 倍　(3) 約 671.6 nm　(4) 約 140 億年　(5) 它受銀河系重力吸引，鄰近天體不隨宇宙膨脹而遠離</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) V＝H₀d＝70×100＝<strong>7000 km/s</strong>。</p>
+<p>(2) V 與 d 成正比 ⇒ 距離 2 倍 ⇒ 速度 <strong>2 倍</strong>（14000 km/s）。</p>
+<p>(3) Δλ＝λ·V/c＝656.3×7000/300000≈15.3 nm ⇒ 觀測波長≈ 656.3＋15.3＝<strong>671.6 nm</strong>（往長波方向＝紅移）。</p>
+<p>(4) T＝1/H₀＝(3.086×10¹⁹ km)/(70 km/s)≈4.41×10¹⁷ s；換成年：4.41×10¹⁷÷3.156×10⁷≈1.4×10¹⁰ 年，即約 <strong>140 億年</strong>（與大霹靂約 138 億年前相符）。</p>
+<p>(5) 宇宙膨脹只發生在<strong>星系與星系團之間</strong>的空間；由重力束縛的系統（太陽系、銀河系、本星系群）不會跟著膨脹。仙女座星系與銀河系彼此吸引、正在靠近，所以是<strong>藍移</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>膨脹三件事：<strong>V∝d、紅移＝遠離、T＝1/H₀</strong>；例外要記<strong>仙女座（藍移）</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q224">
+<header class="qh"><span class="qn">類題｜難題 10</span><span class="qtag">簡單版・哈伯定律・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>取 H₀＝70 km/s／Mpc。<br />
+(1) 距離 50 Mpc 的星系，遠離速度約多少？<br />
+(2) 某星系遠離速度為 2800 km/s，距離約多少 Mpc？<br />
+(3) 光譜紅移代表星系正在靠近還是遠離？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 3500 km/s　(2) 40 Mpc　(3) 遠離</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) V＝70×50＝<strong>3500 km/s</strong>。</p>
+<p>(2) d＝V/H₀＝2800/70＝<strong>40 Mpc</strong>。</p>
+<p>(3) 紅移＝譜線往長波長移動＝<strong>遠離</strong>。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s5">周日運動、周年運動與四季</h2>
+
+<article class="q q-pr" id="q225">
+<header class="qh"><span class="qn">難題 11</span><span class="qtag">周日運動：北極星仰角、星跡與曝光時間・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>北極星仰角＝所在緯度（北半球）</strong>；南半球看<strong>天球南極</strong>，仰角＝緯度（無亮星）。</li>
+<li><strong>星跡</strong>：軌跡面與地平面夾角＝<strong>90° − 緯度</strong>；<strong>每小時繞 15°</strong>；朝北（北半球）逆時針、朝南順時針；朝東看星體升起、朝西看落下。</li>
+<li><strong>圓心</strong>：北半球朝北＝圓心在地平面<strong>上方</strong>（天球北極，近圓心有北極星）。</li>
+</ul></div></details><div class="qtext"><p>小明在臺北（約北緯 25°）、小華在雪梨（約南緯 35°）各長時間曝光拍攝星跡。<br />
+(1) 臺北的北極星仰角約多少？<br />
+(2) 臺北朝東拍攝，星跡與地平面的夾角約多少？<br />
+(3) 臺北朝北拍攝，曝光 3 小時，星跡圓弧的圓心角約多少？弧線圓心在地平面之上還是之下？<br />
+(4) 雪梨看天球南極的仰角約多少？它位於哪一方的天空？<br />
+(5) 小華朝南看星跡，星體繞天球南極是順時針還是逆時針？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 25°　(2) 65°　(3) 45°；之上　(4) 35°；南方　(5) 順時針</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 北極星仰角＝緯度＝<strong>25°</strong>。</p>
+<p>(2) 夾角＝90°−25°＝<strong>65°</strong>。</p>
+<p>(3) 3 h × 15°/h ＝ <strong>45°</strong>；北半球朝北，天球北極在地平面<strong>上方</strong>，圓心在地平面<strong>之上</strong>。</p>
+<p>(4) 南半球天球南極仰角＝緯度＝<strong>35°</strong>，位於<strong>南方</strong>天空。</p>
+<p>(5) 朝南看時（南半球），星體繞天球南極<strong>順時針</strong>運行（東升西落，繞南極視覺為順時針）。</p><div class="qsum"><b class="qsum-h">小結</b><p><strong>緯度＝北（南）極星仰角</strong>；星跡面夾角＝<strong>90°−緯度</strong>；圓弧角度＝<strong>15°×小時</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q226">
+<header class="qh"><span class="qn">類題｜難題 11</span><span class="qtag">簡單版・星跡與緯度・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某地（北半球）朝東拍攝，星跡與地平面夾角為 50°。<br />
+(1) 此地緯度約多少？<br />
+(2) 該地北極星仰角約多少？<br />
+(3) 曝光 2 小時，星跡的圓心角為多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 北緯 40°　(2) 40°　(3) 30°</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 夾角＝90°−緯度 ⇒ 緯度＝90−50＝<strong>40°N</strong>。</p>
+<p>(2) 北極星仰角＝緯度＝<strong>40°</strong>。</p>
+<p>(3) 2×15°＝<strong>30°</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q227">
+<header class="qh"><span class="qn">難題 12</span><span class="qtag">不同緯度的可見星空：永不落下與永不升起・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>北緯 φ</strong>：與<strong>天球北極</strong>夾角 <strong>≤ φ</strong> 的星<strong>永不落下</strong>；與<strong>天球南極</strong>夾角 <strong>≤ φ</strong> 的星<strong>永不升起</strong>。</li>
+<li>與天球南極的夾角＝<strong>180° − 與天球北極的夾角</strong>。</li>
+<li><strong>天球赤道上</strong>的星：在任何緯度（南北極除外）地平面上都是 <strong>12 小時</strong>；偏北半天球的星＞12 小時、偏南＜12 小時。</li>
+</ul></div></details><div class="qtext"><p>臺南位於北緯 23°。下表是四顆恆星與<strong>天球北極</strong>的夾角：X 為 20°、Y 為 60°、Z 為 100°、W 為 160°。<br />
+(1) 哪一顆星在臺南永遠不會落到地平面之下？<br />
+(2) 哪一顆星在臺南永遠不會升起（看不到）？<br />
+(3) Y 星與 Z 星，哪一顆在地平面上的時間較長？哪一顆超過 12 小時？<br />
+(4) 一顆位在天球赤道上的星，在臺南每天在地平面上多久？<br />
+(5) 若換到赤道，所有星都能看到嗎？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) X　(2) W　(3) Y 較長；Y 超過 12 小時　(4) 12 小時　(5) 是，全天球都能看到（每顆星在地平面上都是 12 小時）</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 北緯 23°：與天球北極夾角 ≤ 23° 的星永不落下；X＝20° ≤ 23° ⇒ <strong>X</strong>。</p>
+<p>(2) 與天球南極的夾角＝180°−夾角：W＝180−160＝20° ≤ 23° ⇒ <strong>W</strong> 永不升起；Z＝180−100＝80° 不符。</p>
+<p>(3) Y（距北極 60°，偏北）在天球赤道以北，在地平面上的時間 <strong>＞12 小時</strong>；Z（距北極 100°，在赤道以南 10°）<strong>＜12 小時</strong>。所以 <strong>Y 較長</strong>，只有 Y 超過 12 小時。</p>
+<p>(4) 天球赤道上的星，在地平面上的運行弧度 180° ⇒ 180÷15＝<strong>12 小時</strong>。</p>
+<p>(5) 赤道上的觀測者可以看到<strong>全天球</strong>（兩極星貼地平線）；每顆星每天在地平面上都約 12 小時。</p><div class="qsum"><b class="qsum-h">小結</b><p><strong>φ 緯度法則</strong>：北極圈內夾角 ≤φ 永不落、南極圈內 ≤φ 永不升；赤道上空的星＝12 小時，偏北＞12、偏南＜12。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q228">
+<header class="qh"><span class="qn">類題｜難題 12</span><span class="qtag">簡單版・永不落下・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>北緯 40° 的地方，與天球北極夾角為 30°、50°、10° 的三顆星，哪些永遠不會落下？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>夾角 30° 與 10° 的兩顆</div>
+<div class="exp"><b class="exp-h">解</b><p>北緯 40°：與天球北極夾角 <strong>≤ 40°</strong> 的星永不落下。30° ≤ 40° ✓、10° ≤ 40° ✓、50° ＞ 40° ✗（會落下）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q229">
+<header class="qh"><span class="qn">難題 13</span><span class="qtag">周年運動與黃道星座・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>周年運動</strong>：地球每天公轉約 <strong>1°</strong>，所以同一時刻恆星每天往西偏約 1°、<strong>提早約 4 分鐘升起</strong>；30 天約 30°、提早 2 小時。</li>
+<li><strong>黃道 13 星座</strong>：太陽依序經過；<strong>夜晚看到的是與太陽相反方向的星座</strong>；冬至太陽在<strong>人馬座</strong>、春分在<strong>雙魚座</strong>。</li>
+<li><strong>判斷方位</strong>：正對太陽＝正午；每小時轉 15°。</li>
+</ul></div></details><div class="qtext"><p>(1) 某恆星今晚 21:00 位於中天。30 天後，這顆星幾點位於中天？<br />
+(2) 15 天後同一時刻（21:00），這顆星的位置相對今晚往哪邊偏、偏多少度？<br />
+(3) 春分當天太陽的背景星座是哪個？當晚半夜 12 點在正南中天的星座，與太陽是同方向還是相反方向？<br />
+(4) 為什麼冬至當晚容易看到金牛座，而人馬座被稱為夏季星座？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 19:00　(2) 往西偏約 15°　(3) 雙魚座；與太陽相反方向的星座　(4) 冬至太陽在人馬座方向，夜晚看的是相反方向（金牛座）；夏季半夜才看得到人馬座</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 30 天提早約 2 小時：21:00−2 h ＝ <strong>19:00</strong>。</p>
+<p>(2) 15 天×1°＝<strong>15°</strong>，同一時刻往<strong>西</strong>偏。</p>
+<p>(3) 春分太陽在<strong>雙魚座</strong>；半夜 12 點時，太陽在地球的另一側，位於正南中天的是與太陽<strong>相反方向</strong>的星座（約室女座附近）。</p>
+<p>(4) 冬至當天太陽位在人馬座方向，白天人馬座與太陽同升同落看不到；夜晚朝向與太陽相反的方向，容易看到對面的<strong>金牛座</strong>；反過來，夏天太陽在對面（金牛、雙子一帶），夜晚就能看到<strong>人馬座</strong>，所以人馬座屬夏季星座。</p><div class="qsum"><b class="qsum-h">小結</b><p>周年運動＝<strong>每天 1°、4 分鐘；每月 30°、2 小時</strong>；夜空星座＝<strong>與太陽相反方向</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q230">
+<header class="qh"><span class="qn">類題｜難題 13</span><span class="qtag">簡單版・周年運動・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>(1) 某星今晚 20:00 在中天，隔天幾點？<br />
+(2) 3 個月後同一時刻，這顆星在天空偏西多少度？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 19:56　(2) 約 90°</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 每天提早 4 分鐘 ⇒ <strong>19:56</strong>。</p>
+<p>(2) 3 個月約 90 天 ⇒ 偏西約 <strong>90°</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q231">
+<header class="qh"><span class="qn">難題 14</span><span class="qtag">四季：中午太陽仰角、永晝範圍與日出方位・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>中午太陽仰角</strong>：同半球 ⇒ 90° − |φ − δ|；不同半球 ⇒ 90° − (φ ＋ δ)（φ＝所在緯度、δ＝太陽直射緯度）；<strong>畫圖推最穩</strong>。</li>
+<li><strong>永晝</strong>：直射緯度 θ 時，同一半球 (90° − θ)～90°；<strong>極圈緯度＝90° − 地軸傾角</strong>。</li>
+<li><strong>日出方位</strong>：太陽直射北半球 ⇒ <strong>東偏北</strong>升起；直射赤道 ⇒ <strong>正東</strong>；直射南半球 ⇒ 東偏南。</li>
+</ul></div></details><div class="qtext"><p>(1) 太陽直射北緯 15° 時，臺南（北緯 23°）中午太陽仰角是多少？<br />
+(2) 同一天，南緯 30° 的地方中午太陽仰角是多少？<br />
+(3) 同一天，永晝的區域是哪裡？<br />
+(4) 夏至時，北半球各地的晝夜長短、日出方位如何？<br />
+(5) 若某行星自轉軸傾角為 30°，其極圈緯度是多少？太陽最北可直射到哪裡？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 82°　(2) 45°　(3) 北緯 75°～90°　(4) 晝長夜短；東偏北　(5) 60°；北緯 30°</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) δ＝15°N、φ＝23°N，同半球：仰角＝90−(23−15)＝90−8＝<strong>82°</strong>。</p>
+<p>(2) 南緯 30° 與直射北緯 15° 不同半球：仰角＝90−(30＋15)＝90−45＝<strong>45°</strong>。</p>
+<p>(3) 直射北緯 θ＝15° ⇒ 永晝：<strong>北緯 (90−15)＝75°～90°</strong>；永夜在南緯 75°～90°。</p>
+<p>(4) 夏至：太陽直射北回歸線；北半球<strong>晝長夜短</strong>，太陽<strong>東偏北</strong>升起、西偏北落下。</p>
+<p>(5) 極圈＝90°−傾角＝90−30＝<strong>60°</strong>；太陽最北直射緯度＝傾角＝<strong>北緯 30°</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>四季題＝<strong>畫圖</strong>：標太陽直射緯度、觀測緯度，兩者夾角就是天頂角，仰角＝90°−天頂角；極圈＝90°−傾角。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q232">
+<header class="qh"><span class="qn">類題｜難題 14</span><span class="qtag">簡單版・太陽仰角・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>太陽直射赤道（春分）時：<br />
+(1) 北緯 40° 的地方中午太陽仰角？<br />
+(2) 全世界各地晝夜長短如何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 50°　(2) 全球晝夜等長（各約 12 小時）</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 直射赤道（δ＝0）：仰角＝90−|40−0|＝<strong>50°</strong>。</p>
+<p>(2) 春分、秋分太陽直射赤道，全球晝夜等長。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s6">多波段觀測</h2>
+
+<article class="q q-pr" id="q233">
+<header class="qh"><span class="qn">難題 15</span><span class="qtag">多波段與大氣窗：該用哪種望遠鏡、放在哪？・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>溫度 ↔ 波段</strong>：高溫天體（超新星、高溫游離氣體）用<strong>短波</strong>（γ、X、紫外線）；低溫天體（行星、星雲、微波背景）用<strong>長波</strong>（紅外線、微波、無線電波）。</li>
+<li><strong>大氣窗</strong>：地表可進行的觀測：<strong>可見光</strong>、<strong>無線電波</strong>；<strong>紅外線、微波</strong>要在<strong>乾燥高山</strong>（水氣吸收）；<strong>γ、X 射線、紫外線</strong>要放<strong>外太空</strong>。</li>
+<li><strong>集光力</strong>∝口徑²；口徑愈大愈能看暗的天體。</li>
+</ul></div></details><div class="qtext"><p>下列敘述，哪些正確？（應選 4 項，共 6 個選項）<br />
+(A) 要觀測高溫的游離氣體（如太陽日冕），適合使用 X 射線望遠鏡<br />
+(B) X 射線望遠鏡必須放在外太空，因為 X 射線會被大氣吸收<br />
+(C) 觀測低溫的星雲與行星，適合使用紅外線、微波、無線電波<br />
+(D) 地面上的紅外線望遠鏡可以放在任何地方，不受水氣影響<br />
+(E) 望遠鏡口徑加倍，集光力變為 4 倍<br />
+(F) 地表上無法使用可見光與無線電波進行觀測</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 高溫天體輻射短波，日冕是高溫游離氣體，用 X 射線可以看到。</li>
+<li>(B) ○ X 射線被大氣吸收，要放外太空。</li>
+<li>(C) ○ 低溫天體適合長波（紅外線、微波、無線電波）。</li>
+<li>(D) ✗ 水氣會吸收紅外線與部分微波，要放在<strong>乾燥的高山／沙漠</strong>。</li>
+<li>(E) ○ 集光力∝口徑²，口徑 ×2 ⇒ 集光力 ×4。</li>
+<li>(F) ✗ 地表可以進行可見光（可見光大氣窗）與無線電波（無線電波大氣窗）觀測。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>短波＝高溫＝放太空；長波＝低溫；地表只有「可見光＋無線電波」兩扇窗</strong>，紅外線微波要乾燥高山。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q234">
+<header class="qh"><span class="qn">類題｜難題 15</span><span class="qtag">簡單版・多波段觀測・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些正確？（應選 2 項）<br />
+(A) γ 射線望遠鏡適合架設在地表<br />
+(B) 無線電波可以穿過大氣到達地表<br />
+(C) 觀測紫外線需要把望遠鏡放在外太空<br />
+(D) 口徑愈小的望遠鏡，愈能看到暗的天體</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ γ 射線被大氣吸收，要放外太空。</li>
+<li>(B) ○ 無線電波大氣窗讓它通過。</li>
+<li>(C) ○ 紫外線被大氣（臭氧層）吸收，要放外太空。</li>
+<li>(D) ✗ 口徑愈<strong>大</strong>集光力愈強，才能看到暗的天體。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復1.html">← 復1 地球的歷史難題</a><a href="u復3.html">復3 考前猜題模擬卷：地球的歷史＋天文 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

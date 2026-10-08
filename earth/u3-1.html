@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3-1 主題 12　固體地球的結構｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a class="on" href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a><ul class="subtoc"><li><a href="#s1">地震波</a></li><li><a href="#s2">利用地震波得知地球內部</a></li><li><a href="#s3">小試身手</a></li></ul></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">單元 3 地質</div>
+<h1><span class="uid">3-1</span>主題 12　固體地球的結構</h1>
+<div class="tools"><span class="cnt">本單元 7 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">地震波</h2>
+<ol>
+<li>地震波依傳播性質分為<strong>體波</strong>與<strong>表面波</strong>。</li>
+<li>能在地球<strong>內部</strong>傳遞的稱為<strong>體波</strong>，分為 <strong>P 波</strong>與 <strong>S 波</strong>。</li>
+<li>P、S 波傳到地表時，經過複雜的折射與反射，會形成<strong>只能沿著地表淺層傳遞</strong>的<strong>表面波</strong>。</li>
+<li>利用體波通過不同介質時<strong>波速的變化</strong>，去推知地球內部的組成與結構。</li>
+</ol>
+<figure class="fig"><img class="figimg" src="img/A074_29p06_65p98_x0-100.jpg" width="1021" height="649" loading="lazy" alt="地科1 第74頁" data-page="地科1 p.74"><figcaption>就是愛比較：P 波與 S 波（講義 p.74）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>地震波</th>
+<th>P 波</th>
+<th>S 波</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>性質</td>
+<td><strong>縱波</strong>（疏密波）：介質震動方向與波前進方向<strong>平行</strong></td>
+<td><strong>橫波</strong>（剪力波）：介質震動方向與波前進方向<strong>垂直</strong></td>
+</tr>
+<tr>
+<td>通過的介質</td>
+<td><strong>固、液、氣</strong>態都能傳</td>
+<td><strong>只能通過固態</strong>；可用「S 波穿不穿得過」判斷是不是固體</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>最快，<strong>初達波</strong>（跑第一名）</td>
+<td>比 P 波慢，<strong>次達波</strong></td>
+</tr>
+<tr>
+<td>影響波速的因素</td>
+<td>介質愈<strong>堅硬</strong>（體積與形狀愈不易改變），波速愈快；介質的狀態或組成改變時，波速會<strong>突增或突減</strong>（不連續面）</td>
+<td>同左</td>
+</tr>
+</tbody>
+</table></aside>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br />
+- 地震來時：先「<strong>上下</strong>」晃（P 波，縱波，<strong>先到</strong>），再「<strong>左右</strong>」晃（S 波，橫波，<strong>後到</strong>，通常破壞力較大）。<br />
+- S 波進入軟流圈只是<strong>稍微降速</strong>，<strong>沒有消失</strong>（軟流圈不是液體，是「少部分熔融、塑性高」的固體）。</p></aside>
+
+<h2 class="section " id="s2">利用地震波得知地球內部</h2>
+<h3>地表附近：地殼、岩石圈與軟流圈</h3>
+<figure class="fig"><img class="figimg" src="img/A074_72p03_100_x0-100.jpg" width="1021" height="462" loading="lazy" alt="地科1 第74頁" data-page="地科1 p.74"><figcaption>利用體波在地表附近的波速變化劃分各層圈（講義 p.74）</figcaption></figure>
+
+<figure class="fig"><img class="figimg" src="img/A075_3p41_36p6_x0-100.jpg" width="1017" height="551" loading="lazy" alt="地科1 第75頁" data-page="地科1 p.75"><figcaption>地表附近各層圈的組成與厚度（講義 p.75）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>大陸地區</th>
+<th>海洋地區</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地殼平均厚度</td>
+<td><strong>35 km</strong>（大陸勝）</td>
+<td><strong>7 km</strong></td>
+</tr>
+<tr>
+<td>地殼組成</td>
+<td><strong>花岡岩質</strong>（矽鋁質含量較高）</td>
+<td><strong>玄武岩質</strong>（鐵鎂質含量較高）</td>
+</tr>
+<tr>
+<td>地殼密度</td>
+<td>較<strong>小</strong></td>
+<td>較<strong>大</strong></td>
+</tr>
+<tr>
+<td>岩石圈平均厚度</td>
+<td>約 <strong>120 km</strong>（大陸勝）</td>
+<td>約 <strong>65 km</strong></td>
+</tr>
+<tr>
+<td>軟流圈範圍</td>
+<td>地表下約 120～220 km</td>
+<td>地表下約 65～220 km（海洋勝，<strong>較厚</strong>）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>岩石圈＝地殼＋軟流圈之上的上部地函</strong>，岩石圈的範圍就是<strong>板塊</strong>的範圍。</li>
+<li><strong>軟流圈</strong>：由<strong>橄欖岩</strong>組成，密度比地殼大；呈現<strong>少部分熔融</strong>，岩石塑性較高；震波在此<strong>降速</strong>，所以又稱<strong>震波低速帶</strong>。</li>
+<li>莫氏不連續面：<strong>地殼與地函的交界</strong>（組成不同而波速不連續）。</li>
+</ul></aside>
+<h3>地函與地核</h3>
+<figure class="fig"><img class="figimg" src="img/A075_37p22_96p46_x0-100.jpg" width="1017" height="967" loading="lazy" alt="地科1 第75頁" data-page="地科1 p.75"><figcaption>地球內部的分層與不連續面（講義 p.75）</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>分層</th>
+<th>深度範圍</th>
+<th>組成</th>
+<th>狀態</th>
+<th>其他佐證</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地殼</td>
+<td>0 ～ 7／35 km</td>
+<td>花岡岩／玄武岩</td>
+<td>固態</td>
+<td>野外岩石</td>
+</tr>
+<tr>
+<td>上部地函、下部地函</td>
+<td>莫氏面 ～ 2890 km</td>
+<td><strong>橄欖岩</strong></td>
+<td>固態</td>
+<td>捕獲岩：地函岩石碎塊被噴發的岩漿帶到地表</td>
+</tr>
+<tr>
+<td><strong>外核</strong></td>
+<td>2890 ～ 5150 km</td>
+<td>金屬<strong>鐵鎳</strong></td>
+<td><strong>液態</strong></td>
+<td>外來隕石（鐵隕石）含鐵鎳 ⇒ 早期熔融地球中密度大的鐵鎳下沉成地核</td>
+</tr>
+<tr>
+<td><strong>內核</strong></td>
+<td>5150 ～ 6370 km</td>
+<td>金屬<strong>鐵鎳</strong></td>
+<td><strong>固態</strong></td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>不連續面</th>
+<th>位置</th>
+<th>為什麼波速突變</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>莫氏不連續面</strong></td>
+<td>地殼｜地函</td>
+<td>地殼與地函<strong>組成岩石不同</strong></td>
+</tr>
+<tr>
+<td><strong>古氏不連續面</strong></td>
+<td>地函｜外核（約 <strong>2890 km</strong>）</td>
+<td>組成物質<strong>與狀態都不同</strong>（固態矽酸鹽 → 液態鐵鎳），S 波在此消失、P 波大幅減速</td>
+</tr>
+<tr>
+<td><strong>雷曼不連續面</strong></td>
+<td>外核｜內核（約 <strong>5150 km</strong>）</td>
+<td><strong>組成相同（鐵鎳），但狀態不同</strong>（液態 → 固態）</td>
+</tr>
+</tbody>
+</table></aside>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>地殼、地函、地核三大項目排行榜</strong>（地殼穩坐第三名寶座）</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>地殼</th>
+<th>地函</th>
+<th>地核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>密度</td>
+<td>第三（最小）</td>
+<td>第二</td>
+<td><strong>最大</strong></td>
+</tr>
+<tr>
+<td>厚度</td>
+<td>第三（最薄）</td>
+<td>第二</td>
+<td><strong>最厚</strong>（講義紅字）</td>
+</tr>
+<tr>
+<td>體積</td>
+<td>第三</td>
+<td><strong>最大</strong></td>
+<td>第二</td>
+</tr>
+</tbody>
+</table></aside>
+
+<aside class="box box-warn"><div class="box-h">注意</div><ul>
+<li>目前最深的井只有 10 多公里，<strong>還沒鑽透地殼</strong>；地函、地核靠<strong>地震波波速分析</strong>、實驗室溫壓實驗、<strong>捕獲岩</strong>與<strong>外來隕石</strong>來佐證。</li>
+<li>「<strong>組成不同</strong>」才叫不同的圈層；<strong>狀態不同</strong>但組成相同（外核／內核、岩石圈／軟流圈）要用<strong>狀態</strong>區分。</li>
+</ul></aside>
+
+<h2 class="section " id="s3">小試身手</h2>
+
+<article class="q q-pr" id="q259">
+<header class="qh"><span class="qn">小試 1</span><span class="qtag">判斷圖中的地震波</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_7p55_23p85.jpg" width="944" height="269" loading="lazy" alt="地科1 第76頁" data-page="地科1 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：看圖認波——介質格子是<strong>疏密</strong>變化、介質振動方向<strong>平行</strong>波前進方向 ⇒ <strong>P 波（縱波）</strong>。</p>
+<ul>
+<li>(A) ✗ 垂直是 S 波；P 波是<strong>平行</strong>。</li>
+<li>(B) ✗ P 波可通過固、液、氣態。</li>
+<li>(C) ○ P 波是速度<strong>最快</strong>的地震波（初達波）。</li>
+<li>(D) ✗ 縱波不是橫波。</li>
+<li>(E) ✗ 通過不同介質（性質改變）時，波速會<strong>改變</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q260">
+<header class="qh"><span class="qn">小試 2</span><span class="qtag">S 波波速變化圖（海洋 vs 大陸）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>附圖為 S 波在地下不同深度的波速變化圖（粗線＝海洋地區，細線＝大陸地區；海洋地殼約 7 公里厚，大陸約 35 公里厚）。下列敘述何者正確？<br />
+(A) 每個深度的 S 波速度：海洋地區 ＜ 大陸地區　(B) 莫氏不連續面深度：海洋地區 ＞ 大陸地區　(C) 軟流圈厚度：海洋地區 ＜ 大陸地區　(D) 海洋地區 0～65 公里的範圍稱為岩石圈　(E) 海洋地區在深度 65～225 公里處波速顯著較慢，是因為該深度岩石孔隙變多。</p></div><div class="qimgs"><img class="qimg" src="img/A076_22p64_35p93_x57p21-79p6.jpg" width="225" height="221" loading="lazy" alt="地科1 第76頁" data-page="地科1 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：同一張波速圖，拆成地殼厚度、軟流圈位置、軟流圈成因。（原書選項的符號被紅筆覆蓋，這裡依解題邏輯還原。）</p>
+<ul>
+<li>(A) ✗ 在深度約 <strong>10～35 km</strong> 之間，海洋地區已是地函（波速快）、大陸地區仍是地殼（波速慢），所以此範圍是<strong>海洋 ＞ 大陸</strong>，不是「每個深度」都較小。</li>
+<li>(B) ✗ 莫氏面：海洋約 <strong>7 km</strong>，大陸約 <strong>35 km</strong>，海洋地區較<strong>淺</strong>。</li>
+<li>(C) ✗ 軟流圈：海洋 65～220 km（約 155 km）、大陸 120～220 km（約 100 km），海洋地區較<strong>厚</strong>。</li>
+<li>(D) ○ 海洋岩石圈平均厚度約 <strong>65 km</strong>。</li>
+<li>(E) ✗ 波速變慢是因為<strong>少部分熔融、塑性高</strong>，不是孔隙變多。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q261">
+<header class="qh"><span class="qn">小試 3</span><span class="qtag">固體地球的組成與狀態　（應選 3 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_49p21_64p61.jpg" width="944" height="255" loading="lazy" alt="地科1 第76頁" data-page="地科1 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：各層圈的<strong>組成</strong>與<strong>狀態</strong>配對。</p>
+<ul>
+<li>(A) ○ 岩石圈＝地殼＋上部地函，矽酸鹽類為主，固態。</li>
+<li>(B) ✗ 軟流圈雖由橄欖岩類組成，但呈<strong>固態（少部分熔融）</strong>，不是液態。</li>
+<li>(C) ○ 外核：金屬鐵鎳，<strong>液態</strong>。</li>
+<li>(D) ○ 大陸地殼：花岡岩類，固態。</li>
+<li>(E) ✗ 板塊＝大陸／海洋地殼＋上部地函，組成不只玄武岩類。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q262">
+<header class="qh"><span class="qn">小試 4</span><span class="qtag">地球內部的深度、地震波速度與密度　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_65p52_89p98.jpg" width="944" height="405" loading="lazy" alt="地科1 第76頁" data-page="地科1 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：看圖——甲波速度快、乙波到 2900 km 就消失 ⇒ 甲＝P 波、乙＝S 波；B 範圍＝軟流圈，所以 A＝岩石圈（地殼＋上部地函）、C＝其餘地函、D＝外核、E＝內核。</p>
+<ul>
+<li>(A) ○ 甲波較快且能穿過 D 區 ⇒ <strong>P 波</strong>。</li>
+<li>(B) ✗ A 範圍是<strong>岩石圈</strong>（地殼加上部地函），不只地殼。</li>
+<li>(C) ✗ D 範圍（2900～5100 km）是<strong>外核</strong>，不是地函。</li>
+<li>(D) ✗ 波速與密度沒有簡單的正比關係：例如軟流圈波速降低、密度卻沒有變小。</li>
+<li>(E) ○ S 波到 2900 km 以下消失 ⇒ D 區（外核）為<strong>液態</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q263">
+<header class="qh"><span class="qn">小試 5</span><span class="qtag">承上題：交界面的敘述</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_65p52_89p98.jpg" width="944" height="405" loading="lazy" alt="地科1 第76頁" data-page="地科1 p.76"><img class="qimg" src="img/A077_3p54_23p84.jpg" width="928" height="315" loading="lazy" alt="地科1 第77頁" data-page="地科1 p.77"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：各個不連續面的名稱與成因。承上題：A＝岩石圈、B＝軟流圈、C＝其餘地函、D＝外核、E＝內核。</p>
+<ul>
+<li>(A) ✗ A、C 的交界並不是莫氏面——莫氏面在 A（岩石圈）<strong>裡面</strong>（地殼與地函之間）。</li>
+<li>(B) ✗ D、E（外核、內核）<strong>組成相同</strong>（都是鐵鎳），波速不連續是因為<strong>狀態</strong>不同（液態→固態），這是<strong>雷曼面</strong>。</li>
+<li>(C) ✗ 板塊底部是 <strong>A 區底部</strong>（岩石圈底部），B 區底部是軟流圈底部。</li>
+<li>(D) ○ C、D 的交界是<strong>古氏面</strong>：地函（固態、矽酸鹽）與外核（液態、金屬）<strong>組成與狀態都不同</strong>。</li>
+<li>(E) ✗ D、E 交界是<strong>雷曼不連續面</strong>；古氏面是地函與外核之間。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q264">
+<header class="qh"><span class="qn">小試 6</span><span class="qtag">垂直入射的 P 波與 S 波</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A077_24p81_60p24.jpg" width="928" height="549" loading="lazy" alt="地科1 第77頁" data-page="地科1 p.77"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：P 波＝縱波（振動方向＝傳播方向）；S 波＝橫波（振動方向垂直傳播方向）。</p>
+<ul>
+<li>地震波從正下方<strong>垂直向上</strong>傳到地表。</li>
+<li><strong>P 波</strong>先到，介質上下振動 ⇒ <strong>垂直搖晃</strong>。</li>
+<li><strong>S 波</strong>後到，介質在垂直於傳播方向的方向振動 ⇒ <strong>水平搖晃</strong>。</li>
+<li>所以先垂直、後水平 ⇒ <strong>(B)</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q265">
+<header class="qh"><span class="qn">小試 7</span><span class="qtag">地震波陰影帶與地磁　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A077_60p57_96p33.jpg" width="928" height="555" loading="lazy" alt="地科1 第77頁" data-page="地科1 p.77"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：P 波陰影帶、S 波不能過液態外核、地磁來源。</p>
+<p>填空推理：<br />
+- 甲：距震央 103°～142° 收不到的是 <strong>P 波</strong>陰影帶（P 波進入外核速度<strong>驟降</strong>折射）。<br />
+- 乙：進入外核後速度<strong>變慢</strong>（驟降），不是「快速上升」。<br />
+- 丙：無法在 2890～5150 km 傳遞的是<strong>橫波 S</strong>（S 波不能通過液態）。<br />
+- 丁：該液態層是<strong>外核</strong>。<br />
+- 戊：保護地表生物免受帶電粒子傷害的是地球<strong>磁場</strong>，成因是外核高溫流動的金屬鐵鎳。</p>
+<ul>
+<li>(A) ○ 甲＝P 波。 (B) ✗ 乙是<strong>變慢</strong>。 (C) ✗ 丙是<strong>橫波</strong>的 S，不是縱波。 (D) ✗ 丁是<strong>外核</strong>。 (E) ○ 戊＝磁場。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復3.html">← 復3 考前猜題模擬卷：地球的歷史＋天文</a><a href="u3-2.html">3-2 主題 13　板塊運動 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

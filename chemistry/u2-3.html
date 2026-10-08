@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2-3 混成軌域與價殼層電子對斥力學說｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a class="on" href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第2章 化學鍵</div>
+<h1><span class="uid">2-3</span>混成軌域與價殼層電子對斥力學說</h1>
+<div class="tools"><span class="cnt">本單元 37 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、混成軌域</h3>
+<h4>1. 概念</h4>
+<ul>
+<li>中心原子要成鍵時，先把自己的價軌域<strong>混合</strong>成幾個能量相等的<strong>混成軌域</strong>，分布在空間中特定方位，再用這些混成軌域和其他原子鍵結。</li>
+<li><strong>混成軌域的數目 ＝ 參加混成的軌域數目</strong>。</li>
+<li>混成軌域的方位就決定了分子形狀 → 知道混成種類就能判斷分子結構。</li>
+</ul>
+<h4>2. 三種基本混成</h4>
+<table>
+<thead>
+<tr>
+<th>混成</th>
+<th>組成</th>
+<th>數目</th>
+<th>方位</th>
+<th>夾角</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sp</td>
+<td>1 個 s ＋ 1 個 p</td>
+<td>2</td>
+<td>直線</td>
+<td>180°</td>
+<td>BeCl<sub>2</sub></td>
+</tr>
+<tr>
+<td>sp<sup>2</sup></td>
+<td>1 個 s ＋ 2 個 p</td>
+<td>3</td>
+<td>平面三角形</td>
+<td>120°</td>
+<td>BF<sub>3</sub></td>
+</tr>
+<tr>
+<td>sp<sup>3</sup></td>
+<td>1 個 s ＋ 3 個 p</td>
+<td>4</td>
+<td>四面體</td>
+<td>109.5°</td>
+<td>CH<sub>4</sub></td>
+</tr>
+</tbody>
+</table>
+<p><strong>BeCl<sub>2</sub></strong>：Be 把 1 個 2s 電子<strong>提升</strong>到 2p，再將 1 個 2s 與 1 個 2p 混成 2 個 sp，各與 Cl 的 3p 重疊 → σ 鍵為 <strong>sp−p</strong>。</p>
+<figure class="fig"><img class="figimg" src="img/A064_57_71.jpg" width="1400" height="340" loading="lazy" alt="講義一 第64頁" data-page="講義一 p.64"><figcaption>Be 的提升、混成與 BeCl<sub>2</sub> 的重疊軌域</figcaption></figure>
+<p><strong>BF<sub>3</sub></strong>：B 提升 1 個 2s 電子，1 個 2s ＋ 2 個 2p 混成 3 個 sp<sup>2</sup>，各與 F 的 2p 重疊 → σ 鍵為 <strong>sp<sup>2</sup>−p</strong>。</p>
+<figure class="fig"><img class="figimg" src="img/A065_11p5_30.jpg" width="1400" height="421" loading="lazy" alt="講義一 第65頁" data-page="講義一 p.65"><figcaption>BF<sub>3</sub> 的混成與重疊軌域</figcaption></figure>
+<p><strong>CH<sub>4</sub></strong>：C 提升 1 個 2s 電子，1 個 2s ＋ 3 個 2p 混成 4 個 sp<sup>3</sup>，各與 H 的 1s 重疊 → σ 鍵為 <strong>sp<sup>3</sup>−s</strong>。</p>
+<figure class="fig"><img class="figimg" src="img/A065_62_86p5.jpg" width="1400" height="558" loading="lazy" alt="講義一 第65頁" data-page="講義一 p.65"><figcaption>CH<sub>4</sub> 的混成與重疊軌域</figcaption></figure>
+<p><strong>NH<sub>3</sub>、H<sub>2</sub>O 的中心原子也是 sp<sup>3</sup></strong>：4 個 sp<sup>3</sup> 軌域中，NH<sub>3</sub> 有 1 個、H<sub>2</sub>O 有 2 個放孤電子對，所以鍵角被壓縮成 107°、104.5°。</p>
+<figure class="fig"><img class="figimg" src="img/A066_6p5_28p5.jpg" width="1400" height="569" loading="lazy" alt="講義一 第66頁" data-page="講義一 p.66"><figcaption>NH<sub>3</sub> 與 H<sub>2</sub>O 都是 sp<sup>3</sup> 混成</figcaption></figure>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>一般而言，Be、B、C、N、O 都是用混成軌域形成 σ 鍵；其中 <strong>Be、B、C 要先提升電子再混成</strong>（N、O 原本就有足夠的未成對電子，不需提升）。</p></aside>
+<h3>二、價殼層電子對斥力學說（VSEPR）</h3>
+<h4>1. 要點</h4>
+<ol>
+<li>中心原子價殼層上的電子對會<strong>盡可能彼此遠離</strong>，使斥力最小。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>電子對數</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>排列形狀</td>
+<td>直線</td>
+<td>平面三角</td>
+<td>正四面體</td>
+<td>雙三角錐</td>
+<td>八面體</td>
+</tr>
+<tr>
+<td>混成軌域</td>
+<td>sp</td>
+<td>sp<sup>2</sup></td>
+<td>sp<sup>3</sup></td>
+<td>sp<sup>3</sup>d</td>
+<td>sp<sup>3</sup>d<sup>2</sup></td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>電子對分兩種：<br />
+   - <strong>鍵結電子對（bp）</strong>：被兩核吸引，較集中、占空間小<br />
+   - <strong>孤電子對（ℓp）</strong>：只被一個核吸引，較鬆散、占空間大</li>
+<li>斥力大小：<strong>ℓp−ℓp ＞ ℓp−bp ＞ bp−bp</strong><br />
+   ⇒ CH<sub>4</sub> 109.5°、NH<sub>3</sub> 107°、H<sub>2</sub>O 104.5°</li>
+</ol>
+<figure class="fig"><img class="figimg" src="img/A067_51_62.jpg" width="1400" height="263" loading="lazy" alt="講義一 第67頁" data-page="講義一 p.67"><figcaption>孤電子對愈多，鍵角被擠得愈小</figcaption></figure>
+<h4>2. 預測分子形狀（僅適用單中心原子或離子）</h4>
+<ol>
+<li>找中心原子：<strong>電負度小的</strong>當中心。</li>
+<li>寫成通式 <strong>AX<sub>m</sub>E<sub>n</sub></strong>：A 中心原子、X 外圍原子（m 個）、E 孤電子對（n 個）。</li>
+</ol>
+<blockquote>
+<p>n ＝ [ 中心原子價電子數 − 外圍原子的原子價總數 ＋ 陰離子電荷數（或 − 陽離子電荷數）] ÷ 2</p>
+</blockquote>
+<aside class="box box-warn"><div class="box-h">注意</div><p><strong>原子價</strong>：H、鹵素為 1；氧族為 2；氮族為 3（等於半滿軌域數）。<br />
+例：SO<sub>4</sub><sup>2−</sup>：n ＝ (6 − 2×4 ＋ 2) ÷ 2 ＝ 0 → AX<sub>4</sub>E<sub>0</sub> 四面體<br />
+NH<sub>3</sub>：n ＝ (5 − 3) ÷ 2 ＝ 1 → AX<sub>3</sub>E<sub>1</sub> 角錐</p></aside>
+<ol start="3">
+<li>由 <strong>m ＋ n</strong> 決定混成軌域，再由通式得到形狀：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>m＋n</th>
+<th>混成</th>
+<th>通式</th>
+<th>形狀</th>
+<th>實例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>sp</td>
+<td>AX<sub>2</sub>E<sub>0</sub></td>
+<td>直線</td>
+<td>BeF<sub>2</sub>、HCN、CO<sub>2</sub>、N<sub>3</sub><sup>−</sup></td>
+</tr>
+<tr>
+<td>3</td>
+<td>sp<sup>2</sup></td>
+<td>AX<sub>3</sub>E<sub>0</sub></td>
+<td>平面三角形</td>
+<td>BF<sub>3</sub>、NO<sub>3</sub><sup>−</sup>、SO<sub>3</sub></td>
+</tr>
+<tr>
+<td>3</td>
+<td>sp<sup>2</sup></td>
+<td>AX<sub>2</sub>E<sub>1</sub></td>
+<td>角形（彎曲形）</td>
+<td>O<sub>3</sub>、SO<sub>2</sub>、NO<sub>2</sub><sup>−</sup></td>
+</tr>
+<tr>
+<td>4</td>
+<td>sp<sup>3</sup></td>
+<td>AX<sub>4</sub>E<sub>0</sub></td>
+<td>四面體</td>
+<td>CH<sub>4</sub>、SO<sub>4</sub><sup>2−</sup>、NH<sub>4</sub><sup>+</sup></td>
+</tr>
+<tr>
+<td>4</td>
+<td>sp<sup>3</sup></td>
+<td>AX<sub>3</sub>E<sub>1</sub></td>
+<td>角錐形</td>
+<td>NH<sub>3</sub>、SO<sub>3</sub><sup>2−</sup>、PCl<sub>3</sub></td>
+</tr>
+<tr>
+<td>4</td>
+<td>sp<sup>3</sup></td>
+<td>AX<sub>2</sub>E<sub>2</sub></td>
+<td>角形（彎曲形）</td>
+<td>H<sub>2</sub>O、ClO<sub>2</sub><sup>−</sup>、SCl<sub>2</sub></td>
+</tr>
+<tr>
+<td>5</td>
+<td>sp<sup>3</sup>d</td>
+<td>AX<sub>5</sub>E<sub>0</sub></td>
+<td>雙三角錐</td>
+<td>PCl<sub>5</sub>、SbF<sub>5</sub></td>
+</tr>
+<tr>
+<td>5</td>
+<td>sp<sup>3</sup>d</td>
+<td>AX<sub>4</sub>E<sub>1</sub></td>
+<td>扭曲四面體（蹺蹺板形）</td>
+<td>SF<sub>4</sub>、SeF<sub>4</sub></td>
+</tr>
+<tr>
+<td>5</td>
+<td>sp<sup>3</sup>d</td>
+<td>AX<sub>3</sub>E<sub>2</sub></td>
+<td>T 字形</td>
+<td>BrF<sub>3</sub>、ClF<sub>3</sub></td>
+</tr>
+<tr>
+<td>5</td>
+<td>sp<sup>3</sup>d</td>
+<td>AX<sub>2</sub>E<sub>3</sub></td>
+<td>直線形</td>
+<td>XeF<sub>2</sub>、I<sub>3</sub><sup>−</sup></td>
+</tr>
+<tr>
+<td>6</td>
+<td>sp<sup>3</sup>d<sup>2</sup></td>
+<td>AX<sub>6</sub>E<sub>0</sub></td>
+<td>八面體</td>
+<td>SF<sub>6</sub>、SiF<sub>6</sub><sup>2−</sup></td>
+</tr>
+<tr>
+<td>6</td>
+<td>sp<sup>3</sup>d<sup>2</sup></td>
+<td>AX<sub>5</sub>E<sub>1</sub></td>
+<td>四角錐</td>
+<td>BrF<sub>5</sub>、IF<sub>5</sub></td>
+</tr>
+<tr>
+<td>6</td>
+<td>sp<sup>3</sup>d<sup>2</sup></td>
+<td>AX<sub>4</sub>E<sub>2</sub></td>
+<td>平面四方形</td>
+<td>XeF<sub>4</sub>、ICl<sub>4</sub><sup>−</sup></td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A068_11_91.jpg" width="1400" height="2066" loading="lazy" alt="講義一 第68頁" data-page="講義一 p.68"><figcaption>VSEPR 形狀總表（m＋n ＝ 2～5）</figcaption></figure>
+<figure class="fig"><img class="figimg" src="img/A069_5_29p5.jpg" width="1400" height="595" loading="lazy" alt="講義一 第69頁" data-page="講義一 p.69"><figcaption>VSEPR 形狀總表（m＋n ＝ 6）</figcaption></figure>
+<h4>3. 多中心有機分子的結構與混成</h4>
+<table>
+<thead>
+<tr>
+<th>分子</th>
+<th>碳的混成</th>
+<th>σ / π</th>
+<th>鍵結軌域</th>
+<th>形狀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>乙烷 C<sub>2</sub>H<sub>6</sub></td>
+<td>sp<sup>3</sup></td>
+<td>7σ</td>
+<td>C−C：sp<sup>3</sup>−sp<sup>3</sup>；C−H：sp<sup>3</sup>−s</td>
+<td>立體</td>
+</tr>
+<tr>
+<td>乙烯 C<sub>2</sub>H<sub>4</sub></td>
+<td>sp<sup>2</sup></td>
+<td>5σ、1π</td>
+<td>C−C：sp<sup>2</sup>−sp<sup>2</sup>；C−H：sp<sup>2</sup>−s；π 由未混成的 p 側面重疊</td>
+<td>平面</td>
+</tr>
+<tr>
+<td>乙炔 C<sub>2</sub>H<sub>2</sub></td>
+<td>sp</td>
+<td>3σ、2π</td>
+<td>C−C：sp−sp；C−H：sp−s；兩組未混成 p 在兩個垂直平面形成 2 個 π</td>
+<td>直線</td>
+</tr>
+<tr>
+<td>苯 C<sub>6</sub>H<sub>6</sub></td>
+<td>sp<sup>2</sup></td>
+<td>12σ、3π</td>
+<td>每個 C 的未混成 p 互相重疊</td>
+<td>平面，C−C 鍵級 1½</td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A070_51_60.jpg" width="1400" height="212" loading="lazy" alt="講義一 第70頁" data-page="講義一 p.70"><figcaption>乙烯的 σ 鍵與 π 鍵</figcaption></figure>
+<figure class="fig"><img class="figimg" src="img/A070_77p5_86p5.jpg" width="1400" height="226" loading="lazy" alt="講義一 第70頁" data-page="講義一 p.70"><figcaption>乙炔的 σ 鍵與 π 鍵</figcaption></figure>
+<h4>4. 共價網狀固體</h4>
+<ul>
+<li>SiO<sub>2</sub> 中的 Si 為 <strong>sp<sup>3</sup></strong>。</li>
+<li>碳的同素異形體：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>金剛石</th>
+<th>碳六十</th>
+<th>石墨</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>混成軌域</td>
+<td>sp<sup>3</sup></td>
+<td>sp<sup>2</sup></td>
+<td>sp<sup>2</sup></td>
+</tr>
+<tr>
+<td>C−C 鍵級</td>
+<td>1</td>
+<td>1⅓</td>
+<td>1⅓</td>
+</tr>
+</tbody>
+</table>
+<h4>5. 鍵角大小的預測</h4>
+<ol>
+<li><strong>混成不同</strong>：sp（180°）＞ sp<sup>2</sup>（120°）＞ sp<sup>3</sup>（109.5°）<br />
+   例：BeF<sub>2</sub> ＞ BF<sub>3</sub> ＞ CH<sub>4</sub></li>
+<li><strong>混成相同且無孤對</strong>：鍵角相同。CH<sub>4</sub> ＝ SiH<sub>4</sub> ＝ GeH<sub>4</sub>；BF<sub>3</sub> ＝ AlF<sub>3</sub> ＝ GaF<sub>3</sub></li>
+<li><strong>混成相同，孤對愈多鍵角愈小</strong>：CH<sub>4</sub>（109.5°）＞ NH<sub>3</sub>（106.7°）＞ H<sub>2</sub>O（104.5°）</li>
+<li><strong>混成相同、孤對數也相同</strong>：<br />
+   - 外圍相同、<strong>中心原子電負度大者鍵角大</strong>（bp 偏向中心，bp−bp 斥力大）：H<sub>2</sub>O ＞ H<sub>2</sub>S ＞ H<sub>2</sub>Se；NH<sub>3</sub> ＞ PH<sub>3</sub> ＞ AsH<sub>3</sub><br />
+   - 中心相同、<strong>外圍原子電負度大者鍵角小</strong>（bp 偏向外圍，bp−bp 斥力小）：H<sub>2</sub>O（104.5°）＞ OF<sub>2</sub>（103°）；NH<sub>3</sub> ＞ NF<sub>3</sub></li>
+</ol>
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q203">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">混成軌域</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A066_42p5_60p5.jpg" width="1400" height="433" loading="lazy" alt="講義一 第66頁" data-page="講義一 p.66"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) (D)　(2) (B)</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 甲 BeF<sub>2</sub>：sp；乙 BF<sub>3</sub>：sp<sup>2</sup>；丙 CH<sub>4</sub>、丁 NH<sub>3</sub>、戊 H<sub>2</sub>O：都是 sp<sup>3</sup> → <strong>(D)</strong></p>
+<p>(2) 需要先提升電子的是 Be、B、C（原本未成對電子數不夠）→ 甲乙丙 <strong>(B)</strong><br />
+N（2p<sup>3</sup>）、O（2p<sup>4</sup>）不需提升就能直接混成。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q204">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">VSEPR 與混成軌域</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A069_33p5_46p5.jpg" width="1400" height="322" loading="lazy" alt="講義一 第69頁" data-page="講義一 p.69"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) (D)　(2) (B)(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) O<sub>3</sub> 為 AX<sub>2</sub>E<sub>1</sub> → sp<sup>2</sup><br />
+- NF<sub>3</sub>：sp<sup>3</sup>；NH<sub>4</sub><sup>+</sup>：sp<sup>3</sup>；CO<sub>2</sub>：sp；<strong>CO<sub>3</sub><sup>2−</sup>：sp<sup>2</sup></strong> ✓</p>
+<p>(2) 有 d 軌域參與 ⇒ m＋n ≥ 5：<br />
+- SCN<sup>−</sup>：C 為中心，AX<sub>2</sub>E<sub>0</sub>，sp ✗<br />
+- SF<sub>4</sub>：AX<sub>4</sub>E<sub>1</sub>，sp<sup>3</sup>d ✓<br />
+- PCl<sub>5</sub>：AX<sub>5</sub>E<sub>0</sub>，sp<sup>3</sup>d ✓<br />
+- I<sub>3</sub><sup>−</sup>：n ＝ (7 − 2 ＋ 1)/2 ＝ 3，AX<sub>2</sub>E<sub>3</sub>，sp<sup>3</sup>d ✓<br />
+- ICl<sub>4</sub><sup>−</sup>：n ＝ (7 − 4 ＋ 1)/2 ＝ 2，AX<sub>4</sub>E<sub>2</sub>，sp<sup>3</sup>d<sup>2</sup> ✓</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q205">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A069_59_67.jpg" width="1400" height="226" loading="lazy" alt="講義一 第69頁" data-page="講義一 p.69"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) O<sub>3</sub>：sp<sup>2</sup>，角形 ✗</li>
+<li>(B) PCl<sub>3</sub>：AX<sub>3</sub>E<sub>1</sub>，sp<sup>3</sup>，角錐形 ✗</li>
+<li>(C) I<sub>3</sub><sup>−</sup>：AX<sub>2</sub>E<sub>3</sub>，sp<sup>3</sup>d，直線形 ✓</li>
+<li>(D) SF<sub>4</sub>：sp<sup>3</sup>d（不是 sp<sup>3</sup>），蹺蹺板形 ✗</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q206">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">VSEPR 與分子形狀預測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A069_71p5_84.jpg" width="1400" height="317" loading="lazy" alt="講義一 第69頁" data-page="講義一 p.69"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ H<sub>3</sub>O<sup>+</sup>：n ＝ (6 − 3 − 1)/2 ＝ 1，AX<sub>3</sub>E<sub>1</sub> → 三角錐</li>
+<li>(B) ✗ CO<sub>3</sub><sup>2−</sup>：n ＝ (4 − 6 ＋ 2)/2 ＝ 0，AX<sub>3</sub>E<sub>0</sub> → 平面三角形</li>
+<li>(C) ○ 都是 AX<sub>4</sub>E<sub>0</sub></li>
+<li>(D) ✗ O<sub>3</sub> 為角形</li>
+<li>(E) ✗ O 在第二週期，沒有 d 軌域，最多 8 個電子，不能形成 OF<sub>6</sub></li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q207">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A070_5p5_12p5.jpg" width="1400" height="206" loading="lazy" alt="講義一 第70頁" data-page="講義一 p.70"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>NH<sub>4</sub><sup>+</sup>、BF<sub>4</sub><sup>−</sup>、CF<sub>4</sub> 都是 AX<sub>4</sub>E<sub>0</sub> 四面體；<br />
+SF<sub>4</sub>：n ＝ (6 − 4)/2 ＝ 1，AX<sub>4</sub>E<sub>1</sub> → <strong>蹺蹺板形</strong>，明顯不同。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q208">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">路易斯結構與混成軌域</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A071_56p5_68p5.jpg" width="1400" height="300" loading="lazy" alt="講義一 第71頁" data-page="講義一 p.71"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 1：sp、2：sp<sup>2</sup>、3：sp<sup>2</sup>、4：sp<sup>3</sup>　(2) 5：sp−s、6：sp−sp、7：sp−sp<sup>2</sup>、8：sp<sup>2</sup>−sp<sup>3</sup>　(3) p−p</div>
+<div class="exp"><b class="exp-h">解</b><p>分子：H−C≡C−CH＝CH−C(＝O)−O−H</p>
+<p>(1)<br />
+- 1 號碳在參鍵上 → <strong>sp</strong><br />
+- 2 號碳在雙鍵上 → <strong>sp<sup>2</sup></strong><br />
+- 3 號碳（羧基 C＝O）→ <strong>sp<sup>2</sup></strong><br />
+- 4 號 O（兩個單鍵＋兩對孤對）→ <strong>sp<sup>3</sup></strong></p>
+<p>(2)<br />
+- 5：H 與 sp 碳 → σ(<strong>sp−s</strong>)<br />
+- 6：C≡C 中的 σ → σ(<strong>sp−sp</strong>)<br />
+- 7：sp 碳與 sp<sup>2</sup> 碳間 → σ(<strong>sp−sp<sup>2</sup></strong>)<br />
+- 8：羧基 C 與 O 間 → σ(<strong>sp<sup>2</sup>−sp<sup>3</sup></strong>)</p>
+<p>(3) C＝O 中的 π 鍵由 C 與 O 未混成的 p 軌域側面重疊 → <strong>p−p</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q209">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_6p5_15p5.jpg" width="1400" height="252" loading="lazy" alt="講義一 第72頁" data-page="講義一 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 全是單鍵，C 都是 sp<sup>3</sup></li>
+<li>(B) CH<sub>3</sub>（sp<sup>3</sup>）與 CH＝（sp<sup>2</sup>）→ <strong>兩種</strong> ✓</li>
+<li>(C) 四個 C 都在雙鍵上，全是 sp<sup>2</sup></li>
+<li>(D) 四個 C 都在參鍵上，全是 sp</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q210">
+<header class="qh"><span class="qn">例題 5</span><span class="qtag">單中心與多中心化合物之混成軌域</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_19_27.jpg" width="1400" height="214" loading="lazy" alt="講義一 第72頁" data-page="講義一 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 乙炔：sp ✓</li>
+<li>(B) 苯：sp<sup>2</sup></li>
+<li>(C) CO<sub>2</sub>：O＝C＝O，C 為 sp ✓</li>
+<li>(D) CO：C≡O，C 為 sp ✓</li>
+<li>(E) BeCl<sub>2</sub>：sp ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q211">
+<header class="qh"><span class="qn">例題 6</span><span class="qtag">碳六十</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_42p5_55.jpg" width="1400" height="321" loading="lazy" alt="講義一 第72頁" data-page="講義一 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>C<sub>60</sub> 每個 C 與 3 個 C 相連（一個雙鍵、兩個單鍵）→ <strong>sp<sup>2</sup></strong>，與石墨中的碳最接近。<br />
+鑽石 sp<sup>3</sup>；CO<sub>2</sub> 中的 C 為 sp；聚乙烯中的 C 為 sp<sup>3</sup>。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q212">
+<header class="qh"><span class="qn">類題 4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A072_78p5_88.jpg" width="1400" height="256" loading="lazy" alt="講義一 第72頁" data-page="講義一 p.72"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 30 個　(2) 90 個</div>
+<div class="exp"><b class="exp-h">解</b><p>每個 C 連 3 個 C，共 60×3 ÷ 2 ＝ <strong>90</strong> 條鍵，每條鍵都有 1 個 σ ⇒ <strong>90 個 σ</strong>。<br />
+每個 C 只參與 1 個雙鍵，雙鍵數 ＝ 60 ÷ 2 ＝ <strong>30</strong> ⇒ <strong>30 個 π</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q213">
+<header class="qh"><span class="qn">例題 7</span><span class="qtag">VSEPR 與鍵角</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A073_64p5_73.jpg" width="1400" height="231" loading="lazy" alt="講義一 第73頁" data-page="講義一 p.73"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 中心同為 O，外圍 F 電負度較大 → 鍵角較小：H<sub>2</sub>O ＞ OF<sub>2</sub></li>
+<li>(B) ○ 孤對 NH<sub>3</sub> 1 對、H<sub>2</sub>O 2 對 → NH<sub>3</sub> ＞ H<sub>2</sub>O</li>
+<li>(C) ✗ BeF<sub>2</sub> 180° ＞ BF<sub>3</sub> 120°</li>
+<li>(D) ✗ 中心 O 電負度大 → H<sub>2</sub>O（104.5°）＞ H<sub>2</sub>S（92°）</li>
+<li>(E) ✗ 都是 AX<sub>4</sub>E<sub>0</sub>，相等（109.5°）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q214">
+<header class="qh"><span class="qn">類題 5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_5p5_17p5.jpg" width="1400" height="320" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>a（H−C−H）與 b（H−C＝C）都在 sp<sup>2</sup> 碳上，理想 120°；雙鍵電子較多，斥力較大，把 b 撐大、a 壓小 ⇒ b ＞ a</li>
+<li>c（C−O−C）在 sp<sup>3</sup> 的 O 上，且 O 有 2 對孤對 ⇒ 最小<br />
+⇒ <strong>b ＞ a ＞ c</strong></li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q215">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_30p5_34p5.jpg" width="1400" height="113" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>B 為 sp<sup>2</sup> 混成，與 Cl 的 3p 重疊 → <strong>sp<sup>2</sup>−p</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q216">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_34p5_40p4.jpg" width="1400" height="146" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>圖中中心原子以 4 個四面體方向的混成軌域，和外圍原子的<strong>啞鈴形 p 軌域</strong>重疊 → sp<sup>3</sup>−p 且沒有孤對 → <strong>CF<sub>4</sub></strong>。<br />
+CH<sub>4</sub> 外圍是 s 軌域；NH<sub>3</sub> 有孤對；SF<sub>4</sub> 不是四面體。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q217">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_40p4_48p4.jpg" width="1400" height="199" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ Cl−Cl：3p−3p</li>
+<li>(B) ○ H−Cl：1s−3p</li>
+<li>(C) ✗ C−Cl 是 sp<sup>3</sup>−p</li>
+<li>(D) ○ O−H：sp<sup>3</sup>−s</li>
+<li>(E) ✗ N−H 是 sp<sup>3</sup>−s</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q218">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_48p4_54p4.jpg" width="1400" height="149" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>超過八隅體需要 d 軌域，<strong>第二週期</strong>元素（O、N）沒有 d 軌域 ⇒ <strong>OF<sub>6</sub>、NCl<sub>5</sub></strong> 不可能存在。<br />
+SF<sub>6</sub>、PCl<sub>5</sub>（第三週期）可以；OF<sub>2</sub> 符合八隅體。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q219">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_54p5_58p5.jpg" width="1400" height="100" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>CO<sub>2</sub>、N<sub>2</sub>O、BeCl<sub>2</sub>、HCN 都是直線形；<strong>OF<sub>2</sub></strong> 為 AX<sub>2</sub>E<sub>2</sub> 角形。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q220">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_58p5_62p5.jpg" width="1400" height="100" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>三角錐形 ＝ AX<sub>3</sub>E<sub>1</sub>：<br />
+- H<sub>3</sub>O<sup>+</sup>：n ＝ 1 ✓<br />
+- ClO<sub>3</sub><sup>−</sup>：n ＝ (7 − 6 ＋ 1)/2 ＝ 1 ✓<br />
+- NF<sub>3</sub>：n ＝ 1 ✓<br />
+- BCl<sub>3</sub>、SO<sub>3</sub>：AX<sub>3</sub>E<sub>0</sub> 平面三角形</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q221">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_62p5_68p3.jpg" width="1400" height="148" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>甲與兩個乙鍵結後無未共用電子 ⇒ AX<sub>2</sub>E<sub>0</sub> ⇒ <strong>直線形</strong>（如 BeCl<sub>2</sub>、CO<sub>2</sub>）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q222">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_68p3_86p3.jpg" width="1400" height="455" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) (B)　(2) (A)　(3) (D)</div>
+<div class="exp"><b class="exp-h">解</b><p>(1)<br />
+- SO<sub>2</sub>：AX<sub>2</sub>E<sub>1</sub> → sp<sup>2</sup><br />
+- SO<sub>3</sub>：AX<sub>3</sub>E<sub>0</sub> → <strong>sp<sup>2</sup></strong>（不是 sp<sup>3</sup>）✗<br />
+- SO<sub>3</sub><sup>2−</sup>：AX<sub>3</sub>E<sub>1</sub> → sp<sup>3</sup><br />
+- SO<sub>4</sub><sup>2−</sup>：AX<sub>4</sub>E<sub>0</sub> → sp<sup>3</sup></p>
+<p>(2) 鍵角：SO<sub>3</sub>（120°）＞ SO<sub>2</sub>（約 119°，有孤對）＞ SO<sub>4</sub><sup>2−</sup>（109.5°）＞ SO<sub>3</sub><sup>2−</sup>（有孤對，約 106°）→ <strong>(A)</strong></p>
+<p>(3) 鍵級：SO<sub>2</sub> 1.5、SO<sub>3</sub> 4/3、SO<sub>3</sub><sup>2−</sup> 1；鍵級愈小鍵長愈長 ⇒ SO<sub>3</sub><sup>2−</sup> ＞ SO<sub>3</sub> ＞ SO<sub>2</sub> → <strong>(D)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q223">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題1・112分科・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A074_86p3_93p5_x3p5-99p8.jpg" width="1400" height="146" loading="lazy" alt="講義一 第74頁" data-page="講義一 p.74"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ H<sub>2</sub>S 中 S 為 −2，可被氧化，是還原劑</li>
+<li>(B) ○ SO<sub>3</sub> ＋ H<sub>2</sub>O → H<sub>2</sub>SO<sub>4</sub></li>
+<li>(C) ✗ SF<sub>6</sub> 分子量 146，遠大於空氣（約 29），密度比空氣大</li>
+<li>(D) ✗ SF<sub>4</sub> 中 S 周圍有 10 個電子</li>
+<li>(E) ○ SF<sub>2</sub>、H<sub>2</sub>S 都是 AX<sub>2</sub>E<sub>2</sub> 角形</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q224">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_7_11p5.jpg" width="1400" height="101" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>CO<sub>2</sub>：sp；HCN：sp；CO<sub>3</sub><sup>2−</sup>：sp<sup>2</sup></li>
+<li>SiO<sub>2</sub>：Si 連 4 個 O → sp<sup>3</sup> ✓</li>
+<li>S<sub>2</sub>O<sub>3</sub><sup>2−</sup>：中心 S 連 3 個 O 與 1 個 S，AX<sub>4</sub>E<sub>0</sub> → sp<sup>3</sup> ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q225">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_11p5_19p5.jpg" width="1400" height="208" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) CH<sub>3</sub><strong>CH</strong>＝CH<sub>2</sub>：雙鍵碳 sp<sup>2</sup> ✓</li>
+<li>(B) 羰基 C＝O 的碳 sp<sup>2</sup> ✓</li>
+<li>(C) 醇的 O：sp<sup>3</sup></li>
+<li>(D) 箭頭所指為 CH<sub>3</sub> 的碳：sp<sup>3</sup></li>
+<li>(E) CH<sub>3</sub>CH＝<strong>N</strong>−CH<sub>3</sub>：雙鍵上的 N（有一對孤對）sp<sup>2</sup> ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q226">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_19p5_22p8.jpg" width="1400" height="76" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>σ<sub>sp−sp</sub> 要兩個 sp 混成原子相連：乙炔 H−C≡C−H 的 C−C σ 鍵 ✓<br />
+C<sub>2</sub>H<sub>6</sub>：sp<sup>3</sup>−sp<sup>3</sup>；N<sub>2</sub>F<sub>2</sub>：sp<sup>2</sup>−sp<sup>2</sup>；H<sub>2</sub>O<sub>2</sub>：sp<sup>3</sup>−sp<sup>3</sup></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q227">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_22p8_29p4.jpg" width="1400" height="152" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) NH<sub>3</sub> 角錐、BF<sub>3</sub> 平面三角</li>
+<li>(B) C<sub>2</sub>H<sub>2</sub>、BeF<sub>2</sub> 都是<strong>直線</strong> ✓</li>
+<li>(C) CS<sub>2</sub> 直線、OF<sub>2</sub> 角形</li>
+<li>(D) C<sub>2</sub>H<sub>2</sub> 直線、H<sub>2</sub>O<sub>2</sub> 非平面</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q228">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_29p4_34p5.jpg" width="1400" height="118" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>sp<sup>2</sup> 碳 ＝ 雙鍵上的碳：環上 1 個 C＝C（2 個 C）＋側鏈 4 個 C＝C（8 個 C）＝ <strong>10 個</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q229">
+<header class="qh"><span class="qn">練習 15</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_34p5_40p5.jpg" width="1400" height="146" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ π 鍵由未混成的 p 軌域形成，sp<sup>2</sup> 形成 σ 鍵</li>
+<li>(B) ✗ 相同原子間是非極性共價鍵</li>
+<li>(C) ○ sp<sup>2</sup> 平面三角，約 120°</li>
+<li>(D) ✗ 乙烯是平面分子</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q230">
+<header class="qh"><span class="qn">練習 16</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_40p5_55.jpg" width="1400" height="294" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ (B) ○</li>
+<li>(C) ✗ σ 鍵數：C<sub>2</sub>H<sub>6</sub> 7、C<sub>2</sub>H<sub>4</sub> 5、C<sub>2</sub>H<sub>2</sub> 3</li>
+<li>(D) ✗ π 鍵數：0、1、2</li>
+<li>(E) ✗ H−C−C：C<sub>2</sub>H<sub>2</sub>（180°）＞ C<sub>2</sub>H<sub>4</sub>（120°）＞ C<sub>2</sub>H<sub>6</sub>（109.5°），順序相反</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q231">
+<header class="qh"><span class="qn">練習 17</span><span class="qtag">主題2・93指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_55_65.jpg" width="1400" height="243" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>H<sub>2</sub>C＝N̈−Ö−H<br />
+- (A) ✗ O 為 sp<sup>3</sup>，O−H 的 H 不一定落在 C＝N 所在平面，不能說是平面分子<br />
+- (B) ○ N 上 1 對、O 上 2 對，共 3 對未鍵結電子<br />
+- (C) ✗ O 為 sp<sup>3</sup> 且有 2 對孤對，N−O−H 約 105°<br />
+- (D) ✗ N 在雙鍵上且有孤對，是 sp<sup>2</sup></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q232">
+<header class="qh"><span class="qn">練習 18</span><span class="qtag">主題2・106指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_65_73p5.jpg" width="1400" height="194" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>H<sub>2</sub>C＝C＝CH<sub>2</sub>（丙二烯）<br />
+- (A) ✗ 兩端 CH<sub>2</sub> 互相垂直，沒有幾何異構物<br />
+- (B) ✗ C−C 非極性<br />
+- (C) ○ 中間 C 連兩個雙鍵，為 sp<br />
+- (D) ✗ 末端 C 為 sp<sup>2</sup><br />
+- (E) ✗ C−C−C 為 180°</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q233">
+<header class="qh"><span class="qn">練習 19</span><span class="qtag">主題2・104指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A075_73p5_91.jpg" width="1400" height="417" loading="lazy" alt="講義一 第75頁" data-page="講義一 p.75"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 參鍵是 1σ ＋ 2π</li>
+<li>(B) ✗ π 鍵由未混成的 p 軌域重疊</li>
+<li>(C) ○ (D) ○ (E) ○</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q234">
+<header class="qh"><span class="qn">練習 20</span><span class="qtag">主題2・111分科・題組・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_6_28.jpg" width="1400" height="556" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"><img class="qimg" src="img/A076_28_40p5.jpg" width="1400" height="314" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>由價電子數、電負度、半徑推出：甲 Na、乙 N、丙 Cl、丁 O、戊 F、己 Li。<br />
+- (A) ○ 鈉可與甲醇反應產生 H<sub>2</sub><br />
+- (B) ✗ N（半滿）游離能<strong>大於</strong> O<br />
+- (C) ○ Cl<sub>2</sub> ＋ H<sub>2</sub>O ⇌ HCl ＋ HOCl（氧化還原）；O<sub>2</sub> 不與水反應<br />
+- (D) ○ O<sub>2</sub>（鍵級 2）、O<sub>3</sub>（鍵級 1.5），O<sub>3</sub> 鍵長較長<br />
+- (E) ✗ Cl<sub>2</sub> 分子量較大，沸點比 F<sub>2</sub> 高</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q235">
+<header class="qh"><span class="qn">練習 21</span><span class="qtag">主題2・111分科・題組・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_6_28.jpg" width="1400" height="556" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"><img class="qimg" src="img/A076_40p5_53.jpg" width="1400" height="314" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ NaCl</li>
+<li>(B) ○ N、O 可形成 NO、NO<sub>2</sub>、N<sub>2</sub>O、N<sub>2</sub>O<sub>4</sub>…</li>
+<li>(C) ✗ F 電負度最大，O 與 F 的化合物中 O 為正氧化數（OF<sub>2</sub> 中 ＋2）</li>
+<li>(D) ✗ NCl<sub>3</sub>：AX<sub>3</sub>E<sub>1</sub> 角錐形</li>
+<li>(E) ○ Na<sub>2</sub>O 中 O 為 −2；Na<sub>2</sub>O<sub>2</sub> 中 O 為 −1</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q236">
+<header class="qh"><span class="qn">練習 22</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_56_60p5.jpg" width="1400" height="110" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>NH<sub>3</sub> 約 107°、BF<sub>3</sub> 120°、SiH<sub>4</sub> 109.5°；SO<sub>2</sub> 為 sp<sup>2</sup> 且有一對孤對，鍵角略小於 120° → 最接近 116.5°。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q237">
+<header class="qh"><span class="qn">練習 23</span><span class="qtag">主題3・105指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_60p5_65.jpg" width="1400" height="101" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>sp<sup>3</sup> 的有 CH<sub>4</sub>（109.5°）、NH<sub>3</sub>（107°）、H<sub>2</sub>O（104.5°）；孤對最多的 <strong>H<sub>2</sub>O</strong> 最小。<br />
+BeCl<sub>2</sub>（sp）、BCl<sub>3</sub>（sp<sup>2</sup>）不符。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q238">
+<header class="qh"><span class="qn">練習 24</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_65_81.jpg" width="1400" height="390" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) (B)　(2) (B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>a：參鍵 C（sp）→ 180°</li>
+<li>b：雙鍵 C（sp<sup>2</sup>）→ 約 120°</li>
+<li>c：sp<sup>3</sup> 的 CH，無孤對 → 109.5°</li>
+<li>d：N（sp<sup>3</sup>，1 對孤對）→ 約 107°</li>
+<li>e：O（sp<sup>3</sup>，2 對孤對）→ 約 104.5°</li>
+</ul>
+<p>(1) a ＞ b ＞ c ＞ d ＞ e → <strong>(B)</strong></p>
+<p>(2) sp<sup>3</sup> 原子：CH、CH<sub>2</sub>、N、CH<sub>2</sub>、O、CH<sub>3</sub> ＝ <strong>6 個</strong> → <strong>(B)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q239">
+<header class="qh"><span class="qn">練習 25</span><span class="qtag">主題3・108指考改編</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A076_81_91p5.jpg" width="1400" height="286" loading="lazy" alt="講義一 第76頁" data-page="講義一 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ O<sub>3</sub> 為角形</li>
+<li>(B) ✗ H<sub>2</sub>O<sub>2</sub> 有 4 對孤對，C<sub>2</sub>H<sub>2</sub> 沒有</li>
+<li>(C) ✗ NO<sub>2</sub> 為奇數電子分子，不符合八隅體</li>
+<li>(D) ○ 孤對愈多鍵角愈小</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u2-2.html">← 2-2 雙中心分子路易斯結構與價鍵理論</a><a href="u2-4.html">2-4 鍵極性與分子極性 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

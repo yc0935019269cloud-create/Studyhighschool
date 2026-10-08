@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復0 考前地圖：範圍・脈絡・規則速查｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a class="on" href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a><ul class="subtoc"><li><a href="#s1">先看這頁：這份復習怎麼用</a></li><li><a href="#s2">範圍地圖：選修化學 II 前三章</a></li><li><a href="#s3">命題趨勢：真實數據怎麼說</a></li><li><a href="#s4">規則速查（點開看「為什麼」）</a></li><li><a href="#s5">迷思釐清：十四件最容易被陷阱題抓走的事</a></li><li><a href="#s6">考前猜題熱區（主觀預測，僅供排優先順序）</a></li></ul></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 物質構造＋反應速率</div>
+<h1><span class="uid">復0</span>考前地圖：範圍・脈絡・規則速查</h1>
+<div class="tools"><span class="cnt">本單元 0 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">先看這頁：這份復習怎麼用</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>三步用法</strong>：①先看「範圍地圖」，把「電子 → 鍵 → 形狀 → 分子間力 → 性質」這條因果鏈和「速率定律 → 碰撞 → 機構 → 調控」這條鏈在腦中串起來；②讀「迷思釐清」，這些是最容易被陷阱題抓走的地方；③做「復1～復3」的難題（<strong>先自己寫，再點開詳解</strong>），最後用「復4 模擬卷」計時演練。</p>
+<p><strong>每題的結構</strong>：「考前速記」（這題要用到的知識點、公式與提醒）→ 題目 → 詳解 → 「小結」→ 一題簡單類題（附完整詳解）。「復4 模擬卷」的速記預設收合，方便先計時自測，需要時再點開；頁面上方的按鈕可整頁隱藏／顯示速記。</p>
+<p><strong>題目來源說明</strong>：本章題目分兩種——<strong>「改編」</strong>＝取自公開考卷（台南一中 114-1「物質性質與化學鍵」段考、113-2「反應速率」段考、112／113 分科測驗、北北基聯測等）的題型或情境，數字與設問重寫；<strong>「自編」</strong>＝針對講義常見弱點新編。所有答案與詳解都是我<strong>自己重新推導並用程式驗算過數字</strong>（能量、波長、速率、壓力等），不是抄別人的解答。考前仍建議拿學校老師發的講義交叉核對一次——尤其是「要不要考某個特殊結論」（例如是否用到二級反應的 1/[A] 直線式），請以老師課堂為準。</p></aside>
+
+<h2 class="section " id="s2">範圍地圖：選修化學 II 前三章</h2>
+<p>學生說的「物質構造」＝講義的<strong>第 1 章（原子結構與週期表）＋第 2 章（化學鍵）</strong>；「反應速率」＝<strong>第 3 章</strong>。這三章其實是兩條獨立的因果鏈：</p>
+<table>
+<thead>
+<tr>
+<th>章</th>
+<th>單元</th>
+<th>一句話核心</th>
+<th>最愛考的難題型</th>
+<th>講義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 原子結構</td>
+<td>氫原子光譜與波耳模型</td>
+<td>能階量子化，躍遷放出特定能量光子</td>
+<td>躍遷譜線條數、光子波長、光子 vs 電子激發</td>
+<td><a href="u1-1.html">1-1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>原子軌域</td>
+<td>n、l、m 決定軌域，每軌域最多 2 個電子</td>
+<td>量子數合法性、軌域數與電子容量</td>
+<td><a href="u1-2.html">1-2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>電子組態與週期表</td>
+<td>構築原理＋包立＋洪德；例外 Cr、Cu</td>
+<td>離子組態、未成對電子、順磁性</td>
+<td><a href="u1-3.html">1-3</a></td>
+</tr>
+<tr>
+<td></td>
+<td>原子性質的週期性</td>
+<td>有效核電荷 × 距離</td>
+<td>連續游離能判族、趨勢中的「例外」</td>
+<td><a href="u1-4.html">1-4</a></td>
+</tr>
+<tr>
+<td>2 化學鍵</td>
+<td>化學鍵的種類</td>
+<td>離子鍵／共價鍵／金屬鍵／配位鍵</td>
+<td>一個化合物含哪幾種鍵</td>
+<td><a href="u2-1.html">2-1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>路易斯結構與價鍵理論</td>
+<td>σ 與 π；共振</td>
+<td>σ／π 計數、鍵級與鍵長</td>
+<td><a href="u2-2.html">2-2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>混成軌域與 VSEPR</td>
+<td>價層電子對數 → 形狀 → 混成</td>
+<td>畫結構寫混成、形狀表、鍵角排序</td>
+<td><a href="u2-3.html">2-3</a></td>
+</tr>
+<tr>
+<td></td>
+<td>鍵極性與分子極性</td>
+<td>形狀對稱則偶極抵消</td>
+<td>判斷極性、異構物偶極矩與沸點</td>
+<td><a href="u2-4.html">2-4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>分子間的作用力</td>
+<td>氫鍵＞偶極＞色散（先比分子量與表面積）</td>
+<td>沸點排序、分子內氫鍵</td>
+<td><a href="u2-5.html">2-5</a></td>
+</tr>
+<tr>
+<td>3 反應速率</td>
+<td>化學反應速率</td>
+<td>r＝k[A]<sup>m</sup>[B]<sup>n</sup>，級數靠實驗</td>
+<td>數據表求級數與 k、半生期</td>
+<td><a href="u3-1.html">3-1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>碰撞學說與反應機構</td>
+<td>有效碰撞；速率決定步驟</td>
+<td>位能圖數字、機構辨識中間物與催化劑</td>
+<td><a href="u3-2.html">3-2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>影響速率的因素 I、II</td>
+<td>濃度、接觸面積、溫度、催化劑</td>
+<td>條件改變後速率倍數、觀念多選</td>
+<td><a href="u3-3.html">3-3</a>　<a href="u3-4.html">3-4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>實驗：秒錶反應</td>
+<td>以「出現現象的時間」反推速率</td>
+<td>為什麼要固定總體積、1/t 的假設</td>
+<td><a href="u實驗1.html">實驗</a></td>
+</tr>
+</tbody>
+</table>
+<h3>物質構造這條鏈：從電子一路推到沸點</h3>
+<p>整個「物質構造」其實只在回答一件事：<strong>電子的能量與位置，如何決定物質的性質</strong>。把它想成一條多米諾骨牌：</p>
+<ol>
+<li><strong>電子的能量是量子化的</strong>（氫光譜、波耳模型）→</li>
+<li><strong>電子住在軌域裡</strong>（n、l、m 量子數），並依三個規則填入（構築原理、包立、洪德）→ 得到<strong>電子組態</strong></li>
+<li>組態＋有效核電荷 → <strong>原子性質的週期性</strong>（半徑、游離能、電負度）</li>
+<li>電負度差決定電子「轉移」或「共用」→ <strong>離子鍵／共價鍵／極性</strong></li>
+<li>共價鍵用軌域重疊解釋（σ、π、混成）；價層電子對互斥決定<strong>分子形狀</strong></li>
+<li>形狀＋鍵極性 → <strong>分子極性</strong> → <strong>分子間作用力</strong> → <strong>熔點、沸點、溶解度</strong></li>
+</ol>
+<p><strong>解題時反著用也一樣</strong>：題目問沸點，你就往回推「有沒有氫鍵？極性？分子量？」→「形狀對稱嗎？」→「價層電子對數是多少？」這就是為什麼同一個分子（例如 XeF₄）會連續考到混成、形狀、極性、沸點四個問題。</p>
+<h3>反應速率這條鏈：從「多快」推到「怎麼讓它更快」</h3>
+<ol>
+<li><strong>怎麼表示</strong>：反應速率＝濃度變化／時間；不同物質的速率差一個係數倍數</li>
+<li><strong>怎麼量化</strong>：速率定律 r＝k[A]<sup>m</sup>[B]<sup>n</sup>，m、n 只能從實驗數據求，不能從係數猜</li>
+<li><strong>為什麼這麼快／慢</strong>：碰撞學說（有效碰撞＝能量夠＋方向對）、活化能、位能圖</li>
+<li><strong>分子層次發生了什麼</strong>：反應機構、速率決定步驟（決定速率定律）</li>
+<li><strong>怎麼調控</strong>：濃度、接觸面積、溫度、催化劑——每一種調控，都要能回答「它動到了哪個環節」</li>
+</ol>
+<h2 class="section " id="s3">命題趨勢：真實數據怎麼說</h2>
+
+<aside class="box box-ref"><div class="box-h">參考資料</div><p>下表取自翰林出版《113 分科測驗化學考科解析》「109～113 年指考與分科測驗各章節配分統計」（單位：分；全卷 100 分）。<strong>注意這是大考，不是學校段考</strong>，但它反映「課綱認為什麼最重要」。</p>
+<table>
+<thead>
+<tr>
+<th>選修化學 II</th>
+<th>109</th>
+<th>110</th>
+<th>111</th>
+<th>112</th>
+<th>113</th>
+<th>5 年平均</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 章 原子構造與性質</td>
+<td>9</td>
+<td>3</td>
+<td>8</td>
+<td>8</td>
+<td>4</td>
+<td><strong>6.4</strong></td>
+</tr>
+<tr>
+<td>第 2 章 物質的性質與化學鍵</td>
+<td>9</td>
+<td>6</td>
+<td>12</td>
+<td>12</td>
+<td>8</td>
+<td><strong>9.4</strong></td>
+</tr>
+<tr>
+<td>第 3 章 化學反應速率</td>
+<td>7</td>
+<td>3</td>
+<td>8</td>
+<td>4</td>
+<td>8</td>
+<td><strong>6.0</strong></td>
+</tr>
+</tbody>
+</table>
+<p>三章合計平均約占全卷 <strong>22%</strong>，其中<strong>化學鍵最重</strong>（平均 9.4 分，111、112 年都高達 12 分）。</p></aside>
+<p><strong>從公開試卷看學校段考怎麼出</strong>（我實際讀過這兩份題目答案）：</p>
+<ul>
+<li><strong>台南一中 114-1 第三次段考「物質性質與化學鍵」</strong>：單選 20 題（2.5 分）＋多選 11 題（3 分）＋非選 20 分；非選第一題就是「畫出 CS₂、ClF₃、S₂O₃²⁻、XeF₄、NO₃⁻ 的結構並寫出中心原子混成」，共 11 分——<strong>混成軌域是必考計算</strong>。</li>
+<li><strong>台南一中 113-2 第三次段考「選化Ⅱ CH3 反應速率」</strong>：單選 18 題＋多選 10 題（4 分）＋非選 17 分；非選是「由實驗數據寫速率定律、求 k、預測速率」與「一級反應半生期（以 dTBP 分解為例）」——<strong>數據表與半生期是必考計算</strong>。</li>
+<li><strong>113 分科測驗</strong>：反應速率兩題（第 17、18 題）——一題讀「總壓–時間圖」判斷零級反應，一題給兩步驟機構判斷催化劑／中間產物／速率決定步驟；化學鍵與分子間作用力則出現在第 2、15、19 題，常與有機化合物結合（紫杉醇的氫鍵、乙醇／甲酸／丙烷／乙胺的沸點排序）。</li>
+</ul>
+<h2 class="section " id="s4">規則速查（點開看「為什麼」）</h2>
+<p>下面把三章最核心的規則做成卡片。<strong>外面的文字是「怎麼用」，卡片裡是「為什麼」</strong>。</p>
+<h3>一、原子結構：能階、軌域、組態</h3>
+<p>氫原子是整個量子模型的起點：能階只由 n 決定，所以光譜是一條一條的<strong>線</strong>。算波長時，<strong>把能量差（eV）直接代入 λ（nm）＝1240／ΔE（eV）</strong> 最快。</p>
+<details class="formula"><summary><span class="f-eq">E<sub>n</sub> ＝ −13.6/n² eV；ΔE ＝ 13.6(1/n<sub>f</sub>² − 1/n<sub>i</sub>²)；λ(nm) ＝ 1240/ΔE(eV)</span><span class="f-tag">氫原子能階與光譜</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>發射：由高 n 掉到低 n，放出一個光子，能量＝兩能階差。</li>
+<li>吸收：光子能量必須<strong>剛好等於</strong>某兩個能階的差，才會被吸收；能量不夠或不對，原子完全不吸收（光子是「全有或全無」）。</li>
+<li>譜系：終點 n＝1 為萊曼系（紫外）、n＝2 為巴耳末系（可見）、n＝3 為帕申系（紅外）。</li>
+</ul>
+<h5>為什麼</h5>
+<p>波耳假設電子只能在特定軌道上，角動量量子化；能量 E<sub>n</sub>＝−13.6/n² eV（負號表示被束縛，n→∞ 為 0）。1240 來自 hc＝6.63×10<sup>−34</sup>×3.00×10<sup>8</sup> J·m，換成 eV·nm 約 1240。</p>
+<h5>常見錯誤</h5>
+<ul>
+<li>把 E 的負號丟掉，或把 n<sub>i</sub>、n<sub>f</sub> 對調得到負的能量差。</li>
+<li>以為「能量夠大的光子都能被吸收」：只有剛好對應能階差（或大於游離能）才行。</li>
+</ul></div></details>
+
+<details class="formula"><summary><span class="f-eq">n、l（0 ～ n−1）、m（−l ～ ＋l）；每個軌域 ≤ 2 個電子；殼層 n 有 n² 個軌域、最多 2n² 個電子</span><span class="f-tag">量子數與軌域</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>l＝0、1、2、3 依序叫 s、p、d、f；對應 1、3、5、7 個軌域（m 的個數＝2l＋1）。</li>
+<li>n＝3 殼層：3s（1）＋3p（3）＋3d（5）＝9 個軌域，最多 18 個電子。</li>
+</ul>
+<h5>為什麼</h5>
+<p>電子在三度空間的駐波必須滿足邊界條件，結果得到 n、l、m 三個整數，而且 l 不能超過 n−1、|m| 不能超過 l。</p>
+<h5>常見錯誤</h5>
+<ul>
+<li>寫出 n＝2、l＝2（不存在 2d）、n＝3、l＝3 這類組合。</li>
+</ul></div></details>
+
+<details class="formula"><summary><span class="f-eq">構築原理（1s 2s 2p 3s 3p 4s 3d 4p …）＋包立不相容原理＋洪德定則；例外：Cr［Ar］3d⁵4s¹、Cu［Ar］3d¹⁰4s¹；陽離子先失去最外層（4s 先於 3d）</span><span class="f-tag">電子組態三規則</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>寫中性原子組態用構築原理；寫過渡金屬<strong>陽離子</strong>時，<strong>先移去 n 最大的電子</strong>（4s），再移去 3d。</li>
+<li>未成對電子數：同一個次殼層的軌域，電子先各占一個、自旋同向（洪德），之後才配對。</li>
+</ul>
+<h5>為什麼 Cr、Cu 是例外</h5>
+<p>半滿（d⁵）與全滿（d¹⁰）的 d 次殼層穩定，且 3d 與 4s 能量很接近，所以 4s 電子「借」一個給 3d。</p>
+<h5>為什麼先失 4s 電子</h5>
+<p>填入順序是 4s 先於 3d，但<strong>失去電子時要看最外層</strong>：4s 軌域的平均距離比 3d 遠，更容易被拿走。這是「填入順序」和「失去順序」不同的經典陷阱。</p></div></details>
+
+<details class="formula"><summary><span class="f-eq">有效核電荷 Z<sub>eff</sub> ↑ 且距離 ↓ ⇒ 半徑 ↓、游離能 ↑、電負度 ↑；例外：Be ＞ B、Mg ＞ Al、N ＞ O、P ＞ S（第一游離能）</span><span class="f-tag">週期趨勢與例外</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<p>同週期向右：Z<sub>eff</sub> 增加，半徑縮小、游離能和電負度增加；同族向下：殼層增加，半徑變大、游離能和電負度減小。</p>
+<h5>例外為什麼</h5>
+<ul>
+<li>Be ＞ B：B 的最後一個電子在能量較高的 2p，比 2s 容易移除。</li>
+<li>N ＞ O：N 的 2p 半滿，O 的 2p 有一對電子互相排斥，移去其中一個比較容易。</li>
+</ul>
+<h5>連續游離能怎麼判族</h5>
+<p>第 k 級游離能出現<strong>大幅跳升</strong>，表示第 k 個電子取自內層，所以價電子數＝跳升前的級數。</p></div></details>
+<h3>二、化學鍵：形狀、混成、極性、分子間力</h3>
+<p>價層電子對互斥（VSEPR）是這一章的靈魂：<strong>先數中心原子的價層電子對數（鍵結對＋孤對電子），再查表</strong>。孤對電子的斥力＞鍵結電子對，所以含孤對的分子鍵角會被「壓小」。</p>
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>價層電子對數 → 形狀 → 混成（AXₙEₘ：n 個鍵結原子、m 對孤對電子）</strong></p>
+<table>
+<thead>
+<tr>
+<th>電子對數</th>
+<th>型式</th>
+<th>形狀</th>
+<th>混成</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>AX₂</td>
+<td>直線</td>
+<td>sp</td>
+<td>BeCl₂、CO₂、CS₂</td>
+</tr>
+<tr>
+<td>3</td>
+<td>AX₃</td>
+<td>平面三角</td>
+<td>sp²</td>
+<td>BF₃、SO₃、NO₃⁻</td>
+</tr>
+<tr>
+<td>3</td>
+<td>AX₂E</td>
+<td>彎曲</td>
+<td>sp²</td>
+<td>SO₂、O₃、NO₂⁻</td>
+</tr>
+<tr>
+<td>4</td>
+<td>AX₄</td>
+<td>四面體</td>
+<td>sp³</td>
+<td>CH₄、NH₄⁺、SO₄²⁻</td>
+</tr>
+<tr>
+<td>4</td>
+<td>AX₃E</td>
+<td>三角錐</td>
+<td>sp³</td>
+<td>NH₃、PCl₃、ClO₃⁻</td>
+</tr>
+<tr>
+<td>4</td>
+<td>AX₂E₂</td>
+<td>彎曲</td>
+<td>sp³</td>
+<td>H₂O、OF₂</td>
+</tr>
+<tr>
+<td>5</td>
+<td>AX₅</td>
+<td>三角雙錐</td>
+<td>sp³d</td>
+<td>PCl₅</td>
+</tr>
+<tr>
+<td>5</td>
+<td>AX₄E</td>
+<td>蹺蹺板形</td>
+<td>sp³d</td>
+<td>SF₄</td>
+</tr>
+<tr>
+<td>5</td>
+<td>AX₃E₂</td>
+<td>T 形</td>
+<td>sp³d</td>
+<td>ClF₃</td>
+</tr>
+<tr>
+<td>5</td>
+<td>AX₂E₃</td>
+<td>直線</td>
+<td>sp³d</td>
+<td>XeF₂、I₃⁻</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AX₆</td>
+<td>八面體</td>
+<td>sp³d²</td>
+<td>SF₆</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AX₅E</td>
+<td>四角錐</td>
+<td>sp³d²</td>
+<td>BrF₅</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AX₄E₂</td>
+<td>平面四方</td>
+<td>sp³d²</td>
+<td>XeF₄、ICl₄⁻</td>
+</tr>
+</tbody>
+</table>
+<p><strong>孤對電子的位置</strong>：在三角雙錐裡，孤對電子優先占據<strong>赤道面</strong>（那裡的斥力最小），所以 SF₄ 是蹺蹺板、ClF₃ 是 T 形、XeF₂ 是直線。</p></aside>
+<p>形狀確定之後，<strong>分子有沒有極性</strong>只要問一個問題：各個鍵的偶極<strong>向量相加</strong>會不會等於零？形狀對稱（直線、平面三角、四面體、三角雙錐、八面體、平面四方）且周圍原子相同 ⇒ 非極性；有孤對電子造成不對稱 ⇒ 通常極性（XeF₂、XeF₄ 的孤對電子對稱分布，仍是非極性）。</p>
+<details class="formula"><summary><span class="f-eq">沸點判斷順序：①有無氫鍵（H 接在 N、O、F 上）②分子量／電子數（色散力）③表面積（直鏈＞支鏈）④極性</span><span class="f-tag">分子間作用力</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>分子量相近時：有氫鍵者沸點最高；其次是極性分子；非極性分子最低。</li>
+<li>同系列氫化物：色散力隨分子量增加，除了 HF、H₂O、NH₃ 因氫鍵而特別高。</li>
+<li>異構物：直鏈分子接觸面積大，色散力大，沸點較高（正戊烷 ＞ 異戊烷 ＞ 新戊烷）。</li>
+</ul>
+<h5>為什麼</h5>
+<p>氫鍵是接在 N、O、F 上的 H 與另一個分子的孤對電子之間的強靜電吸引，強度明顯大於一般偶極—偶極作用；色散力來自瞬間偶極，電子愈多、愈容易被極化，力愈大。</p>
+<h5>常見錯誤</h5>
+<ul>
+<li>把氫鍵當成化學鍵（它是<strong>分子間</strong>作用力，比共價鍵弱得多）。</li>
+<li>分子內氫鍵（如鄰位）會「用掉」氫鍵，反而使沸點、熔點降低。</li>
+</ul></div></details>
+<h3>三、反應速率：定律、碰撞、機構</h3>
+<p>反應速率章節只有一個「大招」：<strong>拿到實驗數據表，只比較「只變一個變因」的兩組，看速率變幾倍</strong>。其他的概念（碰撞、活化能、機構）是在解釋「為什麼」。</p>
+<details class="formula"><summary><span class="f-eq">速率定律 r ＝ k[A]<sup>m</sup>[B]<sup>n</sup>；級數靠實驗；零級：[A] 等差遞減；一級：t<sub>1/2</sub> 固定（0.693/k）；二級：t<sub>1/2</sub> 隨濃度減小而加長</span><span class="f-tag">速率定律與級數</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<ul>
+<li>兩組實驗中只有 [A] 變 x 倍、速率變 y 倍 ⇒ x<sup>m</sup>＝y ⇒ 得 m。</li>
+<li>k 的單位由總級數決定：零級 M·s⁻¹、一級 s⁻¹、二級 M⁻¹·s⁻¹、三級 M⁻²·s⁻¹。</li>
+<li>一級反應：每經過一個半生期，濃度減半；與起始濃度無關。</li>
+</ul>
+<h5>為什麼級數不能從係數看</h5>
+<p>總反應是許多基本步驟的結果，只有「基本反應」（一步完成）的級數才等於係數；一般反應的級數是<strong>速率決定步驟</strong>的結果。</p>
+<h5>常見錯誤</h5>
+<ul>
+<li>用反應式係數直接當級數。</li>
+<li>以為 k 隨濃度改變（k 只受溫度與催化劑影響）。</li>
+</ul></div></details>
+
+<details class="formula"><summary><span class="f-eq">有效碰撞：①動能 ≥ E<sub>a</sub>　②方位正確。位能圖：E<sub>a</sub>(正)＝峰值−反應物；E<sub>a</sub>(逆)＝峰值−產物；ΔH＝E<sub>a</sub>(正)−E<sub>a</sub>(逆)</span><span class="f-tag">碰撞學說與位能圖</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<p>位能圖上，直接<strong>讀三個高度</strong>（反應物、峰值、產物），就能算出正反應活化能、逆反應活化能、ΔH。多步驟機構有多個峰，<strong>最高的那個峰（從前一個谷算起的能障最大）所在的步驟</strong>是速率決定步驟。</p>
+<h5>為什麼升溫使速率增加</h5>
+<p>分子動能分布曲線（馬克士威分布）向右移，超過活化能的分子比例<strong>增加很多</strong>；而碰撞頻率只增加一點點，不是主因。</p>
+<h5>催化劑</h5>
+<p>降低活化能（改走另一條路徑），正逆反應同時加快，<strong>不改變 ΔH、不改變平衡位置</strong>，本身不被消耗。</p></div></details>
+
+<details class="formula"><summary><span class="f-eq">機構：慢步驟決定速率定律；中間產物不可出現在速率定律中（用快速平衡代換）；催化劑＝先消耗後生成；中間產物＝先生成後消耗</span><span class="f-tag">反應機構</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>怎麼用</h5>
+<p>①把各步驟相加，消去中間產物與催化劑，得到全反應式；②看哪一步最慢；③速率定律＝慢步驟的速率式；④若慢步驟含中間產物，用前面的<strong>快速平衡</strong>把它換成反應物。</p>
+<h5>為什麼中間產物不能出現</h5>
+<p>中間產物是反應過程中暫時存在的物質，濃度無法直接配製，實驗上只能控制起始反應物的濃度，所以速率定律要用反應物表示。</p>
+<h5>範例（快速平衡）</h5>
+<p>2NO ⇌ N₂O₂（快速平衡）；N₂O₂ ＋ O₂ → 2NO₂（慢）。r＝k₂[N₂O₂][O₂]，而快速平衡 [N₂O₂]＝K[NO]²，所以 r＝k₂K[NO]²[O₂]，總三級。</p></div></details>
+
+<h2 class="section " id="s5">迷思釐清：十四件最容易被陷阱題抓走的事</h2>
+
+<aside class="box box-warn"><div class="box-h">迷思</div><p>左邊是錯的想法（❌），右邊是正確版本（✅）。最後一行打★的，是這兩章最經典的陷阱。</p></aside>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>❌ 常見想法</th>
+<th>✅ 正確觀念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>氫原子 4s 能量一定比 3d 低</td>
+<td>氫原子能階只由 n 決定，<strong>4s 高於 3d</strong>；多電子原子才是 4s 低於 3d</td>
+</tr>
+<tr>
+<td>2</td>
+<td>過渡金屬形成陽離子時，先失去 3d 電子</td>
+<td><strong>先失去 4s</strong> 電子（Fe²⁺＝［Ar］3d⁶、Cu⁺＝［Ar］3d¹⁰）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>同週期第一游離能 Be＜B、N＜O（隨原子序遞增）</td>
+<td>Be ＞ B、N ＞ O（半滿、全滿的穩定性）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>電子親和力 F 最大</td>
+<td><strong>Cl 的電子親和力比 F 大</strong>（F 太小，電子之間排斥強）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>雙鍵＝2 個 σ 鍵</td>
+<td>雙鍵＝<strong>1 個 σ＋1 個 π</strong>；三鍵＝1σ＋2π</td>
+</tr>
+<tr>
+<td>6</td>
+<td>孤對電子和鍵結電子對一樣大</td>
+<td>孤對電子斥力較大：鍵角 CH₄(109.5°)＞NH₃(107°)＞H₂O(104.5°)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>有極性鍵的分子一定是極性分子</td>
+<td>形狀對稱時偶極抵消（CO₂、BF₃、CCl₄、SF₆ 都是非極性）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>氫鍵是一種化學鍵</td>
+<td>氫鍵是<strong>分子間</strong>作用力，只有「H 接在 N、O、F 上」才有</td>
+</tr>
+<tr>
+<td>9</td>
+<td>沸點高的物質熔點一定高</td>
+<td>熔點還看<strong>對稱性</strong>（對二氯苯沸點低但熔點最高）★</td>
+</tr>
+<tr>
+<td>10</td>
+<td>反應級數＝反應式係數</td>
+<td>級數由<strong>實驗</strong>決定；只有基本反應才等於係數 ★</td>
+</tr>
+<tr>
+<td>11</td>
+<td>濃度愈大，速率常數 k 愈大</td>
+<td>k 只和溫度、催化劑有關；濃度改變的是速率，不是 k</td>
+</tr>
+<tr>
+<td>12</td>
+<td>催化劑可改變反應熱 ΔH、平衡位置</td>
+<td>催化劑只降低活化能、加快正逆反應；<strong>ΔH 與平衡不變</strong></td>
+</tr>
+<tr>
+<td>13</td>
+<td>升溫只讓吸熱反應變快</td>
+<td>升溫使<strong>吸熱、放熱反應都變快</strong></td>
+</tr>
+<tr>
+<td>14</td>
+<td>定壓通入惰性氣體，速率不變</td>
+<td>定壓通入氣體使體積變大，<strong>所有濃度都變小，速率變慢</strong>；定容通入才不變 ★</td>
+</tr>
+</tbody>
+</table>
+<h2 class="section " id="s6">考前猜題熱區（主觀預測，僅供排優先順序）</h2>
+
+<aside class="box box-warn"><div class="box-h">注意</div><p>這是我依據<strong>台南一中兩份段考的結構</strong>、<strong>113 分科的題型</strong>，以及<strong>講義的題量分布</strong>所做的主觀判斷，<strong>不是官方預測</strong>。你們學校老師平常愛考什麼，才是最重要的線索，請以老師為準。</p></aside>
+<table>
+<thead>
+<tr>
+<th>優先度</th>
+<th>主題</th>
+<th>預測理由</th>
+<th>對應題目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>★★★</td>
+<td>混成軌域＋形狀＋極性（含 sp³d、sp³d² 離子）</td>
+<td>台南一中非選必考；一題串連三個觀念</td>
+<td>復2 難題 1、2</td>
+</tr>
+<tr>
+<td>★★★</td>
+<td>速率定律：由數據表求級數、k、預測速率</td>
+<td>非選必考計算；階層固定、好拿分也最怕粗心</td>
+<td>復3 難題 1</td>
+</tr>
+<tr>
+<td>★★★</td>
+<td>反應機構：中間產物、催化劑、速率決定步驟</td>
+<td>分科與聯測都考；觀念題也易出多選</td>
+<td>復3 難題 7</td>
+</tr>
+<tr>
+<td>★★★</td>
+<td>分子間作用力：沸點排序、分子內氫鍵</td>
+<td>與有機化合物結合，是大考的熱點</td>
+<td>復2 難題 7、8</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>氫原子能階：譜線條數、波長、光子 vs 電子</td>
+<td>計算簡單，是原子結構唯一的計算題</td>
+<td>復1 難題 1、2</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>連續游離能判斷族、趨勢例外</td>
+<td>圖表／數據判讀，容易出成多選</td>
+<td>復1 難題 6、7</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>半生期（一級）與壓力追蹤</td>
+<td>非選常考一級反應半生期</td>
+<td>復3 難題 2、6</td>
+</tr>
+<tr>
+<td>★★</td>
+<td>位能圖與催化劑</td>
+<td>圖形判讀，要會算兩個活化能與 ΔH</td>
+<td>復3 難題 8</td>
+</tr>
+<tr>
+<td>★</td>
+<td>秒錶反應實驗</td>
+<td>取決於老師是否強調實驗；觀念題常見</td>
+<td>復3 難題 10</td>
+</tr>
+</tbody>
+</table></div><div class="pager"><a href="u3-綜.html">← 3-綜 第三章 素養導向與綜合試題</a><a href="u復1.html">復1 原子結構與週期性難題 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

@@ -1,0 +1,1562 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復4 考前猜題模擬卷（核心範圍）：力學二＋熱學｜選修物理</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+
+/* 圖解／動畫解 */
+.viz{margin:10px 16px 6px;border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
+.viz-h{padding:3px 14px;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent);background:var(--accent-soft)}
+.viz-anim .viz-h{color:var(--pr);background:var(--pr-soft)}
+.viz svg{display:block;width:100%;height:auto}
+.viz figcaption{padding:6px 16px 10px;font-size:14.5px;line-height:1.65;color:var(--muted);border-top:1px dashed var(--line)}
+.viz text{font-family:inherit;font-size:16px;fill:var(--ink);stroke:none}
+.viz .tm{fill:var(--muted);font-size:14px}.viz .ts{font-size:13px}.viz .tb{font-weight:700}.viz .tl{font-size:19px}
+.viz .tf{fill:var(--warn)}.viz .tv{fill:var(--ex)}.viz .ta{fill:var(--ok)}.viz .tp{fill:var(--pr)}.viz .tw{fill:var(--sim)}.viz .tc{fill:var(--accent)}
+.viz .o,.viz .axis,.viz .curve,.viz .curve2,.viz .curve3,.viz .curve4,.viz .dim,.viz .hatch,.viz .thin{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.viz .o{stroke:var(--ink);stroke-width:2}
+.viz .thin{stroke:var(--ink);stroke-width:1}
+.viz .axis{stroke:var(--ink);stroke-width:1.6}
+.viz .hatch{stroke:var(--muted);stroke-width:1.5}
+.viz .dim{stroke:var(--muted);stroke-width:1.4;stroke-dasharray:5 4}
+.viz .f{fill:var(--paper);stroke:var(--ink);stroke-width:2}
+.viz .fb{fill:var(--ex-soft);stroke:var(--ex);stroke-width:2}
+.viz .fg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+.viz .fy{fill:var(--sum-soft);stroke:var(--sum);stroke-width:2}
+.viz .fw{fill:var(--warn-soft);stroke:var(--warn);stroke-width:2}
+.viz .fp{fill:var(--pr-soft);stroke:var(--pr);stroke-width:2}
+.viz .fo{fill:var(--ink);stroke:none}
+.viz .fa{fill:var(--accent);stroke:none}
+.viz .fwo{fill:var(--warn);stroke:none}
+.viz .fxo{fill:var(--ex);stroke:none}
+.viz .fmu{fill:var(--muted);stroke:none}
+.viz .curve{stroke:var(--accent);stroke-width:2.6}
+.viz .curve2{stroke:var(--pr);stroke-width:2.6}
+.viz .curve3{stroke:var(--sim);stroke-width:2.6}
+.viz .curve4{stroke:var(--warn);stroke-width:2.6}
+.viz .dash{stroke-dasharray:6 5}
+.viz .shade{fill:var(--accent);fill-opacity:.18;stroke:none}
+.viz .shade2{fill:var(--warn);fill-opacity:.16;stroke:none}
+.viz [class^="a-"] line{stroke-width:2.6;stroke-linecap:round}
+.viz .a-force line{stroke:var(--warn)}.viz .a-force polygon{fill:var(--warn)}
+.viz .a-vel line{stroke:var(--ex)}.viz .a-vel polygon{fill:var(--ex)}
+.viz .a-acc line{stroke:var(--ok)}.viz .a-acc polygon{fill:var(--ok)}
+.viz .a-ink line{stroke:var(--ink)}.viz .a-ink polygon{fill:var(--ink)}
+.viz .a-mute line{stroke:var(--muted);stroke-width:1.5}.viz .a-mute polygon{fill:var(--muted)}
+.viz .a-pr line{stroke:var(--pr)}.viz .a-pr polygon{fill:var(--pr)}
+.viz .a-sim line{stroke:var(--sim)}.viz .a-sim polygon{fill:var(--sim)}
+.simctl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:6px 12px 8px;border-top:1px dashed var(--line)}
+.simctl input[type=range]{flex:1;min-width:120px;accent-color:var(--accent)}
+.simctl .stime{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:4.5em;text-align:right}
+.simnote{padding:2px 16px 8px;font-size:15px;color:var(--ink);min-height:1.6em}
+@media print{.simctl{display:none}}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修物理<small>講義電子化</small></a><div class="nch">第3單元　牛頓運動定律</div><ul><li><a href="u3-1.html"><span>3-1</span>牛頓運動定律</a></li><li><a href="u3-2.html"><span>3-2</span>圓周運動與簡諧運動</a></li></ul><div class="nch">第4單元　摩擦力與靜力平衡</div><ul><li><a href="u4.html"><span>4</span>摩擦力與靜力平衡</a></li></ul><div class="nch">第5單元　萬有引力定律</div><ul><li><a href="u5.html"><span>5</span>萬有引力定律</a></li></ul><div class="nch">第6單元　動量與角動量</div><ul><li><a href="u6.html"><span>6</span>動量與角動量</a></li></ul><div class="nch">第7單元　功與能量</div><ul><li><a href="u7.html"><span>7</span>功與能量</a></li></ul><div class="nch">第8單元　熱學</div><ul><li><a href="u8.html"><span>8</span>熱學</a></li></ul><div class="nch">第9單元　波動</div><ul><li><a href="u9.html"><span>9</span>波動</a></li></ul><div class="nch">第10單元　聲波</div><ul><li><a href="u10.html"><span>10</span>聲波</a></li></ul><div class="nch">第11單元　光的折射及其應用</div><ul><li><a href="u11.html"><span>11</span>光的折射及其應用</a></li></ul><div class="nch">第一次段考復習　力學二＋熱學</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・公式速查</a></li><li><a href="u復1.html"><span>復1</span>力學二難題（上）：牛頓・圓周・簡諧・靜力平衡</a></li><li><a href="u復2.html"><span>復2</span>力學二難題（下）：萬有引力・動量・功與能量</a></li><li><a href="u復3.html"><span>復3</span>熱學難題精選：氣體定律・動力論・（延伸）熱量</a></li><li><a class="on" href="u復4.html"><span>復4</span>考前猜題模擬卷（核心範圍）：力學二＋熱學</a><ul class="subtoc"><li><a href="#s1">模擬卷說明</a></li><li><a href="#s2">單選題（每題 4 分）</a></li><li><a href="#s3">多選題（每題 6 分）</a></li><li><a href="#s4">非選擇題（共 46 分）</a></li></ul></li><li><a href="u復5.html"><span>復5</span>力學一延伸模擬卷：牛頓・圓周・簡諧・萬有引力</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 力學二＋熱學</div>
+<h1><span class="uid">復4</span>考前猜題模擬卷（核心範圍）：力學二＋熱學</h1>
+<div class="tools"><span class="cnt">本單元 30 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">模擬卷說明</h2>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>範圍</strong>：本卷只包含<strong>核心範圍</strong>——靜力平衡、動量與質心、功與能量、碰撞、熱學（以及講義放在功與能量單元的鉛直圓周運動）。牛頓運動、圓周與簡諧、萬有引力等「力學一延伸」題目另放在 <strong>復5</strong>。</p>
+<p><strong>配分與時間</strong>（總分 100 分，建議作答時間 <strong>80 分鐘</strong>）：<br />
+- 單選題 6 題，每題 4 分，共 24 分（建議 8 分鐘）<br />
+- 多選題 5 題，每題 6 分，共 30 分（建議 20 分鐘；全對 6 分，錯一個選項得 3.6 分，錯兩個選項得 1.2 分，其餘 0 分——大考式計分）<br />
+- 非選擇題 4 題，共 46 分（建議 50 分鐘；要寫出式子，只寫答案不給分）</p>
+<p><strong>怎麼用</strong>：計時做完再對答案，不要邊做邊翻。每題詳解最後一行有「<strong>為什麼猜這題</strong>」，是我預測它出現的理由，可以順便判斷你還該補哪個單元。取 g＝10 m/s²。</p></aside>
+
+<h2 class="section " id="s2">單選題（每題 4 分）</h2>
+
+<article class="q q-pr" id="q544">
+<header class="qh"><span class="qn">模擬 1</span><span class="qtag">單選・靜力平衡・橫梁的支撐力　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：靜力平衡兩條件：ΣF＝0 與 Στ＝0；支點選在未知力最多的地方。</li>
+<li><strong>公式</strong>：均勻橫梁的重量作用在<strong>中點</strong>；力矩＝力×<strong>垂直</strong>力臂；對支點 A 取力矩可直接解出 N<sub>B</sub>。</li>
+</ul></div></details><div class="qtext"><p>長 6.0 m、重 300 N 的均勻橫梁，兩端分別放在支點 A、B 上（水平）。在距 A 端 2.0 m 處放上一個重 150 N 的重物。則 A、B 兩支點對橫梁的支撐力 N<sub>A</sub>、N<sub>B</sub> 各為多少？<br />
+(A) N<sub>A</sub>＝150 N、N<sub>B</sub>＝300 N<br />
+(B) N<sub>A</sub>＝200 N、N<sub>B</sub>＝250 N<br />
+(C) N<sub>A</sub>＝250 N、N<sub>B</sub>＝200 N<br />
+(D) N<sub>A</sub>＝300 N、N<sub>B</sub>＝150 N<br />
+(E) N<sub>A</sub>＝225 N、N<sub>B</sub>＝225 N</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) N<sub>A</sub>＝250 N、N<sub>B</sub>＝200 N</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 296" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><rect class="fy" x="60" y="110" width="420" height="14" rx="3"/><polygon class="fb" points="60,124 46,154 74,154"/><polygon class="fb" points="480,124 466,154 494,154"/><text class="tb" x="60" y="174" text-anchor="middle">A</text><text class="tb" x="480" y="174" text-anchor="middle">B</text><g class="a-force"><line x1="60" y1="150" x2="60" y2="76"/><polygon points="60,66 64.2,76 55.8,76"/></g><text class="tf" x="70" y="76" text-anchor="start">N<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＝250 N</text><g class="a-force"><line x1="480" y1="150" x2="480" y2="76"/><polygon points="480,66 484.2,76 475.8,76"/></g><text class="tf" x="470" y="76" text-anchor="end">N<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>＝200 N</text><g class="a-force"><line x1="270" y1="110" x2="270" y2="160"/><polygon points="270,170 265.8,160 274.2,160"/></g><text class="tf" x="280" y="168" text-anchor="start">梁重 300 N（中點）</text><g class="a-force"><line x1="200" y1="110" x2="200" y2="146"/><polygon points="200,156 195.8,146 204.2,146"/></g><text class="tf" x="192" y="154" text-anchor="end">150 N</text><g class="a-mute"><line x1="60" y1="204" x2="200" y2="204"/></g><g class="a-mute"><polygon points="60,204 68,207.2 68,200.8"/></g><g class="a-mute"><polygon points="200,204 192,200.8 192,207.2"/></g><text class="tm" x="130" y="198" text-anchor="middle">2.0 m</text><g class="a-mute"><line x1="60" y1="228" x2="270" y2="228"/></g><g class="a-mute"><polygon points="60,228 68,231.2 68,224.8"/></g><g class="a-mute"><polygon points="270,228 262,224.8 262,231.2"/></g><text class="tm" x="165" y="222" text-anchor="middle">3.0 m</text><g class="a-mute"><line x1="60" y1="252" x2="480" y2="252"/></g><g class="a-mute"><polygon points="60,252 68,255.2 68,248.8"/></g><g class="a-mute"><polygon points="480,252 472,248.8 472,255.2"/></g><text class="tm" x="270" y="246" text-anchor="middle">6.0 m</text><text class="tb" x="310" y="20" text-anchor="middle">對 A 取力矩（支點選在未知力多的點）：</text><text class="tc" x="310" y="46" text-anchor="middle">N<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>×6.0 ＝ 300×3.0 ＋ 150×2.0 ＝ 1200 ⇒ N<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>＝200 N</text><text class="tc" x="310" y="280" text-anchor="middle">N<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＋N<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>＝300＋150 ⇒ N<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＝250 N（重物靠 A，A 較大 ✓）</text></svg><figcaption>力矩＝力×垂直力臂；梁重放在中點。支點選在 A，N<sub>A</sub> 的力矩為零，一條式子就解出 N<sub>B</sub>。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>對支點 A 取力矩（支點選在未知力最多的地方）：N<sub>B</sub>×6.0 ＝ 300×3.0（梁重在中點）＋ 150×2.0 ⇒ N<sub>B</sub> ＝ 1200/6.0 ＝ <strong>200 N</strong>。<br />
+鉛直平衡：N<sub>A</sub> ＋ N<sub>B</sub> ＝ 300 ＋ 150 ＝ 450 ⇒ N<sub>A</sub> ＝ <strong>250 N</strong>。<br />
+（直覺檢查：重物靠近 A 端，所以 A 端承受的力較大 ✓。）<br />
+<strong>為什麼猜這題</strong>：靜力平衡的單選題，標準的「力矩平衡＋力平衡」兩條式。</p><div class="qsum"><b class="qsum-h">小結</b><p>橫梁支撐力：<strong>對一個支點取力矩求另一個支點的力，再用力平衡求剩下的</strong>；重物靠近哪端，哪端承受較大。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q545">
+<header class="qh"><span class="qn">類題｜模擬 1</span><span class="qtag">單選・橫梁支撐力・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>長 4.0 m、重 200 N 的均勻橫梁，兩端分別放在支點 A、B 上（水平）。在距 A 端 1.0 m 處放上一個重 100 N 的重物。則 A、B 兩支點對橫梁的支撐力 N<sub>A</sub>、N<sub>B</sub> 各為多少？<br />
+(A) N<sub>A</sub>＝150 N、N<sub>B</sub>＝150 N<br />
+(B) N<sub>A</sub>＝175 N、N<sub>B</sub>＝125 N<br />
+(C) N<sub>A</sub>＝125 N、N<sub>B</sub>＝175 N<br />
+(D) N<sub>A</sub>＝200 N、N<sub>B</sub>＝100 N<br />
+(E) N<sub>A</sub>＝100 N、N<sub>B</sub>＝200 N</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) N<sub>A</sub>＝175 N、N<sub>B</sub>＝125 N</div>
+<div class="exp"><b class="exp-h">解</b><p>對 A 取力矩：N<sub>B</sub>×4.0 ＝ 200×2.0（梁重在中點）＋ 100×1.0 ＝ 500 ⇒ <strong>N<sub>B</sub> ＝ 125 N</strong>。<br />
+鉛直平衡：N<sub>A</sub> ＋ N<sub>B</sub> ＝ 300 ⇒ <strong>N<sub>A</sub> ＝ 175 N</strong>。（重物靠近 A 端，A 較大 ✓。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q546">
+<header class="qh"><span class="qn">模擬 2</span><span class="qtag">單選・動量守恆・人與小車　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：系統不受水平外力 ⇒ 動量守恆（初為 0）。</li>
+<li><strong>公式</strong>：人對地速度＝車對地速度＋人相對車的速度；m<sub>人</sub>v<sub>人</sub>＋m<sub>車</sub>v<sub>車</sub>＝0。</li>
+<li><strong>提醒</strong>：題目給的「相對車」速度<strong>不是</strong>人對地的速度。</li>
+</ul></div></details><div class="qtext"><p>光滑水平冰面上，質量 40 kg 的人站在質量 20 kg 的小車上，兩者原本靜止。人相對於<strong>小車</strong>以 3 m/s 的速率水平向前跳離小車。小車相對於<strong>地面</strong>的速率為何？<br />
+(A) 1 m/s　(B) 2 m/s　(C) 3 m/s　(D) 4 m/s　(E) 6 m/s</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 2 m/s</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 280" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="o" x1="20" y1="150" x2="600" y2="150"/><text class="tb" x="150" y="22" text-anchor="middle">① 靜止</text><rect class="fb" x="90" y="120" width="120" height="22" rx="3"/><circle class="f" cx="110" cy="146" r="6"/><circle class="f" cx="190" cy="146" r="6"/><circle class="fwo" cx="150" cy="76" r="7"/><line class="o" x1="150" y1="83" x2="150" y2="106"/><line class="o" x1="150" y1="106" x2="143" y2="120"/><line class="o" x1="150" y1="106" x2="157" y2="120"/><text class="ts" x="150" y="180" text-anchor="middle">人 40 kg　車 20 kg</text><text class="tb" x="450" y="22" text-anchor="middle">② 人相對車以 3 m/s 向前跳</text><rect class="fb" x="330" y="120" width="120" height="22" rx="3"/><circle class="f" cx="350" cy="146" r="6"/><circle class="f" cx="430" cy="146" r="6"/><circle class="fwo" cx="500" cy="52" r="7"/><line class="o" x1="500" y1="59" x2="500" y2="82"/><line class="o" x1="500" y1="82" x2="493" y2="96"/><line class="o" x1="500" y1="82" x2="507" y2="96"/><g class="a-vel"><line x1="512" y1="56" x2="550" y2="56"/><polygon points="560,56 550,60.2 550,51.8"/></g><text class="tv" x="536" y="46" text-anchor="middle">對地 ＋1</text><g class="a-vel"><line x1="390" y1="131" x2="352" y2="131"/><polygon points="342,131 352,126.8 352,135.2"/></g><text class="tv" x="380" y="176" text-anchor="middle">車對地 −2 m/s</text><text class="ts" x="310" y="214" text-anchor="middle">人對地 ＝ v<tspan dy="4" font-size="72%">車</tspan><tspan dy="-4">&#8203;</tspan> ＋ 3（相對速度要先換成對地）</text><text class="tc" x="310" y="238" text-anchor="middle">動量守恆（初為 0）：40(v<tspan dy="4" font-size="72%">車</tspan><tspan dy="-4">&#8203;</tspan>＋3)＋20v<tspan dy="4" font-size="72%">車</tspan><tspan dy="-4">&#8203;</tspan>＝0 ⇒ v<tspan dy="4" font-size="72%">車</tspan><tspan dy="-4">&#8203;</tspan>＝−2 m/s</text><text class="tm" x="310" y="262" text-anchor="middle">陷阱：誤把 3 m/s 當成人對地，會得到 6 m/s</text></svg><figcaption>相對速度題：先把「相對車」的速度換成「對地」的速度，再列動量守恆。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>取人前進方向為正，設小車對地速度為 v<sub>c</sub>（為負），則人對地速度 ＝ v<sub>c</sub> ＋ 3。<br />
+總動量守恆（初為 0）：40(v<sub>c</sub> ＋ 3) ＋ 20 v<sub>c</sub> ＝ 0 ⇒ 60v<sub>c</sub> ＝ −120 ⇒ <strong>v<sub>c</sub> ＝ −2 m/s</strong>，大小 <strong>2 m/s</strong>，方向與人相反。<br />
+（陷阱：若錯把 3 m/s 當成「人對地」，會算成 6 m/s。）<br />
+<strong>為什麼猜這題</strong>：「相對速度」是動量守恆單選題最愛設的陷阱。</p><div class="qsum"><b class="qsum-h">小結</b><p>相對速度題：<strong>先把「相對車」換成「對地」再列動量守恆</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q547">
+<header class="qh"><span class="qn">類題｜模擬 2</span><span class="qtag">單選・人與小車・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>光滑水平冰面上，質量 50 kg 的人站在質量 100 kg 的小車上，兩者原本靜止。人相對於<strong>小車</strong>以 3 m/s 的速率水平向前跳離小車。小車相對於<strong>地面</strong>的速率為何？<br />
+(A) 1 m/s　(B) 1.5 m/s　(C) 2 m/s　(D) 3 m/s　(E) 4.5 m/s</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 1 m/s</div>
+<div class="exp"><b class="exp-h">解</b><p>取人前進方向為正，小車對地速度 v<sub>c</sub>，人對地速度 ＝ v<sub>c</sub> ＋ 3。動量守恆：50(v<sub>c</sub> ＋ 3) ＋ 100v<sub>c</sub> ＝ 0 ⇒ 150v<sub>c</sub> ＝ −150 ⇒ <strong>v<sub>c</sub> ＝ −1 m/s</strong>，大小 <strong>1 m/s</strong>，方向與人相反。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q548">
+<header class="qh"><span class="qn">模擬 3</span><span class="qtag">單選・理想氣體・狀態變化的比例　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：定量理想氣體 PV/T＝定值；v<sub>rms</sub>∝√T，與體積、壓力無關。</li>
+<li><strong>做法</strong>：寫出各量的變化倍數代入 P₂＝P₁(V₁/V₂)(T₂/T₁)。</li>
+</ul></div></details><div class="qtext"><p>定量的理想氣體，體積變為原來的 1/2，同時絕對溫度變為原來的 2 倍。則壓力與氣體分子的方均根速率各變為原來的幾倍？<br />
+(A) 壓力 2 倍、方均根速率 2 倍<br />
+(B) 壓力 4 倍、方均根速率 √2 倍<br />
+(C) 壓力 4 倍、方均根速率 2 倍<br />
+(D) 壓力 2 倍、方均根速率 √2 倍<br />
+(E) 壓力 1 倍、方均根速率 √2 倍</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 壓力 4 倍、方均根速率 √2 倍</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="axis" x1="60" y1="255" x2="360" y2="255"/><line class="axis" x1="60" y1="255" x2="60" y2="45"/><text class="tm" x="360" y="277" text-anchor="end">V</text><text class="tm" x="66" y="39" text-anchor="start">P</text><polyline class="curve2 dash" points="105.0,115.0 108.8,125.8 112.5,135.0 116.2,143.0 120.0,150.0 123.8,156.2 127.5,161.7 131.2,166.6 135.0,171.0 138.8,175.0 142.5,178.6 146.2,182.0 150.0,185.0 153.8,187.8 157.5,190.4 161.2,192.8 165.0,195.0 168.8,197.1 172.5,199.0 176.2,200.8 180.0,202.5 183.8,204.1 187.5,205.6 191.2,207.0 195.0,208.3 198.8,209.6 202.5,210.8 206.2,211.9 210.0,213.0 213.8,214.0 217.5,215.0 221.2,215.9 225.0,216.8 228.8,217.7 232.5,218.5 236.2,219.3 240.0,220.0 243.8,220.7 247.5,221.4 251.2,222.1 255.0,222.7 258.8,223.3 262.5,223.9 266.2,224.5 270.0,225.0 273.8,225.5 277.5,226.0 281.2,226.5 285.0,227.0 288.8,227.5 292.5,227.9 296.2,228.3 300.0,228.8 303.8,229.2 307.5,229.5 311.2,229.9 315.0,230.3 318.8,230.7 322.5,231.0 326.2,231.3 330.0,231.7"/><polyline class="curve3 dash" points="127.5,68.3 131.2,78.2 135.0,87.0 138.8,95.0 142.5,102.3 146.2,108.9 150.0,115.0 153.8,120.6 157.5,125.8 161.2,130.6 165.0,135.0 168.8,139.1 172.5,143.0 176.2,146.6 180.0,150.0 183.8,153.2 187.5,156.2 191.2,159.0 195.0,161.7 198.8,164.2 202.5,166.6 206.2,168.8 210.0,171.0 213.8,173.0 217.5,175.0 221.2,176.9 225.0,178.6 228.8,180.3 232.5,182.0 236.2,183.5 240.0,185.0 243.8,186.4 247.5,187.8 251.2,189.1 255.0,190.4 258.8,191.6 262.5,192.8 266.2,193.9 270.0,195.0 273.8,196.1 277.5,197.1 281.2,198.1 285.0,199.0 288.8,199.9 292.5,200.8 296.2,201.7 300.0,202.5 303.8,203.3 307.5,204.1 311.2,204.9 315.0,205.6 318.8,206.3 322.5,207.0 326.2,207.7 330.0,208.3 333.8,209.0 337.5,209.6 341.2,210.2 345.0,210.8 348.8,211.4 352.5,211.9"/><g class="a-force"><line x1="210" y1="213" x2="141.1" y2="97.3"/><polygon points="135,87 145.5,94.7 136.8,99.9"/></g><line class="o" x1="210" y1="213" x2="135" y2="87"/><circle class="fxo" cx="210" cy="213" r="6"/><circle class="fwo" cx="135" cy="87" r="6"/><text class="ts" x="220" y="205" text-anchor="start">(V, P, T)</text><text class="ts" x="145" y="81" text-anchor="start">(V/2, 4P, 2T)</text><text class="tp" x="337.5" y="218.3" text-anchor="end">PV＝C</text><text class="tw" x="352.5" y="197.9" text-anchor="end">PV＝2C</text><text class="tb" x="390" y="50" text-anchor="start">PV/T ＝ 定值</text><text class="ts" x="390" y="80" text-anchor="start">P₂ ＝ P₁×(V₁/V₂)×(T₂/T₁)</text><text class="tc" x="390" y="102" text-anchor="start">　＝ P₁×2×2 ＝ 4P₁</text><text class="tb" x="390" y="140" text-anchor="start">v<tspan dy="4" font-size="72%">rms</tspan><tspan dy="-4">&#8203;</tspan> ∝ √T</text><text class="tc" x="390" y="164" text-anchor="start">T×2 ⇒ v<tspan dy="4" font-size="72%">rms</tspan><tspan dy="-4">&#8203;</tspan>×√2</text><text class="tm" x="390" y="188" text-anchor="start">（與體積無關！）</text></svg><figcaption>壓力用 PV/T＝定值算（2×2＝4 倍）；方均根速率只看溫度（√2 倍），體積壓縮不會改變單一溫度下的速率分布。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>PV/T ＝ 定值：P₂ ＝ P₁·(V₁/V₂)·(T₂/T₁) ＝ P₁×2×2 ＝ <strong>4P₁</strong>。<br />
+v<sub>rms</sub> ∝ √T ⇒ 溫度 ×2 ⇒ v<sub>rms</sub> ×<strong>√2</strong>（與體積無關）。<br />
+<strong>為什麼猜這題</strong>：把狀態方程式與動力論綁在一起，一題考兩個觀念，是台南一中熱學卷的常見題型。</p><div class="qsum"><b class="qsum-h">小結</b><p>狀態變化比例題：<strong>壓力用 PV/T、速率只看 √T</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q549">
+<header class="qh"><span class="qn">類題｜模擬 3</span><span class="qtag">單選・狀態變化比例・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>定量的理想氣體，體積變為原來的 1/3，同時絕對溫度變為原來的 3 倍。則壓力與氣體分子的方均根速率各變為原來的幾倍？<br />
+(A) 壓力 3 倍、方均根速率 √3 倍<br />
+(B) 壓力 9 倍、方均根速率 √3 倍<br />
+(C) 壓力 9 倍、方均根速率 3 倍<br />
+(D) 壓力 3 倍、方均根速率 3 倍<br />
+(E) 壓力 1 倍、方均根速率 √3 倍</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 壓力 9 倍、方均根速率 √3 倍</div>
+<div class="exp"><b class="exp-h">解</b><p>P₂ ＝ P₁×(V₁/V₂)×(T₂/T₁) ＝ P₁×3×3 ＝ <strong>9P₁</strong>。v<sub>rms</sub> ∝ √T ⇒ <strong>√3 倍</strong>（與體積無關）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q550">
+<header class="qh"><span class="qn">模擬 4</span><span class="qtag">單選・衝量與平均力　★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：衝量 J＝ΣF·Δt＝Δp（動量變化量），方向相同。</li>
+<li><strong>公式</strong>：平均力 F＝Δp/Δt；取一個方向為正，反彈時 Δp＝m(v<sub>末</sub>−v<sub>初</sub>) 兩速度符號相反，要「相加」。</li>
+</ul></div></details><div class="qtext"><p>質量 0.20 kg 的球以 15 m/s 水平撞向牆壁，以 10 m/s 反向彈回，球與牆接觸時間為 0.010 s，則牆對球的平均作用力為多少 N？<br />
+(A) 50　(B) 100　(C) 250　(D) 500　(E) 1000</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 500 N</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 280" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="o" x1="120" y1="40" x2="120" y2="200"/><line class="hatch" x1="120" y1="40" x2="129" y2="32"/><line class="hatch" x1="120" y1="54.5" x2="129" y2="46.5"/><line class="hatch" x1="120" y1="69.1" x2="129" y2="61.1"/><line class="hatch" x1="120" y1="83.6" x2="129" y2="75.6"/><line class="hatch" x1="120" y1="98.2" x2="129" y2="90.2"/><line class="hatch" x1="120" y1="112.7" x2="129" y2="104.7"/><line class="hatch" x1="120" y1="127.3" x2="129" y2="119.3"/><line class="hatch" x1="120" y1="141.8" x2="129" y2="133.8"/><line class="hatch" x1="120" y1="156.4" x2="129" y2="148.4"/><line class="hatch" x1="120" y1="170.9" x2="129" y2="162.9"/><line class="hatch" x1="120" y1="185.5" x2="129" y2="177.5"/><line class="hatch" x1="120" y1="200" x2="129" y2="192"/><circle class="fwo" cx="210" cy="120" r="10"/><g class="a-vel"><line x1="210" y1="120" x2="150" y2="120"/><polygon points="140,120 150,115.8 150,124.2"/></g><text class="tv" x="176" y="98" text-anchor="middle">15 m/s</text><circle class="f" cx="260" cy="168" r="10"/><g class="a-vel"><line x1="260" y1="168" x2="320" y2="168"/><polygon points="330,168 320,172.2 320,163.8"/></g><text class="tv" x="300" y="192" text-anchor="middle">10 m/s</text><text class="tm" x="160" y="235" text-anchor="start">取彈回方向為正</text><text class="tc" x="160" y="258" text-anchor="start">Δp ＝ 0.20×10 − 0.20×(−15) ＝ 5 N·s</text><line class="axis" x1="370" y1="200" x2="540" y2="200"/><line class="axis" x1="370" y1="200" x2="370" y2="60"/><text class="tm" x="540" y="222" text-anchor="end">t（ms）</text><text class="tm" x="376" y="54" text-anchor="start">F（N）</text><polygon class="shade" points="370.0,200 440.8,72.7 511.6666666666667,200"/><polyline class="curve" points="370.0,200 440.8,72.7 511.6666666666667,200"/><line class="curve2 dash" x1="370" y1="136.4" x2="511.7" y2="136.4"/><line class="dim" x1="511.7" y1="136.4" x2="511.7" y2="200"/><text class="tp" x="517.7" y="140.4" text-anchor="start">500 N</text><text class="tm" x="511.7" y="192" text-anchor="middle">10</text><text class="ts" x="440.8" y="64.7" text-anchor="middle">實際力（先大後小）</text><text class="tb" x="470" y="30" text-anchor="middle">F–t 圖面積＝衝量＝Δp</text></svg><figcaption>衝量 J＝∫F dt＝Δp＝5 N·s（圖形面積）；平均力＝Δp/Δt＝5/0.010＝500 N。反彈時初、末速度符號相反，要「相加」。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>取彈回方向為正：Δp ＝ 0.20×10 − 0.20×(−15) ＝ 0.20×25 ＝ 5.0 N·s。<br />
+F ＝ Δp/Δt ＝ 5.0/0.010 ＝ <strong>500 N</strong>。<br />
+（陷阱：初、末速度方向相反，要「相加」而不是相減。）<br />
+<strong>為什麼猜這題</strong>：衝量題是動量單元的入門必考。</p><div class="qsum"><b class="qsum-h">小結</b><p>撞牆題：<strong>取彈回方向為正，Δp＝m(v＋v')</strong>；平均力＝Δp/Δt。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q551">
+<header class="qh"><span class="qn">類題｜模擬 4</span><span class="qtag">單選・衝量與平均力・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>質量 0.50 kg 的球以 8 m/s 水平撞向牆壁，以 6 m/s 反向彈回，球與牆接觸時間為 0.020 s，則牆對球的平均作用力為多少 N？<br />
+(A) 50　(B) 100　(C) 200　(D) 350　(E) 700</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 350 N</div>
+<div class="exp"><b class="exp-h">解</b><p>取彈回方向為正：Δp ＝ 0.50×6 − 0.50×(−8) ＝ 0.50×14 ＝ 7.0 N·s。F ＝ Δp/Δt ＝ 7.0/0.020 ＝ <strong>350 N</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q552">
+<header class="qh"><span class="qn">模擬 5</span><span class="qtag">單選・功能定理＋斜面摩擦　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：功能定理 W<sub>合</sub>＝ΔK；摩擦力對往返路徑作功為 −f×（總路徑長）。</li>
+<li><strong>公式</strong>：斜面上滑 a₁＝g(sinθ＋μcosθ)，下滑 a₂＝g(sinθ−μcosθ)；往返同一段距離 d：v²/v₀²＝a₂/a₁。</li>
+<li><strong>提醒</strong>：先算摩擦力 f＝μmg cosθ，與重力下滑分量 mg sinθ 比較。</li>
+</ul></div></details><div class="qtext"><p>質量 m 的物體從斜面底端以 10 m/s 的初速沿 30° 粗糙斜面向上滑，動摩擦係數 μ<sub>k</sub>＝√3/6（≈0.29），物體滑到最高點後再滑回底端。回到底端時的速率約為多少 m/s？<br />
+(A) 5.0　(B) 5.8　(C) 7.1　(D) 8.7　(E) 10</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 5.8 m/s</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 296" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><polygon class="f" points="50,215 201.7,215 201.7,100.7"/><line class="o" x1="50" y1="215" x2="201.7" y2="100.7"/><text class="tm" x="94" y="207" text-anchor="start">37°</text><text class="tb" x="150" y="28" text-anchor="middle">上滑：a₁＝10 m/s²</text><g transform="rotate(-37 116.8 145.8)"><rect class="fb" x="99.8" y="132.8" width="34" height="26" rx="3"/></g><g class="a-force"><line x1="116.8" y1="145.8" x2="116.8" y2="191.8"/><polygon points="116.8,201.8 112.6,191.8 121,191.8"/></g><text class="tf" x="124.8" y="215.8" text-anchor="start">mg</text><g class="a-force"><line x1="116.8" y1="145.8" x2="91.6" y2="112.3"/><polygon points="85.5,104.3 94.9,109.8 88.2,114.8"/></g><text class="tf" x="80.7" y="95.9" text-anchor="end">N</text><g class="a-force"><line x1="116.8" y1="145.8" x2="80.1" y2="173.5"/><polygon points="72.1,179.5 77.6,170.2 82.6,176.9"/></g><text class="tf" x="78.1" y="209.6" text-anchor="start">f＝0.4mg</text><g class="a-vel"><line x1="96.4" y1="118.7" x2="125.1" y2="97"/><polygon points="133.1,91 127.7,100.4 122.6,93.7"/></g><text class="tv" x="142.7" y="87.8" text-anchor="middle">v</text><polygon class="f" points="350,215 501.7,215 501.7,100.7"/><line class="o" x1="350" y1="215" x2="501.7" y2="100.7"/><text class="tm" x="394" y="207" text-anchor="start">37°</text><text class="tb" x="450" y="28" text-anchor="middle">下滑：a₂＝2 m/s²</text><g transform="rotate(-37 416.8 145.8)"><rect class="fb" x="399.8" y="132.8" width="34" height="26" rx="3"/></g><g class="a-force"><line x1="416.8" y1="145.8" x2="416.8" y2="191.8"/><polygon points="416.8,201.8 412.6,191.8 421,191.8"/></g><text class="tf" x="424.8" y="215.8" text-anchor="start">mg</text><g class="a-force"><line x1="416.8" y1="145.8" x2="391.6" y2="112.3"/><polygon points="385.5,104.3 394.9,109.8 388.2,114.8"/></g><text class="tf" x="380.7" y="95.9" text-anchor="end">N</text><g class="a-force"><line x1="416.8" y1="145.8" x2="453.6" y2="118.2"/><polygon points="461.6,112.1 456.1,121.5 451.1,114.8"/></g><text class="tf" x="477.6" y="100.1" text-anchor="start">f＝0.4mg</text><g class="a-vel"><line x1="396.4" y1="118.7" x2="367.6" y2="140.4"/><polygon points="359.6,146.4 365.1,137 370.2,143.7"/></g><text class="tv" x="350.1" y="167.6" text-anchor="middle">v</text><text class="ts" x="310" y="258" text-anchor="middle">a₁＝g(sin37°＋0.4)、a₂＝g(sin37°−0.4)；上滑距離 d＝10²/(2×10)＝5 m</text><text class="tc" x="310" y="282" text-anchor="middle">下滑 v²＝2×2×5＝20 ⇒ v≈4.5 m/s（捷徑 v²/v₀²＝a₂/a₁＝1/5）</text></svg><figcaption>上滑時摩擦力與重力下滑分量同向（加速度大），下滑時反向（加速度小）；往返距離相同 ⇒ v²/v₀²＝a₂/a₁。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>f ＝ μ<sub>k</sub>mg cos30° ＝ (√3/6)(√3/2)mg ＝ mg/4。<br />
+上滑：a₁ ＝ g(sin30° ＋ 1/4) ＝ 7.5 m/s²，上滑距離 d ＝ 100/(2×7.5) ＝ 20/3 m。<br />
+（題目已說明物體會滑回底端，所以最高點不需要判斷會不會停住。）<br />
+下滑：a₂ ＝ g(sin30° − 1/4) ＝ 2.5 m/s²，v² ＝ 2×2.5×20/3 ＝ 100/3 ⇒ <strong>v ≈ 5.77 m/s ≈ 5.8</strong>。<br />
+捷徑：v²/v₀² ＝ a₂/a₁ ＝ 1/3 ⇒ v ＝ v₀/√3。<br />
+用功能定理驗證：往返摩擦消耗 f×2d ＝ (mg/4)×(40/3) ＝ (100/3)m（J，m 以 kg 計）；½mv² ＝ ½m×100 − (100/3)m ＝ (50/3)m ⇒ v² ＝ 100/3 ✓。<br />
+<strong>為什麼猜這題</strong>：功能定理＋摩擦＋上下往返，是「功與能量」最容易拉開分數的單選。</p><div class="qsum"><b class="qsum-h">小結</b><p>斜面往返：<strong>上滑下滑加速度不同，距離相同 ⇒ v²／v₀²＝a₂／a₁</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q553">
+<header class="qh"><span class="qn">類題｜模擬 5</span><span class="qtag">單選・斜面往返・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>質量 m 的物體從斜面底端以 10 m/s 的初速沿 37° 粗糙斜面向上滑，動摩擦係數 μ<sub>k</sub>＝0.50，物體滑到最高點後再滑回底端。回到底端時的速率約為多少 m/s？（sin37°＝0.6，cos37°＝0.8，g＝10 m/s²）<br />
+(A) 2.0　(B) 3.2　(C) 4.5　(D) 5.8　(E) 7.1</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 4.5 m/s</div>
+<div class="exp"><b class="exp-h">解</b><p>f ＝ μ<sub>k</sub>mg cos37° ＝ 0.5×0.8mg ＝ 0.4mg。<br />
+上滑：a₁ ＝ g(0.6＋0.4) ＝ 10 m/s²，上滑距離 d ＝ 100/(2×10) ＝ 5 m。<br />
+下滑：a₂ ＝ g(0.6−0.4) ＝ 2 m/s²，v² ＝ 2×2×5 ＝ 20 ⇒ <strong>v ≈ 4.47 m/s ≈ 4.5</strong>。<br />
+捷徑：v²/v₀² ＝ a₂/a₁ ＝ 1/5 ⇒ v ＝ v₀/√5 ≈ 4.5。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q554">
+<header class="qh"><span class="qn">模擬 6</span><span class="qtag">單選・氣體動力論・不同氣體的速率　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：v<sub>rms</sub>＝√(3RT/M)；速率相同 ⇒ T/M 相同。</li>
+<li><strong>做法</strong>：T 一律換成 K 計算，<strong>最後再換回攝氏</strong>。</li>
+</ul></div></details><div class="qtext"><p>27°C 的氦氣（莫耳質量 4 g/mol）與某溫度的氖氣（莫耳質量 20 g/mol）具有相同的方均根速率，則氖氣的溫度為何？<br />
+(A) 60°C　(B) 27°C　(C) 135°C　(D) 1227°C　(E) 1500°C</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 1227°C</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="axis" x1="60" y1="250" x2="400" y2="250"/><line class="axis" x1="60" y1="250" x2="60" y2="50"/><text class="tm" x="400" y="272" text-anchor="end">速率 v（km/s）</text><text class="tm" x="66" y="44" text-anchor="start">分子數比例</text><polyline class="curve" points="61.7,249.8 63.4,249.4 65.1,248.6 66.8,247.6 68.5,246.3 70.2,244.6 71.9,242.7 73.6,240.6 75.3,238.1 77.0,235.4 78.7,232.5 80.4,229.3 82.1,225.9 83.8,222.3 85.5,218.5 87.2,214.5 88.9,210.3 90.6,206.0 92.3,201.6 94.0,197.0 95.7,192.3 97.4,187.6 99.1,182.8 100.8,177.9 102.5,173.0 104.2,168.0 105.9,163.1 107.6,158.2 109.3,153.3 111.0,148.4 112.7,143.7 114.4,139.0 116.1,134.3 117.8,129.8 119.5,125.5 121.2,121.2 122.9,117.1 124.6,113.2 126.3,109.4 128.0,105.8 129.7,102.4 131.4,99.1 133.1,96.1 134.8,93.3 136.5,90.7 138.2,88.3 139.9,86.2 141.6,84.3 143.3,82.6 145.0,81.1 146.7,79.9 148.4,78.9 150.1,78.2 151.8,77.6 153.5,77.3 155.2,77.3 156.9,77.4 158.6,77.8 160.3,78.4 162.0,79.1 163.7,80.1 165.4,81.3 167.1,82.6 168.8,84.2 170.5,85.9 172.2,87.8 173.9,89.8 175.6,92.0 177.3,94.3 179.0,96.7 180.7,99.3 182.4,102.0 184.1,104.7 185.8,107.6 187.5,110.6 189.2,113.6 190.9,116.7 192.6,119.8 194.3,123.0 196.0,126.3 197.7,129.5 199.4,132.8 201.1,136.1 202.8,139.5 204.5,142.8 206.2,146.1 207.9,149.4 209.6,152.7 211.3,156.0 213.0,159.2 214.7,162.4 216.4,165.6 218.1,168.7 219.8,171.8 221.5,174.8 223.2,177.8 224.9,180.7 226.6,183.6 228.3,186.3 230.0,189.1 231.7,191.7 233.4,194.3 235.1,196.8 236.8,199.3 238.5,201.6 240.2,203.9 241.9,206.2 243.6,208.3 245.3,210.4 247.0,212.4 248.7,214.3 250.4,216.2 252.1,218.0 253.8,219.7 255.5,221.4 257.2,222.9 258.9,224.5 260.6,225.9 262.3,227.3 264.0,228.6 265.7,229.9 267.4,231.1 269.1,232.2 270.8,233.3 272.5,234.3 274.2,235.3 275.9,236.2 277.6,237.1 279.3,238.0 281.0,238.7 282.7,239.5 284.4,240.2 286.1,240.8 287.8,241.5 289.5,242.1 291.2,242.6 292.9,243.1 294.6,243.6 296.3,244.1 298.0,244.5 299.7,244.9 301.4,245.3 303.1,245.6 304.8,246.0 306.5,246.3 308.2,246.6 309.9,246.8 311.6,247.1 313.3,247.3 315.0,247.5 316.7,247.7 318.4,247.9 320.1,248.1 321.8,248.2 323.5,248.4 325.2,248.5 326.9,248.6 328.6,248.7 330.3,248.9 332.0,249.0 333.7,249.0 335.4,249.1 337.1,249.2 338.8,249.3 340.5,249.3 342.2,249.4 343.9,249.5 345.6,249.5 347.3,249.5 349.0,249.6 350.7,249.6 352.4,249.7 354.1,249.7 355.8,249.7 357.5,249.8 359.2,249.8 360.9,249.8 362.6,249.8 364.3,249.8 366.0,249.9 367.7,249.9 369.4,249.9 371.1,249.9 372.8,249.9 374.5,249.9 376.2,249.9 377.9,249.9 379.6,249.9 381.3,249.9 383.0,249.9 384.7,250.0 386.4,250.0 388.1,250.0 389.8,250.0 391.5,250.0 393.2,250.0 394.9,250.0 396.6,250.0 398.3,250.0"/><line class="dim" x1="176.3" y1="250" x2="176.3" y2="92"/><text class="tc" x="176.3" y="270" text-anchor="middle">v<tspan dy="4" font-size="72%">rms</tspan><tspan dy="-4">&#8203;</tspan>＝1.37</text><text class="ts" x="420" y="50" text-anchor="start">He（4 g/mol）27°C＝300 K</text><text class="ts" x="420" y="72" text-anchor="start">Ne（20 g/mol）1500 K</text><text class="tb" x="420" y="100" text-anchor="start">兩條分布曲線</text><text class="tf" x="420" y="122" text-anchor="start">完全重合！</text><text class="ts" x="420" y="156" text-anchor="start">因為 v<tspan dy="4" font-size="72%">rms</tspan><tspan dy="-4">&#8203;</tspan>＝√(3RT/M)</text><text class="tc" x="420" y="178" text-anchor="start">T/M 相同：300/4＝1500/20</text><text class="tc" x="420" y="214" text-anchor="start">T<tspan dy="4" font-size="72%">Ne</tspan><tspan dy="-4">&#8203;</tspan>＝300×(20/4)＝1500 K</text><text class="tf" x="420" y="236" text-anchor="start">＝1227°C（別忘了換回攝氏）</text></svg><figcaption>分布曲線只由 T/M 決定：He 300 K 與 Ne 1500 K 的 T/M 相同，所以速率分布一模一樣。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>v<sub>rms</sub> ＝ √(3RT/M) 相同 ⇒ T/M 相同 ⇒ T<sub>Ne</sub> ＝ T<sub>He</sub>×(20/4) ＝ 300×5 ＝ <strong>1500 K</strong>。<br />
+換成攝氏：1500 − 273 ＝ <strong>1227°C</strong>。（答案選項 (E) 就是「忘了把 K 換回攝氏」的陷阱。）<br />
+<strong>為什麼猜這題</strong>：台南一中卷有「不同氣體 v<sub>rms</sub> 比較」，而且喜歡在單位上設陷阱。</p><div class="qsum"><b class="qsum-h">小結</b><p>比較不同氣體的速率：<strong>T∝M（速率相同時）</strong>；注意 K↔°C 的陷阱。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q555">
+<header class="qh"><span class="qn">類題｜模擬 6</span><span class="qtag">單選・不同氣體的速率・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>127°C 的氧氣（莫耳質量 32 g/mol）與某溫度的氖氣（莫耳質量 20 g/mol）具有相同的方均根速率，則氖氣的溫度為何？<br />
+(A) 127°C　(B) 250°C　(C) −23°C　(D) 640°C　(E) 913°C</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) −23°C</div>
+<div class="exp"><b class="exp-h">解</b><p>v<sub>rms</sub> 相同 ⇒ T/M 相同 ⇒ T<sub>Ne</sub> ＝ T<sub>O₂</sub>×(20/32) ＝ 400×0.625 ＝ <strong>250 K</strong>。換成攝氏：250 − 273 ＝ <strong>−23°C</strong>。（(B) 就是「忘了把 K 換成攝氏」的陷阱。）</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">多選題（每題 6 分）</h2>
+
+<article class="q q-pr" id="q556">
+<header class="qh"><span class="qn">模擬 7</span><span class="qtag">多選・氣體動力論基本觀念　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：溫度是分子平均平移動能的量度；氣體壓力來自分子碰撞器壁；理想氣體忽略分子間作用力。</li>
+<li><strong>提醒</strong>：「平均」≠「每個」；溫度倍數要用 K。</li>
+</ul></div></details><div class="qtext"><p>關於理想氣體與氣體動力論，下列敘述哪些正確？（多選）<br />
+(A) 理想氣體分子之間的作用力可以忽略，所以氣體的內能就是分子平移動能的總和<br />
+(B) 同一種理想氣體，溫度升高時，每個分子的速率都會增加<br />
+(C) 分子與固定器壁做彈性碰撞時，分子的動能不變<br />
+(D) 質量 m 的分子，在溫度 T 的氣體中，沿 x 方向速度分量平方的平均值 ⟨v<sub>x</sub>²⟩＝kT/m<br />
+(E) 同溫度下，氦氣與氖氣中每個分子的動能都相同<br />
+(F) 容器中氣體對器壁的壓力，主要來自氣體分子的重量</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 理想氣體忽略分子間作用力，也就沒有分子間位能，內能＝所有分子的動能總和（單原子氣體：U＝(3/2)nRT）。</li>
+<li>(B) ✗ 溫度升高只是<strong>平均</strong>動能增加，個別分子的速率有分布，有的可能反而變慢。</li>
+<li>(C) ○ 器壁固定（質量視為無限大），彈性碰撞後分子速率不變，只有方向改變。</li>
+<li>(D) ○ ½m⟨v<sub>x</sub>²⟩ ＝ ½kT（每個方向分得 ½kT）⇒ ⟨v<sub>x</sub>²⟩ ＝ kT/m。</li>
+<li>(E) ✗ <strong>平均</strong>動能相同，不是每個分子都相同。</li>
+<li>(F) ✗ 壓力來自分子<strong>碰撞器壁</strong>的動量變化，不是重量（氣體分子重量極小）。<br />
+<strong>為什麼猜這題</strong>：動力論的觀念選項固定，(B)(E)「每個分子」是最常見的陷阱。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>動力論選項：每看到「每個分子」「攝氏倍數」「壓力來自重量」就要懷疑。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q557">
+<header class="qh"><span class="qn">類題｜模擬 7</span><span class="qtag">多選・動力論觀念・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>關於理想氣體與氣體動力論，下列敘述哪些正確？（多選）<br />
+(A) 溫度是分子平均平移動能的量度<br />
+(B) 同溫度下，氫氣與氧氣的分子平均平移動能相同<br />
+(C) 同一容器的氣體，所有分子的速率都相同<br />
+(D) 理想氣體分子之間有明顯的吸引力<br />
+(E) 定溫下壓縮氣體，壓力增加是因為分子撞擊器壁更頻繁<br />
+(F) 溫度由 27°C 升到 54°C，分子的方均根速率變為 √2 倍</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ K̄＝(3/2)kT。</li>
+<li>(B) ○ 平均動能只看溫度，與氣體種類無關。</li>
+<li>(C) ✗ 分子速率有分布，各不相同。</li>
+<li>(D) ✗ 理想氣體忽略分子間作用力。</li>
+<li>(E) ○ 定溫 ⇒ 每次碰撞力道不變；體積變小 ⇒ 碰撞頻率增加 ⇒ 壓力上升。</li>
+<li>(F) ✗ 要換成 K：√(327/300) ≈ 1.04 倍，不是 √2。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q558">
+<header class="qh"><span class="qn">模擬 8</span><span class="qtag">多選・碰撞的可能性　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：碰撞可能性的三道檢查：①動量守恆 ②動能不能增加（K<sub>後</sub>≤K<sub>前</sub>）③碰後 A 不能追過 B（v<sub>A</sub>≤v<sub>B</sub>）。</li>
+<li><strong>公式</strong>：彈性碰撞（撞靜止物）v₁'＝(m₁−m₂)v/(m₁＋m₂)，v₂'＝2m₁v/(m₁＋m₂)；完全非彈性共同速度 V＝m₁v/(m₁＋m₂)。</li>
+</ul></div></details><div class="qtext"><p>光滑水平面上，質量 2 kg 的 A 球以 3 m/s 向右運動，與靜止的 1 kg B 球發生<strong>一維</strong>正面碰撞。下列哪些是碰撞後 A、B 速度（向右為正）<strong>可能</strong>出現的結果？<br />
+(A) v<sub>A</sub>＝1 m/s，v<sub>B</sub>＝4 m/s<br />
+(B) v<sub>A</sub>＝2 m/s，v<sub>B</sub>＝2 m/s<br />
+(C) v<sub>A</sub>＝0，v<sub>B</sub>＝6 m/s<br />
+(D) v<sub>A</sub>＝−1 m/s，v<sub>B</sub>＝8 m/s<br />
+(E) v<sub>A</sub>＝1.5 m/s，v<sub>B</sub>＝3 m/s<br />
+(F) v<sub>A</sub>＝2.5 m/s，v<sub>B</sub>＝1 m/s</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 340" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="axis" x1="70" y1="270" x2="400" y2="270"/><line class="axis" x1="211.4" y1="295" x2="211.4" y2="45"/><text class="tm" x="400" y="290" text-anchor="end">v<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tm" x="219.4" y="41" text-anchor="start">v<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tm" x="117.1" y="288" text-anchor="middle">-2</text><text class="tm" x="164.3" y="288" text-anchor="middle">-1</text><text class="tm" x="258.6" y="288" text-anchor="middle">1</text><text class="tm" x="305.7" y="288" text-anchor="middle">2</text><text class="tm" x="352.9" y="288" text-anchor="middle">3</text><text class="tm" x="203.4" y="225" text-anchor="end">2</text><text class="tm" x="203.4" y="175" text-anchor="end">4</text><text class="tm" x="203.4" y="125" text-anchor="end">6</text><text class="tm" x="203.4" y="75" text-anchor="end">8</text><polyline class="curve3 dash" points="352.9,270.0 352.1,258.9 349.8,247.9 345.9,237.2 340.6,226.9 333.9,217.0 325.8,207.7 316.5,199.0 306.1,191.2 294.6,184.2 282.1,178.1 269.0,173.1 255.1,169.1 240.8,166.3 226.2,164.5 211.4,163.9 196.6,164.5 182.0,166.3 167.7,169.1 153.9,173.1 140.7,178.1 128.3,184.2 116.8,191.2 106.3,199.0 97.0,207.7 88.9,217.0 82.2,226.9 76.9,237.2 73.1,247.9 70.8,258.9 70.0,270.0"/><text class="tw" x="74.7" y="237.5" text-anchor="start">動能＝9 J（橢圓）</text><line class="curve2" x1="164.3" y1="70" x2="352.9" y2="270"/><text class="tp" x="227.9" y="85" text-anchor="start">動量守恆 2v<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＋v<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>＝6</text><line class="dim" x1="164.3" y1="295" x2="400" y2="170"/><text class="tm" x="367" y="179.5" text-anchor="start">v<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＝v<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan></text><line class="curve" x1="258.6" y1="170" x2="305.7" y2="220"/><line class="curve" x1="258.6" y1="170.0" x2="305.7" y2="220.0" style="stroke-width:6"/><circle class="fa" cx="258.6" cy="170" r="6"/><text class="tb" x="269.6" y="162" text-anchor="start">A</text><circle class="fa" cx="305.7" cy="220" r="6"/><text class="tb" x="316.7" y="212" text-anchor="start">B</text><circle class="fwo" cx="211.4" cy="120" r="6"/><text class="tb" x="222.4" y="112" text-anchor="start">C</text><circle class="fwo" cx="164.3" cy="70" r="6"/><text class="tb" x="175.3" y="62" text-anchor="start">D</text><circle class="fa" cx="282.1" cy="195" r="6"/><text class="tb" x="293.1" y="187" text-anchor="start">E</text><circle class="fwo" cx="329.3" cy="245" r="6"/><text class="tb" x="340.3" y="237" text-anchor="start">F</text><circle class="fo" cx="352.9" cy="270" r="6"/><text class="tb" x="363.9" y="262" text-anchor="start">初</text><text class="tb" x="415" y="40" text-anchor="start">檢驗三條件：</text><text class="ts" x="415" y="66" text-anchor="start">① 動量守恆（落在紅線上）</text><text class="ts" x="415" y="88" text-anchor="start">② 動能不增加（在橢圓內）</text><text class="ts" x="415" y="110" text-anchor="start">③ v<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan> ≤ v<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>（不穿過）</text><text class="tc" x="415" y="144" text-anchor="start">可能：A、B、E（綠點）</text><text class="tm" x="415" y="166" text-anchor="start">（粗線＝彈性 A 到非彈性 B）</text><text class="tf" x="415" y="198" text-anchor="start">✗ C、D：動能增加</text><text class="tf" x="415" y="220" text-anchor="start">✗ F：v<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＞v<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>，A 會穿過 B</text></svg><figcaption>一維碰撞的所有可能結果：必在動量線上，位於「彈性（橢圓上）」與「完全非彈性（vA＝vB）」兩端點之間。（A 球 2 kg、3 m/s 撞靜止的 B 球 1 kg）</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>三個檢驗：①動量守恆（總動量 6 kg·m/s）；②動能不能增加（≤ 9 J）；③碰後 A 不能追過 B（需 v<sub>A</sub> ≤ v<sub>B</sub>）。</p>
+<table>
+<thead>
+<tr>
+<th>選項</th>
+<th>動量</th>
+<th>總動能</th>
+<th>v<sub>A</sub> ≤ v<sub>B</sub>？</th>
+<th>結論</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(A)</td>
+<td>2＋4＝6 ✓</td>
+<td>1＋8＝9 J（等於初動能，彈性碰撞）</td>
+<td>✓</td>
+<td>○</td>
+</tr>
+<tr>
+<td>(B)</td>
+<td>4＋2＝6 ✓</td>
+<td>4＋2＝6 J</td>
+<td>✓（相等，完全非彈性）</td>
+<td>○</td>
+</tr>
+<tr>
+<td>(C)</td>
+<td>0＋6＝6 ✓</td>
+<td>0＋18＝18 J ＞ 9</td>
+<td></td>
+<td>✗（動能增加）</td>
+</tr>
+<tr>
+<td>(D)</td>
+<td>−2＋8＝6 ✓</td>
+<td>1＋32＝33 J ＞ 9</td>
+<td></td>
+<td>✗（動能增加）</td>
+</tr>
+<tr>
+<td>(E)</td>
+<td>3＋3＝6 ✓</td>
+<td>2.25＋4.5＝6.75 J</td>
+<td>✓</td>
+<td>○（e＝0.5 的非彈性碰撞）</td>
+</tr>
+<tr>
+<td>(F)</td>
+<td>5＋1＝6 ✓</td>
+<td>6.25＋0.5＝6.75 J ≤ 9</td>
+<td>✗（A 比 B 快，會穿過去）</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+<p><strong>為什麼猜這題</strong>：碰撞題的「判斷可能性」是經典陷阱：只檢驗動量守恆是不夠的，還要檢驗能量與相對位置。</p><div class="qsum"><b class="qsum-h">小結</b><p>判斷碰撞結果可不可能：<strong>動量守恆、動能不增加、不能穿過去</strong>，三個條件缺一不可。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q559">
+<header class="qh"><span class="qn">類題｜模擬 8</span><span class="qtag">多選・碰撞可能性・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>光滑水平面上，質量 1 kg 的 A 球以 3 m/s 向右運動，與靜止的 2 kg B 球發生一維正面碰撞。下列哪些是碰撞後 A、B 速度（向右為正）<strong>可能</strong>出現的結果？<br />
+(A) v<sub>A</sub>＝−1 m/s，v<sub>B</sub>＝2 m/s<br />
+(B) v<sub>A</sub>＝1 m/s，v<sub>B</sub>＝1 m/s<br />
+(C) v<sub>A</sub>＝0，v<sub>B</sub>＝1.5 m/s<br />
+(D) v<sub>A</sub>＝2 m/s，v<sub>B</sub>＝0.5 m/s<br />
+(E) v<sub>A</sub>＝−2 m/s，v<sub>B</sub>＝2.5 m/s<br />
+(F) v<sub>A</sub>＝0.5 m/s，v<sub>B</sub>＝1.25 m/s</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(F)</div>
+<div class="exp"><b class="exp-h">解</b><p>總動量 ＝ 1×3 ＝ 3 kg·m/s；初動能 ＝ ½×1×9 ＝ 4.5 J。</p>
+<table>
+<thead>
+<tr>
+<th>選項</th>
+<th>動量</th>
+<th>總動能</th>
+<th>v<sub>A</sub> ≤ v<sub>B</sub>？</th>
+<th>結論</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(A)</td>
+<td>−1＋4＝3 ✓</td>
+<td>0.5＋4＝4.5 J（彈性碰撞）</td>
+<td>✓</td>
+<td>○</td>
+</tr>
+<tr>
+<td>(B)</td>
+<td>1＋2＝3 ✓</td>
+<td>0.5＋1＝1.5 J（完全非彈性）</td>
+<td>✓（相等）</td>
+<td>○</td>
+</tr>
+<tr>
+<td>(C)</td>
+<td>0＋3＝3 ✓</td>
+<td>0＋2.25＝2.25 J</td>
+<td>✓</td>
+<td>○</td>
+</tr>
+<tr>
+<td>(D)</td>
+<td>2＋1＝3 ✓</td>
+<td>2＋0.25＝2.25 J</td>
+<td>✗（A 比 B 快，會穿過去）</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>(E)</td>
+<td>−2＋5＝3 ✓</td>
+<td>2＋6.25＝8.25 J ＞ 4.5</td>
+<td></td>
+<td>✗（動能增加）</td>
+</tr>
+<tr>
+<td>(F)</td>
+<td>0.5＋2.5＝3 ✓</td>
+<td>0.125＋1.5625≈1.69 J</td>
+<td>✓</td>
+<td>○</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q560">
+<header class="qh"><span class="qn">模擬 9</span><span class="qtag">多選・靜力平衡與摩擦觀念　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：靜摩擦力的大小由平衡決定，μ<sub>s</sub>N 只是<strong>最大值</strong>；重心不一定在物體上；平衡時對任一點取力矩都為零。</li>
+<li><strong>公式</strong>：斜面恰要滑動 tanθ＝μ<sub>s</sub>（與質量無關）；動摩擦力 f<sub>k</sub>＝μ<sub>k</sub>N，與接觸面積無關。</li>
+</ul></div></details><div class="qtext"><p>下列關於摩擦力、重心與靜力平衡的敘述，哪些正確？<br />
+(A) 靜摩擦力的大小一定等於 μ<sub>s</sub>N<br />
+(B) 物體的重心不一定位在物體本身上（例如圓環）<br />
+(C) 三個不互相平行的力作用在同一物體上而達成靜力平衡，則三力的作用線必相交於一點<br />
+(D) 物體達成靜力平衡時，對任一點取力矩，合力矩都為零<br />
+(E) 物體靜止在斜面上，若在其上再加放一個物體（接觸面不變），它仍會保持靜止<br />
+(F) 使物體在斜面上恰要滑動的傾角 θ，與物體質量成反比</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)(E)</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 280" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><polygon class="f" points="60,240 250.5,240 250.5,130"/><line class="o" x1="60" y1="240" x2="250.5" y2="130"/><g transform="rotate(-30 148.3 172.9)"><rect class="fb" x="130.3" y="158.9" width="36" height="28" rx="3"/></g><g class="a-force"><line x1="148.3" y1="172.9" x2="148.3" y2="222.9"/><polygon points="148.3,232.9 144.1,222.9 152.5,222.9"/></g><text class="tf" x="156.3" y="238.9" text-anchor="start">mg</text><g class="a-force"><line x1="148.3" y1="172.9" x2="113.6" y2="192.9"/><polygon points="105,197.9 111.5,189.2 115.7,196.5"/></g><text class="tf" x="99.8" y="216.9" text-anchor="end">mg sinθ</text><g class="a-force"><line x1="148.3" y1="172.9" x2="182.9" y2="152.9"/><polygon points="191.6,147.9 185,156.5 180.8,149.2"/></g><text class="tf" x="195" y="139.9" text-anchor="start">f≤μ<tspan dy="4" font-size="72%">s</tspan><tspan dy="-4">&#8203;</tspan>N</text><g class="a-force"><line x1="148.3" y1="172.9" x2="126.3" y2="134.8"/><polygon points="121.3,126.1 129.9,132.7 122.6,136.9"/></g><text class="tf" x="117.3" y="119.2" text-anchor="end">N</text><text class="tm" x="120" y="232" text-anchor="start">θ</text><text class="tb" x="340" y="50" text-anchor="start">恰要滑動（臨界）：</text><text class="ts" x="340" y="80" text-anchor="start">mg sinθ ＝ μ<tspan dy="4" font-size="72%">s</tspan><tspan dy="-4">&#8203;</tspan>mg cosθ</text><text class="tc" x="340" y="104" text-anchor="start">⇒ tanθ ＝ μ<tspan dy="4" font-size="72%">s</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tc" x="340" y="136" text-anchor="start">m 約掉 ⇒ 與質量無關</text><text class="ts" x="340" y="168" text-anchor="start">加放物體：兩邊都乘上總質量，</text><text class="ts" x="340" y="190" text-anchor="start">不等式不變 ⇒ 仍保持靜止</text><text class="tm" x="340" y="226" text-anchor="start">靜摩擦力 f ≠ μ<tspan dy="4" font-size="72%">s</tspan><tspan dy="-4">&#8203;</tspan>N（那只是上限）</text><text class="tm" x="340" y="248" text-anchor="start">靜止時 f＝mg sinθ</text></svg><figcaption>斜面靜止：f＝mg sinθ（由平衡決定），上限 μ<sub>s</sub>N＝μ<sub>s</sub>mg cosθ；臨界角 tanθ＝μ<sub>s</sub>，與質量無關。</figcaption></figure><div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ μ<sub>s</sub>N 是靜摩擦力的<strong>最大值</strong>；一般情況由平衡條件求。</li>
+<li>(B) ○ 圓環的重心在圓心，不在環上。</li>
+<li>(C) ○ 三力平衡必共點（否則力矩不為零）。</li>
+<li>(D) ○ 平衡時合力為零，對任何點的合力矩也必為零（支點隨你選）。</li>
+<li>(E) ○ 斜面上靜止條件是 tanθ ≤ μ<sub>s</sub>，與質量無關；加放物體後 mg sinθ 與 μ<sub>s</sub>mg cosθ 同乘上總質量，不等式不變（假設上面物體與原物體間沒有相對滑動）。</li>
+<li>(F) ✗ 恰要滑動的臨界角 tanθ ＝ μ<sub>s</sub>，與質量<strong>完全無關</strong>。<br />
+<strong>為什麼猜這題</strong>：靜力平衡單元的觀念選項都很固定，多選題是主要出法。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>靜力與摩擦觀念：<strong>μ<sub>s</sub>N 是上限、力矩支點任選、臨界角與質量無關</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q561">
+<header class="qh"><span class="qn">類題｜模擬 9</span><span class="qtag">多選・摩擦與靜力平衡觀念・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列關於摩擦力、重心與靜力平衡的敘述，哪些正確？（多選）<br />
+(A) 靜摩擦力的大小一定等於 μ<sub>s</sub>N<br />
+(B) 物體的重心可以在物體之外<br />
+(C) 物體達成靜力平衡時，對任何一點取力矩，合力矩都為零<br />
+(D) 物體在斜面上恰要滑動時，tanθ＝μ<sub>s</sub><br />
+(E) 摩擦力的方向一定與物體的運動方向相反<br />
+(F) 動摩擦力與接觸面積成正比</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ μ<sub>s</sub>N 是靜摩擦力的<strong>最大值</strong>，一般靜摩擦力由平衡條件決定。</li>
+<li>(B) ○ 例如圓環的重心在圓心，不在環上。</li>
+<li>(C) ○ 平衡時合力為零，因此對任一點的合力矩也為零。</li>
+<li>(D) ○ 臨界時 mg sinθ＝μ<sub>s</sub>mg cosθ ⇒ tanθ＝μ<sub>s</sub>。</li>
+<li>(E) ✗ 摩擦力是與<strong>相對運動（趨勢）</strong>相反；例如貨車加速時，貨物所受靜摩擦力與運動方向相同。</li>
+<li>(F) ✗ 動摩擦力 μ<sub>k</sub>N 與接觸面積無關。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q562">
+<header class="qh"><span class="qn">模擬 10</span><span class="qtag">多選・功與能量觀念　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：保守力作功與路徑無關；位能差與零點選取無關；合力作功為零只保證速率不變。</li>
+<li><strong>公式</strong>：重力位能 U＝mgh；彈簧位能 U＝½kx²；摩擦力是非保守力。</li>
+</ul></div></details><div class="qtext"><p>關於功、位能與力學能守恆，下列敘述哪些正確？（多選）<br />
+(A) 保守力對物體所作的功，與物體運動的路徑無關<br />
+(B) 摩擦力是保守力<br />
+(C) 重力位能的零點可以任意選取，但兩點間的位能差與零點的選取無關<br />
+(D) 物體沿光滑斜面下滑時，斜面對物體的支撐力不作功<br />
+(E) 若物體所受合力對它所作的功為零，則物體的速度一定不變<br />
+(F) 彈簧的彈性位能 U＝½kx²，其中 x 是彈簧的形變量大小（伸長或壓縮皆可）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)(F)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 這就是保守力的定義（作功只和起點、終點有關）。</li>
+<li>(B) ✗ 摩擦力作功與路徑長有關，是非保守力，因此沒有「摩擦位能」。</li>
+<li>(C) ○ 位能零點可自選；真正有物理意義的是位能差，它等於保守力作功的負值。</li>
+<li>(D) ○ 支撐力垂直斜面（垂直位移方向），不作功。</li>
+<li>(E) ✗ 合力作功為零只能保證<strong>速率</strong>不變（動能不變），速度的<strong>方向</strong>可以改變（例如等速圓周運動）。</li>
+<li>(F) ○ x 平方，伸長與壓縮同一形變量位能相同。<br />
+<strong>為什麼猜這題</strong>：功與能量單元的選項設計幾乎固定。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>功與能量選項：<strong>保守力＝路徑無關；摩擦力非保守；W<sub>合</sub>＝0 只代表速率不變</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q563">
+<header class="qh"><span class="qn">類題｜模擬 10</span><span class="qtag">多選・功與能量觀念・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>關於功、位能與力學能守恆，下列敘述哪些正確？（多選）<br />
+(A) 保守力對物體所作的功，與物體運動的路徑無關<br />
+(B) 摩擦力是保守力<br />
+(C) 重力位能的零點可以任意選取，兩點間的位能差與零點無關<br />
+(D) 物體所受合力作功為零，則其速度一定不變<br />
+(E) 物體上升時，重力對物體作負功<br />
+(F) 彈簧位能 U＝½kx²，x 是彈簧的形變量（伸長或壓縮）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)(F)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 保守力的定義。</li>
+<li>(B) ✗ 摩擦力作功與路徑長有關，是非保守力。</li>
+<li>(C) ○ 位能零點可自選，有意義的是位能差。</li>
+<li>(D) ✗ 合力作功為零只保證<strong>速率</strong>不變，方向可以改變（如等速圓周運動）。</li>
+<li>(E) ○ 上升時位移向上、重力向下，作負功。</li>
+<li>(F) ○ x 平方，伸長與壓縮同量位能相同。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q564">
+<header class="qh"><span class="qn">模擬 11</span><span class="qtag">多選・動量守恆與質心　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：系統不受外力 ⇒ 質心速度不變、總動量守恆；衝量＝動量變化。</li>
+<li><strong>公式</strong>：彈性碰撞：動量、動能皆守恆；完全非彈性：動量守恆、動能損失最多；爆炸：動量守恆、動能增加。</li>
+</ul></div></details><div class="qtext"><p>關於動量、衝量與質心，下列敘述哪些正確？（多選）<br />
+(A) 系統不受外力時，系統的質心速度保持不變<br />
+(B) 兩物體發生彈性碰撞時，系統的動量與動能均守恆<br />
+(C) 完全非彈性碰撞後兩物體以相同速度運動，所以碰撞前後系統的動量不守恆<br />
+(D) 質量相等的兩球作一維彈性碰撞，其中一球原本靜止，碰撞後兩球速度互換<br />
+(E) 物體所受衝量的方向與其動量變化的方向相同<br />
+(F) 物體的質心一定位在物體內部</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)(E)</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="axis" x1="40" y1="250" x2="600" y2="250"/><rect class="fb" x="60" y="100" width="70" height="150" rx="2"/><text class="tb" x="95" y="270" text-anchor="middle">碰撞前</text><text class="ts" x="95" y="92" text-anchor="middle">K₀</text><rect class="fg" x="200" y="100" width="70" height="150" rx="2"/><text class="tb" x="235" y="270" text-anchor="middle">彈性碰撞</text><text class="ts" x="235" y="92" text-anchor="middle">K₀（守恆）</text><rect class="fy" x="340" y="175" width="70" height="75" rx="2"/><rect class="fw" x="340" y="100" width="70" height="75" rx="2"/><text class="tf" x="375" y="142.5" text-anchor="middle">損失</text><text class="tb" x="375" y="270" text-anchor="middle">完全非彈性</text><text class="ts" x="375" y="167" text-anchor="middle">最少</text><rect class="fp" x="480" y="100" width="70" height="150" rx="2"/><rect class="fw" x="480" y="10" width="70" height="90" rx="2"/><text class="tf" x="515" y="30" text-anchor="middle">增加</text><text class="tb" x="515" y="270" text-anchor="middle">爆炸</text><text class="ts" x="515" y="2" text-anchor="middle">K ＞ K₀</text><text class="tc" x="310" y="28" text-anchor="middle">動量：四種情形全都守恆（不受外力）</text><text class="tb" x="310" y="52" text-anchor="middle">動能：只有彈性碰撞守恆</text></svg><figcaption>動量守恆只看「有沒有外力」；動能守恆只看「是不是彈性」。完全非彈性＝動量守恆、動能損失最多；爆炸＝動量守恆、動能增加。</figcaption></figure><div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ ΣF<sub>外</sub>＝Ma<sub>CM</sub>＝0 ⇒ 質心速度不變。</li>
+<li>(B) ○ 彈性碰撞的定義：動量與動能都守恆。</li>
+<li>(C) ✗ 完全非彈性碰撞仍然<strong>動量守恆</strong>，只是動能損失最多。</li>
+<li>(D) ○ m₁＝m₂ 時 v₁'＝0、v₂'＝v₁（牛頓擺的原理）。</li>
+<li>(E) ○ J＝ΣF·Δt＝Δp。</li>
+<li>(F) ✗ 質心不一定在物體內部（例如圓環的質心在圓心）。<br />
+<strong>為什麼猜這題</strong>：動量單元的觀念選項，常與計算題搭配出成大題。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>動量選項：<strong>動量只有「不受外力」才守恆，動能只有「彈性」才守恆</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q565">
+<header class="qh"><span class="qn">類題｜模擬 11</span><span class="qtag">多選・動量與碰撞觀念・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>關於動量、衝量與碰撞，下列敘述哪些正確？（多選）<br />
+(A) 系統不受外力時，系統的質心速度保持不變<br />
+(B) 彈性碰撞時，系統的動量與動能均守恆<br />
+(C) 完全非彈性碰撞後兩物體以相同速度運動，所以動量不守恆<br />
+(D) 物體所受衝量的方向與其動量變化的方向相同<br />
+(E) 質量不等的兩球作一維彈性碰撞，其中一球原本靜止，碰撞後兩球速度互換<br />
+(F) 物體爆炸成兩塊後，系統的動量與動能都守恆</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ ΣF<sub>外</sub>＝Ma<sub>CM</sub>＝0 ⇒ 質心速度不變。</li>
+<li>(B) ○ 彈性碰撞的定義。</li>
+<li>(C) ✗ 完全非彈性碰撞<strong>動量仍守恆</strong>，只是動能損失最多。</li>
+<li>(D) ○ J＝Δp。</li>
+<li>(E) ✗ 只有<strong>質量相等</strong>時速度才互換。</li>
+<li>(F) ✗ 爆炸動量守恆，但動能增加（化學能轉成動能）。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">非選擇題（共 46 分）</h2>
+
+<article class="q q-pr" id="q566">
+<header class="qh"><span class="qn">模擬 12</span><span class="qtag">非選・鉛直圓環軌道（12 分）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：鉛直圓環內側的臨界：最高點 <strong>N＝0 ⇒ v<sub>t</sub>²＝gR</strong>。</li>
+<li><strong>公式</strong>：力學能守恆；最低點 N<sub>b</sub>＝mg＋mv<sub>b</sub>²/R；最高點 N<sub>t</sub>＝mv<sub>t</sub>²/R−mg；最低與最高點的正向力差恆為 6mg。</li>
+<li><strong>提醒</strong>：若小球最高只升到不超過圓心的高度，不會脫離軌道。</li>
+</ul></div></details><div class="qtext"><p>質量 m 的小球從光滑斜面上高度 h 處由靜止釋放，滑入底部接著的光滑鉛直圓環軌道（半徑 R，小球在圓環內側運動）。<br />
+(1)（4 分）要使小球能通過圓環最高點、不脫離軌道，h 至少為多少 R？<br />
+(2)（4 分）若 h＝3R，求小球在圓環最低點與最高點對軌道的正向力各為多少（以 mg 表示）？兩者相差多少？<br />
+(3)（4 分）若 h＝2R，小球在離最低點多高處脫離軌道？脫離時速率為何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2.5R　(2) 最低點 7mg、最高點 mg，差 6mg　(3) 高度 5R/3，速率 √(2gR/3)</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 350" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="o" x1="20" y1="225" x2="600" y2="225"/><circle class="o" cx="400" cy="140" r="85" style="fill:none"/><line class="o" x1="60" y1="44.4" x2="360" y2="225"/><circle class="fwo" cx="60" cy="36.4" r="8"/><g class="a-mute"><line x1="36" y1="44.4" x2="36" y2="225"/></g><g class="a-mute"><polygon points="36,44.4 32.8,52.4 39.2,52.4"/></g><g class="a-mute"><polygon points="36,225 39.2,217 32.8,217"/></g><text class="tm" x="28" y="139.7" text-anchor="end">h</text><circle class="fa" cx="400" cy="225" r="5"/><text class="ts" x="412" y="217" text-anchor="start">底點</text><circle class="fwo" cx="400" cy="55" r="5"/><text class="ts" x="412" y="49" text-anchor="start">頂點</text><g class="a-force"><line x1="400" y1="55" x2="400" y2="81"/><polygon points="400,91 395.8,81 404.2,81"/></g><text class="tf" x="390" y="85" text-anchor="end">mg＋N<tspan dy="4" font-size="72%">t</tspan><tspan dy="-4">&#8203;</tspan></text><g class="a-force"><line x1="400" y1="225" x2="400" y2="191"/><polygon points="400,181 404.2,191 395.8,191"/></g><text class="tf" x="390" y="191" text-anchor="end">N<tspan dy="4" font-size="72%">b</tspan><tspan dy="-4">&#8203;</tspan></text><g class="a-mute"><line x1="515" y1="55" x2="515" y2="225"/></g><g class="a-mute"><polygon points="515,55 511.8,63 518.2,63"/></g><g class="a-mute"><polygon points="515,225 518.2,217 511.8,217"/></g><text class="tm" x="525" y="146" text-anchor="start">2R</text><text class="tb" x="20" y="262" text-anchor="start">通過最高點：v<tspan dy="4" font-size="72%">t</tspan><tspan dy="-4">&#8203;</tspan>²≥gR</text><text class="tc" x="20" y="286" text-anchor="start">mgh＝mg·2R＋½m·gR ⇒ h<tspan dy="4" font-size="72%">min</tspan><tspan dy="-4">&#8203;</tspan>＝2.5R</text><text class="ts" x="20" y="310" text-anchor="start">h＝R（不超過圓心高度）⇒ 不會脫離</text><text class="tb" x="330" y="262" text-anchor="start">h＝4R 時：</text><text class="ts" x="330" y="286" text-anchor="start">底 N<tspan dy="4" font-size="72%">b</tspan><tspan dy="-4">&#8203;</tspan>＝9mg；頂 N<tspan dy="4" font-size="72%">t</tspan><tspan dy="-4">&#8203;</tspan>＝3mg</text><text class="tc" x="330" y="310" text-anchor="start">兩者相差 6mg（與 h 無關）</text></svg><figcaption>鉛直圓環內側：頂點臨界 N＝0（v²＝gR）→ h＝2.5R；底、頂正向力的差恆為 6mg；升不過圓心高度就不會脫離軌道。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>(1) 最高點臨界：v<sub>t</sub>² ＝ gR（N＝0）。力學能守恆：mgh ＝ mg(2R) ＋ ½mv<sub>t</sub>² ⇒ h ＝ 2R ＋ R/2 ＝ <strong>2.5R</strong>。</p>
+<p>(2) h＝3R：<br />
+- 最低點速率 v<sub>b</sub>² ＝ 2g(3R) ＝ 6gR：N<sub>b</sub> − mg ＝ mv<sub>b</sub>²/R ＝ 6mg ⇒ <strong>N<sub>b</sub> ＝ 7mg</strong><br />
+- 最高點速率 v<sub>t</sub>² ＝ 2g(3R − 2R) ＝ 2gR：N<sub>t</sub> ＋ mg ＝ mv<sub>t</sub>²/R ＝ 2mg ⇒ <strong>N<sub>t</sub> ＝ mg</strong><br />
+- 差 ＝ <strong>6mg</strong>（這個差值與 h 無關，是定值）。</p>
+<p>(3) h＝2R，會在上半圓脫離。設脫離點與圓心連線和水平線夾角 α（在圓心上方），所在高度 R(1＋sinα)：<br />
+- N＝0：mg sinα ＝ mv²/R<br />
+- 能量：v² ＝ 2g[h − R(1 ＋ sinα)] ＝ 2gR(1 − sinα)<br />
+⇒ gR sinα ＝ 2gR(1 − sinα) ⇒ sinα ＝ 2/3。<br />
+離最低點高度 ＝ R(1 ＋ 2/3) ＝ <strong>5R/3</strong>，速率 v² ＝ gR sinα ＝ 2gR/3 ⇒ <strong>v ＝ √(2gR/3)</strong>。<br />
+<strong>為什麼猜這題</strong>：「鉛直圓＋臨界」是圓周運動的壓軸題型，(3) 的脫離點是進階加分題。</p><div class="qsum"><b class="qsum-h">小結</b><p>鉛直圓：<strong>h<sub>min</sub>＝2.5R；最低與最高點正向力差＝6mg</strong>；高度不超過圓心不會脫離。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q567">
+<header class="qh"><span class="qn">類題｜模擬 12</span><span class="qtag">非選・鉛直圓環簡單版・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>質量 m 的小球從光滑斜面上高度 h 處由靜止釋放，滑入底部接著的光滑鉛直圓環軌道（半徑 R，小球在圓環內側運動）。<br />
+(1) 要使小球能通過圓環最高點、不脫離軌道，h 至少為多少 R？<br />
+(2) 若 h＝4R，求小球在圓環最低點與最高點對軌道的正向力各為多少（以 mg 表示）？兩者相差多少？<br />
+(3) 若 h＝R，小球會不會脫離圓環軌道？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2.5R　(2) 最低點 9mg、最高點 3mg，差 6mg　(3) 不會</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 最高點臨界：v<sub>t</sub>² ＝ gR。能量守恆：mgh ＝ mg(2R) ＋ ½mgR ⇒ <strong>h ＝ 2.5R</strong>。</p>
+<p>(2) h＝4R：</p>
+<ul>
+<li>最低點 v<sub>b</sub>² ＝ 2g(4R) ＝ 8gR：N<sub>b</sub> − mg ＝ 8mg ⇒ <strong>N<sub>b</sub> ＝ 9mg</strong></li>
+<li>最高點 v<sub>t</sub>² ＝ 2g(4R − 2R) ＝ 4gR：N<sub>t</sub> ＋ mg ＝ 4mg ⇒ <strong>N<sub>t</sub> ＝ 3mg</strong></li>
+<li>差 ＝ <strong>6mg</strong>（與 h 無關）。</li>
+</ul>
+<p>(3) h＝R 時，小球在圓環中最多只升到與釋放高度相同的 R（剛好是圓心高度），沒有超過圓心，正向力始終指向圓心方向且 ≥ 0，<strong>不會脫離</strong>，到達 R 高度後速度為 0，再沿軌道滑回。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q568">
+<header class="qh"><span class="qn">模擬 13</span><span class="qtag">非選・碰撞＋摩擦滑行（10 分）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：碰撞用動量守恆；碰後滑行用功能定理或 a＝μ<sub>k</sub>g，距離 d＝v²/(2μ<sub>k</sub>g)。</li>
+<li><strong>公式</strong>：完全非彈性 V＝m₁v/(m₁＋m₂)；彈性碰撞 v₁'＝(m₁−m₂)v/(m₁＋m₂)、v₂'＝2m₁v/(m₁＋m₂)。</li>
+<li><strong>提醒</strong>：滑行距離與初速平方成正比，與質量無關。</li>
+</ul></div></details><div class="qtext"><p>光滑水平面上，質量 2 kg 的 A 以 6 m/s 向右撞擊靜止的 B（質量 1 kg），碰撞後 A、B 進入同一片粗糙水平面（動摩擦係數 μ<sub>k</sub>＝0.40）繼續滑行。<br />
+(1)（4 分）若碰撞為<strong>完全非彈性</strong>（黏在一起），求碰後速度、損失的動能，以及它們在粗糙面上滑行的距離。<br />
+(2)（6 分）若碰撞為<strong>彈性碰撞</strong>，求 A、B 碰後的速度，以及它們各自在粗糙面上滑行的距離。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 4 m/s、損失 12 J、滑行 2 m　(2) v<sub>A</sub>＝2 m/s、v<sub>B</sub>＝8 m/s；A 滑 0.5 m、B 滑 8 m</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="o" x1="20" y1="70" x2="300" y2="70"/><rect class="fw" x="300" y="64" width="180" height="6" rx="1"/><line class="o" x1="480" y1="70" x2="600" y2="70"/><text class="ts" x="390" y="56" text-anchor="middle">粗糙面 μ<tspan dy="4" font-size="72%">k</tspan><tspan dy="-4">&#8203;</tspan>＝0.5</text><rect class="fb" x="60" y="36" width="44" height="34" rx="3"/><text class="ts" x="82" y="59" text-anchor="middle">A 3 kg</text><g class="a-vel"><line x1="60" y1="30" x2="130" y2="30"/><polygon points="140,30 130,34.2 130,25.8"/></g><text class="tv" x="100" y="18" text-anchor="middle">4 m/s</text><rect class="fp" x="200" y="46" width="24" height="24" rx="3"/><text class="tb" x="212" y="64" text-anchor="middle">B</text><text class="tm" x="212" y="38" text-anchor="middle">1 kg</text><text class="ts" x="160" y="156" text-anchor="end">非彈性（共 3 m/s）</text><rect class="fy" x="170" y="130" width="72" height="36" rx="2"/><text class="tc" x="250" y="156" text-anchor="start">0.9 m</text><text class="ts" x="160" y="212" text-anchor="end">彈性 A（2 m/s）</text><rect class="fb" x="170" y="186" width="32" height="36" rx="2"/><text class="tc" x="210" y="212" text-anchor="start">0.4 m</text><text class="ts" x="160" y="268" text-anchor="end">彈性 B（6 m/s）</text><rect class="fp" x="170" y="242" width="288" height="36" rx="2"/><text class="tc" x="466" y="268" text-anchor="start">3.6 m</text><text class="tc" x="310" y="308" text-anchor="middle">d＝v²/(2μ<tspan dy="4" font-size="72%">k</tspan><tspan dy="-4">&#8203;</tspan>g)＝v²/10：與初速平方成正比，與質量無關</text><text class="tb" x="310" y="112" text-anchor="middle">碰撞（動量）→ 滑行（功能定理）</text></svg><figcaption>兩段式：碰撞用動量守恆，滑行用功能定理（或 a＝μ<sub>k</sub>g）。滑行距離只看碰後速率的平方：2 m/s → 0.4 m，6 m/s → 3.6 m。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>(1) 動量守恆：2×6 ＝ 3V ⇒ <strong>V ＝ 4 m/s</strong>。<br />
+動能損失：½×2×36 − ½×3×16 ＝ 36 − 24 ＝ <strong>12 J</strong>。<br />
+滑行：a ＝ μ<sub>k</sub>g ＝ 4 m/s²，d ＝ V²/(2a) ＝ 16/8 ＝ <strong>2 m</strong>。</p>
+<p>(2) 彈性碰撞（撞靜止物）：<br />
+v<sub>A</sub> ＝ (m<sub>A</sub> − m<sub>B</sub>)/(m<sub>A</sub> ＋ m<sub>B</sub>)·6 ＝ (1/3)×6 ＝ <strong>2 m/s</strong>；v<sub>B</sub> ＝ 2m<sub>A</sub>/(m<sub>A</sub> ＋ m<sub>B</sub>)·6 ＝ (4/3)×6 ＝ <strong>8 m/s</strong>。<br />
+（驗證：動量 4＋8＝12 ✓；動能 4＋32＝36 J ✓。）<br />
+滑行距離 d ＝ v²/(2μ<sub>k</sub>g)：A：4/8 ＝ <strong>0.5 m</strong>；B：64/8 ＝ <strong>8 m</strong>。<br />
+（兩者的滑行距離與初速平方成正比，與質量無關。）<br />
+<strong>為什麼猜這題</strong>：「碰撞完再滑行」把動量守恆與功能定理接在一起，是標準的兩段式計算題。</p><div class="qsum"><b class="qsum-h">小結</b><p>碰撞＋滑行兩段式：<strong>碰撞（動量）→ 滑行（d＝v²/2μg）</strong>，兩段不能混用。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q569">
+<header class="qh"><span class="qn">類題｜模擬 13</span><span class="qtag">非選・碰撞與摩擦滑行・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>光滑水平面上，質量 3 kg 的 A 以 4 m/s 向右撞擊靜止的 B（質量 1 kg），碰撞後 A、B 進入同一片粗糙水平面（動摩擦係數 μ<sub>k</sub>＝0.50）繼續滑行。取 g＝10 m/s²。<br />
+(1) 若碰撞為<strong>完全非彈性</strong>（黏在一起），求碰後速度、損失的動能，以及在粗糙面上滑行的距離。<br />
+(2) 若碰撞為<strong>彈性碰撞</strong>，求 A、B 碰後速度，以及各自在粗糙面上滑行的距離。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 3 m/s、損失 6 J、滑行 0.9 m　(2) v<sub>A</sub>＝2 m/s、v<sub>B</sub>＝6 m/s；A 滑 0.4 m、B 滑 3.6 m</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 動量守恆：3×4 ＝ 4V ⇒ <strong>V ＝ 3 m/s</strong>。動能損失：½×3×16 − ½×4×9 ＝ 24 − 18 ＝ <strong>6 J</strong>。滑行：a ＝ μ<sub>k</sub>g ＝ 5 m/s²，d ＝ V²/(2a) ＝ 9/10 ＝ <strong>0.9 m</strong>。</p>
+<p>(2) 彈性碰撞（撞靜止物）：v<sub>A</sub> ＝ (3−1)/(3＋1)×4 ＝ <strong>2 m/s</strong>；v<sub>B</sub> ＝ 2×3/(3＋1)×4 ＝ <strong>6 m/s</strong>。（驗證：動量 6＋6＝12 ✓；動能 6＋18＝24 J ✓。）<br />
+滑行距離 d ＝ v²/(2μ<sub>k</sub>g)：A：4/10 ＝ <strong>0.4 m</strong>；B：36/10 ＝ <strong>3.6 m</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q570">
+<header class="qh"><span class="qn">模擬 14</span><span class="qtag">非選・彈簧彈開＋質心＋彈性碰撞（12 分）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：彈簧彈開：動量守恆（初為 0）m₁v₁＝m₂v₂ ＋ 能量守恆（彈性位能全部變動能）。</li>
+<li><strong>公式</strong>：系統不受外力、初速為 0 ⇒ 質心速度恆為 0；撞牆彈性碰撞速率不變、方向反轉；兩球彈性碰撞「接近速度＝分離速度」。</li>
+</ul></div></details><div class="qtext"><p>光滑水平面上，質量 m₁＝1 kg 與 m₂＝3 kg 的兩物體，中間夾著一個被壓縮的輕彈簧（彈簧與兩物體不相連），並用細線綁住使整個系統靜止，彈簧儲存的彈性位能為 24 J。m₁ 在左、m₂ 在右，m₁ 左方有一堵固定的光滑牆（距離足夠遠）。燒斷細線，彈簧把兩物體彈開。<br />
+(1)（4 分）兩物體離開彈簧時的速率各為多少？<br />
+(2)（2 分）彈開後系統質心的速度為何？<br />
+(3)（6 分）m₁ 向左撞到左牆後以原速率彈回（彈性碰撞），之後追上 m₂ 並與 m₂ 發生一維彈性碰撞。求碰撞後 m₁、m₂ 的速度。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) v₁＝6 m/s（向左）、v₂＝2 m/s（向右）　(2) 0　(3) m₁＝0（停止）、m₂＝4 m/s（向右）</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 350" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><text class="tb" x="60" y="32" text-anchor="start">① 燒斷細線，彈簧彈開</text><line class="o" x1="40" y1="50" x2="40" y2="120"/><line class="hatch" x1="40" y1="50" x2="49" y2="42"/><line class="hatch" x1="40" y1="64" x2="49" y2="56"/><line class="hatch" x1="40" y1="78" x2="49" y2="70"/><line class="hatch" x1="40" y1="92" x2="49" y2="84"/><line class="hatch" x1="40" y1="106" x2="49" y2="98"/><line class="hatch" x1="40" y1="120" x2="49" y2="112"/><line class="o" x1="40" y1="120" x2="590" y2="120"/><rect class="fb" x="180" y="90" width="30" height="30" rx="3"/><text class="ts" x="195" y="110" text-anchor="middle">m₁</text><rect class="fg" x="240" y="78" width="54" height="42" rx="3"/><text class="ts" x="267" y="104" text-anchor="middle">m₂</text><path class="o" d="M210,105 L213.6,105 L216.4,111 L222.2,99 L227.8,111 L233.6,99 L236.4,105 L240,105"/><g class="a-vel"><line x1="195" y1="64" x2="151" y2="64"/><polygon points="141,64 151,59.8 151,68.2"/></g><text class="tv" x="168" y="56" text-anchor="middle">v₁＝6</text><g class="a-vel"><line x1="267" y1="64" x2="275" y2="64"/><polygon points="285,64 275,68.2 275,59.8"/></g><text class="tv" x="276" y="56" text-anchor="middle">v₂＝2</text><text class="tc" x="470" y="100" text-anchor="start">質心速度恆為 0</text><text class="tb" x="60" y="137" text-anchor="start">② m₁ 撞牆，以原速率彈回</text><line class="o" x1="40" y1="155" x2="40" y2="225"/><line class="hatch" x1="40" y1="155" x2="49" y2="147"/><line class="hatch" x1="40" y1="169" x2="49" y2="161"/><line class="hatch" x1="40" y1="183" x2="49" y2="175"/><line class="hatch" x1="40" y1="197" x2="49" y2="189"/><line class="hatch" x1="40" y1="211" x2="49" y2="203"/><line class="hatch" x1="40" y1="225" x2="49" y2="217"/><line class="o" x1="40" y1="225" x2="590" y2="225"/><rect class="fb" x="70" y="195" width="30" height="30" rx="3"/><text class="ts" x="85" y="215" text-anchor="middle">m₁</text><rect class="fg" x="300" y="183" width="54" height="42" rx="3"/><text class="ts" x="327" y="209" text-anchor="middle">m₂</text><g class="a-vel"><line x1="85" y1="169" x2="129" y2="169"/><polygon points="139,169 129,173.2 129,164.8"/></g><text class="tv" x="112" y="161" text-anchor="middle">6</text><g class="a-vel"><line x1="327" y1="169" x2="335" y2="169"/><polygon points="345,169 335,173.2 335,164.8"/></g><text class="tv" x="336" y="161" text-anchor="middle">2</text><text class="tc" x="470" y="205" text-anchor="start">能量 24 J 不變</text><text class="tb" x="60" y="242" text-anchor="start">③ m₁ 追上 m₂，彈性碰撞</text><line class="o" x1="40" y1="260" x2="40" y2="330"/><line class="hatch" x1="40" y1="260" x2="49" y2="252"/><line class="hatch" x1="40" y1="274" x2="49" y2="266"/><line class="hatch" x1="40" y1="288" x2="49" y2="280"/><line class="hatch" x1="40" y1="302" x2="49" y2="294"/><line class="hatch" x1="40" y1="316" x2="49" y2="308"/><line class="hatch" x1="40" y1="330" x2="49" y2="322"/><line class="o" x1="40" y1="330" x2="590" y2="330"/><rect class="fb" x="330" y="300" width="30" height="30" rx="3"/><text class="ts" x="345" y="320" text-anchor="middle">m₁</text><rect class="fg" x="400" y="288" width="54" height="42" rx="3"/><text class="ts" x="427" y="314" text-anchor="middle">m₂</text><g class="a-vel"><line x1="345" y1="274" x2="345" y2="274"/><polygon points="345,274 345,274 345,274"/></g><text class="tv" x="345" y="266" text-anchor="middle">0</text><g class="a-vel"><line x1="427" y1="274" x2="453" y2="274"/><polygon points="463,274 453,278.2 453,269.8"/></g><text class="tv" x="445" y="266" text-anchor="middle">4</text><text class="tc" x="470" y="310" text-anchor="start">24 J 全在 m₂ 上</text><text class="ts" x="470" y="36" text-anchor="start">m₁＝1 kg，m₂＝3 kg</text></svg><figcaption>① 動量守恆＋能量守恆（24 J）求速率；② 撞牆原速率反彈；③ 彈性碰撞：動量守恆＋「接近速度＝分離速度」。最後 24 J 全部在 m₂ 上（½×3×4²）：碰後 m₁ 停止、m₂ 以 4 m/s 前進。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>(1) 動量守恆（初為 0）：m₁v₁ ＝ m₂v₂ ⇒ v₁ ＝ 3v₂。能量守恆：24 ＝ ½(1)v₁² ＋ ½(3)v₂² ＝ ½(9v₂²) ＋ 1.5v₂² ＝ 6v₂² ⇒ v₂ ＝ <strong>2 m/s</strong>（向右）、v₁ ＝ <strong>6 m/s</strong>（向左）。</p>
+<p>(2) 系統不受外力、初速為 0，質心速度恆為 <strong>0</strong>。（檢驗：(1×(−6) ＋ 3×2)/4 ＝ 0 ✓。）</p>
+<p>(3) m₁ 撞牆彈回後速度 ＋6 m/s（向右），m₂ 仍為 ＋2 m/s。兩者一維彈性碰撞（接近速度 4 m/s）：<br />
+動量：1×6 ＋ 3×2 ＝ 12 ＝ m₁v₁' ＋ 3v₂'<br />
+彈性碰撞（接近速度＝分離速度）：6 − 2 ＝ v₂' − v₁' ⇒ v₂' ＝ v₁' ＋ 4<br />
+代入：v₁' ＋ 3(v₁' ＋ 4) ＝ 12 ⇒ 4v₁' ＝ 0 ⇒ <strong>v₁' ＝ 0</strong>、<strong>v₂' ＝ 4 m/s</strong>。<br />
+（檢驗動能：碰撞前 ½(1)(36) ＋ ½(3)(4) ＝ 18 ＋ 6 ＝ 24 J；碰撞後 ½(3)(16) ＝ 24 J ✓，與彈簧原先儲存的能量相同——因為整個過程沒有能量損失。）<br />
+<strong>為什麼猜這題</strong>：「彈簧彈開→質心不動→碰撞」把動量、能量、碰撞三個單元串成一題，是大題的標準骨架。</p><div class="qsum"><b class="qsum-h">小結</b><p>彈開＋碰撞串題：<strong>動量守恆定速度比 → 能量守恆定速度大小 → 彈性碰撞用「動量＋接近速度＝分離速度」</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q571">
+<header class="qh"><span class="qn">類題｜模擬 14</span><span class="qtag">非選・彈簧彈開與碰撞・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>光滑水平面上，質量 m₁＝1 kg 與 m₂＝2 kg 的兩物體，中間夾著一個被壓縮的輕彈簧（不相連），並用細線綁住使系統靜止，彈簧儲存的彈性位能為 27 J。m₁ 在左、m₂ 在右，m₁ 左方有一堵固定的光滑牆（距離足夠遠）。燒斷細線。<br />
+(1) 兩物體離開彈簧時的速率各為多少？<br />
+(2) 彈開後系統質心的速度為何？<br />
+(3) m₁ 撞牆後以原速率彈回，追上 m₂ 並與 m₂ 發生一維彈性碰撞，求碰撞後 m₁、m₂ 的速度。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) v₁＝6 m/s（向左）、v₂＝3 m/s（向右）　(2) 0　(3) m₁＝2 m/s、m₂＝5 m/s（皆向右）</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 動量守恆：m₁v₁ ＝ m₂v₂ ⇒ v₁ ＝ 2v₂。能量：27 ＝ ½(1)(2v₂)² ＋ ½(2)v₂² ＝ 2v₂² ＋ v₂² ＝ 3v₂² ⇒ v₂ ＝ <strong>3 m/s</strong>（右）、v₁ ＝ <strong>6 m/s</strong>（左）。</p>
+<p>(2) 系統不受外力、初速為 0 ⇒ 質心速度恆為 <strong>0</strong>（檢驗：(1×(−6)＋2×3)/3 ＝ 0 ✓）。</p>
+<p>(3) m₁ 撞牆後速度 ＋6 m/s（向右），m₂ 仍為 ＋3 m/s。彈性碰撞：<br />
+動量：1×6 ＋ 2×3 ＝ 12 ＝ v₁' ＋ 2v₂'；接近速度＝分離速度：6 − 3 ＝ v₂' − v₁' ⇒ v₂' ＝ v₁' ＋ 3。<br />
+代入：v₁' ＋ 2(v₁' ＋ 3) ＝ 12 ⇒ 3v₁' ＝ 6 ⇒ <strong>v₁' ＝ 2 m/s</strong>、<strong>v₂' ＝ 5 m/s</strong>。<br />
+（檢驗動能：½×1×4 ＋ ½×2×25 ＝ 2 ＋ 25 ＝ 27 J ✓，與彈簧原先的位能相同。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q572">
+<header class="qh"><span class="qn">模擬 15</span><span class="qtag">非選・兩室氣體（12 分）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：可自由滑動的活塞 ⇒ 兩室末態<strong>壓力相等</strong>；兩室體積和固定（V<sub>A</sub>＋V<sub>B</sub>＝2V）。</li>
+<li><strong>公式</strong>：各室 PV＝nRT；單原子 U＝(3/2)nRT；v<sub>rms</sub>∝√T。</li>
+<li><strong>提醒</strong>：B 室溫度不變 ⇒ 等溫壓縮；n、R 相同時 P₀V＝nRT₀。</li>
+</ul></div></details><div class="qtext"><p>絕熱剛性圓筒被一片可無摩擦滑動、<strong>導熱不良</strong>的活塞隔成 A、B 兩室，各裝有 n 莫耳同種單原子理想氣體，起初溫度均為 T₀、壓力均為 P₀、體積各為 V（總體積 2V）。現用加熱器緩慢把 A 室加熱到 3T₀，而 B 室被放入恆溫槽維持在 T₀。<br />
+(1)（4 分）末態時兩室壓力為何？<br />
+(2)（4 分）末態 A、B 兩室的體積各為何？<br />
+(3)（2 分）B 室分子的方均根速率變化如何？A 室呢？<br />
+(4)（2 分）A 室內能增加多少？（以 P₀V 表示）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2P₀　(2) V<sub>A</sub>＝1.5V、V<sub>B</sub>＝0.5V　(3) B 不變；A 變為 √3 倍　(4) 3P₀V</div>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><text class="tb" x="310" y="38" text-anchor="middle">起初：A、B 各 n mol，P₀、T₀、V</text><rect class="f" x="60" y="50" width="500" height="70" rx="4"/><line class="o" x1="310" y1="50" x2="310" y2="120"/><rect class="fy" x="306" y="50" width="8" height="70"/><rect class="fb" x="62" y="52" width="244" height="66" rx="0"/><rect class="fb" x="314" y="52" width="242" height="66" rx="0"/><text class="ts" x="185" y="80" text-anchor="middle">P₀　T₀　V</text><text class="tm" x="185" y="102" text-anchor="middle">A 室</text><text class="ts" x="435" y="80" text-anchor="middle">P₀　T₀　V</text><text class="tm" x="435" y="102" text-anchor="middle">B 室</text><text class="tb" x="310" y="158" text-anchor="middle">末態：A 加熱到 2T₀，B 維持 T₀；活塞自由 ⇒ 壓力相等</text><rect class="f" x="60" y="170" width="500" height="70" rx="4"/><line class="o" x1="393.3" y1="170" x2="393.3" y2="240"/><rect class="fy" x="389.3333333333333" y="170" width="8" height="70"/><rect class="fw" x="62" y="172" width="327.3" height="66" rx="0"/><rect class="fb" x="397.3" y="172" width="158.7" height="66" rx="0"/><text class="ts" x="226.7" y="200" text-anchor="middle">P＝1.5P₀　2T₀　V<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＝4V/3</text><text class="tm" x="226.7" y="222" text-anchor="middle">A 室</text><text class="ts" x="476.7" y="200" text-anchor="middle">P　T₀　V<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>＝2V/3</text><text class="tm" x="476.7" y="222" text-anchor="middle">B 室</text><text class="tc" x="310" y="272" text-anchor="middle">PV<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＝nR·2T₀，PV<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>＝nRT₀，V<tspan dy="4" font-size="72%">A</tspan><tspan dy="-4">&#8203;</tspan>＋V<tspan dy="4" font-size="72%">B</tspan><tspan dy="-4">&#8203;</tspan>＝2V ⇒ P·2V＝3P₀V ⇒ P＝1.5P₀</text><text class="ts" x="310" y="294" text-anchor="middle">A 室 ΔU＝(3/2)nR(2T₀−T₀)＝1.5P₀V；B 室溫度不變、v<tspan dy="4" font-size="72%">rms</tspan><tspan dy="-4">&#8203;</tspan> 不變；A 室 v<tspan dy="4" font-size="72%">rms</tspan><tspan dy="-4">&#8203;</tspan>×√2</text></svg><figcaption>可滑動活塞 ⇒ 兩室壓力相等；兩室體積和固定；各室各列 PV＝nRT。三個條件解出 P、V<sub>A</sub>、V<sub>B</sub>。</figcaption></figure><div class="exp"><b class="exp-h">解</b><p>(1)(2) 活塞可自由滑動 ⇒ 兩室末態壓力相等，設為 P。<br />
+- A：PV<sub>A</sub> ＝ nR(3T₀)<br />
+- B：PV<sub>B</sub> ＝ nR(T₀)（B 溫度不變，等溫壓縮）<br />
+- 又 V<sub>A</sub> ＋ V<sub>B</sub> ＝ 2V。<br />
+相加：P·2V ＝ 4nRT₀ ＝ 4P₀V（因 P₀V＝nRT₀）⇒ <strong>P ＝ 2P₀</strong>。<br />
+V<sub>A</sub> ＝ 3nRT₀/P ＝ 3P₀V/(2P₀) ＝ <strong>1.5V</strong>，V<sub>B</sub> ＝ <strong>0.5V</strong>。（B 被壓縮到 1/2，壓力因此 ×2，符合波以耳定律 P₀V＝P·0.5V ✓。）</p>
+<p>(3) B 室溫度不變 ⇒ v<sub>rms</sub> <strong>不變</strong>；A 室溫度 ×3 ⇒ v<sub>rms</sub> ×<strong>√3</strong>。</p>
+<p>(4) A 室 ΔU ＝ (3/2)nR(3T₀ − T₀) ＝ 3nRT₀ ＝ <strong>3P₀V</strong>。<br />
+<strong>為什麼猜這題</strong>：「可動活塞兩室」是氣體定律的經典綜合題，要同時掌握壓力相等、各室方程式、總體積約束三件事。</p><div class="qsum"><b class="qsum-h">小結</b><p>兩室氣體題：<strong>壓力相等＋各室方程式＋總體積約束</strong>，三個條件解出 P、V<sub>A</sub>、V<sub>B</sub>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q573">
+<header class="qh"><span class="qn">類題｜模擬 15</span><span class="qtag">非選・兩室氣體簡單版・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>絕熱剛性圓筒被一片可無摩擦滑動、導熱不良的活塞隔成 A、B 兩室，各裝有 n 莫耳同種單原子理想氣體，起初溫度均為 T₀、壓力均為 P₀、體積各為 V（總體積 2V）。現把 A 室加熱到 2T₀，B 室放入恆溫槽維持在 T₀。<br />
+(1) 末態兩室的壓力為何？<br />
+(2) 末態 A、B 兩室的體積各為何？<br />
+(3) B 室與 A 室分子的方均根速率各如何變化？<br />
+(4) A 室內能增加多少？（以 P₀V 表示）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 1.5P₀　(2) V<sub>A</sub>＝4V/3、V<sub>B</sub>＝2V/3　(3) B 不變、A 變為 √2 倍　(4) 1.5P₀V</div>
+<div class="exp"><b class="exp-h">解</b><p>(1)(2) 末態壓力相等為 P：PV<sub>A</sub> ＝ nR(2T₀)，PV<sub>B</sub> ＝ nRT₀，V<sub>A</sub>＋V<sub>B</sub> ＝ 2V。<br />
+相加：P·2V ＝ 3nRT₀ ＝ 3P₀V ⇒ <strong>P ＝ 1.5P₀</strong>。V<sub>A</sub> ＝ 2nRT₀/P ＝ 2P₀V/(1.5P₀) ＝ <strong>4V/3</strong>；V<sub>B</sub> ＝ <strong>2V/3</strong>。</p>
+<p>(3) B 室溫度不變 ⇒ v<sub>rms</sub> <strong>不變</strong>；A 室溫度 ×2 ⇒ v<sub>rms</sub> ×<strong>√2</strong>。</p>
+<p>(4) A 室 ΔU ＝ (3/2)nR(2T₀ − T₀) ＝ 1.5nRT₀ ＝ <strong>1.5P₀V</strong>。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復3.html">← 復3 熱學難題精選：氣體定律・動力論・（延伸）熱量</a><a href="u復5.html">復5 力學一延伸模擬卷：牛頓・圓周・簡諧・萬有引力 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+
+/* 動畫解框架：SIMS[name] = {w,h,dur,build(svg,p,H)->update(t), note(t,p)->文字} */
+(function(){
+var NS="http://www.w3.org/2000/svg";
+function E(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in (attrs||{}))e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function setText(t,s){
+  while(t.firstChild)t.removeChild(t.firstChild);
+  var re=/([_^])\{([^{}]*)\}/g,last=0,m;
+  s=String(s);
+  function add(txt,attrs){var sp=E('tspan',attrs||{},t);sp.textContent=txt;}
+  while((m=re.exec(s))){
+    if(m.index>last)add(s.slice(last,m.index));
+    if(m[1]==='_'){add(m[2],{dy:4,'font-size':'72%'});add('​',{dy:-4});}
+    else{add(m[2],{dy:-6,'font-size':'72%'});add('​',{dy:6});}
+    last=re.lastIndex;
+  }
+  if(last<s.length)add(s.slice(last));
+}
+function T(parent,x,y,s,cls,anchor){var t=E('text',{x:x,y:y,'text-anchor':anchor||'middle','class':cls||'t'},parent);setText(t,s);return t;}
+function Arrow(parent,cls,head){
+  head=head||10;
+  var g=E('g',{'class':'a-'+cls},parent),ln=E('line',{},g),pg=E('polygon',{},g);
+  return {g:g,set:function(x1,y1,x2,y2){
+    var dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);
+    if(L<2){g.style.display='none';return;}
+    g.style.display='';
+    var ux=dx/L,uy=dy/L,h=Math.min(head,L*0.6),bx=x2-ux*h,by=y2-uy*h,px=-uy*h*0.42,py=ux*h*0.42;
+    ln.setAttribute('x1',x1);ln.setAttribute('y1',y1);ln.setAttribute('x2',bx);ln.setAttribute('y2',by);
+    pg.setAttribute('points',x2+','+y2+' '+(bx+px)+','+(by+py)+' '+(bx-px)+','+(by-py));
+  }};
+}
+function spring(n,amp,lead){
+  return function(x1,y1,x2,y2){
+    var dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,px=-uy,py=ux,s0=L*(lead||0.12),body=L-2*s0,pts=[[x1,y1],[x1+ux*s0,y1+uy*s0]];
+    for(var i=0;i<n;i++){var t0=s0+body*(i+0.5)/n,sg=i%2?-1:1;pts.push([x1+ux*t0+px*amp*sg,y1+uy*t0+py*amp*sg]);}
+    pts.push([x2-ux*s0,y2-uy*s0]);pts.push([x2,y2]);
+    return 'M'+pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' L');
+  };
+}
+function ground(svg,x1,x2,y){
+  E('line',{'class':'o',x1:x1,y1:y,x2:x2,y2:y},svg);
+  var n=Math.floor((x2-x1)/14);
+  for(var i=0;i<=n;i++){var x=x1+(x2-x1)*i/n;E('line',{'class':'hatch',x1:x,y1:y,x2:x-8,y2:y+9},svg);}
+}
+var H={E:E,T:T,setText:setText,Arrow:Arrow,spring:spring,ground:ground};
+window.SIMS=window.SIMS||{};
+window.SIMH=H;
+
+function init(){
+  var els=document.querySelectorAll('.sim');
+  [].forEach.call(els,function(el){
+    var def=window.SIMS[el.dataset.sim];
+    if(!def||el.dataset.ready)return;
+    el.dataset.ready='1';
+    var p={};try{p=JSON.parse(el.dataset.p||'{}');}catch(e){}
+    var W=def.w||560,Hh=def.h||300;
+    el.innerHTML='<svg class="simsvg" viewBox="0 0 '+W+' '+Hh+'" xmlns="'+NS+'" style="display:block;width:100%;height:auto"></svg>'+
+      '<div class="simnote"></div>'+
+      '<div class="simctl"><button type="button" class="sp">▶ 播放</button><button type="button" class="sr">↺ 回到開頭</button>'+
+      '<input type="range" min="0" max="1000" value="0" aria-label="時間軸"><span class="stime"></span></div>';
+    var svg=el.querySelector('svg'),note=el.querySelector('.simnote'),sp=el.querySelector('.sp'),sr=el.querySelector('.sr'),rg=el.querySelector('input'),st=el.querySelector('.stime');
+    var dur=(typeof def.dur==='function'?def.dur(p):def.dur)||6;
+    var upd=def.build(svg,p,H);
+    var t=0,playing=false,last=0,raf=0;
+    function draw(){
+      upd(t);
+      rg.value=Math.round(t/dur*1000);
+      st.textContent='t = '+t.toFixed(2)+' s';
+      if(def.note)note.innerHTML=def.note(t,p)||'';
+    }
+    function frame(){
+      if(!playing)return;
+      var now=performance.now();
+      t+=(now-last)/1000;last=now;
+      if(t>=dur){t=dur;playing=false;clearInterval(raf);sp.textContent='↺ 重播';draw();return;}
+      draw();
+    }
+    function play(){
+      if(t>=dur)t=0;
+      playing=true;sp.textContent='⏸ 暫停';last=performance.now();clearInterval(raf);raf=setInterval(frame,33);
+    }
+    function pause(){playing=false;sp.textContent='▶ 播放';clearInterval(raf);}
+    sp.onclick=function(){playing?pause():play();};
+    sr.onclick=function(){pause();t=0;draw();};
+    rg.oninput=function(){pause();t=rg.value/1000*dur;draw();};
+    draw();
+  });
+}
+window.initSims=init;
+})();
+
+/* 動畫解：各題的模擬定義（依賴 sims.js 的 SIMH 與 SIMS） */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,Arrow=H.Arrow,S=window.SIMS;
+function f2(x){return (Math.round(x*100)/100).toFixed(2);}
+function f1(x){return (Math.round(x*10)/10).toFixed(1);}
+function path(parent,cls){return E('path',{'class':cls,d:''},parent);}
+function poly(parent,cls){return E('polyline',{'class':cls,points:''},parent);}
+
+/* ---------- 復1-2：長木板上的木塊（板塊） ---------- */
+S.board={w:560,h:235,
+  dur:function(p){var f=p.uk*p.m*10,a1=(p.F-f)/p.m,a2=f/p.M;return Math.sqrt(2*p.L/(a1-a2))+0.12;},
+  build:function(svg,p){
+    var f=p.uk*p.m*10,a1=(p.F-f)/p.m,a2=f/p.M,tend=Math.sqrt(2*p.L/(a1-a2)),K=150,x0=30,gy=175;
+    H.ground(svg,16,544,gy);
+    var board=E('g',{},svg);
+    E('rect',{'class':'fg',x:x0,y:gy-24,width:p.L*K,height:24,rx:3},board);
+    T(board,x0+60,gy-7,'M＝'+p.M+' kg','t');
+    var blk=E('g',{},svg);
+    E('rect',{'class':'fb',x:-13,y:-26,width:26,height:26,rx:3},blk);
+    T(blk,0,-9,'m','t');
+    var aF=Arrow(svg,'force'),aFk=Arrow(svg,'force'),aFb=Arrow(svg,'force');
+    var lF=T(svg,0,0,'F','tf'),lf1=T(svg,0,0,'f','tf'),lf2=T(svg,0,0,'f','tf');
+    T(svg,x0,gy+30,'起點','tm');
+    E('line',{'class':'dim',x1:x0+p.L*K,y1:gy-70,x2:x0+p.L*K,y2:gy},svg);
+    T(svg,x0+p.L*K,gy-76,'木板右端（相對位移 L＝'+p.L+' m 時離開）','ts','start').setAttribute('text-anchor','middle');
+    return function(t){
+      var s1=0.5*a1*t*t,s2=0.5*a2*t*t,on=t<tend,fall=0;
+      if(!on){var tt=t-tend;fall=0.5*10*tt*tt;}
+      var bxp=x0+s2*K, kx=x0+s1*K, ky=gy-24+fall*K;
+      board.setAttribute('transform','translate('+(s2*K)+',0)');
+      blk.setAttribute('transform','translate('+kx+','+ky+')');
+      var cy=ky-13;
+      aF.set(kx+14,cy,kx+84,cy);lF.setAttribute('x',kx+98);lF.setAttribute('y',cy+5);
+      if(on){aFk.set(kx-14,ky-6,kx-44,ky-6);lf1.setAttribute('x',kx-58);lf1.setAttribute('y',ky-1);
+        var bc=bxp+p.L*K*0.72;aFb.set(bc,gy-34,bc+34,gy-34);lf2.setAttribute('x',bc+48);lf2.setAttribute('y',gy-29);
+        lf1.style.display='';lf2.style.display='';}
+      else{aFk.set(0,0,0,0);aFb.set(0,0,0,0);lf1.style.display='none';lf2.style.display='none';}
+    };
+  },
+  note:function(t,p){
+    var f=p.uk*p.m*10,a1=(p.F-f)/p.m,a2=f/p.M,tend=Math.sqrt(2*p.L/(a1-a2));
+    var tt=Math.min(t,tend);
+    var s='t＝'+f2(t)+' s：木塊速度 '+f1(a1*tt)+' m/s（a₁＝'+a1+' m/s²），木板速度 '+f2(a2*tt)+' m/s（a₂＝'+a2+' m/s²）';
+    s+='<br>相對位移 '+f2(0.5*(a1-a2)*tt*tt)+' / '+p.L+' m';
+    if(t>=tend)s+=' ⇒ <b>木塊已離開木板</b>（t＝'+f2(tend)+' s）';
+    return s;
+  }};
+
+/* ---------- 復1-6：光滑半球脫離 ---------- */
+S.hemisphere={w:560,h:292,
+  _pre:null,
+  _calc:function(p){
+    if(this._c)return this._c;
+    var R=p.R,g=10,th=0.15,v2=2*g*R*(1-Math.cos(th)),dt=0.0005,t=0,arr=[[0,th]];
+    var thc=Math.acos(2/3);
+    while(th<thc){var w=Math.sqrt(Math.max(2*g*(1-Math.cos(th))/R,0));th+=w*dt;t+=dt;arr.push([t,th]);if(t>5)break;}
+    var tl=t,v=Math.sqrt(2*g*R/3),vx=v*Math.cos(thc),vd=v*Math.sin(thc),h0=R*Math.cos(thc);
+    var tf=(-vd+Math.sqrt(vd*vd+4*5*h0))/(2*5);
+    return (this._c={arr:arr,tl:tl,tf:tf,thc:thc,vx:vx,vd:vd,h0:h0,x0:R*Math.sin(thc),R:R});
+  },
+  dur:function(p){var c=S.hemisphere._calc(p);return 2*(c.tl+c.tf);},
+  build:function(svg,p){
+    var c=S.hemisphere._calc(p),K=150,cx=170,gy=262,SL=2;
+    H.ground(svg,20,540,gy);
+    E('path',{'class':'fg',d:'M'+(cx-K)+','+gy+' A'+K+','+K+' 0 0 1 '+(cx+K)+','+gy+' Z'},svg);
+    T(svg,cx,gy-30,'光滑半球','tm');
+    var trail=poly(svg,'curve2 dash'),ball=E('circle',{'class':'fwo',r:8},svg);
+    var aN=Arrow(svg,'force'),aG=Arrow(svg,'force');
+    var lN=T(svg,0,0,'N','tf'),lG=T(svg,0,0,'mg','tf');
+    var ang=E('path',{'class':'o',d:''},svg);
+    var tlab=T(svg,cx+K+12,gy-60,'','tm','start');
+    return function(t){
+      var tp=t/SL,x,y,th,N=0,pts='';
+      function pos(tp){
+        if(tp<=c.tl){
+          var a=c.arr,i=Math.min(a.length-1,Math.floor(tp/0.0005));th=a[i][1];
+          return [c.R*Math.sin(th),c.R*Math.cos(th),th];
+        }
+        var tau=Math.min(tp-c.tl,c.tf);
+        return [c.x0+c.vx*tau,c.h0-c.vd*tau-5*tau*tau,null];
+      }
+      var q=pos(tp);th=q[2];x=cx+q[0]*K;y=gy-q[1]*K;
+      ball.setAttribute('cx',x);ball.setAttribute('cy',y);
+      // 軌跡
+      var n=60,st=0;
+      for(var i=0;i<=n;i++){var u=tp*i/n,r=pos(u);pts+=(cx+r[0]*K)+','+(gy-r[1]*K)+' ';}
+      trail.setAttribute('points',pts);
+      aG.set(x,y,x,y+56);lG.setAttribute('x',x+16);lG.setAttribute('y',y+62);
+      if(th!==null){
+        N=3*Math.cos(th)-2;if(N<0)N=0;
+        var ux=Math.sin(th),uy=-Math.cos(th);
+        aN.set(x,y,x+ux*60*N,y+uy*60*N);
+        lN.setAttribute('x',x+ux*(60*N+14));lN.setAttribute('y',y+uy*(60*N+14)+5);
+        lN.style.display=N>0.02?'':'none';
+        var r0=70,a0=Math.PI/2,a1=Math.PI/2-th;
+        ang.setAttribute('d','M'+cx+','+(gy-K-0)+' L'+cx+','+gy);
+      }else{aN.set(0,0,0,0);lN.style.display='none';}
+      ang.setAttribute('d',th!==null?'M'+cx+','+gy+' L'+x+','+y:'');
+    };
+  },
+  note:function(t,p){
+    var c=S.hemisphere._calc(p),tp=t/2;
+    if(tp<=c.tl){
+      var a=c.arr,i=Math.min(a.length-1,Math.floor(tp/0.0005)),th=a[i][1],N=3*Math.cos(th)-2;
+      return 'θ＝'+f1(th*180/Math.PI)+'°，N＝mg(3cosθ − 2)＝<b>'+f2(Math.max(N,0))+' mg</b>'+(N<0.02?'　← 剛好 N＝0，離開球面（cosθ＝2/3，θ≈48.2°）':'');
+    }
+    var tau=Math.min(tp-c.tl,c.tf),vx=c.vx,vy=c.vd+10*tau;
+    return '已離開球面，做拋體運動；速率 '+f2(Math.sqrt(vx*vx+vy*vy))+' m/s'+(tau>=c.tf?'（落地速率 √(2gR)＝4.47 m/s）':'');
+  }};
+
+/* ---------- 復1-7：彈簧托盤上的物塊 ---------- */
+S.tray={w:560,h:300,dur:function(p){var w=Math.sqrt(p.k/(p.M+p.m));return 2*2*(2*Math.PI/w);},
+  build:function(svg,p){
+    var w=Math.sqrt(p.k/(p.M+p.m)),Tp=2*Math.PI/w,g=10,A=p.A,K=600,cx=130,SL=2;
+    E('line',{'class':'o',x1:60,y1:24,x2:200,y2:24},svg);
+    for(var i=0;i<=10;i++)E('line',{'class':'hatch',x1:60+i*14,y1:24,x2:60+i*14+8,y2:15},svg);
+    var sp=path(svg,'o'),spr=H.spring(8,9,0.1);
+    var tray=E('rect',{'class':'fg',x:cx-55,y:0,width:110,height:14,rx:3},svg);
+    var blk=E('rect',{'class':'fb',x:cx-20,y:0,width:40,height:40,rx:3},svg);
+    var tb=T(svg,cx,0,'m','t');
+    E('line',{'class':'dim',x1:60,y1:210,x2:210,y2:210},svg);
+    T(svg,215,214,'平衡位置','tm','start');
+    var aN=Arrow(svg,'force'),aG=Arrow(svg,'force');
+    var lN=T(svg,0,0,'N','tf'),lG=T(svg,0,0,'mg','tf');
+    // 右圖：N–t
+    var ox=330,oy=262,W=210,top=90;
+    E('line',{'class':'axis',x1:ox,y1:oy,x2:ox+W,y2:oy},svg);E('line',{'class':'axis',x1:ox,y1:oy,x2:ox,y2:top-20},svg);
+    T(svg,ox+W,oy+20,'t','tm','end');T(svg,ox+4,top-26,'N（牛頓）','tm','start');
+    var Nmax=p.m*(g+w*w*A)*1.1;
+    function X(tp){return ox+tp/(2*Tp)*W;}
+    function Y(N){return oy-N/Nmax*(oy-top);}
+    var pts='';for(var j=0;j<=120;j++){var tp=2*Tp*j/120;pts+=X(tp)+','+Y(p.m*(g+w*w*A*Math.cos(w*tp)))+' ';}
+    E('polyline',{'class':'curve',points:pts},svg);
+    E('line',{'class':'dim',x1:ox,y1:Y(p.m*g),x2:ox+W,y2:Y(p.m*g)},svg);
+    T(svg,ox+W,Y(p.m*g)-6,'mg＝'+f1(p.m*g)+' N','tm','end');
+    var dot=E('circle',{'class':'fwo',r:6},svg);
+    var guide=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg);
+    return function(t){
+      var tp=t/SL,y=-A*Math.cos(w*tp),N=p.m*(g-w*w*y);
+      var ty=180-y*K;
+      sp.setAttribute('d',spr(cx,24,cx,ty));
+      tray.setAttribute('y',ty);blk.setAttribute('y',ty-40);tb.setAttribute('x',cx);tb.setAttribute('y',ty-14);
+      var bcy=ty-20;
+      aG.set(cx+30,bcy,cx+30,bcy+p.m*g*6);lG.setAttribute('x',cx+46);lG.setAttribute('y',bcy+10);
+      aN.set(cx-30,bcy,cx-30,bcy-Math.max(N,0)*6);lN.setAttribute('x',cx-54);lN.setAttribute('y',bcy-Math.max(N,0)*6-4);
+      lN.style.display=N>0.05?'':'none';
+      dot.setAttribute('cx',X(tp));dot.setAttribute('cy',Y(N));
+      guide.setAttribute('x1',X(tp));guide.setAttribute('x2',X(tp));guide.setAttribute('y1',oy);guide.setAttribute('y2',Y(N));
+    };
+  },
+  note:function(t,p){
+    var w=Math.sqrt(p.k/(p.M+p.m)),g=10,tp=t/2,y=-p.A*Math.cos(w*tp),N=p.m*(g-w*w*y);
+    return '位置 y＝'+f1(y*100)+' cm（向上為正），加速度 '+f1(-w*w*y)+' m/s²，物塊對托盤的壓力 N＝<b>'+f2(Math.max(N,0))+' N</b>'+(N<0.02?'　← 恰為 0，物塊「失重」，再大的振幅就會脫離':'');
+  }};
+
+/* ---------- 復1-8：參考圓與 x–t 圖 ---------- */
+S.refcircle={w:560,h:300,dur:function(p){return p.T;},
+  build:function(svg,p){
+    var cx=130,cy=120,R=78,A=p.A,Tp=p.T,ph=p.phi*Math.PI/180,w=2*Math.PI/Tp;
+    E('circle',{'class':'f',cx:cx,cy:cy,r:R},svg);
+    E('line',{'class':'dim',x1:cx-R-14,y1:cy,x2:cx+R+14,y2:cy},svg);
+    E('line',{'class':'dim',x1:cx,y1:cy-R-14,x2:cx,y2:cy+R+14},svg);
+    // 下方的 x 軸（振子的位置）
+    var ay=262;
+    E('line',{'class':'axis',x1:cx-R-14,y1:ay,x2:cx+R+14,y2:ay},svg);
+    for(var k=-1;k<=1;k++)E('line',{'class':'thin',x1:cx+k*R,y1:ay-4,x2:cx+k*R,y2:ay+4},svg);
+    T(svg,cx-R,ay+20,'−A','tm');T(svg,cx,ay+20,'0','tm');T(svg,cx+R,ay+20,'＋A','tm');
+    var P=E('circle',{'class':'fwo',r:7},svg),Q=E('rect',{'class':'fb',x:-10,y:ay-22,width:20,height:20,rx:3},svg);
+    var vl=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg),rad=E('line',{'class':'o',x1:cx,y1:cy,x2:cx,y2:cy},svg);
+    var aV=Arrow(svg,'vel');
+    var lead=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg);
+    // 右：x–t 圖
+    var ox=300,oy=150,W=240,Hh=R;
+    E('line',{'class':'axis',x1:ox,y1:oy,x2:ox+W+12,y2:oy},svg);E('line',{'class':'axis',x1:ox,y1:oy+Hh+14,x2:ox,y2:oy-Hh-16},svg);
+    T(svg,ox+W+12,oy+20,'t（s）','tm','end');T(svg,ox+6,oy-Hh-20,'x（cm）','tm','start');
+    T(svg,ox-6,oy-Hh+5,'10','tm','end');T(svg,ox-6,oy+Hh+5,'−10','tm','end');
+    function X(t){return ox+t/Tp*W;}function Y(x){return oy-x/A*Hh;}
+    var pts='';for(var i=0;i<=120;i++){var t=Tp*i/120;pts+=X(t)+','+Y(A*Math.cos(ph+w*t))+' ';}
+    E('polyline',{'class':'curve',points:pts},svg);
+    [[1/6,'1/6 s 平衡位置'],[1/3,'1/3 s x＝−5']].forEach(function(m){
+      E('line',{'class':'dim',x1:X(m[0]),y1:oy-Hh,x2:X(m[0]),y2:oy+Hh},svg);});
+    T(svg,X(1/6)+4,oy+Hh+30,'1/6','tm');T(svg,X(1/3)+14,oy+Hh+30,'1/3','tm');
+    var dot=E('circle',{'class':'fwo',r:6},svg);
+    var guide=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg);
+    return function(t){
+      var th=ph+w*t,px=cx+R*Math.cos(th),py=cy-R*Math.sin(th),x=A*Math.cos(th);
+      P.setAttribute('cx',px);P.setAttribute('cy',py);
+      rad.setAttribute('x2',px);rad.setAttribute('y2',py);
+      Q.setAttribute('x',px-10);
+      vl.setAttribute('x1',px);vl.setAttribute('y1',py);vl.setAttribute('x2',px);vl.setAttribute('y2',ay-22);
+      aV.set(px,py,px+(-Math.sin(th))*42,py+(-Math.cos(th))*42);
+      dot.setAttribute('cx',X(t));dot.setAttribute('cy',Y(x));
+      guide.setAttribute('x1',X(t));guide.setAttribute('x2',X(t));guide.setAttribute('y1',oy);guide.setAttribute('y2',Y(x));
+    };
+  },
+  note:function(t,p){
+    var ph=p.phi*Math.PI/180,w=2*Math.PI/p.T,th=ph+w*t,x=p.A*Math.cos(th),v=-p.A*w*Math.sin(th);
+    return '相位 '+Math.round((p.phi+360*t/p.T)%360)+'°　x＝'+f1(x)+' cm，速度 '+f1(v)+' cm/s（'+(v<0?'向 −x':'向 ＋x')+'）　x＝10cos(πt＋π/3)';
+  }};
+})();
+
+/* 動畫解（二）：復2 的動畫 */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,Arrow=H.Arrow,S=window.SIMS;
+function f2(x){return (Math.round(x*100)/100).toFixed(2);}
+function f1(x){return (Math.round(x*10)/10).toFixed(1);}
+function path(parent,cls){return E('path',{'class':cls,d:''},parent);}
+function poly(parent,cls){return E('polyline',{'class':cls,points:''},parent);}
+
+/* ---------- 復2-1：雙星繞質心 ---------- */
+S.binary={w:560,h:300,dur:8,
+  build:function(svg,p){
+    var cx=280,cy=150,d=220,M=p.M,m=p.m,rM=d*m/(M+m),rm=d*M/(M+m);
+    E('circle',{'class':'dim',cx:cx,cy:cy,r:rM,fill:'none'},svg);
+    E('circle',{'class':'dim',cx:cx,cy:cy,r:rm,fill:'none'},svg);
+    var ln=E('line',{'class':'thin',x1:0,y1:0,x2:0,y2:0},svg);
+    E('line',{'class':'o',x1:cx-6,y1:cy,x2:cx+6,y2:cy},svg);E('line',{'class':'o',x1:cx,y1:cy-6,x2:cx,y2:cy+6},svg);
+    T(svg,cx+8,cy+18,'質心','tm','start');
+    var sM=E('circle',{'class':'fy',r:15},svg),sm=E('circle',{'class':'fb',r:10},svg);
+    var tM=T(svg,0,0,'M＝'+M+'m','t'),tm=T(svg,0,0,'m','t');
+    var fM=Arrow(svg,'force'),fm=Arrow(svg,'force'),vM=Arrow(svg,'vel'),vm=Arrow(svg,'vel');
+    var lF1=T(svg,0,0,'F','tf'),lF2=T(svg,0,0,'F','tf'),lv1=T(svg,0,0,'v_{M}','tv'),lv2=T(svg,0,0,'v_{m}','tv');
+    T(svg,20,24,'兩星間引力 F 大小相同（紅）；速率 v＝rω（藍）','ts','start');
+    return function(t){
+      var th=2*Math.PI*t/S.binary.dur;
+      var xM=cx+rM*Math.cos(th),yM=cy-rM*Math.sin(th),xm=cx-rm*Math.cos(th),ym=cy+rm*Math.sin(th);
+      sM.setAttribute('cx',xM);sM.setAttribute('cy',yM);sm.setAttribute('cx',xm);sm.setAttribute('cy',ym);
+      ln.setAttribute('x1',xM);ln.setAttribute('y1',yM);ln.setAttribute('x2',xm);ln.setAttribute('y2',ym);
+      var ux=(xm-xM)/d,uy=(ym-yM)/d;
+      fM.set(xM,yM,xM+ux*46,yM+uy*46);fm.set(xm,ym,xm-ux*46,ym-uy*46);
+      var tx=-Math.sin(th),ty=-Math.cos(th); // 逆時針切線（螢幕座標）
+      var k=0.4;
+      vM.set(xM,yM,xM+tx*rM*k,yM+ty*rM*k);vm.set(xm,ym,xm-tx*rm*k,ym-ty*rm*k);
+      tM.setAttribute('x',xM-0);tM.setAttribute('y',yM-24);tm.setAttribute('x',xm);tm.setAttribute('y',ym-18);
+      lF1.setAttribute('x',xM+ux*60);lF1.setAttribute('y',yM+uy*60+5);lF2.setAttribute('x',xm-ux*60);lF2.setAttribute('y',ym-uy*60+5);
+      lv1.setAttribute('x',xM+tx*rM*k+tx*14);lv1.setAttribute('y',yM+ty*rM*k+ty*14+5);
+      lv2.setAttribute('x',xm-tx*rm*k-tx*14);lv2.setAttribute('y',ym-ty*rm*k-ty*14+5);
+    };
+  },
+  note:function(t,p){return '半徑 r<sub>M</sub> : r<sub>m</sub> ＝ m : M ＝ 1 : 2，速率 v<sub>m</sub> : v<sub>M</sub> ＝ 2 : 1，動能 K<sub>m</sub> : K<sub>M</sub> ＝ 2 : 1；兩星週期相同 T＝2π√(d³/3Gm)。';}};
+
+/* ---------- 復2-4：橢圓軌道（克卜勒） ---------- */
+S.kepler={w:560,h:300,dur:8,
+  build:function(svg,p){
+    var cx=235,cy=150,a=160,e=0.5,b=a*Math.sqrt(1-e*e),c=a*e,Rpx=40,fx=cx+c,GMunit=8; // km/s 單位：√(gR)=8 km/s
+    var path0=[];for(var i=0;i<=120;i++){var E0=2*Math.PI*i/120;path0.push((cx+a*Math.cos(E0))+','+(cy-b*Math.sin(E0)));}
+    E('polyline',{'class':'curve dash',points:path0.join(' '),style:'stroke-width:1.8'},svg);
+    E('circle',{'class':'fg',cx:fx,cy:cy,r:Rpx},svg);T(svg,fx,cy+5,'地球','t');
+    E('line',{'class':'dim',x1:cx-a,y1:cy,x2:cx+a,y2:cy},svg);
+    T(svg,cx+a,cy-12,'近地點 2R','tm','end');T(svg,cx-a,cy-12,'遠地點 6R','tm','start');
+    var sweep=E('polygon',{'class':'shade',points:''},svg);
+    var trail=poly(svg,'curve2'),sat=E('circle',{'class':'fwo',r:7},svg);
+    var aV=Arrow(svg,'vel'),lV=T(svg,0,0,'v','tv');
+    function kepE(M){var Ee=M;for(var k=0;k<30;k++)Ee=Ee-(Ee-e*Math.sin(Ee)-M)/(1-e*Math.cos(Ee));return Ee;}
+    function posAt(frac){var M=2*Math.PI*frac,Ee=kepE(M);return [cx+a*Math.cos(Ee),cy-b*Math.sin(Ee),Ee];}
+    return function(t){
+      var fr=t/S.kepler.dur,q=posAt(fr),x=q[0],y=q[1],Ee=q[2];
+      sat.setAttribute('cx',x);sat.setAttribute('cy',y);
+      var pts=fx+','+cy,n=14,span=1/12;
+      for(var i=0;i<=n;i++){var f=fr-span+span*i/n;if(f<0)f+=1;var r=posAt(f);pts+=' '+r[0]+','+r[1];}
+      sweep.setAttribute('points',pts);
+      var tr='';for(var j=0;j<=60;j++){var ff=fr*j/60,r2=posAt(ff);tr+=r2[0]+','+r2[1]+' ';}
+      trail.setAttribute('points',tr);
+      var rpx=Math.hypot(x-fx,y-cy),rR=rpx/Rpx,v=GMunit*Math.sqrt(2/rR-1/4);
+      var tx=-a*Math.sin(Ee),ty=-b*Math.cos(Ee),L=Math.hypot(tx,ty);tx/=L;ty/=L;
+      aV.set(x,y,x+tx*v*7,y+ty*v*7);lV.setAttribute('x',x+tx*(v*7+16));lV.setAttribute('y',y+ty*(v*7+16)+5);
+    };
+  },
+  note:function(t,p){
+    var e=0.5,a=4,fr=t/S.kepler.dur,M=2*Math.PI*fr,Ee=M;for(var k=0;k<30;k++)Ee=Ee-(Ee-e*Math.sin(Ee)-M)/(1-e*Math.cos(Ee));
+    var rR=a*(1-e*Math.cos(Ee)),v=8*Math.sqrt(2/rR-1/a);
+    return '距地心 r＝'+f2(rR)+' R，速率 v＝<b>'+f2(v)+' km/s</b>（近地點 6.93、遠地點 2.31，比 3 : 1）；淡綠色＝最近 T/12 掃過的面積（面積速率固定）。<br>全程＝1 個週期 T＝4.0×10⁴ s ≈ 11.2 h（此處 8 秒＝1 週期）。';
+  }};
+
+/* ---------- 復2-6：船上走路（質心不動） ---------- */
+S.boat={w:560,h:250,dur:4,
+  build:function(svg,p){
+    var M=p.M,m=p.m,L=p.L,K=40,bl0=130,wl=190;
+    // 水面
+    E('rect',{'class':'fb',x:10,y:wl,width:540,height:50,'fill-opacity':0.25,style:'stroke:none'},svg);
+    E('line',{'class':'o',x1:10,y1:wl,x2:550,y2:wl},svg);
+    var xcom=bl0+(m*0+M*(L/2*K))/(M+m);
+    E('line',{'class':'dim',x1:xcom,y1:50,x2:xcom,y2:wl+30},svg);T(svg,xcom,44,'質心（不動）','tf');
+    E('line',{'class':'dim',x1:bl0,y1:wl+8,x2:bl0,y2:wl+34},svg);T(svg,bl0,wl+48,'船原本的左端','tm');
+    var boat=E('polygon',{'class':'fy',points:''},svg),mid=T(svg,0,0,'船 M＝'+M+' kg','ts');
+    var person=E('g',{},svg);
+    E('circle',{'class':'fwo',cx:0,cy:-44,r:7},person);
+    E('line',{'class':'o',x1:0,y1:-37,x2:0,y2:-14,style:'stroke-width:3'},person);
+    E('line',{'class':'o',x1:0,y1:-14,x2:-7,y2:0},person);E('line',{'class':'o',x1:0,y1:-14,x2:7,y2:0},person);
+    E('line',{'class':'o',x1:-9,y1:-30,x2:9,y2:-30},person);
+    var pl=T(svg,0,0,'人 m＝'+m+' kg','ts');
+    return function(t){
+      var s=L*t/S.boat.dur;
+      var bl=bl0-K*(m/(M+m))*s,px=bl+K*s;
+      var x1=bl-20,x2=bl+L*K+20;
+      boat.setAttribute('points',x1+','+(wl-26)+' '+x2+','+(wl-26)+' '+(x2-24)+','+(wl+4)+' '+(x1+24)+','+(wl+4));
+      mid.setAttribute('x',(x1+x2)/2);mid.setAttribute('y',wl-6);
+      person.setAttribute('transform','translate('+px+','+(wl-26)+')');
+      pl.setAttribute('x',px);pl.setAttribute('y',wl-96);
+    };
+  },
+  note:function(t,p){
+    var s=p.L*t/S.boat.dur,sb=p.m/(p.M+p.m)*s,sp=p.M/(p.M+p.m)*s;
+    return '人相對船走了 '+f2(s)+' m；<b>人相對岸 '+f2(sp)+' m（向右），船相對岸 '+f2(sb)+' m（向左）</b>；m(L−d)＝Md ⇒ d＝mL/(M＋m)＝2.0 m。';
+  }};
+
+/* ---------- 復2-8：拉繩改變半徑（角動量守恆） ---------- */
+S.pullrope={w:560,h:300,dur:8,
+  _th:null,
+  _prep:function(p){
+    var self=S.pullrope;if(self._k===p.r0)return;
+    self._k=p.r0;var N=800,dt=S.pullrope.dur/N,th=0,arr=[0];
+    for(var i=0;i<N;i++){var u=(i+0.5)/N,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),w=p.v0*p.r0/(r*r);th+=0.4*w*dt;arr.push(th);}
+    self._th=arr;
+  },
+  build:function(svg,p){
+    var self=S.pullrope;self._prep(p);
+    var cx=220,cy=150,K=150;
+    E('circle',{'class':'f',cx:cx,cy:cy,r:136},svg);
+    E('circle',{'class':'fo',cx:cx,cy:cy,r:4},svg);T(svg,cx,cy+22,'小孔','tm');
+    E('circle',{'class':'dim',cx:cx,cy:cy,r:p.r0*K},svg);E('circle',{'class':'dim',cx:cx,cy:cy,r:p.r0*K/2},svg);
+    var rope=E('line',{'class':'o',x1:cx,y1:cy,x2:cx,y2:cy},svg),trail=poly(svg,'curve2');
+    var ball=E('circle',{'class':'fb',r:9},svg);
+    var aT=Arrow(svg,'force'),aV=Arrow(svg,'vel');
+    T(svg,cx,cy+160,'','tm');
+    return function(t){
+      var N=self._th.length-1,i=Math.min(N,Math.floor(t/S.pullrope.dur*N)),th=self._th[i];
+      var u=t/S.pullrope.dur,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),v=p.v0*p.r0/r,rp=r*K;
+      var x=cx+rp*Math.cos(th),y=cy-rp*Math.sin(th);
+      ball.setAttribute('cx',x);ball.setAttribute('cy',y);rope.setAttribute('x2',x);rope.setAttribute('y2',y);
+      var T0=p.m*v*v/r,tx=-Math.sin(th),ty=-Math.cos(th),ux=(cx-x)/rp,uy=(cy-y)/rp;
+      aT.set(x,y,x+ux*T0*3,y+uy*T0*3);aV.set(x,y,x+tx*v*18,y+ty*v*18);
+      var pts='';for(var j=0;j<=i;j+=4){var uu=j/N*1,s2=uu*uu*(3-2*uu),r2=p.r0*(1-0.5*s2)*K,t2=self._th[j];pts+=(cx+r2*Math.cos(t2))+','+(cy-r2*Math.sin(t2))+' ';}
+      trail.setAttribute('points',pts);
+    };
+  },
+  note:function(t,p){
+    var u=t/S.pullrope.dur,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),v=p.v0*p.r0/r,Tn=p.m*v*v/r,W=0.5*p.m*(v*v-p.v0*p.v0);
+    return '半徑 r＝'+f2(r)+' m，速率 v＝'+f2(v)+' m/s（r×v 不變），張力 T＝'+f1(Tn)+' N（紅），人已作功 W＝<b>'+f2(W)+' J</b>；藍＝速度。';
+  }};
+
+/* ---------- 復2-9：三球連續彈性碰撞 ---------- */
+S.balls3={w:560,h:230,
+  _sim:function(p){
+    var m=[p.m1,p.m2,p.m3],r=m.map(function(x){return 8+4*Math.cbrt(x);}),v0=90;
+    var x=[50,190,320],v=[v0,0,0],t=0,seg=[{t:0,x:x.slice(),v:v.slice()}],gy=0;
+    for(var it=0;it<8;it++){
+      var best=null;
+      for(var i=0;i<2;i++){
+        var gap=x[i+1]-x[i]-(r[i]+r[i+1]),vc=v[i]-v[i+1];
+        if(vc>1e-9&&gap>=-1e-6){var tt=gap/vc;if(best===null||tt<best.t)best={t:tt,i:i};}
+      }
+      if(!best)break;
+      for(var k=0;k<3;k++)x[k]+=v[k]*best.t;t+=best.t;
+      var i=best.i,a=m[i],b=m[i+1],va=v[i],vb=v[i+1];
+      v[i]=((a-b)*va+2*b*vb)/(a+b);v[i+1]=((b-a)*vb+2*a*va)/(a+b);
+      seg.push({t:t,x:x.slice(),v:v.slice()});
+    }
+    return {seg:seg,r:r,end:t+1.6,v0:v0};
+  },
+  dur:function(p){return S.balls3._sim(p).end;},
+  build:function(svg,p){
+    var sim=S.balls3._sim(p),gy=150;
+    E('line',{'class':'o',x1:10,y1:gy+0,x2:550,y2:gy},svg);
+    var cls=['fb','fg','fp'],names=['m_{1}＝'+p.m1+' kg','m_{2}＝'+p.m2+' kg','m_{3}＝'+p.m3+' kg'];
+    var balls=[],lab=[],arr=[],vl=[];
+    for(var i=0;i<3;i++){
+      balls.push(E('circle',{'class':cls[i],r:sim.r[i]},svg));
+      lab.push(T(svg,0,0,names[i],'ts'));
+      arr.push(Arrow(svg,'vel'));vl.push(T(svg,0,0,'','tv'));
+    }
+    function state(t){
+      var s=sim.seg[0];for(var k=0;k<sim.seg.length;k++)if(sim.seg[k].t<=t)s=sim.seg[k];
+      var d=t-s.t,xs=[],vs=s.v;for(var i=0;i<3;i++)xs.push(s.x[i]+vs[i]*d);return {x:xs,v:vs};
+    }
+    S.balls3._state=state;
+    return function(t){
+      var st=state(t);
+      for(var i=0;i<3;i++){
+        var cy=gy-sim.r[i];
+        balls[i].setAttribute('cx',st.x[i]);balls[i].setAttribute('cy',cy);
+        lab[i].setAttribute('x',st.x[i]);lab[i].setAttribute('y',gy+22+18*(i%2));
+        var L=st.v[i]/sim.v0*60;
+        arr[i].set(st.x[i],cy-sim.r[i]-12,st.x[i]+L,cy-sim.r[i]-12);
+        vl[i].setAttribute('x',st.x[i]+L/2);vl[i].setAttribute('y',cy-sim.r[i]-24);
+        vl[i].textContent='';H.setText(vl[i],(st.v[i]/sim.v0).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')+'v');
+      }
+    };
+  },
+  note:function(t,p){
+    var st=S.balls3._state?S.balls3._state(t):null;if(!st)return '';
+    var v0=S.balls3._sim(p).v0,s='速度（以 v 為單位）：甲 '+f2(st.v[0]/v0)+'，乙 '+f2(st.v[1]/v0)+'，丙 '+f2(st.v[2]/v0);
+    return s+'。每次碰撞：v₂\'＝2m₁v/(m₁＋m₂)、v₁\'＝(m₁−m₂)v/(m₁＋m₂)。';
+  }};
+
+/* ---------- 復2-10：碰撞＋彈簧（最大壓縮） ---------- */
+S.springcol={w:560,h:205,
+  dur:function(p){return 1.0+3.0+1.6;},
+  build:function(svg,p){
+    var m1=p.m1,m2=p.m2,Mt=m1+m2,k=p.k,v=p.v,mu=m1*m2/Mt,w=Math.sqrt(k/mu),V=m1*v/Mt,tc=Math.PI/w,K=150,gy=155,SLOW=3.0/tc;
+    E('line',{'class':'o',x1:10,y1:gy,x2:550,y2:gy},svg);
+    var cart=E('rect',{'class':'fg',x:0,y:gy-40,width:100,height:40,rx:3},svg),b1=E('rect',{'class':'fb',x:0,y:gy-40,width:60,height:40,rx:3},svg);
+    var t1=T(svg,0,gy-14,'m_{1}','t'),t2=T(svg,0,gy-14,'m_{2}','t'),sp=path(svg,'o'),spr=H.spring(8,9,0.12);
+    var a1=Arrow(svg,'vel'),a2=Arrow(svg,'vel'),l1=T(svg,0,0,'','tv'),l2=T(svg,0,0,'','tv');
+    var s1e=V*tc+(m2/Mt)*0, s2e=V*tc; // 結束時的位置（sin(π)=0）
+    function geom(t){
+      var x1r,x2l,c=0,v1,v2;
+      if(t<1.0){var d=t; x1r=200-120*(1-d)+0; x2l=300; v1=v;v2=0;x1r=80+120*d;}
+      else if(t<4.0){var tp=(t-1.0)/SLOW,sv=Math.sin(w*tp),cv=Math.cos(w*tp);
+        var s1=V*tp+(m2/Mt)*(v/w)*sv,s2=V*tp-(m1/Mt)*(v/w)*sv;
+        x1r=200+K*s1;x2l=300+K*s2;c=(v/w)*sv;var vr=v*cv;v1=V+(m2/Mt)*vr;v2=V-(m1/Mt)*vr;}
+      else{var tau=t-4.0,e1=200+K*s1e,e2=300+K*s2e,vv1=V-(m2/Mt)*v,vv2=V+(m1/Mt)*v;
+        x1r=e1+20*vv1*tau;x2l=e2+20*vv2*tau;v1=vv1;v2=vv2;}
+      return {x1r:x1r,x2l:x2l,c:c,v1:v1,v2:v2,tp:(t-1.0)/SLOW};
+    }
+    S.springcol._g=geom;
+    return function(t){
+      var g=geom(t);
+      b1.setAttribute('x',g.x1r-60);cart.setAttribute('x',g.x2l);
+      t1.setAttribute('x',g.x1r-30);t2.setAttribute('x',g.x2l+60);
+      // 彈簧：從 m2 左端(g.x2l) 向左到 m1 右端(g.x1r)，但在接觸前自由端在 x2l-100
+      var sx=Math.max(g.x1r,g.x2l-100);
+      sp.setAttribute('d',spr(g.x2l,gy-20,sx,gy-20));
+      a1.set(g.x1r-30,gy-54,g.x1r-30+g.v1*8,gy-54);a2.set(g.x2l+50,gy-54,g.x2l+50+g.v2*8,gy-54);
+      l1.setAttribute('x',g.x1r-30+g.v1*4);l1.setAttribute('y',gy-66);H.setText(l1,'v_{1}＝'+f1(g.v1));
+      l2.setAttribute('x',g.x2l+50+g.v2*4);l2.setAttribute('y',gy-66);H.setText(l2,'v_{2}＝'+f1(g.v2));
+    };
+  },
+  note:function(t,p){
+    var g=S.springcol._g?S.springcol._g(t):null;if(!g)return '';
+    var m1=p.m1,m2=p.m2,Mt=m1+m2,mu=m1*m2/Mt,w=Math.sqrt(p.k/mu),V=m1*p.v/Mt;
+    var Es=0.5*p.k*g.c*g.c,K1=0.5*m1*g.v1*g.v1+0.5*m2*g.v2*g.v2;
+    var s='v₁＝'+f1(g.v1)+' m/s，v₂＝'+f1(g.v2)+' m/s；彈簧位能 '+f1(Es)+' J ＋ 動能 '+f1(K1)+' J ＝ <b>'+f1(Es+K1)+' J</b>（守恆）';
+    if(t>1.0&&t<4.0&&Math.abs(g.v1-g.v2)<0.35)s+='<br><b>最大壓縮：兩者速度相同（共同速度 '+f1(V)+' m/s），x＝'+f2(p.v/w)+' m</b>';
+    return s;
+  }};
+})();
+
+/* 動畫解（三）：復3 的動畫 */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,S=window.SIMS;
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+/* ---------- 復3-7：氣體分子撞擊器壁（定溫壓縮） ---------- */
+S.gasbox={w:560,h:300,dur:9,
+  _sim:function(){
+    if(S.gasbox._c)return S.gasbox._c;
+    var N=40,L0=360,L1=180,x0=40,y0=70,y1=230,dt=0.005,steps=Math.round(9/dt),R=rng(7);
+    var x=[],y=[],vx=[],vy=[];
+    for(var i=0;i<N;i++){x.push(x0+R()*L0);y.push(y0+R()*(y1-y0));var a=R()*2*Math.PI,sp=230+R()*20;vx.push(sp*Math.cos(a));vy.push(sp*Math.sin(a));}
+    var frames=[],hits=[],xr=[];
+    function wall(t){if(t<3)return x0+L0;if(t<6){var u=(t-3)/3;return x0+L0-(L0-L1)*u;}return x0+L1;}
+    for(var s=0;s<=steps;s++){
+      var t=s*dt,w=wall(t),h=0;
+      frames.push({x:x.slice(),y:y.slice()});xr.push(w);
+      for(var i=0;i<N;i++){
+        x[i]+=vx[i]*dt;y[i]+=vy[i]*dt;
+        if(x[i]<x0){x[i]=2*x0-x[i];vx[i]=-vx[i];}
+        if(x[i]>w){x[i]=2*w-x[i];vx[i]=-Math.abs(vx[i]);h++;}
+        if(y[i]<y0){y[i]=2*y0-y[i];vy[i]=-vy[i];}
+        if(y[i]>y1){y[i]=2*y1-y[i];vy[i]=-vy[i];}
+      }
+      hits.push(h);
+    }
+    return (S.gasbox._c={frames:frames,hits:hits,xr:xr,dt:dt,N:N,x0:x0,y0:y0,y1:y1});
+  },
+  build:function(svg,p){
+    var c=S.gasbox._sim();
+    E('rect',{'class':'f',x:c.x0,y:c.y0,width:400,height:c.y1-c.y0,rx:0,style:'fill:none'},svg);
+    var pist=E('rect',{'class':'fy',x:0,y:c.y0-2,width:14,height:c.y1-c.y0+4},svg);
+    var dots=[];for(var i=0;i<c.N;i++)dots.push(E('circle',{'class':'fa',r:4.5},svg));
+    T(svg,c.x0+4,c.y0-12,'氣體（定溫：分子速率不變）','ts','start');
+    T(svg,c.x0+200,c.y1+36,'活塞向左推 → 體積減半','tm','start').setAttribute('x',c.x0);
+    // 右側：撞擊次數長條
+    E('line',{'class':'axis',x1:470,y1:c.y1,x2:470,y2:c.y0},svg);
+    var bar=E('rect',{'class':'fp',x:471,y:c.y1-10,width:50,height:10},svg);
+    T(svg,495,c.y0-12,'近 1 秒','tm');T(svg,495,c.y0+4,'撞右壁次數','tm');
+    var num=T(svg,495,c.y1+20,'','tp');
+    return function(t){
+      var i=Math.min(c.frames.length-1,Math.round(t/c.dt)),f=c.frames[i];
+      for(var k=0;k<c.N;k++){dots[k].setAttribute('cx',f.x[k]);dots[k].setAttribute('cy',f.y[k]);}
+      pist.setAttribute('x',c.xr[i]);
+      var h=0,lo=Math.max(0,i-200);for(var j=lo;j<=i;j++)h+=c.hits[j];
+      var span=(i-lo)*c.dt||1;h=h/span*1;
+      bar.setAttribute('height',Math.min(h*4,c.y1-c.y0));bar.setAttribute('y',c.y1-Math.min(h*4,c.y1-c.y0));
+      H.setText(num,Math.round(h)+' 次/秒');
+    };
+  },
+  note:function(t){
+    var c=S.gasbox._sim(),i=Math.min(c.frames.length-1,Math.round(t/c.dt)),L=c.xr[i]-c.x0;
+    return '體積 V ∝ '+Math.round(L)+'（原 360）；撞擊次數約隨 1/V 增加 ⇒ 壓力 P ∝ 1/V。';
+  }};
+})();
+
+initSims();
+</script>
+<script src="../subjects.js"></script></body></html>

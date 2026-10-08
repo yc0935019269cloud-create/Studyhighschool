@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-8 單元 1 練習題：滿貫強試出擊＋歷屆考題｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a class="on" href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">滿貫強試出擊：單選題</a></li><li><a href="#s3">滿貫強試出擊：多選題</a></li><li><a href="#s4">歷屆考題：單選題</a></li><li><a href="#s5">歷屆考題：多選題</a></li><li><a href="#s6">歷屆考題：題組題</a></li><li><a href="#s7">歷屆考題：非選題</a></li></ul></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第1單元 細胞學</div>
+<h1><span class="uid">1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</h1>
+<div class="tools"><span class="cnt">本單元 47 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁收錄講義第 1 單元後面的「<strong>滿貫強試出擊</strong>」與「<strong>歷屆考題</strong>」，題目直接從講義裁圖（含圖表與選項），<strong>答案依講義第 55 頁的「簡答」解答</strong>，詳解是我自己整理的簡短說明。<strong>請先自己做，再點開詳解。</strong></p></aside>
+
+<h2 class="section " id="s2">滿貫強試出擊：單選題</h2>
+
+<article class="q q-pr" id="q47">
+<header class="qh"><span class="qn">強試 1</span><span class="qtag">運輸方式・單選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_22_31_x11-99.jpg" width="1400" height="232" loading="lazy" alt="生物講義 第45頁" data-page="生物講義 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>鈉離子順濃度梯度、由<strong>運輸蛋白（通道）</strong>進入細胞 ⇒ <strong>促進性擴散</strong>。（簡單擴散不需蛋白；主動運輸才是逆濃度、耗能。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q48">
+<header class="qh"><span class="qn">強試 2</span><span class="qtag">口腔上皮細胞與神經細胞・單選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_31_38p5_x11-99.jpg" width="1400" height="178" loading="lazy" alt="生物講義 第45頁" data-page="生物講義 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)　甲、乙、丙</div>
+<div class="exp"><b class="exp-h">解</b><p>同一個體的體細胞：<strong>染色體數目、DNA 的構造、ATP 的構造</strong>完全相同；但不同細胞<strong>分化</strong>後，表現的基因不同，所以 <strong>RNA 的量、酵素的種類</strong>不同。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q49">
+<header class="qh"><span class="qn">強試 3</span><span class="qtag">細胞的共同特徵・單選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_38p5_47p5_x11-99.jpg" width="1400" height="226" loading="lazy" alt="生物講義 第45頁" data-page="生物講義 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(C) ○ 所有細胞都能行呼吸作用，但<strong>不一定發生在粒線體內</strong>（原核生物沒有粒線體，呼吸作用在細胞質與細胞膜上進行）。</li>
+<li>(A)(B)(D) 的「但不一定……」在高中範圍內都不成立（細胞膜的主要結構是磷脂雙層；遺傳物質一定是 DNA；蛋白質一定在核糖體合成），講義解答都不選。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q50">
+<header class="qh"><span class="qn">強試 4</span><span class="qtag">酵素分解速度與溫度的關係・單選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_47p5_67_x11-99.jpg" width="1400" height="545" loading="lazy" alt="生物講義 第45頁" data-page="生物講義 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>圖中酵素在 37 °C（最適溫度）、最適 pH 下反應；題目問的是「酵素分解速度」對 <strong>0～30 °C</strong> 的關係：未達最適溫度前，<strong>溫度愈高，反應速率愈快</strong>，曲線持續上升而沒有高原 ⇒ (C)。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q51">
+<header class="qh"><span class="qn">強試 5</span><span class="qtag">同源染色體・單選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_67_74p5_x11-99.jpg" width="1400" height="124" loading="lazy" alt="生物講義 第45頁" data-page="生物講義 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 同一個著絲點連著的是<strong>姊妹染色分體</strong>。</li>
+<li>(B) ✗ 同源染色體的遺傳訊息可以<strong>不同</strong>（可能是不同的等位基因）。</li>
+<li>(C) ✗ 減數分裂 II 後期分開的是姊妹染色分體；同源染色體在減數分裂 <strong>I</strong> 後期分離。</li>
+<li>(D) ○ 同源染色體上<strong>基因排列順序（位置）相同</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q52">
+<header class="qh"><span class="qn">強試 6</span><span class="qtag">DNA 含量差 2 倍・單選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_74p5_88_x11-99.jpg" width="1400" height="356" loading="lazy" alt="生物講義 第45頁" data-page="生物講義 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>甲的 DNA 是乙的 2 倍：減數分裂 I <strong>後期</strong>的細胞 DNA＝4C（已複製），減數分裂 II <strong>前期</strong>的細胞 DNA＝2C ⇒ 甲＝減 I 後期，乙＝減 II 前期。</li>
+<li>(A) ✗ 剛完成有絲分裂的細胞是 2C，減 I 前期是 4C（甲反而是乙的一半）。</li>
+<li>(B) ✗ 正常體細胞（2C）與減 I 結束的細胞（2C）DNA 含量相同。</li>
+<li>(C) ✗ 有絲分裂前期（4C）與後期（4C）DNA 含量相同。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">滿貫強試出擊：多選題</h2>
+
+<article class="q q-pr" id="q53">
+<header class="qh"><span class="qn">強試 7</span><span class="qtag">含有轉送 RNA 的構造・多選（日大修訂）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_90p5_96_x11-99.jpg" width="1400" height="160" loading="lazy" alt="生物講義 第45頁" data-page="生物講義 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>講義解答為 (D)(E)</strong>：粒線體與葉綠體有自己的 DNA 與核糖體，內部會合成蛋白質，因此內含能運作（執行功能）的 tRNA。其餘選項：細胞核只負責轉錄產生 tRNA；核糖體、內質網只是 tRNA 作用的場所，並非「內含」。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q54">
+<header class="qh"><span class="qn">強試 8</span><span class="qtag">高等植物葉肉細胞構造圖・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A046_8p5_20_x11-99.jpg" width="1400" height="316" loading="lazy" alt="生物講義 第46頁" data-page="生物講義 p.46"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 能產生 ATP 的結構：葉綠體（b）、粒線體（c、f）。</li>
+<li>(B) ○ d 為細胞核，是遺傳與新陳代謝的控制中心。</li>
+<li>(C) ✗ g 是液泡，不含光合色素。</li>
+<li>(D) ✗ 構成核糖體的蛋白質在<strong>細胞質的核糖體</strong>合成，再進入核內。</li>
+<li>(E) ○ 核糖體次單元在<strong>核仁（e）</strong>形成。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q55">
+<header class="qh"><span class="qn">強試 9</span><span class="qtag">螢光漂白實驗與流體鑲嵌模型・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A046_20p5_31_x11-99.jpg" width="1400" height="264" loading="lazy" alt="生物講義 第46頁" data-page="生物講義 p.46"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>白化區域愈來愈不明顯＝周圍<strong>未漂白的標定蛋白移動進來</strong>，漂白的蛋白質移出去，達動態平衡：<br />
+- (C) ○ 部分蛋白質在膜上位置不停移動；(D) ○ 部分蛋白質的移動受調控；(E) ○ 可印證細胞膜的<strong>流體鑲嵌模型</strong>。<br />
+- (A) ✗ 若只是螢光衰退，不會只在白化區域。(B) ✗ 螢光物質是標定在蛋白質上，不是在蛋白質之間移動。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q56">
+<header class="qh"><span class="qn">強試 10</span><span class="qtag">合成蛋白質細胞的穿透式電子顯微圖・多選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A046_31p5_47_x11-99.jpg" width="1400" height="433" loading="lazy" alt="生物講義 第46頁" data-page="生物講義 p.46"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>圖中：<strong>甲＝核仁</strong>（核內深色區）、<strong>乙＝粗糙內質網</strong>（核外網狀、附著核糖體）。<br />
+- (B) ○ 核孔可供細胞質合成的蛋白質（如核糖體蛋白）進入細胞核，到核仁組裝成核糖體次單元。<br />
+- (E) ○ 乙（粗糙內質網）上有核糖體，是合成蛋白質的場所。<br />
+- (A) ✗ 甲是核仁，不是染色質聚集的位置。(C) ✗ 核仁沒有膜。(D) ✗ 乙是內質網，不是高基氏體。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q57">
+<header class="qh"><span class="qn">強試 11</span><span class="qtag">區分真核與原核細胞的特徵・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A046_47p8_55_x11-99.jpg" width="1400" height="233" loading="lazy" alt="生物講義 第46頁" data-page="生物講義 p.46"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(B) ○ 遺傳物質以<strong>核膜</strong>和細胞內其他部分隔開 ＝真核；原核生物沒有核膜。</li>
+<li>(E) ○ 能利用硫化氫為能量來源的是某些<strong>原核生物</strong>（如硫細菌），可用來區分。</li>
+<li>(A) ✗ 原核與真核的遺傳物質都是 DNA 與蛋白質結合（原核較少）；(C) ✗ 細胞壁兩者都可能有；(D) ✗ 能不能移動不能區分真核或原核。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q58">
+<header class="qh"><span class="qn">強試 12</span><span class="qtag">真核生物細胞內胞器與構造・多選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A046_55_63p8_x11-99.jpg" width="1400" height="196" loading="lazy" alt="生物講義 第46頁" data-page="生物講義 p.46"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 粒線體與葉綠體都可產生 ATP。</li>
+<li>(B) ○ 變形蟲攝食：食泡（液泡）與溶體融合消化，需要粒線體供能。</li>
+<li>(C) ✗ 核糖體也可游離於細胞質，並非只能附著在內質網上才有功能。</li>
+<li>(D) ✗ 高基氏體是<strong>多個</strong>扁囊堆疊的單層膜構造。</li>
+<li>(E) ○ 草履蟲的伸縮泡屬液泡的一種。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q59">
+<header class="qh"><span class="qn">強試 13</span><span class="qtag">物質通過細胞膜的方式・多選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A046_64_80_x11-99.jpg" width="1400" height="419" loading="lazy" alt="生物講義 第46頁" data-page="生物講義 p.46"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>圖：甲＝通道蛋白運輸（往內）、乙＝直接穿過磷脂（往外）、丙＝載體蛋白運輸（往內）、丁＝消耗 ATP 的主動運輸（往內）。<br />
+- (B) ○ CO₂ 是小分子，以<strong>簡單擴散</strong>離開細胞。<br />
+- (E) ○ 丁是<strong>主動運輸</strong>，可逆濃度梯度，不受膜內外濃度差限制。<br />
+- (A) ✗ 葡萄糖是靠<strong>載體蛋白</strong>。(C) ✗ 澱粉、蛋白質是大分子，靠胞吞。(D) ✗ 消耗能量的是主動運輸，不是促進性擴散。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">歷屆考題：單選題</h2>
+
+<article class="q q-pr" id="q60">
+<header class="qh"><span class="qn">歷屆 1</span><span class="qtag">狂牛症的病原體・單選（100 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A046_88_97_x11-99.jpg" width="1400" height="205" loading="lazy" alt="生物講義 第46頁" data-page="生物講義 p.46"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>狂牛症的病原體是<strong>普里昂（prion）蛋白質</strong>，成分是<strong>胺基酸</strong>聚合成的蛋白質，不含核酸。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q61">
+<header class="qh"><span class="qn">歷屆 2</span><span class="qtag">肽聚糖、纖維素與肝醣共有的成分・單選（111 分科）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_8p5_13p5_x11-99.jpg" width="1400" height="171" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>肽聚糖（含 N-乙醯葡萄糖胺 NAG 等）、纖維素、肝醣都含有<strong>葡萄糖</strong>（或其衍生物）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q62">
+<header class="qh"><span class="qn">歷屆 3</span><span class="qtag">古細菌與細菌共有的特性・單選（100 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_15_31_x11-99.jpg" width="1400" height="420" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)　甲乙丁己</div>
+<div class="exp"><b class="exp-h">解</b><p>古細菌與細菌同屬原核生物，共有：具有核糖體（甲）、環狀染色體（乙）、可行糖解作用（丁）、不具有內質網（己）。<strong>丙</strong>（細胞膜結構與真核不同）只適用於古細菌；<strong>戊</strong>（不具有細胞壁）兩者通常都有細胞壁，所以不選。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q63">
+<header class="qh"><span class="qn">歷屆 4</span><span class="qtag">與細胞骨架無直接關係的作用・單選（98 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_31p8_36_x11-99.jpg" width="1400" height="118" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>細胞分裂（紡錘絲）、精子運動（鞭毛）、胞吞（偽足、細胞膜內陷）都靠細胞骨架；<strong>發酵作用</strong>是酵素在細胞質的代謝反應，與細胞骨架無直接關係。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q64">
+<header class="qh"><span class="qn">歷屆 5</span><span class="qtag">低倍鏡換高倍鏡後的視野・單選（96 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_36p5_50_x11-99.jpg" width="1400" height="374" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>換成高倍鏡：視野<strong>變小</strong>、看到的<strong>細胞變大</strong>；同一個細胞在測微器上佔的<strong>格數變多</strong>。講義解答為 (A)。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q65">
+<header class="qh"><span class="qn">歷屆 6</span><span class="qtag">馬鈴薯過氧化氫酶活性測試・單選（106 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_50p5_60_x11-99.jpg" width="1400" height="188" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 氣泡是 <strong>O₂</strong>，不是 CO₂。</li>
+<li>(B) ✗ 過氧化氫酶<strong>存在於多種生物</strong>，馬鈴薯只是容易取得。</li>
+<li>(C) ○ pH＝2 遠離最適 pH（約 7），酵素活性低，氣泡少。</li>
+<li>(D) ✗ 煮沸使酵素<strong>變性</strong>，氣泡幾乎沒有。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q66">
+<header class="qh"><span class="qn">歷屆 7</span><span class="qtag">觀察染色體的探討活動・單選（104 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_60_71_x11-99.jpg" width="1400" height="301" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 洋蔥<strong>根尖</strong>才有分生組織，分裂旺盛；表皮不分裂。(B) ✗ 要用複式顯微鏡。(C) ✗ 先低倍找、再高倍看。(D) ✗ 染色體排在中央是<strong>中期</strong>，細胞板在<strong>末期</strong>才出現。</li>
+<li>(E) ○ 染色體分離完成（末期）可見細胞板，子細胞染色體套數為 <strong>2n</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q67">
+<header class="qh"><span class="qn">歷屆 8</span><span class="qtag">支持族群遺傳變異的細胞學基礎・單選（104 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_71_79p5_x11-99.jpg" width="1400" height="249" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>個體間特徵不同的細胞學基礎：<strong>減數分裂 I 時同源染色體聯會、互換</strong>，產生基因重組的配子（另外還有同源染色體的獨立分配、受精）。有絲分裂產生的子細胞遺傳組成相同。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q68">
+<header class="qh"><span class="qn">歷屆 9</span><span class="qtag">幹細胞的敘述・單選（111 分科）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A047_81_96_x11-99.jpg" width="1400" height="385" loading="lazy" alt="生物講義 第47頁" data-page="生物講義 p.47"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 造血幹細胞是多潛能，只能分化成各種血球；全潛能才能分化成不同組織。</li>
+<li>(B) ○ <strong>誘導型多功能幹細胞（iPSC）</strong>可分化成眼角膜細胞，也可分化成其他組織細胞。</li>
+<li>(C) ✗ 已分化成特定組織的細胞不能再受刺激變回原來的幹細胞（iPSC 是經基因重新編程）。</li>
+<li>(D) ✗ 成人體內也有（成體）幹細胞。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q69">
+<header class="qh"><span class="qn">歷屆 10</span><span class="qtag">血流儀反射波的來源・單選（111 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_9_35_x11-99.jpg" width="1400" height="689" loading="lazy" alt="生物講義 第48頁" data-page="生物講義 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>血液抹片中，數量最多的是<strong>紅血球</strong>（白血球與血小板很少），雷射光主要由紅血球反射（都卜勒效應測得紅血球流速）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q70">
+<header class="qh"><span class="qn">歷屆 11</span><span class="qtag">器具與觀測對象最不恰當者・單選（105 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_35_43p5_x11-99.jpg" width="1400" height="225" loading="lazy" alt="生物講義 第48頁" data-page="生物講義 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>葉綠體直徑約 3～10 μm，<strong>解剖顯微鏡</strong>放大倍率太低，看不到；要用高倍的複式顯微鏡。（鯨魚用地磅、嬰兒用磅秤、蛙卵徑用直尺、葉肉細胞用複式顯微鏡都恰當。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q71">
+<header class="qh"><span class="qn">歷屆 12</span><span class="qtag">生殖母細胞雙套染色體 12 條・單選（112 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_43p5_55_x11-99.jpg" width="1400" height="295" loading="lazy" alt="生物講義 第48頁" data-page="生物講義 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>2n＝12 ⇒ n＝6：<br />
+- (A) 四分體數＝6，不是 48。(B) 同源染色體 6 對。(C) 減 I 後每個子細胞有 6 個二分體（每條染色體含兩條染色分體）。<br />
+- (D) ○ 卵細胞是單套，染色體數 <strong>6</strong>。(E) 精子染色體數也是 6。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q72">
+<header class="qh"><span class="qn">歷屆 13</span><span class="qtag">觀察石蓮葉片保衛細胞・單選（112 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_55_63p5_x11-99.jpg" width="1400" height="217" loading="lazy" alt="生物講義 第48頁" data-page="生物講義 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>觀察保衛細胞要用<strong>薄的表皮組織</strong>：用手指把葉片<strong>折撕</strong>，取撕下的下表皮（最薄、單層細胞）製片最佳。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q73">
+<header class="qh"><span class="qn">歷屆 14</span><span class="qtag">馬鈴薯過氧化氫酶活性長條圖・單選（111 分科）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_64_78_x11-99.jpg" width="1400" height="354" loading="lazy" alt="生物講義 第48頁" data-page="生物講義 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>各立方體大小相同、其他條件相同，三組氣體產生量甲＞乙，丙＞甲：<br />
+- (B) ○ 乙在 pH 4（偏離最適）活性低，丙在 pH 7（最適）活性最高，符合圖形。<br />
+- (A) 30 °C 比 25 °C 更接近最適溫度，乙不會比甲低；(C) 雙氧水多會使氣泡量多；(D) 氣體是 O₂。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q74">
+<header class="qh"><span class="qn">歷屆 15</span><span class="qtag">顯微鏡鏡頭對準後視野空白・單選（109 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_78p8_89_x11-99.jpg" width="1400" height="300" loading="lazy" alt="生物講義 第48頁" data-page="生物講義 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>視野一片空白時，最常見的原因是<strong>進光量不足</strong>或沒有對到玻片，應先調整與亮度／對焦有關的部位；講義解答為 (C)（圖中的丙）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q75">
+<header class="qh"><span class="qn">歷屆 16</span><span class="qtag">原核生物的敘述・單選（109 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_89p5_97_x11-99.jpg" width="1400" height="156" loading="lazy" alt="生物講義 第48頁" data-page="生物講義 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 細菌細胞壁是<strong>肽聚糖</strong>，幾丁質是真菌。(B) ✗ 疊層石是藍綠菌（細菌）形成的。(C) ✗ 登革熱是<strong>病毒</strong>引起的，不是細菌。</li>
+<li>(D) ○ 草食哺乳動物腸道的無氧環境有細菌與古菌（例如產甲烷古菌）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q76">
+<header class="qh"><span class="qn">歷屆 17</span><span class="qtag">法布瑞氏症缺陷酵素所在的胞器・單選（111 分科）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_9_17p5_x11-99.jpg" width="1400" height="248" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>分解大分子（醣脂質）的水解酵素在<strong>溶體</strong>；缺陷時醣脂質無法分解而堆積。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q77">
+<header class="qh"><span class="qn">歷屆 18</span><span class="qtag">幽門螺旋桿菌・單選（107 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_18_29_x11-99.jpg" width="1400" height="294" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>幽門螺旋桿菌是<strong>原核生物（細菌）</strong>，沒有內質網（A ✗）、遺傳物質是 DNA（B ✗）、胺基酸的基本結構相同（D ✗）。</li>
+<li>(C) ○ 它能在胃的強酸環境（pH 約 2）中存活（會分泌鹼性物質中和）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q78">
+<header class="qh"><span class="qn">歷屆 19</span><span class="qtag">區分原核生物與原生生物・單選（109 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_29p5_38_x11-99.jpg" width="1400" height="226" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>原核生物沒有粒線體；<strong>具有粒線體者為原生生物（真核）</strong>。核糖體、染色體、鞭毛、細胞壁兩者都可能有。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q79">
+<header class="qh"><span class="qn">歷屆 20</span><span class="qtag">減數分裂的過程・單選（109 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_38p5_47p5_x11-99.jpg" width="1400" height="242" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 減數分裂 I：成對的<strong>同源染色體分離</strong>，細胞分裂成兩個子細胞。</li>
+<li>(B) ✗ 聯會排列成四分體是<strong>減 I 前期</strong>，不是減 I 結束；(C) ✗ 減 II 不再複製染色體；(D) ✗ 減 II 向兩旁移動的是姊妹染色分體，且產生 n 的子細胞，不是「2n」。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s5">歷屆考題：多選題</h2>
+
+<article class="q q-pr" id="q80">
+<header class="qh"><span class="qn">歷屆 21</span><span class="qtag">只會出現在精子形成的現象・多選（96 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_49_57_x11-99.jpg" width="1400" height="178" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>精子形成是減數分裂；皮膚細胞增生是有絲分裂。<strong>只在減數分裂出現</strong>：同源染色體配對（聯會）、同源染色體的基因互換。紡錘體形成、染色體濃縮、姊妹染色分體形成，兩種分裂都有。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q81">
+<header class="qh"><span class="qn">歷屆 22</span><span class="qtag">粒線體的敘述・多選（110 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_57p5_66p5_x11-99.jpg" width="1400" height="230" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(B) ○ 粒線體與內質網（粗糙）都有核糖體；(C) ○ 粒線體基質有檸檬酸循環的酵素。</li>
+<li>(A) ✗ 粒線體是雙層膜；(D) ✗ 有氧呼吸的第一階段（糖解）在細胞質液；(E) ✗ 粒線體有自己的 DNA。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q82">
+<header class="qh"><span class="qn">歷屆 23</span><span class="qtag">不需運輸蛋白、也不耗 ATP 的運輸・多選（110 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_67_74_x11-99.jpg" width="1400" height="118" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>簡單擴散</strong>：不需運輸蛋白、不耗 ATP。(B) 氧氣在肺泡與細胞間的交換；(D) 脂肪酸（脂溶性）穿過細胞膜。(A) 吸收無機鹽＝主動運輸；(C) 吞噬＝胞吞（耗能）；(E) 葡萄糖再吸收＝載體蛋白。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q83">
+<header class="qh"><span class="qn">歷屆 24</span><span class="qtag">植物細胞減數分裂 II 時可觀察到的現象・多選（104 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_74p5_82_x11-99.jpg" width="1400" height="180" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>減數分裂 II：染色體（二分體，每條含兩條染色分體）排列在赤道面（C ○）；後期<strong>中節分裂</strong>（D ○）；末期細胞質分裂，<strong>植物形成細胞板</strong>（E ○）。(A) 中心粒複製：植物沒有中心粒；(B) 聯會是減 I 前期。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q84">
+<header class="qh"><span class="qn">歷屆 25</span><span class="qtag">原核生物的細胞・多選（105 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_82p5_89p5_x11-99.jpg" width="1400" height="174" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>甲烷菌（古菌）與藍綠菌（細菌）都是<strong>原核生物</strong>；酵母菌、松的導管細胞、人的紅血球都來自真核生物（紅血球是真核細胞的特化，成熟後沒有核）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q85">
+<header class="qh"><span class="qn">歷屆 26</span><span class="qtag">洋蔥根尖細胞可觀察的特徵・多選（107 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_90_97p5_x11-99.jpg" width="1400" height="223" loading="lazy" alt="生物講義 第49頁" data-page="生物講義 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>根尖行有絲分裂：看不到核膜（前～後期）、有紡錘絲、末期有細胞板（A、D、E ○）；高等植物沒有中心粒（B ✗）；四分體是減數分裂 I（C ✗）。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s6">歷屆考題：題組題</h2>
+
+<article class="q q-pr" id="q86">
+<header class="qh"><span class="qn">歷屆 27～28</span><span class="qtag">生物分子與胞器・題組（109 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_10p5_38_x11-99.jpg" width="1400" height="757" loading="lazy" alt="生物講義 第50頁" data-page="生物講義 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>27：(D)　28：(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>27：含 C、H、N、O，<strong>N 重量百分比超過 3%</strong>，分子量約為葡萄糖（180）的 150 倍＝約 27000（大分子），磷含量極低 ⇒ <strong>蛋白質</strong>。（胺基酸太小；DNA 含 P 多；脂肪、澱粉不含 N。）</li>
+<li>28：同時具有 DNA、RNA、蛋白質與磷脂的是<strong>有膜、含自己 DNA 的胞器</strong>：葉綠體（A）、粒線體（E）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q87">
+<header class="qh"><span class="qn">歷屆 29～30</span><span class="qtag">細菌視紫質・題組（110 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_37p5_55_x11-99.jpg" width="1400" height="471" loading="lazy" alt="生物講義 第50頁" data-page="生物講義 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>29：(A)　30：(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>29：氫離子藉光能經視紫質<strong>逆濃度梯度</strong>排出細胞外 ⇒ <strong>主動運輸</strong>。</li>
+<li>30：利用氫離子濃度梯度合成 ATP，在真核細胞的<strong>類囊體</strong>（葉綠體）也會發生。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q88">
+<header class="qh"><span class="qn">歷屆 31～32</span><span class="qtag">DNA 含量與細胞分裂・題組（111 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_55p5_84_x11-99.jpg" width="1400" height="745" loading="lazy" alt="生物講義 第50頁" data-page="生物講義 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>31：(B)　32：(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>31：DNA 含量與螢光強度成正比；細胞分裂完成時，每個子細胞回到雙套（2C），螢光強度比 G2 期（4C）弱。</li>
+<li>32：要找<strong>正在分裂</strong>的細胞，要取分生組織或在修復中的組織：<strong>植物根尖（B）</strong>、<strong>受傷後修復中的皮膚（C）</strong>；植物木質部、成熟生殖細胞、成熟神經細胞都不再分裂。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q89">
+<header class="qh"><span class="qn">歷屆 33～34</span><span class="qtag">RNA 疫苗・題組（111 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A051_9p5_63_x11-99.jpg" width="1400" height="1378" loading="lazy" alt="生物講義 第51頁" data-page="生物講義 p.51"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>33：(C)(D)　34：(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>33：(C) ○ 基因表現時 RNA 經<strong>轉錄</strong>產生；(D) ○ 疫苗的 RNA（mRNA）<strong>轉譯</strong>產生蛋白質。(A) ✗ RNA 多為單股；(B) ✗ RNA 的鹼基是 A、U、G、C，DNA 是 A、T、G、C；(E) ✗ mRNA 不需插入基因體。</li>
+<li>34：(C)(D)(E) 依圖：第 22 天（只有第一劑）部分劑量組已有高於檢測極限的抗體；第 29 天（第二劑後）明顯升高；60 µg 組未打第二劑，對照顯示第二劑有必要。(A) 1 µg 是最低劑量組，不是控制組；(B) 不一定校正。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q90">
+<header class="qh"><span class="qn">歷屆 35～36</span><span class="qtag">冠狀病毒・題組（111 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A051_63p5_95_x11-99.jpg" width="1400" height="837" loading="lazy" alt="生物講義 第51頁" data-page="生物講義 p.51"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>35：(A)(C)(D)　36：(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>35：冠狀病毒是 <strong>RNA 病毒</strong>，核苷酸圖：甲＝磷酸基、乙＝<strong>核糖</strong>（不是去氧核糖）、丙＝含氮鹼基，可能是胞嘧啶或鳥糞嘌呤（RNA 也有尿嘧啶，故 E ✗）。</li>
+<li>36：病毒缺乏基本的細胞結構，尚待分類學者處理（C ○）；基因重組現象相當高，不適於重建演化關係（D ○）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q91">
+<header class="qh"><span class="qn">歷屆 37～38</span><span class="qtag">胡瓜嵌紋病毒（CMV）・題組（112 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A052_9p5_54_x11-99.jpg" width="1400" height="1187" loading="lazy" alt="生物講義 第52頁" data-page="生物講義 p.52"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>37：(D)　38：(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>37：要證明「<strong>2b 的存在有助 CMV 存活</strong>」，應比較病毒量：未感染（H）幾乎沒有病毒，有 2b 的 CMV 病毒量高，缺少 2b 的 CMV-2b 病毒量低 ⇒ 圖 (D)。</li>
+<li>38：<strong>具有專一性</strong>的是 CMV 本身的成分：CMV 的 RNA（B）與蛋白質（C）；氣味、蚜蟲不一定來自 CMV。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q92">
+<header class="qh"><span class="qn">歷屆 39～40</span><span class="qtag">新抗生素・路鄧素・題組（112 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A052_54p5_96_x11-99.jpg" width="1400" height="1107" loading="lazy" alt="生物講義 第52頁" data-page="生物講義 p.52"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>39：(C)　40：(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>39：路鄧素由「常見的生物分子單體串接成鏈狀，再將兩端連成環狀」，由許多胺基酸（含 N、肽鍵）構成 ⇒ <strong>蛋白質</strong>。</li>
+<li>40：(A) ○ 纖維素分子式 (C₆H₁₀O₅)ₙ；(C) ○ DNA、RNA 的基本結構＝磷酸基－五碳醣－含氮鹼基；(E) ○ 蛋白質是胺基酸聚合物。(B) ✗ 細胞壁不是界面活性劑；(D) ✗ DNA 與 RNA 的五碳醣不同。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s7">歷屆考題：非選題</h2>
+
+<article class="q q-pr" id="q93">
+<header class="qh"><span class="qn">歷屆 41</span><span class="qtag">染色體進行由甲到丁的過程・非選（107 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A053_10_35_x11-99.jpg" width="1400" height="641" loading="lazy" alt="生物講義 第53頁" data-page="生物講義 p.53"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 生殖細胞（或生殖母細胞）　(2)（同源）染色體未平均分離，使細胞多一條染色體　(3) Ba、bA、ba、BA</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(1) 圖是<strong>減數分裂</strong>（甲：複製與聯會；乙：同源染色體分離；丙：姊妹染色分體分離；丁：4 個單套細胞）⇒ 動物的<strong>生殖母細胞</strong>。</li>
+<li>(2) 唐氏症是第 21 號染色體多一條：乙步驟（減 I 同源染色體分離）發生不分離，使配子多一條染色體。</li>
+<li>(3) 圖中起始細胞的兩條同源染色體帶 B/b 與 a/A，4 個子細胞可能是 <strong>Ba、bA、ba、BA</strong>（講義解答）。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u1-7.html">← 1-7 探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a><a href="u2-1.html">2-1 光合作用 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

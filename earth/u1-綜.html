@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-綜 單元 1 歷屆試題與關鍵考題｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a class="on" href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a><ul class="subtoc"><li><a href="#s1">歷屆試題</a></li><li><a href="#s2">關鍵考題</a></li></ul></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">單元 1 地球的歷史</div>
+<h1><span class="uid">1-綜</span>單元 1 歷屆試題與關鍵考題</h1>
+<div class="tools"><span class="cnt">本單元 36 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section sec-practice" id="s1">歷屆試題</h2>
+
+<article class="q q-pr" id="q13">
+<header class="qh"><span class="qn">歷屆 1</span><span class="qtag">標準化石的地層對比　學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A011_13p82_36p76.jpg" width="1021" height="420" loading="lazy" alt="地科1 第11頁" data-page="地科1 p.11"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) A₁</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：用「始現／滅絕」夾出一段年代，判斷哪一種化石<strong>可有可無</strong>。</p>
+<p>甲地各化石的生存期限（單位：百萬年前，圖例：人＝始現、Y＝滅絕）：<br />
+- A₁：125～0（整段都有）　B₂：100～0　C₁：125～65　C₂：65～0　B₁：125～100</p>
+<p>乙地有 A₁、B₂、C₁，能對比到甲地的 <strong>65～100</strong>：<br />
+- <strong>B₂ 始現於 100</strong> ⇒ 地層年代不會老於 100。<br />
+- <strong>C₁ 滅絕於 65</strong> ⇒ 地層年代不會新於 65。<br />
+- <strong>A₁ 的生存期涵蓋整個地層柱</strong>，有沒有它都無法縮小範圍，所以可以不出現。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q14">
+<header class="qh"><span class="qn">歷屆 2</span><span class="qtag">地質作用與構造　學測補</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A011_37p35_43p24.jpg" width="1021" height="122" loading="lazy" alt="地科1 第11頁" data-page="地科1 p.11"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：接觸變質、岩脈的種類。</p>
+<ul>
+<li>(A) ○ 鄰近岩脈的岩石，會因岩漿侵入的<strong>高溫</strong>發生<strong>接觸變質</strong>作用。</li>
+<li>(C) ✗ 岩脈是岩漿侵入裂縫冷卻形成，屬<strong>火成岩</strong>，不是沉積岩。</li>
+<li>(B)(D) 需看原圖（侵蝕面先後用截切定律、斷層類型看上盤移動方向）；本題標準答案為 (A)。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q15">
+<header class="qh"><span class="qn">歷屆 3</span><span class="qtag">五次大滅絕：數量最少的一次</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A011_44p71_90p29.jpg" width="1021" height="793" loading="lazy" alt="地科1 第11頁" data-page="地科1 p.11"><img class="qimg" src="img/A011_90p88_95p59.jpg" width="1021" height="85" loading="lazy" alt="地科1 第11頁" data-page="地科1 p.11"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 第 3 次</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：讀圖。圖中標示 1～5 次大滅絕，<strong>第 3 次（約 2.5 億年前，二疊紀末）降到最低</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q16">
+<header class="qh"><span class="qn">歷屆 4</span><span class="qtag">生物數量最少的大滅絕：地質年代</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A011_48p82_90p29.jpg" width="1021" height="711" loading="lazy" alt="地科1 第11頁" data-page="地科1 p.11"><img class="qimg" src="img/A012_3p61_8p11.jpg" width="991" height="101" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 古生代</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：第 3 次大滅絕發生於約 252 百萬年前＝<strong>二疊紀末＝古生代結束</strong>（三葉蟲等滅絕）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q17">
+<header class="qh"><span class="qn">歷屆 5</span><span class="qtag">恐龍的滅絕</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A011_48p82_90p29.jpg" width="1021" height="711" loading="lazy" alt="地科1 第11頁" data-page="地科1 p.11"><img class="qimg" src="img/A012_8p41_12p02.jpg" width="991" height="76" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E) 第 5 次</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>恐龍、菊石在白堊紀末（約 6600 萬年前）滅絕</strong>＝第 5 次大滅絕，也是中生代結束。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q18">
+<header class="qh"><span class="qn">歷屆 6</span><span class="qtag">大滅絕的定義與推論</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A012_12p32_33p35.jpg" width="991" height="315" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：大滅絕的定義：<strong>很短時間內</strong>（幾百萬年）生物總數<strong>急遽減少</strong>。</p>
+<ul>
+<li>(A) ✗ 滅絕不一定是被更強的競爭者取代造成；三葉蟲滅絕時恐龍根本還沒出現。</li>
+<li>(B) ✗ 從圖看，大滅絕後的回升是緩慢的，也不一定馬上超過前一次的數量。</li>
+<li>(C) ○ 短時間內生物總數急遽減少。</li>
+<li>(D)(E) ✗ 只是持續緩慢減少，或單純減少，都不能稱為大滅絕事件。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q19">
+<header class="qh"><span class="qn">歷屆 7</span><span class="qtag">岩層由老到新的順序（含侵入岩與包裹體）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A012_33p95_54p99.jpg" width="991" height="397" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D) 辛→己→戊→丙→丁→庚→乙→甲</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：疊置＋截切＋包裹體定律綜合；題目說「未倒轉」，所以沉積岩下面比上面老。</p>
+<ol>
+<li>由下而上的沉積岩層：辛→己→戊→…（愈下愈老）。</li>
+<li><strong>丁</strong>是火成岩侵入體，且<strong>包裹著丙層的碎塊</strong> ⇒ 丙先形成、丁較晚（包裹體定律）。</li>
+<li><strong>庚</strong>是岩脈，<strong>截切</strong>了丙、丁、戊、己等下方岩層，所以比它們晚；但它<strong>沒有切到上方的乙、甲</strong>，所以乙、甲比庚更晚。</li>
+<li>順序：辛→己→戊→丙→丁→庚→乙→甲，選 <strong>(D)</strong>。</li>
+</ol></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q20">
+<header class="qh"><span class="qn">歷屆 8</span><span class="qtag">圖中沒有顯示的地質事件</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A012_33p95_54p99.jpg" width="991" height="397" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"><img class="qimg" src="img/A012_55p29_59p8.jpg" width="991" height="84" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 正斷層</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：圖中有哪些作用：</p>
+<ul>
+<li>(A) 沉積作用：有，各沉積岩層。</li>
+<li>(B) 侵蝕作用：有，乙層與下方傾斜地層之間為侵蝕面。</li>
+<li>(D) 地層傾斜：有，下方地層傾斜。</li>
+<li>(E) 火成岩侵入：有，丁、庚。</li>
+<li>(C) <strong>正斷層</strong>：圖中沒有看到岩層被斷層錯開 ⇒ <strong>沒顯示</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q21">
+<header class="qh"><span class="qn">歷屆 9</span><span class="qtag">化石存在時間與地質年代</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A012_60p1_93p15.jpg" width="991" height="578" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：看圖（寬度表示數量）：三葉蟲在<strong>古生代</strong>，菊石由古生代開始，<strong>二疊紀末大減少</strong>，三疊紀大量，<strong>白堊紀末（中生代結束）滅絕</strong>。</p>
+<ul>
+<li>(A) ✗ 三葉蟲在古生代就滅絕，侏羅紀（中生代）海洋沒有三葉蟲。</li>
+<li>(B) ✗ 菊石在白堊紀末滅絕，第三紀（新生代）沒有菊石。</li>
+<li>(C) ✗ 二疊紀末的大滅絕不只促成大型爬蟲類發展，說法過度簡化。</li>
+<li>(D) ○ 菊石從古生代開始發展，古生代晚期曾減少，中生代末期才滅絕。</li>
+<li>(E) ✗ 6500 萬年前不只恐龍，<strong>菊石也滅絕</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q22">
+<header class="qh"><span class="qn">歷屆 10</span><span class="qtag">大氣氧氣出現的原因　學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A012_93p45_99p76.jpg" width="991" height="73" loading="lazy" alt="地科1 第12頁" data-page="地科1 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E) 藍綠菌的出現</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：氧氣來自<strong>光合作用</strong>，最早行光合作用的是<strong>藍綠菌</strong>（約 35 億年前）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q23">
+<header class="qh"><span class="qn">歷屆 11</span><span class="qtag">約 40 億年前地球冷卻的結果　（應選 3 項）　學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A013_1p22_12p47.jpg" width="1029" height="198" loading="lazy" alt="地科1 第13頁" data-page="地科1 p.13"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：約 40 億年前＝熔融後冷卻，分層、形成海洋與（第二階段）大氣。</p>
+<ul>
+<li>(A) ○ 水氣凝結降雨，海洋形成。</li>
+<li>(B) ✗ 三葉蟲約 5.4 億年前才出現。</li>
+<li>(C) ○ 火山氣體形成（第二階段）大氣層。</li>
+<li>(D) ✗ 大氣中大量氧氣要到約 20 億年前才出現。</li>
+<li>(E) ○ 內部分層成地核、地函、地殼。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q24">
+<header class="qh"><span class="qn">歷屆 12</span><span class="qtag">岩層生成順序（含深成岩侵入）　（應選 2 項）　109 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A013_13p08_31p63.jpg" width="1029" height="348" loading="lazy" alt="地科1 第13頁" data-page="地科1 p.13"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：深成岩（岩漿在地下深處冷卻）與截切定律。</p>
+<p>圖中深成岩 I 由底部向上侵入，<strong>穿過砂岩 A、頁岩 B，並把 C、D 向上拱起，但沒有露出地表</strong>，所以 I 比 A、B 晚、而且屬深成岩，不是火山。</p>
+<ul>
+<li>(A) ✗ I 在 C 之前形成不合圖意（I 拱起了 C）。</li>
+<li>(B) ○ A→B→C→D→I 是合理順序。</li>
+<li>(C) ✗ I 是<strong>深成岩</strong>（沒有露出地表），不是火山。</li>
+<li>(D) ✗ 依截切定律，<strong>I 截切 A、B，所以 I 比 A、B 晚</strong>，不是早。</li>
+<li>(E) ○ 缺乏化石和定年資料，無法判斷岩層的<strong>確切</strong>（絕對）年代。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q25">
+<header class="qh"><span class="qn">歷屆 13</span><span class="qtag">探索地球歷史的方法　110 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A013_31p93_46p23.jpg" width="1029" height="277" loading="lazy" alt="地科1 第13頁" data-page="地科1 p.13"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：均變說、相對 vs 絕對年代、半衰期。</p>
+<ul>
+<li>(A) ✗ 古生代的地質歷史可以用化石與定年重建，並非「錯誤百出」。</li>
+<li>(B) ✗ 岩脈<strong>截切</strong>周圍地層，依截切定律，岩脈比周圍地層<strong>晚</strong>。</li>
+<li>(C) ✗ <strong>相對</strong>年代是依疊置、截切、化石等；放射性定年才是<strong>絕對</strong>年代。</li>
+<li>(D) ✗ 經過 2 個半衰期，母元素剩 <strong>1/4</strong>（1 個半衰期才剩 1/2）。</li>
+<li>(E) ○ 均變說：過去的地質作用原理和現在相同。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q26">
+<header class="qh"><span class="qn">歷屆 14</span><span class="qtag">海蝕凹壁形成中影響最小的作用　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A013_48p36_79p38.jpg" width="1029" height="539" loading="lazy" alt="地科1 第13頁" data-page="地科1 p.13"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 變質作用</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：海蝕凹壁是<strong>海浪侵蝕與搬運</strong>、<strong>風化</strong>、地震<strong>瞬間抬升</strong>的結果；<strong>變質作用</strong>需高溫高壓使礦物重新排列、生成新礦物，與海蝕凹壁形成<strong>關係最小</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q27">
+<header class="qh"><span class="qn">歷屆 15</span><span class="qtag">碳 14 定年　（應選 2 項）　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A013_80p9_95p5.jpg" width="1029" height="236" loading="lazy" alt="地科1 第13頁" data-page="地科1 p.13"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：碳 14 的性質與定年極限。</p>
+<ul>
+<li>(A) ○ 放射性定年屬<strong>絕對</strong>地質年代定年法。</li>
+<li>(B) ○ 碳 14 具放射性（會衰變成氮 14）。</li>
+<li>(C) ✗ 半衰期 5730 年，極限約 5.7 萬年，適用於<strong>數萬年</strong>以內，不是十萬年以上。</li>
+<li>(D) ✗ 母元素含量隨時間呈<strong>指數</strong>衰減（每個半衰期減半），不是線性。</li>
+<li>(E) ✗ 碳的原子序（質子數）是 <strong>6</strong>，質量數 14 ⇒ 中子數 8；題目寫成 8 個質子、6 個中子是反的。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q28">
+<header class="qh"><span class="qn">歷屆 16</span><span class="qtag">海階抬升的作圖與計算（非選）　111 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A013_48p36_77p55.jpg" width="1029" height="450" loading="lazy" alt="地科1 第13頁" data-page="地科1 p.13"><img class="qimg" src="img/A014_2p94_32p06.jpg" width="1008" height="521" loading="lazy" alt="地科1 第14頁" data-page="地科1 p.14"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>圖：階梯狀；平均抬升速率 7.5 mm/年</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：地震造成的是<strong>快速（瞬間）抬升</strong>，兩次地震之間幾乎不抬升，所以累積高程圖是<strong>階梯狀</strong>，不是一條斜直線。</p>
+<ol>
+<li>由表：T₀＝0 m（0 年）、T₁＝6 m（800 年）、T₂＝10 m（1600 年）、T₃＝18 m（2400 年）。</li>
+<li>畫法：橫軸＝時間（年）、縱軸＝累積高程（m）：在 800 年處<strong>垂直</strong>升到 6 m，水平維持到 1600 年；1600 年處垂直升到 10 m，水平維持到 2400 年；2400 年處垂直升到 18 m（講義旁手繪的階梯即此）。</li>
+<li><strong>平均抬升速率</strong>＝18 m ÷ 2400 年＝0.0075 m/年＝<strong>7.5 mm/年</strong>。</li>
+</ol></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q29">
+<header class="qh"><span class="qn">歷屆 17</span><span class="qtag">帶狀鐵礦與相關歷史事件　（應選 3 項）　113 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A014_25p41_57p35.jpg" width="1008" height="543" loading="lazy" alt="地科1 第14頁" data-page="地科1 p.14"><img class="qimg" src="img/A014_57p06_68p82.jpg" width="1008" height="260" loading="lazy" alt="地科1 第14頁" data-page="地科1 p.14"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：帶狀鐵礦＝海中 Fe²⁺＋氧氣 ⇒ 氧化鐵（Fe₂O₃、Fe₃O₄）沉澱；氧氣在鐵礦形成<strong>之後</strong>才大量進入大氣。</p>
+<ul>
+<li>(A) ✗ Fe²⁺ → Fe₂O₃ 是<strong>氧化</strong>反應，不是還原。</li>
+<li>(B) ○ 24～35 億年前鐵礦床形成時，氧氣被 Fe²⁺ 消耗，大氣氧濃度未大增；<strong>形成之後</strong>氧氣才大幅增加。</li>
+<li>(C) ○ Fe₂O₃、Fe₃O₄ 都不易溶於水，才能沉澱。</li>
+<li>(D) ✗ 它們是<strong>離子化合物</strong>（金屬＋非金屬），不是分子化合物。</li>
+<li>(E) ○ 19 億年前再度形成帶狀鐵礦，表示當時海中 Fe²⁺ 濃度又大幅上升。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q30">
+<header class="qh"><span class="qn">歷屆 18</span><span class="qtag">帶狀鐵礦圖的判讀　（應選 3 項）　113 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A014_25p41_57p35.jpg" width="1008" height="543" loading="lazy" alt="地科1 第14頁" data-page="地科1 p.14"><img class="qimg" src="img/A014_68p12_77p76.jpg" width="1008" height="200" loading="lazy" alt="地科1 第14頁" data-page="地科1 p.14"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：看圖：帶狀鐵礦多在 24 億年前以前；氧氣含量不是線性增加。</p>
+<ul>
+<li>(A) ○ 帶狀鐵礦大部分出現在 <strong>24 億年前以前</strong>的地層（圖中高峰在 24～35 億年前）。</li>
+<li>(B) ✗ 帶狀鐵礦是 Fe²⁺ 與氧氣在水中<strong>沉澱</strong>形成，屬<strong>沉積岩</strong>，不是火成岩。</li>
+<li>(C) ○ 25 億年前海中 Fe²⁺ 多（鐵礦大量形成），今日已被氧化消耗，濃度較低。</li>
+<li>(D) ✗ 氧氣含量曲線有階段性變化（約 24 億年前驟增），不是線性增高。</li>
+<li>(E) ○ 細菌（如厭氧菌）可在極低氧環境中存活。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q31">
+<header class="qh"><span class="qn">歷屆 19</span><span class="qtag">事件排序與大氣變化（非選）　113 學測</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A014_77p94_96p47.jpg" width="1008" height="359" loading="lazy" alt="地科1 第14頁" data-page="地科1 p.14"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 丁→乙→甲→丙　(2) CO₂ 被光合作用消耗而減少，溫室效應減弱，全球氣溫可能下降</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：氧氣歷史事件順序，以及光合作用對大氣組成的影響。</p>
+<p>(1) 由早到晚：<br />
+- <strong>丁</strong> 帶狀鐵礦床形成（約 35～18 億年前）<br />
+- <strong>乙</strong> 氧氣在大氣中快速累積（約 24～20 億年前，鐵離子耗盡後）<br />
+- <strong>甲</strong> 臭氧層形成（氧氣累積之後）<br />
+- <strong>丙</strong> 生物上陸（約 4 億年前，臭氧層保護之後）<br />
+⇒ <strong>丁→乙→甲→丙</strong></p>
+<p>(2) 光合作用消耗<strong>二氧化碳</strong>、釋放氧氣，所以 35～22 億年前大氣中 <strong>CO₂ 比例下降</strong>；CO₂ 是溫室氣體，減少會使<strong>溫室效應減弱</strong>，造成<strong>全球氣溫降低</strong>（甚至引發冰期）。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s2">關鍵考題</h2>
+
+<article class="q q-pr" id="q32">
+<header class="qh"><span class="qn">關鍵 1</span><span class="qtag">熔融後固態外殼時的大氣成分</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A015_15p92_23p58.jpg" width="1057" height="188" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 水氣、二氧化碳</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：第二階段大氣（火山活動釋出）：<strong>水氣最多、二氧化碳第二多</strong>。氫、氦（甲烷、氨）是第一階段（已逸散）；氧氣、臭氧是更晚才出現。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q33">
+<header class="qh"><span class="qn">關鍵 2</span><span class="qtag">地球形成初期的熱能來源　（應選 3 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A015_23p88_35p38.jpg" width="1057" height="263" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：三個熱源：<strong>隕石撞擊（動能→熱能）</strong>、<strong>質量增加向內收縮（位能→熱能）</strong>、<strong>放射性元素衰變釋放熱能</strong>。</p>
+<ul>
+<li>(A) ✗ 溫室氣體吸收太陽輻射不是初期熱能的主要來源。</li>
+<li>(E) ✗ 當時沒有人類與化石燃料。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q34">
+<header class="qh"><span class="qn">關鍵 3</span><span class="qtag">生物上陸的原因</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A015_35p97_53p07.jpg" width="1057" height="338" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：氧氣逐漸進入大氣，被短波輻射分解再生成<strong>臭氧</strong>，臭氧層完備後擋住大部分<strong>紫外線</strong>，生物獲得保護才能上岸（約 4 億年前）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q35">
+<header class="qh"><span class="qn">關鍵 4</span><span class="qtag">圖表判讀：半衰期</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A015_53p36_79p01.jpg" width="1057" height="489" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 7 億年</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：母元素曲線降到 <strong>50％</strong> 所需時間＝半衰期。圖一中母元素與子元素曲線交於 50％，對應時間 <strong>7 億年</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q36">
+<header class="qh"><span class="qn">關鍵 5</span><span class="qtag">火成岩的形成年代（由比例換算）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A015_53p36_79p01.jpg" width="1057" height="489" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"><img class="qimg" src="img/A015_79p3_85p5.jpg" width="1057" height="157" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 3 億年前</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：母：子＝3：1 ⇒ 母元素占 <strong>75％</strong>，<strong>未及一個半衰期（7 億年）</strong>，所以年代 ＜ 7 億年。</p>
+<p>由圖一曲線讀值：母元素 75％ 約在 <strong>3 億年</strong>，所以選 <strong>(A)</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q37">
+<header class="qh"><span class="qn">關鍵 6</span><span class="qtag">地層剖面的敘述　（選「錯誤」）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A015_53p36_79p01.jpg" width="1057" height="489" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"><img class="qimg" src="img/A015_86p08_95p52.jpg" width="1057" height="161" loading="lazy" alt="地科1 第15頁" data-page="地科1 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：丙（火成岩侵入體）形成於約 <strong>3 億年前</strong>（古生代）；甲被丙侵入 ⇒ 甲比丙老；乙在最上方，比丙晚。老→年輕：<strong>甲→丙→乙</strong>。</p>
+<ul>
+<li>(A) ○ 甲比 3 億年前更老，可能是古生代 ⇒ 可能有三葉蟲。</li>
+<li>(B) ○ 乙比 3 億年前新，可以是新生代，可能有長毛象。</li>
+<li>(C) ✗ 甲比 3 億年前<strong>更老</strong>，而恐龍約 <strong>2.5 億年前</strong>才出現 ⇒ 甲<strong>不可能</strong>有恐龍化石。</li>
+<li>(D) ○ 甲、乙、丙有可能都在古生代（5.4～2.5 億年前）。</li>
+<li>(E) ○ 老到年輕為甲→丙→乙。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q38">
+<header class="qh"><span class="qn">關鍵 7</span><span class="qtag">化石比對：三地層的先後</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A016_3p46_19p87.jpg" width="1016" height="309" loading="lazy" alt="地科1 第16頁" data-page="地科1 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 甲乙丙</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：每個化石有一段<strong>生存期限</strong>（圖中直線），兩種以上化石<strong>共存</strong>的期間才是地層的年代範圍。</p>
+<p>圖中各化石生存期：A：寒武～二疊；B：石炭～侏羅；C：泥盆～三疊；D：三疊～白堊；E：三疊～第四紀；F：<strong>第三紀</strong>。</p>
+<p>三地層共存範圍：<br />
+- 甲（A、B、C）：共同範圍＝<strong>石炭～二疊</strong>（古生代晚期）<br />
+- 乙（B、D、E）：共同範圍＝<strong>三疊～侏羅</strong>（中生代）<br />
+- 丙（E、F）：共同範圍＝<strong>第三紀</strong>（新生代）</p>
+<p>老到年輕：<strong>甲 → 乙 → 丙</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q39">
+<header class="qh"><span class="qn">關鍵 8</span><span class="qtag">三地層的敘述　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A016_3p46_19p87.jpg" width="1016" height="309" loading="lazy" alt="地科1 第16頁" data-page="地科1 p.16"><img class="qimg" src="img/A016_20p16_34p56.jpg" width="1016" height="283" loading="lazy" alt="地科1 第16頁" data-page="地科1 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：承上題：甲＝石炭～二疊、乙＝三疊～侏羅、丙＝第三紀。</p>
+<ul>
+<li>(A) ✗ 甲有化石 ⇒ 是<strong>沉積岩</strong>，不可能是花崗岩（火成岩）。</li>
+<li>(B) ✗ 乙是中生代（三疊～侏羅），三葉蟲在古生代就滅絕，不會有。</li>
+<li>(C) ✗ 丙只能是第三紀（F 只存在第三紀），長毛象是<strong>第四紀</strong>生物，丙不會有。</li>
+<li>(D) ○ 臺灣有古生代、中生代、第三紀等地層，三者都有可能出現在臺灣。</li>
+<li>(E) ○ 甲雖屬古生代，但化石不一定保存或被發現 ⇒ 可能找不到三葉蟲化石。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q40">
+<header class="qh"><span class="qn">關鍵 9</span><span class="qtag">研究地球過去歷史的推論　（應選 3 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A016_34p85_59p91.jpg" width="1016" height="433" loading="lazy" alt="地科1 第16頁" data-page="地科1 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：地球年齡怎麼推、海洋怎麼推、均變說、地層消失。</p>
+<ul>
+<li>(A) ✗ 地球約 46 億年前形成，是從<strong>隕石</strong>定年推測的；地球上最古老的岩石只有約 40 億年（岩石易消失）。</li>
+<li>(B) ✗ 老於 2 億年的<strong>海洋地殼</strong>會在海溝隱沒入地函；海洋形成時間是從最古老的<strong>沉積岩</strong>推知。</li>
+<li>(C) ○ 35 億年前的<strong>疊層石</strong>（藍綠菌與泥砂形成）⇒ 當時已有能把 CO₂ 轉換成氧氣的生物。</li>
+<li>(D) ○ 均變說：支配今日地球的原理過去也同樣適用。</li>
+<li>(E) ○ 受內外營力作用，許多古老地層消失，探索歷史更困難。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q41">
+<header class="qh"><span class="qn">關鍵 10</span><span class="qtag">大氣成分隨時間的變化曲線</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A016_60p2_90p73.jpg" width="1016" height="565" loading="lazy" alt="地科1 第16頁" data-page="地科1 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：認曲線：<strong>甲＝二氧化碳</strong>（起始最高、下降）、<strong>乙＝氮氣</strong>（上升後維持約 78％）、<strong>丙＝氧氣</strong>（約 20 億年前才升起）。</p>
+<ul>
+<li>(A) ✗ 甲是二氧化碳、乙是氮氣。</li>
+<li>(B) ○ 地球降溫 ⇒ 水氣凝結成液態水 ⇒ CO₂ 溶入水中 ⇒ 大氣中比例下降。</li>
+<li>(C) ✗ 氮氣比例上升，主要是因為其他氣體（水氣、CO₂）被移除；不是靠脫氮作用大量增加。</li>
+<li>(D) ✗ 氧氣增加主要來自<strong>光合作用</strong>，不是岩石風化。</li>
+<li>(E) ✗ 火山不會釋放大量氧氣（丙）；火山氣體主要是水氣與 CO₂。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q42">
+<header class="qh"><span class="qn">關鍵 11</span><span class="qtag">地球內部分層的形成</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A017_3p68_24p82.jpg" width="1005" height="348" loading="lazy" alt="地科1 第17頁" data-page="地科1 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：地球初期熔融，<strong>重力分層</strong>：密度大的鐵、鎳下沉成地核，輕的矽鋁質浮上成地殼。</p>
+<ul>
+<li>(A)(B)(C)(E) 錯在把原因歸給「引力吸附」「核融合」「岩壓」「太陽風」，都不是地球分層的原因。</li>
+<li>(D) ○ 原始地球受隕石撞擊、放射性元素衰變而呈<strong>熔融</strong>狀態，<strong>重力</strong>讓密度大的鐵、鎳下沉、密度小的矽鋁質上浮。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q43">
+<header class="qh"><span class="qn">關鍵 12</span><span class="qtag">鉀 40 的定年結果</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A017_25p12_38p3.jpg" width="1005" height="236" loading="lazy" alt="地科1 第17頁" data-page="地科1 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 甲樣本</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：鉀 40 半衰期 12.5 億年；25 億年前＝<strong>2 個半衰期</strong> ⇒ 母元素（⁴⁰K）剩 (1/2)²＝<strong>25％</strong>。圖中縱軸為 ⁴⁰K 含量百分比，<strong>甲樣本＝25％</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q44">
+<header class="qh"><span class="qn">關鍵 13</span><span class="qtag">地球不同時期事件排序</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A017_38p6_55p15.jpg" width="1005" height="289" loading="lazy" alt="地科1 第17頁" data-page="地科1 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 丙乙丁甲戊</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：事件的時間點：<br />
+- 丙：熔融、水氣與 CO₂ 為主（約 46～40 億年前）<br />
+- 乙：海洋形成、CO₂ 溶於水、形成石灰岩（約 40 億年前）<br />
+- 丁：三葉蟲開始出現（<strong>約 5.4 億年前</strong>）<br />
+- 甲：臭氧層逐漸形成、生物上陸（<strong>約 4 億年前</strong>）<br />
+- 戊：菊石滅絕（<strong>6600 萬年前</strong>）</p>
+<p>由早到晚：<strong>丙→乙→丁→甲→戊</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q45">
+<header class="qh"><span class="qn">關鍵 14</span><span class="qtag">西伯利亞與華南的火成活動區　（選「錯誤」）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A017_55p45_84p25.jpg" width="1005" height="453" loading="lazy" alt="地科1 第17頁" data-page="地科1 p.17"><img class="qimg" src="img/A017_84p56_99p57.jpg" width="1005" height="263" loading="lazy" alt="地科1 第17頁" data-page="地科1 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：閱讀題＋讀圖。</p>
+<ul>
+<li>(A) ○ 2.5 億年前陸塊多聚在一起（盤古大陸）。</li>
+<li>(B) ○ 西伯利亞在北方高緯度，圖中是 S 區。</li>
+<li>(C) ○ 華南的峨嵋山玄武岩有部分位在海陸交界附近。</li>
+<li>(D) ✗ 西伯利亞約 <strong>200 多萬</strong> km²，華南約 <strong>25 萬</strong> km²，大約是 <strong>8 倍</strong>，不是 50 倍。</li>
+<li>(E) ○ 兩個火成活動區只占全球很小比例，卻能引發全球氣候變遷與大滅絕。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q46">
+<header class="qh"><span class="qn">關鍵 15</span><span class="qtag">火成活動造成大滅絕的過程（非選）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A018_3p28_10p44.jpg" width="964" height="164" loading="lazy" alt="地科1 第18頁" data-page="地科1 p.18"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>岩石圈、大氣圈、水圈、生物圈四個子系統都互相影響</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：地球系統的<strong>交互作用</strong>。</p>
+<p>火成活動（岩石圈）噴出火山灰與溫室氣體 ⇒ <strong>大氣圈</strong>遮蔽陽光使氣溫先下降、溫室氣體累積後再升溫 ⇒ 氣候劇變影響<strong>水圈</strong>（海溫、海洋酸化、缺氧）⇒ <strong>生物圈</strong>物種大量滅絕。所以<strong>岩石圈、大氣圈、水圈、生物圈</strong>全都參與。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q47">
+<header class="qh"><span class="qn">關鍵 16</span><span class="qtag">冥古元的隕石撞擊　（應選 2 項）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A018_14p92_63p25.jpg" width="964" height="867" loading="lazy" alt="地科1 第18頁" data-page="地科1 p.18"><img class="qimg" src="img/A018_63p54_79p95.jpg" width="964" height="333" loading="lazy" alt="地科1 第18頁" data-page="地科1 p.18"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：圖表判讀：圖一為隕石坑分布（愈早愈密、坑愈大）、圖二為撞擊率（愈早愈高，中間有「後期重轟擊事件」）。</p>
+<ul>
+<li>(A) ✗ 45～44 億年前的撞擊機率<strong>高於</strong> 36～35 億年前（撞擊率隨時間遞減）。</li>
+<li>(B) ✗ 一般而言<strong>大</strong>隕石坑出現機率比小坑<strong>低</strong>。</li>
+<li>(C) ○ 直徑超過 6660 公里的大坑，45～44 億年前的出現機率比 36～35 億年前高。</li>
+<li>(D) ○ 早期形成的坑會被後來形成的新坑<strong>覆蓋</strong>（圖一 b 可見）。</li>
+<li>(E) ✗ 圖中看不出隕石主要撞擊高緯度地區；撞擊在全球各處。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q48">
+<header class="qh"><span class="qn">關鍵 17</span><span class="qtag">第二派地質學家認為的冥古元結束時間</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A018_14p92_33p41.jpg" width="964" height="333" loading="lazy" alt="地科1 第18頁" data-page="地科1 p.18"><img class="qimg" src="img/A018_33p41_63p25.jpg" width="964" height="540" loading="lazy" alt="地科1 第18頁" data-page="地科1 p.18"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>約 38 億年前</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：第二派＝以「<strong>後期重轟擊事件</strong>的結束點」為冥古元的結束。由圖二，後期重轟擊事件（橘色帶）結束於約 <strong>3.8（×10 億年）＝38 億年前</strong>。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u1-2.html">← 1-2 主題 2　相對地質年代與絕對地質年代</a><a href="u2-3.html">2-3 主題 3　恆星的亮度、光度與顏色 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

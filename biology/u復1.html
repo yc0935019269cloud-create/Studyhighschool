@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復1 細胞學難題（上）：學說、物質、胞器、膜與運輸｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a class="on" href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">細胞學說與顯微鏡</a></li><li><a href="#s3">細胞種類與生物分子</a></li><li><a href="#s4">細胞形態與胞器</a></li><li><a href="#s5">細胞膜與物質運輸</a></li></ul></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 單元 1 細胞學＋單元 2 維持生命現象的能量</div>
+<h1><span class="uid">復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</h1>
+<div class="tools"><span class="cnt">本單元 20 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁 10 題，順序是<strong>細胞學說與顯微鏡（1、2）→ 細胞種類與生物分子（3、4）→ 細胞形態與胞器（5～8）→ 細胞膜與物質運輸（9、10）</strong>。每題 ★ 是難度，<strong>請先讀「考前速記」，自己寫完再點開詳解</strong>，看完「小結」再做後面的類題。標示「改編」者取自基隆市立中山高中 109～113 學年度第 1 學期第 1 次段考（高一生物）的題型，設問與數字已重寫；「自編」＝針對講義弱點新編。</p></aside>
+
+<h2 class="section " id="s2">細胞學說與顯微鏡</h2>
+
+<article class="q q-pr" id="q163">
+<header class="qh"><span class="qn">難題 1</span><span class="qtag">細胞學說・科學家貢獻・改編（基隆中山高中五份段考皆考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>科學家</strong>：<strong>虎克</strong>（1665，軟木塞切片，看到的是<strong>死</strong>細胞，命名 cell）；<strong>雷文霍克</strong>（第一位觀察到<strong>活</strong>細胞）；<strong>布朗</strong>（發現細胞核）；<strong>許來登</strong>（植物）＋<strong>許旺</strong>（動物）→ 1839 年提出細胞學說；<strong>魏修</strong>（細胞來自已存在的細胞）。</li>
+<li><strong>細胞學說三點</strong>：①生物體由一個或多個細胞及其衍生物組成；②細胞是構造與功能的<strong>基本單位</strong>；③細胞由<strong>已存在的細胞</strong>分裂產生。</li>
+<li><strong>提醒</strong>：「DNA 在細胞核」「細胞核最重要」「ATP 提供能量」<strong>都不是</strong>細胞學說的內容。</li>
+</ul></div></details><div class="qtext"><p>下列有關細胞發現與細胞學說的敘述，哪些正確？（多選）<br />
+(A) 虎克以軟木塞切片首次觀察到活細胞<br />
+(B) 雷文霍克是第一位觀察到活細胞的人<br />
+(C) 許來登與許旺於 1839 年提出細胞學說<br />
+(D) 魏修提出「細胞必須由已存在的細胞產生」<br />
+(E) 細胞學說指出，細胞核是細胞最重要的構造<br />
+(F) 布朗在植物細胞中發現了細胞核</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(D)(F)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：科學家貢獻的配對，以及「細胞學說」到底包含什麼。</p>
+<ul>
+<li>(A) ✗ 虎克看到的是<strong>死</strong>的軟木塞細胞壁。</li>
+<li>(B) ○ 雷文霍克用自製顯微鏡看到活的原生生物與血球。</li>
+<li>(C) ○ 許來登（植物）、許旺（動物）1839 年提出細胞學說。</li>
+<li>(D) ○ 魏修由疾病研究推論，細胞來自細胞。</li>
+<li>(E) ✗ 細胞學說沒有「細胞核最重要」這一條。</li>
+<li>(F) ○ 布朗 19 世紀在植物細胞中發現細胞核。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>科學家各記一句關鍵字：<strong>虎克＝死細胞命名、雷文霍克＝活細胞、布朗＝核、許＋許＝學說、魏修＝細胞來自細胞</strong>；細胞學說只有「組成、基本單位、來自細胞」三點。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q164">
+<header class="qh"><span class="qn">類題｜難題 1</span><span class="qtag">簡單版・細胞學說的內容・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些是現今細胞學說的內容？（多選）<br />
+(A) 生物體都是由細胞及其衍生物所組成<br />
+(B) 細胞是生物體構造與功能的基本單位<br />
+(C) 細胞是由已經存在的細胞分裂產生的<br />
+(D) ATP 是細胞的能量貨幣<br />
+(E) 細胞核是細胞最重要的構造</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>(A)(B)(C) 正是細胞學說的三點：組成、基本單位、細胞來自細胞。(D) 是代謝與能量的內容，(E) 不是學說的主張，所以不選。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q165">
+<header class="qh"><span class="qn">難題 2</span><span class="qtag">顯微鏡能看多小・單位換算・改編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>解像力</strong>：人類肉眼約 <strong>0.1 mm</strong>；顯微鏡放大 N 倍後，肉眼能看見的最小物體約 <strong>0.1 mm ÷ N</strong>。</li>
+<li><strong>單位</strong>：1 m ＝ 10³ mm ＝ 10⁶ μm ＝ 10⁹ nm；1 cm ＝ 10⁷ nm；1 μm ＝ 10³ nm。</li>
+<li><strong>提醒</strong>：光學顯微鏡實用上看到約 <strong>100 nm～數 μm</strong> 以上；核糖體（約 25 nm）、病毒、膜厚度要用電子顯微鏡。</li>
+</ul></div></details><div class="qtext"><p>若使用放大 1000 倍的光學顯微鏡，下列哪一物體在視野下<strong>看不見</strong>？<br />
+(A) 2×10⁻⁶ m　(B) 5×10⁻⁸ m　(C) 10⁻⁵ m　(D) 10⁻⁴ cm</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：先算「顯微鏡能分辨的最小尺寸」，再把各選項換成同一單位比較。</p>
+<p>最小可見尺寸 ＝ 0.1 mm ÷ 1000 ＝ 10⁻⁴ mm ＝ 10⁻⁷ m ＝ <strong>100 nm（0.1 μm）</strong>。<br />
+- (A) 2×10⁻⁶ m ＝ 2 μm ＞ 0.1 μm ⇒ 看得見<br />
+- <strong>(B) 5×10⁻⁸ m ＝ 50 nm ＜ 100 nm ⇒ 看不見（要用電子顯微鏡）</strong><br />
+- (C) 10⁻⁵ m ＝ 10 μm ⇒ 看得見<br />
+- (D) 10⁻⁴ cm ＝ 10⁻⁶ m ＝ 1 μm ⇒ 看得見</p><div class="qsum"><b class="qsum-h">小結</b><p>步驟固定：<strong>0.1 mm ÷ 放大倍率 ＝ 最小可見尺寸 → 換成同單位 → 比大小</strong>；50 nm 這種大小（核糖體、病毒）一定要電子顯微鏡。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q166">
+<header class="qh"><span class="qn">類題｜難題 2</span><span class="qtag">簡單版・400 倍顯微鏡・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>使用放大 400 倍的光學顯微鏡觀察，下列哪一物體在視野下<strong>看不見</strong>？（人類肉眼解像力約 0.1 mm）<br />
+(A) 5 μm　(B) 1 μm　(C) 0.05 μm　(D) 0.5 μm</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>最小可見尺寸 ＝ 0.1 mm ÷ 400 ＝ 0.00025 mm ＝ <strong>0.25 μm</strong>。(A) 5 μm、(B) 1 μm、(D) 0.5 μm 都大於 0.25 μm，看得見；<strong>(C) 0.05 μm ＝ 50 nm</strong> 小於 0.25 μm，看不見。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">細胞種類與生物分子</h2>
+
+<article class="q q-pr" id="q167">
+<header class="qh"><span class="qn">難題 3</span><span class="qtag">原核與真核・動植物細胞的比較・改編（109～113 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>原核細胞</strong>（細菌、藍綠菌）：無核膜、無膜狀胞器（只有核糖體）、有細胞壁（肽聚糖）；<strong>藍綠菌能行光合作用但沒有葉綠體</strong>。</li>
+<li><strong>真核細胞</strong>：有核膜；動物細胞<strong>無細胞壁、無葉綠體</strong>，有中心粒；植物細胞有細胞壁、葉綠體、大液泡，<strong>開花植物沒有中心粒</strong>；兩者都有粒線體、核糖體。</li>
+<li><strong>提醒</strong>：動物細胞也有（小）液泡；植物表皮細胞沒有葉綠體。</li>
+</ul></div></details><div class="qtext"><p>下列有關各種細胞的比較，哪些正確？（多選）<br />
+(A) 原核細胞與真核細胞都有核糖體<br />
+(B) 原核細胞具有內質網<br />
+(C) 植物葉肉細胞與動物細胞都具有粒線體<br />
+(D) 動物細胞具有中心粒，開花植物細胞沒有<br />
+(E) 動物細胞完全沒有液泡</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：原核／真核與動物／植物比較表裡最常被混淆的「有／無」。</p>
+<ul>
+<li>(A) ○ 核糖體是原核與真核<strong>共有</strong>的構造。</li>
+<li>(B) ✗ 原核細胞沒有內質網等膜狀胞器。</li>
+<li>(C) ○ 葉肉細胞同時有葉綠體與粒線體。</li>
+<li>(D) ○ 開花植物不具中心粒，仍能形成紡錘絲。</li>
+<li>(E) ✗ 動物細胞也有小型液泡（食泡、伸縮泡等），只是沒有大的中央液泡。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>比較表的陷阱：<strong>原核有核糖體、沒有內質網；動物有小液泡；開花植物沒有中心粒</strong>；「有／無」要記到例外。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q168">
+<header class="qh"><span class="qn">類題｜難題 3</span><span class="qtag">簡單版・大腸桿菌與水稻・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>大腸桿菌與水稻葉肉細胞<strong>都具有</strong>的構造是下列何者？<br />
+(A) 核仁　(B) 核糖體　(C) 粒線體　(D) 內質網</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>大腸桿菌是<strong>原核生物</strong>，只有核糖體；沒有核仁、粒線體、內質網。水稻是真核生物，什麼都有，所以<strong>共有的是核糖體（B）</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q169">
+<header class="qh"><span class="qn">難題 4</span><span class="qtag">生物分子的組成與功能・改編（110、112、113 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>元素</strong>：醣類、脂質 C、H、O；蛋白質 C、H、O、N（常含 S）；核酸 C、H、O、N、P。</li>
+<li><strong>單體</strong>：澱粉、肝糖、纖維素的單體都是<strong>葡萄糖</strong>；蛋白質→胺基酸；核酸→核苷酸；<strong>脂質不是聚合物</strong>。</li>
+<li><strong>熱量</strong>：醣類、蛋白質約 <strong>4 大卡／克</strong>；脂質 <strong>9 大卡／克</strong>。</li>
+<li><strong>五碳醣</strong>：DNA＝去氧核糖，RNA＝核糖；鹼基：DNA 有 T，RNA 有 U。</li>
+</ul></div></details><div class="qtext"><p>下列有關生物體內有機物的敘述，哪些正確？（多選）<br />
+(A) 蛋白質含有 C、H、O、N，有些還含有 S<br />
+(B) 肝糖與纖維素的單體都是葡萄糖<br />
+(C) 1 克醣類可提供約 9 大卡的能量<br />
+(D) DNA 所含的五碳醣為去氧核糖<br />
+(E) 中性脂（三酸甘油酯）是構成細胞膜的主要成分</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：四類有機物的元素、單體、熱量與組成的基本事實。</p>
+<ul>
+<li>(A) ○ 蛋白質的胺基酸側鏈可含硫（如半胱胺酸）。</li>
+<li>(B) ○ 肝糖（動物儲存）與纖維素（植物細胞壁）都由葡萄糖組成，只是鍵結方式不同。</li>
+<li>(C) ✗ 醣類約 4 大卡；9 大卡是脂質。</li>
+<li>(D) ○ DNA＝去氧核糖核酸。</li>
+<li>(E) ✗ 膜的主要成分是<strong>磷脂質</strong>；中性脂用來儲存能量。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>熱量<strong>醣 4、蛋 4、脂 9</strong>；單體記「澱粉、肝糖、纖維素＝葡萄糖」；膜是磷脂、儲能是中性脂。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q170">
+<header class="qh"><span class="qn">類題｜難題 4</span><span class="qtag">簡單版・有機物判斷・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些敘述正確？（多選）<br />
+(A) 澱粉與肝糖的單體都是葡萄糖<br />
+(B) 蛋白質由胺基酸以肽鍵連接而成<br />
+(C) RNA 含有鹼基胸腺嘧啶（T）<br />
+(D) 磷脂質分子有親水的頭部與疏水的尾部<br />
+(E) 脂質都是由許多單體聚合成的大分子</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(C) ✗ RNA 的鹼基是 A、U、G、C；<strong>T 在 DNA</strong>。</li>
+<li>(E) ✗ 脂質<strong>不是聚合物</strong>，不由重複單體連接。</li>
+<li>(A)(B)(D) 都正確。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">細胞形態與胞器</h2>
+
+<article class="q q-pr" id="q171">
+<header class="qh"><span class="qn">難題 5</span><span class="qtag">細胞形態與功能・改編（五份段考皆考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>細胞形態配功能</strong>：紅血球＝雙凹圓盤，增大表面積、運輸 O₂（也運 CO₂）；肌肉細胞＝纖維狀，<strong>收縮</strong>；神經細胞＝多突起，<strong>傳遞與接收</strong>訊息；木質部細胞＝管狀，<strong>運水</strong>；植物表皮＝扁平，<strong>保護</strong>；<strong>保衛細胞＝半月形，控制氣孔開閉</strong>。</li>
+<li><strong>提醒</strong>：保衛細胞的功能是調節氣孔，<strong>不是保護個體</strong>。</li>
+</ul></div></details><div class="qtext"><p>下列有關細胞形態與功能的敘述，哪些正確？（多選）<br />
+(A) 神經細胞有許多突起，只有傳遞訊息、沒有接收訊息的功能<br />
+(B) 人類紅血球呈雙凹圓盤狀，可用來運輸氧氣<br />
+(C) 肌肉細胞呈纖維狀，具有收縮的功能<br />
+(D) 植物保衛細胞呈半月形，主要功能是保護個體<br />
+(E) 木質部的細胞呈管狀，可運輸水分</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：形態和功能的配對，特別是兩個經典陷阱（神經細胞、保衛細胞）。</p>
+<ul>
+<li>(A) ✗ 神經細胞的樹突<strong>接收</strong>訊息、軸突<strong>傳遞</strong>訊息。</li>
+<li>(B) ○ 雙凹圓盤使表面積大，利於氣體交換。</li>
+<li>(C) ○ 纖維狀、含收縮蛋白。</li>
+<li>(D) ✗ 保衛細胞的功能是<strong>控制氣孔的開閉</strong>。</li>
+<li>(E) ○ 管狀、中空，利於輸水。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>形態配功能；<strong>神經＝傳遞＋接收、保衛細胞＝氣孔開閉</strong>，這兩個「改一個字就錯」的選項是年年出現的陷阱。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q172">
+<header class="qh"><span class="qn">類題｜難題 5</span><span class="qtag">簡單版・細胞與功能配對・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列細胞形態與功能的配對，哪些正確？（多選）<br />
+(A) 肌肉細胞——纖維狀，具收縮功能<br />
+(B) 植物表皮細胞——扁平，具保護功能<br />
+(C) 保衛細胞——半月形，控制氣孔開閉<br />
+(D) 紅血球——球形，主要功能是吞噬病原體</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>(D) ✗ 紅血球是雙凹圓盤狀、運輸氣體；吞噬病原體是白血球的功能。其餘三項都正確。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q173">
+<header class="qh"><span class="qn">難題 6</span><span class="qtag">蛋白質分泌路徑與穿越磷脂層數・改編（110、113 段考）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>分泌路徑</strong>：粗糙內質網上的核糖體合成 → 粗糙內質網 → <strong>囊泡</strong> → 高基氏體（修飾、分類）→ <strong>囊泡</strong> → 細胞膜 → <strong>胞吐</strong>。</li>
+<li><strong>穿越磷脂層</strong>：囊泡運送、膜融合，<strong>不穿越</strong>磷脂雙層 ⇒ <strong>0 層</strong>；簡單擴散一次進出細胞膜＝穿過 1 個膜＝2 層磷脂分子。</li>
+<li><strong>大量分泌時發達的構造</strong>：核糖體、粗糙內質網、高基氏體，以及供能的<strong>粒線體</strong>；平滑內質網與蛋白質合成無直接關係。</li>
+</ul></div></details><div class="qtext"><p>胰臟腺細胞合成並分泌消化酶（蛋白質）。下列有關此過程的敘述，哪些正確？（多選）<br />
+(A) 消化酶先在游離於細胞質的核糖體合成，再進入細胞核<br />
+(B) 消化酶依序經過粗糙內質網、囊泡、高基氏體、囊泡，最後以胞吐方式排出細胞<br />
+(C) 從合成到分泌到細胞外，消化酶共穿越 2 層磷脂分子<br />
+(D) 分泌旺盛時，細胞內粒線體的數量與活動會增加<br />
+(E) 高基氏體負責合成消化酶的胺基酸序列</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：分泌蛋白的旅程，以及「穿越幾層磷脂」的陷阱。</p>
+<ul>
+<li>(A) ✗ 分泌蛋白由<strong>粗糙內質網上的核糖體</strong>合成，不進入細胞核。</li>
+<li>(B) ○ 標準路徑：核糖體 → 粗糙內質網 → 囊泡 → 高基氏體 → 囊泡 → 細胞膜（胞吐）。</li>
+<li>(C) ✗ 全程靠囊泡，與膜融合，<strong>穿越 0 層</strong>磷脂。</li>
+<li>(D) ○ 運輸與合成都耗 ATP，粒線體增多。</li>
+<li>(E) ✗ 胺基酸序列由基因決定、在核糖體合成；高基氏體只做<strong>修飾、分類、運輸</strong>。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>分泌蛋白＝<strong>核糖體 → 粗糙內質網 → 囊泡 → 高基氏體 → 囊泡 → 細胞膜</strong>，<strong>穿越 0 層磷脂</strong>；高基氏體不合成蛋白質。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q174">
+<header class="qh"><span class="qn">類題｜難題 6</span><span class="qtag">簡單版・磷脂質運輸・改編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>細胞膜上的磷脂質由平滑內質網製造，運送到細胞膜的正確路徑為何？<br />
+(A) 平滑內質網 → 囊泡 → 高基氏體 → 囊泡 → 細胞膜<br />
+(B) 高基氏體 → 囊泡 → 平滑內質網 → 囊泡 → 細胞膜<br />
+(C) 平滑內質網 → 囊泡 → 粒線體 → 囊泡 → 細胞膜<br />
+(D) 粗糙內質網 → 囊泡 → 溶體 → 囊泡 → 細胞膜</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>平滑內質網製造磷脂質（脂質合成） → 囊泡運到<strong>高基氏體</strong>修飾 → 囊泡運到<strong>細胞膜</strong>。粒線體、溶體不在這條運輸路徑上。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q175">
+<header class="qh"><span class="qn">難題 7</span><span class="qtag">內質網、高基氏體、溶體等胞器配對・改編（111、113 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>粗糙內質網</strong>：有核糖體附著，合成分泌／膜蛋白；<strong>平滑內質網</strong>：合成脂質、解毒、儲 Ca²⁺。</li>
+<li><strong>高基氏體</strong>：<strong>修飾、分類、儲存、運輸</strong>；<strong>溶體</strong>（含酸性水解酶）：細胞內消化；<strong>液泡</strong>：儲存、調節水分。</li>
+<li><strong>中心粒</strong>：與細胞分裂有關，無膜。<strong>核糖體</strong>：合成蛋白質，可游離也可附著。</li>
+</ul></div></details><div class="qtext"><p>下列有關細胞內構造與功能的組合，哪些正確？（多選）<br />
+(A) 內質網：協助細胞內物質的運輸<br />
+(B) 高基氏體：參與脂質與蛋白質的合成<br />
+(C) 核糖體：僅附著於內質網上，為細胞合成蛋白質的場所<br />
+(D) 植物液泡：含水、葉綠素等，並積存細胞無法排出的物質<br />
+(E) 中心粒：與細胞分裂有關</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：胞器功能配對中「差一個字」的選項。</p>
+<ul>
+<li>(A) ○ 內質網的管、囊是細胞內運輸通道。</li>
+<li>(B) ✗ 高基氏體<strong>修飾、分類、運輸</strong>，不是合成蛋白質、脂質。</li>
+<li>(C) ✗ 核糖體也可<strong>游離</strong>在細胞質。</li>
+<li>(D) ✗ 液泡含花青素等，<strong>葉綠素在葉綠體</strong>。</li>
+<li>(E) ○ 中心粒與紡錘絲的形成、細胞分裂有關。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>胞器功能的「合成」只屬於核糖體（蛋白質）與內質網（脂質）；<strong>高基氏體＝加工運輸、溶體＝消化、液泡不含葉綠素</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q176">
+<header class="qh"><span class="qn">類題｜難題 7</span><span class="qtag">簡單版・胞器功能・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列胞器與功能的配對，哪一項<strong>正確</strong>？<br />
+(A) 溶體——光合作用　(B) 粒線體——細胞內消化　(C) 溶體——細胞內消化　(D) 核糖體——脂質合成</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>溶體含酸性水解酶，負責細胞內消化。(A) 光合作用在葉綠體；(B) 粒線體負責呼吸作用產生 ATP；(D) 核糖體合成蛋白質，脂質由平滑內質網合成。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q177">
+<header class="qh"><span class="qn">難題 8</span><span class="qtag">粒線體與葉綠體的構造比較・改編（113 段考）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>雙層膜、半自主</strong>：兩者都是雙層膜，都有自己的 DNA 與核糖體，能自行分裂。</li>
+<li><strong>粒線體</strong>：外膜平滑；<strong>內膜折疊成嵴</strong>；內膜內是<strong>基質</strong>（檸檬酸循環）；內膜上有電子傳遞鏈與 ATP 合成酶。</li>
+<li><strong>葉綠體</strong>：外膜、內膜；內部有<strong>類囊體</strong>（疊成葉綠餅）；內膜<strong>不折疊</strong>；基質進行固碳反應；類囊體膜進行光反應。</li>
+</ul></div></details><div class="qtext"><p>下列有關葉綠體與粒線體的敘述，何者正確？<br />
+(A) 兩者由外而內，皆有外膜、內膜與類囊體等構造<br />
+(B) 兩者內膜以內的空間皆稱為基質<br />
+(C) 兩者皆有以內膜折疊來增加表面積的現象<br />
+(D) 葉綠體會消耗粒線體產生的能量以合成醣類</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：兩個「雙層膜胞器」構造的同與異。</p>
+<ul>
+<li>(A) ✗ 類囊體只有<strong>葉綠體</strong>有。</li>
+<li>(B) ○ 內膜以內的液態空間，在兩者都叫<strong>基質</strong>。</li>
+<li>(C) ✗ 只有<strong>粒線體</strong>的內膜折成嵴；葉綠體內膜不折疊。</li>
+<li>(D) ✗ 葉綠體合成醣類用的是<strong>自己光反應產生的</strong> ATP、NADPH，不是粒線體的能量。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>兩者共同＝<strong>雙層膜、半自主、有基質</strong>；差異＝<strong>類囊體只在葉綠體、嵴只在粒線體</strong>；葉綠體的能量自給自足。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q178">
+<header class="qh"><span class="qn">類題｜難題 8</span><span class="qtag">簡單版・粒線體的構造・改編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關粒線體的敘述，何者<strong>正確</strong>？<br />
+(A) 具單層膜，由許多扁囊排列而成　(B) 是細胞進行呼吸作用的主要場所，內膜折疊成嵴　(C) 具分泌物質的功能　(D) 植物細胞藉它維持細胞形狀</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>粒線體是<strong>雙層膜</strong>胞器，內膜折成<strong>嵴</strong>，是呼吸作用的主要場所（細胞的能量工廠）。(A) 是高基氏體的描述；(C) 分泌是高基氏體；(D) 維持形狀的是細胞壁與中央液泡。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s5">細胞膜與物質運輸</h2>
+
+<article class="q q-pr" id="q179">
+<header class="qh"><span class="qn">難題 9</span><span class="qtag">細胞膜的構造與成分・改編（111、112 段考）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>流體鑲嵌模型</strong>（辛格與尼可森，1972）：<strong>磷脂雙層</strong>（親水頭朝<strong>外</strong>、疏水尾朝<strong>內</strong>）＋鑲嵌的<strong>膜蛋白</strong>，可橫向移動。</li>
+<li><strong>成分功能</strong>：磷脂雙層＝基本骨架；<strong>膜蛋白</strong>＝通道、載體、受體、辨識；<strong>醣類</strong>（接在蛋白或脂上）位於膜<strong>外側</strong>，與細胞<strong>辨識</strong>有關；<strong>膽固醇</strong>只在<strong>動物</strong>細胞膜，穩定膜流動性。</li>
+<li><strong>提醒</strong>：細胞膜是<strong>選擇性通透膜</strong>；植物、真菌、細菌的膜沒有（或幾乎沒有）膽固醇。</li>
+</ul></div></details><div class="qtext"><p>下列有關細胞膜的敘述，哪些正確？（多選）<br />
+(A) 細胞膜的主要成分是磷脂質雙層與蛋白質<br />
+(B) 磷脂質的親水端朝向膜的內部、疏水端朝向膜的外面<br />
+(C) 膜上的醣類位在細胞膜外側，與細胞辨識有關<br />
+(D) 膽固醇同時存在於動物與植物的細胞膜<br />
+(E) 膜蛋白可作為通道或載體，使細胞膜對物質進出具有選擇性</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：流體鑲嵌模型的各個零件。</p>
+<ul>
+<li>(A) ○ 磷脂雙層為骨架，鑲嵌蛋白質。</li>
+<li>(B) ✗ 磷脂質的<strong>親水頭朝外</strong>（朝向水環境），<strong>疏水尾朝內</strong>。</li>
+<li>(C) ○ 醣類在外側，例如血型抗原、細胞辨識。</li>
+<li>(D) ✗ 膽固醇<strong>只</strong>見於<strong>動物</strong>細胞膜。</li>
+<li>(E) ○ 通道蛋白、載體蛋白決定哪些物質可通過。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>磷脂雙層＝<strong>頭朝外、尾朝內</strong>；醣類在<strong>外側</strong>管辨識；<strong>膽固醇是動物專屬</strong>；膜蛋白負責選擇性運輸。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q180">
+<header class="qh"><span class="qn">類題｜難題 9</span><span class="qtag">簡單版・細胞膜成分・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關細胞膜的敘述，哪些正確？（多選）<br />
+(A) 膜的骨架是磷脂質雙層　(B) 蛋白質只貼在膜的表面、不會鑲嵌在膜內　(C) 醣類位於膜的外側　(D) 磷脂質的疏水尾朝向膜的內部</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>(B) ✗ 蛋白質<strong>鑲嵌</strong>在磷脂雙層中（也有些貼在表面）；(A)(C)(D) 都正確。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q181">
+<header class="qh"><span class="qn">難題 10</span><span class="qtag">滲透與高張低張・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>滲透</strong>：<strong>水</strong>分子通過選擇性通透膜，由<strong>低張（溶質濃度低）</strong>往<strong>高張（溶質濃度高）</strong>移動；只看<strong>溶質總濃度</strong>。</li>
+<li><strong>動物細胞</strong>（如紅血球）：高張→<strong>皺縮</strong>；等張（約 0.9% NaCl）→正常；低張→<strong>膨脹，可能破裂</strong>。</li>
+<li><strong>植物細胞</strong>：高張→<strong>質離</strong>（細胞膜與細胞壁分離）；低張→膨脹，有細胞壁<strong>不會破</strong>（有<strong>膨壓</strong>）。</li>
+</ul></div></details><div class="qtext"><p>將紅血球與洋蔥表皮細胞分別放入下列溶液，哪些正確？（多選）<br />
+(A) 紅血球放入 0.9% 食鹽水中，形狀維持正常<br />
+(B) 紅血球放入蒸餾水中，會因水分流出而皺縮<br />
+(C) 紅血球放入 10% 食鹽水中，會皺縮<br />
+(D) 洋蔥表皮細胞放入 10% 食鹽水中，會發生質離現象<br />
+(E) 洋蔥表皮細胞放入蒸餾水中，會因吸水而破裂</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：高張、低張對動物與植物細胞的不同影響。</p>
+<ul>
+<li>(A) ○ 0.9% 是哺乳動物紅血球的等張溶液。</li>
+<li>(B) ✗ 蒸餾水是<strong>低張</strong>，水<strong>流入</strong>使紅血球膨脹、破裂，不是皺縮。</li>
+<li>(C) ○ 10% 食鹽水是<strong>高張</strong>，水流出，紅血球皺縮。</li>
+<li>(D) ○ 高張使植物細胞失水，細胞膜與細胞壁分離（質離）。</li>
+<li>(E) ✗ 植物細胞有<strong>細胞壁</strong>，吸水膨脹但不會破。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>動物：高張皺縮、低張脹破；植物：高張質離、低張膨脹不破（細胞壁）</strong>；水往溶質濃度高的一側移動。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q182">
+<header class="qh"><span class="qn">類題｜難題 10</span><span class="qtag">簡單版・紅血球與滲透・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>將紅血球放入濃度較高（高張）的鹽水中，紅血球會發生什麼變化？水分子的移動方向為何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>紅血球皺縮；水分子由紅血球內往外移動</div>
+<div class="exp"><b class="exp-h">解</b><p>高張溶液的溶質濃度比紅血球內高，<strong>水往溶質濃度高的一側移動</strong> ⇒ 水流出細胞 ⇒ 紅血球失水<strong>皺縮</strong>。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復0.html">← 復0 考前地圖：範圍・脈絡・規則速查</a><a href="u復2.html">復2 細胞學難題（下）：酵素、細胞週期、分裂與分化 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

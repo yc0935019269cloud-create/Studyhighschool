@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-1 氫原子光譜與波耳氫原子模型｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a class="on" href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第1章 原子結構與週期表</div>
+<h1><span class="uid">1-1</span>氫原子光譜與波耳氫原子模型</h1>
+<div class="tools"><span class="cnt">本單元 32 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、氫原子光譜與芮得柏方程式</h3>
+<h4>1. 電磁波與能量</h4>
+<p><strong>(1) 光的波動性</strong></p>
+<ul>
+<li>光為電磁波，在真空中以 3×10<sup>8</sup> m/s 的速率前進。</li>
+<li>波速 c ＝ 頻率 ν × 波長 λ　（c：3×10<sup>8</sup> m/s；ν：s<sup>-1</sup>；λ：m）</li>
+<li>波長常用單位：1 nm ＝ 10<sup>-9</sup> m，1 Å ＝ 10<sup>-10</sup> m。</li>
+</ul>
+<aside class="box box-concept"><div class="box-h">觀念</div><ul>
+<li>電磁波的<strong>頻率</strong>：γ 射線 ＞ X 射線 ＞ 紫外線 ＞ 可見光 ＞ 紅外線 ＞ 微波 ＞ 無線電波（波長順序剛好相反）。</li>
+<li>可見光的波長約為 <strong>400～700 nm</strong>。</li>
+</ul></aside>
+
+<figure class="fig"><img class="figimg" src="img/A001_44_64.jpg" width="1400" height="432" loading="lazy" alt="講義一 第1頁" data-page="講義一 p.1"><figcaption>電磁波譜：頻率、波長與對應尺寸</figcaption></figure>
+<p><strong>(2) 光的粒子性</strong></p>
+<ul>
+<li>普朗克：光的能量與頻率成正比。</li>
+<li>愛因斯坦：光具有粒子性質，稱為<strong>光子</strong>，每個光子的能量 <strong>E ＝ hν</strong>。</li>
+</ul>
+<blockquote>
+<p>E ＝ hν ＝ hc / λ　　h（普朗克常數）＝ 6.626×10<sup>-34</sup> J·s（每個光子）</p>
+</blockquote>
+<p>⇒ 光的能量與<strong>頻率成正比</strong>、與<strong>波長成反比</strong>。</p>
+<h4>2. 氫原子光譜</h4>
+<p><strong>(1) 產生</strong>：放電管中充入氫氣，加高電壓，氫原子受激發後放出藍色的光，經分光儀投射在底片上，顯出一系列明線。</p>
+<ul>
+<li>可見光區四條：410.0 nm（紫）、434.0 nm（藍）、486.1 nm（綠）、656.3 nm（紅）。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/A002_42_56_x50-97.jpg" width="968" height="481" loading="lazy" alt="講義一 第2頁" data-page="講義一 p.2"><figcaption>氫原子光譜的產生</figcaption></figure>
+<p><strong>(2) 特性</strong></p>
+<ol>
+<li>為<strong>不連續的明線光譜</strong>，每一條譜線對應一個特定頻率（波長）的光。</li>
+<li>光譜可分為三群：紫外光區、可見光區、紅外光區。</li>
+<li>各群譜線的間隔有規律：<strong>相鄰譜線間隔隨頻率增高而漸近</strong>（愈往高頻愈密）。</li>
+</ol>
+<aside class="box box-ref"><div class="box-h">參考資料</div><p>白熾狀態的固體（如鎢絲）發出的白光經三稜鏡後，得到如彩虹般沒有中斷的光譜，稱為<strong>連續光譜</strong>。</p></aside>
+
+<figure class="fig"><img class="figimg" src="img/A002_74_85p5.jpg" width="1400" height="253" loading="lazy" alt="講義一 第2頁" data-page="講義一 p.2"><figcaption>氫原子光譜：紅外光、可見光、紫外光三群譜線</figcaption></figure>
+<h4>3. 芮得柏方程式</h4>
+<ol>
+<li>1885 年，瑞士數學教師<strong>巴耳末</strong>找到可見光區前四條譜線的經驗公式：λ ＝ λ<sub>0</sub> × n<sup>2</sup>/(n<sup>2</sup>−4)，λ<sub>0</sub> ＝ 364.6 nm，n ＝ 3、4、5…</li>
+<li>之後<strong>來曼</strong>（紫外光區）、<strong>帕申</strong>（紅外光區）各發現一組譜線。</li>
+<li>1889 年<strong>芮得柏</strong>提出經驗公式：</li>
+</ol>
+<blockquote>
+<p><strong>1/λ ＝ R<sub>H</sub> ( 1/n<sub>1</sub><sup>2</sup> − 1/n<sub>2</sub><sup>2</sup> )</strong>　　R<sub>H</sub> ＝ 1.097×10<sup>-2</sup> nm<sup>-1</sup>，n<sub>2</sub> ＞ n<sub>1</sub>（皆為正整數）</p>
+</blockquote>
+<aside class="box box-warn"><div class="box-h">注意</div><p>芮得柏公式只是<strong>經驗公式</strong>，他沒能解釋其物理意義；直到 1913 年<strong>波耳</strong>提出模型才得到合理解釋。</p></aside>
+<h3>二、波耳的氫原子學說</h3>
+<h4>1. 拉塞福模型的兩個困難</h4>
+<ol>
+<li><strong>不能解釋原子的穩定性</strong>：電子繞核做圓周運動有加速度，古典物理認為會不斷輻射電磁波、能量減少，最後螺旋墜入核中──但氫原子其實很穩定。</li>
+<li><strong>不能解釋明線光譜</strong>：照古典說法，電子逐漸靠近原子核時會放出頻率連續改變的光（連續光譜），但氫原子是明線光譜。</li>
+</ol>
+<figure class="fig"><img class="figimg" src="img/A003_62_75_x68-92.jpg" width="491" height="472" loading="lazy" alt="講義一 第3頁" data-page="講義一 p.3"><figcaption>古典理論：電子會輻射能量而墜入原子核</figcaption></figure>
+<h4>2. 波耳的兩個假設</h4>
+<p>波耳保留行星模型（向心力來自原子核與電子間的庫侖力），並加入兩個假設：</p>
+<p><strong>(1) 第一假設（穩定態、能階）</strong></p>
+<ul>
+<li>電子只能在某些<strong>特定半徑的圓形軌道</strong>上運動；在這些軌道上運行時<strong>不輻射也不吸收能量</strong>（穩定態）。軌道由內而外以 n ＝ 1, 2, 3… 表示。</li>
+<li>每個軌道有一定能量，以「能階」表示：</li>
+</ul>
+<blockquote>
+<p><strong>E<sub>n</sub> ＝ −k / n<sup>2</sup></strong>　　k ＝ 1312 kJ/mol ＝ 2.179×10<sup>-18</sup> J／每個電子</p>
+</blockquote>
+<ul>
+<li>n ＝ 1 最靠近原子核、半徑最小、能量最低，稱為<strong>基態</strong>；n ＝ 2, 3, 4… 能量較高，稱為<strong>激發態</strong>。</li>
+</ul>
+<p><strong>(2) 第二假設（躍遷）</strong></p>
+<ul>
+<li>基態電子<strong>吸收</strong>能量後可躍遷到較高能階，吸收的能量等於兩能階的能量差。</li>
+<li>電子由高能階 E<sub>H</sub> 躍遷到低能階 E<sub>L</sub> 時，把能量差以電磁波（光）放出 → 產生光譜。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/A004_22_46_x77-97.jpg" width="424" height="815" loading="lazy" alt="講義一 第4頁" data-page="講義一 p.4"><figcaption>圖（一）吸收能量躍遷；圖（二）放光</figcaption></figure>
+<blockquote>
+<p>ΔE ＝ E<sub>H</sub> − E<sub>L</sub> ＝ k ( 1/n<sub>L</sub><sup>2</sup> − 1/n<sub>H</sub><sup>2</sup> )</p>
+<p>ν ＝ ΔE/h ＝ R ( 1/n<sub>L</sub><sup>2</sup> − 1/n<sub>H</sub><sup>2</sup> )，R ＝ 3.29×10<sup>15</sup> s<sup>-1</sup></p>
+<p>λ ＝ c/ν</p>
+</blockquote>
+<h4>3. 氫原子光譜系列</h4>
+<table>
+<thead>
+<tr>
+<th>系列</th>
+<th>光區</th>
+<th>電子躍遷終點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>來曼系</td>
+<td>紫外光</td>
+<td>n ＞ 1 → <strong>n ＝ 1</strong></td>
+</tr>
+<tr>
+<td>巴耳末系</td>
+<td>可見光</td>
+<td>n ＞ 2 → <strong>n ＝ 2</strong></td>
+</tr>
+<tr>
+<td>帕申系</td>
+<td>紅外光</td>
+<td>n ＞ 3 → <strong>n ＝ 3</strong></td>
+</tr>
+</tbody>
+</table>
+<p>（另有布拉克系 → n＝4、蒲芬德系 → n＝5，皆在紅外光區）</p>
+<figure class="fig"><img class="figimg" src="img/A004_58_75p5.jpg" width="1400" height="364" loading="lazy" alt="講義一 第4頁" data-page="講義一 p.4"><figcaption>各系列譜線與能階躍遷</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p>各系列中，<strong>能量最低</strong>（波長最長）的為第一條譜線，能量最高的為最末一條。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>第一條</th>
+<th>第二條</th>
+<th>最末一條</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>來曼系（紫外）</td>
+<td>n＝2→1</td>
+<td>n＝3→1</td>
+<td>n＝∞→1</td>
+</tr>
+<tr>
+<td>巴耳末系（可見）</td>
+<td>n＝3→2</td>
+<td>n＝4→2</td>
+<td>n＝∞→2</td>
+</tr>
+</tbody>
+</table></aside>
+
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q1">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">光的波動性與粒子性</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A002_7_20p5.jpg" width="1400" height="321" loading="lazy" alt="講義一 第2頁" data-page="講義一 p.2"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 1.0×10<sup>15</sup> s<sup>-1</sup>　(2) 6.62×10<sup>-19</sup> J　(3) 約 399 kJ/mol</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) ν ＝ c/λ ＝ (3×10<sup>8</sup> m/s) ÷ (300×10<sup>-9</sup> m) ＝ <strong>1.0×10<sup>15</sup> s<sup>-1</sup></strong></p>
+<p>(2) E ＝ hν ＝ 6.62×10<sup>-34</sup> × 1.0×10<sup>15</sup> ＝ <strong>6.62×10<sup>-19</sup> J</strong>（一個光子）</p>
+<p>(3) 一莫耳光子：6.62×10<sup>-19</sup> J × 6.02×10<sup>23</sup> ＝ 3.99×10<sup>5</sup> J ≈ <strong>399 kJ/mol</strong></p>
+<p>重點：一個光子的能量乘上亞佛加厥數，才是「每莫耳」的能量。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q2">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A002_30p5_35p5.jpg" width="1400" height="124" loading="lazy" alt="講義一 第2頁" data-page="講義一 p.2"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>E ＝ hc/λ，能量與波長<strong>成反比</strong>。</p>
+<p>E<sub>a</sub> : E<sub>b</sub> ＝ 1/a : 1/b ＝ <strong>b : a</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q3">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">氫原子光譜</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A003_32p5_44p5.jpg" width="1400" height="289" loading="lazy" alt="講義一 第3頁" data-page="講義一 p.3"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 是放電激發後<strong>放出</strong>的光 → 發射光譜（明線光譜），不是吸收光譜。</li>
+<li>(B) ✗ 彩虹是連續光譜；氫原子光譜是不連續的明線光譜。</li>
+<li>(C) ○</li>
+<li>(D) ○ 每條譜線對應一個特定的能階差 → 特定頻率（波長）。</li>
+<li>(E) ✗ 間隔是隨<strong>頻率增加</strong>（波長減少）而縮小，不是隨波長增加而縮小。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q4">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">波耳氫原子理論</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A005_7_21.jpg" width="1400" height="357" loading="lazy" alt="講義一 第5頁" data-page="講義一 p.5"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 第一假設：電子在特定軌道（穩定態）運動不輻射。</li>
+<li>(B) ✗ E<sub>n</sub> ＝ −k/n<sup>2</sup>，能量與 n<sup>2</sup> 成<strong>反比</strong>（且為負值），不是與 n 成正比。</li>
+<li>(C) ✗ 只能吸收「剛好等於兩能階差」的能量，不能吸收任意頻率。</li>
+<li>(D) ✗ 這是古典物理的說法，正是波耳要否定的。</li>
+<li>(E) ✗ 電子在穩定軌道上不需要持續供給能量。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q5">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A005_33_42.jpg" width="1400" height="224" loading="lazy" alt="講義一 第5頁" data-page="講義一 p.5"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>主量子數 n 從 <strong>1</strong> 開始（n ＝ 1, 2, 3…），沒有 n ＝ 0 的軌道；能量最低的是 n ＝ 1（基態）。<br />
+其餘 (A)(C)(D) 皆正確。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q6">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">氫原子之光譜</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A005_45_65p5.jpg" width="1400" height="473" loading="lazy" alt="講義一 第5頁" data-page="講義一 p.5"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 1166 kJ/mol　(2) 2.92×10<sup>15</sup> s<sup>-1</sup>　(3) 10 種；紅外 3、可見 3、紫外 4　(4) 1/λ<sub>2</sub> ＝ 1/λ<sub>1</sub> ＋ 1/λ<sub>3</sub></div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 游離能 1312 kJ/mol 就是 k。<br />
+ΔE ＝ 1312 × (1/1<sup>2</sup> − 1/3<sup>2</sup>) ＝ 1312 × 8/9 ≈ <strong>1166 kJ/mol</strong></p>
+<p>(2) 一個光子：1166×10<sup>3</sup> ÷ 6.02×10<sup>23</sup> ＝ 1.94×10<sup>-18</sup> J<br />
+ν ＝ E/h ＝ 1.94×10<sup>-18</sup> ÷ 6.626×10<sup>-34</sup> ≈ <strong>2.92×10<sup>15</sup> s<sup>-1</sup></strong></p>
+<p>(3) 1 莫耳氫原子中各個原子可走不同路徑，任兩能階之間的躍遷都會出現：C(5,2) ＝ <strong>10 種</strong>。<br />
+- 終點 n＝1（紫外）：5→1、4→1、3→1、2→1 → <strong>4 條</strong><br />
+- 終點 n＝2（可見）：5→2、4→2、3→2 → <strong>3 條</strong><br />
+- 終點 n＝3、4（紅外）：5→3、4→3、5→4 → <strong>3 條</strong></p>
+<p>(4) λ<sub>1</sub>：2→1；λ<sub>2</sub>：3→1；λ<sub>3</sub>：3→2。<br />
+能量守恆：E(3→1) ＝ E(2→1) ＋ E(3→2)，且 E ＝ hc/λ<br />
+⇒ <strong>1/λ<sub>2</sub> ＝ 1/λ<sub>1</sub> ＋ 1/λ<sub>3</sub></strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q7">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A006_6p5_11p5.jpg" width="1400" height="125" loading="lazy" alt="講義一 第6頁" data-page="講義一 p.6"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>頻率 ∝ (1/n<sub>L</sub><sup>2</sup> − 1/n<sub>H</sub><sup>2</sup>)：<br />
+- (A) 1/16 − 1/49 ≈ 0.042<br />
+- (B) 1/9 − 1/64 ≈ 0.095<br />
+- (C) 1/4 − 1/25 ＝ 0.21<br />
+- (D) 1 − 1/4 ＝ <strong>0.75</strong>（最大）</p>
+<p>口訣：落回 n＝1 的（來曼系）能量都比其他系列大。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q8">
+<header class="qh"><span class="qn">例題 5</span><span class="qtag">氫原子光譜－來曼系及巴耳末系</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A006_16p5_38.jpg" width="1400" height="533" loading="lazy" alt="講義一 第6頁" data-page="講義一 p.6"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) I　(2) b　(3) 1 : 4　(4) b　(5) 1/3</div>
+<div class="exp"><b class="exp-h">解</b><p>看圖判斷：同一系列的譜線往<strong>高頻率端愈來愈密</strong>，圖中兩組都往右邊變密 → 右邊頻率較高。<br />
+所以 I（左、頻率低）為<strong>巴耳末系（可見光）</strong>；II（右、頻率高）為<strong>來曼系（紫外光）</strong>。</p>
+<ul>
+<li>a ＝ 3→2、b ＝ 4→2、c ＝ 5→2；d ＝ 2→1、e ＝ 3→1、f ＝ 4→1</li>
+</ul>
+<p>(1) 可見光區 → <strong>I</strong></p>
+<p>(2) 4→2 是巴耳末系第二條 → <strong>b</strong></p>
+<p>(3) E<sub>b</sub> : E<sub>d</sub> ＝ (1/4 − 1/16) : (1 − 1/4) ＝ 3/16 : 3/4 ＝ <strong>1 : 4</strong></p>
+<p>(4) E<sub>f</sub> − E<sub>d</sub> ＝ E(4→1) − E(2→1) ＝ E(4→2) → 即 <strong>b</strong> 譜線</p>
+<p>(5) 來曼系波長最大 ＝ 2→1：1/λ<sub>1</sub> ∝ 3/4；巴耳末系波長最小 ＝ ∞→2：1/λ<sub>2</sub> ∝ 1/4<br />
+λ<sub>1</sub>/λ<sub>2</sub> ＝ (1/4)/(3/4) ＝ <strong>1/3</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q9">
+<header class="qh"><span class="qn">類題 4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A006_76p5_86.jpg" width="1400" height="222" loading="lazy" alt="講義一 第6頁" data-page="講義一 p.6"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>來曼系最長波長 ＝ 2→1：1/λ ∝ (1 − 1/4) ＝ 3/4<br />
+最短波長 ＝ ∞→1：1/λ ∝ 1</p>
+<p>λ<sub>min</sub>/λ<sub>max</sub> ＝ (3/4)/1 ⇒ λ<sub>min</sub> ＝ <strong>3/4 × 121.5 nm</strong> ≈ 91.1 nm</p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q10">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_17p5_23p6.jpg" width="1400" height="155" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>波長由長到短：無線電波 ＞ 微波 ＞ 紅外線 ＞ 可見光 ＞ 紫外線 ＞ X 射線 ＞ γ 射線。<br />
+- (A) ✗ 順序顛倒。<br />
+- (B) ○ (C) ○<br />
+- (D) ✗ 顛倒。<br />
+- (E) ✗ 可見光波長比紅外光短。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q11">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_23p6_29p6.jpg" width="1400" height="147" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 廣義的「光」就是電磁波，包含 X 射線。</li>
+<li>(B) ✗ 波長愈長，能量愈<strong>低</strong>（E ＝ hc/λ）。</li>
+<li>(C) ○ 真空中所有電磁波速率都是 3×10<sup>8</sup> m/s。</li>
+<li>(D) ✗ 光子能量與頻率有關，不同光的光子能量不同。</li>
+<li>(E) ✗ 波長較長 → 頻率較小。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q12">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_29p6_35p4.jpg" width="1400" height="146" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 是不連續的明線光譜。</li>
+<li>(B) ✗ 是發射光譜。</li>
+<li>(C) ✗ 紫外光區、紅外光區也有譜線。</li>
+<li>(D) ○ 譜線往高頻方向愈來愈密。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q13">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題1・計算</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_35p4_42.jpg" width="1400" height="145" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 5.0×10<sup>14</sup> s<sup>-1</sup>　(2) 約 199 kJ/mol</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) ν ＝ c/λ ＝ 3×10<sup>8</sup> ÷ (600×10<sup>-9</sup>) ＝ <strong>5.0×10<sup>14</sup> s<sup>-1</sup></strong></p>
+<p>(2) 一個光子 E ＝ hν ＝ 6.62×10<sup>-34</sup> × 5.0×10<sup>14</sup> ＝ 3.31×10<sup>-19</sup> J<br />
+每莫耳：3.31×10<sup>-19</sup> × 6.02×10<sup>23</sup> ＝ 1.99×10<sup>5</sup> J ≈ <strong>199 kJ/mol</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q14">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_48p4_58.jpg" width="1400" height="252" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 波耳保留了行星模型。</li>
+<li>(B) ○ 圓周運動的向心力來自原子核與電子的庫侖吸引力。</li>
+<li>(C) ✗ 這是古典物理的看法，波耳假設電子在穩定軌道上<strong>不</strong>輻射。</li>
+<li>(D) ✗ 只能吸收特定能量（＝ 能階差）的光。</li>
+<li>(E) ○ 第二假設：吸收能量躍遷到高能階＝激發態。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q15">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_58_64p3.jpg" width="1400" height="145" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>H → H<sup>+</sup> 需 36 nu，代表基態 E<sub>1</sub> ＝ −36 nu，E<sub>n</sub> ＝ −36/n<sup>2</sup>。<br />
+基態電子能吸收的光子能量 ＝ 36(1 − 1/n<sup>2</sup>)：<br />
+- n＝2：36 × 3/4 ＝ <strong>27</strong><br />
+- n＝3：36 × 8/9 ＝ <strong>32</strong><br />
+- n＝4：33.75；n＝5：34.56…（都小於 36）</p>
+<p>選項中 16、24、30 都不是能階差 → 不能吸收；27、32 可以 → <strong>(C)(E)</strong>。<br />
+（能量 ≥ 36 nu 可直接游離，也能吸收，但選項中沒有。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q16">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_64p3_76.jpg" width="1400" height="291" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>E<sub>1</sub> ＝ −864 au ⇒ E<sub>n</sub> ＝ −864/n<sup>2</sup><br />
+ΔE ＝ 864 × (1/2<sup>2</sup> − 1/3<sup>2</sup>) ＝ 864 × 5/36 ＝ <strong>120 au</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q17">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_76_81p8.jpg" width="1400" height="147" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>ΔE ＝ 1312 × (1/4 − 1/9) ＝ 1312 × 5/36 ≈ 182.2 kJ/mol<br />
+每個光子：182.2×10<sup>3</sup> ÷ 6.02×10<sup>23</sup> ≈ <strong>3.03×10<sup>-19</sup> J</strong><br />
+（注意題目問「每個光子」，(A) 是每莫耳的量級。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q18">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A007_81p8_93.jpg" width="1400" height="266" loading="lazy" alt="講義一 第7頁" data-page="講義一 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>游離能 a ＝ E<sub>∞</sub> − E<sub>1</sub> ＝ 2.8×10<sup>-18</sup> J<br />
+激發能 b ＝ E<sub>2</sub> − E<sub>1</sub> ＝ 2.8×10<sup>-18</sup> × (1 − 1/4) ＝ 2.8×10<sup>-18</sup> × 3/4<br />
+a/b ＝ 1 ÷ 3/4 ＝ 4/3 ≈ <strong>1.33</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q19">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A008_6_16p5.jpg" width="1400" height="234" loading="lazy" alt="講義一 第8頁" data-page="講義一 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>需要 (1/n<sub>L</sub><sup>2</sup> − 1/n<sub>H</sub><sup>2</sup>) 等於該係數：<br />
+- (D) R：∞→1 ✓<br />
+- (C) 3R/4：2→1 ✓<br />
+- (B) 5R/36：3→2（1/4 − 1/9 ＝ 5/36）✓<br />
+- (A) 9R/16：要 1/n<sub>L</sub><sup>2</sup> ≥ 9/16，只能 n<sub>L</sub>＝1，則 1/n<sub>H</sub><sup>2</sup> ＝ 7/16，n<sub>H</sub> 不是整數 ✗</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q20">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題2・100指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A008_16_45.jpg" width="1400" height="648" loading="lazy" alt="講義一 第8頁" data-page="講義一 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>656.3 nm 是可見光區中波長最長（能量最低）的譜線 → 巴耳末系第一條：<strong>n＝3 → n＝2</strong>。</p>
+<p>驗算（用圖1）：E<sub>3</sub> − E<sub>2</sub> ＝ −146 − (−328) ＝ 182 kJ/mol<br />
+λ ＝ hcN<sub>A</sub>/E ＝ (6.62×10<sup>-34</sup> × 3×10<sup>8</sup> × 6.02×10<sup>23</sup>) ÷ 182000 ≈ 6.57×10<sup>-7</sup> m ≈ 657 nm ✓</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q21">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A008_45p2_55.jpg" width="1400" height="224" loading="lazy" alt="講義一 第8頁" data-page="講義一 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>λ<sub>1</sub>/λ<sub>2</sub> ＝ 1/4 ⇒ E<sub>1</sub>/E<sub>2</sub> ＝ 4<br />
+E<sub>1</sub>（2→1）∝ 1 − 1/4 ＝ 3/4 ⇒ E<sub>2</sub> ∝ 3/16<br />
+1/4 − 1/n<sup>2</sup> ＝ 3/16 ⇒ 1/n<sup>2</sup> ＝ 1/16 ⇒ <strong>n ＝ 4</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q22">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A008_55_63p5.jpg" width="1400" height="170" loading="lazy" alt="講義一 第8頁" data-page="講義一 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>ν(4→2) ＝ R(1/4 − 1/16) ＝ 3R/16 ＝ ν<br />
+ν(2→1) ＝ R(1 − 1/4) ＝ 3R/4 ＝ 4 × (3R/16) ＝ <strong>4ν</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q23">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題2・110指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A008_63p5_73p5.jpg" width="1400" height="226" loading="lazy" alt="講義一 第8頁" data-page="講義一 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>波長最短 ＝ 能量最大，比較 (1/n<sub>L</sub><sup>2</sup> − 1/n<sub>H</sub><sup>2</sup>)：<br />
+- (A) 4→2：3/16 ≈ 0.19<br />
+- (B) 3→1：8/9 ≈ <strong>0.89</strong><br />
+- (C) 4→3：7/144 ≈ 0.05<br />
+- (D) 3→2：5/36 ≈ 0.14<br />
+- (E) 2→1：3/4 ＝ 0.75</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q24">
+<header class="qh"><span class="qn">練習 15</span><span class="qtag">主題2・106指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A008_73p5_83p4.jpg" width="1400" height="220" loading="lazy" alt="講義一 第8頁" data-page="講義一 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>① 吸收 94.91 nm：1/λ ＝ R<sub>H</sub>(1 − 1/n<sup>2</sup>)<br />
+1/94.91 ＝ 0.010536 ＝ 0.01097 × (1 − 1/n<sup>2</sup>) ⇒ 1 − 1/n<sup>2</sup> ≈ 0.960 ⇒ n ＝ <strong>5</strong></p>
+<p>② 放出 1282 nm：1/1282 ＝ 7.80×10<sup>-4</sup> ＝ 0.01097 × (1/m<sup>2</sup> − 1/25) ⇒ 1/m<sup>2</sup> ≈ 0.111 ⇒ m ＝ <strong>3</strong>（帕申系 5→3）</p>
+<p>③ 第二個光子 3→1：1/λ ＝ 0.01097 × (1 − 1/9) ＝ 9.75×10<sup>-3</sup> ⇒ λ ≈ <strong>102.6 nm</strong>，落在 95～120 之間。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q25">
+<header class="qh"><span class="qn">練習 16</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A008_83p4_91p5.jpg" width="1400" height="194" loading="lazy" alt="講義一 第8頁" data-page="講義一 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>能量守恆（E ＝ hν，ν 可直接相加）：吸收的 ＝ 放出兩個的和<br />
+3×10<sup>15</sup> ＝ 1×10<sup>14</sup> ＋ ν ⇒ ν ＝ <strong>2.9×10<sup>15</sup> s<sup>-1</sup></strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q26">
+<header class="qh"><span class="qn">練習 17</span><span class="qtag">主題2・111分科</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A009_5p5_22.jpg" width="1400" height="421" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>1/λ 的範圍：1/15000 ～ 1/6000 nm<sup>-1</sup> ＝ 6.7×10<sup>-5</sup> ～ 1.67×10<sup>-4</sup> nm<sup>-1</sup><br />
+除以 R<sub>H</sub>（1.0×10<sup>-2</sup>）：(1/n<sub>1</sub><sup>2</sup> − 1/n<sub>2</sub><sup>2</sup>) 要在 <strong>0.0067 ～ 0.0167</strong> 之間。<br />
+- (A) 0.75 (B) 0.139 (C) 0.049 (D) 1/16 − 1/25 ＝ 0.0225<br />
+- (E) 1/25 − 1/36 ＝ <strong>0.0122</strong> ✓（λ ≈ 8200 nm）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q27">
+<header class="qh"><span class="qn">練習 18</span><span class="qtag">主題3・題組・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A009_28p5_39.jpg" width="1400" height="253" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"><img class="qimg" src="img/A009_39p3_51.jpg" width="1400" height="299" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>譜線往右愈來愈密 → 右邊頻率較高。I（左）是帕申系（紅外），II（右）是巴耳末系（可見）。<br />
+- (A) ○ 愈右邊頻率愈大。<br />
+- (B) ✗ I 是紅外光區。<br />
+- (C) ✗ 波長最大的是頻率最小的 <strong>a</strong>。<br />
+- (D) ✗ 能量最大的是 f。<br />
+- (E) ○ 3→2 是巴耳末系第一條（能量最低）＝ II 區最左的 <strong>d</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q28">
+<header class="qh"><span class="qn">練習 19</span><span class="qtag">主題3・題組</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A009_28p5_39.jpg" width="1400" height="253" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"><img class="qimg" src="img/A009_51_57p3.jpg" width="1400" height="135" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>I 區是帕申系（終點 n＝3），a＝4→3、b＝5→3、<strong>c＝6→3</strong>。<br />
+E ＝ 1312 × (1/9 − 1/36) ＝ 1312 × 3/36 ＝ <strong>1312 × 1/12</strong> kJ/mol</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q29">
+<header class="qh"><span class="qn">練習 20</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A009_57p3_63p8.jpg" width="1400" height="147" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>由 n＝4 往下共 C(4,2) ＝ 6 條：<br />
+- 終點 n＝1（紫外）：4→1、3→1、2→1 → 3 條<br />
+- 終點 n＝2（可見）：4→2、3→2 → 2 條<br />
+- 終點 n＝3（紅外）：4→3 → 1 條</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q30">
+<header class="qh"><span class="qn">練習 21</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A009_63p8_67p9.jpg" width="1400" height="95" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>紫外光區最低能量：2→1，E ∝ 3/4 ＝ 27/36<br />
+可見光區最低能量：3→2，E ∝ 5/36<br />
+波長比 ＝ 能量反比 ＝ (5/36) : (27/36) ＝ <strong>5 : 27</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q31">
+<header class="qh"><span class="qn">練習 22</span><span class="qtag">主題3・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A009_67p9_73p6.jpg" width="1400" height="145" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>λ<sub>1</sub>：2→1；λ<sub>2</sub>：3→1；λ<sub>3</sub>：3→2。能量：E<sub>2</sub> ＝ E<sub>1</sub> ＋ E<sub>3</sub>。<br />
+- (A) ○<br />
+- (B) ○ E ＝ hν，頻率也可相加。<br />
+- (C) ✗ 波長不能直接相加，應該是 1/λ<sub>2</sub> ＝ 1/λ<sub>1</sub> ＋ 1/λ<sub>3</sub>。<br />
+- (D) ○ 1/λ<sub>2</sub> ＝ (λ<sub>1</sub>＋λ<sub>3</sub>)/(λ<sub>1</sub>λ<sub>3</sub>) ⇒ λ<sub>1</sub>λ<sub>3</sub> ＝ λ<sub>2</sub>λ<sub>3</sub> ＋ λ<sub>1</sub>λ<sub>2</sub><br />
+- (E) ○ ν<sub>2</sub> − ν<sub>1</sub> ＝ ν<sub>3</sub>（3→2，5/36）；ν<sub>2</sub> − ν<sub>3</sub> ＝ ν<sub>1</sub>（2→1，3/4）；ν<sub>3</sub> ＜ ν<sub>1</sub> 成立。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q32">
+<header class="qh"><span class="qn">練習 23</span><span class="qtag">主題3・計算</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A009_73p6_88.jpg" width="1400" height="331" loading="lazy" alt="講義一 第9頁" data-page="講義一 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 丙　(2) 約 6.23×10<sup>14</sup> s<sup>-1</sup></div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 巴耳末系往短波長端變密，所以最右邊孤立的「丁」是波長最長的 3→2，往左依序：X＝4→2、<strong>丙＝5→2</strong>、乙＝6→2、甲＝7→2。</p>
+<p>(2) ΔE ＝ 2.2×10<sup>-18</sup> × (1/4 − 1/16) ＝ 2.2×10<sup>-18</sup> × 3/16 ＝ 4.125×10<sup>-19</sup> J<br />
+ν ＝ ΔE/h ＝ 4.125×10<sup>-19</sup> ÷ 6.62×10<sup>-34</sup> ≈ <strong>6.23×10<sup>14</sup> s<sup>-1</sup></strong></p></div>
+</details>
+</article>
+</div><div class="pager"><span></span><a href="u1-2.html">1-2 原子軌域 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

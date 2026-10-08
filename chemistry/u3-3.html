@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3-3 影響反應速率的因素（I）本質、濃度、接觸面積、溫度｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a class="on" href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第3章 反應速率</div>
+<h1><span class="uid">3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</h1>
+<div class="tools"><span class="cnt">本單元 23 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、反應物的本質與反應速率</h3>
+<p>化學反應有鍵的破壞與生成，而化學鍵的特性取決於物質本質，所以<strong>反應物的本質</strong>會影響速率。</p>
+<p><strong>室溫下的一般法則</strong><br />
+1. <strong>不涉及鍵破壞</strong>的反應較快：H<sup>＋</sup> ＋ OH<sup>−</sup> → H<sub>2</sub>O；Ag<sup>＋</sup> ＋ Cl<sup>−</sup> → AgCl(s)<br />
+2. <strong>涉及共價鍵破壞愈多</strong>的反應愈慢：<br />
+   - 5Fe<sup>2＋</sup> ＋ MnO<sub>4</sub><sup>−</sup> ＋ 8H<sup>＋</sup> → …（快）：Fe<sup>2＋</sup> → Fe<sup>3＋</sup> 只有電子轉移<br />
+   - 5C<sub>2</sub>O<sub>4</sub><sup>2−</sup> ＋ 2MnO<sub>4</sub><sup>−</sup> ＋ 16H<sup>＋</sup> → 10CO<sub>2</sub> ＋ …（慢）：還要打斷 C−C 鍵</p>
+<p><strong>常溫下較快的反應</strong><br />
+1. H<sup>＋</sup> ＋ OH<sup>−</sup> → H<sub>2</sub>O：中和，極快<br />
+2. Ag<sup>＋</sup> ＋ Cl<sup>−</sup> → AgCl(s)：沉澱，快（離子要排成晶格，比中和略慢）<br />
+3. Cu<sup>2＋</sup> ＋ 4NH<sub>3</sub> → Cu(NH<sub>3</sub>)<sub>4</sub><sup>2＋</sup>：錯離子只形成鍵，快<br />
+4. Ce<sup>4＋</sup> ＋ Fe<sup>2＋</sup> → Ce<sup>3＋</sup> ＋ Fe<sup>3＋</sup>：只有電子轉移（兩者互斥，比中和慢）<br />
+5. 5Fe<sup>2＋</sup> ＋ MnO<sub>4</sub><sup>−</sup> ＋ 8H<sup>＋</sup> → 5Fe<sup>3＋</sup> ＋ Mn<sup>2＋</sup> ＋ 4H<sub>2</sub>O<br />
+6. P<sub>4</sub>(s) ＋ 5O<sub>2</sub> → P<sub>4</sub>O<sub>10</sub>：白磷很不安定，燃燒活化能低<br />
+7. 2NO ＋ O<sub>2</sub> → 2NO<sub>2</sub>：常溫約 7～8 秒完成<br />
+8. H<sub>2</sub> ＋ F<sub>2</sub> → 2HF：室溫暗處也會爆炸<br />
+9. HCl(g) ＋ NH<sub>3</sub>(g) → NH<sub>4</sub>Cl(s)</p>
+<p><strong>常溫下較慢的反應</strong><br />
+1. 有機反應（如酯化）：要破壞較多共價鍵，活化能較高。<br />
+2. 燃燒反應（如 CH<sub>4</sub> ＋ 2O<sub>2</sub>）：破壞多個強共價鍵，常溫幾乎不反應。</p>
+<aside class="box box-sum"><div class="box-h">整理</div><ol>
+<li>室溫下反應速率：<strong>中和 ＞ 沉澱 ＞ 氧化還原 ＞ 有機反應 ＞ 燃燒反應</strong></li>
+<li>H<sub>2</sub>(g) ＋ X<sub>2</sub>(g) → 2HX(g) 的速率：F<sub>2</sub> ＞ Cl<sub>2</sub> ＞ Br<sub>2</sub> ＞ I<sub>2</sub></li>
+</ol></aside>
+<h3>二、濃度、接觸面積與反應速率</h3>
+<h4>1. 勻相與非勻相反應</h4>
+<ul>
+<li><strong>勻相反應</strong>：在同一個相中進行。H<sup>＋</sup>(aq) ＋ OH<sup>−</sup>(aq)；NH<sub>3</sub>(g) ＋ HCl(g)</li>
+<li><strong>非勻相反應</strong>：在兩種以上不同相中進行。CaCO<sub>3</sub>(s) ＋ 2HCl(aq) → …</li>
+</ul>
+<h4>2. 反應物濃度</h4>
+<ul>
+<li>濃度增加 → 碰撞頻率增加 → 速率加快。</li>
+<li>勻相反應增加濃度的方法：水溶液 → 增加溶質或減少溶劑；氣相 → 增加反應物或<strong>縮小體積</strong>。</li>
+</ul>
+<h4>3. 接觸面積</h4>
+<ul>
+<li>非勻相反應發生在<strong>相的界面</strong>，增加接觸面積可加快速率。</li>
+<li>方法：<br />
+  1. <strong>粉碎</strong>：邊長等分為 n 段，可切成 n<sup>3</sup> 個小正方體，<strong>總表面積變為 n 倍</strong>。<br />
+  2. <strong>攪拌</strong>：把飽和的溶液散開，讓新鮮溶劑接觸溶質；撥動炭火增加與氧接觸。</li>
+</ul>
+<h3>三、溫度與反應速率</h3>
+<h4>1. 溫度的效應</h4>
+<ul>
+<li><strong>定性</strong>：升高溫度，不論吸熱或放熱、正向或逆向反應，<strong>速率都變快</strong>。</li>
+<li><strong>定量</strong>：室溫附近每升高 10 ℃，速率約增為 <strong>2 倍</strong>。</li>
+</ul>
+<h4>2. 升溫使速率加快的原因</h4>
+<ol>
+<li><strong>主因</strong>：分子平均動能變大，<strong>超過低限能的分子數增加</strong>，有效碰撞增加。</li>
+<li><strong>次因</strong>：分子運動變快，碰撞頻率增加。</li>
+</ol>
+<figure class="fig"><img class="figimg" src="img/B013_37_48_x74-96.jpg" width="452" height="395" loading="lazy" alt="講義二 第13頁" data-page="講義二 p.13"><figcaption>T<sub>2</sub> ＞ T<sub>1</sub>：曲線右移，超過低限能的分子變多</figcaption></figure>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>25 ℃ → 35 ℃ 速率加倍：<br />
+- 超過低限能的分子數約變為 2 倍 → <strong>主因</strong><br />
+- 碰撞頻率 ∝ √T：√(308/298) ≈ 1.02，只增加 2%，無法解釋加倍 → 次因</p></aside>
+<h4>3. 溫度能改變 / 不能改變的</h4>
+<table>
+<thead>
+<tr>
+<th>可改變</th>
+<th>不可改變</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分子動能分布曲線</td>
+<td>活化能</td>
+</tr>
+<tr>
+<td>反應熱</td>
+<td>反應途徑（反應機構）</td>
+</tr>
+<tr>
+<td>正、逆反應速率（不等量改變）</td>
+<td></td>
+</tr>
+<tr>
+<td>正、逆反應速率常數（不等量改變）</td>
+<td></td>
+</tr>
+<tr>
+<td>化學平衡、平衡常數</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>活化能較大的反應，速率受溫度影響較大。</strong><br />
+例：熱 ＋ A ＋ B ⇌ C ＋ D（吸熱，正反應活化能 ＞ 逆反應活化能）<br />
+- 升溫：正反應變 m 倍、逆反應變 n 倍 ⇒ <strong>m ＞ n ＞ 1</strong><br />
+- 降溫：⇒ <strong>1 ＞ n ＞ m</strong></p></aside>
+
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q388">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">反應物本質與反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B011_33p5_51.jpg" width="1400" height="418" loading="lazy" alt="講義二 第11頁" data-page="講義二 p.11"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>乙（中和）＞ 甲（只有電子轉移的氧化還原）＞ 丙（要斷 C−C 鍵）＞ 丁（燃燒）</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q389">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">濃度、接觸面積與反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B012_29_46.jpg" width="1400" height="416" loading="lazy" alt="講義二 第12頁" data-page="講義二 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 升溫速率變快</li>
+<li>(B) ✗ Zn<sup>2＋</sup> 是生成物，不影響正反應速率</li>
+<li>(C) ○ 增加接觸面積</li>
+<li>(D) ✗ 反應物是固體與溶液，沒有氣體反應物，加壓無效</li>
+<li>(E) ○ H<sup>＋</sup> 濃度增加</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q390">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">接觸面積與反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B012_58_74.jpg" width="1400" height="411" loading="lazy" alt="講義二 第12頁" data-page="講義二 p.12"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>10 cm 正方體切成 1 cm 小正方體：n ＝ 10，總表面積 ×10<br />
+HCl 2 M → 1 M：速率 ∝ [HCl]<sup>2</sup>，×1/4<br />
+100 × 10 × 1/4 ＝ <strong>250 mL/s</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q391">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B013_5_17p5.jpg" width="1400" height="300" loading="lazy" alt="講義二 第13頁" data-page="講義二 p.13"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>粉塵氣爆是因為<strong>粉塵飄散在空氣中</strong>，接觸面積極大，燃燒速率極快。<br />
+袋裝麵粉接觸面積小，直接點火只會慢慢燒，不會氣爆 ⇒ (D) 錯誤。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q392">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">溫度與反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B014_31_47.jpg" width="1400" height="416" loading="lazy" alt="講義二 第14頁" data-page="講義二 p.14"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○</li>
+<li>(B) ○ 主因</li>
+<li>(C) ✗ 溫度不改變反應途徑</li>
+<li>(D) ✗ 碰撞次數增加是次因</li>
+<li>(E) ✗ 溫度不改變活化能</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q393">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B014_57_67.jpg" width="1400" height="256" loading="lazy" alt="講義二 第14頁" data-page="講義二 p.14"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>加熱<strong>不會</strong>降低活化能（降低活化能是催化劑的作用）。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q394">
+<header class="qh"><span class="qn">例題 5</span><span class="qtag">溫度與反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B014_69_80.jpg" width="1400" height="285" loading="lazy" alt="講義二 第14頁" data-page="講義二 p.14"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>ΔH ＞ 0 ⇒ 正反應活化能 ＞ 逆反應活化能 ⇒ 正反應受溫度影響較大。<br />
+降溫：兩者都變慢，正反應變慢更多 ⇒ <strong>1 ＞ n ＞ m</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q395">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B015_5_21p5.jpg" width="1400" height="408" loading="lazy" alt="講義二 第15頁" data-page="講義二 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>升溫時正、逆反應速率<strong>都增加</strong>（排除 A、B）。<br />
+ΔH ＜ 0 ⇒ 逆反應活化能較大，逆反應速率增加得較快 ⇒ 逆反應曲線較陡 ⇒ (C)。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q396">
+<header class="qh"><span class="qn">例題 6</span><span class="qtag">溫度與反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B015_23p5_35.jpg" width="1400" height="278" loading="lazy" alt="講義二 第15頁" data-page="講義二 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>時間 10 s → 80 s，速率變為 1/8 ＝ (1/2)<sup>3</sup> ⇒ 降低 30 ℃ ⇒ <strong>20 ℃</strong></p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q397">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B015_55_72p5.jpg" width="1400" height="423" loading="lazy" alt="講義二 第15頁" data-page="講義二 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 強酸強鹼中和最快</li>
+<li>(B) ○ K 比 Na 活潑</li>
+<li>(C) ○ NO 與 O<sub>2</sub> 常溫下幾秒內就反應；CO 燃燒常溫幾乎不反應</li>
+<li>(D) ○ 中和 ＞ 酯化（有機反應）</li>
+<li>(E) ✗ 草酸根要斷 C−C 鍵，比 Fe<sup>2＋</sup> 慢</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q398">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B015_72p5_79p5.jpg" width="1400" height="169" loading="lazy" alt="講義二 第15頁" data-page="講義二 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>顆粒大小相同、溫度相同，差別在反應物本質 ⇒ 反應的<strong>活化能</strong>不同。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q399">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B015_79p5_92p5.jpg" width="1400" height="315" loading="lazy" alt="講義二 第15頁" data-page="講義二 p.15"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>乙（中和）＞ 甲（沉澱）＞ 戊（氧化還原）＞ 丁（有機）＞ 丙（燃燒）<br />
+符合的是 (B) 乙 ＞ 甲 ＞ 丙、(D) 乙 ＞ 戊 ＞ 丙。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q400">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_11_19p5.jpg" width="1400" height="207" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>(A)(B)(C) 都是<strong>接觸面積</strong>的影響；(D) 點火是提供能量克服活化能（溫度的影響）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q401">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_19p5_27.jpg" width="1400" height="183" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 固體與溶液</li>
+<li>(B) ○ 增加接觸面積</li>
+<li>(C) ✗ 非勻相反應仍與 HCl 濃度有關</li>
+<li>(D) ✗ 加水稀釋 HCl，速率變慢</li>
+<li>(E) ○ 醋酸是弱酸，[H<sup>＋</sup>] 較小</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q402">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_27_43.jpg" width="1400" height="391" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>粉末（II）接觸面積大、反應較快，曲線較早上升；碳酸鈣定量、鹽酸過量 ⇒ 最後 CO<sub>2</sub> 總量相同 ⇒ (C)。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q403">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_43_57p5.jpg" width="1400" height="354" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>表面積 ×10，[HCl] 2 → 1 M 使速率 ×1/4 ⇒ ×10/4 ＝ <strong>5/2 × r<sub>1</sub></strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q404">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_59p5_66p5.jpg" width="1400" height="170" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>主因是超過低限能的粒子數增加。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q405">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_66p5_76.jpg" width="1400" height="233" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>T<sub>2</sub> 曲線較扁、往右 ⇒ T<sub>2</sub> ＞ T<sub>1</sub>。<br />
+- (A)(C)(D) ✗ 都應是 T<sub>2</sub> 較大<br />
+- (B) ○ 分子總數相同，曲線下面積相等<br />
+- (E) ✗ 低限能與溫度無關</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q406">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_76_82.jpg" width="1400" height="146" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>64 分 → 4 分，速率 ×16 ＝ 2<sup>4</sup> ⇒ 升高 40 ℃ ⇒ <strong>50 ℃</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q407">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B016_82_91.jpg" width="1400" height="220" loading="lazy" alt="講義二 第16頁" data-page="講義二 p.16"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>溫度升高<strong>不會</strong>降低活化能。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q408">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題3・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B017_5_19.jpg" width="1400" height="337" loading="lazy" alt="講義二 第17頁" data-page="講義二 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>斜線面積 ÷ 全部面積 ＝ 能量超過 Ea 的分子比例 ＝ 被活化的分子百分比 ＝ 有效碰撞占全部碰撞的比例（不考慮位向）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q409">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題3・97指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B017_19_47.jpg" width="1400" height="675" loading="lazy" alt="講義二 第17頁" data-page="講義二 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>判斷重點：<br />
+1. 溫度高（577 ℃）的曲線較<strong>扁</strong>、峰值往右；溫度低（477 ℃）的較高、較窄 ⇒ 排除 (C)(D)。<br />
+2. 放熱反應：逆反應活化能（270 ＋ 33 ＝ 303）＞ 正反應（270）⇒ <strong>逆反應的低限能在右邊</strong> ⇒ 排除 (B)(D)。<br />
+3. 活化能高達 270 kJ/mol，遠大於分子平均動能，低限能應落在曲線<strong>最右邊的尾端</strong>（只有極少數分子超過）⇒ (E)。<br />
+（(A) 的虛線切在曲線中段，代表大部分分子都能反應，不合理。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q410">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B017_47_60.jpg" width="1400" height="313" loading="lazy" alt="講義二 第17頁" data-page="講義二 p.17"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>升溫 20 ℃：×2<sup>2</sup> ＝ 4<br />
+體積擴大 1/3 倍（變為 4/3 V）：濃度 ×3/4，r ＝ k[A][B]<sup>2</sup> 為 3 級 ⇒ ×(3/4)<sup>3</sup> ＝ 27/64<br />
+4 × 27/64 ＝ <strong>27/16</strong></p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u3-2.html">← 3-2 碰撞學說與反應機構</a><a href="u3-4.html">3-4 影響反應速率的因素（II）催化劑 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

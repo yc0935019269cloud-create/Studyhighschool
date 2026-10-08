@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復3 考前猜題模擬卷：地球的歷史＋天文｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a class="on" href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a><ul class="subtoc"><li><a href="#s1">模擬卷說明</a></li><li><a href="#s2">單選題（每題 4 分）</a></li><li><a href="#s3">多選題（每題 6 分）</a></li><li><a href="#s4">非選擇題（每題 26 分）</a></li></ul></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 地球的歷史＋天文</div>
+<h1><span class="uid">復3</span>考前猜題模擬卷：地球的歷史＋天文</h1>
+<div class="tools"><span class="cnt">本單元 24 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">模擬卷說明</h2>
+
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>配分與時間</strong>（總分 100 分，建議作答時間 <strong>70 分鐘</strong>）：<br />
+- 單選題 6 題，每題 4 分，共 24 分（建議 10 分鐘）<br />
+- 多選題 4 題，每題 6 分，共 24 分（建議 20 分鐘；全對 6 分，錯一個選項得 3.6 分，錯兩個選項得 1.2 分，其餘 0 分——大考式計分）<br />
+- 非選擇題 2 題，每題 26 分，共 52 分（建議 35 分鐘；計算題要列式，只寫答案不給分）</p>
+<p><strong>怎麼用</strong>：計時做完再對答案，不要邊做邊翻。每題前有「考前速記」，<strong>預設收合</strong>（點開才看），方便先自測；頁面上方可整頁隱藏。模擬 1、2、7 是基隆中山高中 112-1 段考的原題（用原卷圖），其餘為自編。每題詳解最後一行有「<strong>為什麼猜這題</strong>」。</p></aside>
+
+<h2 class="section " id="s2">單選題（每題 4 分）</h2>
+
+<article class="q q-pr" id="q235">
+<header class="qh"><span class="qn">模擬 1</span><span class="qtag">單選・地質年代在一天中的分布・取自基隆中山 112-1（原卷愛班 25 題，附原卷圖）　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>地質年代占比</strong>：46 億年中，<strong>古生代</strong> 5.41 億年（約 11.8%）、<strong>中生代</strong> 1.86 億年（約 4.0%）、<strong>新生代</strong> 0.66 億年（約 1.4%）。</li>
+<li><strong>換算</strong>：濃縮成一天（24 小時）：古生代約 2.8 小時、中生代約 1 小時、新生代約 20 分鐘。</li>
+<li><strong>畫圓餅</strong>：圓心角＝占比×360°；三者合計只占圓的<strong>最後約 17%（約 61°）</strong>，其餘大片是前寒武紀。</li>
+</ul></div></details><div class="qtext"><p>如果地球 46 億年歷史濃縮為 1 天，則古生代（黑色）、中生代（橫線）、新生代（斜線）的分布，何者正確？</p></div><div class="qimgs"><img class="qimg" src="img/L002_35_48p28_x2p7-49p65.jpg" width="870" height="381" loading="lazy" alt="基隆中山高中112-1第1次段考（愛班） 第2頁" data-page="基隆中山高中112-1第1次段考（愛班） p.2"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>古生代 ≈ 42°、中生代 ≈ 14.6°、新生代 ≈ 5°，三塊都很小，排在圓的最後（緊接 12 點鐘方向前）。選項中<strong>黑色（古生代）扇形最小、依序是更小的中生代與新生代</strong>的是 <strong>(D)</strong>；(A) 古生代占了一半以上、(B)(C)(E) 古生代過大，都不對。<br />
+<strong>為什麼猜這題</strong>：「46 億年濃縮成一天」是地球歷史最常見的觀念題，要有「古生代很短、新生代更短」的直覺。</p><div class="qsum"><b class="qsum-h">小結</b><p>古生代＋中生代＋新生代只占地球歷史的<strong>最後約 17%</strong>；「濃縮成一天」就是把年代÷46 億再乘 24 小時。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q236">
+<header class="qh"><span class="qn">類題｜模擬 1</span><span class="qtag">簡單版・濃縮成一天・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>如果地球 46 億年歷史濃縮成 1 天（24 小時），中生代（1.86 億年）約占多少時間？<br />
+(A) 約 20 分鐘　(B) 約 1 小時　(C) 約 2.8 小時　(D) 約 8 小時</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 約 1 小時</div>
+<div class="exp"><b class="exp-h">解</b><p>1.86/46 ≈ 4.0%；24 小時 × 4.0% ≈ <strong>0.97 小時 ≈ 1 小時</strong>。（古生代約 2.8 小時，新生代約 20 分鐘。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q237">
+<header class="qh"><span class="qn">模擬 2</span><span class="qtag">單選・化石共存與地層對比・取自基隆中山 112-1（原卷愛班 27 題，附原卷圖）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>圖例</strong>：「⋏」＝生物<strong>開始出現</strong>，「⋎」＝生物<strong>滅絕</strong>；每條線是一種化石的存在期間。</li>
+<li><strong>做法</strong>：把題目指定的化石的存在期間<strong>畫出來取交集</strong>——最晚才開始的決定下界，最早滅絕的決定上界。</li>
+</ul></div></details><div class="qtext"><p>附圖為某地地層剖面，若其皆為原地沉積（沉積後未受搬運），「⋏」表示生物開始出現，「⋎」表示生物滅絕。若同時在地層中發現甲、丙、丁三種化石，則應對比到何地層？<br />
+(A) P　(B) Q　(C) R　(D) S　(E) Q 及 R</p></div><div class="qimgs"><img class="qimg" src="img/L002_54p01_67p37_x2p7-49p65.jpg" width="870" height="367" loading="lazy" alt="基隆中山高中112-1第1次段考（愛班） 第2頁" data-page="基隆中山高中112-1第1次段考（愛班） p.2"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：存在期間取交集。</p>
+<ul>
+<li><strong>甲</strong>：從最下方 P 到最上方 S 全程存在，沒有幫助。</li>
+<li><strong>丙</strong>：從 P 層底部開始出現，<strong>在 Q 層上緣就滅絕</strong> ⇒ 只存在 P、Q 層。</li>
+<li><strong>丁</strong>：從 <strong>Q 層下部才開始出現</strong>，一路存在到 R 層上方 ⇒ 存在 Q、R 層。</li>
+</ul>
+<p>三者共存只有同時滿足「丙還沒滅絕」與「丁已出現」：<strong>Q 層</strong>，選 <strong>(B)</strong>。<br />
+<strong>為什麼猜這題</strong>：化石對比的圖題是真實段考的標準題型。</p><div class="qsum"><b class="qsum-h">小結</b><p>化石對比＝<strong>畫出存在期間、取交集</strong>：最晚出現的定下界、最早滅絕的定上界。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q238">
+<header class="qh"><span class="qn">類題｜模擬 2</span><span class="qtag">簡單版・化石共存・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>化石甲存在於 P、Q、R、S 四層（由下而上），化石乙只存在 Q、R 兩層，化石丙存在 R、S 兩層。同時發現乙、丙兩種化石的地層應屬於哪一層？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>R 層</div>
+<div class="exp"><b class="exp-h">解</b><p>乙：Q、R；丙：R、S ⇒ 交集＝<strong>R 層</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q239">
+<header class="qh"><span class="qn">模擬 3</span><span class="qtag">單選・星等與距離　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>亮度比＝100<sup>(Δm/5)</sup></strong>；星等差 5 ⇒ 100 倍。</li>
+<li><strong>距離 ×10 ⇒ 星等 ＋5</strong>；距離 ×1/10 ⇒ 星等 −5。</li>
+<li><strong>m − M</strong>＞0 ⇒ 比 32.6 光年遠。</li>
+</ul></div></details><div class="qtext"><p>某恆星視星等 2 等，其距離變為原來的 10 倍後，視星等變為幾等？此時亮度是原來的幾倍？<br />
+(A) 7 等；1/100　(B) 7 等；1/10　(C) −3 等；100　(D) 12 等；1/100　(E) 2 等；1</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A) 7 等；1/100</div>
+<div class="exp"><b class="exp-h">解</b><p>距離 ×10 ⇒ 亮度 ×1/10² ＝ 1/100 ⇒ 星等<strong>增加 5</strong>：2＋5＝<strong>7 等</strong>。（7 等已超過肉眼極限 6 等，肉眼看不見了。）<br />
+<strong>為什麼猜這題</strong>：距離與星等的互換，是天文最基本的計算。</p><div class="qsum"><b class="qsum-h">小結</b><p>距離 ×10 ⇒ 亮度 1/100 ⇒ 星等 ＋5（反之 −5）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q240">
+<header class="qh"><span class="qn">類題｜模擬 3</span><span class="qtag">簡單版・星等與距離・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某恆星視星等 5 等，距離縮短為原來的 1/10 後，視星等變為幾等？<br />
+(A) 10 等　(B) 0 等　(C) 4 等　(D) 6 等</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 0 等</div>
+<div class="exp"><b class="exp-h">解</b><p>距離 ×1/10 ⇒ 亮度 ×100 ⇒ 星等 <strong>−5</strong>：5 − 5 ＝ <strong>0 等</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q241">
+<header class="qh"><span class="qn">模擬 4</span><span class="qtag">單選・星跡與緯度　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>星跡面與地平面夾角＝90° − 緯度</strong>；北極星仰角＝緯度。</li>
+<li><strong>15°／小時</strong>；北半球朝北＝逆時針。</li>
+</ul></div></details><div class="qtext"><p>在北半球某地朝東拍攝星跡，星跡與地平面的夾角約為 62°，該地緯度約為多少？<br />
+(A) 62°N　(B) 28°N　(C) 38°N　(D) 62°S　(E) 28°S</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 28°N</div>
+<div class="exp"><b class="exp-h">解</b><p>夾角＝90°−緯度 ⇒ 緯度＝90−62＝<strong>28°</strong>，題目說北半球 ⇒ <strong>28°N</strong>。<br />
+<strong>為什麼猜這題</strong>：判緯度是周日運動最基本的題。</p><div class="qsum"><b class="qsum-h">小結</b><p>星跡面與地平面夾角＝<strong>90°−緯度</strong>；北極星仰角＝緯度。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q242">
+<header class="qh"><span class="qn">類題｜模擬 4</span><span class="qtag">簡單版・星跡與緯度・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>北半球某地朝東拍攝星跡，星跡與地平面夾角為 40°，此地緯度為何？<br />
+(A) 40°N　(B) 50°N　(C) 50°S　(D) 40°S</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B) 50°N</div>
+<div class="exp"><b class="exp-h">解</b><p>緯度＝90−40＝<strong>50°</strong>；北半球 ⇒ <strong>50°N</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q243">
+<header class="qh"><span class="qn">模擬 5</span><span class="qtag">單選・彗星與流星　★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>彗尾永遠背向太陽</strong>；愈靠近太陽彗尾愈長。</li>
+<li><strong>彗星</strong>反射太陽光；<strong>流星</strong>與大氣摩擦發光。</li>
+</ul></div></details><div class="qtext"><p>下列有關彗星的敘述，何者正確？<br />
+(A) 彗尾永遠指向前進方向　(B) 彗尾永遠背向太陽　(C) 彗星遠離太陽時彗尾最長　(D) 彗星是自己發光的天體　(E) 流星雨就是彗星經過地球附近</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 彗尾永遠背向太陽，不是指向前進方向。</li>
+<li>(B) ○ 彗尾受太陽風與輻射壓推開，永遠背向太陽。</li>
+<li>(C) ✗ 靠近太陽（近日點）時彗尾最長。</li>
+<li>(D) ✗ 彗星靠<strong>反射</strong>太陽光發亮。</li>
+<li>(E) ✗ 流星雨是地球通過彗星遺留的<strong>碎屑群</strong>所造成。<br />
+<strong>為什麼猜這題</strong>：彗尾方向是天文最常見的觀念題。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>彗尾<strong>背向太陽、近日點最長</strong>；彗星＝反射、流星＝摩擦。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q244">
+<header class="qh"><span class="qn">類題｜模擬 5</span><span class="qtag">簡單版・彗星・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>彗星在近日點附近，彗尾與離太陽較遠處比較，有何不同？<br />
+(A) 彗尾較短　(B) 彗尾較長　(C) 沒有彗尾　(D) 彗尾朝向太陽</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>愈靠近太陽，揮發物質愈多、受太陽風推壓愈強，彗尾<strong>愈長</strong>，且永遠背向太陽。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q245">
+<header class="qh"><span class="qn">模擬 6</span><span class="qtag">單選・宇宙膨脹　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>哈伯定律</strong> V＝H₀d；<strong>紅移</strong>＝遠離；T≈1/H₀。</li>
+<li>微波背景輻射約 <strong>3 K</strong>，大霹靂後約 <strong>38 萬年</strong>。</li>
+</ul></div></details><div class="qtext"><p>關於宇宙膨脹的證據，下列何者正確？<br />
+(A) 遙遠星系光譜藍移，表示星系正在靠近　(B) 距離愈遠的星系，遠離速度愈慢　(C) 宇宙微波背景輻射是恆星發出的光　(D) 距離愈遠的星系，遠離速度愈快　(E) 仙女座星系正在遠離銀河系</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 遙遠星系是<strong>紅移</strong>，表示遠離。</li>
+<li>(B) ✗ 哈伯定律：距離愈遠，遠離速度愈<strong>快</strong>。</li>
+<li>(C) ✗ 微波背景輻射是<strong>大霹靂</strong>殘留的熱輻射，不是恆星光。</li>
+<li>(D) ○ 哈伯定律 V＝H₀d。</li>
+<li>(E) ✗ 仙女座星系因重力吸引，正在<strong>靠近</strong>銀河系（藍移）。<br />
+<strong>為什麼猜這題</strong>：哈伯定律＋紅移是宇宙章最標準的觀念選擇。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>宇宙膨脹＝<strong>V∝d、紅移＝遠離</strong>；鄰近的仙女座星系例外（藍移）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q246">
+<header class="qh"><span class="qn">類題｜模擬 6</span><span class="qtag">簡單版・哈伯定律・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>星系甲距離是星系乙的 3 倍，依哈伯定律，甲的遠離速度是乙的幾倍？<br />
+(A) 1/3　(B) 1　(C) 3　(D) 9</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C) 3</div>
+<div class="exp"><b class="exp-h">解</b><p>V＝H₀d，V 與 d 成正比 ⇒ 距離 3 倍 ⇒ 速度 <strong>3 倍</strong>。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">多選題（每題 6 分）</h2>
+
+<article class="q q-pr" id="q247">
+<header class="qh"><span class="qn">模擬 7</span><span class="qtag">多選・深成岩與地層順序・取自基隆中山 112-1（原卷仁班 37 題，附原卷圖）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>截切定律</strong>：切過別人的比被切的晚；深成岩 I 穿過 A、B 並把 C、D 拱起，<strong>I 比 A、B 晚</strong>。</li>
+<li><strong>疊置</strong>：下→上 A、B、C、D（沒有倒轉）。</li>
+<li><strong>缺化石與定年資料</strong> ⇒ 只能判斷<strong>先後</strong>，不能判斷<strong>確切年代</strong>。</li>
+</ul></div></details><div class="qtext"><p>科學家透過各種地質探勘後，繪製出某地區的地層示意圖（附圖），假設此露頭不曾經過地層倒轉，則下列敘述哪些正確？（應選 2 項）<br />
+(A) 岩層的生成順序可能是 A–B–I–C–D<br />
+(B) 岩層的生成順序可能為 A–B–C–D–I<br />
+(C) 該火成岩形似火山，A、B 先生成，火山 I 和 C 同時形成<br />
+(D) 根據截切定律，I 比 A、B 和 C 早生成<br />
+(E) 缺乏化石和定年資料，無法判斷岩層的確切年代</p></div><div class="qimgs"><img class="qimg" src="img/K003_45p76_67p1_x2p7-49p65.jpg" width="870" height="574" loading="lazy" alt="基隆中山高中112-1第1次段考（仁班） 第3頁" data-page="基隆中山高中112-1第1次段考（仁班） p.3"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：截切定律與「相對 vs 確切年代」。</p>
+<ul>
+<li>(A) ✗ I 穿過 A、B，並把 C、D 向上拱起，表示 C、D <strong>已經沉積</strong>後 I 才侵入；I 不可能比 C、D 早，所以不可能排在 B 與 C 之間。</li>
+<li>(B) ○ A、B、C、D 依序沉積，<strong>深成岩 I 最後侵入</strong>，穿過 A、B 並拱起 C、D。</li>
+<li>(C) ✗ I 是<strong>深成岩</strong>（沒有露出地表），不是火山；它是侵入、不是與 C 同時沉積。</li>
+<li>(D) ✗ 依截切定律，<strong>I 截切 A、B，所以 I 比它們晚</strong>，不是早。</li>
+<li>(E) ○ 沒有化石、沒有定年資料，只能排先後，<strong>不能確定絕對年代</strong>。<br />
+<strong>為什麼猜這題</strong>：深成岩侵入與截切定律是真實段考＋學測都考的題。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>截切定律：<strong>切過別人的比被切的晚</strong>；沒有化石／定年資料就只能排先後。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q248">
+<header class="qh"><span class="qn">類題｜模擬 7</span><span class="qtag">簡單版・截切定律・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某地由下而上為沉積岩 A、B、C，岩脈 D 切過 A、B、C。下列哪些正確？（應選 2 項）<br />
+(A) D 比 A、B、C 都早形成<br />
+(B) D 比 A、B、C 都晚形成<br />
+(C) 順序可能是 A→B→C→D<br />
+(D) 順序可能是 D→A→B→C</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>岩脈切過 A、B、C ⇒ 依截切定律，<strong>D 比它們都晚</strong>；沉積岩下→上為 A→B→C，所以順序是 <strong>A→B→C→D</strong>。(A)(D) ✗。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q249">
+<header class="qh"><span class="qn">模擬 8</span><span class="qtag">多選・恆星的光度與顏色　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>L∝R²T⁴</strong>；單位面積輻射∝T⁴；顏色藍＞白＞黃＞橘＞紅（溫度）。</li>
+<li><strong>亮度</strong>看 m（受距離影響）；<strong>光度</strong>看 M。</li>
+<li>行星的顏色看表面組成，不可用來比溫度。</li>
+</ul></div></details><div class="qtext"><p>甲星表面溫度約 12000 K、乙星約 4000 K，下列敘述哪些正確？（應選 4 項，共 6 個選項）<br />
+(A) 甲星可能是藍白色，乙星可能是橘紅色<br />
+(B) 甲星單位面積輻射量比乙星大<br />
+(C) 若兩星半徑相同，甲星光度比乙星大<br />
+(D) 乙星光度一定比甲星小<br />
+(E) 乙星若半徑極大（紅超巨星），光度可以比甲星大<br />
+(F) 看起來愈亮的星，光度一定愈大</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 12000 K 偏藍白，4000 K 偏橘紅。</li>
+<li>(B) ○ 單位面積輻射∝T⁴，甲較大。</li>
+<li>(C) ○ 半徑相同，光度比＝(12000/4000)⁴＝81 倍，甲較大。</li>
+<li>(D) ✗ 光度還看表面積，乙若半徑夠大，光度可以更大。</li>
+<li>(E) ○ 紅超巨星表面積極大，光度可以很大。</li>
+<li>(F) ✗ 看起來亮還要看<strong>距離</strong>；光度要看絕對星等。<br />
+<strong>為什麼猜這題</strong>：光度、顏色、半徑三者的關係，是天文選擇題最愛設的陷阱。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p><strong>L∝R²T⁴</strong>：顏色只告訴溫度，光度還要看半徑；亮度還要看距離。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q250">
+<header class="qh"><span class="qn">類題｜模擬 8</span><span class="qtag">簡單版・光度與顏色・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些正確？（應選 2 項）<br />
+(A) 藍色恆星的表面溫度比紅色恆星高<br />
+(B) 太陽表面溫度約 6000 K，呈黃色<br />
+(C) 火星呈紅色，表示它的表面溫度和紅色恆星一樣低<br />
+(D) 看起來愈亮的恆星，離地球一定愈近</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 藍＞白＞黃＞橘＞紅。</li>
+<li>(B) ○ 太陽約 6000 K，黃色。</li>
+<li>(C) ✗ 火星是行星，紅色是因為地表氧化鐵，與溫度無關。</li>
+<li>(D) ✗ 還要看光度；亮的可能只是本身發光強。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q251">
+<header class="qh"><span class="qn">模擬 9</span><span class="qtag">多選・四季與太陽仰角　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>仰角＝90° − |φ − δ|</strong>（同半球）／ 90° − (φ＋δ)（不同半球）；<strong>極圈＝90° − 傾角</strong>。</li>
+<li><strong>夏至</strong>：直射北回歸線，北半球晝長夜短、日出東偏北；<strong>春秋分</strong>：直射赤道，全球晝夜等長、正東升正西落。</li>
+<li>四季主因是<strong>地軸傾斜</strong>，不是日地距離。</li>
+</ul></div></details><div class="qtext"><p>下列關於四季與太陽的敘述，哪些正確？（應選 3 項）<br />
+(A) 春分時，全球晝夜長短幾乎相等<br />
+(B) 夏至時，北緯 23.5° 的地方中午太陽仰角約 90°<br />
+(C) 四季變化的主要原因是夏天地球離太陽比較近<br />
+(D) 冬至時，臺南（約北緯 23°）中午太陽仰角約 43°<br />
+(E) 太陽直射北半球時，北半球的人看到太陽從正東升起</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 春分太陽直射赤道，全球晝夜約等長。</li>
+<li>(B) ○ 夏至直射北回歸線，北緯 23.5° 太陽在天頂，仰角 90°。</li>
+<li>(C) ✗ 主因是<strong>地軸傾斜</strong>；近日點在冬至附近，夏天反而較遠。</li>
+<li>(D) ○ 冬至直射南緯 23.5°，臺南（23°N）不同半球：仰角＝90−(23＋23.5)≈ <strong>43.5°</strong>，約 43°。</li>
+<li>(E) ✗ 直射北半球時，日出是<strong>東偏北</strong>；正東升起是春分、秋分。<br />
+<strong>為什麼猜這題</strong>：四季題在學測、段考都愛考，要會算仰角、判日出方位。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>四季看<strong>地軸傾斜</strong>；仰角＝90°−（直射緯度與所在緯度的夾角）。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q252">
+<header class="qh"><span class="qn">類題｜模擬 9</span><span class="qtag">簡單版・四季與仰角・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些正確？（應選 2 項）<br />
+(A) 春分時，赤道上中午太陽仰角約 90°<br />
+(B) 夏至時，北半球晝長夜短<br />
+(C) 冬至時，太陽直射北回歸線<br />
+(D) 地球近日點在夏至附近</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 春分直射赤道，赤道正午太陽在天頂。</li>
+<li>(B) ○ 夏至北半球傾向太陽，晝長夜短。</li>
+<li>(C) ✗ 冬至直射<strong>南回歸線</strong>。</li>
+<li>(D) ✗ 近日點約在冬至附近。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q253">
+<header class="qh"><span class="qn">模擬 10</span><span class="qtag">多選・地球歷史綜合　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>氧氣歷史</strong>：藍綠菌（約 35 億年前）→ 帶狀鐵礦 → 氧進大氣（約 20 億年前）→ 臭氧層 → 登陸（約 4 億年前）。</li>
+<li><strong>定年</strong>：母：子＝1：3 ⇒ 2 個半衰期；極限 10 個半衰期；碳 14 半衰期 5730 年。</li>
+<li><strong>化石</strong>：古生代＝三葉蟲、牙形刺；中生代＝恐龍、菊石；第 3 次大滅絕＝古生代結束。</li>
+</ul></div></details><div class="qtext"><p>下列敘述哪些正確？（應選 3 項）<br />
+(A) 帶狀鐵礦的形成，表示當時淺海環境已有氧氣<br />
+(B) 臭氧層形成之前，生物已大量登陸<br />
+(C) 母元素：子元素＝1：3，表示經過 2 個半衰期<br />
+(D) 碳 14 適合測定 10 億年前的岩石<br />
+(E) 古生代結束時，三葉蟲等生物大量滅絕</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ Fe²⁺ 與氧氣結合成氧化鐵沉澱。</li>
+<li>(B) ✗ 臭氧層擋住紫外線之後，生物才登陸（約 4 億年前）。</li>
+<li>(C) ○ 母：子＝1：3 ⇒ 母占 1/4＝(1/2)² ⇒ 2 個半衰期。</li>
+<li>(D) ✗ 碳 14 半衰期 5730 年，只適合約 5.7 萬年內；億年尺度要用鉀 40、鈾 238。</li>
+<li>(E) ○ 古生代結束＝二疊紀末第 3 次大滅絕，三葉蟲滅絕。<br />
+<strong>為什麼猜這題</strong>：多選題最愛把「氧氣歷史、定年、化石」混在一題。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>氧氣歷史、定年換算、標準化石三件事是地球歷史多選的固定組合。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q254">
+<header class="qh"><span class="qn">類題｜模擬 10</span><span class="qtag">簡單版・地球歷史・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些正確？（應選 2 項）<br />
+(A) 氮氣在大氣中占最多，是因為它不易溶於水<br />
+(B) 最古老的海洋地殼可以證明海洋在 40 億年前形成<br />
+(C) 三葉蟲是古生代的標準化石<br />
+(D) 恐龍滅絕發生在古生代結束時</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 氮氣難溶於水，其他氣體被移除後比例升高。</li>
+<li>(B) ✗ 海洋形成年代是用最古老的<strong>沉積岩</strong>推知。</li>
+<li>(C) ○ 三葉蟲是古生代標準化石。</li>
+<li>(D) ✗ 恐龍滅絕在<strong>中生代結束</strong>（白堊紀末，第 5 次大滅絕）。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">非選擇題（每題 26 分）</h2>
+
+<article class="q q-pr" id="q255">
+<header class="qh"><span class="qn">模擬 11</span><span class="qtag">非選・定年與地層（26 分）・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>鉀 40</strong>：半衰期 12.5 億年；母：子 → 母占 → (1/2)ⁿ → 年齡。</li>
+<li><strong>地層排序</strong>：下→上疊置；岩脈／斷層切過 ⇒ 晚；含碎塊 ⇒ 較晚。</li>
+<li><strong>夾擠法</strong>：沉積岩的年代用上、下火成岩夾出範圍。</li>
+</ul></div></details><div class="qtext"><p>某地由下而上有沉積岩甲、乙、丙（未倒轉），岩脈丁（含乙的碎塊）切過甲、乙，但沒有切到丙；丙之上有熔岩流戊。<br />
+(1)（6 分）寫出甲～戊由早到晚的順序，並說明每一步用了什麼定律。<br />
+(2)（8 分）測得岩脈丁中 ⁴⁰K：⁴⁰Ar＝1：7。已知 ⁴⁰K 半衰期 12.5 億年，求丁的年齡（列式）。<br />
+(3)（6 分）熔岩流戊測得年齡約 31 億年。用 (2) 的結果，夾出丙層沉積的年代範圍。<br />
+(4)（6 分）為什麼要用火成岩（岩脈、熔岩流）定年，而不是直接測沉積岩？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 甲→乙→丁→丙→戊；(2) 37.5 億年；(3) 約 37.5～31 億年前；(4) 沉積岩礦物年齡是原岩年齡，非沉積年齡</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 疊置定律：沉積岩下→上 甲→乙→丙。岩脈丁切過甲、乙（截切定律）⇒ 丁比甲、乙晚；丁含乙的碎塊（包裹體定律）也表示乙先形成；但丁<strong>沒切到丙</strong>，表示丙是丁形成<strong>之後</strong>才沉積。熔岩流戊在丙之上（疊置）⇒ 最晚。順序：<strong>甲 → 乙 → 丁 → 丙 → 戊</strong>。</p>
+<p>(2) 母：子＝1：7 ⇒ 母占 1/(1＋7)＝1/8＝(1/2)³ ⇒ 3 個半衰期 ⇒ 3×12.5＝<strong>37.5 億年</strong>。</p>
+<p>(3) 丙是在岩脈丁形成<strong>之後</strong>才沉積（丁沒切到丙），又在熔岩流戊<strong>之前</strong>（戊蓋在丙上），所以丙的年代被夾在丁（37.5 億年）與戊（31 億年）之間：<strong>約 37.5～31 億年前</strong>。</p>
+<p>(4) 沉積岩由碎屑堆積而成，礦物的年齡是<strong>原岩形成的年齡</strong>，不是沉積的時間；岩脈、熔岩流由岩漿冷卻形成，結晶時間就是形成年齡，所以用上、下的火成岩夾出沉積岩的年代範圍。<br />
+<strong>為什麼猜這題</strong>：相對年代＋絕對年代的整合題，是非選的標準骨架。</p><div class="qsum"><b class="qsum-h">小結</b><p>相對年代（疊置＋截切＋包裹體）＋絕對年代（母子比→半衰期）＝非選的標準骨架。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q256">
+<header class="qh"><span class="qn">類題｜模擬 11</span><span class="qtag">簡單版・定年與地層・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某地由下而上有沉積岩 A、B、C（未倒轉），熔岩流 D 在 C 之上，岩脈 E 切過 A、B 與 C，且 E 本身也被 D 蓋住。<br />
+(1) 寫出 A～E 由早到晚的順序。<br />
+(2) 測得 E 的母：子＝1：3，半衰期 4 億年，E 的年齡？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) A→B→C→E→D　(2) 8 億年</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 沉積岩 A→B→C；E 切過 A、B、C ⇒ 晚於 C；D 蓋住 E（E 被 D 蓋住，D 較晚）⇒ <strong>A→B→C→E→D</strong>。</p>
+<p>(2) 母：子＝1：3 ⇒ 母占 1/4＝(1/2)² ⇒ 2×4＝<strong>8 億年</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q257">
+<header class="qh"><span class="qn">模擬 12</span><span class="qtag">非選・星空與周日、周年運動（26 分）・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre"><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>北極星仰角＝緯度</strong>；星跡面夾角＝90°−緯度；15°／小時。</li>
+<li><strong>周年運動</strong>：每天提早 4 分鐘、1°；每月 30°、2 小時。</li>
+<li><strong>永不落下</strong>：與天球北極夾角 ≤ 緯度；夜晚星座＝與太陽相反。</li>
+</ul></div></details><div class="qtext"><p>小宇在北緯 30° 的某地觀測星空。<br />
+(1)（4 分）此地北極星的仰角約多少？朝東拍攝的星跡與地平面夾角約多少？<br />
+(2)（6 分）朝北拍攝曝光 4 小時，星跡圓心角多少？圓心在地平面之上或之下？<br />
+(3)（6 分）某恆星與天球北極夾角 25°。它在此地會不會落到地平面以下？為什麼？<br />
+(4)（6 分）某星今晚 22:00 在中天，30 天後約幾點在中天？<br />
+(5)（4 分）另一顆星與天球北極夾角 100°，它在地平面上的時間是大於、小於還是等於 12 小時？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 30°；60°　(2) 60°；之上　(3) 不會（25° ≤ 30°）　(4) 約 20:00　(5) 小於 12 小時</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 北極星仰角＝緯度＝<strong>30°</strong>；星跡面夾角＝90−30＝<strong>60°</strong>。</p>
+<p>(2) 4 h×15°/h＝<strong>60°</strong>；北半球朝北，天球北極在地平面上方，圓心在<strong>地平面之上</strong>。</p>
+<p>(3) 北緯 30°：與天球北極夾角 <strong>≤ 30°</strong> 的星永不落下；25° ≤ 30° ⇒ <strong>不會落下</strong>（整天都在地平面之上）。</p>
+<p>(4) 每月約提早 2 小時：22:00−2 h ＝ <strong>20:00</strong>。</p>
+<p>(5) 夾角 100°＞90°，這顆星位在天球赤道的<strong>南邊</strong>，在地平面上運行的弧度小於 180°，時間<strong>小於 12 小時</strong>。<br />
+<strong>為什麼猜這題</strong>：把周日運動的幾個必考小題串成一題。</p><div class="qsum"><b class="qsum-h">小結</b><p>周日運動小題組：<strong>仰角＝緯度、夾角＝90°−緯度、15°／時、永不落下≤緯度、每月提早 2 小時</strong>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q258">
+<header class="qh"><span class="qn">類題｜模擬 12</span><span class="qtag">簡單版・星空・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>在北緯 20° 的地方：<br />
+(1) 北極星仰角約多少？<br />
+(2) 某星與天球北極夾角 15°，會不會落下？<br />
+(3) 某星今晚 20:00 在中天，隔天約幾點？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 20°　(2) 不會落下（15° ≤ 20°）　(3) 約 19:56</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 北極星仰角＝緯度＝<strong>20°</strong>。</p>
+<p>(2) 夾角 15° ≤ 緯度 20° ⇒ <strong>永不落下</strong>。</p>
+<p>(3) 每天提早 4 分鐘 ⇒ <strong>19:56</strong>。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復2.html">← 復2 天文難題</a><a href="u3-1.html">3-1 主題 12　固體地球的結構 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

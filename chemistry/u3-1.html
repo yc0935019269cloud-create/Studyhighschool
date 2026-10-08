@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3-1 化學反應速率｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a class="on" href="u3-1.html"><span>3-1</span>化學反應速率</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第3章 反應速率</div>
+<h1><span class="uid">3-1</span>化學反應速率</h1>
+<div class="tools"><span class="cnt">本單元 50 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、反應速率（以 R 或 r 表示）</h3>
+<h4>1. 定義</h4>
+<p>定溫下，單位時間內反應物的消耗量或生成物的生成量。</p>
+<blockquote>
+<p>反應速率 ＝ 反應物的消耗量 ÷ 時間 ＝ <strong>− Δ[反應物] / Δt</strong><br />
+反應速率 ＝ 生成物的生成量 ÷ 時間 ＝ <strong>＋ Δ[生成物] / Δt</strong></p>
+</blockquote>
+<p>反應物的量隨時間減少，Δ[反應物] 為負值；反應速率恆為正，所以前面加「−」號。</p>
+<h4>2. 單位</h4>
+<ul>
+<li>量：克、莫耳、M、atm、cmHg……</li>
+<li>時間：s、min、hr……</li>
+<li>反應速率：M/s、mmHg/min、mol/s、g/hr……</li>
+</ul>
+<h4>3. 表示法</h4>
+<p>aA ＋ bB → dD 中，可用任一物質表示速率，但<strong>不同物質求得的速率數值不一定相同</strong>，所以要標明是哪一種物質。</p>
+<ul>
+<li>A 的消耗速率 r<sub>A</sub> ＝ −Δ[A]/Δt；B 的消耗速率 r<sub>B</sub> ＝ −Δ[B]/Δt；D 的生成速率 r<sub>D</sub> ＝ ＋Δ[D]/Δt</li>
+<li>氣相反應可用分壓變化表示：r<sub>A</sub> ＝ −ΔP<sub>A</sub>/Δt</li>
+</ul>
+<h4>4. 反應速率與係數的關係</h4>
+<p><strong>同一反應中，各物質的消耗或生成速率比 ＝ 係數比。</strong></p>
+<blockquote>
+<p>−Δ[A]/Δt : −Δ[B]/Δt : Δ[D]/Δt ＝ a : b : d<br />
+(1/a)(−Δ[A]/Δt) ＝ (1/b)(−Δ[B]/Δt) ＝ (1/d)(Δ[D]/Δt)</p>
+</blockquote>
+<aside class="box box-concept"><div class="box-h">觀念</div><p>有氣體時可以用<strong>總壓變化</strong>表示速率。例：4HBr(g) ＋ O<sub>2</sub>(g) → 2Br<sub>2</sub>(g) ＋ 2H<sub>2</sub>O(g)<br />
+設 O<sub>2</sub> 減少 x：HBr −4x、O<sub>2</sub> −x、Br<sub>2</sub> ＋2x、H<sub>2</sub>O ＋2x ⇒ ΔP<sub>總</sub> ＝ −x<br />
+⇒ −ΔP<sub>t</sub>/Δt ： −ΔP<sub>HBr</sub>/Δt ： −ΔP<sub>O2</sub>/Δt ： ΔP<sub>Br2</sub>/Δt ＝ 1 : 4 : 1 : 2</p></aside>
+<h4>5. 反應速率的測定</h4>
+<p>利用反應進行時某些性質的變化速率來測量：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>使用時機</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顏色</td>
+<td>反應前後顏色改變</td>
+<td>N<sub>2</sub>O<sub>4</sub>（無色）⇌ 2NO<sub>2</sub>（紅棕）；Fe<sup>3+</sup>（黃褐）＋ SCN<sup>−</sup> → FeSCN<sup>2+</sup>（血紅）</td>
+</tr>
+<tr>
+<td>壓力或體積</td>
+<td>前後<strong>氣體係數和不相等</strong></td>
+<td>2N<sub>2</sub>O<sub>5</sub>(g) → 4NO<sub>2</sub>(g) ＋ O<sub>2</sub>(g)</td>
+</tr>
+<tr>
+<td>沉澱量</td>
+<td>有沉澱生成</td>
+<td>AgNO<sub>3</sub> ＋ NaCl → AgCl↓ ＋ NaNO<sub>3</sub></td>
+</tr>
+<tr>
+<td>導電度</td>
+<td>離子莫耳數改變</td>
+<td>H<sub>2</sub>SO<sub>4</sub> ＋ Ba(OH)<sub>2</sub> → BaSO<sub>4</sub>(s) ＋ 2H<sub>2</sub>O(l)</td>
+</tr>
+<tr>
+<td>pH 值</td>
+<td>酸鹼性改變</td>
+<td>CH<sub>3</sub>COOH ＋ C<sub>2</sub>H<sub>5</sub>OH → CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> ＋ H<sub>2</sub>O</td>
+</tr>
+</tbody>
+</table>
+<aside class="box box-warn"><div class="box-h">注意</div><p>用壓力或體積測速率時，兩邊<strong>氣體係數和必須不相等</strong>。<br />
+H<sub>2</sub>(g) ＋ I<sub>2</sub>(g) → 2HI(g)：ΔP ＝ −x −x ＋2x ＝ 0，總壓不變，<strong>不能</strong>用總壓測速率。</p></aside>
+<h3>二、速率定律</h3>
+<h4>1. 意義</h4>
+<p>反應速率與反應物濃度的定量關係式。反應物粒子要有效碰撞才會反應，濃度愈高碰撞機會愈多、速率愈快。</p>
+<h4>2. 表示法（aA ＋ bB → dD ＋ eE）</h4>
+<p><strong>(1) 速率定律</strong>：<strong>r ＝ k [A]<sup>x</sup> [B]<sup>y</sup></strong>（氣體也可寫 r ＝ k·P<sub>A</sub><sup>x</sup>·P<sub>B</sub><sup>y</sup>）</p>
+<p><strong>(2) 反應級數</strong>：x 為 A 的級數、y 為 B 的級數，(x＋y) 為總級數。<br />
+- 級數愈大，速率受該物質濃度的影響愈大。<br />
+- <strong>x、y 由實驗求得，與係數無關</strong>；可以是 0、整數或分數。<br />
+  - H<sub>2</sub>O<sub>2</sub> ＋ 3I<sup>−</sup> ＋ 2H<sup>＋</sup> → I<sub>3</sub><sup>−</sup> ＋ 2H<sub>2</sub>O：r ＝ k[H<sub>2</sub>O<sub>2</sub>][I<sup>−</sup>]<br />
+  - CO ＋ Cl<sub>2</sub> → COCl<sub>2</sub>：r ＝ k[CO][Cl<sub>2</sub>]<sup>3/2</sup></p>
+<p><strong>(3) 速率常數 k</strong></p>
+<table>
+<thead>
+<tr>
+<th>級數 n</th>
+<th>k 的單位（濃度）</th>
+<th>k 的單位（壓力）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 級</td>
+<td>M·s<sup>−1</sup></td>
+<td>mmHg·s<sup>−1</sup></td>
+</tr>
+<tr>
+<td>1 級</td>
+<td>s<sup>−1</sup></td>
+<td>s<sup>−1</sup></td>
+</tr>
+<tr>
+<td>2 級</td>
+<td>M<sup>−1</sup>·s<sup>−1</sup></td>
+<td>mmHg<sup>−1</sup>·s<sup>−1</sup></td>
+</tr>
+</tbody>
+</table>
+<p>（通式：M<sup>1−n</sup>·s<sup>−1</sup>）</p>
+<aside class="box box-sum"><div class="box-h">整理</div><ul>
+<li><strong>影響 k</strong>：反應物種類、溫度、活化能、催化劑</li>
+<li><strong>不影響 k</strong>：反應物濃度、壓力、反應熱</li>
+</ul></aside>
+<h4>3. 速率定律的推求</h4>
+<p><strong>(1) 由初始速率與濃度的實驗數據</strong>：固定其他濃度，一次只改變一種反應物濃度，看速率怎麼變。<br />
+- 濃度 ×2，速率 ×1 → 0 級；×2 → 1 級；×4 → 2 級</p>
+<p><strong>(2) 由濃度與時間的數據</strong>：用某時段的平均速率與該時段的平均濃度代入。<br />
+例：2N<sub>2</sub>O<sub>5</sub> → 4NO<sub>2</sub> ＋ O<sub>2</sub></p>
+<table>
+<thead>
+<tr>
+<th>時間（分）</th>
+<th>0</th>
+<th>10</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[N<sub>2</sub>O<sub>5</sub>]（M）</td>
+<td>1.00</td>
+<td>0.80</td>
+<td>0.64</td>
+<td>0.51</td>
+</tr>
+</tbody>
+</table>
+<p>0～10 分：0.020 ＝ k(0.90)<sup>n</sup>；10～20 分：0.016 ＝ k(0.72)<sup>n</sup> ⇒ 0.020/0.016 ＝ (0.90/0.72)<sup>n</sup> ⇒ <strong>n ＝ 1</strong>，r ＝ k[N<sub>2</sub>O<sub>5</sub>]</p>
+<h4>4. 速率定律的應用</h4>
+<p>改變莫耳數、體積或壓力 → 算出新濃度 → 代入速率定律求新速率。</p>
+<aside class="box box-warn"><div class="box-h">注意</div><p><strong>定溫定容</strong>加入物質：只有加入的那一種濃度改變。<br />
+<strong>定溫定壓</strong>加入物質：總莫耳數變多 → 體積變大 → <strong>所有物質濃度都要重算</strong>。</p></aside>
+<h3>三、零級、一級與二級反應</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>零級</th>
+<th>一級</th>
+<th>二級</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速率定律</td>
+<td>r ＝ k</td>
+<td>r ＝ k[A]</td>
+<td>r ＝ k[A]<sup>2</sup></td>
+</tr>
+<tr>
+<td>r 對 [A] 作圖</td>
+<td>水平線</td>
+<td>過原點直線</td>
+<td>拋物線（對 [A]<sup>2</sup> 為直線）</td>
+</tr>
+<tr>
+<td>[A] 對 t</td>
+<td><strong>直線</strong>遞減（等差）</td>
+<td>指數遞減（<strong>等比</strong>）</td>
+<td>曲線</td>
+</tr>
+<tr>
+<td>半生期</td>
+<td>隨濃度降低而<strong>縮短</strong></td>
+<td><strong>定值</strong>，與濃度無關</td>
+<td>隨濃度降低而<strong>加長</strong></td>
+</tr>
+<tr>
+<td>例</td>
+<td>2NH<sub>3</sub> →(Pt) N<sub>2</sub> ＋ 3H<sub>2</sub></td>
+<td>2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O ＋ O<sub>2</sub>；放射性衰變</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A113_7_41.jpg" width="1400" height="865" loading="lazy" alt="講義一 第113頁" data-page="講義一 p.113"><figcaption>零級、一級、二級反應的圖形整理</figcaption></figure>
+<ul>
+<li><strong>零級</strong>：例 [NH<sub>3</sub>] 0.64 → 0.52 → 0.40 → 0.28（每 10 s 減少 0.12）</li>
+<li><strong>一級</strong>：例 [H<sub>2</sub>O<sub>2</sub>] 0.200 → 0.100 → 0.050 → 0.025（每 10 s 減半）</li>
+</ul>
+<p><strong>放射性衰變（一級反應）與碳-14 定年</strong></p>
+<ul>
+<li>宇宙中子撞擊大氣中的 <sup>14</sup>N 產生 <sup>14</sup>C：<sup>14</sup><sub>7</sub>N ＋ <sup>1</sup><sub>0</sub>n → <sup>14</sup><sub>6</sub>C ＋ <sup>1</sup><sub>1</sub>H</li>
+<li><sup>14</sup>C 衰變：<sup>14</sup><sub>6</sub>C → <sup>14</sup><sub>7</sub>N ＋ <sup>0</sup><sub>−1</sub>e，半衰期約 <strong>5730 年</strong></li>
+<li>生物死後不再補充 <sup>14</sup>C，<sup>14</sup>C 含量為原來的 1/4 時，死亡約 5730×2 年</li>
+</ul>
+<blockquote>
+<p><strong>N ＝ N<sub>0</sub> × (1/2)<sup>t/T</sup></strong>（T：半衰期；t：經過時間）</p>
+</blockquote>
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q310">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">反應速率表示法</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A103_6_26.jpg" width="1400" height="487" loading="lazy" alt="講義一 第103頁" data-page="講義一 p.103"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 3B ＋ C ⇌ 2A　(2) (C)</div>
+<div class="exp"><b class="exp-h">解</b><p>由圖（2 L 容器）：B 1.4 → 0.8（−0.6 mol）、C 1.4 → 1.2（−0.2 mol）、A 0 → 0.4（＋0.4 mol）<br />
+莫耳數變化比 B : C : A ＝ 0.6 : 0.2 : 0.4 ＝ 3 : 1 : 2<br />
+10 分鐘後各物質不再變化但反應物仍有剩 → 可逆反應：<strong>3B ＋ C ⇌ 2A</strong></p>
+<p>(2)<br />
+- (A) ✗ A：0.4 mol ÷ 2 L ÷ 10 min ＝ 0.02 M/min<br />
+- (B) ✗ 速率恆為正值（0.06 mol/min，不能寫負號）<br />
+- (C) ○ C：0.2 ÷ 2 ÷ 10 ＝ <strong>0.01 M/min</strong><br />
+- (D) ✗ 反應物濃度下降，速率都是漸減</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q311">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">反應速率與反應式</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A104_7_22.jpg" width="1400" height="373" loading="lazy" alt="講義一 第104頁" data-page="講義一 p.104"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 0.011 M/min　(2) 4 mmHg/min</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) N<sub>2</sub>O<sub>5</sub> 消耗 1.00 − 0.34 ＝ 0.66 M，O<sub>2</sub> 生成 0.66 × 1/2 ＝ 0.33 M<br />
+r<sub>O2</sub> ＝ 0.33 ÷ 30 ＝ <strong>0.011 M/min</strong></p>
+<p>(2) 設 N<sub>2</sub>O<sub>5</sub> 減少 2x：2N<sub>2</sub>O<sub>5</sub>(−2x) → 4NO<sub>2</sub>(＋4x) ＋ O<sub>2</sub>(＋x)，總壓增加 3x<br />
+760 → 820 mmHg：3x ＝ 60 ⇒ x ＝ 20，NO<sub>2</sub> 生成 4x ＝ 80 mmHg<br />
+r<sub>NO2</sub> ＝ 80 ÷ 20 ＝ <strong>4 mmHg/min</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q312">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A104_39_51.jpg" width="1400" height="317" loading="lazy" alt="講義一 第104頁" data-page="講義一 p.104"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>N<sub>2</sub> ＋ 3H<sub>2</sub> → 2NH<sub>3</sub>：設 N<sub>2</sub> 減少 x ⇒ H<sub>2</sub> −3x、NH<sub>3</sub> ＋2x、總壓 −2x<br />
+- (A) ✗ −Δ[H<sub>2</sub>] ＝ 3 × (−Δ[N<sub>2</sub>])<br />
+- (B) ✗ Δ[NH<sub>3</sub>] ＝ 2 × (−Δ[N<sub>2</sub>])，應為 Δ[NH<sub>3</sub>]/Δt × ½<br />
+- (C) ✗ ΔP<sub>t</sub> ＝ −2x，ΔP<sub>N2</sub> ＝ −x，兩者不相等<br />
+- (D) ○ −ΔP<sub>t</sub> ＝ 2x ＝ ΔP<sub>NH3</sub></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q313">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">反應速率測定</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A105_29_51p5.jpg" width="1400" height="542" loading="lazy" alt="講義一 第105頁" data-page="講義一 p.105"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 有 AgCl 沉澱生成</li>
+<li>(B) ✗ 反應物、生成物都無色</li>
+<li>(C) ○ 生成 BaSO<sub>4</sub> 沉澱與水，離子減少，導電度下降</li>
+<li>(D) ✗ 兩邊氣體係數和都是 2，總壓不變</li>
+<li>(E) ○ 4 → 2，定壓下體積會變</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q314">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A105_59_71p5.jpg" width="1400" height="298" loading="lazy" alt="講義一 第105頁" data-page="講義一 p.105"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>平衡後比較兩邊<strong>氣體</strong>係數和：<br />
+- (A) 2H<sub>2</sub> ＋ O<sub>2</sub> → 2H<sub>2</sub>O(l)：3 → 0<br />
+- (B) 4PH<sub>3</sub> → P<sub>4</sub> ＋ 6H<sub>2</sub>：4 → 7<br />
+- (C) 4HBr ＋ O<sub>2</sub> → 2Br<sub>2</sub> ＋ 2H<sub>2</sub>O(g)：5 → 4<br />
+- (D) N<sub>2</sub>O<sub>4</sub> → 2NO<sub>2</sub>：1 → 2<br />
+- (E) H<sub>2</sub> ＋ Br<sub>2</sub> → 2HBr：2 → 2，總壓不變 ⇒ <strong>不能</strong>用總壓測</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q315">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">速率定律與反應級數</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A106_55_68.jpg" width="1400" height="326" loading="lazy" alt="講義一 第106頁" data-page="講義一 p.106"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>r ＝ k[H<sub>2</sub>][NO]<sup>2</sup><br />
+- (A) ○ (B) ○ 1 ＋ 2 ＝ 3<br />
+- (C) ○ H<sub>2</sub> 為一級，分壓 ×2 → 速率 ×2<br />
+- (D) ✗ NO 為二級，分壓 ×2 → 速率 ×<strong>4</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q316">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A106_79_91.jpg" width="1400" height="305" loading="lazy" alt="講義一 第106頁" data-page="講義一 p.106"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>k 的單位 M·s<sup>−1</sup> ⇒ <strong>零級反應</strong>，速率與濃度無關，濃度減半速率不變（1 倍）。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q317">
+<header class="qh"><span class="qn">例題 5</span><span class="qtag">速率定律推求</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A107_29_66p5.jpg" width="1400" height="892" loading="lazy" alt="講義一 第107頁" data-page="講義一 p.107"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 4 級　(2) 8.0 M<sup>−3</sup>·s<sup>−1</sup>　(3) 約 0.115 M/s　(4) 1.2×10<sup>−3</sup> mol</div>
+<div class="exp"><b class="exp-h">解</b><p>設 r ＝ k[BrO<sub>3</sub><sup>−</sup>]<sup>x</sup>[Br<sup>−</sup>]<sup>y</sup>[H<sup>＋</sup>]<sup>z</sup><br />
+- 實驗 1→2：[BrO<sub>3</sub><sup>−</sup>] ×2，r ×2 ⇒ x ＝ 1<br />
+- 實驗 2→3：[Br<sup>−</sup>] ×2，r ×2 ⇒ y ＝ 1<br />
+- 實驗 1→4：[H<sup>＋</sup>] ×2，r ×4 ⇒ z ＝ 2</p>
+<p>(1) 總級數 1 ＋ 1 ＋ 2 ＝ <strong>4</strong></p>
+<p>(2) k ＝ 8.0×10<sup>−4</sup> ÷ (0.10 × 0.10 × 0.10<sup>2</sup>) ＝ <strong>8.0 M<sup>−3</sup>·s<sup>−1</sup></strong></p>
+<p>(3) 實驗 5：r<sub>BrO3−</sub> ＝ 8.0 × 0.40 × 0.30 × 0.20<sup>2</sup> ＝ 0.0384 M/s<br />
+Br<sub>2</sub> 生成速率 ＝ 3 × 0.0384 ≈ <strong>0.115 M/s</strong></p>
+<p>(4) 實驗 1 的 Br<sub>2</sub> 生成速率 ＝ 3 × 8.0×10<sup>−4</sup> ＝ 2.4×10<sup>−3</sup> M/s<br />
+× 0.5 L ＝ <strong>1.2×10<sup>−3</sup> mol/s</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q318">
+<header class="qh"><span class="qn">類題 4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A108_6_25.jpg" width="1400" height="469" loading="lazy" alt="講義一 第108頁" data-page="講義一 p.108"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) r ＝ k[A]<sup>2</sup>[B]　(2) 6 M<sup>−2</sup>·min<sup>−1</sup>　(3) 0.3 M/min</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 實驗 1→2：[A] ×2，r ×4 ⇒ A 二級；實驗 2→3：[B] ×2，r ×2 ⇒ B 一級</p>
+<p>(2) k ＝ 0.0060 ÷ (0.100<sup>2</sup> × 0.100) ＝ <strong>6 M<sup>−2</sup>·min<sup>−1</sup></strong></p>
+<p>(3) Δ[E]/Δt ＝ 6 × 0.500<sup>2</sup> × 0.400 ＝ 0.6 M/min<br />
+D 的係數是 E 的一半 ⇒ D 生成速率 ＝ <strong>0.3 M/min</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q319">
+<header class="qh"><span class="qn">例題 6</span><span class="qtag">速率定律推求・106指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A108_58_76.jpg" width="1400" height="431" loading="lazy" alt="講義一 第108頁" data-page="講義一 p.108"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>讀圖：[甲] 0.200 → 0.100 約需 4 秒；0.100 → 0.050 約再需 8 秒（t ≈ 12 s）。<br />
+半生期隨濃度減半而<strong>加倍</strong> ⇒ 二級反應（零級會縮短，一級會固定）。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q320">
+<header class="qh"><span class="qn">類題 5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A109_6_24.jpg" width="1400" height="465" loading="lazy" alt="講義一 第109頁" data-page="講義一 p.109"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 0 級　(2) 1.0×10<sup>−3</sup> M·min<sup>−1</sup></div>
+<div class="exp"><b class="exp-h">解</b><p>每 20 分鐘都減少 0.02 M（等差遞減）⇒ <strong>零級</strong><br />
+k ＝ 0.02 ÷ 20 ＝ <strong>1.0×10<sup>−3</sup> M/min</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q321">
+<header class="qh"><span class="qn">例題 7</span><span class="qtag">速率定律應用……推反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A109_35_55.jpg" width="1400" height="564" loading="lazy" alt="講義一 第109頁" data-page="講義一 p.109"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>r ＝ k[N<sub>2</sub>][H<sub>2</sub>]，原本 N<sub>2</sub> 2 mol、H<sub>2</sub> 1 mol（共 3 mol，體積 V）<br />
+- 實驗 I（定容）：H<sub>2</sub> 變 4 mol，[N<sub>2</sub>] 不變、[H<sub>2</sub>] ×4 ⇒ r<sub>2</sub> ＝ <strong>4r<sub>1</sub></strong><br />
+- 實驗 II（定壓）：總莫耳數 3 → 6，體積變 2V<br />
+  [N<sub>2</sub>] ＝ 2/2V（×½）、[H<sub>2</sub>] ＝ 4/2V（×2）⇒ r<sub>3</sub> ＝ ½ × 2 × r<sub>1</sub> ＝ <strong>r<sub>1</sub></strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q322">
+<header class="qh"><span class="qn">類題 6</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A109_78_91.jpg" width="1400" height="355" loading="lazy" alt="講義一 第109頁" data-page="講義一 p.109"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>定溫定壓：原本 3 mol → 新的 6 mol，體積變 2 倍。<br />
+原本：r ∝ (2/V)(1/V) ＝ 2/V<sup>2</sup><br />
+新的：r ∝ (5/2V)(1/2V) ＝ 5/4V<sup>2</sup><br />
+比值 ＝ (5/4) ÷ 2 ＝ 5/8 ⇒ <strong>5a/8</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q323">
+<header class="qh"><span class="qn">例題 8</span><span class="qtag">速率定律應用……推反應速率</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A110_7_17.jpg" width="1400" height="267" loading="lazy" alt="講義一 第110頁" data-page="講義一 p.110"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>1 L：[A] ＝ 3、[B] ＝ 2 ⇒ r<sub>0</sub> ＝ k × 3<sup>2</sup> × 2 ＝ 18k<br />
+[C] ＝ 1.0 M 時：A 用掉 2、B 用掉 1 ⇒ [A] ＝ 1、[B] ＝ 1 ⇒ r ＝ k<br />
+r/r<sub>0</sub> ＝ <strong>1/18</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q324">
+<header class="qh"><span class="qn">類題 7</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A110_36_50.jpg" width="1400" height="336" loading="lazy" alt="講義一 第110頁" data-page="講義一 p.110"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>A ＋ 2B → C：設 C 生成 x mmHg ⇒ P<sub>A</sub> ＝ 100 − x、P<sub>B</sub> ＝ 200 − 2x<br />
+C 與 A 相等：x ＝ 100 − x ⇒ x ＝ 50 ⇒ P<sub>A</sub> ＝ 50、P<sub>B</sub> ＝ 100<br />
+r/r<sub>0</sub> ＝ (50 × 100)/(100 × 200) ＝ <strong>1/4</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q325">
+<header class="qh"><span class="qn">例題 9</span><span class="qtag">零級反應</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A111_7_33.jpg" width="1400" height="623" loading="lazy" alt="講義一 第111頁" data-page="講義一 p.111"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 1.0 M/s 和 2.0 M/s　(2) r ＝ k[B]　(3) 1.0 s<sup>−1</sup>　(4) 0.10 M/s</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) [B]<sub>0</sub> ＝ 1.00 M：[A] 0.10 → 0.05 用 0.05 s ⇒ <strong>1.0 M/s</strong><br />
+[B]<sub>0</sub> ＝ 2.00 M：[A] 0.04 → 0 用 0.02 s ⇒ <strong>2.0 M/s</strong></p>
+<p>(2) [A] 對時間是直線 ⇒ 對 A 為<strong>零級</strong>；[B] ×2 速率 ×2 ⇒ 對 B 為<strong>一級</strong> ⇒ <strong>r ＝ k[B]</strong><br />
+（[B]<sub>0</sub> 遠大於 [A]<sub>0</sub>，反應過程中 [B] 幾乎不變，所以能看出對 A 的級數）</p>
+<p>(3) k ＝ 1.0 ÷ 1.00 ＝ <strong>1.0 s<sup>−1</sup></strong></p>
+<p>(4) r ＝ 1.0 × 0.10 ＝ <strong>0.10 M/s</strong>（與 [A] 無關）</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q326">
+<header class="qh"><span class="qn">類題 8</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A111_51_61.jpg" width="1400" height="254" loading="lazy" alt="講義一 第111頁" data-page="講義一 p.111"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>[A] 對時間為直線（等速遞減）⇒ <strong>零級</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q327">
+<header class="qh"><span class="qn">例題 10</span><span class="qtag">零級反應</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A111_63_74.jpg" width="1400" height="265" loading="lazy" alt="講義一 第111頁" data-page="講義一 p.111"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>零級：每 10 分鐘 A 減少 0.04 M。40 分鐘 A 共減少 0.16 M（A 還剩 0.04，尚未用完）。<br />
+B 生成 ＝ 0.16 × 4/2 ＝ <strong>0.32 M</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q328">
+<header class="qh"><span class="qn">例題 11</span><span class="qtag">放射性元素衰變之半生期</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A113_44_57.jpg" width="1400" height="328" loading="lazy" alt="講義一 第113頁" data-page="講義一 p.113"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>現在 <sup>a</sup>X 80%、<sup>b</sup>X 20%。往回推 t 年：<br />
+<sup>a</sup>X ＝ 80 × 2<sup>t/100</sup>、<sup>b</sup>X ＝ 20 × 2<sup>t/50</sup><br />
+相等：80 × 2<sup>t/100</sup> ＝ 20 × 2<sup>t/50</sup> ⇒ 4 ＝ 2<sup>t/100</sup> ⇒ t ＝ <strong>200 年</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q329">
+<header class="qh"><span class="qn">類題 9</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A113_77_87.jpg" width="1400" height="254" loading="lazy" alt="講義一 第113頁" data-page="講義一 p.113"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>一級反應半生期固定為 100 秒：再過 100 秒剩 1/4 ⇒ 已反應 <strong>75%</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q330">
+<header class="qh"><span class="qn">例題 12</span><span class="qtag">一級反應</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A114_6_19p5.jpg" width="1400" height="324" loading="lazy" alt="講義一 第114頁" data-page="講義一 p.114"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>CH<sub>3</sub>OCH<sub>3</sub> → 3 分子氣體，設分解 x atm，總壓 ＝ 1 ＋ 2x<br />
+20 分：1 ＋ 2x ＝ 1.4 ⇒ x ＝ 0.2，剩 0.8<br />
+一級反應：每 20 分剩下的比例固定（×0.8）⇒ 40 分剩 0.64，分解 0.36<br />
+總壓 ＝ 1 ＋ 2 × 0.36 ＝ <strong>1.72 atm</strong></p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q331">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A114_62_68p9.jpg" width="1400" height="162" loading="lazy" alt="講義一 第114頁" data-page="講義一 p.114"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>O<sub>2</sub>：11.2 mL ÷ 22400 ＝ 5.0×10<sup>−4</sup> mol；2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O ＋ O<sub>2</sub> ⇒ H<sub>2</sub>O<sub>2</sub> 1.0×10<sup>−3</sup> mol<br />
+÷ 3 min ＝ <strong>3.3×10<sup>−4</sup> mol/min</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q332">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A114_68p9_77.jpg" width="1400" height="191" loading="lazy" alt="講義一 第114頁" data-page="講義一 p.114"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>換成「反應速率」（除以係數）：<br />
+① 0.15/1 ＝ 0.15　② 0.6/3 ＝ 0.20　③ 0.4/2 ＝ 0.20　④ 0.45/2 ＝ <strong>0.225</strong>（最快）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q333">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A114_77_85p5.jpg" width="1400" height="200" loading="lazy" alt="講義一 第114頁" data-page="講義一 p.114"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>−Δ[N<sub>2</sub>] : −Δ[H<sub>2</sub>] : Δ[NH<sub>3</sub>] ＝ 1 : 3 : 2<br />
+k<sub>1</sub>×1 ＝ k<sub>2</sub>×3 ＝ k<sub>3</sub>×2 ⇒ k<sub>1</sub> : k<sub>2</sub> : k<sub>3</sub> ＝ 1 : 1/3 : 1/2 ＝ <strong>6 : 2 : 3</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q334">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A114_85p5_93.jpg" width="1400" height="177" loading="lazy" alt="講義一 第114頁" data-page="講義一 p.114"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>2A(g) ＋ 3B(g) → 2C(s) ＋ D(g)：A −2x、B −3x、D ＋x（C 是固體不計）<br />
+總壓：90 − 4x ＝ 70 ⇒ x ＝ 5 ⇒ B 減少 15 mmHg ÷ 5 min ＝ <strong>3 mmHg/min</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q335">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A115_5_19p5.jpg" width="1400" height="359" loading="lazy" alt="講義一 第115頁" data-page="講義一 p.115"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 生成沉澱與水，離子減少，導電度下降</li>
+<li>(B) ○ NO<sub>2</sub> 為紅棕色</li>
+<li>(C) ○ 有 AgCl 沉澱</li>
+<li>(D) ✗ 2 → 2，總壓不變</li>
+<li>(E) ✗ H<sup>＋</sup> 仍留在溶液中（HCl → HNO<sub>3</sub>），pH 不變</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q336">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A115_21_31.jpg" width="1400" height="248" loading="lazy" alt="講義一 第115頁" data-page="講義一 p.115"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>k 只受<strong>反應物本性、溫度、催化劑</strong>（活化能）影響；與濃度、壓力無關。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q337">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A115_31_39.jpg" width="1400" height="198" loading="lazy" alt="講義一 第115頁" data-page="講義一 p.115"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>設 r ＝ k[A]<sup>m</sup>[B]<sup>n</sup><br />
+① [A] ×½、[B] ×4，r 不變：(½)<sup>m</sup> × 4<sup>n</sup> ＝ 1 ⇒ m ＝ 2n<br />
+② 體積 ×2、B 莫耳 ×2：[A] ×½、[B] 不變，r ×½ ⇒ m ＝ 1，n ＝ ½<br />
+總級數 ＝ <strong>3/2</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q338">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題2・111分科</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A115_39_47p5.jpg" width="1400" height="211" loading="lazy" alt="講義一 第115頁" data-page="講義一 p.115"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>k 的單位 s<sup>−1</sup> ⇒ 一級：r ＝ k[N<sub>2</sub>O]<br />
+[N<sub>2</sub>O] ＝ 1.0 ÷ 5.0 ＝ 0.20 M ⇒ r ＝ 0.76 × 0.20 ＝ <strong>1.52×10<sup>−1</sup> M/s</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q339">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題3・101指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A115_48_74.jpg" width="1400" height="645" loading="lazy" alt="講義一 第115頁" data-page="講義一 p.115"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>速率 ∝ 1/所需時間：<br />
+- [X] ×2（[Y] 不變）：時間 0.60 → 0.15（×¼）⇒ 速率 ×4 ⇒ X 二級<br />
+- [Y] ×½（[X] 不變）：時間 0.15 → 0.30 ⇒ 速率 ×½ ⇒ Y 一級<br />
+⇒ 與 [X]<sup>2</sup> 成正比且與 [Y] 成正比</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q340">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題3・99指考・題組</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A115_74p5_92.jpg" width="1400" height="434" loading="lazy" alt="講義一 第115頁" data-page="講義一 p.115"><img class="qimg" src="img/A116_6_11p8.jpg" width="1400" height="139" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>實驗 1→2：[I<sup>−</sup>] ×2，r ×2 ⇒ I<sup>−</sup> 一級</li>
+<li>實驗 2→4：[OCl<sup>−</sup>] ×2，r ×2 ⇒ OCl<sup>−</sup> 一級</li>
+<li>實驗 1→3：[OCl<sup>−</sup>] ×2 且 [OH<sup>−</sup>] ×2，r 不變 ⇒ OH<sup>−</sup> 為 <strong>−1 級</strong></li>
+</ul>
+<p>r ＝ k[I<sup>−</sup>][OCl<sup>−</sup>]/[OH<sup>−</sup>]<br />
+k ＝ 1.8×10<sup>−4</sup> × 1.00 ÷ (2×10<sup>−3</sup> × 1.5×10<sup>−3</sup>) ＝ <strong>60 s<sup>−1</sup></strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q341">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題3・99指考・題組</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A115_74p5_92.jpg" width="1400" height="434" loading="lazy" alt="講義一 第115頁" data-page="講義一 p.115"><img class="qimg" src="img/A116_11p8_17p3.jpg" width="1400" height="131" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>pH ＝ 13 ⇒ [OH<sup>−</sup>] ＝ 0.1 M（原本 1.00 M）<br />
+OH<sup>−</sup> 為 −1 級：[OH<sup>−</sup>] 變為 1/10 ⇒ 速率 ×10 ⇒ <strong>1.8×10<sup>−3</sup></strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q342">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題3・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A116_17p3_27.jpg" width="1400" height="232" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>[A] 每 5 分鐘減少 0.2 M（等差）⇒ <strong>零級</strong><br />
+- (A)(B)(D) ✗ 零級反應速率與濃度無關、半生期會縮短<br />
+- (C) ○ k ＝ 0.2 ÷ 5 ＝ 0.04 M/min<br />
+- (E) ○ 再過 5 分鐘（第 20 分）0.2 − 0.2 ＝ 0</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q343">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題3・109指考・題組</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A116_27_47.jpg" width="1400" height="479" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"><img class="qimg" src="img/A116_47_51p8.jpg" width="1400" height="114" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>數圖中的球（實心 A、空心 B）：<br />
+- 甲：A 6、B 6，r ＝ 4.5<br />
+- 乙：A 4、B 6，r ＝ 2.0<br />
+- 丙：A 4、B 3，r ＝ 1.0</p>
+<p>乙 → 丙：A 不變、B ×½，r ×½ ⇒ n ＝ 1<br />
+乙 → 甲：B 不變、A ×1.5，r ×2.25 ＝ 1.5<sup>2</sup> ⇒ m ＝ 2<br />
+m ＋ n ＝ <strong>3</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q344">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題3・109指考・題組</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A116_27_47.jpg" width="1400" height="479" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"><img class="qimg" src="img/A116_51p8_55p5.jpg" width="1400" height="88" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>r ＝ k[A]<sup>2</sup>[B]，由乙：2.0 ＝ k × 4<sup>2</sup> × 6 ⇒ k ＝ 1/48<br />
+丁：A 8 個、B 6 個 ⇒ r ＝ (1/48) × 64 × 6 ＝ <strong>8.0 M/s</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q345">
+<header class="qh"><span class="qn">練習 15</span><span class="qtag">主題3・104指考改編・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A116_55p5_69.jpg" width="1400" height="323" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2　(2) 約 0.067 M（1/15 M）</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 1/[X] 對時間（反應進行時）為直線 ⇒ <strong>二級反應</strong>（1/[X] ＝ 1/[X]<sub>0</sub> ＋ kt）</p>
+<p>(2) 由圖：t ＝ 1 s 時 25、t ＝ 2 s 時 35，斜率 10 M<sup>−1</sup>s<sup>−1</sup><br />
+往回推 t ＝ 0：1/[X]<sub>0</sub> ＝ 15 ⇒ [X]<sub>0</sub> ＝ <strong>1/15 ≈ 0.067 M</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q346">
+<header class="qh"><span class="qn">練習 16</span><span class="qtag">主題4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A116_71_82p5.jpg" width="1400" height="275" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>B 莫耳 ×2、體積 ×3/2 ⇒ [A] ×2/3、[B] ×(2 ÷ 3/2) ＝ ×4/3<br />
+r ×(2/3) × (4/3)<sup>2</sup> ＝ <strong>32/27</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q347">
+<header class="qh"><span class="qn">練習 17</span><span class="qtag">主題4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A116_82p5_91.jpg" width="1400" height="204" loading="lazy" alt="講義一 第116頁" data-page="講義一 p.116"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>A ＋ 2B → C：C ＝ A 時 x ＝ 100 − x ⇒ x ＝ 50 ⇒ P<sub>A</sub> ＝ 50、P<sub>B</sub> ＝ 300 − 100 ＝ 200<br />
+代入各式看比值是否為 1/3：<br />
+- (A) 50·200<sup>2</sup> / (100·300<sup>2</sup>) ＝ 2/9<br />
+- (B) 50·200 / (100·300) ＝ <strong>1/3</strong> ✓<br />
+- (C) 4/9　(D) 1/6　(E) 1/4</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q348">
+<header class="qh"><span class="qn">練習 18</span><span class="qtag">主題4・96指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A117_4_19.jpg" width="1400" height="352" loading="lazy" alt="講義一 第117頁" data-page="講義一 p.117"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>第一次：[A] ＝ [B] ＝ 0.1/0.5 ＝ 0.2 M ⇒ r ∝ 0.2<sup>2</sup> × 0.2<br />
+第二次：[A] ＝ 0.2/1 ＝ 0.2、[B] ＝ 0.1/1 ＝ 0.1 ⇒ r ∝ 0.2<sup>2</sup> × 0.1<br />
+比值 ＝ <strong>1/2</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q349">
+<header class="qh"><span class="qn">練習 19</span><span class="qtag">主題4・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A117_19_47.jpg" width="1400" height="645" loading="lazy" alt="講義一 第117頁" data-page="講義一 p.117"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) r ＝ k[A]<sup>2</sup>[C]　(2) 3S/2</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 讀圖：<br />
+- [A] 1.0 → 2.0，速率 0.4 → 1.6（×4）⇒ A 二級<br />
+- [B] 改變速率不變 ⇒ B 零級<br />
+- [C] 對速率為過原點直線 ⇒ C 一級</p>
+<p>(2) S ＝ k × 1.0<sup>2</sup> × 4.0 ⇒ k ＝ S/4<br />
+新條件：D 生成速率 ＝ (S/4) × 2.0<sup>2</sup> × 3.0 ＝ 3S<br />
+B 消耗速率 ＝ D 的 1/2（係數 1 : 2）＝ <strong>3S/2</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q350">
+<header class="qh"><span class="qn">練習 20</span><span class="qtag">主題5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A117_49_63.jpg" width="1400" height="322" loading="lazy" alt="講義一 第117頁" data-page="講義一 p.117"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>一級反應：r 與 [A] 成正比、[A] 隨時間指數遞減、<strong>半生期與濃度無關（水平線）</strong> ⇒ (D)<br />
+(A)(B)(C) 都是零級反應的圖形。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q351">
+<header class="qh"><span class="qn">練習 21</span><span class="qtag">主題5・105指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A117_63_87p2.jpg" width="1400" height="557" loading="lazy" alt="講義一 第117頁" data-page="講義一 p.117"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>圖 1：一級反應的濃度隨時間<strong>指數遞減</strong> ⇒ <strong>丙</strong>（甲是不反應、乙是零級的直線）</li>
+<li>圖 2：一級反應 r ＝ k[A]，速率與濃度成<strong>直線關係</strong> ⇒ <strong>己</strong>（戊是零級的水平線、庚是曲線）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q352">
+<header class="qh"><span class="qn">練習 22</span><span class="qtag">主題5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A117_87p2_94p5.jpg" width="1400" height="167" loading="lazy" alt="講義一 第117頁" data-page="講義一 p.117"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>零級：20 秒減少 0.05 M ⇒ 速率 0.0025 M/s<br />
+0.20 → 0.05 共減少 0.15 M ⇒ 0.15 ÷ 0.0025 ＝ <strong>60 秒</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q353">
+<header class="qh"><span class="qn">練習 23</span><span class="qtag">主題5・91指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A118_5_12p5.jpg" width="1400" height="180" loading="lazy" alt="講義一 第118頁" data-page="講義一 p.118"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>經過一個半衰期，N<sub>2</sub>O 分解 4 atm：2N<sub>2</sub>O → 2N<sub>2</sub> ＋ O<sub>2</sub><br />
+剩 N<sub>2</sub>O 4、生成 N<sub>2</sub> 4、O<sub>2</sub> 2 ⇒ 總壓 <strong>10 atm</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q354">
+<header class="qh"><span class="qn">練習 24</span><span class="qtag">主題5・108指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A118_12p5_23.jpg" width="1400" height="252" loading="lazy" alt="講義一 第118頁" data-page="講義一 p.118"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>10 小時 ＝ 5 個半衰期，剩下 (1/2)<sup>5</sup> ＝ 1/32<br />
+出發時至少 1.0 × 32 ＝ <strong>32 mg</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q355">
+<header class="qh"><span class="qn">練習 25</span><span class="qtag">主題5・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A118_23_35.jpg" width="1400" height="288" loading="lazy" alt="講義一 第118頁" data-page="講義一 p.118"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>半生期 10 分鐘：<br />
+- (A) ○ 35 − 25 ＝ 10 分鐘，剛好一個半生期<br />
+- (B) ○ 20 分鐘 ＝ 兩個半生期，剩 1/4<br />
+- (C) ✗ 一級反應半生期與濃度無關<br />
+- (D) ✗ 速率 ∝ 濃度，剩 1/4<br />
+- (E) ○ k 與濃度無關</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q356">
+<header class="qh"><span class="qn">練習 26</span><span class="qtag">主題5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A118_35_49.jpg" width="1400" height="336" loading="lazy" alt="講義一 第118頁" data-page="講義一 p.118"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>設總放射性 100：甲 60（半衰期 1 年）、乙 40（半衰期 2 年）<br />
+- 兩年後：甲 15、乙 20<br />
+- 四年後：甲 3.75、乙 10</p>
+<ul>
+<li>(A) ✗ 乙剩下自己的 50%（占原總量 20%）</li>
+<li>(B) ✗ 甲占 15/35 ≈ 43%</li>
+<li>(C) ○ 3.75 ＜ 10</li>
+<li>(D) ✗ 甲 27%、乙 73%</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q357">
+<header class="qh"><span class="qn">練習 27</span><span class="qtag">主題5・109指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A118_49_77.jpg" width="1400" height="673" loading="lazy" alt="講義一 第118頁" data-page="講義一 p.118"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>二級反應：−Δ[C<sub>4</sub>H<sub>6</sub>]/Δt ＝ k[C<sub>4</sub>H<sub>6</sub>]<sup>2</sup><br />
+⇒ Δ[C<sub>4</sub>H<sub>6</sub>]/Δt（為負值）對 [C<sub>4</sub>H<sub>6</sub>]<sup>2</sup> 作圖是斜率 −k 的<strong>直線</strong> ⇒ (B)</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q358">
+<header class="qh"><span class="qn">練習 28</span><span class="qtag">主題5・110指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A118_77_88.jpg" width="1400" height="264" loading="lazy" alt="講義一 第118頁" data-page="講義一 p.118"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>產率 70%：0.20 × 0.70 ＝ 0.14 mg<br />
+10 天後：0.14 × (1/2)<sup>10/20.5</sup> ≈ 0.14 × 0.71 ≈ <strong>0.10 mg</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q359">
+<header class="qh"><span class="qn">練習 29</span><span class="qtag">主題5・113分科・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A119_3_36.jpg" width="1400" height="756" loading="lazy" alt="講義一 第119頁" data-page="講義一 p.119"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>C<sub>2</sub>H<sub>5</sub>OH(g) → C<sub>2</sub>H<sub>4</sub>(g) ＋ H<sub>2</sub>O(g)：每分解 x，總壓增加 x<br />
+圖中總壓每 20 秒固定增加 30 mmHg（等速）⇒ <strong>零級</strong>，乙醇初壓 480 mmHg，消耗速率 1.5 mmHg/s<br />
+- (A) ✗ 零級<br />
+- (B) ○ 分解 240 mmHg 需 240 ÷ 1.5 ＝ 160 秒<br />
+- (C) ✗ k ＝ 1.5 mmHg/s<br />
+- (D) ○ 零級速率固定，C<sub>2</sub>H<sub>4</sub> 生成速率 1.5 mmHg/s<br />
+- (E) ○ 50 秒：480 − 75 ＝ 405 mmHg</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u2-綜.html">← 2-綜 第二章 素養導向與綜合試題</a><a href="u3-2.html">3-2 碰撞學說與反應機構 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

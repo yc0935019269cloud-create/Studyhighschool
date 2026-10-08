@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3-2 碰撞學說與反應機構｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a class="on" href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第3章 反應速率</div>
+<h1><span class="uid">3-2</span>碰撞學說與反應機構</h1>
+<div class="tools"><span class="cnt">本單元 28 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、碰撞學說</h3>
+<h4>1. 內容</h4>
+<p>反應粒子必須互相碰撞才能反應（碰撞才可能讓原子重新排列），但<strong>碰撞不一定起反應</strong>，只有極少數碰撞會引起反應，稱為<strong>有效碰撞</strong>。</p>
+<h4>2. 有效碰撞的兩個條件</h4>
+<p><strong>(1) 粒子要有足夠的能量</strong><br />
+- 一定溫度下，氣體分子有一定的平均動能，但每個分子動能不一定相同，大多數接近平均值。<br />
+- 發生反應所需的最低動能稱為<strong>低限能</strong>（E<sub>a</sub>）；只有動能在 E<sub>a</sub> 右邊（斜線部分）的分子碰撞才有效。<br />
+- 例：空氣中 O<sub>2</sub>、N<sub>2</sub> 碰撞頻率很高，但常溫下動能不夠，一整年也測不到 NO<sub>2</sub>。</p>
+<figure class="fig"><img class="figimg" src="img/B001_20_35_x74-96.jpg" width="442" height="523" loading="lazy" alt="講義二 第1頁" data-page="講義二 p.1"><figcaption>分子動能分布曲線</figcaption></figure>
+<p><strong>(2) 碰撞方向要有利（位向正確）</strong><br />
+- NH<sub>3</sub> ＋ HCl → NH<sub>4</sub>Cl：HCl 的 <strong>H 端</strong>要撞向 NH<sub>3</sub> 的 <strong>N（孤對電子）</strong> 才有效。<br />
+- CO ＋ NO<sub>2</sub> → CO<sub>2</sub> ＋ NO：CO 的 <strong>C</strong> 要撞向 NO<sub>2</sub> 的 <strong>O</strong>。</p>
+<figure class="fig"><img class="figimg" src="img/B001_49_60.jpg" width="1400" height="253" loading="lazy" alt="講義二 第1頁" data-page="講義二 p.1"><figcaption>NH<sub>3</sub> 與 HCl 的有效碰撞與無效碰撞</figcaption></figure>
+<h3>二、反應位能圖</h3>
+<h4>1. 活化複合體</h4>
+<p>反應粒子能量足夠且方向正確時，碰撞過程中短暫結合成一個能量極高、極不穩定的結合物，稱為<strong>活化複合體</strong>。<br />
+- 是「新鍵部分形成、舊鍵部分破壞」的過渡狀態。<br />
+- 形成後有兩種去向：分解成生成物，或分解回原來的反應物。</p>
+<figure class="fig"><img class="figimg" src="img/B002_38p5_54.jpg" width="1400" height="327" loading="lazy" alt="講義二 第2頁" data-page="講義二 p.2"><figcaption>CO(g) ＋ NO<sub>2</sub>(g) → CO<sub>2</sub>(g) ＋ NO(g)，ΔH ＝ −234 kJ 的反應位能圖</figcaption></figure>
+<ol>
+<li>CO 與 NO<sub>2</sub> 靠近時電子互相排斥，<strong>動能減少、位能增加</strong>。</li>
+<li>位能增加到最高時，一條 C−O 鍵開始形成、一條 N−O 鍵開始斷裂 → 活化複合體 [O＝N···O···C＝O]。</li>
+<li>活化複合體再分解成 CO<sub>2</sub> ＋ NO（或回到 CO ＋ NO<sub>2</sub>），位能下降。</li>
+</ol>
+<h4>2. 活化能</h4>
+<ul>
+<li><strong>正反應活化能 E<sub>a</sub></strong> ＝ 活化複合體 − 反應物 的位能差</li>
+<li><strong>逆反應活化能 E<sub>a</sub>'</strong> ＝ 活化複合體 − 生成物 的位能差</li>
+<li>活化能與<strong>反應物本性、反應途徑</strong>有關，與溫度、濃度無關。</li>
+<li><strong>活化能愈大，反應速率愈慢；愈小愈快。</strong></li>
+<li>活化能的<strong>數值</strong>與低限能相同，但意義不同：<strong>低限能是動能，活化能是位能</strong>。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/B003_9_26p5.jpg" width="1400" height="400" loading="lazy" alt="講義二 第3頁" data-page="講義二 p.3"><figcaption>活化能與動能分布曲線的比較</figcaption></figure>
+<blockquote>
+<p><strong>ΔH ＝ E<sub>a</sub>（正）− E<sub>a</sub>'（逆）</strong></p>
+</blockquote>
+<ul>
+<li>E<sub>a</sub> ＞ E<sub>a</sub>' → ΔH ＞ 0（吸熱），逆反應較容易進行</li>
+<li>E<sub>a</sub> ＜ E<sub>a</sub>' → ΔH ＜ 0（放熱），正反應較容易進行</li>
+<li><strong>反應熱大小與活化能高低無關</strong>（ΔH 與反應速率無關）。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/B003_40_55.jpg" width="1400" height="358" loading="lazy" alt="講義二 第3頁" data-page="講義二 p.3"><figcaption>吸熱反應與放熱反應的位能圖</figcaption></figure>
+<h3>三、反應機構與速率決定步驟</h3>
+<h4>1. 反應機構</h4>
+<p>化學反應多半不是一步完成，而是經由一連串<strong>基本反應（步驟）</strong>完成；把所有步驟依序列出就是<strong>反應機構</strong>，必須由實驗測得。</p>
+<p>例：H<sub>2</sub>O<sub>2</sub> ＋ 2I<sup>−</sup> ＋ 2H<sup>＋</sup> → I<sub>2</sub> ＋ 2H<sub>2</sub>O<br />
+- 若一步完成，要 5 個粒子同時有效碰撞，機率極低。<br />
+- 實驗測得的機構：<br />
+  - H<sub>2</sub>O<sub>2</sub> ＋ I<sup>−</sup> → OH<sup>−</sup> ＋ HOI（慢）<br />
+  - H<sup>＋</sup> ＋ OH<sup>−</sup> → H<sub>2</sub>O（快）<br />
+  - HOI ＋ H<sup>＋</sup> ＋ I<sup>−</sup> → I<sub>2</sub> ＋ H<sub>2</sub>O（快）</p>
+<h4>2. 速率決定步驟與速率定律</h4>
+<ol>
+<li>反應機構中<strong>最慢的步驟</strong>稱為<strong>速率決定步驟</strong>，決定整個反應的速率。</li>
+<li>在速率決定步驟（基本反應）中，<strong>每個反應物的級數 ＝ 該步驟中的係數</strong>。</li>
+</ol>
+<p>例：2H<sub>2</sub>O<sub>2</sub> →(I<sup>−</sup>) 2H<sub>2</sub>O ＋ O<sub>2</sub><br />
+- 步驟 I：H<sub>2</sub>O<sub>2</sub> ＋ I<sup>−</sup> → H<sub>2</sub>O ＋ IO<sup>−</sup>（慢）<br />
+- 步驟 II：H<sub>2</sub>O<sub>2</sub> ＋ IO<sup>−</sup> → H<sub>2</sub>O ＋ O<sub>2</sub> ＋ I<sup>−</sup>（快）<br />
+- 步驟 I 為速率決定步驟 ⇒ <strong>r ＝ k[H<sub>2</sub>O<sub>2</sub>][I<sup>−</sup>]</strong><br />
+- 位能圖上活化能<strong>較高</strong>的那一步就是慢步驟；IO<sup>−</sup> 是<strong>中間產物</strong>（先生成後消耗）。</p>
+<figure class="fig"><img class="figimg" src="img/B005_14_34_x70-96.jpg" width="524" height="674" loading="lazy" alt="講義二 第5頁" data-page="講義二 p.5"><figcaption>兩步驟反應的位能圖</figcaption></figure>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>中間產物不能出現在速率定律中</strong>，若速率決定步驟含有中間產物，要用前面的「快速平衡」代換。</p>
+<p>例：2O<sub>3</sub>(g) → 3O<sub>2</sub>(g)，實驗 r ＝ k[O<sub>3</sub>]<sup>2</sup>/[O<sub>2</sub>]<br />
+- 步驟 I：O<sub>3</sub> ⇌ O<sub>2</sub> ＋ O（快速平衡）<br />
+- 步驟 II：O<sub>3</sub> ＋ O → 2O<sub>2</sub>（慢）</p>
+<p>步驟 II：r ＝ k'[O<sub>3</sub>][O]；由步驟 I 的平衡 K ＝ [O<sub>2</sub>][O]/[O<sub>3</sub>] ⇒ [O] ＝ K[O<sub>3</sub>]/[O<sub>2</sub>]<br />
+代入：r ＝ k'K[O<sub>3</sub>]<sup>2</sup>/[O<sub>2</sub>] ＝ k[O<sub>3</sub>]<sup>2</sup>/[O<sub>2</sub>]，與實驗吻合 ⇒ 步驟 II 為速率決定步驟。</p></aside>
+
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q360">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">碰撞學說</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B001_71_86.jpg" width="1400" height="372" loading="lazy" alt="講義二 第1頁" data-page="講義二 p.1"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 碰撞不一定反應</li>
+<li>(B) ○ 要能量足夠＋方向正確</li>
+<li>(C) ✗ 能量不足一定不反應</li>
+<li>(D) ✗ 只有極少部分粒子能量足夠</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q361">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B002_4p5_18.jpg" width="1400" height="310" loading="lazy" alt="講義二 第2頁" data-page="講義二 p.2"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>HCl 的 H（帶部分正電）要撞向 NH<sub>3</sub> 中 N 的孤對電子，才能形成 N−H 鍵：(A) 的 H−Cl 以 H 端朝向 N ✓<br />
+(B) Cl 端朝 N；(C) NH<sub>3</sub> 的 H 端朝向 HCl ✗</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q362">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">活化能、活化複合體與反應熱</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B003_62_84.jpg" width="1400" height="515" loading="lazy" alt="講義二 第3頁" data-page="講義二 p.3"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ E<sub>1</sub> ＝ X 與反應物的位能差 ＝ 正反應活化能</li>
+<li>(B) ✗ E<sub>2</sub> 是反應物與生成物的差 ＝ 反應熱</li>
+<li>(C) ✗ E<sub>3</sub> 是逆反應活化能</li>
+<li>(D) ✗ 路徑②（逆反應）活化能較大，較不易進行</li>
+<li>(E) ✗ 活化複合體應為 O＝N···O···C＝O（CO 的 C 接到 NO<sub>2</sub> 的 O 上）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q363">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B004_5_22p5.jpg" width="1400" height="427" loading="lazy" alt="講義二 第4頁" data-page="講義二 p.4"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 正反應活化能 ＝ 150 − 110 ＝ 40 kJ</li>
+<li>(B) ○</li>
+<li>(C) ✗ 逆反應活化能 ＝ 150 − 35 ＝ 115 kJ</li>
+<li>(D) ✗ ΔH ＝ 35 − 110 ＝ −75 kJ（放熱 75 kJ）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q364">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">碰撞學說與活化能</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B004_24p5_41.jpg" width="1400" height="418" loading="lazy" alt="講義二 第4頁" data-page="講義二 p.4"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○</li>
+<li>(B) ✗ 還需要足夠的能量</li>
+<li>(C) ✗ 活化能是活化複合體與反應物的位能<strong>差</strong></li>
+<li>(D) ✗ 活化能與反應熱無關</li>
+<li>(E) ✗ 逆反應活化能也是正值，Ea' ＝ Ea − ΔH</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q365">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">反應機構與速率決定步驟</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B005_36p5_55p5.jpg" width="1400" height="480" loading="lazy" alt="講義二 第5頁" data-page="講義二 p.5"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) A<sub>2</sub> ＋ C → AC ＋ A　(2) 正 20 kcal、逆 30 kcal　(3) 第一步驟　(4) r ＝ k[A<sub>2</sub>][B]</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 兩步驟相加，B（催化劑）與 AB（中間產物）消去：<strong>A<sub>2</sub> ＋ C → AC ＋ A</strong></p>
+<p>(2) 讀圖：反應物 0、最高點 20、生成物 −10<br />
+正反應活化能 ＝ 20 − 0 ＝ <strong>20 kcal</strong>；逆反應 ＝ 20 − (−10) ＝ <strong>30 kcal</strong></p>
+<p>(3) 第一步驟活化能 20 − 0 ＝ 20；第二步驟 15 − 10 ＝ 5 ⇒ <strong>第一步驟</strong>較慢</p>
+<p>(4) 速率決定步驟 A<sub>2</sub> ＋ B → AB ＋ A ⇒ <strong>r ＝ k[A<sub>2</sub>][B]</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q366">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B005_76_92p5.jpg" width="1400" height="415" loading="lazy" alt="講義二 第5頁" data-page="講義二 p.5"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>速率決定步驟（慢）：AB ＋ C<sub>2</sub> → ABC<sub>2</sub> ⇒ r ＝ k[AB][C<sub>2</sub>]，總級數 <strong>2</strong>。</p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q367">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B006_64_79p5.jpg" width="1400" height="411" loading="lazy" alt="講義二 第6頁" data-page="講義二 p.6"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>2BrNO → Br<sub>2</sub> ＋ 2NO：要生成 Br−Br 鍵，兩個分子的 <strong>Br 原子</strong>要對撞。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q368">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B006_79p5_91.jpg" width="1400" height="305" loading="lazy" alt="講義二 第6頁" data-page="講義二 p.6"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>曲線形狀相同，<strong>低限能愈低</strong>，右側能量足夠的分子愈多，反應愈快 ⇒ (A)。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q369">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B007_5_9p8.jpg" width="1400" height="115" loading="lazy" alt="講義二 第7頁" data-page="講義二 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>常溫下分子動能遠低於低限能（活化能太大），幾乎沒有有效碰撞。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q370">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題2・101指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B007_12_28p5.jpg" width="1400" height="397" loading="lazy" alt="講義二 第7頁" data-page="講義二 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>甲 ○ 生成物能量（d）低於反應物（a），放熱</li>
+<li>乙 ✗ ΔE ＝ 生成物 − 反應物 ＝ <strong>d − a</strong></li>
+<li>丙 ○ b 為反應物到最高點的差 ＝ 正反應活化能</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q371">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B007_28p5_40.jpg" width="1400" height="276" loading="lazy" alt="講義二 第7頁" data-page="講義二 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>① 生成物的位能</li>
+<li>② 反應物與生成物的差 ＝ 反應熱大小</li>
+<li>③ 最高點與反應物的差 ＝ 正反應活化能</li>
+<li>④ 最高點與生成物的差 ＝ 逆反應活化能</li>
+<li>⑤ 最高點的位能 ＝ 活化複合體的位能</li>
+<li>⑥ 反應物的位能</li>
+</ul>
+<p>只有 (C)(E) 對應正確。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q372">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B007_40_50p5.jpg" width="1400" height="252" loading="lazy" alt="講義二 第7頁" data-page="講義二 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 只有少數分子能有效碰撞</li>
+<li>(B) ○ 活化複合體位能最高，分解成產物位能下降</li>
+<li>(C) ✗ 反應物變成活化複合體位能增加</li>
+<li>(D) ✗ 活化複合體極不安定</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q373">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B007_50p5_69.jpg" width="1400" height="445" loading="lazy" alt="講義二 第7頁" data-page="講義二 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>放熱：P 低於 R ⇒ (A)(B)。<br />
+(A) R 約 45、最高點約 60，活化能約 15；(B) R 約 25、最高約 65，活化能約 40 ⇒ <strong>(A)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q374">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B007_69_79.jpg" width="1400" height="240" loading="lazy" alt="講義二 第7頁" data-page="講義二 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 活化能與濃度無關</li>
+<li>(B) ✗ 放熱反應時正反應活化能較小</li>
+<li>(C) ○</li>
+<li>(D) ✗ 逆反應活化能也是正值</li>
+<li>(E) ○ 活化複合體能量最高、最不穩定</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q375">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B007_79_91.jpg" width="1400" height="288" loading="lazy" alt="講義二 第7頁" data-page="講義二 p.7"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>活化能是活化複合體與反應物的位能<strong>差</strong>，不是活化複合體的位能本身。<br />
+(D) 講義說活化能的數值與低限能相同，可接受。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q376">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B008_6_21p5.jpg" width="1400" height="420" loading="lazy" alt="講義二 第8頁" data-page="講義二 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>ΔH ＝ Ea − Ea' ＝ −12.07 kJ ⇒ <strong>Ea' − Ea ＝ 12.07 kJ</strong>，逆反應活化能較大。<br />
+(A)(B) 無法得知活化複合體的能量；(E) 放熱反應生成物較低。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q377">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B008_21p5_35p5.jpg" width="1400" height="379" loading="lazy" alt="講義二 第8頁" data-page="講義二 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>正反應活化能 ＝ C<sup>#</sup> − (A＋B) ＝ <strong>30 千卡</strong><br />
+ΔH ＝ Ea − Ea' ＝ 30 − 45 ＝ <strong>−15 千卡</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q378">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B008_35p5_47p5.jpg" width="1400" height="325" loading="lazy" alt="講義二 第8頁" data-page="講義二 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>石墨 → 金剛石只吸熱 0.45 kcal，ΔH 很小；困難的原因是<strong>活化能極高，反應速率極小</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q379">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B008_47p5_55p5.jpg" width="1400" height="216" loading="lazy" alt="講義二 第8頁" data-page="講義二 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>ΔH ＝ 反應物燃燒熱總和 − 生成物燃燒熱總和 ＝ a − b（H<sub>2</sub>O 的燃燒熱為 0）<br />
+Ea' ＝ Ea − ΔH ＝ c − (a − b) ＝ <strong>b ＋ c − a</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q380">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B008_55p5_61p5.jpg" width="1400" height="162" loading="lazy" alt="講義二 第8頁" data-page="講義二 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>ΔH ＝ 20 − 65 ＝ <strong>−45 kJ</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q381">
+<header class="qh"><span class="qn">練習 15</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B008_61p5_71p5.jpg" width="1400" height="270" loading="lazy" alt="講義二 第8頁" data-page="講義二 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>逆反應活化能 Ea' ＝ Ea − ΔH：<br />
+(A) 10 − 8 ＝ 2　(B) 10 ＋ 5 ＝ 15　(C) 5 ＋ 8 ＝ 13　(D) 8 ＋ 10 ＝ <strong>18</strong>（最大，逆反應最慢）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q382">
+<header class="qh"><span class="qn">練習 16</span><span class="qtag">主題2・108指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B008_71p5_89p5.jpg" width="1400" height="488" loading="lazy" alt="講義二 第8頁" data-page="講義二 p.8"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ r ＝ k[X][Y]，總級數 2</li>
+<li>(B) ✗ a 為正反應活化能；逆反應活化能 ＝ a − b</li>
+<li>(C) ○ P＋Q 比 X＋Y 高 b ⇒ 吸熱，ΔH ＝ ＋b</li>
+<li>(D) ✗ 速率定律要由實驗求得，不能由反應式推知</li>
+<li>(E) ○ 2 × 2 ＝ 4 倍</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q383">
+<header class="qh"><span class="qn">練習 17</span><span class="qtag">主題2・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B009_5_30.jpg" width="1400" height="606" loading="lazy" alt="講義二 第9頁" data-page="講義二 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) B　(2) 32 千卡/莫耳　(3) ＋2.0 千卡/莫耳　(4) ①</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 反應熱 ＝ 反應物（½H<sub>2</sub>＋½I<sub>2</sub>）與生成物（HI）的差 ⇒ <strong>B</strong><br />
+(2) Ea' ＝ Ea − ΔH ＝ 30 − (−2.0) ＝ <strong>32</strong><br />
+(3) 逆反應吸熱：<strong>＋2.0 千卡/莫耳</strong><br />
+(4) ① 活化能 30 ＜ ② 活化能 32 ⇒ <strong>①</strong>較易進行</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q384">
+<header class="qh"><span class="qn">練習 18</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B009_34_45.jpg" width="1400" height="266" loading="lazy" alt="講義二 第9頁" data-page="講義二 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>A ＋ B ＋ C ＋ D 一步完成需<strong>四個粒子同時</strong>有效碰撞，機率極低。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q385">
+<header class="qh"><span class="qn">練習 19</span><span class="qtag">主題3・100指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B009_45_69.jpg" width="1400" height="582" loading="lazy" alt="講義二 第9頁" data-page="講義二 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 慢步驟 H<sub>2</sub>O<sub>2</sub> ＋ I<sup>−</sup> → …</li>
+<li>(B) ○ 兩步相加仍為 2H<sub>2</sub>O<sub>2</sub> → O<sub>2</sub> ＋ 2H<sub>2</sub>O（I<sup>−</sup> 為催化劑）</li>
+<li>(C)(E) ✗ 催化劑降低活化能：Ea' ＜ 17.9</li>
+<li>(D) ○ 反應熱不變：ΔH' ＝ −23.4</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q386">
+<header class="qh"><span class="qn">練習 20</span><span class="qtag">主題3・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B009_69p5_84.jpg" width="1400" height="351" loading="lazy" alt="講義二 第9頁" data-page="講義二 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2A ＋ B → A ＋ C ＋ D（即 A ＋ B → C ＋ D）；A ＋ C ＋ D → 2C（即 A ＋ D → C）　(2) 第一步驟　(3) 35 kJ</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 由圖：2A＋B（20）→ 中間 A＋C＋D（25）→ 2C（5）<br />
+- 步驟一：A ＋ B → C ＋ D<br />
+- 步驟二：A ＋ D → C<br />
+（總反應 2A ＋ B → 2C，D 為中間產物）</p>
+<p>(2) 步驟一活化能 40 − 20 ＝ 20 kJ；步驟二 35 − 25 ＝ 10 kJ ⇒ <strong>步驟一</strong>為速率決定步驟</p>
+<p>(3) 逆反應活化能 ＝ 最高點 40 − 生成物 5 ＝ <strong>35 kJ</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q387">
+<header class="qh"><span class="qn">練習 21</span><span class="qtag">主題3・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/B009_84_92p5.jpg" width="1400" height="206" loading="lazy" alt="講義二 第9頁" data-page="講義二 p.9"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) A ＋ 3B → E　(2) C、D　(3) r ＝ k[A][B]<sup>2</sup></div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 三式相加消去 C、D：<strong>A ＋ 3B → E</strong><br />
+(2) 先生成後消耗：<strong>C、D</strong><br />
+(3) 慢步驟 C ＋ B → D：r ＝ k'[C][B]；C 由快速平衡 A ＋ B ⇌ C 得 [C] ∝ [A][B]<br />
+⇒ <strong>r ＝ k[A][B]<sup>2</sup></strong></p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u3-1.html">← 3-1 化學反應速率</a><a href="u3-3.html">3-3 影響反應速率的因素（I）本質、濃度、接觸面積、溫度 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

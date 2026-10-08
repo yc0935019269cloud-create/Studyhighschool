@@ -1,0 +1,1413 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5 萬有引力定律｜選修物理</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+
+/* 圖解／動畫解 */
+.viz{margin:10px 16px 6px;border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
+.viz-h{padding:3px 14px;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent);background:var(--accent-soft)}
+.viz-anim .viz-h{color:var(--pr);background:var(--pr-soft)}
+.viz svg{display:block;width:100%;height:auto}
+.viz figcaption{padding:6px 16px 10px;font-size:14.5px;line-height:1.65;color:var(--muted);border-top:1px dashed var(--line)}
+.viz text{font-family:inherit;font-size:16px;fill:var(--ink);stroke:none}
+.viz .tm{fill:var(--muted);font-size:14px}.viz .ts{font-size:13px}.viz .tb{font-weight:700}.viz .tl{font-size:19px}
+.viz .tf{fill:var(--warn)}.viz .tv{fill:var(--ex)}.viz .ta{fill:var(--ok)}.viz .tp{fill:var(--pr)}.viz .tw{fill:var(--sim)}.viz .tc{fill:var(--accent)}
+.viz .o,.viz .axis,.viz .curve,.viz .curve2,.viz .curve3,.viz .curve4,.viz .dim,.viz .hatch,.viz .thin{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.viz .o{stroke:var(--ink);stroke-width:2}
+.viz .thin{stroke:var(--ink);stroke-width:1}
+.viz .axis{stroke:var(--ink);stroke-width:1.6}
+.viz .hatch{stroke:var(--muted);stroke-width:1.5}
+.viz .dim{stroke:var(--muted);stroke-width:1.4;stroke-dasharray:5 4}
+.viz .f{fill:var(--paper);stroke:var(--ink);stroke-width:2}
+.viz .fb{fill:var(--ex-soft);stroke:var(--ex);stroke-width:2}
+.viz .fg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+.viz .fy{fill:var(--sum-soft);stroke:var(--sum);stroke-width:2}
+.viz .fw{fill:var(--warn-soft);stroke:var(--warn);stroke-width:2}
+.viz .fp{fill:var(--pr-soft);stroke:var(--pr);stroke-width:2}
+.viz .fo{fill:var(--ink);stroke:none}
+.viz .fa{fill:var(--accent);stroke:none}
+.viz .fwo{fill:var(--warn);stroke:none}
+.viz .fxo{fill:var(--ex);stroke:none}
+.viz .fmu{fill:var(--muted);stroke:none}
+.viz .curve{stroke:var(--accent);stroke-width:2.6}
+.viz .curve2{stroke:var(--pr);stroke-width:2.6}
+.viz .curve3{stroke:var(--sim);stroke-width:2.6}
+.viz .curve4{stroke:var(--warn);stroke-width:2.6}
+.viz .dash{stroke-dasharray:6 5}
+.viz .shade{fill:var(--accent);fill-opacity:.18;stroke:none}
+.viz .shade2{fill:var(--warn);fill-opacity:.16;stroke:none}
+.viz [class^="a-"] line{stroke-width:2.6;stroke-linecap:round}
+.viz .a-force line{stroke:var(--warn)}.viz .a-force polygon{fill:var(--warn)}
+.viz .a-vel line{stroke:var(--ex)}.viz .a-vel polygon{fill:var(--ex)}
+.viz .a-acc line{stroke:var(--ok)}.viz .a-acc polygon{fill:var(--ok)}
+.viz .a-ink line{stroke:var(--ink)}.viz .a-ink polygon{fill:var(--ink)}
+.viz .a-mute line{stroke:var(--muted);stroke-width:1.5}.viz .a-mute polygon{fill:var(--muted)}
+.viz .a-pr line{stroke:var(--pr)}.viz .a-pr polygon{fill:var(--pr)}
+.viz .a-sim line{stroke:var(--sim)}.viz .a-sim polygon{fill:var(--sim)}
+.simctl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:6px 12px 8px;border-top:1px dashed var(--line)}
+.simctl input[type=range]{flex:1;min-width:120px;accent-color:var(--accent)}
+.simctl .stime{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:4.5em;text-align:right}
+.simnote{padding:2px 16px 8px;font-size:15px;color:var(--ink);min-height:1.6em}
+@media print{.simctl{display:none}}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修物理<small>講義電子化</small></a><div class="nch">第3單元　牛頓運動定律</div><ul><li><a href="u3-1.html"><span>3-1</span>牛頓運動定律</a></li><li><a href="u3-2.html"><span>3-2</span>圓周運動與簡諧運動</a></li></ul><div class="nch">第4單元　摩擦力與靜力平衡</div><ul><li><a href="u4.html"><span>4</span>摩擦力與靜力平衡</a></li></ul><div class="nch">第5單元　萬有引力定律</div><ul><li><a class="on" href="u5.html"><span>5</span>萬有引力定律</a><ul class="subtoc"><li><a href="#s1">焦點 1　萬有引力定律</a></li><li><a href="#s2">焦點 2　行星與人造衛星的運動</a></li><li><a href="#s3">範例與類題</a></li><li><a href="#s4">焦點練習題</a></li><li><a href="#s5">歷屆試題觀摩</a></li><li><a href="#s6">素養試題</a></li></ul></li></ul><div class="nch">第6單元　動量與角動量</div><ul><li><a href="u6.html"><span>6</span>動量與角動量</a></li></ul><div class="nch">第7單元　功與能量</div><ul><li><a href="u7.html"><span>7</span>功與能量</a></li></ul><div class="nch">第8單元　熱學</div><ul><li><a href="u8.html"><span>8</span>熱學</a></li></ul><div class="nch">第9單元　波動</div><ul><li><a href="u9.html"><span>9</span>波動</a></li></ul><div class="nch">第10單元　聲波</div><ul><li><a href="u10.html"><span>10</span>聲波</a></li></ul><div class="nch">第11單元　光的折射及其應用</div><ul><li><a href="u11.html"><span>11</span>光的折射及其應用</a></li></ul><div class="nch">第一次段考復習　力學二＋熱學</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・公式速查</a></li><li><a href="u復1.html"><span>復1</span>力學二難題（上）：牛頓・圓周・簡諧・靜力平衡</a></li><li><a href="u復2.html"><span>復2</span>力學二難題（下）：萬有引力・動量・功與能量</a></li><li><a href="u復3.html"><span>復3</span>熱學難題精選：氣體定律・動力論・（延伸）熱量</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷（核心範圍）：力學二＋熱學</a></li><li><a href="u復5.html"><span>復5</span>力學一延伸模擬卷：牛頓・圓周・簡諧・萬有引力</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第5單元 萬有引力定律</div>
+<h1><span class="uid">5</span>萬有引力定律</h1>
+<div class="tools"><span class="cnt">本單元 31 題</span>
+<button id="openF">展開全部公式解釋</button><button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">焦點 1　萬有引力定律</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>這一頁可以直接從頭讀下去；遇到藍框公式，想知道「它怎麼推出來、為什麼長這樣」再點開看詳細解釋。上方的「展開全部公式解釋」可以一次打開。</p></aside>
+<p>這個單元的主角只有一條式子——萬有引力定律。先認識它，再用它解釋兩件事：<strong>為什麼東西會往下掉（重力加速度 g）</strong>，以及<strong>為什麼行星、衛星會繞著轉（萬有引力當向心力）</strong>。上一個單元學的圓周運動，在這裡會整個派上用場。</p>
+<h3>一、萬有引力定律</h3>
+<p>1686 年<strong>牛頓</strong>提出：宇宙中任兩個有質量的物體之間都互相吸引，稱為萬有引力（重力）。讓蘋果掉下來的力，和讓月球繞地球轉的力，其實是同一種力。</p>
+<p>這個力有兩個特點：<strong>兩個物體質量愈大，吸引力愈大</strong>（與 M×m 成正比）；<strong>距離愈遠，吸引力變弱得很快</strong>（與距離平方成反比，距離變 2 倍，力只剩 1/4）。寫成式子就是：</p>
+<details class="formula"><summary><span class="f-eq">F<sub>g</sub> ＝ GMm / r²</span><span class="f-tag">萬有引力定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>為什麼和「M × m」成正比？</h5>
+<ol>
+<li>地表上所有物體自由落下的加速度都一樣（g），代表重力 ∝ 物體自己的質量 m（F ＝ mg，m 愈大力愈大，才能讓 a 一樣）。</li>
+<li>由牛頓第三定律，地球拉蘋果的力 ＝ 蘋果拉地球的力。既然力 ∝ 蘋果的質量，站在地球的角度也應該 ∝ 地球的質量。</li>
+<li>兩邊地位對稱 ⇒ <strong>F ∝ M × m</strong>。</li>
+</ol>
+<h5>為什麼是「距離平方」反比？（牛頓的月球驗證）</h5>
+<ul>
+<li>月球距地心約 60 倍地球半徑。若引力 ∝ 1/r²，月球處的重力加速度應為 g/60² ＝ 9.8/3600 ≈ <strong>2.7×10<sup>−3</sup> m/s²</strong>。</li>
+<li>用月球的圓周運動算向心加速度：a ＝ 4π²r/T²（r ≈ 3.84×10<sup>8</sup> m、T ≈ 27.3 天）≈ <strong>2.7×10<sup>−3</sup> m/s²</strong>。</li>
+<li>兩者吻合！讓蘋果落地的力和拉住月球的力是<strong>同一種力</strong>。</li>
+</ul>
+<h5>另一個角度：從克卜勒第三定律反推</h5>
+<p>行星作圓周運動，a ＝ 4π²R/T²；克卜勒發現 T² ∝ R³ ⇒ a ∝ R/R³ ＝ <strong>1/R²</strong>。引力必須是平方反比，才能讓行星遵守週期定律。</p>
+<h5>幾何直覺</h5>
+<p>想像引力從地球向外「散開」，距離 r 處要分攤在面積 4πr² 的球面上，所以強度 ∝ 1/r²——就像燈泡的亮度隨距離平方變暗。</p>
+<h5>G 是什麼</h5>
+<p>重力常數 G ≈ 6.67×10<sup>−11</sup> N·m²/kg²，由卡文迪西用扭秤實驗測得。它非常小，所以日常物體之間的引力感覺不到，只有星球這種超大質量才明顯。</p>
+<h5>使用條件</h5>
+<ul>
+<li>只能直接用在<strong>兩質點</strong>；多個質點要做<strong>向量和</strong>。</li>
+<li>均勻球體（或球殼）對<strong>球外</strong>質點，可以把質量看成集中在球心，r 取球心距離。</li>
+</ul></div></details>
+
+<figure class="fig"><img class="figimg" src="img/A043_40p5_48_x17-97.jpg" width="1400" height="212" loading="lazy" alt="選修物理1、2 第43頁" data-page="選修物理1、2 p.43"><figcaption>(a) 兩質點　(b) 兩均勻球體　(c) 地球與物體</figcaption></figure>
+<p>這條式子原本是給「質點」用的。好消息是：均勻的球體（像地球、行星）對球外物體的吸引，可以把球的質量看成<strong>全部集中在球心</strong>，所以距離 r 一律從<strong>球心</strong>量起。</p>
+<h3>二、地表附近的重力</h3>
+<p>我們平常說的「重量」，其實就是地球對物體的萬有引力。讓它等於 mg，就能看出重力加速度 g 是怎麼來的，也能解釋為什麼愈高 g 愈小、為什麼輕重物體掉得一樣快。</p>
+<details class="formula"><summary><span class="f-eq">g ＝ GM<sub>e</sub>/(R<sub>e</sub> ＋ h)²；地表 g ＝ GM<sub>e</sub>/R<sub>e</sub>²</span><span class="f-tag">重力加速度</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>推導</h5>
+<p>物體的重量就是地球對它的萬有引力：<br />
+mg ＝ GM<sub>e</sub>m/r²，r 是到<strong>地心</strong>的距離 ＝ R<sub>e</sub> ＋ h<br />
+兩邊的 m 約掉 ⇒ <strong>g ＝ GM<sub>e</sub>/r²</strong></p>
+<h5>邏輯重點</h5>
+<ol>
+<li><strong>m 約掉了</strong> ⇒ 重力加速度與物體質量無關，輕重物體同時落地（伽利略）在這裡得到解釋。</li>
+<li>g 只跟「星球質量」和「離星球中心多遠」有關，所以愈高 g 愈小；到了 2 倍地球半徑的地方（h ＝ R<sub>e</sub>），g 只剩 1/4。</li>
+<li>地表附近 h ≪ R<sub>e</sub>，所以 g ≈ 9.8 m/s² 可視為定值。</li>
+</ol>
+<h5>好用的代換（黃金代換）</h5>
+<p><strong>GM<sub>e</sub> ＝ gR<sub>e</sub>²</strong>：題目給 g 和地球半徑、卻沒給 G 和 M 時，用這個把 GM 換掉。</p></div></details>
+<p>比較不同星球時，把星球質量寫成「密度 × 體積」，就能得到另一種常用的比例式：</p>
+<details class="formula"><summary><span class="f-eq">g ∝ M/R² ∝ ρR</span><span class="f-tag">比較不同星球表面</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>推導</h5>
+<p>g ＝ GM/R²，而 M ＝ ρ × (4/3)πR³<br />
+⇒ g ＝ G·ρ·(4/3)πR³/R² ＝ (4/3)πGρ·R ⇒ <strong>g ∝ ρR</strong></p>
+<h5>什麼時候用</h5>
+<ul>
+<li>給質量比、半徑比 ⇒ 用 g ∝ M/R²</li>
+<li>給密度比、半徑比 ⇒ 用 g ∝ ρR</li>
+</ul>
+<h5>在別的星球上什麼會變？</h5>
+<ul>
+<li>單擺週期 T ＝ 2π√(ℓ/g)：<strong>會變</strong></li>
+<li>彈簧振子週期 T ＝ 2π√(m/k)：<strong>不變</strong>（公式裡沒有 g）</li>
+<li>同初速拋射高度 H ＝ v²sin²θ/(2g)：∝ 1/g</li>
+<li>物體質量不變，重量 mg 會變</li>
+</ul></div></details>
+<p><strong>重力場</strong>：換個角度看，地球好像在周圍每一點都「佈置」好了一個拉力的強度，任何物體放進來就會被拉。把「每 1 公斤受多少重力」定義成重力場 g，它只和地球、位置有關，和放進來的物體無關，而且數值剛好就是那裡的重力加速度。</p>
+<details class="formula"><summary><span class="f-eq">g ＝ F<sub>g</sub>/m ＝ GM<sub>e</sub>/r²（r ≥ R<sub>e</sub>）</span><span class="f-tag">重力場</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>為什麼要定義「場」</h5>
+<p>F ＝ GMm/r² 跟放進去的物體質量 m 有關；除以 m 之後，<strong>g 只由地球和位置決定</strong>，跟放什麼東西進來無關。<br />
+所以可以說：地球在它周圍的每一點都「準備好」一個 g，任何物體放進來就受 F ＝ mg。</p>
+<h5>邏輯重點</h5>
+<ul>
+<li>重力場強度（N/kg）和重力加速度（m/s²）在數值上相等，因為 F ＝ mg ＝ ma。</li>
+<li>方向指向地心，量值與距離平方成反比。</li>
+<li>好幾個星體同時存在時，某點的 g 是各星體的 g <strong>向量相加</strong>。</li>
+<li>以後學電場 E ＝ F/q，是一模一樣的想法。</li>
+</ul></div></details>
+
+<figure class="fig"><img class="figimg" src="img/A043_73_91_x68-98.jpg" width="528" height="551" loading="lazy" alt="選修物理1、2 第43頁" data-page="選修物理1、2 p.43"><figcaption>地球的重力場：量值與距離平方成反比，方向指向地心</figcaption></figure>
+
+<h2 class="section " id="s2">焦點 2　行星與人造衛星的運動</h2>
+<h3>三、克卜勒行星運動三定律</h3>
+<p>在牛頓之前，克卜勒花了很多年整理第谷的天文觀測資料，歸納出行星運動的三條規律。當時他只知道「是這樣」，不知道「為什麼」；後來牛頓用萬有引力和運動定律，把三條定律全部推導出來。<strong>第一定律</strong>說軌道的形狀，<strong>第二定律</strong>說行星在軌道上哪裡快哪裡慢，<strong>第三定律</strong>說不同行星的軌道大小和週期的關係。</p>
+<figure class="fig"><img class="figimg" src="img/A046_20_38p5_x73-98.jpg" width="490" height="581" loading="lazy" alt="選修物理1、2 第46頁" data-page="選修物理1、2 p.46"><figcaption>橢圓軌道與面積定律</figcaption></figure>
+<p><strong>第一定律（軌道定律）</strong>：行星的軌道是橢圓，太陽不在正中央，而在其中一個焦點。所以行星有時離太陽近（近日點），有時遠（遠日點）。</p>
+<details class="formula"><summary><span class="f-eq">第一定律：R ＝ (r<sub>max</sub> ＋ r<sub>min</sub>)/2 ＝ 半長軸 a</span><span class="f-tag">軌道定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>內容</h5>
+<p>行星以<strong>橢圓</strong>軌道繞太陽，太陽在橢圓的一個<strong>焦點</strong>上（不是中心）。</p>
+<h5>為什麼平均半徑是這個？</h5>
+<p>從近日點經太陽到遠日點，剛好是橢圓的<strong>長軸</strong>：長軸 ＝ r<sub>min</sub> ＋ r<sub>max</sub>。<br />
+一半就是<strong>半長軸 a</strong>，把橢圓軌道拿去用第三定律時，R 就代半長軸。</p>
+<h5>邏輯重點</h5>
+<p>大部分行星的橢圓很接近圓，所以高中常把行星運動簡化成圓周運動，結果（例如 R³/T²）一樣成立。</p></div></details>
+<p><strong>第二定律（面積定律）</strong>：行星和太陽的連線，在相同時間內掃過相同的面積。離太陽近時連線短，要掃出一樣的面積就得跑得快，所以行星在近日點最快、遠日點最慢。</p>
+<details class="formula"><summary><span class="f-eq">第二定律：ΔA/Δt ＝ 定值</span><span class="f-tag">面積定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>內容</h5>
+<p>相同時間內，行星與太陽連線掃過的<strong>面積相同</strong>。</p>
+<h5>為什麼？（角動量守恆）</h5>
+<ol>
+<li>太陽對行星的引力沿著兩者連線，對太陽的力矩 τ ＝ rF sin180° ＝ 0。</li>
+<li>沒有力矩 ⇒ <strong>角動量 L ＝ m r v<sub>⊥</sub> 守恆</strong>。</li>
+<li>很短的時間 Δt 內，掃過的是一個細長三角形，面積 ≈ ½ × r × (v<sub>⊥</sub>Δt)<br />
+⇒ ΔA/Δt ＝ ½ r v<sub>⊥</sub> ＝ <strong>L/(2m) ＝ 定值</strong></li>
+</ol>
+<h5>直覺</h5>
+<p>離太陽近時 r 小，要掃出同樣面積，就得跑得快 ⇒ <strong>近日點最快、遠日點最慢</strong>。就像溜冰選手收手轉得快。</p>
+<h5>注意</h5>
+<p>面積定律只能比較<strong>同一顆行星、同一條軌道</strong>的不同位置；不同行星的面積速率不一樣（圓軌道時 ∝ √R）。</p></div></details>
+<p><strong>第三定律（週期定律）</strong>：離太陽愈遠的行星，繞一圈花的時間愈長，而且有精確的比例——軌道半徑的立方除以週期的平方，對所有行星都是同一個數。</p>
+<details class="formula"><summary><span class="f-eq">第三定律：R³/T² ＝ GM/4π² ＝ 常數 K</span><span class="f-tag">週期定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>推導（用圓軌道）</h5>
+<p>萬有引力提供向心力：<br />
+GMm/R² ＝ m·4π²R/T²<br />
+m 約掉，整理：<strong>R³/T² ＝ GM/(4π²)</strong></p>
+<h5>邏輯重點</h5>
+<ol>
+<li>右邊只剩 G 和<strong>中心星體的質量 M</strong> ⇒ 繞同一顆星的所有行星（衛星）K 都相同；中心星不同，K 就不同（繞太陽和繞地球不能混用）。</li>
+<li>繞行物體自己的質量 m 約掉了 ⇒ 大衛星、小衛星在同一軌道上週期一樣。</li>
+<li>反過來用：量出某衛星的 R 和 T，就能算出<strong>中心星體的質量</strong> M ＝ 4π²R³/(GT²)——這就是「秤地球、秤太陽」的方法。</li>
+<li>橢圓軌道時，R 代半長軸。</li>
+</ol></div></details>
+<h3>四、行星與人造衛星的圓周運動</h3>
+<p>把軌道近似成圓，所有衛星問題都只用一個想法：<strong>萬有引力就是向心力</strong>。讓 GMm/R² 等於 mv²/R（或 m·4π²R/T²），衛星的質量 m 會約掉，所以衛星的速率、週期、加速度<strong>只由中心星體質量和軌道半徑決定</strong>。最重要的結論是：<strong>軌道愈高，跑得愈慢、週期愈長</strong>。</p>
+<details class="formula"><summary><span class="f-eq">v ＝ √(GM/R)，T ＝ 2π√(R³/GM)，a ＝ GM/R²</span><span class="f-tag">萬有引力 ＝ 向心力</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>推導</h5>
+<p>GMm/R² ＝ m v²/R ⇒ <strong>v ＝ √(GM/R)</strong><br />
+GMm/R² ＝ m·4π²R/T² ⇒ <strong>T ＝ 2π√(R³/GM)</strong><br />
+GMm/R² ＝ ma ⇒ <strong>a ＝ GM/R²</strong>（就是那個位置的重力場 g）</p>
+<h5>反直覺的重點：軌道愈高，跑得愈「慢」</h5>
+<p>R 愈大，引力愈弱，只需要較小的向心力，速率就愈小；而且要繞的圈又更大 ⇒ 週期大幅變長（T ∝ R<sup>3/2</sup>）。</p>
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>與 R 的關係</th>
+<th>R 變大時</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>∝ 1/R²</td>
+<td>變小</td>
+</tr>
+<tr>
+<td>v</td>
+<td>∝ 1/√R</td>
+<td>變小</td>
+</tr>
+<tr>
+<td>ω</td>
+<td>∝ R<sup>−3/2</sup></td>
+<td>變小</td>
+</tr>
+<tr>
+<td>T</td>
+<td>∝ R<sup>3/2</sup></td>
+<td>變大</td>
+</tr>
+<tr>
+<td>面積速率 ½√(GMR)</td>
+<td>∝ √R</td>
+<td>變大（唯一變大的「速率」）</td>
+</tr>
+</tbody>
+</table>
+<h5>為什麼太空人會「失重」？</h5>
+<p>太空人和太空船一起以同樣的加速度 a ＝ GM/R² 自由落下（一直往地球掉，但水平速度夠快，所以一直掉不到地面）。他仍然受重力，只是地板不用撐他，所以感覺不到重量。</p></div></details>
+<p>貼著地表飛的衛星半徑就是地球半徑，那裡的重力加速度正好是 g，於是得到一個很有名的數字——第一宇宙速度，約每秒 7.9 公里。</p>
+<details class="formula"><summary><span class="f-eq">表面衛星：v ＝ √(gR<sub>e</sub>) ≈ 7.9 km/s</span><span class="f-tag">第一宇宙速度</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>推導</h5>
+<p>貼地飛行時 R ≈ R<sub>e</sub>，此處的重力加速度就是 g：<br />
+mg ＝ m v²/R<sub>e</sub> ⇒ <strong>v ＝ √(gR<sub>e</sub>)</strong> ＝ √(9.8 × 6.4×10<sup>6</sup>) ≈ 7.9×10<sup>3</sup> m/s</p>
+<h5>邏輯（牛頓的大砲）</h5>
+<p>水平發射砲彈，第一秒掉下 ½gt² ≈ 5 m，跟初速無關。如果初速夠快，砲彈往前飛的同時，地面也因為地球是圓的而「彎下去」同樣多，砲彈就永遠掉不到地面——這就是繞地球轉。</p></div></details>
+<ul>
+<li><strong>同步衛星</strong>：週期 ＝ 地球自轉週期 <strong>24 小時</strong>，且軌道面與<strong>赤道面</strong>一致 ⇒ 從地面看好像停在赤道上空不動。因為 T 被規定成 24 小時，由週期定律，軌道半徑也就只有一個固定值，所有同步衛星都在同一高度（約 3.6 萬公里）。</li>
+</ul>
+<p>最後是常考的「兩顆衛星多久相遇一次」。這其實和兩個人在操場跑步誰追上誰是同一件事，看的是兩者<strong>角速度的差</strong>。</p>
+<figure class="fig"><img class="figimg" src="img/A047_8_26_x55-92.jpg" width="737" height="620" loading="lazy" alt="選修物理1、2 第47頁" data-page="選修物理1、2 p.47"><figcaption>人造衛星的軌道面通過地心</figcaption></figure>
+
+<details class="formula"><summary><span class="f-eq">會合週期：同向 1/t ＝ 1/T<sub>1</sub> − 1/T<sub>2</sub>；反向 1/t ＝ 1/T<sub>1</sub> ＋ 1/T<sub>2</sub></span><span class="f-tag">追趕問題</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>邏輯：操場跑步</h5>
+<p>兩人在操場同方向跑，快的人每多跑一整圈就會追上慢的人一次。<br />
+- 每秒快的人比慢的人多轉 (ω<sub>1</sub> − ω<sub>2</sub>)<br />
+- 多轉一整圈 2π 就相遇一次 ⇒ (ω<sub>1</sub> − ω<sub>2</sub>)·t ＝ 2π<br />
+- 用 ω ＝ 2π/T 代入 ⇒ <strong>1/T<sub>1</sub> − 1/T<sub>2</sub> ＝ 1/t</strong></p>
+<p>反方向跑時，兩人是「相向」靠近，相對角速度是 ω<sub>1</sub> ＋ ω<sub>2</sub> ⇒ <strong>1/T<sub>1</sub> ＋ 1/T<sub>2</sub> ＝ 1/t</strong>。</p>
+<h5>生活例子</h5>
+<p>時鐘的分針和時針：同向轉，T<sub>1</sub> ＝ 1 小時、T<sub>2</sub> ＝ 12 小時 ⇒ 1/t ＝ 1 − 1/12 ⇒ t ＝ 12/11 小時才重疊一次（不是剛好 1 小時）。</p>
+<h5>解題步驟</h5>
+<p>先用會合條件求出週期，再用 R ∝ T<sup>2/3</sup>、v ∝ 1/√R、a ∝ 1/R² 換成題目要的量。</p></div></details>
+
+<h2 class="section " id="s3">範例與類題</h2>
+
+<article class="q q-ex" id="q139">
+<header class="qh"><span class="qn">範例 1</span><span class="qtag">兩星球的引力</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A044_38p5_56.jpg" width="1400" height="416" loading="lazy" alt="選修物理1、2 第44頁" data-page="選修物理1、2 p.44"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 12GM/d²（朝向 B）　(2) d/3</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 中點距兩星各 d/2：<br />
+a ＝ G(4M)/(d/2)² − GM/(d/2)² ＝ 16GM/d² − 4GM/d² ＝ <strong>12GM/d²</strong>，方向朝 B（質量大的一方）</p>
+<p>(2) 設與 A 相距 x：GM/x² ＝ G(4M)/(d − x)² ⇒ d − x ＝ 2x ⇒ <strong>x ＝ d/3</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q140">
+<header class="qh"><span class="qn">類題 1.1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A044_81p5_90.jpg" width="1400" height="214" loading="lazy" alt="選修物理1、2 第44頁" data-page="選修物理1、2 p.44"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>9 : 10</div>
+<div class="exp"><b class="exp-h">解</b><p>81M/a² ＝ M/(d − a)² ⇒ 9(d − a) ＝ a ⇒ a ＝ 9d/10 ⇒ <strong>a : d ＝ 9 : 10</strong></p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q141">
+<header class="qh"><span class="qn">範例 2</span><span class="qtag">星球表面的重力</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_8_30.jpg" width="1400" height="539" loading="lazy" alt="選修物理1、2 第45頁" data-page="選修物理1、2 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>g ∝ M/R²：g' ＝ 4 ÷ (1/4)² ＝ <strong>64g</strong><br />
+- (A) ○<br />
+- (B) ○ H ∝ 1/g ⇒ 128/64 ＝ 2 m<br />
+- (C) ○ 單擺 T ∝ 1/√g ⇒ 4/√64 ＝ 0.5 s<br />
+- (D) ✗ 彈簧振子 T ＝ 2π√(m/k)，與 g 無關，仍為 4 s<br />
+- (E) ✗ 重力 mg 為 <strong>64 倍</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q142">
+<header class="qh"><span class="qn">類題 2.1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_56_63p5.jpg" width="1400" height="190" loading="lazy" alt="選修物理1、2 第45頁" data-page="選修物理1、2 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>2 : √3（即 2√3 : 3）</div>
+<div class="exp"><b class="exp-h">解</b><p>g ∝ ρR ⇒ g<sub>行</sub>/g<sub>地</sub> ＝ (8/3) × (1/2) ＝ 4/3<br />
+自由落下末速 v ＝ √(2gh) ⇒ v 比 ＝ √(4/3) ＝ <strong>2/√3</strong><br />
+（公轉軌道半徑與此無關）</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q143">
+<header class="qh"><span class="qn">類題 2.2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A045_74_90.jpg" width="1400" height="374" loading="lazy" alt="選修物理1、2 第45頁" data-page="選修物理1、2 p.45"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>1/2；1</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>單擺 T ＝ 2π√(ℓ/g)，g 變 4 倍 ⇒ 週期變 <strong>1/2</strong> T<sub>甲</sub></li>
+<li>彈簧 T ＝ 2π√(m/k)，與 g 無關 ⇒ 仍為 <strong>1</strong> T<sub>乙</sub></li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q144">
+<header class="qh"><span class="qn">範例 3</span><span class="qtag">會合週期</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_8_27.jpg" width="1400" height="439" loading="lazy" alt="選修物理1、2 第48頁" data-page="選修物理1、2 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>同向公轉，行星週期較長：1/T<sub>地</sub> − 1/T<sub>行</sub> ＝ 1/t<br />
+1 − 1/T<sub>行</sub> ＝ 26/27 ⇒ <strong>T<sub>行</sub> ＝ 27 年</strong><br />
+R ∝ T<sup>2/3</sup> ⇒ R<sub>行</sub> ＝ 27<sup>2/3</sup> ＝ 9 倍<br />
+a ∝ 1/R² ⇒ <strong>a/81</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q145">
+<header class="qh"><span class="qn">類題 3.1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_53_69.jpg" width="1400" height="398" loading="lazy" alt="選修物理1、2 第48頁" data-page="選修物理1、2 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>4 : 1</div>
+<div class="exp"><b class="exp-h">解</b><p>反向運轉：ω<sub>甲</sub> ＋ ω<sub>乙</sub> ＝ 2π/(T<sub>甲</sub>/9) ＝ 9ω<sub>甲</sub> ⇒ ω<sub>乙</sub> ＝ 8ω<sub>甲</sub><br />
+⇒ T<sub>甲</sub> ＝ 8T<sub>乙</sub> ⇒ R ∝ T<sup>2/3</sup> ⇒ R<sub>甲</sub> : R<sub>乙</sub> ＝ 8<sup>2/3</sup> : 1 ＝ <strong>4 : 1</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q146">
+<header class="qh"><span class="qn">類題 3.2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A048_73p5_88.jpg" width="1400" height="364" loading="lazy" alt="選修物理1、2 第48頁" data-page="選修物理1、2 p.48"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>1 : 4</div>
+<div class="exp"><b class="exp-h">解</b><p>同向運轉，相對角速度：ω<sub>乙</sub> − ω<sub>甲</sub> ＝ 2π/(T<sub>甲</sub>/63) ＝ 63ω<sub>甲</sub> ⇒ ω<sub>乙</sub> ＝ 64ω<sub>甲</sub><br />
+T<sub>甲</sub> ＝ 64T<sub>乙</sub> ⇒ R<sub>甲</sub> ＝ 64<sup>2/3</sup> R<sub>乙</sub> ＝ 16R<sub>乙</sub><br />
+v ∝ 1/√R ⇒ v<sub>甲</sub> : v<sub>乙</sub> ＝ 1 : 4</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q147">
+<header class="qh"><span class="qn">範例 4</span><span class="qtag">霍曼轉移軌道</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_8_35.jpg" width="1400" height="656" loading="lazy" alt="選修物理1、2 第49頁" data-page="選修物理1、2 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ ω ∝ R<sup>−3/2</sup>，軌道 3 較大，角速度較小</li>
+<li>(B) ✗ v ∝ 1/√R，軌道 3 速率較小</li>
+<li>(C) ✗ 軌道 2 的半長軸 (r<sub>1</sub> ＋ r<sub>3</sub>)/2 ＜ r<sub>3</sub> ⇒ 週期較小</li>
+<li>(D) ✗ 圓軌道面積速率 ＝ ½√(GMR) ∝ √R，軌道 3 較大</li>
+<li>(E) ○ a ∝ 1/R²，軌道 1 較大</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q148">
+<header class="qh"><span class="qn">類題 4.1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_51_69.jpg" width="1400" height="423" loading="lazy" alt="選修物理1、2 第49頁" data-page="選修物理1、2 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(√6/9)T（約 0.27T）</div>
+<div class="exp"><b class="exp-h">解</b><p>橢圓軌道：遠地點 3R、近地點 R ⇒ 半長軸 a ＝ 2R<br />
+克卜勒第三定律：T'/T ＝ (2R/3R)<sup>3/2</sup> ＝ (2/3)<sup>3/2</sup><br />
+從遠地點到近地點（墜落點）是半個週期：<br />
+t ＝ T'/2 ＝ (T/2)(2/3)<sup>3/2</sup> ＝ (T/2) × 2√2/(3√3) ＝ <strong>(√6/9)T ≈ 0.27T</strong></p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q149">
+<header class="qh"><span class="qn">類題 4.2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A049_71_95.jpg" width="1400" height="569" loading="lazy" alt="選修物理1、2 第49頁" data-page="選修物理1、2 p.49"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>設地球軌道半徑 1，火星 T ＝ 1.9 年 ⇒ R<sub>火</sub> ＝ 1.9<sup>2/3</sup> ≈ 1.53<br />
+太空船橢圓軌道：近日點在地球（1）、遠日點在火星（1.53）⇒ 半長軸 ≈ 1.27<br />
+T<sub>船</sub> ＝ 1.27<sup>3/2</sup> ≈ 1.43 年；A → C 是半個週期 ≈ 0.71 年 ≈ <strong>260 天</strong></p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s4">焦點練習題</h2>
+
+<article class="q q-pr" id="q150">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">基礎</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_18_33.jpg" width="1400" height="310" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>g ＝ GM/R² ⇒ M ∝ gR²<br />
+M<sub>月</sub>/M<sub>地</sub> ＝ (1/6) × (1/4)² ＝ <strong>1/96</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q151">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">基礎</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_33_36p6.jpg" width="1400" height="82" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>距地心 r ＝ R ＋ 2R ＝ 3R ⇒ 重量 ∝ 1/r² ⇒ 810/9 ＝ <strong>90 N</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q152">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">基礎</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_36p6_48p5.jpg" width="1400" height="274" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>F ＝ K'/R<sup>5</sup> 提供向心力：m R (4π²/T²) ＝ K'/R<sup>5</sup> ⇒ T² ∝ R<sup>6</sup> ⇒ <strong>R³/T ＝ K</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q153">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">基礎</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_48p5_57.jpg" width="1400" height="211" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>v ＝ √(GM/R)，與衛星質量無關 ⇒ v<sub>1</sub>/v<sub>2</sub> ＝ <strong>√(R<sub>2</sub>/R<sub>1</sub>)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q154">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">基礎</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_57_69.jpg" width="1400" height="257" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>太空人「失重」只是因為他和太空船一起自由落下，仍受重力，合力 ＝ 重力 ＝ 向心力。<br />
+軌道半徑 ＝ R ＋ 3R ＝ 4R ⇒ <strong>F ＝ mv²/(4R)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q155">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">基礎</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_69_75p2.jpg" width="1400" height="142" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>表面衛星：GM/R² ＝ R(4π²/T²)，M ＝ ρ(4/3)πR³ ⇒ <strong>ρ ＝ 3π/(GT²)</strong>，與半徑無關<br />
+ρ<sub>A</sub>/ρ<sub>B</sub> ＝ (T<sub>B</sub>/T<sub>A</sub>)² ＝ 2² ＝ <strong>4 : 1</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q156">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">基礎</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_75p2_84.jpg" width="1400" height="202" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>r ＝ R ＋ 3R ＝ 4R，GM ＝ gR²<br />
+v ＝ √(GM/r) ＝ √(gR²/4R) ＝ <strong>½√(gR)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q157">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">進階</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A050_85p5_96.jpg" width="1400" height="230" loading="lazy" alt="選修物理1、2 第50頁" data-page="選修物理1、2 p.50"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>T² ＝ 4π²R³/(GM) ⇒ T<sub>甲</sub>/T<sub>乙</sub> ＝ √[(R<sub>甲</sub>/R<sub>乙</sub>)³ × (M<sub>乙</sub>/M<sub>甲</sub>)] ＝ √(64/25) ＝ <strong>1.6</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q158">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">進階</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A051_8_22.jpg" width="1400" height="325" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>T ∝ R<sup>3/2</sup> ⇒ R<sub>1</sub>/R<sub>2</sub> ＝ 8<sup>2/3</sup> ＝ 4 ⇒ v ∝ 1/√R ⇒ v<sub>1</sub>/v<sub>2</sub> ＝ <strong>1/2</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q159">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">進階</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A051_22_32p5.jpg" width="1400" height="219" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>圓軌道面積速率 ＝ πR²/T ＝ ½√(GMR) ∝ √R<br />
+S<sub>1</sub> : S<sub>2</sub> ＝ √1 : √2 ＝ <strong>1 : √2</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q160">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">進階</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A051_32p5_48.jpg" width="1400" height="366" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>用「完整球 − 挖掉的小球」：<br />
+- 完整球對 A（距球心 R）：GMm/R²<br />
+- 挖掉的小球質量 M/8（體積 1/8），球心距 A 為 R/2：G(M/8)m/(R/2)² ＝ GMm/(2R²)</p>
+<p>F ＝ GMm/R² − GMm/(2R²) ＝ <strong>GMm/(2R²)</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q161">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">題組</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A051_50_71.jpg" width="1400" height="499" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"><img class="qimg" src="img/A051_71_82.jpg" width="1400" height="223" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>水平拋射時鉛直方向是自由落體，與水平初速無關：<br />
+第 1 秒落下 ½gt² ＝ ½ × 10 × 1² ＝ <strong>5 m</strong>，為定值</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q162">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">題組・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A051_50_71.jpg" width="1400" height="499" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"><img class="qimg" src="img/A051_82_93.jpg" width="1400" height="292" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>能；y ＝ 8000 公尺/秒</div>
+<div class="exp"><b class="exp-h">解</b><p>砲彈貼地面作圓周運動時，重力 ＝ 向心力：mg ＝ m y²/R<br />
+y ＝ √(gR) ＝ √(10 × 6.4×10<sup>6</sup>) ＝ <strong>8×10<sup>3</sup> m/s</strong></p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s5">歷屆試題觀摩</h2>
+
+<article class="q q-pr" id="q163">
+<header class="qh"><span class="qn">歷屆 1</span><span class="qtag">112分科・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A052_12_48p5.jpg" width="1400" height="813" loading="lazy" alt="選修物理1、2 第52頁" data-page="選修物理1、2 p.52"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 公轉週期隨距離增加，角速率 2π/T 愈小</li>
+<li>(B) ✗ 自轉週期與距離無規律（木星 0.415、金星 244）</li>
+<li>(C) ○ v ＝ √(GM/R) ∝ 1/√R</li>
+<li>(D) ✗ 角動量 L ＝ mvR ∝ m√R，還與行星質量有關（木星質量大）</li>
+<li>(E) ✗ 重力 ∝ m/R²，也與行星質量有關</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q164">
+<header class="qh"><span class="qn">歷屆 2</span><span class="qtag">105指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A052_48p5_64p5.jpg" width="1400" height="359" loading="lazy" alt="選修物理1、2 第52頁" data-page="選修物理1、2 p.52"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>甲是同步衛星，軌道半徑較大。<br />
+- (A) ✗ v ∝ 1/√R，甲較慢<br />
+- (B) ✗ a ∝ 1/R²，甲較小<br />
+- (C) ✗ 同步衛星週期 ＝ 地球<strong>自轉</strong>週期（1 天），不是公轉週期（1 年）<br />
+- (D) ○ 面積速率 ∝ √R，甲較大<br />
+- (E) ✗</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q165">
+<header class="qh"><span class="qn">歷屆 3</span><span class="qtag">103指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A052_64p5_87p5.jpg" width="1400" height="510" loading="lazy" alt="選修物理1、2 第52頁" data-page="選修物理1、2 p.52"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>恆星與行星質量都不變，行星軌道半徑變 1/2。<br />
+- (A)(B) ✗ T ∝ R<sup>3/2</sup> ⇒ 變為 (1/2)<sup>3/2</sup> ＝ 1/(2√2) 倍<br />
+- (C) ○ 恆星表面 g ＝ GM/R<sub>s</sub>²，R<sub>s</sub> 變 2 倍 ⇒ g 變 <strong>1/4</strong><br />
+- (D)(E) ✗ 兩者間引力 ∝ 1/r²，r 變一半 ⇒ 引力變 <strong>4 倍</strong>（兩者互為作用力、反作用力，大小相同）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q166">
+<header class="qh"><span class="qn">歷屆 4</span><span class="qtag">100指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A052_87p5_97.jpg" width="1400" height="235" loading="lazy" alt="選修物理1、2 第52頁" data-page="選修物理1、2 p.52"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>同一中心行星，R³/T² 相同：(32R)³/(8T)² ＝ r³/T²<br />
+r³ ＝ 32³R³/64 ＝ 512R³ ⇒ <strong>r ＝ 8R</strong><br />
+（同步衛星週期 ＝ 行星自轉週期 T）</p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s6">素養試題</h2>
+
+<article class="q q-pr" id="q167">
+<header class="qh"><span class="qn">素養 1</span><span class="qtag">JWST・題組・111分科</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A053_13_41.jpg" width="1400" height="626" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"><img class="qimg" src="img/A053_41_56p5.jpg" width="1400" height="337" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>地球繞質心 C 作圓周運動，半徑 ＝ MR/(M ＋ m)，只受太陽引力：<br />
+GMm/R² ＝ m ω² × MR/(M ＋ m) ⇒ <strong>ω² ＝ G(M ＋ m)/R³</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q168">
+<header class="qh"><span class="qn">素養 2</span><span class="qtag">JWST・題組</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A053_13_41.jpg" width="1400" height="626" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"><img class="qimg" src="img/A053_57p5_75.jpg" width="1400" height="401" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>L<sub>2</sub> 處小物體距太陽 R ＋ r、距地球 r，兩個引力同方向（都指向 C 那一側）；<br />
+它繞 C 運轉的半徑 ＝ 地心到 C 的距離 ＋ r ＝ MR/(M ＋ m) ＋ r<br />
+⇒ <strong>G[M/(R ＋ r)² ＋ m/r²] ＝ [MR/(M ＋ m) ＋ r] ω²</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q169">
+<header class="qh"><span class="qn">素養 3</span><span class="qtag">JWST・題組・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A053_13_41.jpg" width="1400" height="626" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"><img class="qimg" src="img/A053_75_86.jpg" width="1400" height="256" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>見詳解</div>
+<div class="exp"><b class="exp-h">解</b><p>可舉以下任兩項：<br />
+1. 在 L<sub>2</sub>，太陽、地球、月球都在望遠鏡的<strong>同一側</strong>，用一面遮陽罩就能同時擋住三者的熱輻射，容易維持 50 K 以下的低溫。<br />
+2. L<sub>2</sub> 離太陽比 L<sub>1</sub> 遠，接收到的太陽輻射較少，較容易保持低溫。<br />
+3. 背向太陽與地球時，前方整片天空都沒有強光源干擾，可觀察的範圍廣；在 L<sub>1</sub> 則望遠鏡朝外看時，一側是太陽、另一側是地球，會互相干擾。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u4.html">← 4 摩擦力與靜力平衡</a><a href="u6.html">6 動量與角動量 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+
+/* 動畫解框架：SIMS[name] = {w,h,dur,build(svg,p,H)->update(t), note(t,p)->文字} */
+(function(){
+var NS="http://www.w3.org/2000/svg";
+function E(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in (attrs||{}))e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function setText(t,s){
+  while(t.firstChild)t.removeChild(t.firstChild);
+  var re=/([_^])\{([^{}]*)\}/g,last=0,m;
+  s=String(s);
+  function add(txt,attrs){var sp=E('tspan',attrs||{},t);sp.textContent=txt;}
+  while((m=re.exec(s))){
+    if(m.index>last)add(s.slice(last,m.index));
+    if(m[1]==='_'){add(m[2],{dy:4,'font-size':'72%'});add('​',{dy:-4});}
+    else{add(m[2],{dy:-6,'font-size':'72%'});add('​',{dy:6});}
+    last=re.lastIndex;
+  }
+  if(last<s.length)add(s.slice(last));
+}
+function T(parent,x,y,s,cls,anchor){var t=E('text',{x:x,y:y,'text-anchor':anchor||'middle','class':cls||'t'},parent);setText(t,s);return t;}
+function Arrow(parent,cls,head){
+  head=head||10;
+  var g=E('g',{'class':'a-'+cls},parent),ln=E('line',{},g),pg=E('polygon',{},g);
+  return {g:g,set:function(x1,y1,x2,y2){
+    var dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);
+    if(L<2){g.style.display='none';return;}
+    g.style.display='';
+    var ux=dx/L,uy=dy/L,h=Math.min(head,L*0.6),bx=x2-ux*h,by=y2-uy*h,px=-uy*h*0.42,py=ux*h*0.42;
+    ln.setAttribute('x1',x1);ln.setAttribute('y1',y1);ln.setAttribute('x2',bx);ln.setAttribute('y2',by);
+    pg.setAttribute('points',x2+','+y2+' '+(bx+px)+','+(by+py)+' '+(bx-px)+','+(by-py));
+  }};
+}
+function spring(n,amp,lead){
+  return function(x1,y1,x2,y2){
+    var dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,px=-uy,py=ux,s0=L*(lead||0.12),body=L-2*s0,pts=[[x1,y1],[x1+ux*s0,y1+uy*s0]];
+    for(var i=0;i<n;i++){var t0=s0+body*(i+0.5)/n,sg=i%2?-1:1;pts.push([x1+ux*t0+px*amp*sg,y1+uy*t0+py*amp*sg]);}
+    pts.push([x2-ux*s0,y2-uy*s0]);pts.push([x2,y2]);
+    return 'M'+pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' L');
+  };
+}
+function ground(svg,x1,x2,y){
+  E('line',{'class':'o',x1:x1,y1:y,x2:x2,y2:y},svg);
+  var n=Math.floor((x2-x1)/14);
+  for(var i=0;i<=n;i++){var x=x1+(x2-x1)*i/n;E('line',{'class':'hatch',x1:x,y1:y,x2:x-8,y2:y+9},svg);}
+}
+var H={E:E,T:T,setText:setText,Arrow:Arrow,spring:spring,ground:ground};
+window.SIMS=window.SIMS||{};
+window.SIMH=H;
+
+function init(){
+  var els=document.querySelectorAll('.sim');
+  [].forEach.call(els,function(el){
+    var def=window.SIMS[el.dataset.sim];
+    if(!def||el.dataset.ready)return;
+    el.dataset.ready='1';
+    var p={};try{p=JSON.parse(el.dataset.p||'{}');}catch(e){}
+    var W=def.w||560,Hh=def.h||300;
+    el.innerHTML='<svg class="simsvg" viewBox="0 0 '+W+' '+Hh+'" xmlns="'+NS+'" style="display:block;width:100%;height:auto"></svg>'+
+      '<div class="simnote"></div>'+
+      '<div class="simctl"><button type="button" class="sp">▶ 播放</button><button type="button" class="sr">↺ 回到開頭</button>'+
+      '<input type="range" min="0" max="1000" value="0" aria-label="時間軸"><span class="stime"></span></div>';
+    var svg=el.querySelector('svg'),note=el.querySelector('.simnote'),sp=el.querySelector('.sp'),sr=el.querySelector('.sr'),rg=el.querySelector('input'),st=el.querySelector('.stime');
+    var dur=(typeof def.dur==='function'?def.dur(p):def.dur)||6;
+    var upd=def.build(svg,p,H);
+    var t=0,playing=false,last=0,raf=0;
+    function draw(){
+      upd(t);
+      rg.value=Math.round(t/dur*1000);
+      st.textContent='t = '+t.toFixed(2)+' s';
+      if(def.note)note.innerHTML=def.note(t,p)||'';
+    }
+    function frame(){
+      if(!playing)return;
+      var now=performance.now();
+      t+=(now-last)/1000;last=now;
+      if(t>=dur){t=dur;playing=false;clearInterval(raf);sp.textContent='↺ 重播';draw();return;}
+      draw();
+    }
+    function play(){
+      if(t>=dur)t=0;
+      playing=true;sp.textContent='⏸ 暫停';last=performance.now();clearInterval(raf);raf=setInterval(frame,33);
+    }
+    function pause(){playing=false;sp.textContent='▶ 播放';clearInterval(raf);}
+    sp.onclick=function(){playing?pause():play();};
+    sr.onclick=function(){pause();t=0;draw();};
+    rg.oninput=function(){pause();t=rg.value/1000*dur;draw();};
+    draw();
+  });
+}
+window.initSims=init;
+})();
+
+/* 動畫解：各題的模擬定義（依賴 sims.js 的 SIMH 與 SIMS） */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,Arrow=H.Arrow,S=window.SIMS;
+function f2(x){return (Math.round(x*100)/100).toFixed(2);}
+function f1(x){return (Math.round(x*10)/10).toFixed(1);}
+function path(parent,cls){return E('path',{'class':cls,d:''},parent);}
+function poly(parent,cls){return E('polyline',{'class':cls,points:''},parent);}
+
+/* ---------- 復1-2：長木板上的木塊（板塊） ---------- */
+S.board={w:560,h:235,
+  dur:function(p){var f=p.uk*p.m*10,a1=(p.F-f)/p.m,a2=f/p.M;return Math.sqrt(2*p.L/(a1-a2))+0.12;},
+  build:function(svg,p){
+    var f=p.uk*p.m*10,a1=(p.F-f)/p.m,a2=f/p.M,tend=Math.sqrt(2*p.L/(a1-a2)),K=150,x0=30,gy=175;
+    H.ground(svg,16,544,gy);
+    var board=E('g',{},svg);
+    E('rect',{'class':'fg',x:x0,y:gy-24,width:p.L*K,height:24,rx:3},board);
+    T(board,x0+60,gy-7,'M＝'+p.M+' kg','t');
+    var blk=E('g',{},svg);
+    E('rect',{'class':'fb',x:-13,y:-26,width:26,height:26,rx:3},blk);
+    T(blk,0,-9,'m','t');
+    var aF=Arrow(svg,'force'),aFk=Arrow(svg,'force'),aFb=Arrow(svg,'force');
+    var lF=T(svg,0,0,'F','tf'),lf1=T(svg,0,0,'f','tf'),lf2=T(svg,0,0,'f','tf');
+    T(svg,x0,gy+30,'起點','tm');
+    E('line',{'class':'dim',x1:x0+p.L*K,y1:gy-70,x2:x0+p.L*K,y2:gy},svg);
+    T(svg,x0+p.L*K,gy-76,'木板右端（相對位移 L＝'+p.L+' m 時離開）','ts','start').setAttribute('text-anchor','middle');
+    return function(t){
+      var s1=0.5*a1*t*t,s2=0.5*a2*t*t,on=t<tend,fall=0;
+      if(!on){var tt=t-tend;fall=0.5*10*tt*tt;}
+      var bxp=x0+s2*K, kx=x0+s1*K, ky=gy-24+fall*K;
+      board.setAttribute('transform','translate('+(s2*K)+',0)');
+      blk.setAttribute('transform','translate('+kx+','+ky+')');
+      var cy=ky-13;
+      aF.set(kx+14,cy,kx+84,cy);lF.setAttribute('x',kx+98);lF.setAttribute('y',cy+5);
+      if(on){aFk.set(kx-14,ky-6,kx-44,ky-6);lf1.setAttribute('x',kx-58);lf1.setAttribute('y',ky-1);
+        var bc=bxp+p.L*K*0.72;aFb.set(bc,gy-34,bc+34,gy-34);lf2.setAttribute('x',bc+48);lf2.setAttribute('y',gy-29);
+        lf1.style.display='';lf2.style.display='';}
+      else{aFk.set(0,0,0,0);aFb.set(0,0,0,0);lf1.style.display='none';lf2.style.display='none';}
+    };
+  },
+  note:function(t,p){
+    var f=p.uk*p.m*10,a1=(p.F-f)/p.m,a2=f/p.M,tend=Math.sqrt(2*p.L/(a1-a2));
+    var tt=Math.min(t,tend);
+    var s='t＝'+f2(t)+' s：木塊速度 '+f1(a1*tt)+' m/s（a₁＝'+a1+' m/s²），木板速度 '+f2(a2*tt)+' m/s（a₂＝'+a2+' m/s²）';
+    s+='<br>相對位移 '+f2(0.5*(a1-a2)*tt*tt)+' / '+p.L+' m';
+    if(t>=tend)s+=' ⇒ <b>木塊已離開木板</b>（t＝'+f2(tend)+' s）';
+    return s;
+  }};
+
+/* ---------- 復1-6：光滑半球脫離 ---------- */
+S.hemisphere={w:560,h:292,
+  _pre:null,
+  _calc:function(p){
+    if(this._c)return this._c;
+    var R=p.R,g=10,th=0.15,v2=2*g*R*(1-Math.cos(th)),dt=0.0005,t=0,arr=[[0,th]];
+    var thc=Math.acos(2/3);
+    while(th<thc){var w=Math.sqrt(Math.max(2*g*(1-Math.cos(th))/R,0));th+=w*dt;t+=dt;arr.push([t,th]);if(t>5)break;}
+    var tl=t,v=Math.sqrt(2*g*R/3),vx=v*Math.cos(thc),vd=v*Math.sin(thc),h0=R*Math.cos(thc);
+    var tf=(-vd+Math.sqrt(vd*vd+4*5*h0))/(2*5);
+    return (this._c={arr:arr,tl:tl,tf:tf,thc:thc,vx:vx,vd:vd,h0:h0,x0:R*Math.sin(thc),R:R});
+  },
+  dur:function(p){var c=S.hemisphere._calc(p);return 2*(c.tl+c.tf);},
+  build:function(svg,p){
+    var c=S.hemisphere._calc(p),K=150,cx=170,gy=262,SL=2;
+    H.ground(svg,20,540,gy);
+    E('path',{'class':'fg',d:'M'+(cx-K)+','+gy+' A'+K+','+K+' 0 0 1 '+(cx+K)+','+gy+' Z'},svg);
+    T(svg,cx,gy-30,'光滑半球','tm');
+    var trail=poly(svg,'curve2 dash'),ball=E('circle',{'class':'fwo',r:8},svg);
+    var aN=Arrow(svg,'force'),aG=Arrow(svg,'force');
+    var lN=T(svg,0,0,'N','tf'),lG=T(svg,0,0,'mg','tf');
+    var ang=E('path',{'class':'o',d:''},svg);
+    var tlab=T(svg,cx+K+12,gy-60,'','tm','start');
+    return function(t){
+      var tp=t/SL,x,y,th,N=0,pts='';
+      function pos(tp){
+        if(tp<=c.tl){
+          var a=c.arr,i=Math.min(a.length-1,Math.floor(tp/0.0005));th=a[i][1];
+          return [c.R*Math.sin(th),c.R*Math.cos(th),th];
+        }
+        var tau=Math.min(tp-c.tl,c.tf);
+        return [c.x0+c.vx*tau,c.h0-c.vd*tau-5*tau*tau,null];
+      }
+      var q=pos(tp);th=q[2];x=cx+q[0]*K;y=gy-q[1]*K;
+      ball.setAttribute('cx',x);ball.setAttribute('cy',y);
+      // 軌跡
+      var n=60,st=0;
+      for(var i=0;i<=n;i++){var u=tp*i/n,r=pos(u);pts+=(cx+r[0]*K)+','+(gy-r[1]*K)+' ';}
+      trail.setAttribute('points',pts);
+      aG.set(x,y,x,y+56);lG.setAttribute('x',x+16);lG.setAttribute('y',y+62);
+      if(th!==null){
+        N=3*Math.cos(th)-2;if(N<0)N=0;
+        var ux=Math.sin(th),uy=-Math.cos(th);
+        aN.set(x,y,x+ux*60*N,y+uy*60*N);
+        lN.setAttribute('x',x+ux*(60*N+14));lN.setAttribute('y',y+uy*(60*N+14)+5);
+        lN.style.display=N>0.02?'':'none';
+        var r0=70,a0=Math.PI/2,a1=Math.PI/2-th;
+        ang.setAttribute('d','M'+cx+','+(gy-K-0)+' L'+cx+','+gy);
+      }else{aN.set(0,0,0,0);lN.style.display='none';}
+      ang.setAttribute('d',th!==null?'M'+cx+','+gy+' L'+x+','+y:'');
+    };
+  },
+  note:function(t,p){
+    var c=S.hemisphere._calc(p),tp=t/2;
+    if(tp<=c.tl){
+      var a=c.arr,i=Math.min(a.length-1,Math.floor(tp/0.0005)),th=a[i][1],N=3*Math.cos(th)-2;
+      return 'θ＝'+f1(th*180/Math.PI)+'°，N＝mg(3cosθ − 2)＝<b>'+f2(Math.max(N,0))+' mg</b>'+(N<0.02?'　← 剛好 N＝0，離開球面（cosθ＝2/3，θ≈48.2°）':'');
+    }
+    var tau=Math.min(tp-c.tl,c.tf),vx=c.vx,vy=c.vd+10*tau;
+    return '已離開球面，做拋體運動；速率 '+f2(Math.sqrt(vx*vx+vy*vy))+' m/s'+(tau>=c.tf?'（落地速率 √(2gR)＝4.47 m/s）':'');
+  }};
+
+/* ---------- 復1-7：彈簧托盤上的物塊 ---------- */
+S.tray={w:560,h:300,dur:function(p){var w=Math.sqrt(p.k/(p.M+p.m));return 2*2*(2*Math.PI/w);},
+  build:function(svg,p){
+    var w=Math.sqrt(p.k/(p.M+p.m)),Tp=2*Math.PI/w,g=10,A=p.A,K=600,cx=130,SL=2;
+    E('line',{'class':'o',x1:60,y1:24,x2:200,y2:24},svg);
+    for(var i=0;i<=10;i++)E('line',{'class':'hatch',x1:60+i*14,y1:24,x2:60+i*14+8,y2:15},svg);
+    var sp=path(svg,'o'),spr=H.spring(8,9,0.1);
+    var tray=E('rect',{'class':'fg',x:cx-55,y:0,width:110,height:14,rx:3},svg);
+    var blk=E('rect',{'class':'fb',x:cx-20,y:0,width:40,height:40,rx:3},svg);
+    var tb=T(svg,cx,0,'m','t');
+    E('line',{'class':'dim',x1:60,y1:210,x2:210,y2:210},svg);
+    T(svg,215,214,'平衡位置','tm','start');
+    var aN=Arrow(svg,'force'),aG=Arrow(svg,'force');
+    var lN=T(svg,0,0,'N','tf'),lG=T(svg,0,0,'mg','tf');
+    // 右圖：N–t
+    var ox=330,oy=262,W=210,top=90;
+    E('line',{'class':'axis',x1:ox,y1:oy,x2:ox+W,y2:oy},svg);E('line',{'class':'axis',x1:ox,y1:oy,x2:ox,y2:top-20},svg);
+    T(svg,ox+W,oy+20,'t','tm','end');T(svg,ox+4,top-26,'N（牛頓）','tm','start');
+    var Nmax=p.m*(g+w*w*A)*1.1;
+    function X(tp){return ox+tp/(2*Tp)*W;}
+    function Y(N){return oy-N/Nmax*(oy-top);}
+    var pts='';for(var j=0;j<=120;j++){var tp=2*Tp*j/120;pts+=X(tp)+','+Y(p.m*(g+w*w*A*Math.cos(w*tp)))+' ';}
+    E('polyline',{'class':'curve',points:pts},svg);
+    E('line',{'class':'dim',x1:ox,y1:Y(p.m*g),x2:ox+W,y2:Y(p.m*g)},svg);
+    T(svg,ox+W,Y(p.m*g)-6,'mg＝'+f1(p.m*g)+' N','tm','end');
+    var dot=E('circle',{'class':'fwo',r:6},svg);
+    var guide=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg);
+    return function(t){
+      var tp=t/SL,y=-A*Math.cos(w*tp),N=p.m*(g-w*w*y);
+      var ty=180-y*K;
+      sp.setAttribute('d',spr(cx,24,cx,ty));
+      tray.setAttribute('y',ty);blk.setAttribute('y',ty-40);tb.setAttribute('x',cx);tb.setAttribute('y',ty-14);
+      var bcy=ty-20;
+      aG.set(cx+30,bcy,cx+30,bcy+p.m*g*6);lG.setAttribute('x',cx+46);lG.setAttribute('y',bcy+10);
+      aN.set(cx-30,bcy,cx-30,bcy-Math.max(N,0)*6);lN.setAttribute('x',cx-54);lN.setAttribute('y',bcy-Math.max(N,0)*6-4);
+      lN.style.display=N>0.05?'':'none';
+      dot.setAttribute('cx',X(tp));dot.setAttribute('cy',Y(N));
+      guide.setAttribute('x1',X(tp));guide.setAttribute('x2',X(tp));guide.setAttribute('y1',oy);guide.setAttribute('y2',Y(N));
+    };
+  },
+  note:function(t,p){
+    var w=Math.sqrt(p.k/(p.M+p.m)),g=10,tp=t/2,y=-p.A*Math.cos(w*tp),N=p.m*(g-w*w*y);
+    return '位置 y＝'+f1(y*100)+' cm（向上為正），加速度 '+f1(-w*w*y)+' m/s²，物塊對托盤的壓力 N＝<b>'+f2(Math.max(N,0))+' N</b>'+(N<0.02?'　← 恰為 0，物塊「失重」，再大的振幅就會脫離':'');
+  }};
+
+/* ---------- 復1-8：參考圓與 x–t 圖 ---------- */
+S.refcircle={w:560,h:300,dur:function(p){return p.T;},
+  build:function(svg,p){
+    var cx=130,cy=120,R=78,A=p.A,Tp=p.T,ph=p.phi*Math.PI/180,w=2*Math.PI/Tp;
+    E('circle',{'class':'f',cx:cx,cy:cy,r:R},svg);
+    E('line',{'class':'dim',x1:cx-R-14,y1:cy,x2:cx+R+14,y2:cy},svg);
+    E('line',{'class':'dim',x1:cx,y1:cy-R-14,x2:cx,y2:cy+R+14},svg);
+    // 下方的 x 軸（振子的位置）
+    var ay=262;
+    E('line',{'class':'axis',x1:cx-R-14,y1:ay,x2:cx+R+14,y2:ay},svg);
+    for(var k=-1;k<=1;k++)E('line',{'class':'thin',x1:cx+k*R,y1:ay-4,x2:cx+k*R,y2:ay+4},svg);
+    T(svg,cx-R,ay+20,'−A','tm');T(svg,cx,ay+20,'0','tm');T(svg,cx+R,ay+20,'＋A','tm');
+    var P=E('circle',{'class':'fwo',r:7},svg),Q=E('rect',{'class':'fb',x:-10,y:ay-22,width:20,height:20,rx:3},svg);
+    var vl=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg),rad=E('line',{'class':'o',x1:cx,y1:cy,x2:cx,y2:cy},svg);
+    var aV=Arrow(svg,'vel');
+    var lead=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg);
+    // 右：x–t 圖
+    var ox=300,oy=150,W=240,Hh=R;
+    E('line',{'class':'axis',x1:ox,y1:oy,x2:ox+W+12,y2:oy},svg);E('line',{'class':'axis',x1:ox,y1:oy+Hh+14,x2:ox,y2:oy-Hh-16},svg);
+    T(svg,ox+W+12,oy+20,'t（s）','tm','end');T(svg,ox+6,oy-Hh-20,'x（cm）','tm','start');
+    T(svg,ox-6,oy-Hh+5,'10','tm','end');T(svg,ox-6,oy+Hh+5,'−10','tm','end');
+    function X(t){return ox+t/Tp*W;}function Y(x){return oy-x/A*Hh;}
+    var pts='';for(var i=0;i<=120;i++){var t=Tp*i/120;pts+=X(t)+','+Y(A*Math.cos(ph+w*t))+' ';}
+    E('polyline',{'class':'curve',points:pts},svg);
+    [[1/6,'1/6 s 平衡位置'],[1/3,'1/3 s x＝−5']].forEach(function(m){
+      E('line',{'class':'dim',x1:X(m[0]),y1:oy-Hh,x2:X(m[0]),y2:oy+Hh},svg);});
+    T(svg,X(1/6)+4,oy+Hh+30,'1/6','tm');T(svg,X(1/3)+14,oy+Hh+30,'1/3','tm');
+    var dot=E('circle',{'class':'fwo',r:6},svg);
+    var guide=E('line',{'class':'dim',x1:0,y1:0,x2:0,y2:0},svg);
+    return function(t){
+      var th=ph+w*t,px=cx+R*Math.cos(th),py=cy-R*Math.sin(th),x=A*Math.cos(th);
+      P.setAttribute('cx',px);P.setAttribute('cy',py);
+      rad.setAttribute('x2',px);rad.setAttribute('y2',py);
+      Q.setAttribute('x',px-10);
+      vl.setAttribute('x1',px);vl.setAttribute('y1',py);vl.setAttribute('x2',px);vl.setAttribute('y2',ay-22);
+      aV.set(px,py,px+(-Math.sin(th))*42,py+(-Math.cos(th))*42);
+      dot.setAttribute('cx',X(t));dot.setAttribute('cy',Y(x));
+      guide.setAttribute('x1',X(t));guide.setAttribute('x2',X(t));guide.setAttribute('y1',oy);guide.setAttribute('y2',Y(x));
+    };
+  },
+  note:function(t,p){
+    var ph=p.phi*Math.PI/180,w=2*Math.PI/p.T,th=ph+w*t,x=p.A*Math.cos(th),v=-p.A*w*Math.sin(th);
+    return '相位 '+Math.round((p.phi+360*t/p.T)%360)+'°　x＝'+f1(x)+' cm，速度 '+f1(v)+' cm/s（'+(v<0?'向 −x':'向 ＋x')+'）　x＝10cos(πt＋π/3)';
+  }};
+})();
+
+/* 動畫解（二）：復2 的動畫 */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,Arrow=H.Arrow,S=window.SIMS;
+function f2(x){return (Math.round(x*100)/100).toFixed(2);}
+function f1(x){return (Math.round(x*10)/10).toFixed(1);}
+function path(parent,cls){return E('path',{'class':cls,d:''},parent);}
+function poly(parent,cls){return E('polyline',{'class':cls,points:''},parent);}
+
+/* ---------- 復2-1：雙星繞質心 ---------- */
+S.binary={w:560,h:300,dur:8,
+  build:function(svg,p){
+    var cx=280,cy=150,d=220,M=p.M,m=p.m,rM=d*m/(M+m),rm=d*M/(M+m);
+    E('circle',{'class':'dim',cx:cx,cy:cy,r:rM,fill:'none'},svg);
+    E('circle',{'class':'dim',cx:cx,cy:cy,r:rm,fill:'none'},svg);
+    var ln=E('line',{'class':'thin',x1:0,y1:0,x2:0,y2:0},svg);
+    E('line',{'class':'o',x1:cx-6,y1:cy,x2:cx+6,y2:cy},svg);E('line',{'class':'o',x1:cx,y1:cy-6,x2:cx,y2:cy+6},svg);
+    T(svg,cx+8,cy+18,'質心','tm','start');
+    var sM=E('circle',{'class':'fy',r:15},svg),sm=E('circle',{'class':'fb',r:10},svg);
+    var tM=T(svg,0,0,'M＝'+M+'m','t'),tm=T(svg,0,0,'m','t');
+    var fM=Arrow(svg,'force'),fm=Arrow(svg,'force'),vM=Arrow(svg,'vel'),vm=Arrow(svg,'vel');
+    var lF1=T(svg,0,0,'F','tf'),lF2=T(svg,0,0,'F','tf'),lv1=T(svg,0,0,'v_{M}','tv'),lv2=T(svg,0,0,'v_{m}','tv');
+    T(svg,20,24,'兩星間引力 F 大小相同（紅）；速率 v＝rω（藍）','ts','start');
+    return function(t){
+      var th=2*Math.PI*t/S.binary.dur;
+      var xM=cx+rM*Math.cos(th),yM=cy-rM*Math.sin(th),xm=cx-rm*Math.cos(th),ym=cy+rm*Math.sin(th);
+      sM.setAttribute('cx',xM);sM.setAttribute('cy',yM);sm.setAttribute('cx',xm);sm.setAttribute('cy',ym);
+      ln.setAttribute('x1',xM);ln.setAttribute('y1',yM);ln.setAttribute('x2',xm);ln.setAttribute('y2',ym);
+      var ux=(xm-xM)/d,uy=(ym-yM)/d;
+      fM.set(xM,yM,xM+ux*46,yM+uy*46);fm.set(xm,ym,xm-ux*46,ym-uy*46);
+      var tx=-Math.sin(th),ty=-Math.cos(th); // 逆時針切線（螢幕座標）
+      var k=0.4;
+      vM.set(xM,yM,xM+tx*rM*k,yM+ty*rM*k);vm.set(xm,ym,xm-tx*rm*k,ym-ty*rm*k);
+      tM.setAttribute('x',xM-0);tM.setAttribute('y',yM-24);tm.setAttribute('x',xm);tm.setAttribute('y',ym-18);
+      lF1.setAttribute('x',xM+ux*60);lF1.setAttribute('y',yM+uy*60+5);lF2.setAttribute('x',xm-ux*60);lF2.setAttribute('y',ym-uy*60+5);
+      lv1.setAttribute('x',xM+tx*rM*k+tx*14);lv1.setAttribute('y',yM+ty*rM*k+ty*14+5);
+      lv2.setAttribute('x',xm-tx*rm*k-tx*14);lv2.setAttribute('y',ym-ty*rm*k-ty*14+5);
+    };
+  },
+  note:function(t,p){return '半徑 r<sub>M</sub> : r<sub>m</sub> ＝ m : M ＝ 1 : 2，速率 v<sub>m</sub> : v<sub>M</sub> ＝ 2 : 1，動能 K<sub>m</sub> : K<sub>M</sub> ＝ 2 : 1；兩星週期相同 T＝2π√(d³/3Gm)。';}};
+
+/* ---------- 復2-4：橢圓軌道（克卜勒） ---------- */
+S.kepler={w:560,h:300,dur:8,
+  build:function(svg,p){
+    var cx=235,cy=150,a=160,e=0.5,b=a*Math.sqrt(1-e*e),c=a*e,Rpx=40,fx=cx+c,GMunit=8; // km/s 單位：√(gR)=8 km/s
+    var path0=[];for(var i=0;i<=120;i++){var E0=2*Math.PI*i/120;path0.push((cx+a*Math.cos(E0))+','+(cy-b*Math.sin(E0)));}
+    E('polyline',{'class':'curve dash',points:path0.join(' '),style:'stroke-width:1.8'},svg);
+    E('circle',{'class':'fg',cx:fx,cy:cy,r:Rpx},svg);T(svg,fx,cy+5,'地球','t');
+    E('line',{'class':'dim',x1:cx-a,y1:cy,x2:cx+a,y2:cy},svg);
+    T(svg,cx+a,cy-12,'近地點 2R','tm','end');T(svg,cx-a,cy-12,'遠地點 6R','tm','start');
+    var sweep=E('polygon',{'class':'shade',points:''},svg);
+    var trail=poly(svg,'curve2'),sat=E('circle',{'class':'fwo',r:7},svg);
+    var aV=Arrow(svg,'vel'),lV=T(svg,0,0,'v','tv');
+    function kepE(M){var Ee=M;for(var k=0;k<30;k++)Ee=Ee-(Ee-e*Math.sin(Ee)-M)/(1-e*Math.cos(Ee));return Ee;}
+    function posAt(frac){var M=2*Math.PI*frac,Ee=kepE(M);return [cx+a*Math.cos(Ee),cy-b*Math.sin(Ee),Ee];}
+    return function(t){
+      var fr=t/S.kepler.dur,q=posAt(fr),x=q[0],y=q[1],Ee=q[2];
+      sat.setAttribute('cx',x);sat.setAttribute('cy',y);
+      var pts=fx+','+cy,n=14,span=1/12;
+      for(var i=0;i<=n;i++){var f=fr-span+span*i/n;if(f<0)f+=1;var r=posAt(f);pts+=' '+r[0]+','+r[1];}
+      sweep.setAttribute('points',pts);
+      var tr='';for(var j=0;j<=60;j++){var ff=fr*j/60,r2=posAt(ff);tr+=r2[0]+','+r2[1]+' ';}
+      trail.setAttribute('points',tr);
+      var rpx=Math.hypot(x-fx,y-cy),rR=rpx/Rpx,v=GMunit*Math.sqrt(2/rR-1/4);
+      var tx=-a*Math.sin(Ee),ty=-b*Math.cos(Ee),L=Math.hypot(tx,ty);tx/=L;ty/=L;
+      aV.set(x,y,x+tx*v*7,y+ty*v*7);lV.setAttribute('x',x+tx*(v*7+16));lV.setAttribute('y',y+ty*(v*7+16)+5);
+    };
+  },
+  note:function(t,p){
+    var e=0.5,a=4,fr=t/S.kepler.dur,M=2*Math.PI*fr,Ee=M;for(var k=0;k<30;k++)Ee=Ee-(Ee-e*Math.sin(Ee)-M)/(1-e*Math.cos(Ee));
+    var rR=a*(1-e*Math.cos(Ee)),v=8*Math.sqrt(2/rR-1/a);
+    return '距地心 r＝'+f2(rR)+' R，速率 v＝<b>'+f2(v)+' km/s</b>（近地點 6.93、遠地點 2.31，比 3 : 1）；淡綠色＝最近 T/12 掃過的面積（面積速率固定）。<br>全程＝1 個週期 T＝4.0×10⁴ s ≈ 11.2 h（此處 8 秒＝1 週期）。';
+  }};
+
+/* ---------- 復2-6：船上走路（質心不動） ---------- */
+S.boat={w:560,h:250,dur:4,
+  build:function(svg,p){
+    var M=p.M,m=p.m,L=p.L,K=40,bl0=130,wl=190;
+    // 水面
+    E('rect',{'class':'fb',x:10,y:wl,width:540,height:50,'fill-opacity':0.25,style:'stroke:none'},svg);
+    E('line',{'class':'o',x1:10,y1:wl,x2:550,y2:wl},svg);
+    var xcom=bl0+(m*0+M*(L/2*K))/(M+m);
+    E('line',{'class':'dim',x1:xcom,y1:50,x2:xcom,y2:wl+30},svg);T(svg,xcom,44,'質心（不動）','tf');
+    E('line',{'class':'dim',x1:bl0,y1:wl+8,x2:bl0,y2:wl+34},svg);T(svg,bl0,wl+48,'船原本的左端','tm');
+    var boat=E('polygon',{'class':'fy',points:''},svg),mid=T(svg,0,0,'船 M＝'+M+' kg','ts');
+    var person=E('g',{},svg);
+    E('circle',{'class':'fwo',cx:0,cy:-44,r:7},person);
+    E('line',{'class':'o',x1:0,y1:-37,x2:0,y2:-14,style:'stroke-width:3'},person);
+    E('line',{'class':'o',x1:0,y1:-14,x2:-7,y2:0},person);E('line',{'class':'o',x1:0,y1:-14,x2:7,y2:0},person);
+    E('line',{'class':'o',x1:-9,y1:-30,x2:9,y2:-30},person);
+    var pl=T(svg,0,0,'人 m＝'+m+' kg','ts');
+    return function(t){
+      var s=L*t/S.boat.dur;
+      var bl=bl0-K*(m/(M+m))*s,px=bl+K*s;
+      var x1=bl-20,x2=bl+L*K+20;
+      boat.setAttribute('points',x1+','+(wl-26)+' '+x2+','+(wl-26)+' '+(x2-24)+','+(wl+4)+' '+(x1+24)+','+(wl+4));
+      mid.setAttribute('x',(x1+x2)/2);mid.setAttribute('y',wl-6);
+      person.setAttribute('transform','translate('+px+','+(wl-26)+')');
+      pl.setAttribute('x',px);pl.setAttribute('y',wl-96);
+    };
+  },
+  note:function(t,p){
+    var s=p.L*t/S.boat.dur,sb=p.m/(p.M+p.m)*s,sp=p.M/(p.M+p.m)*s;
+    return '人相對船走了 '+f2(s)+' m；<b>人相對岸 '+f2(sp)+' m（向右），船相對岸 '+f2(sb)+' m（向左）</b>；m(L−d)＝Md ⇒ d＝mL/(M＋m)＝2.0 m。';
+  }};
+
+/* ---------- 復2-8：拉繩改變半徑（角動量守恆） ---------- */
+S.pullrope={w:560,h:300,dur:8,
+  _th:null,
+  _prep:function(p){
+    var self=S.pullrope;if(self._k===p.r0)return;
+    self._k=p.r0;var N=800,dt=S.pullrope.dur/N,th=0,arr=[0];
+    for(var i=0;i<N;i++){var u=(i+0.5)/N,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),w=p.v0*p.r0/(r*r);th+=0.4*w*dt;arr.push(th);}
+    self._th=arr;
+  },
+  build:function(svg,p){
+    var self=S.pullrope;self._prep(p);
+    var cx=220,cy=150,K=150;
+    E('circle',{'class':'f',cx:cx,cy:cy,r:136},svg);
+    E('circle',{'class':'fo',cx:cx,cy:cy,r:4},svg);T(svg,cx,cy+22,'小孔','tm');
+    E('circle',{'class':'dim',cx:cx,cy:cy,r:p.r0*K},svg);E('circle',{'class':'dim',cx:cx,cy:cy,r:p.r0*K/2},svg);
+    var rope=E('line',{'class':'o',x1:cx,y1:cy,x2:cx,y2:cy},svg),trail=poly(svg,'curve2');
+    var ball=E('circle',{'class':'fb',r:9},svg);
+    var aT=Arrow(svg,'force'),aV=Arrow(svg,'vel');
+    T(svg,cx,cy+160,'','tm');
+    return function(t){
+      var N=self._th.length-1,i=Math.min(N,Math.floor(t/S.pullrope.dur*N)),th=self._th[i];
+      var u=t/S.pullrope.dur,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),v=p.v0*p.r0/r,rp=r*K;
+      var x=cx+rp*Math.cos(th),y=cy-rp*Math.sin(th);
+      ball.setAttribute('cx',x);ball.setAttribute('cy',y);rope.setAttribute('x2',x);rope.setAttribute('y2',y);
+      var T0=p.m*v*v/r,tx=-Math.sin(th),ty=-Math.cos(th),ux=(cx-x)/rp,uy=(cy-y)/rp;
+      aT.set(x,y,x+ux*T0*3,y+uy*T0*3);aV.set(x,y,x+tx*v*18,y+ty*v*18);
+      var pts='';for(var j=0;j<=i;j+=4){var uu=j/N*1,s2=uu*uu*(3-2*uu),r2=p.r0*(1-0.5*s2)*K,t2=self._th[j];pts+=(cx+r2*Math.cos(t2))+','+(cy-r2*Math.sin(t2))+' ';}
+      trail.setAttribute('points',pts);
+    };
+  },
+  note:function(t,p){
+    var u=t/S.pullrope.dur,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),v=p.v0*p.r0/r,Tn=p.m*v*v/r,W=0.5*p.m*(v*v-p.v0*p.v0);
+    return '半徑 r＝'+f2(r)+' m，速率 v＝'+f2(v)+' m/s（r×v 不變），張力 T＝'+f1(Tn)+' N（紅），人已作功 W＝<b>'+f2(W)+' J</b>；藍＝速度。';
+  }};
+
+/* ---------- 復2-9：三球連續彈性碰撞 ---------- */
+S.balls3={w:560,h:230,
+  _sim:function(p){
+    var m=[p.m1,p.m2,p.m3],r=m.map(function(x){return 8+4*Math.cbrt(x);}),v0=90;
+    var x=[50,190,320],v=[v0,0,0],t=0,seg=[{t:0,x:x.slice(),v:v.slice()}],gy=0;
+    for(var it=0;it<8;it++){
+      var best=null;
+      for(var i=0;i<2;i++){
+        var gap=x[i+1]-x[i]-(r[i]+r[i+1]),vc=v[i]-v[i+1];
+        if(vc>1e-9&&gap>=-1e-6){var tt=gap/vc;if(best===null||tt<best.t)best={t:tt,i:i};}
+      }
+      if(!best)break;
+      for(var k=0;k<3;k++)x[k]+=v[k]*best.t;t+=best.t;
+      var i=best.i,a=m[i],b=m[i+1],va=v[i],vb=v[i+1];
+      v[i]=((a-b)*va+2*b*vb)/(a+b);v[i+1]=((b-a)*vb+2*a*va)/(a+b);
+      seg.push({t:t,x:x.slice(),v:v.slice()});
+    }
+    return {seg:seg,r:r,end:t+1.6,v0:v0};
+  },
+  dur:function(p){return S.balls3._sim(p).end;},
+  build:function(svg,p){
+    var sim=S.balls3._sim(p),gy=150;
+    E('line',{'class':'o',x1:10,y1:gy+0,x2:550,y2:gy},svg);
+    var cls=['fb','fg','fp'],names=['m_{1}＝'+p.m1+' kg','m_{2}＝'+p.m2+' kg','m_{3}＝'+p.m3+' kg'];
+    var balls=[],lab=[],arr=[],vl=[];
+    for(var i=0;i<3;i++){
+      balls.push(E('circle',{'class':cls[i],r:sim.r[i]},svg));
+      lab.push(T(svg,0,0,names[i],'ts'));
+      arr.push(Arrow(svg,'vel'));vl.push(T(svg,0,0,'','tv'));
+    }
+    function state(t){
+      var s=sim.seg[0];for(var k=0;k<sim.seg.length;k++)if(sim.seg[k].t<=t)s=sim.seg[k];
+      var d=t-s.t,xs=[],vs=s.v;for(var i=0;i<3;i++)xs.push(s.x[i]+vs[i]*d);return {x:xs,v:vs};
+    }
+    S.balls3._state=state;
+    return function(t){
+      var st=state(t);
+      for(var i=0;i<3;i++){
+        var cy=gy-sim.r[i];
+        balls[i].setAttribute('cx',st.x[i]);balls[i].setAttribute('cy',cy);
+        lab[i].setAttribute('x',st.x[i]);lab[i].setAttribute('y',gy+22+18*(i%2));
+        var L=st.v[i]/sim.v0*60;
+        arr[i].set(st.x[i],cy-sim.r[i]-12,st.x[i]+L,cy-sim.r[i]-12);
+        vl[i].setAttribute('x',st.x[i]+L/2);vl[i].setAttribute('y',cy-sim.r[i]-24);
+        vl[i].textContent='';H.setText(vl[i],(st.v[i]/sim.v0).toFixed(3).replace(/0+$/,'').replace(/\.$/,'')+'v');
+      }
+    };
+  },
+  note:function(t,p){
+    var st=S.balls3._state?S.balls3._state(t):null;if(!st)return '';
+    var v0=S.balls3._sim(p).v0,s='速度（以 v 為單位）：甲 '+f2(st.v[0]/v0)+'，乙 '+f2(st.v[1]/v0)+'，丙 '+f2(st.v[2]/v0);
+    return s+'。每次碰撞：v₂\'＝2m₁v/(m₁＋m₂)、v₁\'＝(m₁−m₂)v/(m₁＋m₂)。';
+  }};
+
+/* ---------- 復2-10：碰撞＋彈簧（最大壓縮） ---------- */
+S.springcol={w:560,h:205,
+  dur:function(p){return 1.0+3.0+1.6;},
+  build:function(svg,p){
+    var m1=p.m1,m2=p.m2,Mt=m1+m2,k=p.k,v=p.v,mu=m1*m2/Mt,w=Math.sqrt(k/mu),V=m1*v/Mt,tc=Math.PI/w,K=150,gy=155,SLOW=3.0/tc;
+    E('line',{'class':'o',x1:10,y1:gy,x2:550,y2:gy},svg);
+    var cart=E('rect',{'class':'fg',x:0,y:gy-40,width:100,height:40,rx:3},svg),b1=E('rect',{'class':'fb',x:0,y:gy-40,width:60,height:40,rx:3},svg);
+    var t1=T(svg,0,gy-14,'m_{1}','t'),t2=T(svg,0,gy-14,'m_{2}','t'),sp=path(svg,'o'),spr=H.spring(8,9,0.12);
+    var a1=Arrow(svg,'vel'),a2=Arrow(svg,'vel'),l1=T(svg,0,0,'','tv'),l2=T(svg,0,0,'','tv');
+    var s1e=V*tc+(m2/Mt)*0, s2e=V*tc; // 結束時的位置（sin(π)=0）
+    function geom(t){
+      var x1r,x2l,c=0,v1,v2;
+      if(t<1.0){var d=t; x1r=200-120*(1-d)+0; x2l=300; v1=v;v2=0;x1r=80+120*d;}
+      else if(t<4.0){var tp=(t-1.0)/SLOW,sv=Math.sin(w*tp),cv=Math.cos(w*tp);
+        var s1=V*tp+(m2/Mt)*(v/w)*sv,s2=V*tp-(m1/Mt)*(v/w)*sv;
+        x1r=200+K*s1;x2l=300+K*s2;c=(v/w)*sv;var vr=v*cv;v1=V+(m2/Mt)*vr;v2=V-(m1/Mt)*vr;}
+      else{var tau=t-4.0,e1=200+K*s1e,e2=300+K*s2e,vv1=V-(m2/Mt)*v,vv2=V+(m1/Mt)*v;
+        x1r=e1+20*vv1*tau;x2l=e2+20*vv2*tau;v1=vv1;v2=vv2;}
+      return {x1r:x1r,x2l:x2l,c:c,v1:v1,v2:v2,tp:(t-1.0)/SLOW};
+    }
+    S.springcol._g=geom;
+    return function(t){
+      var g=geom(t);
+      b1.setAttribute('x',g.x1r-60);cart.setAttribute('x',g.x2l);
+      t1.setAttribute('x',g.x1r-30);t2.setAttribute('x',g.x2l+60);
+      // 彈簧：從 m2 左端(g.x2l) 向左到 m1 右端(g.x1r)，但在接觸前自由端在 x2l-100
+      var sx=Math.max(g.x1r,g.x2l-100);
+      sp.setAttribute('d',spr(g.x2l,gy-20,sx,gy-20));
+      a1.set(g.x1r-30,gy-54,g.x1r-30+g.v1*8,gy-54);a2.set(g.x2l+50,gy-54,g.x2l+50+g.v2*8,gy-54);
+      l1.setAttribute('x',g.x1r-30+g.v1*4);l1.setAttribute('y',gy-66);H.setText(l1,'v_{1}＝'+f1(g.v1));
+      l2.setAttribute('x',g.x2l+50+g.v2*4);l2.setAttribute('y',gy-66);H.setText(l2,'v_{2}＝'+f1(g.v2));
+    };
+  },
+  note:function(t,p){
+    var g=S.springcol._g?S.springcol._g(t):null;if(!g)return '';
+    var m1=p.m1,m2=p.m2,Mt=m1+m2,mu=m1*m2/Mt,w=Math.sqrt(p.k/mu),V=m1*p.v/Mt;
+    var Es=0.5*p.k*g.c*g.c,K1=0.5*m1*g.v1*g.v1+0.5*m2*g.v2*g.v2;
+    var s='v₁＝'+f1(g.v1)+' m/s，v₂＝'+f1(g.v2)+' m/s；彈簧位能 '+f1(Es)+' J ＋ 動能 '+f1(K1)+' J ＝ <b>'+f1(Es+K1)+' J</b>（守恆）';
+    if(t>1.0&&t<4.0&&Math.abs(g.v1-g.v2)<0.35)s+='<br><b>最大壓縮：兩者速度相同（共同速度 '+f1(V)+' m/s），x＝'+f2(p.v/w)+' m</b>';
+    return s;
+  }};
+})();
+
+/* 動畫解（三）：復3 的動畫 */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,S=window.SIMS;
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+/* ---------- 復3-7：氣體分子撞擊器壁（定溫壓縮） ---------- */
+S.gasbox={w:560,h:300,dur:9,
+  _sim:function(){
+    if(S.gasbox._c)return S.gasbox._c;
+    var N=40,L0=360,L1=180,x0=40,y0=70,y1=230,dt=0.005,steps=Math.round(9/dt),R=rng(7);
+    var x=[],y=[],vx=[],vy=[];
+    for(var i=0;i<N;i++){x.push(x0+R()*L0);y.push(y0+R()*(y1-y0));var a=R()*2*Math.PI,sp=230+R()*20;vx.push(sp*Math.cos(a));vy.push(sp*Math.sin(a));}
+    var frames=[],hits=[],xr=[];
+    function wall(t){if(t<3)return x0+L0;if(t<6){var u=(t-3)/3;return x0+L0-(L0-L1)*u;}return x0+L1;}
+    for(var s=0;s<=steps;s++){
+      var t=s*dt,w=wall(t),h=0;
+      frames.push({x:x.slice(),y:y.slice()});xr.push(w);
+      for(var i=0;i<N;i++){
+        x[i]+=vx[i]*dt;y[i]+=vy[i]*dt;
+        if(x[i]<x0){x[i]=2*x0-x[i];vx[i]=-vx[i];}
+        if(x[i]>w){x[i]=2*w-x[i];vx[i]=-Math.abs(vx[i]);h++;}
+        if(y[i]<y0){y[i]=2*y0-y[i];vy[i]=-vy[i];}
+        if(y[i]>y1){y[i]=2*y1-y[i];vy[i]=-vy[i];}
+      }
+      hits.push(h);
+    }
+    return (S.gasbox._c={frames:frames,hits:hits,xr:xr,dt:dt,N:N,x0:x0,y0:y0,y1:y1});
+  },
+  build:function(svg,p){
+    var c=S.gasbox._sim();
+    E('rect',{'class':'f',x:c.x0,y:c.y0,width:400,height:c.y1-c.y0,rx:0,style:'fill:none'},svg);
+    var pist=E('rect',{'class':'fy',x:0,y:c.y0-2,width:14,height:c.y1-c.y0+4},svg);
+    var dots=[];for(var i=0;i<c.N;i++)dots.push(E('circle',{'class':'fa',r:4.5},svg));
+    T(svg,c.x0+4,c.y0-12,'氣體（定溫：分子速率不變）','ts','start');
+    T(svg,c.x0+200,c.y1+36,'活塞向左推 → 體積減半','tm','start').setAttribute('x',c.x0);
+    // 右側：撞擊次數長條
+    E('line',{'class':'axis',x1:470,y1:c.y1,x2:470,y2:c.y0},svg);
+    var bar=E('rect',{'class':'fp',x:471,y:c.y1-10,width:50,height:10},svg);
+    T(svg,495,c.y0-12,'近 1 秒','tm');T(svg,495,c.y0+4,'撞右壁次數','tm');
+    var num=T(svg,495,c.y1+20,'','tp');
+    return function(t){
+      var i=Math.min(c.frames.length-1,Math.round(t/c.dt)),f=c.frames[i];
+      for(var k=0;k<c.N;k++){dots[k].setAttribute('cx',f.x[k]);dots[k].setAttribute('cy',f.y[k]);}
+      pist.setAttribute('x',c.xr[i]);
+      var h=0,lo=Math.max(0,i-200);for(var j=lo;j<=i;j++)h+=c.hits[j];
+      var span=(i-lo)*c.dt||1;h=h/span*1;
+      bar.setAttribute('height',Math.min(h*4,c.y1-c.y0));bar.setAttribute('y',c.y1-Math.min(h*4,c.y1-c.y0));
+      H.setText(num,Math.round(h)+' 次/秒');
+    };
+  },
+  note:function(t){
+    var c=S.gasbox._sim(),i=Math.min(c.frames.length-1,Math.round(t/c.dt)),L=c.xr[i]-c.x0;
+    return '體積 V ∝ '+Math.round(L)+'（原 360）；撞擊次數約隨 1/V 增加 ⇒ 壓力 P ∝ 1/V。';
+  }};
+})();
+
+initSims();
+</script>
+<script src="../subjects.js"></script></body></html>

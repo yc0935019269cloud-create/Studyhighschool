@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1-4 原子性質的週期性｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a class="on" href="u1-4.html"><span>1-4</span>原子性質的週期性</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第1章 原子結構與週期表</div>
+<h1><span class="uid">1-4</span>原子性質的週期性</h1>
+<div class="tools"><span class="cnt">本單元 34 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、原子半徑與離子半徑</h3>
+<ol>
+<li><strong>同族由上到下，半徑漸增</strong>：主量子數愈大，電子離核愈遠。<br />
+   例：I ＞ Br ＞ Cl ＞ F；Cs ＞ Rb ＞ K ＞ Na ＞ Li</li>
+<li><strong>同週期由左到右，半徑漸減</strong>：n 相同，核電荷愈大、吸引力愈大。<br />
+   例：Na ＞ Mg ＞ Al ＞ Si ＞ P ＞ S ＞ Cl ＞ Ar</li>
+<li><strong>等電子系列，原子序愈大半徑愈小</strong>：核對電子吸引力愈大。<br />
+   例：<sub>7</sub>N<sup>3−</sup> ＞ <sub>8</sub>O<sup>2−</sup> ＞ <sub>9</sub>F<sup>−</sup> ＞ <sub>10</sub>Ne ＞ <sub>11</sub>Na<sup>+</sup> ＞ <sub>12</sub>Mg<sup>2+</sup> ＞ <sub>13</sub>Al<sup>3+</sup></li>
+<li><strong>同一核電荷，電子愈多半徑愈大</strong>（電子互斥）：Na ＞ Na<sup>+</sup>；F<sup>−</sup> ＞ F</li>
+</ol>
+<aside class="box box-warn"><div class="box-h">注意</div><p>一般說的「原子半徑」指：<br />
+- <strong>共價半徑</strong>：兩個同種原子以共價單鍵連接時，核間距離的一半。<br />
+- <strong>金屬原子半徑</strong>：金屬晶格中相鄰原子核間距離的一半。</p></aside>
+
+<figure class="fig"><img class="figimg" src="img/A028_47p5_59.jpg" width="1400" height="268" loading="lazy" alt="講義一 第28頁" data-page="講義一 p.28"><figcaption>金屬原子半徑與共價半徑 ＝ L/2</figcaption></figure>
+<h3>二、游離能（IE）</h3>
+<h4>1. 定義</h4>
+<p>將<strong>氣態</strong>原子最外層的一個電子移去所需的能量：M(g) → M<sup>+</sup>(g) ＋ e<sup>−</sup>，ΔH ＝ 游離能 ＞ 0（吸熱）</p>
+<p><strong>連續游離能</strong>（以 Na 為例）：<br />
+- IE<sub>1</sub>：Na(g) → Na<sup>+</sup>(g) ＋ e<sup>−</sup>　496 kJ/mol<br />
+- IE<sub>2</sub>：Na<sup>+</sup>(g) → Na<sup>2+</sup>(g) ＋ e<sup>−</sup>　4563 kJ/mol<br />
+- IE<sub>3</sub>：Na<sup>2+</sup>(g) → Na<sup>3+</sup>(g) ＋ e<sup>−</sup>　6913 kJ/mol</p>
+<ul>
+<li>同一原子：<strong>IE<sub>1</sub> ＜ IE<sub>2</sub> ＜ IE<sub>3</sub> ＜ …</strong>（離子帶的正電愈多，愈難再拿走電子）</li>
+<li><strong>若 IE<sub>n＋1</sub> ≫ IE<sub>n</sub>，表示有 n 個價電子</strong>（拿完價電子後變成鈍氣組態，再拿就非常難）。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/A029_43p5_64p5.jpg" width="1400" height="537" loading="lazy" alt="講義一 第29頁" data-page="講義一 p.29"><figcaption>第二週期元素的連續游離能（kJ/mol）</figcaption></figure>
+<h4>2. 影響游離能的因素</h4>
+<ol>
+<li><strong>原子大小</strong>：半徑愈大，游離能愈小。</li>
+<li><strong>核電荷</strong>：核電荷愈大，游離能愈高。</li>
+<li><strong>電子組態</strong>：組態愈穩定，游離能愈高。<br />
+   - 鈍氣 ns<sup>2</sup>np<sup>6</sup>：同週期中最大。<br />
+   - s 全滿（ns<sup>2</sup>）：比鄰居大，如 Be ＞ B、Be ＞ Li。<br />
+   - p 半滿（np<sup>3</sup>）：比鄰居大，如 N ＞ O、N ＞ C。</li>
+</ol>
+<h4>3. 游離能的週期性</h4>
+<ol>
+<li><strong>同族</strong>：原子序愈大，游離能愈小。Li ＞ Na ＞ K ＞ Rb ＞ Cs；F ＞ Cl ＞ Br ＞ I</li>
+<li><strong>同週期</strong>：由左向右呈<strong>鋸齒狀遞增</strong>：</li>
+</ol>
+<blockquote>
+<p>Li ＜ <strong>B ＜ Be</strong> ＜ C ＜ <strong>O ＜ N</strong> ＜ F ＜ Ne</p>
+</blockquote>
+<figure class="fig"><img class="figimg" src="img/A030_74p5_90_x25-88.jpg" width="1295" height="508" loading="lazy" alt="講義一 第30頁" data-page="講義一 p.30"><figcaption>元素第一游離能對原子序作圖（鈍氣在峰頂、鹼金屬在谷底）</figcaption></figure>
+<ol start="3">
+<li><strong>同電子數</strong>的原子或離子：原子序愈大，游離能愈大。F<sup>−</sup> ＜ Ne ＜ Na<sup>+</sup> ＜ Mg<sup>2+</sup> ＜ Al<sup>3+</sup></li>
+<li>陰離子失去 1 個電子比中性原子、陽離子容易：F<sup>+</sup> ＞ F ＞ F<sup>−</sup>；Ne ＞ F<sup>−</sup></li>
+<li>鹵素陰離子失去一個電子所需能量：Cl<sup>−</sup> ＞ F<sup>−</sup> ＞ Br<sup>−</sup> ＞ I<sup>−</sup>（即電子親和力大小順序）</li>
+</ol>
+<h3>三、電子親和力（參考教材）</h3>
+<h4>1. 定義</h4>
+<p>從氣態陰離子 X<sup>−</sup> 移去一個電子的能量變化，稱為元素 X 的電子親和力：<br />
+X<sup>−</sup>(g) → X(g) ＋ e<sup>−</sup>　ΔH ＝ X 的電子親和力</p>
+<ul>
+<li>Cl：Cl<sup>−</sup>(g) → Cl(g) ＋ e<sup>−</sup>　ΔH ＝ ＋349 kJ/mol ⇒ 反過來 Cl ＋ e<sup>−</sup> → Cl<sup>−</sup> <strong>放熱</strong> 349，Cl 容易接受電子。</li>
+<li>Be：Be<sup>−</sup>(g) → Be(g) ＋ e<sup>−</sup>　ΔH ＝ −240 kJ/mol ⇒ Be ＋ e<sup>−</sup> → Be<sup>−</sup> <strong>吸熱</strong> 240，Be 不易接受電子。</li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/A032_31_46_x35-80.jpg" width="902" height="489" loading="lazy" alt="講義一 第32頁" data-page="講義一 p.32"><figcaption>部分元素的電子親和力（kJ/mol）</figcaption></figure>
+<p><strong>電子親和力愈大 ⇒ 中性原子得到一個電子時放熱愈多、對電子吸引力愈大。</strong></p>
+<h4>2. 影響因素</h4>
+<p>核電荷愈小、半徑愈大、中性原子組態愈穩定 ⇒ 愈不易接受電子，電子親和力愈小。</p>
+<h4>3. 特性</h4>
+<ol>
+<li>非金屬的電子親和力一般較大，金屬較小。</li>
+<li>大多數原子電子親和力為正值（得電子放熱），但 <strong>2A 族、8A 族、N 為負值</strong>（得電子吸熱）：Be（2s<sup>2</sup> 全滿）、N（2p<sup>3</sup> 半滿）、Ne（全滿）組態穩定。</li>
+<li>同週期中電子親和力最大的是 <strong>7A 族</strong>（得一個電子就成鈍氣組態）。</li>
+<li>鹵素：<strong>Cl ＞ F ＞ Br ＞ I</strong>（Cl 最大，不是 F！）<br />
+   ⇒ 游離能 Cl<sup>−</sup> ＞ F<sup>−</sup>（Cl<sup>−</sup>→Cl：＋349；F<sup>−</sup>→F：＋333）</li>
+<li><strong>中性原子的電子親和力小於游離能</strong>：最大電子親和力 Cl 349，最小游離能 Cs 368 kJ/mol。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p>中性原子「失去電子吸收的熱」＞「得到電子放出的熱」，所以：<br />
+Na(g) ＋ Cl(g) → Na<sup>+</sup>(g) ＋ Cl<sup>−</sup>(g)　ΔH ＝ ＋496 − 349 ＝ <strong>＋147 kJ/mol ＞ 0</strong></p></aside>
+<h3>四、電負度（陰電性）</h3>
+<h4>1. 定義</h4>
+<p>兩原子鍵結時，原子對<strong>鍵結電子</strong>吸引力強弱的相對值。<br />
+- 鮑林定義：<strong>氟最大，定為 4.0</strong>，其他元素為相對值。<br />
+- 電負度愈大，對共用電子對的吸引力愈大。</p>
+<figure class="fig"><img class="figimg" src="img/A034_74p5_89_x35-80.jpg" width="862" height="465" loading="lazy" alt="講義一 第34頁" data-page="講義一 p.34"><figcaption>第 1～3 週期元素的電負度</figcaption></figure>
+<h4>2. 規律</h4>
+<ul>
+<li><strong>同族</strong>：原子序愈大，電負度愈小。Li ＞ Na ＞ K ＞ Rb ＞ Cs；F ＞ Cl ＞ Br ＞ I</li>
+<li><strong>同週期</strong>：原子序愈大，電負度愈大。F ＞ O ＞ N ＞ C ＞ B ＞ Be ＞ Li</li>
+</ul>
+<h4>3. 應用</h4>
+<ol>
+<li><strong>判斷金屬或非金屬</strong>：以 H 的 2.1 為大約分界，金屬電負度小、非金屬大。</li>
+<li><strong>判斷化學鍵類型</strong>：<br />
+   - 電負度差大 → <strong>離子鍵</strong>：Na(0.9)、Cl(3.0)，差 2.1 → NaCl 為離子鍵<br />
+   - 電負度差小 → <strong>共價鍵</strong>：H(2.1)、Cl(3.0)，差 0.9 → HCl 為共價鍵</li>
+</ol>
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead>
+<tr>
+<th>性質</th>
+<th>同族往下</th>
+<th>同週期往右</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原子半徑</td>
+<td>增大</td>
+<td>減小</td>
+</tr>
+<tr>
+<td>第一游離能</td>
+<td>減小</td>
+<td>鋸齒狀增大（2A＞3A、5A＞6A）</td>
+</tr>
+<tr>
+<td>電負度</td>
+<td>減小</td>
+<td>增大</td>
+</tr>
+<tr>
+<td>電子親和力</td>
+<td>大致減小（但 Cl＞F）</td>
+<td>大致增大（7A 最大；2A、5A、8A 特別小）</td>
+</tr>
+</tbody>
+</table></aside>
+
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q101">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">離子的半徑</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A028_64_71p8.jpg" width="1400" height="208" loading="lazy" alt="講義一 第28頁" data-page="講義一 p.28"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ Na<sup>+</sup>、F<sup>−</sup> 等電子（10 e<sup>−</sup>），原子序大的 Na<sup>+</sup> 較小。</li>
+<li>(B) ✗ 同族往下變大，K<sup>+</sup> ＞ Na<sup>+</sup>。</li>
+<li>(C) ✗ 等電子，Mg<sup>2+</sup> ＜ Na<sup>+</sup>。</li>
+<li>(D) ○ 等電子（18 e<sup>−</sup>），S<sup>2−</sup> 原子序小，半徑較大。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q102">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A028_83_88p8.jpg" width="1400" height="181" loading="lazy" alt="講義一 第28頁" data-page="講義一 p.28"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 同核電荷，電子多的較大：O<sup>−</sup> ＞ O<sup>+</sup></li>
+<li>(B) ○ 同週期往右變小：C ＞ N</li>
+<li>(C) ✗ 同族往下變大：Se ＞ S</li>
+<li>(D) ✗ S<sup>2−</sup> ＞ S</li>
+<li>(E) ✗ 同週期往右變小：Na ＞ Mg</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q103">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">連續游離能與價電子</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A029_69p5_85p5.jpg" width="1400" height="425" loading="lazy" alt="講義一 第29頁" data-page="講義一 p.29"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>IE<sub>3</sub>（872）→ IE<sub>4</sub>（5964）突然暴增 ⇒ <strong>3 個價電子</strong>，屬 3A 族。<br />
+- (A) ○<br />
+- (B) ○ M → M<sup>2+</sup> 需要 IE<sub>1</sub> ＋ IE<sub>2</sub> ＝ 191 ＋ 577 ＝ 768 kJ/mol<br />
+- (C) ○ 常見 ＋3 價，氧化物 M<sub>2</sub>O<sub>3</sub><br />
+- (D) ✗ 應為 3A 族<br />
+- (E) ✗ 鋁的 IE<sub>1</sub> 約 578 kJ/mol，與題目 191 不符（題目數據不是鋁）。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q104">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A030_6p5_17p5.jpg" width="1400" height="277" loading="lazy" alt="講義一 第30頁" data-page="講義一 p.30"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>IE<sub>1</sub>（496）→ IE<sub>2</sub>（4563）暴增 ⇒ 1 個價電子，就是 <strong>Na</strong>（對照講義數據）。<br />
+- (A) ○ 價電子組態 ns<sup>1</sup><br />
+- (B) ✗ 是鹼金屬<br />
+- (C) ✗ Na<sub>2</sub>O 溶於水成 NaOH，呈鹼性<br />
+- (D) ✗ 鈉容易失去電子，是強<strong>還原劑</strong><br />
+- (E) ○ 失去第 2 個電子太難，只形成 ＋1 價</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q105">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">游離能大小比較</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A031_22p5_44p8.jpg" width="1400" height="557" loading="lazy" alt="講義一 第31頁" data-page="講義一 p.31"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 同一原子 IE<sub>2</sub> ＞ IE<sub>1</sub></li>
+<li>(B) ○ 同週期往右 IE<sub>1</sub> 變大：Mg ＞ Na</li>
+<li>(C) ✗ Na<sup>+</sup> 已是鈍氣組態（1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>），再拿電子極難：IE<sub>2</sub>(Na) ≫ IE<sub>2</sub>(Mg)</li>
+<li>(D) ○ IE<sub>3</sub>(Na) 拿的是內層電子，遠大於 IE<sub>3</sub>(Al)（拿 Al 的最後一個價電子）</li>
+<li>(E) ○ IE<sub>2</sub>(Na) 拿內層，IE<sub>2</sub>(Al) 拿 3s 電子</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q106">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A031_65p5_70p3.jpg" width="1400" height="124" loading="lazy" alt="講義一 第31頁" data-page="講義一 p.31"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>第二游離能要大 ⇒ 失去 1 個電子後就是鈍氣組態 ⇒ <strong>1A 族</strong>：K（K<sup>+</sup> 為 [Ar]，再拿極難）。<br />
+S、Ca、Sr 的第二個電子仍是價電子。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q107">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">游離能大小比較</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A031_75_85p3.jpg" width="1400" height="271" loading="lazy" alt="講義一 第31頁" data-page="講義一 p.31"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ He 游離能最大：He ＞ H ＞ Li</li>
+<li>(B) ✗ 鋸齒狀：Be ＞ B ＞ Li</li>
+<li>(C) ○ 都是鈍氣組態，同族往下半徑變大、游離能變小</li>
+<li>(D) ○ 同核電荷，正電愈多愈難拿：O<sup>+</sup> ＞ O ＞ O<sup>−</sup></li>
+<li>(E) ○ 等電子（10 e<sup>−</sup>），原子序愈大愈難：Al<sup>3+</sup> ＞ Mg<sup>2+</sup> ＞ Na<sup>+</sup></li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q108">
+<header class="qh"><span class="qn">類題 4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A032_6p5_12.jpg" width="1400" height="126" loading="lazy" alt="講義一 第32頁" data-page="講義一 p.32"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ K<sup>+</sup> 是鈍氣組態（拿內層），Ca<sup>+</sup> 還有 4s<sup>1</sup>：K<sup>+</sup> ＞ Ca<sup>+</sup></li>
+<li>(B) ✗ 等電子，Ne（原子序大）＞ F<sup>−</sup></li>
+<li>(C) ✗ Mg（3s<sup>2</sup> 全滿）＞ Al</li>
+<li>(D) ○ 同週期往右 F ＞ O</li>
+<li>(E) ○ 同族往上 Ne ＞ Ar</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q109">
+<header class="qh"><span class="qn">例題 5</span><span class="qtag">電子親和力</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A034_6_22p8.jpg" width="1400" height="450" loading="lazy" alt="講義一 第34頁" data-page="講義一 p.34"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ Be 的電子親和力（Be<sup>−</sup>→Be）與 Be 的游離能（Be→Be<sup>+</sup>）是兩個不同的反應，沒有互為相反數的關係。</li>
+<li>(B) ○ 兩者都是 F<sup>−</sup>(g) → F(g) ＋ e<sup>−</sup>，完全相同。</li>
+<li>(C) ○ 中性原子電子親和力 ＜ 游離能（349 ＜ 1251）</li>
+<li>(D) ✗ F 得一個電子是<strong>放出</strong>能量（且第二週期中 F 放最多）</li>
+<li>(E) ✗ 鹵素中 Cl ＞ F，不是單調遞減</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q110">
+<header class="qh"><span class="qn">類題 5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A034_39p5_49p3.jpg" width="1400" height="219" loading="lazy" alt="講義一 第34頁" data-page="講義一 p.34"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ M<sup>−</sup>(g) → M(g) ＋ e<sup>−</sup> 的 ΔH 即電子親和力，可正可負（如 Cl 為正、Be 為負）</li>
+<li>(B) ✗ 鈍氣游離能大，但電子親和力為負</li>
+<li>(C) ✗ 同週期並非一路增加（2A、5A、8A 特別小）</li>
+<li>(D) ✗ 相反：Be 為負值，O 為正值</li>
+<li>(E) ○ Na 得電子放 52.9、Cl 失電子吸 1251 ⇒ ΔH ≈ ＋1198 ＞ 0</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q111">
+<header class="qh"><span class="qn">類題 6</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A034_54_58p3.jpg" width="1400" height="117" loading="lazy" alt="講義一 第34頁" data-page="講義一 p.34"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>得一個電子放出能量 ⇔ 電子親和力為<strong>正值</strong>：H（＋72.8）✓、C（＋122）✓<br />
+He（−22）、Be（−240）、N（−7）得電子要吸熱。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q112">
+<header class="qh"><span class="qn">例題 6</span><span class="qtag">電負度</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A035_43_54p3.jpg" width="1400" height="318" loading="lazy" alt="講義一 第35頁" data-page="講義一 p.35"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 同族往下電負度減小</li>
+<li>(B) ○ 同週期往右電負度增大</li>
+<li>(C) ✗ F 電負度最大是因為<strong>最會吸引</strong>電子，不是最易失去</li>
+<li>(D) ✗ 相反：電負度大 → 非金屬性強</li>
+<li>(E) ✗ 共用電子對偏向電負度<strong>大</strong>的原子</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q113">
+<header class="qh"><span class="qn">類題 7</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A035_69_76p8.jpg" width="1400" height="223" loading="lazy" alt="講義一 第35頁" data-page="講義一 p.35"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 鮑林以 F ＝ 4.0 為標準</li>
+<li>(B) ✗ 電負度大 → 吸引（得到）電子能力強</li>
+<li>(C) ✗ 差距大 → 易形成<strong>離子鍵</strong></li>
+<li>(D) ✗ 由上而下電負度減小</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q114">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1・96指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_15p5_24p3.jpg" width="1400" height="208" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>甲 ＝ Al(13)，乙在其右 ＝ Si(14)；下一排為第 4 週期：丁在甲下方 ＝ Ga、戊 ＝ Ge、丙 ＝ Zn。<br />
+半徑：往右變小、往上變小 ⇒ 右上角的<strong>乙（Si）</strong>最小。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q115">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_24p3_28p3.jpg" width="1400" height="112" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 同族往下變大</li>
+<li>(B) ✗ 等電子，Mg<sup>2+</sup> ＜ Na<sup>+</sup></li>
+<li>(C) ○ 等電子，F<sup>−</sup> ＞ Na<sup>+</sup></li>
+<li>(D) ✗ Li<sup>+</sup> ＜ Na<sup>+</sup></li>
+<li>(E) ○ 同核電荷，電子多的 Cr<sup>2+</sup> 較大</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q116">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_32_36p8.jpg" width="1400" height="111" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>Al：1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>1</sup>。IE<sub>1</sub> 拿 3p、IE<sub>2</sub> 拿第一個 3s、<strong>IE<sub>3</sub> 拿最後一個 3s</strong>：3s → ∞。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q117">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_36p8_46p3.jpg" width="1400" height="250" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>IE<sub>4</sub>（1041）→ IE<sub>5</sub>（3844）暴增 ⇒ 4 個價電子，第三週期 ⇒ <strong>Si（14）</strong>。<br />
+- (A) ✗ 原子序 14<br />
+- (B) ○<br />
+- (C) ✗ Si 是類金屬<br />
+- (D) ○<br />
+- (E) ○ SiO<sub>2</sub></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q118">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題2・94指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_46p3_52p3.jpg" width="1400" height="147" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>換算成 kJ（×4.18）：1090 kcal ≈ 4560 kJ、346.6 kcal ≈ 1450 kJ、434.2 kcal ≈ 1815 kJ。<br />
+Na 的值最大、遠大於 Mg、Al ⇒ Na 已被拿到內層 ⇒ 是 <strong>IE<sub>2</sub></strong>（Na 的 IE<sub>2</sub> 4563、Mg 1451、Al 1817）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q119">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_52p3_56p8.jpg" width="1400" height="97" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>He（2372）＞ H（1312）＞ Be（900）＞ Li（520）<br />
+He 是鈍氣最大；H 只有一個 1s 電子離核很近。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q120">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_56p8_62p8.jpg" width="1400" height="150" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 正電愈多愈難拿：Fe<sup>3+</sup> ＞ Fe<sup>2+</sup> ＞ Fe</li>
+<li>(B) ✗ 游離能同族往下減小：F ＞ Cl ＞ Br</li>
+<li>(C) ○ 鋸齒狀：N（半滿）＞ O ＞ C</li>
+<li>(D) ○ 等電子（18 e<sup>−</sup>），原子序大者較難：K<sup>+</sup> ＞ Ar ＞ Cl<sup>−</sup></li>
+<li>(E) ✗ Na<sup>+</sup> 是鈍氣組態最難；Al<sup>+</sup>（3s<sup>2</sup>）＞ Mg<sup>+</sup>（3s<sup>1</sup>）⇒ Na<sup>+</sup> ＞ Al<sup>+</sup> ＞ Mg<sup>+</sup></li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q121">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_62p8_76p3.jpg" width="1400" height="349" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>甲、乙都是 21 個電子 ＝ Sc：乙 3d<sup>1</sup>4s<sup>2</sup> 為基態，甲 3d<sup>2</sup>4s<sup>1</sup> 為激發態。丙 ＝ 18 個電子的 ＋3 離子 ＝ Sc<sup>3+</sup>；丁 ＝ Ar。<br />
+- (A) ○ 激發態 → 基態，放出能量<br />
+- (B) ✗ 乙 → 丙是游離（Sc → Sc<sup>3+</sup>），要吸收能量<br />
+- (C) ✗ 乙的 IE<sub>3</sub> 是拿最後一個價電子；自丙（Sc<sup>3+</sup>，鈍氣組態）再拿一個是 IE<sub>4</sub>，大得多<br />
+- (D) ○ 丙、丁同為 18 個電子，Sc<sup>3+</sup> 核電荷大得多，較難游離<br />
+- (E) ○ 都是 Sc</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q122">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題2・108指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A036_76p3_91p5.jpg" width="1400" height="376" loading="lazy" alt="講義一 第36頁" data-page="講義一 p.36"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>甲 O、乙 Li、丙 C、丁 S、戊 As。<br />
+- (A) ✗ As 為主族（5A）<br />
+- (B) ✗ 同族往上游離能大：O ＞ S<br />
+- (C) ✗ 1s 電子跑到 2s 是變成激發態，要吸收能量<br />
+- (D) ✗ 違反洪德定則，應分別填入 2p<sub>x</sub>、2p<sub>y</sub><br />
+- (E) ○ IE<sub>1</sub> 與 IE<sub>2</sub> 差很大 ⇒ 只有 1 個價電子 ⇒ Li</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q123">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題2・113分科</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A037_5p5_34p3.jpg" width="1400" height="717" loading="lazy" alt="講義一 第37頁" data-page="講義一 p.37"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p><sup>9</sup><sub>4</sub>X 是 Be（1s<sup>2</sup>2s<sup>2</sup>），2 個價電子：E<sub>1</sub> ＜ E<sub>2</sub>，而 E<sub>3</sub> 要拿 1s 內層電子 ⇒ <strong>E<sub>3</sub> 遠大於 E<sub>1</sub>、E<sub>2</sub></strong>。<br />
+實際值約 E<sub>1</sub> ≈ 0.9、E<sub>2</sub> ≈ 1.76、E<sub>3</sub> ≈ 14.8（×10<sup>3</sup> kJ/mol），只有 (A) 符合。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q124">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A037_36p5_47p3.jpg" width="1400" height="258" loading="lazy" alt="講義一 第37頁" data-page="講義一 p.37"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 同族往下減小</li>
+<li>(B) ✗ 偏向電負度大的原子</li>
+<li>(C) ○ 電負度差愈大，鍵的極性（離子性）愈大</li>
+<li>(D) ✗ 同週期往右增大</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q125">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題3・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A037_47p3_57p4.jpg" width="1400" height="249" loading="lazy" alt="講義一 第37頁" data-page="講義一 p.37"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ Be 電子親和力為 −240：Be<sup>−</sup> → Be ＋ e<sup>−</sup> 放熱，所以 Be ＋ e<sup>−</sup> → Be<sup>−</sup> <strong>吸熱</strong></li>
+<li>(B) ✗ F<sup>−</sup> → F ＋ e<sup>−</sup> 的 ΔH ＝ ＋328，吸熱</li>
+<li>(C) ✗ ＋496 − 349 ＝ ＋147，吸熱</li>
+<li>(D) ○ Cl<sup>−</sup> → Cl 吸 349、Na → Na<sup>−</sup> 放 52.9 ⇒ ΔH ≈ ＋296，吸熱</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q126">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A037_57p4_63p8.jpg" width="1400" height="147" loading="lazy" alt="講義一 第37頁" data-page="講義一 p.37"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>Na(g) → Na<sup>+</sup> ＋ e<sup>−</sup>　＋496<br />
+Cl(g) ＋ e<sup>−</sup> → Cl<sup>−</sup>　−348<br />
+相加：Na ＋ Cl → Na<sup>+</sup> ＋ Cl<sup>−</sup>　＋148<br />
+題目是逆反應 ⇒ ΔH ＝ <strong>−148 kJ</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q127">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題3・97指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A037_63p8_76p3.jpg" width="1400" height="300" loading="lazy" alt="講義一 第37頁" data-page="講義一 p.37"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 游離能與電子親和力是不同的過程，大小不同</li>
+<li>(B) ○ 第二週期 F 的電子親和力最大，得電子放出能量最多</li>
+<li>(C) ✗ 同週期往右半徑減小</li>
+<li>(D) ✗ 中性原子電子親和力 ＜ 游離能（Cl：349 ＜ 1251）</li>
+<li>(E) ○</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q128">
+<header class="qh"><span class="qn">練習 15</span><span class="qtag">主題3・104指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A037_76p3_89p8.jpg" width="1400" height="359" loading="lazy" alt="講義一 第37頁" data-page="講義一 p.37"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>五者都是 <strong>18 個電子</strong>（[Ar] 組態）。<br />
+- (B) ✗ S<sup>2−</sup> 有 16＋2 ＝ 18 個電子<br />
+- (A)(C) ○ 最外層都是 3p<br />
+- (D) ○ 等電子，原子序愈小半徑愈大<br />
+- (E) ○ Cl 的電子親和力是所有元素中最大</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q129">
+<header class="qh"><span class="qn">練習 16</span><span class="qtag">主題4・107指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A038_10p5_24p3.jpg" width="1400" height="342" loading="lazy" alt="講義一 第38頁" data-page="講義一 p.38"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>看哪裡「突然暴增」：<br />
+- 丙：失去第 3 個時暴增 → 2 個價電子 → <strong>Mg</strong><br />
+- 甲：第 4 個暴增 → 3 個價電子 → <strong>Al</strong><br />
+- 乙：第 5 個暴增 → 4 個價電子 → <strong>Si</strong></p>
+<p>(A) ○ Al 半徑 ＜ Mg　(B) ○ Si 電負度 ＞ Mg　(C) ○ Al<sub>2</sub>O<sub>3</sub> 為兩性氧化物　(E) ○ MgO 溶於水呈鹼性<br />
+(D) ✗ SiC（碳化矽）是共價網狀固體，熔點高、很硬，但<strong>脆、沒有延展性</strong></p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q130">
+<header class="qh"><span class="qn">練習 17</span><span class="qtag">主題4・101指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A038_24p3_35p5.jpg" width="1400" height="283" loading="lazy" alt="講義一 第38頁" data-page="講義一 p.38"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ As 是類金屬</li>
+<li>(B) ✗ 電負度最大的是右上方的 P（B 2.0、P 2.1），Ga 很小</li>
+<li>(C) ✗ 第一游離能最小的是 Al 或 Ga（左下方），B 較大</li>
+<li>(D) ○ 右上方的 P 非金屬性最強</li>
+<li>(E) ✗ Al(OH)<sub>3</sub> 為兩性，可溶於強酸也溶於強鹼</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q131">
+<header class="qh"><span class="qn">練習 18</span><span class="qtag">主題4・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A038_35p5_42p3.jpg" width="1400" height="144" loading="lazy" alt="講義一 第38頁" data-page="講義一 p.38"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 鹼金屬失去第 2 個電子要拿內層，IE<sub>2</sub> 遠大於鹼土</li>
+<li>(B) ○ 電子親和力最大的是 Cl，捕獲一個電子放出能量最多</li>
+<li>(C) ✗ 第一游離能最大的是 He（銫是最小之一）</li>
+<li>(D) ✗ 任何原子 IE<sub>2</sub> ＞ IE<sub>1</sub></li>
+<li>(E) ○</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q132">
+<header class="qh"><span class="qn">練習 19</span><span class="qtag">主題4・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A038_42p3_67p3.jpg" width="1400" height="589" loading="lazy" alt="講義一 第38頁" data-page="講義一 p.38"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>先算出每個性質的趨勢：<br />
+- Ⅰ Li、Be、B、C 的 IE<sub>1</sub>：520、900、801、1086 → 升、降、升 ⇒ <strong>丁</strong><br />
+- Ⅱ C、N、O、F 半徑：一路下降 ⇒ <strong>丙</strong><br />
+- Ⅲ F、Cl、Br、I 電子親和力：328、349、325、295 → 先升後降 ⇒ <strong>甲</strong><br />
+- Ⅳ C、N、O、F 電負度：一路上升 ⇒ <strong>戊</strong><br />
+- Ⅴ F、Ne、Na、Mg 的 IE<sub>1</sub>：1681、2081、496、738 → 升、大降、升 ⇒ <strong>乙</strong></p>
+<p>選項中正確的是 (B) Ⅱ－丙、(E) Ⅴ－乙。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q133">
+<header class="qh"><span class="qn">練習 20</span><span class="qtag">主題4・99指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A038_67p3_70p8.jpg" width="1400" height="95" loading="lazy" alt="講義一 第38頁" data-page="講義一 p.38"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>鹵素往下：半徑變大、<strong>第一游離能變小</strong>、價電子數都是 7、電子親和力 Cl 最大（非單調）、沸點變高。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q134">
+<header class="qh"><span class="qn">練習 21</span><span class="qtag">主題4・112分科</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A038_70p8_83p3_x3p5-99p5.jpg" width="1400" height="302" loading="lazy" alt="講義一 第38頁" data-page="講義一 p.38"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>圖中尖峰在原子序約 3、11、19、37（鹼金屬），每個週期由尖峰逐漸下降 ⇒ <strong>原子半徑</strong>（鹼金屬最大，往右漸小）。<br />
+若是第一游離能，尖峰應在鈍氣（2、10、18、36），且週期內是逐漸上升。</p></div>
+</details>
+</article>
+</div><div class="pager"><a href="u1-3.html">← 1-3 電子組態與週期表</a><a href="u1-綜.html">1-綜 第一章 素養導向與綜合試題 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

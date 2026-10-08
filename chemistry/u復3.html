@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復3 反應速率難題｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a class="on" href="u復3.html"><span>復3</span>反應速率難題</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">速率定律與計算</a></li><li><a href="#s3">反應機構與位能圖</a></li><li><a href="#s4">溫度、秒錶反應與實驗</a></li><li><a href="#s5">條件改變與觀念多選</a></li></ul></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 物質構造＋反應速率</div>
+<h1><span class="uid">復3</span>反應速率難題</h1>
+<div class="tools"><span class="cnt">本單元 24 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁 12 題，順序是<strong>速率定律與計算（1～6）→ 機構與位能圖（7、8）→ 溫度與實驗（9、10）→ 條件改變與觀念（11、12）</strong>。反應速率的非選題幾乎都是「數據表＋半生期」，請把前 6 題當成必練的計算題。</p>
+<p><strong>範圍提醒</strong>：難題 4 的第(3)(4)小題用到「二級反應 t<sub>1/2</sub>＝1/(k[A]₀)」與「1/[A] 隨時間成直線」，講義第 3 章只教到「二級反應半生期隨濃度減小而加長」，這兩小題標示為「進階」，老師沒教就跳過。其餘只用到講義裡的概念與「半生期（不用對數）」。</p></aside>
+
+<h2 class="section " id="s2">速率定律與計算</h2>
+
+<article class="q q-pr" id="q489">
+<header class="qh"><span class="qn">難題 1</span><span class="qtag">速率定律・由實驗數據求級數與 k・改編（台南一中 113-2 題型）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>知識點</strong>：速率定律 r＝k[A]<sup>m</sup>[B]<sup>n</sup>，級數 m、n 只能由<strong>實驗</strong>得到，不能看反應式係數猜。</li>
+<li><strong>做法</strong>：找「只有一個變因改變」的兩組：[A] 變 x 倍、r 變 y 倍 ⇒ x<sup>m</sup>＝y，解出 m。</li>
+<li><strong>k 與單位</strong>：代入任一組數據算 k；單位由總級數決定（一級 s⁻¹、二級 M⁻¹·s⁻¹、三級 M⁻²·s⁻¹）。</li>
+<li><strong>提醒</strong>：物質的消耗／生成速率＝反應速率 r × 該物質的係數；零級只代表「速率與它的濃度無關」，不是沒參與反應。</li>
+</ul></div></details><div class="qtext"><p>反應 2A ＋ B ＋ C → 產物，在定溫下測得初始速率如下（r 為反應速率，單位 M/s）：</p>
+<table>
+<thead>
+<tr>
+<th>實驗</th>
+<th>[A]（M）</th>
+<th>[B]（M）</th>
+<th>[C]（M）</th>
+<th>r（M/s）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.10</td>
+<td>0.10</td>
+<td>0.10</td>
+<td>2.0×10⁻³</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.20</td>
+<td>0.10</td>
+<td>0.10</td>
+<td>8.0×10⁻³</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.10</td>
+<td>0.20</td>
+<td>0.10</td>
+<td>2.0×10⁻³</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.10</td>
+<td>0.10</td>
+<td>0.20</td>
+<td>4.0×10⁻³</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 此反應對 A、B、C 各為幾級？總級數為何？<br />
+(2) 寫出速率定律，並求速率常數 k 及其單位。<br />
+(3) 實驗 5：[A]＝0.30 M、[B]＝0.50 M、[C]＝0.40 M，反應速率為多少？<br />
+(4) 承(3)，若反應速率 r 的定義是 −(1/2)·Δ[A]/Δt，則實驗 5 中 A 的<strong>消耗速率</strong>為多少？<br />
+(5) B 對速率是零級，是不是代表 B 沒有參與反應？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) A 二級、B 零級、C 一級，總級數 3　(2) r＝k[A]²[C]，k＝2.0 M⁻²·s⁻¹　(3) 0.072 M/s　(4) 0.144 M/s　(5) 不是，B 仍會消耗，只是不影響速率</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：標準流程——「<strong>只比較一個變因改變的兩組</strong>」，再算 k、再預測。</p>
+<p>(1) 比較實驗：<br />
+- 1→2：只有 [A] ×2，r ×4（8.0÷2.0）⇒ 2<sup>m</sup>＝4 ⇒ m＝<strong>2</strong>（A 二級）<br />
+- 1→3：只有 [B] ×2，r 不變 ⇒ 2<sup>n</sup>＝1 ⇒ n＝<strong>0</strong>（B 零級）<br />
+- 1→4：只有 [C] ×2，r ×2 ⇒ p＝<strong>1</strong>（C 一級）<br />
+總級數 ＝ 2＋0＋1 ＝ <strong>3</strong>。</p>
+<p>(2) <strong>r ＝ k[A]²[C]</strong>（B 不出現）。代入實驗 1：2.0×10⁻³ ＝ k(0.10)²(0.10) ⇒ k ＝ 2.0×10⁻³/(1.0×10⁻³) ＝ <strong>2.0 M⁻²·s⁻¹</strong>。<br />
+單位推導：r（M·s⁻¹）＝ k·M³ ⇒ k 的單位＝M·s⁻¹/M³＝M⁻²·s⁻¹ ✓（三級反應）。</p>
+<p>(3) r ＝ 2.0×(0.30)²×(0.40) ＝ 2.0×0.09×0.40 ＝ <strong>0.072 M/s</strong>（[B] 多少都不影響）。</p>
+<p>(4) r ＝ −(1/2)Δ[A]/Δt ⇒ −Δ[A]/Δt ＝ 2r ＝ 2×0.072 ＝ <strong>0.144 M/s</strong>。<br />
+<strong>係數的角色</strong>：物質的消耗／生成速率＝反應速率×該物質的係數。</p>
+<p>(5) 不是。B 在反應中仍然被消耗（反應式有 B），只是它<strong>不在速率決定步驟之前或之中</strong>（或反應進行時 B 一直過量），所以改變 [B] 不影響整體速率。零級的意思是「速率與 [B] 無關」，不是「B 沒參與」。</p><div class="qsum"><b class="qsum-h">小結</b><p>一個固定流程：<strong>配對比較求級數 → 代入求 k → 套公式預測</strong>；k 只受溫度與催化劑影響。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q490">
+<header class="qh"><span class="qn">類題｜難題 1</span><span class="qtag">簡單版・由數據求速率定律・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>反應 A ＋ B → 產物，在定溫下測得初始速率如下：</p>
+<table>
+<thead>
+<tr>
+<th>實驗</th>
+<th>[A]（M）</th>
+<th>[B]（M）</th>
+<th>r（M/s）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.10</td>
+<td>0.10</td>
+<td>1.0×10⁻³</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.20</td>
+<td>0.10</td>
+<td>4.0×10⁻³</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.10</td>
+<td>0.20</td>
+<td>2.0×10⁻³</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 此反應對 A、B 各為幾級？<br />
+(2) 寫出速率定律，並求速率常數 k 與單位。<br />
+(3) [A]＝0.30 M、[B]＝0.20 M 時，反應速率為多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) A 二級、B 一級　(2) r＝k[A]²[B]，k＝1.0 M⁻²·s⁻¹　(3) 0.018 M/s</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 比較實驗：</p>
+<ul>
+<li>1→2：只有 [A] ×2，r ×4（4.0÷1.0）⇒ 2<sup>m</sup>＝4 ⇒ m＝<strong>2</strong>（A 二級）。</li>
+<li>1→3：只有 [B] ×2，r ×2 ⇒ 2<sup>n</sup>＝2 ⇒ n＝<strong>1</strong>（B 一級）。</li>
+</ul>
+<p>(2) <strong>r ＝ k[A]²[B]</strong>。代入實驗 1：1.0×10⁻³ ＝ k(0.10)²(0.10) ＝ k×1.0×10⁻³ ⇒ k ＝ <strong>1.0</strong>。單位：M·s⁻¹ ＝ k·M³ ⇒ k 的單位是 <strong>M⁻²·s⁻¹</strong>（三級反應）。</p>
+<p>(3) r ＝ 1.0×(0.30)²×(0.20) ＝ 1.0×0.09×0.20 ＝ <strong>0.018 M/s</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q491">
+<header class="qh"><span class="qn">難題 2</span><span class="qtag">速率定律・一級反應與半生期・改編（台南一中 113-2 題型）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>一級反應</strong>：r＝k[A]；半生期 t<sub>1/2</sub>＝0.693/k，<strong>與起始濃度無關</strong>。</li>
+<li><strong>半生期用法</strong>：經過 n 個半生期，濃度剩 (1/2)<sup>n</sup>；已反應百分比＝1 − (1/2)<sup>n</sup>。</li>
+<li><strong>速率</strong>：瞬時速率 r＝k[A]，濃度愈低速率愈小；起始速率與起始濃度成正比。</li>
+<li><strong>提醒</strong>：平均速率介於區間兩端的瞬時速率之間（對遞減的速率）。</li>
+</ul></div></details><div class="qtext"><p>某一級反應 A → 產物，在定溫下起始濃度 [A]₀＝0.80 M，半生期為 20 分鐘。<br />
+(1) 求速率常數 k（用 k＝0.693/t<sub>1/2</sub>）。<br />
+(2) 反應 60 分鐘後，[A] 為多少？已反應了百分之幾？<br />
+(3) 要使 [A] 降為原來的 1/16，需要多少分鐘？<br />
+(4) 起始瞬間的反應速率為多少？反應 40 分鐘時的瞬間速率為多少？<br />
+(5) 若改用起始濃度 0.40 M，半生期與起始速率各如何變化？<br />
+(6) 第 20～40 分鐘之間的平均速率為多少？它與 40 分鐘時的瞬間速率比較如何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 0.0347 min⁻¹　(2) 0.10 M，87.5%　(3) 80 min　(4) 起始 0.0277 M/min、40 min 時 0.00693 M/min　(5) 半生期不變（20 min）、起始速率減半（0.0139 M/min）　(6) 平均 0.010 M/min，大於 40 分鐘時的瞬間速率</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：一級反應的三件事——半生期固定、速率 r＝k[A]、k＝0.693/t<sub>1/2</sub>。</p>
+<p>(1) k ＝ 0.693/20 ≈ <strong>0.0347 min⁻¹</strong>。</p>
+<p>(2) 60 分鐘 ＝ 3 個半生期，濃度 ×(1/2)³＝1/8：[A] ＝ 0.80/8 ＝ <strong>0.10 M</strong>；已反應 (0.80−0.10)/0.80 ＝ <strong>87.5%</strong>。</p>
+<p>(3) 1/16 ＝ (1/2)⁴ ⇒ 4 個半生期 ＝ 4×20 ＝ <strong>80 分鐘</strong>。</p>
+<p>(4) 起始瞬間：r ＝ k[A]₀ ＝ 0.0347×0.80 ≈ <strong>0.0277 M/min</strong>。<br />
+40 分鐘（2 個半生期）時 [A]＝0.20 M：r ＝ 0.0347×0.20 ≈ <strong>0.00693 M/min</strong>（速率是起始的 1/4）。</p>
+<p>(5) 一級反應的半生期<strong>與起始濃度無關</strong>，仍是 <strong>20 分鐘</strong>；起始速率 r＝k[A]₀ 與濃度成正比，變成 0.0347×0.40 ≈ <strong>0.0139 M/min</strong>（減半）。</p>
+<p>(6) 第 20 分鐘 [A]＝0.40 M，第 40 分鐘 [A]＝0.20 M：平均速率 ＝ (0.40−0.20)/20 ＝ <strong>0.010 M/min</strong>。<br />
+這個值介於 20 分鐘時的瞬間速率（0.0139）與 40 分鐘時的瞬間速率（0.00693）之間，<strong>大於</strong> 40 分鐘時的瞬間速率。<br />
+<strong>觀念</strong>：反應速率隨時間減小，所以「平均速率」是區間內瞬間速率的某種平均，一定介於區間兩端的瞬間速率之間（對遞減的速率）。</p><div class="qsum"><b class="qsum-h">小結</b><p>一級反應的三件事：<strong>半生期固定、速率 r＝k[A]、k＝0.693/t<sub>1/2</sub></strong>；看到時間是半生期的幾倍，濃度就是 (1/2)<sup>幾倍</sup>。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q492">
+<header class="qh"><span class="qn">類題｜難題 2</span><span class="qtag">簡單版・一級反應半生期・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某一級反應 A → 產物，定溫下 [A]₀＝0.64 M，半生期為 10 分鐘。<br />
+(1) 求速率常數 k。<br />
+(2) 反應 30 分鐘後，[A] 為多少？已反應了百分之幾？<br />
+(3) [A] 降到 0.02 M 需要多少分鐘？<br />
+(4) 起始瞬間的反應速率為多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 0.0693 min⁻¹　(2) 0.080 M，87.5%　(3) 50 min　(4) 0.0444 M/min</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) k ＝ 0.693/10 ＝ <strong>0.0693 min⁻¹</strong>。</p>
+<p>(2) 30 min ＝ 3 個半生期，濃度 ×(1/2)³＝1/8：[A] ＝ 0.64/8 ＝ <strong>0.080 M</strong>；已反應 (0.64 − 0.080)/0.64 ＝ <strong>87.5%</strong>。</p>
+<p>(3) 0.64 → 0.02 是 ÷32 ＝ (1/2)⁵ ⇒ 5 個半生期 ＝ 5×10 ＝ <strong>50 min</strong>。</p>
+<p>(4) r₀ ＝ k[A]₀ ＝ 0.0693×0.64 ≈ <strong>0.0444 M/min</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q493">
+<header class="qh"><span class="qn">難題 3</span><span class="qtag">反應速率・不同物質的速率與計量係數・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>定義</strong>：反應速率用<strong>濃度</strong>變化量除以時間，例如 −Δ[A]/Δt（M/s）。</li>
+<li><strong>係數關係</strong>：各物質的消耗／生成速率比＝係數比；反應速率 r＝（任一物質速率）÷（它的係數）。</li>
+<li><strong>單位</strong>：M＝mol/L，題目給 mol 時要先除以體積，才是濃度。</li>
+</ul></div></details><div class="qtext"><p>反應 4NH₃ ＋ 5O₂ → 4NO ＋ 6H₂O，在 2.0 L 的密閉容器中進行。起始 NH₃ 為 4.0 mol，反應 10 秒後剩 2.8 mol。<br />
+(1) 這 10 秒內，NH₃ 的平均消耗速率為多少 M/s？<br />
+(2) O₂ 的平均消耗速率、NO 的平均生成速率、H₂O 的平均生成速率各為多少？<br />
+(3) 若反應速率 r 定義為 −(1/4)Δ[NH₃]/Δt，則 r 為多少？<br />
+(4) 這 10 秒內共消耗多少 mol 的 O₂？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 0.060 M/s　(2) O₂ 0.075、NO 0.060、H₂O 0.090 M/s　(3) 0.015 M/s　(4) 1.5 mol</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：反應速率用<strong>濃度</strong>（M）對時間；各物質的速率比＝係數比。</p>
+<p>(1) NH₃ 減少 4.0 − 2.8 ＝ 1.2 mol，濃度變化 ＝ 1.2/2.0 ＝ 0.60 M，<strong>速率 ＝ 0.60/10 ＝ 0.060 M/s</strong>。</p>
+<p>(2) 速率比＝係數比（NH₃：O₂：NO：H₂O ＝ 4：5：4：6）：<br />
+- O₂ 消耗：0.060×5/4 ＝ <strong>0.075 M/s</strong><br />
+- NO 生成：0.060×4/4 ＝ <strong>0.060 M/s</strong><br />
+- H₂O 生成：0.060×6/4 ＝ <strong>0.090 M/s</strong></p>
+<p>(3) r ＝ 0.060/4 ＝ <strong>0.015 M/s</strong>（把任一物質的速率除以自己的係數，都得到同一個 r）。</p>
+<p>(4) O₂ 消耗 ＝ 0.075 M/s × 10 s × 2.0 L ＝ <strong>1.5 mol</strong>（檢驗：1.2 mol NH₃ × 5/4 ＝ 1.5 mol ✓）。<br />
+<strong>易錯</strong>：把「mol／秒」和「M／秒」搞混（差一個體積）。</p><div class="qsum"><b class="qsum-h">小結</b><p>先把 mol 換成濃度 M，再算速率；其他物質的速率＝已知速率 × 係數比。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q494">
+<header class="qh"><span class="qn">類題｜難題 3</span><span class="qtag">簡單版・速率與係數・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>反應 N₂ ＋ 3H₂ → 2NH₃，在 2.0 L 的密閉容器中進行。起始 H₂ 為 3.0 mol，反應 5 秒後剩 1.5 mol。<br />
+(1) 這 5 秒內，H₂ 的平均消耗速率為多少 M/s？<br />
+(2) N₂ 的平均消耗速率與 NH₃ 的平均生成速率各為多少？<br />
+(3) 這 5 秒內共生成多少 mol 的 NH₃？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 0.15 M/s　(2) N₂ 0.050 M/s、NH₃ 0.10 M/s　(3) 1.0 mol</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) H₂ 減少 3.0 − 1.5 ＝ 1.5 mol，濃度變化 ＝ 1.5/2.0 ＝ 0.75 M，速率 ＝ 0.75/5 ＝ <strong>0.15 M/s</strong>。</p>
+<p>(2) 係數比 N₂：H₂：NH₃ ＝ 1：3：2。</p>
+<ul>
+<li>N₂ 消耗：0.15×(1/3) ＝ <strong>0.050 M/s</strong></li>
+<li>NH₃ 生成：0.15×(2/3) ＝ <strong>0.10 M/s</strong></li>
+</ul>
+<p>(3) NH₃ 生成 ＝ 0.10 M/s × 5 s × 2.0 L ＝ <strong>1.0 mol</strong>（檢驗：1.5 mol H₂ × 2/3 ＝ 1.0 mol ✓）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q495">
+<header class="qh"><span class="qn">難題 4</span><span class="qtag">速率定律・由半生期判斷級數（二級反應）・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>用半生期判斷級數</strong>：每一次減半所需時間<strong>不變</strong> ⇒ 一級；<strong>愈來愈長</strong> ⇒ 二級；<strong>愈來愈短</strong> ⇒ 零級。</li>
+<li><strong>零級</strong>：速率固定，濃度<strong>等差遞減</strong>（每單位時間減少固定量）。</li>
+<li><strong>進階（老師沒教就跳過）</strong>：二級 t<sub>1/2</sub>＝1/(k[A]₀)，1/[A] 對時間成直線。</li>
+</ul></div></details><div class="qtext"><p>某反應 A → 產物的實驗數據如下（定溫）：</p>
+<table>
+<thead>
+<tr>
+<th>時間 t（min）</th>
+<th>0</th>
+<th>10</th>
+<th>30</th>
+<th>70</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[A]（M）</td>
+<td>0.80</td>
+<td>0.40</td>
+<td>0.20</td>
+<td>0.10</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 計算濃度每減半所需的時間（各階段半生期），並判斷反應級數。<br />
+(2) 若此反應為零級或一級，濃度減半的時間會呈現什麼規律？<br />
+(3)（進階）求 k，以及起始瞬間的反應速率。<br />
+(4)（進階）t＝50 min 時 [A] 為多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 10、20、40 min，逐次加倍 ⇒ 二級　(2) 一級：每次相同；零級：每次減半　(3) k＝0.125 M⁻¹·min⁻¹、r₀＝0.080 M/min　(4) 0.133 M</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：<strong>半生期是判斷級數的快速方法</strong>：不變＝一級、愈來愈長＝二級、愈來愈短＝零級。</p>
+<p>(1) 0.80→0.40：10 min；0.40→0.20：30−10＝20 min；0.20→0.10：70−30＝40 min。每次<strong>加倍</strong> ⇒ 半生期隨濃度降低而加長 ⇒ <strong>二級反應</strong>。</p>
+<p>(2) 一級：每一次減半的時間都相同（例如每 10 min）；零級：速率固定，濃度減半時需要的時間愈來愈短（每次減半，如 10→5→2.5 min）。</p>
+<p>(3)（進階）二級反應 t<sub>1/2</sub>＝1/(k[A]₀)：第一個半生期 10 min，[A]₀＝0.80 ⇒ k ＝ 1/(10×0.80) ＝ <strong>0.125 M⁻¹·min⁻¹</strong>；<br />
+起始速率 r₀ ＝ k[A]₀² ＝ 0.125×0.64 ＝ <strong>0.080 M/min</strong>。<br />
+（對照：前 10 分鐘的平均速率＝(0.80−0.40)/10＝0.040 M/min，只有起始瞬間速率的一半——因為速率在這 10 分鐘內大幅下降。）</p>
+<p>(4)（進階）二級反應：1/[A] ＝ 1/[A]₀ ＋ kt ⇒ 1/[A] ＝ 1.25 ＋ 0.125×50 ＝ 7.5 ⇒ [A] ＝ <strong>0.133 M</strong>。<br />
+（檢驗：t＝10 時 1/[A]＝2.5 ⇒ 0.40 ✓；t＝30 時 5.0 ⇒ 0.20 ✓；t＝70 時 10 ⇒ 0.10 ✓。）</p><div class="qsum"><b class="qsum-h">小結</b><p>看數據表先算「每次減半的時間」或「每段減少多少」：不變→一級；等差→零級；變長→二級。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q496">
+<header class="qh"><span class="qn">類題｜難題 4</span><span class="qtag">簡單版・半生期判斷級數・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>兩個反應的實驗數據如下（定溫）：</p>
+<table>
+<thead>
+<tr>
+<th>反應甲：時間（min）</th>
+<th>0</th>
+<th>6</th>
+<th>12</th>
+<th>18</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[A]（M）</td>
+<td>0.80</td>
+<td>0.40</td>
+<td>0.20</td>
+<td>0.10</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>反應乙：時間（min）</th>
+<th>0</th>
+<th>10</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[B]（M）</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>0.6</td>
+<td>0.4</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 反應甲每減半所需的時間各是多少？判斷級數。<br />
+(2) 反應乙的 [B] 隨時間有什麼規律？判斷級數，並求反應速率。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 都是 6 min ⇒ 一級　(2) 每 10 min 減少 0.2 M（等差）⇒ 零級，速率 0.020 M/min</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 0.80→0.40：6 min；0.40→0.20：12−6＝6 min；0.20→0.10：18−12＝6 min。每次減半的時間<strong>固定</strong> ⇒ <strong>一級反應</strong>（k ＝ 0.693/6 ≈ 0.116 min⁻¹）。</p>
+<p>(2) 每 10 min [B] 都減少 0.2 M，<strong>等差遞減</strong>，代表速率固定、與濃度無關 ⇒ <strong>零級反應</strong>。速率 ＝ 0.2/10 ＝ <strong>0.020 M/min</strong>。（零級的減半時間會愈來愈短：1.0→0.5 要 25 min，0.5→0.25 只要 12.5 min。）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q497">
+<header class="qh"><span class="qn">難題 5</span><span class="qtag">速率定律・零級反應（總壓追蹤）・改編（113 分科題型）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>零級反應</strong>：速率與濃度（壓力）無關；反應物壓力<strong>等差遞減</strong>。</li>
+<li><strong>總壓追蹤</strong>：設反應物消耗了壓力 x，其餘物質依係數寫出（生成量＝x × 係數比），再把所有氣體加起來得總壓。</li>
+<li><strong>易錯</strong>：總壓增加的速率，不一定等於反應物的消耗速率；要看反應前後氣體的係數差。</li>
+<li><strong>注意</strong>：定溫定容下，氣體分壓∝莫耳數∝濃度。</li>
+</ul></div></details><div class="qtext"><p>N₂O 在金（Au）表面上分解：2N₂O(g) → 2N₂(g) ＋ O₂(g)。在定溫定容的容器中，起始只裝有 N₂O，壓力為 400 mmHg，測得總壓力如下：</p>
+<table>
+<thead>
+<tr>
+<th>時間（s）</th>
+<th>0</th>
+<th>20</th>
+<th>40</th>
+<th>60</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>總壓力（mmHg）</td>
+<td>400</td>
+<td>420</td>
+<td>440</td>
+<td>460</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 此反應對 N₂O 為幾級？<br />
+(2) N₂O 的消耗速率與 O₂ 的生成速率各為多少 mmHg/s？<br />
+(3) 反應物全部分解需要多少時間？最終總壓為何？<br />
+(4) 反應 100 s 時，N₂O、N₂、O₂ 的分壓各為多少？<br />
+(5) N₂O 由 400 降到 200 mmHg，以及由 200 降到 100 mmHg，各需多少時間？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 零級　(2) N₂O 消耗 2 mmHg/s、O₂ 生成 1 mmHg/s　(3) 200 s、600 mmHg　(4) N₂O 200、N₂ 200、O₂ 100 mmHg　(5) 100 s、50 s</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：①反應前後<strong>氣體總莫耳數改變</strong>，總壓變化與反應物消耗的<strong>關係要乘係數</strong>；②總壓呈等差遞增 ⇒ 零級。</p>
+<p>設 N₂O 已消耗的壓力為 x，則 N₂ 生成 x，O₂ 生成 x/2；總壓 ＝ (400−x)＋x＋x/2 ＝ <strong>400＋x/2</strong>。</p>
+<p>(1) 總壓每 20 s 增加 20 mmHg，呈<strong>等差</strong>，⇒ x 等速增加 ⇒ 反應速率與濃度（壓力）無關 ⇒ <strong>零級</strong>。</p>
+<p>(2) 總壓增加速率 ＝ 1 mmHg/s ＝ (1/2)(dx/dt) ⇒ N₂O 消耗速率 ＝ dx/dt ＝ <strong>2 mmHg/s</strong>；O₂ 生成速率 ＝ (1/2)×2 ＝ <strong>1 mmHg/s</strong>。<br />
+<strong>易錯</strong>：把總壓的增加速率當成 N₂O 的消耗速率（那是 1:1 反應才成立；這裡 2 mol N₂O 變成 3 mol 氣體，增量只有消耗量的一半）。</p>
+<p>(3) N₂O 全部消耗：x ＝ 400，時間 ＝ 400/2 ＝ <strong>200 s</strong>；最終總壓 ＝ 400 ＋ 400/2 ＝ <strong>600 mmHg</strong>。</p>
+<p>(4) t＝100 s：x ＝ 2×100 ＝ 200 ⇒ N₂O＝400−200＝<strong>200</strong>，N₂＝<strong>200</strong>，O₂＝200/2＝<strong>100</strong> mmHg；總壓＝500（與 400＋100 吻合 ✓）。</p>
+<p>(5) 400→200：消耗 200 mmHg，需 200/2＝<strong>100 s</strong>；200→100：消耗 100 mmHg，需 100/2＝<strong>50 s</strong>。<br />
+→ <strong>零級反應的半生期隨濃度降低而縮短</strong>（100 s → 50 s）。</p><div class="qsum"><b class="qsum-h">小結</b><p>總壓題＝先設 x，寫「各物質分壓 → 總壓式」；從總壓的變化量反推 x，再回答消耗速率與時間。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q498">
+<header class="qh"><span class="qn">類題｜難題 5</span><span class="qtag">簡單版・零級反應總壓追蹤・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>NH₃ 在鎢（W）表面分解：2NH₃(g) → N₂(g) ＋ 3H₂(g)，此反應為零級。定溫定容下，起始只有 NH₃，壓力為 300 mmHg，測得總壓如下：</p>
+<table>
+<thead>
+<tr>
+<th>時間（s）</th>
+<th>0</th>
+<th>10</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>總壓力（mmHg）</td>
+<td>300</td>
+<td>320</td>
+<td>340</td>
+<td>360</td>
+</tr>
+</tbody>
+</table>
+<p>(1) NH₃ 的消耗速率為多少 mmHg/s？<br />
+(2) NH₃ 完全分解需要多少時間？最終總壓為多少？<br />
+(3) 反應 50 s 時，NH₃、N₂、H₂ 的分壓各為多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2 mmHg/s　(2) 150 s，600 mmHg　(3) NH₃ 200、N₂ 50、H₂ 150 mmHg</div>
+<div class="exp"><b class="exp-h">解</b><p>設 NH₃ 已消耗壓力 x：N₂ 生成 x/2，H₂ 生成 3x/2；總壓 ＝ (300−x)＋x/2＋3x/2 ＝ <strong>300＋x</strong>。</p>
+<p>(1) 總壓每 10 s 增加 20 mmHg ⇒ x 每 10 s 增加 20 ⇒ NH₃ 消耗速率 ＝ 20/10 ＝ <strong>2 mmHg/s</strong>（這題總壓增量剛好等於消耗量，因為 2 mol 變 4 mol）。</p>
+<p>(2) NH₃ 全部分解：x ＝ 300 ⇒ 時間 ＝ 300/2 ＝ <strong>150 s</strong>；最終總壓 ＝ 300＋300 ＝ <strong>600 mmHg</strong>。</p>
+<p>(3) t＝50 s：x ＝ 2×50 ＝ 100 ⇒ NH₃ ＝ 300−100 ＝ <strong>200</strong>；N₂ ＝ 100/2 ＝ <strong>50</strong>；H₂ ＝ 3×100/2 ＝ <strong>150</strong> mmHg；總壓 ＝ 400（＝300＋100 ✓）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q499">
+<header class="qh"><span class="qn">難題 6</span><span class="qtag">速率定律・一級反應（總壓追蹤）・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>一級反應</strong>：只有<strong>反應物自己</strong>的濃度（分壓）減半才叫一個半生期；總壓不是。</li>
+<li><strong>步驟</strong>：①設消耗 x，寫各物質分壓與總壓式 ②用半生期算出反應物剩多少 ③回推 x ④算其他物質與總壓。</li>
+<li><strong>反向用</strong>：給總壓時，先解出 x，再算反應物剩幾分之幾，就能得到經過幾個半生期。</li>
+</ul></div></details><div class="qtext"><p>在定溫定容下，N₂O₅ 的分解為一級反應：2N₂O₅(g) → 4NO₂(g) ＋ O₂(g)（忽略 NO₂ 聚合成 N₂O₄）。起始只有 N₂O₅，壓力為 200 mmHg，半生期為 30 分鐘。<br />
+(1) 計算 30、60、90 分鐘時的 N₂O₅、NO₂、O₂ 分壓，及總壓。<br />
+(2) 反應完全時的總壓為多少？<br />
+(3) 若某時刻量得總壓為 350 mmHg，表示經過了幾個半生期？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 30 min：100、200、50，總壓 350；60 min：50、300、75，總壓 425；90 min：25、350、87.5，總壓 462.5（單位 mmHg）　(2) 500 mmHg　(3) 一個半生期（30 min）</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：氣體反應總壓追蹤＝先設 N₂O₅ 消耗了 x，再用係數寫出其他物質。</p>
+<p>設 N₂O₅ 消耗的壓力為 x：N₂O₅＝200−x；NO₂＝(4/2)x＝2x；O₂＝(1/2)x。<br />
+<strong>總壓 ＝ 200 − x ＋ 2x ＋ x/2 ＝ 200 ＋ 1.5x</strong>。</p>
+<p>(1) 一級反應，每 30 分鐘剩一半：</p>
+<table>
+<thead>
+<tr>
+<th>t（min）</th>
+<th>N₂O₅ 剩</th>
+<th>x（已消耗）</th>
+<th>NO₂＝2x</th>
+<th>O₂＝x/2</th>
+<th>總壓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>200</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>200</td>
+</tr>
+<tr>
+<td>30</td>
+<td>100</td>
+<td>100</td>
+<td>200</td>
+<td>50</td>
+<td>350</td>
+</tr>
+<tr>
+<td>60</td>
+<td>50</td>
+<td>150</td>
+<td>300</td>
+<td>75</td>
+<td>425</td>
+</tr>
+<tr>
+<td>90</td>
+<td>25</td>
+<td>175</td>
+<td>350</td>
+<td>87.5</td>
+<td>462.5</td>
+</tr>
+</tbody>
+</table>
+<p>(2) 完全反應 x＝200：總壓 ＝ 200＋1.5×200 ＝ <strong>500 mmHg</strong>（＝起始壓力的 2.5 倍）。</p>
+<p>(3) 350 ＝ 200 ＋ 1.5x ⇒ x ＝ 100，N₂O₅ 剩一半 ⇒ <strong>1 個半生期（30 min）</strong>。</p>
+<p><strong>觀念</strong>：一級反應的「半生期」指的是<strong>反應物自己</strong>的濃度（分壓）減半，不是總壓減半；看到總壓，一定要先換算成反應物的分壓，再套半生期。</p><div class="qsum"><b class="qsum-h">小結</b><p>一級反應的總壓題：<strong>先換算成反應物分壓，再套半生期</strong>；每過一個半生期，反應物剩一半、消耗量 x 就加上「剩下的一半」。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q500">
+<header class="qh"><span class="qn">類題｜難題 6</span><span class="qtag">簡單版・一級反應總壓追蹤・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>氣體反應 A(g) → 2B(g) 為一級反應，定溫定容下起始只有 A，壓力為 100 mmHg，半生期為 20 分鐘。<br />
+(1) 計算 20、40 分鐘時 A、B 的分壓及總壓。<br />
+(2) 反應完全時的總壓為多少？<br />
+(3) 若某時刻量得總壓為 175 mmHg，經過了幾個半生期？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 20 min：A 50、B 100，總壓 150；40 min：A 25、B 150，總壓 175　(2) 200 mmHg　(3) 2 個半生期（40 min）</div>
+<div class="exp"><b class="exp-h">解</b><p>設 A 消耗壓力 x：A ＝ 100−x，B ＝ 2x，<strong>總壓 ＝ 100−x＋2x ＝ 100＋x</strong>。</p>
+<p>(1) 一級反應，每 20 min A 剩一半：<br />
+| t（min） | A 剩 | x（已消耗） | B＝2x | 總壓 |<br />
+|---|---|---|---|---|<br />
+| 0 | 100 | 0 | 0 | 100 |<br />
+| 20 | 50 | 50 | 100 | 150 |<br />
+| 40 | 25 | 75 | 150 | 175 |</p>
+<p>(2) 完全反應 x＝100：總壓 ＝ 100＋100 ＝ <strong>200 mmHg</strong>。</p>
+<p>(3) 175 ＝ 100＋x ⇒ x ＝ 75，A 剩 25 mmHg ＝ 起始的 1/4 ＝ (1/2)² ⇒ <strong>2 個半生期（40 min）</strong>。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">反應機構與位能圖</h2>
+
+<article class="q q-pr" id="q501">
+<header class="qh"><span class="qn">難題 7</span><span class="qtag">反應機構・速率決定步驟、中間產物、催化劑・改編（113 分科、北聯題型）　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>速率定律</strong>＝<strong>慢步驟</strong>的速率式；快步驟不影響速率。</li>
+<li><strong>全反應</strong>：各步驟相加，消去在兩邊都出現的物質。</li>
+<li><strong>角色判斷</strong>：中間產物＝<strong>先生成後消耗</strong>；催化劑＝<strong>先消耗後再生成</strong>；兩者都不會出現在全反應式中。</li>
+<li><strong>提醒</strong>：速率定律不能出現中間產物；若慢步驟含中間產物，要用前面的快速平衡換成反應物。</li>
+</ul></div></details><div class="qtext"><p>判斷下列三個機構：寫出全反應式（或標出催化劑）、中間產物、速率定律，並回答問題。<br />
+(a) 反應 2NO ＋ O₂ → 2NO₂ 的機構：步驟 1：NO ＋ NO ⇌ N₂O₂（快速平衡）；步驟 2：N₂O₂ ＋ O₂ → 2NO₂（慢）。若 [NO] 加倍、其他不變，速率變為幾倍？若定溫下將容器體積壓縮為原來一半，速率變為幾倍？<br />
+(b) 反應 NO₂ ＋ CO → NO ＋ CO₂ 的機構：步驟 1：NO₂ ＋ NO₂ → NO₃ ＋ NO（慢）；步驟 2：NO₃ ＋ CO → NO₂ ＋ CO₂（快）。中間產物是什麼？[CO] 加倍對速率有何影響？<br />
+(c) 反應 2A → C ＋ D 的機構：步驟 1：A ＋ E → F（慢）；步驟 2：F ＋ A → C ＋ D ＋ E（快）。哪個是催化劑？哪個是中間產物？速率定律？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(a) r＝k[NO]²[O₂]；[NO]×2 ⇒ ×4；體積減半 ⇒ ×8　(b) 中間產物 NO₃；r＝k[NO₂]²；[CO] 加倍不影響　(c) E 為催化劑、F 為中間產物；r＝k[A][E]</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：①速率定律＝慢步驟的速率式；②中間產物不可出現在速率定律中（用快速平衡代換）；③催化劑＝先消耗後再生成；中間產物＝先生成後消耗。</p>
+<p>(a) <strong>全反應</strong>：兩步相加並消去 N₂O₂：2NO ＋ O₂ → 2NO₂ ✓。<br />
+慢步驟：r ＝ k₂[N₂O₂][O₂]，含中間產物 N₂O₂ ⇒ 用快速平衡：K ＝ [N₂O₂]/[NO]² ⇒ [N₂O₂] ＝ K[NO]²。<br />
+<strong>r ＝ k₂K[NO]²[O₂] ＝ k′[NO]²[O₂]</strong>（三級）。<br />
+- [NO]×2 ⇒ r ×2² ＝ <strong>4 倍</strong>。<br />
+- 體積減半（定溫）⇒ 所有濃度 ×2 ⇒ r ×2²×2 ＝ <strong>8 倍</strong>。</p>
+<p>(b) 全反應：兩步相加：2NO₂ ＋ NO₃ ＋ CO → NO₃ ＋ NO ＋ NO₂ ＋ CO₂ ⇒ 消去後 NO₂ ＋ CO → NO ＋ CO₂ ✓。<br />
+<strong>NO₃ 是中間產物</strong>（步驟 1 生成、步驟 2 消耗）。慢步驟是步驟 1：<strong>r ＝ k[NO₂]²</strong>。<br />
+CO 在慢步驟之後才參與，所以速率與 [CO] 無關，<strong>[CO] 加倍速率不變</strong>（對 CO 零級）。</p>
+<p>(c) 兩步相加：A ＋ E ＋ F ＋ A → F ＋ C ＋ D ＋ E ⇒ 消去 E、F：<strong>2A → C ＋ D</strong> ✓。<br />
+- <strong>E</strong>：步驟 1 消耗、步驟 2 生成（先消耗後生成）⇒ <strong>催化劑</strong>。<br />
+- <strong>F</strong>：步驟 1 生成、步驟 2 消耗 ⇒ <strong>中間產物</strong>。<br />
+速率定律：慢步驟 1：<strong>r ＝ k[A][E]</strong>（E 為催化劑，濃度在反應中維持不變，所以表觀上對 A 為一級）。<br />
+<strong>易錯</strong>：把催化劑 E 也當中間產物；或把速率寫成 k[A]²（那是用總反應式的係數）。</p><div class="qsum"><b class="qsum-h">小結</b><p>機構題四步：①相加得全反應 ②找出誰是催化劑／中間產物 ③速率定律＝慢步驟 ④中間產物用快速平衡換掉。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q502">
+<header class="qh"><span class="qn">類題｜難題 7</span><span class="qtag">簡單版・機構、催化劑、中間產物・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>H₂O₂ 的分解以 I⁻ 為催化劑，機構如下：<br />
+步驟 1：H₂O₂ ＋ I⁻ → H₂O ＋ IO⁻（慢）<br />
+步驟 2：H₂O₂ ＋ IO⁻ → H₂O ＋ O₂ ＋ I⁻（快）<br />
+(1) 寫出全反應式。<br />
+(2) 哪個是催化劑？哪個是中間產物？<br />
+(3) 寫出速率定律。<br />
+(4) 若 [H₂O₂] 加倍、[I⁻] 不變，速率變為幾倍？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2H₂O₂ → 2H₂O ＋ O₂　(2) 催化劑 I⁻，中間產物 IO⁻　(3) r＝k[H₂O₂][I⁻]　(4) 2 倍</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 兩步相加：2H₂O₂ ＋ I⁻ ＋ IO⁻ → 2H₂O ＋ O₂ ＋ IO⁻ ＋ I⁻，消去 I⁻、IO⁻ ⇒ <strong>2H₂O₂ → 2H₂O ＋ O₂</strong>。</p>
+<p>(2) <strong>I⁻</strong>：步驟 1 消耗、步驟 2 再生成 ⇒ <strong>催化劑</strong>。<strong>IO⁻</strong>：步驟 1 生成、步驟 2 消耗 ⇒ <strong>中間產物</strong>。</p>
+<p>(3) 慢步驟是步驟 1：<strong>r ＝ k[H₂O₂][I⁻]</strong>（沒有中間產物，不用換）。</p>
+<p>(4) 對 H₂O₂ 一級：[H₂O₂] ×2 ⇒ r ×<strong>2</strong> 倍。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q503">
+<header class="qh"><span class="qn">難題 8</span><span class="qtag">碰撞學說・位能圖與活化能・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>活化能</strong>：E<sub>a</sub>(正)＝峰值 − 反應物；E<sub>a</sub>(逆)＝峰值 − 產物。</li>
+<li><strong>反應熱</strong>：ΔH＝產物 − 反應物＝E<sub>a</sub>(正) − E<sub>a</sub>(逆)；ΔH＜0 放熱、ΔH＞0 吸熱。</li>
+<li><strong>催化劑</strong>：只降低峰值，不動兩端 ⇒ E<sub>a</sub>(正)、E<sub>a</sub>(逆) 都降低同樣多，ΔH 與平衡常數<strong>不變</strong>。</li>
+<li><strong>多步驟</strong>：看每個「谷到下一個峰」的能障，最高者是速率決定步驟。</li>
+</ul></div></details><div class="qtext"><p>(a) 某單步驟反應的位能圖：反應物 40 kJ、活化複合體（峰值）120 kJ、產物 10 kJ。求正反應活化能、逆反應活化能、ΔH，並說明是吸熱或放熱。若加入催化劑使峰值降到 90 kJ，上述三個數值各如何變化？對平衡常數有何影響？<br />
+(b) 某兩步驟反應的位能（kJ）：反應物＝0、第一個峰＝70、中間產物＝30、第二個峰＝50、產物＝−20。哪一步是速率決定步驟？整個反應的 ΔH？第 2 步逆反應的活化能？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(a) E<sub>a</sub>(正)＝80、E<sub>a</sub>(逆)＝110、ΔH＝−30（放熱）；催化後 50、80、−30，平衡常數不變　(b) 第 1 步；ΔH＝−20 kJ；第 2 步逆反應 70 kJ</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：活化能＝峰值−起點；ΔH＝產物−反應物；催化劑只動峰值，不動兩端。</p>
+<p>(a) E<sub>a</sub>(正) ＝ 120 − 40 ＝ <strong>80 kJ</strong>；E<sub>a</sub>(逆) ＝ 120 − 10 ＝ <strong>110 kJ</strong>；ΔH ＝ 10 − 40 ＝ <strong>−30 kJ</strong>（＝ E<sub>a</sub>(正) − E<sub>a</sub>(逆) ＝ 80 − 110）⇒ <strong>放熱</strong>。<br />
+加催化劑後峰值降到 90：E<sub>a</sub>(正) ＝ 90 − 40 ＝ <strong>50 kJ</strong>；E<sub>a</sub>(逆) ＝ 90 − 10 ＝ <strong>80 kJ</strong>；ΔH 仍是 <strong>−30 kJ</strong>（兩端沒變）。<br />
+- 正逆反應活化能都降低 30 kJ ⇒ 正逆反應都加快，<strong>平衡常數不變</strong>（只是更快到達平衡）。</p>
+<p>(b) 兩個峰：第 1 步從 0 爬到 70（能障 70 kJ）；第 2 步從中間產物 30 爬到 50（能障 20 kJ）。能障最高、最難越過的是第 1 步 ⇒ <strong>第 1 步是速率決定步驟</strong>。<br />
+整個反應 ΔH ＝ 產物 − 反應物 ＝ −20 − 0 ＝ <strong>−20 kJ</strong>（放熱）。<br />
+第 2 步的逆反應：從產物（−20）爬回第二個峰（50）⇒ 活化能 ＝ 50 − (−20) ＝ <strong>70 kJ</strong>。<br />
+<strong>補充</strong>：中間產物（谷底，30 kJ）能量高於反應物，<strong>不穩定、不能被分離</strong>；若它處在位能圖的「谷」而不是「峰」，才是中間產物，峰上的是活化複合體（過渡態）。</p><div class="qsum"><b class="qsum-h">小結</b><p>位能圖就是「讀三個高度」：反應物、峰、產物；催化劑只動峰，不動 ΔH。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q504">
+<header class="qh"><span class="qn">類題｜難題 8</span><span class="qtag">簡單版・位能圖・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某單步驟反應的位能圖：反應物 20 kJ、活化複合體（峰值）90 kJ、產物 50 kJ。<br />
+(1) 求正反應活化能、逆反應活化能、ΔH，並說明是吸熱或放熱。<br />
+(2) 加入催化劑使峰值降到 70 kJ，上述三個數值各如何變化？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) E<sub>a</sub>(正)＝70 kJ、E<sub>a</sub>(逆)＝40 kJ、ΔH＝＋30 kJ（吸熱）　(2) 50 kJ、20 kJ、＋30 kJ（ΔH 不變）</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) E<sub>a</sub>(正) ＝ 90 − 20 ＝ <strong>70 kJ</strong>；E<sub>a</sub>(逆) ＝ 90 − 50 ＝ <strong>40 kJ</strong>；ΔH ＝ 50 − 20 ＝ <strong>＋30 kJ</strong>（＝70 − 40）⇒ ΔH＞0，<strong>吸熱</strong>。</p>
+<p>(2) 峰值降到 70：E<sub>a</sub>(正) ＝ 70 − 20 ＝ <strong>50 kJ</strong>；E<sub>a</sub>(逆) ＝ 70 − 50 ＝ <strong>20 kJ</strong>；ΔH 仍是 <strong>＋30 kJ</strong>（反應物與產物的位置沒變）。正逆活化能都降低 20 kJ，正逆反應都加快，平衡常數不變。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">溫度、秒錶反應與實驗</h2>
+
+<article class="q q-pr" id="q505">
+<header class="qh"><span class="qn">難題 9</span><span class="qtag">影響速率因素・溫度與實驗數據・改編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>速率與時間</strong>：相同的變化量下，速率 ∝ 1/所需時間。</li>
+<li><strong>經驗規則</strong>：每升高 10°C，速率約變 2 倍；升高 ΔT，速率 ×2<sup>ΔT/10</sup>。</li>
+<li><strong>主因</strong>：升溫使動能超過活化能的分子<strong>比例增加</strong>；碰撞頻率只增加一點點（∝ √T）。</li>
+<li><strong>提醒</strong>：升溫不會改變活化能，也不會改變 ΔH。</li>
+</ul></div></details><div class="qtext"><p>某反應在不同溫度下，反應物出現某一固定變化所需的時間（相同起始濃度）如下：</p>
+<table>
+<thead>
+<tr>
+<th>溫度（°C）</th>
+<th>15</th>
+<th>25</th>
+<th>35</th>
+<th>45</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所需時間（s）</td>
+<td>160</td>
+<td>80</td>
+<td>40</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 每升高 10°C，反應速率變為幾倍？<br />
+(2) 預測 55°C 與 5°C 時所需的時間。<br />
+(3) 預測 30°C 時所需的時間（用每升高 10°C 速率 ×2 的規律內插）。<br />
+(4) 升溫使速率增加的主因是什麼？碰撞頻率增加了多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2 倍　(2) 55°C：10 s；5°C：320 s　(3) 約 57 s　(4) 活化分子比例大幅增加；碰撞頻率只增加約 1.7%</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：在同一變化量下，速率 ∝ 1/時間；升溫的主因是「活化分子比例增加」而不是碰撞更頻繁。</p>
+<p>(1) 速率 ∝ 1/t：15→25°C 時間減半 ⇒ 速率 ×2；每升 10°C 都是 ×2。</p>
+<p>(2) 55°C：再升 10°C，時間 ×1/2 ⇒ <strong>10 s</strong>；5°C：降 10°C，時間 ×2 ⇒ <strong>320 s</strong>。</p>
+<p>(3) 25→30°C 升 5°C，速率 ×2<sup>5/10</sup> ＝ ×√2：時間 ＝ 80/√2 ≈ <strong>57 s</strong>。</p>
+<p>(4) 溫度升高，分子動能分布向右移，<strong>動能超過活化能的分子比例大增</strong>（約 ×2，這是主因）。<br />
+至於碰撞頻率：分子平均速率 ∝ √T，由 298 K 升到 308 K，頻率只增加 √(308/298) − 1 ≈ <strong>1.7%</strong>，影響非常小。<br />
+<strong>所以</strong>：若有人說「升溫使反應變快，是因為分子碰撞更頻繁」，那是<strong>不完整</strong>的說法。</p><div class="qsum"><b class="qsum-h">小結</b><p>溫度每升 10°C，速率 ×2、時間 ÷2；主因是「活化分子比例大增」，不是「碰得更頻繁」。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q506">
+<header class="qh"><span class="qn">類題｜難題 9</span><span class="qtag">簡單版・溫度與速率・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某反應在不同溫度下，反應物出現某一固定變化所需的時間（相同起始濃度）如下：</p>
+<table>
+<thead>
+<tr>
+<th>溫度（°C）</th>
+<th>20</th>
+<th>30</th>
+<th>40</th>
+<th>50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所需時間（s）</td>
+<td>120</td>
+<td>60</td>
+<td>30</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 每升高 10°C，反應速率變為幾倍？<br />
+(2) 預測 60°C 與 10°C 時所需的時間。<br />
+(3) 升溫使速率加快的主要原因是什麼？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 2 倍　(2) 60°C：7.5 s；10°C：240 s　(3) 動能超過活化能的分子比例大增</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 速率 ∝ 1/t：每升 10°C 時間減半 ⇒ 速率 ×<strong>2</strong>。</p>
+<p>(2) 60°C：再升 10°C，時間 ×1/2 ⇒ 15/2 ＝ <strong>7.5 s</strong>；10°C：比 20°C 低 10°C，時間 ×2 ⇒ 120×2 ＝ <strong>240 s</strong>。</p>
+<p>(3) 溫度升高，分子動能的分布向高能量那一側移動，<strong>能量超過活化能的分子比例大增</strong>，有效碰撞比例上升，這是主因；碰撞頻率只增加約 1～2%，影響很小。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q507">
+<header class="qh"><span class="qn">難題 10</span><span class="qtag">實驗・秒錶反應（硫代硫酸鈉與鹽酸）・改編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>控制變因</strong>：一次只改一個變因（這個實驗改的是 Na₂S₂O₃ 濃度），總體積、HCl 濃度、溫度都要相同。</li>
+<li><strong>速率與時間</strong>：每次都是「產生相同量的硫（遮住記號）」，所以速率 ∝ 1/時間。</li>
+<li><strong>平均 vs 瞬時</strong>：量到的是整段時間的平均速率；因為反應初期消耗很少，濃度近似不變，所以接近<strong>起始速率</strong>。</li>
+<li><strong>求級數</strong>：濃度變 x 倍、速率（1/t）變 y 倍 ⇒ x<sup>m</sup>＝y。</li>
+</ul></div></details><div class="qtext"><p>實驗：取 0.10 M Na₂S₂O₃ 溶液若干 mL，加水補成 40 mL，再迅速加入 10 mL 的 HCl，混合後（總體積 50 mL）溶液漸漸變渾濁（S₂O₃²⁻ ＋ 2H⁺ → S↓ ＋ SO₂ ＋ H₂O），記錄從混合到溶液遮住瓶底十字記號的時間。結果：</p>
+<table>
+<thead>
+<tr>
+<th>實驗</th>
+<th>0.10 M Na₂S₂O₃（mL）</th>
+<th>加水（mL）</th>
+<th>混合後 [S₂O₃²⁻]（M）</th>
+<th>時間（s）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>40</td>
+<td>0</td>
+<td>0.080</td>
+<td>25</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20</td>
+<td>20</td>
+<td>0.040</td>
+<td>50</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10</td>
+<td>30</td>
+<td>0.020</td>
+<td>100</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>35</td>
+<td>0.010</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 為什麼每次都要加水使溶液總體積相同？<br />
+(2) 為什麼可以用 1/時間來代表反應速率？<br />
+(3) 反應對 S₂O₃²⁻ 為幾級？<br />
+(4) 此方法測得的是平均速率還是瞬時速率？為什麼可以近似為初速率？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 控制其他變因（HCl 濃度、總體積）相同，使 [S₂O₃²⁻] 是唯一改變的變因　(2) 每次產生的硫（遮住記號所需）量固定，速率 ∝ 1/時間　(3) 一級　(4) 平均速率；反應初期物質消耗很少，濃度近似不變</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：實驗設計與數據解讀。<strong>控制變因＋「固定的變化量」</strong>是秒錶反應的兩大支柱。</p>
+<p>(1) 各實驗的 Na₂S₂O₃ 濃度不同，但 HCl 的量相同；若總體積不同，HCl 的濃度也跟著改變，就有<strong>兩個變因</strong>同時改變，無法判斷速率變化是哪個造成的。加水補成相同總體積，就能保證 [H⁺] 一致。</p>
+<p>(2) 每次實驗是「<strong>產生相同量的硫</strong>（剛好遮住記號）」所需的時間，反應物消耗量固定，所以時間愈短，反應愈快。速率 ＝ 變化量/時間 ∝ 1/時間。</p>
+<p>(3) 濃度從 0.080 降到 0.040（÷2），時間從 25 s 變 50 s（×2）⇒ 速率（1/t）÷2 ⇒ <strong>速率 ∝ 濃度¹ ⇒ 一級</strong>（再看 0.040→0.020：速率又 ÷2 ✓；0.020→0.010：÷2 ✓）。</p>
+<p>(4) 這個方法量出的是<strong>平均速率</strong>（從混合到出現現象的整段時間內，濃度變化的平均）。但因為遮住記號時，S₂O₃²⁻ 只消耗了很少的一部分，整段時間內濃度幾乎沒有變，所以這個平均速率就<strong>很接近起始（瞬時）速率</strong>。<br />
+<strong>如果沒有控制總體積</strong>：實驗 2 若只取 20 mL Na₂S₂O₃、不加水就加 10 mL HCl（總體積 30 mL），[S₂O₃²⁻] 和 [H⁺] 都改變，結論就不可靠。</p><div class="qsum"><b class="qsum-h">小結</b><p>秒錶反應兩大支柱：<strong>控制變因</strong>與<strong>固定的變化量</strong>；用「1/時間」當速率，再用配對比較求級數。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q508">
+<header class="qh"><span class="qn">類題｜難題 10</span><span class="qtag">簡單版・秒錶反應・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某秒錶反應：X ＋ Y → 產物，混合後記錄溶液出現固定現象所需的時間，數據如下（每次混合後總體積相同）：</p>
+<table>
+<thead>
+<tr>
+<th>實驗</th>
+<th>[X]（M）</th>
+<th>[Y]（M）</th>
+<th>時間（s）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.10</td>
+<td>0.10</td>
+<td>40</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.20</td>
+<td>0.10</td>
+<td>20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.10</td>
+<td>0.20</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p>(1) 為什麼每次混合後的總體積要相同？<br />
+(2) 為什麼可以用 1/時間代表反應速率？<br />
+(3) 此反應對 X、Y 各為幾級？速率定律為何？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 才能確保除了被比較的濃度外，其他濃度都相同　(2) 每次產生相同量的產物，速率 ∝ 1/時間　(3) X 一級、Y 零級；r＝k[X]</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 總體積不同，混合後各物質的濃度都會改變，變因就不只一個，無法判斷速率差異是哪個造成的。</p>
+<p>(2) 每次實驗都是反應到「產生同樣量的產物」才出現現象，變化量固定，速率 ＝ 變化量/時間 ∝ 1/時間。</p>
+<p>(3) 速率 ∝ 1/t：</p>
+<ul>
+<li>1→2：[X] ×2，時間 40→20（÷2）⇒ 速率 ×2 ⇒ 2<sup>m</sup>＝2 ⇒ X <strong>一級</strong>。</li>
+<li>1→3：[Y] ×2，時間不變 ⇒ 速率不變 ⇒ Y <strong>零級</strong>。</li>
+</ul>
+<p>速率定律：<strong>r ＝ k[X]</strong>（Y 不影響速率，但仍參與反應）。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s5">條件改變與觀念多選</h2>
+
+<article class="q q-pr" id="q509">
+<header class="qh"><span class="qn">難題 11</span><span class="qtag">影響速率因素・濃度、壓力、體積、惰性氣體・自編　★★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>核心</strong>：氣體反應的任何操作，都先換成<strong>各反應物濃度</strong>變成幾倍，再代入 r＝k[A]<sup>m</sup>[B]<sup>n</sup>。</li>
+<li><strong>體積</strong>：定溫下體積變為 1/a ⇒ 所有濃度變 a 倍；定壓通入氣體 ⇒ 體積變大 ⇒ 濃度變小。</li>
+<li><strong>惰性氣體</strong>：定容通入 ⇒ 反應物濃度不變 ⇒ 速率不變；定壓通入 ⇒ 體積膨脹 ⇒ 速率變慢。</li>
+<li><strong>分壓</strong>：定溫定容時分壓∝濃度。</li>
+</ul></div></details><div class="qtext"><p>氣相反應 2NO(g) ＋ 2H₂(g) → N₂(g) ＋ 2H₂O(g) 的速率定律為 r ＝ k[NO]²[H₂]。在定溫下，下列各操作使反應速率（瞬時）變為原來的幾倍？<br />
+(1) 將容器體積壓縮為原來的一半。<br />
+(2) 在定容下通入惰性氣體 N₂，使總壓增加。<br />
+(3) 在定壓下通入惰性氣體 Ar，使容器體積變為原來的 2 倍。<br />
+(4) 在定容下加入 H₂，使 [H₂] 變為原來的 3 倍。<br />
+(5) NO 分壓變為 2 倍、H₂ 分壓變為 3 倍。<br />
+(6) 反應進行過程中，速率為什麼會逐漸變慢？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 8 倍　(2) 1 倍　(3) 1/8 倍　(4) 3 倍　(5) 12 倍　(6) 反應物濃度逐漸減小</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：氣體反應的「條件改變」一律還原成<strong>反應物濃度的變化</strong>。惰性氣體只有在使「體積改變」時才影響濃度。</p>
+<p>(1) 體積減半 ⇒ 每個氣體的濃度都 ×2：r ∝ (2)²(2) ＝ <strong>8 倍</strong>。<br />
+(2) 定容 ⇒ NO、H₂ 的濃度不變（沒有任何一個反應物的 n 或 V 改變）⇒ <strong>1 倍（不變）</strong>。<br />
+(3) 定壓通入氣體 ⇒ 總體積變 2 倍 ⇒ NO、H₂ 濃度都 ×1/2 ⇒ r ∝ (1/2)²(1/2) ＝ <strong>1/8 倍</strong>。<br />
+(4) r ∝ [H₂]：<strong>3 倍</strong>。<br />
+(5) 定容、定溫下分壓 ∝ 濃度：r ∝ (2)²(3) ＝ <strong>12 倍</strong>。<br />
+(6) 反應物不斷消耗，濃度降低，r＝k[NO]²[H₂] 變小（k 沒變）。<br />
+<strong>對照記憶</strong>：定容通惰性氣體「不影響」；定壓通惰性氣體使體積膨脹，<strong>反而讓速率變慢</strong>。</p><div class="qsum"><b class="qsum-h">小結</b><p>條件改變 → 換算成「濃度倍數」→ r 的倍數＝各濃度倍數的級數次方相乘。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q510">
+<header class="qh"><span class="qn">類題｜難題 11</span><span class="qtag">簡單版・條件改變與速率倍數・自編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>氣相反應 A(g) ＋ 2B(g) → C(g) 的速率定律為 r ＝ k[A][B]²。在定溫下，下列各操作使反應速率（瞬時）變為原來的幾倍？<br />
+(1) 將容器體積壓縮為原來的一半。<br />
+(2) 定容下通入惰性氣體 He，使總壓增加。<br />
+(3) 定壓下通入惰性氣體 He，使體積變為原來的 2 倍。<br />
+(4) 定容下加入 B，使 [B] 變為原來的 3 倍。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) 8 倍　(2) 1 倍　(3) 1/8 倍　(4) 9 倍</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 體積減半 ⇒ [A]、[B] 都 ×2：r ∝ (2)(2)² ＝ <strong>8 倍</strong>。</p>
+<p>(2) 定容 ⇒ [A]、[B] 不變 ⇒ <strong>1 倍（不變）</strong>。</p>
+<p>(3) 體積 ×2 ⇒ [A]、[B] 都 ×1/2：r ∝ (1/2)(1/2)² ＝ <strong>1/8 倍</strong>。</p>
+<p>(4) 只有 [B] ×3：r ∝ (3)² ＝ <strong>9 倍</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q511">
+<header class="qh"><span class="qn">難題 12</span><span class="qtag">影響速率因素・觀念多選・改編　★★</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">考前速記</span><span class="pre-sub">先複習這題要用的知識點與公式</span></summary><div class="pre-body"><ul>
+<li><strong>三個分野</strong>：①改變<strong>速率</strong>（濃度、溫度、接觸面積、催化劑）②改變<strong>k</strong>（只有溫度、催化劑）③改變 <strong>ΔH／平衡位置</strong>（催化劑不能）。</li>
+<li><strong>催化劑</strong>：改走另一條活化能較低的路徑，正逆反應都加快；本身不被消耗，不改變 ΔH 與平衡常數。</li>
+<li><strong>溫度</strong>：升溫使吸熱、放熱反應都變快；活化能是反應本身的性質，不隨溫度改變。</li>
+<li><strong>接觸面積</strong>：非勻相反應中，粉末比塊狀快，是因為接觸面積增大。</li>
+</ul></div></details><div class="qtext"><p>下列有關影響反應速率因素的敘述，哪些正確？（多選）<br />
+(A) 升高溫度會使反應的活化能變小<br />
+(B) 加入催化劑，可降低反應的活化能，使正反應與逆反應的速率都加快<br />
+(C) 增加反應物濃度，會使反應的速率常數 k 變大<br />
+(D) 將塊狀大理石磨成粉末後與鹽酸反應，速率加快，是因為接觸面積增大<br />
+(E) 升高溫度，吸熱反應與放熱反應的速率都會加快<br />
+(F) 催化劑可使吸熱反應變成放熱反應</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>這題在考什麼</strong>：「改變速率」vs「改變 k」vs「改變 ΔH／平衡」三件事的分野。</p>
+<ul>
+<li>(A) ✗ 活化能是反應本身的性質（與溫度無關）。升溫是使「超過活化能的分子比例增加」，不是讓活化能變小。</li>
+<li>(B) ○ 催化劑提供另一條較低活化能的路徑，正逆反應活化能同時降低，<strong>速率都加快</strong>，平衡位置不變。</li>
+<li>(C) ✗ k 只受<strong>溫度</strong>與<strong>催化劑</strong>影響；濃度改變的是速率（r＝k[A]<sup>m</sup>…），不是 k。</li>
+<li>(D) ○ 非勻相反應中，粉末的表面積遠大於塊狀，單位時間有效碰撞增加。</li>
+<li>(E) ○ 升溫使活化分子比例增加，不論吸熱或放熱，速率都變快（只是對平衡的影響方向不同）。</li>
+<li>(F) ✗ 催化劑<strong>不改變 ΔH</strong>，吸熱反應仍是吸熱反應。</li>
+</ul><div class="qsum"><b class="qsum-h">小結</b><p>速率、k、ΔH 要分開想：濃度只動速率；溫度與催化劑才動 k；ΔH 與平衡位置只由反應本身決定。</p></div></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q512">
+<header class="qh"><span class="qn">類題｜難題 12</span><span class="qtag">簡單版・觀念多選・自編　★</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述哪些正確？（多選）<br />
+(A) 增加反應物濃度，速率常數 k 會變大<br />
+(B) 升高溫度，速率常數 k 會變大<br />
+(C) 催化劑使活化能降低，正反應與逆反應的速率都增加<br />
+(D) 催化劑可以改變反應熱 ΔH<br />
+(E) 把塊狀鋅換成鋅粉與鹽酸反應，速率加快是因為接觸面積增大</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ k 只受溫度與催化劑影響；濃度改變的是速率，不是 k。</li>
+<li>(B) ○ 升溫使活化分子比例增加，k 變大。</li>
+<li>(C) ○ 催化劑提供活化能較低的路徑，正逆反應同時加快。</li>
+<li>(D) ✗ 催化劑不改變反應物與產物的能量，ΔH 不變。</li>
+<li>(E) ○ 鋅粉表面積遠大於塊狀鋅，單位時間的有效碰撞增加。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u復2.html">← 復2 化學鍵・分子形狀・分子間力難題</a><a href="u復4.html">復4 考前猜題模擬卷：物質構造＋反應速率 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

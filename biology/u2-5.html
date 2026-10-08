@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2-5 單元 2 練習題：滿貫強試出擊＋歷屆考題｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a class="on" href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a><ul class="subtoc"><li><a href="#s1">使用說明</a></li><li><a href="#s2">滿貫強試出擊：單選題</a></li><li><a href="#s3">滿貫強試出擊：多選題</a></li><li><a href="#s4">歷屆考題（挑選）</a></li><li><a href="#s5">歷屆考題：補充（圖表題與閱讀題，答案依講義解答）</a></li></ul></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第2單元 維持生命現象的能量</div>
+<h1><span class="uid">2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</h1>
+<div class="tools"><span class="cnt">本單元 43 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明</h2>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><p>本頁收錄講義第 2 單元後面的「<strong>滿貫強試出擊</strong>」與「<strong>歷屆考題</strong>」。講義只有部分手寫答案，<strong>答案與詳解是我自己整理的</strong>，請與學校老師或解答本交叉核對。需要看圖的題目已從講義裁圖附上。<strong>請先自己做，再點開詳解。</strong></p></aside>
+
+<h2 class="section " id="s2">滿貫強試出擊：單選題</h2>
+
+<article class="q q-pr" id="q120">
+<header class="qh"><span class="qn">強試 1</span><span class="qtag">光反應與 pH・單選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>在光照下，細胞質液、葉綠體基質和類囊體內部的 pH 值大小為何？<br />
+(A) 細胞質液 ＞ 葉綠體基質 ＞ 類囊體內部　(B) 細胞質液 ＞ 類囊體內部 ＞ 葉綠體基質　(C) 葉綠體基質 ＞ 細胞質液 ＞ 類囊體內部　(D) 葉綠體基質 ＞ 類囊體內部 ＞ 細胞質液</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>光反應把 H⁺ 從基質<strong>唧入類囊體內腔</strong>：類囊體內部 H⁺ 最多、<strong>pH 最低（最酸）</strong>；基質 H⁺ 被抽走 ⇒ <strong>pH 最高（較鹼）</strong>；細胞質液居中。所以 <strong>基質 ＞ 細胞質液 ＞ 類囊體內部</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q121">
+<header class="qh"><span class="qn">強試 2</span><span class="qtag">光合色素層析・單選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列關於「光合色素的色層分析」實驗的敘述，何者正確？<br />
+(A) 各光合色素的 Rf 值在不同的展開液不變　(B) 色素展開後，在濾紙上的分布可能超出展開液到達的位置　(C) 光合色素的移動速率與濾紙間的親合力及溶解度有關　(D) 實驗是以石油醚萃取光合色素</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 換展開液，Rf 會改變。</li>
+<li>(B) ✗ 色素是被展開液帶著走，<strong>不可能超過展開液前緣</strong>（Rf ≤ 1）。</li>
+<li>(C) ○ 移動速率取決於在展開液中的<strong>溶解度</strong>與和濾紙的<strong>親和力</strong>。</li>
+<li>(D) ✗ 萃取用<strong>丙酮</strong>；石油醚是展開液的成分。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q122">
+<header class="qh"><span class="qn">強試 3</span><span class="qtag">取得固碳酵素的位置・單選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>日前有科學家想製作塑膠森林，目的是吸收大氣中的二氧化碳，減緩全球暖化。請問他應該於植物細胞的何處取得相關酵素？<br />
+(A) 葉綠體的內膜　(B) 葉綠體的類囊體　(C) 葉綠體的基質　(D) 粒線體的內膜　(E) 粒線體的基質</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>固定 CO₂ 的酵素（Rubisco，核酮糖羧化酶）在<strong>葉綠體基質</strong>（卡爾文循環的場所）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q123">
+<header class="qh"><span class="qn">強試 4</span><span class="qtag">粒線體的構造與功能・單選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>右圖為真核細胞內某胞器構造示意圖，甲～丁代號依序為此胞器由外到內的相關構造（甲＝外膜、乙＝膜間腔、丙＝內膜、丁＝基質），有關此胞器構造與功能的敘述，下列何者正確？<br />
+(A) 甲、丙為膜狀構造，與內質網、高基氏體等膜狀構造的演化起源相同　(B) 乙構造為 ATP 合成時，高濃度 H⁺ 的暫存空間　(C) 卡爾文循環在丁處進行，產生的醣類可以轉換為蔗糖或澱粉　(D) 此構造源自於被吞噬入細胞內的藍綠菌，與細胞經長時間交互作用形成</p></div><div class="qimgs"><img class="qimg" src="img/A076_47_63_x70-99.jpg" width="548" height="505" loading="lazy" alt="生物講義 第76頁" data-page="生物講義 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>這是<strong>粒線體</strong>。<br />
+- (A) ✗ 粒線體的膜源自被吞噬的<strong>好氧細菌</strong>，不屬於內膜系統（內質網、高基氏體）。<br />
+- (B) ○ 電子傳遞時 H⁺ 被泵入<strong>膜間腔</strong>暫存，再經 ATP 合成酶回基質。<br />
+- (C) ✗ 卡爾文循環在<strong>葉綠體基質</strong>，不是粒線體。<br />
+- (D) ✗ 粒線體源自<strong>好氧細菌</strong>；葉綠體才源自藍綠菌。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q124">
+<header class="qh"><span class="qn">強試 5</span><span class="qtag">ATP 的分解・單選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下圖為 ATP 分解釋能的示意圖（ATP ＋ H₂O → ADP ＋ 無機磷酸鹽 ＋ 能量），有關 ATP 構造與反應進行的敘述，下列何者正確？<br />
+(A) 光合作用的 ATP 係於基質中合成　(B) 此反應的逆反應僅發生於粒線體與葉綠體中　(C) 一個葡萄糖分子經有氧呼吸作用後，可將全部的能量轉換儲存於 ATP 分子中　(D) 此反應可發生於所有的動、植物細胞內</p></div><div class="qimgs"><img class="qimg" src="img/A076_67_75_x20-99.jpg" width="1400" height="215" loading="lazy" alt="生物講義 第76頁" data-page="生物講義 p.76"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>講義解答為 (A)</strong>。<br />
+- (A) ○ 光反應時，ATP 由類囊體膜上的 <strong>ATP 合成酶</strong>合成，並<strong>釋放到葉綠體基質</strong>中，供卡爾文循環（固碳反應）使用，所以說「ATP 於基質中合成」是這題的標準說法。<br />
+- (B) ✗ ADP＋Pi → ATP（逆反應）在<strong>細胞質液</strong>（糖解）也進行，不只粒線體與葉綠體。<br />
+- (C) ✗ 葡萄糖氧化釋出的能量只有約 <strong>40%</strong> 轉成 ATP，其餘是熱能。<br />
+- (D) 講義不選（這題的原始試題以 A 為標準答案）；ATP 水解供能雖然是活細胞的共通機制，但以講義解答為準。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q125">
+<header class="qh"><span class="qn">強試 6</span><span class="qtag">植物光合作用的敘述・單選（109 全國模考修）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關植物光合作用的敘述，何者正確？<br />
+(A) 水分子在光系統 I 被裂解產生 H⁺、e⁻ 及 O₂　(B) 大部分的葉綠素直接參與光反應中電子的傳遞　(C) 最終產物葡萄糖在葉綠餅中產生　(D) 植物利用紅光、藍光及綠光的效率並不相同</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 水在<strong>光系統 II</strong> 裂解。</li>
+<li>(B) ✗ 只有<strong>反應中心的葉綠素 a</strong>直接參與電子傳遞；大部分葉綠素是天線色素。</li>
+<li>(C) ✗ 醣類在<strong>基質</strong>（卡爾文循環）產生。</li>
+<li>(D) ○ 由作用光譜知：紅、藍紫光效率高，綠光效率低。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q126">
+<header class="qh"><span class="qn">強試 7</span><span class="qtag">光照與光合色素・單選（109 全國模考，題組 7）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>欲探究光照對植物光合色素與光合作用的影響，某生挑選甲、乙兩種植物品種進行實驗，分別以正常光與弱光照射處理後，分析植物體內不同光合色素的含量並測定其光合作用速率如下表（圖）：<br />
+根據表中數據，下列何者為合理的推論？<br />
+(A) 正常光照下的光合色素含量會較弱光下為高　(B) 光合色素含量高時，其光合作用速率便較高　(C) 品種乙較品種甲適合生存於光線不足的環境下　(D) 若給予強光，兩品種的光合作用速率都會更高</p></div><div class="qimgs"><img class="qimg" src="img/A077_18_33_x5-92.jpg" width="1400" height="410" loading="lazy" alt="生物講義 第77頁" data-page="生物講義 p.77"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ <strong>乙</strong>在弱光下色素含量反而更高（葉綠素 a 3.83 ＞ 1.35）。</li>
+<li>(B) ✗ 乙弱光色素最多，但光合速率（2.99）不如甲的正常光（4.56），色素量與速率不成單純正比。</li>
+<li>(C) ○ 弱光下乙的光合速率（2.99）<strong>高於</strong>甲（2.63），而且乙遇弱光會增加色素含量適應 ⇒ 較適合弱光環境。</li>
+<li>(D) ✗ 光強過高時速率會達飽和甚至受抑制，不能肯定。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q127">
+<header class="qh"><span class="qn">強試 8</span><span class="qtag">色素的敘述・單選（題組 8）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>關於實驗中甲、乙兩品種的植物色素，下列敘述何者正確？<br />
+(A) 實驗中所測得的光合色素多存在於植物細胞的葉綠體或液泡中　(B) 弱光下的乙品種，其葉綠素含量較其他品種或條件下的葉綠素含量高　(C) 類胡蘿蔔素皆為協助吸光的天線色素，葉綠素僅為反應中心的吸光色素　(D) 葉綠素 a 位於光系統 II 反應中心，葉綠素 b 則位於光系統 I 的反應中心</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 光合色素在<strong>葉綠體的類囊體膜</strong>；液泡含的是<strong>花青素</strong>等，不是光合色素。</li>
+<li>(B) ○ 弱光下乙：葉綠素 a 3.83、b 3.03，是表中最高。</li>
+<li>(C) ✗ 葉綠素 b、大部分葉綠素 a 也是天線色素；只有<strong>特殊的葉綠素 a</strong> 是反應中心。</li>
+<li>(D) ✗ 反應中心都是<strong>葉綠素 a</strong>（P680、P700）。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s3">滿貫強試出擊：多選題</h2>
+
+<article class="q q-pr" id="q128">
+<header class="qh"><span class="qn">強試 9</span><span class="qtag">光反應與固碳反應的比較・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關光反應與固碳反應的比較，哪些正確？（多選）</p>
+<p>| 選項 | 光反應 | 固碳反應 |<br />
+|---|---|---|---|<br />
+| (A) 能量轉換 | 光能 → 化學能 | 化學能 → 化學能 |<br />
+| (B) 進行場所 | 類囊體 | 葉綠體基質 |<br />
+| (C) 進行時間 | 光照下才能進行 | 黑暗中才能進行 |<br />
+| (D) 反應物 | 水、ADP、NADP⁺ | CO₂、ATP、NADPH |<br />
+| (E) 生成物 | H₂、ATP、NADPH | O₂、醣、ADP、NADP⁺ |</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 光反應把光能轉成 ATP/NADPH 的化學能；固碳反應把它們的化學能轉到醣類。</li>
+<li>(B) ○。 (D) ○ 光反應反應物：H₂O、ADP、NADP⁺；固碳反應反應物：CO₂、ATP、NADPH。</li>
+<li>(C) ✗ 固碳反應<strong>不需要黑暗</strong>，只是不直接用光；有光時照樣進行（而且部分酵素需光活化）。</li>
+<li>(E) ✗ 光反應生成的是 <strong>O₂</strong>（不是 H₂）、ATP、NADPH；固碳反應生成醣、ADP、NADP⁺（不產生 O₂）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q129">
+<header class="qh"><span class="qn">強試 10</span><span class="qtag">克氏循環與卡氏循環的比較・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關克氏循環（檸檬酸循環）與卡氏循環（卡爾文循環）的比較，哪些正確？（多選）</p>
+<table>
+<thead>
+<tr>
+<th>選項</th>
+<th>(A) 反應場所</th>
+<th>(B) 與 O₂ 關係</th>
+<th>(C) 與輔酶關係</th>
+<th>(D) 產物</th>
+<th>(E) 進行時間</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>克氏循環</td>
+<td>粒線體基質</td>
+<td>O₂ 為反應物</td>
+<td>產生 NADH</td>
+<td>CO₂</td>
+<td>日夜皆可進行</td>
+</tr>
+<tr>
+<td>卡氏循環</td>
+<td>葉綠體基質</td>
+<td>O₂ 為產物</td>
+<td>產生 NADPH</td>
+<td>三碳醣</td>
+<td>僅夜間進行</td>
+</tr>
+</tbody>
+</table></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 克氏循環在粒線體基質、卡氏循環在葉綠體基質。</li>
+<li>(B) ✗ 兩個循環<strong>本身都不直接用或產生 O₂</strong>（O₂ 在電子傳遞鏈才被用掉；光反應才產 O₂）。</li>
+<li>(C) ✗ 克氏循環<strong>產生</strong> NADH；卡氏循環是<strong>消耗</strong> NADPH（不是產生）。</li>
+<li>(D) ○ 克氏循環產 CO₂；卡氏循環產三碳醣（G3P）。</li>
+<li>(E) ✗ 卡氏循環不是「僅夜間」，有光時（光反應提供 ATP、NADPH）才進行得多。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q130">
+<header class="qh"><span class="qn">強試 11</span><span class="qtag">C₃、C₄ 與 CAM 植物・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關 C₃、C₄ 和 CAM 植物的敘述，哪些正確？（多選）<br />
+(A) C₄ 植物的固碳作用是以空間來與卡爾文循環隔離，CAM 植物則是以時間來隔離　(B) C₃ 植物是利用三碳化合物進行 CO₂ 的固定　(C) C₄ 植物的維管束鞘細胞具有葉綠體　(D) C₄ 及 CAM 植物皆需經過兩次 CO₂ 的固定作用　(E) 三者皆可在夜間進行固碳反應</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ C₄＝空間隔離（葉肉 vs 維管束鞘）；CAM＝時間隔離（夜 vs 日）。</li>
+<li>(B) ✗ C₃ 植物用 <strong>五碳的 RuBP</strong> 固定 CO₂，產物才是三碳化合物（3-PG）。</li>
+<li>(C) ○ C₄ 的卡爾文循環在<strong>維管束鞘細胞</strong>，所以那裡有葉綠體。</li>
+<li>(D) ○ 第一次：PEP 固定成四碳酸；第二次：Rubisco 固定成 3-PG。</li>
+<li>(E) ✗ 只有 <strong>CAM</strong> 在夜間固定 CO₂；C₃、C₄ 的氣孔夜間關閉。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q131">
+<header class="qh"><span class="qn">強試 12</span><span class="qtag">需要還原性輔酶的步驟・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些步驟需要還原性輔酶的參與才能進行？<br />
+(A) 光合作用固碳反應中的再生五碳醣　(B) 光合作用固碳反應中的固碳階段　(C) 丙酮酸變為乙醇　(D) 丙酮酸變為乳酸　(E) 克氏循環</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>還原性輔酶：<strong>NADH／NADPH</strong>，在還原反應中<strong>提供電子</strong>。</li>
+<li>(A)(B) ✗ 再生 RuBP、固定 CO₂（3-PG 形成）<strong>不需</strong>還原性輔酶；需要 NADPH 的是<strong>還原作用</strong>（3-PG → G3P）。</li>
+<li>(C) ○ 乙醛 → 乙醇需 NADH。 (D) ○ 丙酮酸 → 乳酸需 NADH。</li>
+<li>(E) ✗ 克氏循環是<strong>產生</strong> NADH、FADH₂（氧化 NAD⁺ 為還原態）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q132">
+<header class="qh"><span class="qn">強試 13</span><span class="qtag">糖解作用的調控酵素・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>在糖解作用中，有一種酵素會受檸檬酸、ATP、ADP 等物質影響，而在甲、乙兩狀態間轉換，其中 ADP 使酵素偏向甲，而檸檬酸、ATP 則使酵素偏向乙。已知甲、乙有一狀態活性很低，另一活性很高，下列敘述哪些正確？<br />
+(A) 上文所提及之酵素會影響有氧呼吸進行的速率　(B) 酵素不同狀態，指所含能量多寡，與其構形無關　(C) 細胞中 ATP／ADP 比值偏高時，會促進糖解作用　(D) 檸檬酸會抑制糖解作用　(E) 乙狀態活性很高</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>ADP 多＝缺能量 ⇒ 酵素偏向<strong>甲＝活性高</strong>；ATP、檸檬酸多＝能量充足 ⇒ 偏向<strong>乙＝活性低</strong>（回饋抑制）。</li>
+<li>(A) ○ 糖解是有氧呼吸的第一步，酵素活性影響整體速率。</li>
+<li>(B) ✗ 狀態不同是<strong>構形</strong>不同。</li>
+<li>(C) ✗ ATP／ADP 高 ⇒ 偏向乙 ⇒ <strong>抑制</strong>糖解。</li>
+<li>(D) ○。 (E) ✗ 乙活性低。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q133">
+<header class="qh"><span class="qn">強試 14</span><span class="qtag">全光譜生長燈・多選（109 全國模考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下圖為某廠商全光譜生長燈的廣告說明（320～400 nm：對需著色植物可增色，但對生長無直接幫助；400～510 nm：藍光，光合作用中對葉綠素的吸收轉換使用及根莖生長；510～610 nm：綠光，植物生長時，無法轉換的光譜；610～720 nm：紅光，光合作用吸收最強效果的範圍；720～800 nm：對植物直接生長無幫助）。試問下列與植物光合作用相關的敘述，哪些正確？<br />
+(A) 葉綠素、葉黃素及花青素都屬於光合色素　(B) 在特定光強度範圍內，光強度愈強，光合作用的效率也愈佳　(C) 生物視覺的綠光對光合作用的進行沒有幫助　(D) 為提升光合作用的進行，文中的全光譜生長燈為紅光與藍光的混合，故應呈現紫色光源　(E) 當植物生長燈與植物的距離增加為原來的 10 倍，則植物感受到光的照度為原來的 1/10 倍</p></div><div class="qimgs"><img class="qimg" src="img/A078_34_53_x10-99.jpg" width="1400" height="489" loading="lazy" alt="生物講義 第78頁" data-page="生物講義 p.78"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ <strong>花青素</strong>是液泡色素，不參與光合作用。</li>
+<li>(B) ○ 光強度不到飽和點前，光強度愈高光合速率愈高。</li>
+<li>(C) ○ 依廣告說明，綠光（510～610 nm）屬植物<strong>無法轉換</strong>的光（與講義手寫答案一致）。</li>
+<li>(D) ✗ 這是<strong>全光譜</strong>燈，涵蓋各波長，呈白光。</li>
+<li>(E) ✗ 照度與距離<strong>平方</strong>成反比，距離 10 倍 ⇒ 照度 <strong>1/100</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q134">
+<header class="qh"><span class="qn">強試 15</span><span class="qtag">酵母菌的生長與發酵・非選（和經典演練 5 同圖）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>圖㈠為試管中不同培養階段之酵母菌族群數量、葡萄糖濃度和酒精濃度的變化曲線，圖㈡為酵母菌的呼吸作用。(1) 酵母菌在哪些階段族群成長為正成長？(2) ①～③ 各是什麼名稱？(3) 酵母菌在哪個時間點開始進行發酵？(4) T₁～T₂ 階段葡萄糖濃度劇烈減少，若與呼吸作用有關，應該如何造成？</p></div><div class="qimgs"><img class="qimg" src="img/A078_72_87_x20-92.jpg" width="1361" height="523" loading="lazy" alt="生物講義 第78頁" data-page="生物講義 p.78"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) AB、BC　(2) ① 糖解作用 ② 乙醇 ③ CO₂　(3) T₁　(4) 發酵每分子葡萄糖只產 2 ATP，需消耗大量葡萄糖</div>
+<div class="exp"><b class="exp-h">解</b><p>詳解見經典演練 5：族群數量上升＝正成長；酒精自 T₁ 起上升，代表 T₁ 開始發酵；發酵的能量效率低，所以葡萄糖消耗得快。</p></div>
+</details>
+</article>
+
+<h2 class="section " id="s4">歷屆考題（挑選）</h2>
+
+<article class="q q-pr" id="q135">
+<header class="qh"><span class="qn">歷屆 1</span><span class="qtag">不同植物固定 CO₂ 的方法・單選（100 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關不同植物固定 CO₂ 方法的敘述，何者<strong>錯誤</strong>？<br />
+(A) 水稻葉肉細胞內的酵素能促使 CO₂ 與三碳醣結合　(B) 鳳梨的葉肉細胞可在夜間將 CO₂ 固定於液泡內　(C) 甘蔗的葉肉細胞僅能固定 CO₂，但無法合成磷酸甘油醛　(D) 仙人掌的葉肉細胞可以固定 CO₂，又可以合成磷酸甘油醛</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 水稻（C₃）的 Rubisco 是讓 CO₂ 與<strong>五碳的 RuBP</strong> 結合，不是三碳醣。</li>
+<li>(B) ○ 鳳梨是 CAM，夜間固定 CO₂ 成四碳酸儲存於液泡。</li>
+<li>(C) ○ 甘蔗（C₄）葉肉細胞只做第一次固定；卡爾文循環在<strong>維管束鞘細胞</strong>。</li>
+<li>(D) ○ 仙人掌（CAM）同一細胞內固定、再合成 G3P。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q136">
+<header class="qh"><span class="qn">歷屆 2</span><span class="qtag">植株乾重的主要來源・單選（101 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪一物質的合成產物是植株乾重的主要來源？<br />
+(A) Ca　(B) H₂O　(C) CO₂　(D) 由土壤中吸收的有機物</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>植物乾重的主要成分是有機物，其碳來自<strong>光合作用固定的 CO₂</strong>（水主要是濕重）；土壤礦物（Ca 等）量很少，植物是自營生物，不從土壤吸收有機物。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q137">
+<header class="qh"><span class="qn">歷屆 3</span><span class="qtag">產氧量下降受損的部位・單選（104 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某一株植物在逆境下產氧量下降時，最可能是細胞中的哪一部位受損？<br />
+(A) 粒線體內膜　(B) 粒線體外膜　(C) 粒線體基質　(D) 類囊體（葉綠囊）　(E) 葉綠體基質</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>O₂ 來自光反應的水裂解</strong>，發生在類囊體膜（PS II）；粒線體、基質都不產 O₂。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q138">
+<header class="qh"><span class="qn">歷屆 4</span><span class="qtag">粒線體與葉綠體的比較・單選（107 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>粒線體與葉綠體都是細胞處理能量的胞器，但兩者的分工不同，下列何者正確？<br />
+(A) 各自都具有 DNA，以製造本身所需蛋白　(B) 葡萄糖分解在粒線體內進行　(C) 粒線體可產生 ATP 而葉綠體則否　(D) 葉綠體為植物獨有，粒線體為動物獨有　(E) ATP 的產生都發生在內膜上</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 兩者都是<strong>半自主</strong>胞器，有自己的 DNA 與核糖體。</li>
+<li>(B) ✗ 葡萄糖分解（糖解）在<strong>細胞質液</strong>，粒線體分解的是丙酮酸。</li>
+<li>(C) ✗ 葉綠體的光反應也產生 ATP。</li>
+<li>(D) ✗ 植物細胞<strong>也有粒線體</strong>；葉綠體在植物與藻類。</li>
+<li>(E) ✗ 葉綠體 ATP 在<strong>類囊體膜</strong>，粒線體在<strong>內膜</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q139">
+<header class="qh"><span class="qn">歷屆 5</span><span class="qtag">光反應的敘述・單選（99 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>光自營生物藉由光合作用獲得能量和養分，以維持生活。下列有關光反應之敘述，何者正確？<br />
+(A) 光分解而釋放出的電子用來合成葡萄糖　(B) 光系統 II（PS II）釋出的電子會傳至水分子　(C) 藉由 RuBP 和 CO₂ 使光反應和碳反應相連結　(D) 參與 NADPH 合成電子，最終來源為水分子</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 電子是用來形成 NADPH 與 ATP，不是直接合成葡萄糖。</li>
+<li>(B) ✗ PS II 的電子傳向<strong>電子傳遞鏈 → PS I</strong>；是水<strong>提供</strong>電子給 PS II。</li>
+<li>(C) ✗ 連結光反應與碳反應的是 <strong>ATP 與 NADPH</strong>。</li>
+<li>(D) ○ 水 → 電子 → PS II → 電子傳遞鏈 → PS I → NADP⁺ 形成 NADPH，<strong>最終電子來源是水</strong>。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q140">
+<header class="qh"><span class="qn">歷屆 6</span><span class="qtag">DCPIP 過量的結果・單選（104 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某生依課本指示探討光反應的還原實驗，利用 DCPIP 的顏色變化測定葉綠體釋出的質子與電子。他配製適當濃度的葉綠體懸浮液後，卻誤加入 5% DCPIP 取代正常的 0.01～0.1%，導致 DCPIP 過量。經照光 30 分鐘後，離心，取上清液，觀察顏色變化，下列情形何者最有可能？<br />
+(A) 維持藍色　(B) 維持無色　(C) 由藍色變無色　(D) 由無色變藍色</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>葉綠體釋出的電子數量有限；DCPIP 濃度提高 50 倍以上，<strong>絕大部分 DCPIP 仍是氧化態（藍色）</strong>，所以離心後上清液仍呈藍色。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q141">
+<header class="qh"><span class="qn">歷屆 7</span><span class="qtag">氣孔夜間張開・單選（101 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某生觀察一植物時，發現它的氣孔於夜間張開。下列何者是此現象的合理推測？<br />
+(A) 此植物栽培於高溫環境　(B) 此植物栽培於高溼度環境　(C) 此植物為 CAM 植物　(D) 此植物為 C₃ 植物</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>CAM 植物</strong>白天氣孔關閉（減少水分散失）、<strong>夜間開啟</strong>吸收 CO₂ 儲存為蘋果酸。C₃、C₄ 氣孔都是白天開。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q142">
+<header class="qh"><span class="qn">歷屆 8</span><span class="qtag">檢驗逆境是否損傷光合作用機制・單選（111 分科）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>若想試驗逆境是否造成豆苗的光合作用機制受損，應該可以進行下列哪一實驗？<br />
+(A) 以濾紙色層分析法檢視逆境下的豆苗，是否含有葉綠素 a　(B) 以濾紙色層分析法比較正常生長與逆境生長的豆苗，逆境組的葉綠素 a 之 Rf 值是否變小　(C) 分離逆境生長豆苗的葉綠體，加入 DCPIP 一段時間後，上清液是否變無色　(D) 比較正常生長與逆境生長豆苗的葉綠體粗萃取液加入 DCPIP 一段時間後，逆境組上清液顏色是否較深</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>要檢驗<strong>光反應（釋出電子）</strong>是否受損，需用希爾反應（DCPIP），而且要有<strong>正常組當對照</strong>比較褪色程度；逆境組若光反應受損，DCPIP 被還原得少，<strong>顏色會較深</strong>。<br />
+- (A)(B) 層析只看色素種類／Rf，與光反應能力無直接關係；Rf 由色素性質決定，不會因逆境改變。<br />
+- (C) 沒有正常組對照，只看「是否變無色」無法判斷是否受損。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q143">
+<header class="qh"><span class="qn">歷屆 9</span><span class="qtag">螺旋藻與小球藻・單選（108 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>螺旋藻為一種藍綠菌，而小球藻則為一種綠藻，螺旋藻及小球藻皆被認為富含人體所需的養分。下列有關這兩者的敘述何者正確？<br />
+(A) 兩者皆具葉綠體　(B) 兩者皆行光合作用光反應產生氧　(C) 兩者的細胞壁主要皆由肽聚糖組成　(D) 在三域系統中螺旋藻是細菌，而小球藻是植物　(E) 螺旋藻以葉黃素，而小球藻則以葉綠素為主要光合色素</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 藍綠菌是<strong>原核生物，沒有葉綠體</strong>。</li>
+<li>(B) ○ 兩者都行放氧型光合作用（水裂解產 O₂）。</li>
+<li>(C) ✗ 藍綠菌細胞壁是肽聚糖；綠藻細胞壁主要是<strong>纖維素</strong>。</li>
+<li>(D) ✗ 三域系統：藍綠菌屬細菌域沒錯，但小球藻屬<strong>真核生物域</strong>（綠藻是原生生物，不是植物）。</li>
+<li>(E) ✗ 兩者都以<strong>葉綠素 a</strong>為主要光合色素。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q144">
+<header class="qh"><span class="qn">歷屆 10</span><span class="qtag">光合作用示意圖・單選（108 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>右圖為植物光合作用的示意圖（P680 的電子經過「甲」傳到 P700，P700 的電子再經「乙」傳出；水裂解提供電子給 P680），下列敘述何者正確？<br />
+(A) 甲的化學反應式為 NADP⁺ ＋ e⁻ → NADPH　(B) 乙的化學反應式為 ADP ＋ Pi → ATP　(C) 在水蘊草的裂解水作用中，光反應的指標為氧氣　(D) 圖中所示包含光合作用的光反應和固碳反應</p></div><div class="qimgs"><img class="qimg" src="img/A080_34_50_x62-99.jpg" width="706" height="490" loading="lazy" alt="生物講義 第80頁" data-page="生物講義 p.80"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ <strong>甲</strong>是 PS II → PS I 之間的電子傳遞鏈（釋能、合成 ATP）；NADPH 形成是<strong>乙</strong>的步驟。</li>
+<li>(B) ✗ 同理，ADP ＋ Pi → ATP 對應的是<strong>甲</strong>，不是乙。</li>
+<li>(C) ○ 水蘊草裂解水會放出 <strong>O₂</strong>，氧氣可作為光反應進行的指標（氣泡）。</li>
+<li>(D) ✗ 圖只包含光反應（兩個光系統與電子傳遞），沒有固碳反應。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q145">
+<header class="qh"><span class="qn">歷屆 11</span><span class="qtag">沒有氧化還原的碳循環過程・單選（110 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>自然界中，氧化還原反應扮演著重要的角色，下列有關碳循環的過程，何者<strong>沒有</strong>牽涉到氧化還原反應？<br />
+(A) 細胞呼吸是利用葡萄糖反應產生二氧化碳，並釋出能量　(B) 生物體內的碳水化合物逐漸在地層中沉積，最後轉變成煤　(C) 煤和石油在空氣中燃燒產生二氧化碳　(D) 二氧化碳溶於水，與鈣離子（Ca²⁺）結合，以碳酸鈣沉澱的方式積存於海底　(E) 二氧化碳經由光合作用轉變為葡萄糖，並釋放出氧氣</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>(A)(C) 氧化（燃燒、呼吸）；(B) 碳水化合物長期轉變為煤（還原、碳化）；(E) 光合作用是還原 CO₂ 為葡萄糖。<strong>(D)</strong> CO₂ ＋ H₂O ＋ Ca²⁺ → CaCO₃ ＋ 2H⁺：碳仍是 ＋4 價，<strong>沒有電子轉移</strong>，只是沉澱反應。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q146">
+<header class="qh"><span class="qn">歷屆 12</span><span class="qtag">巴拉刈・單選（109 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>巴拉刈是一種常用來作為除草劑的強氧化劑，可抑制光反應電子傳遞的過程。對人來說，巴拉刈也是劇毒，如果進入細胞會產生大量的過氧化物。下列敘述何者正確？<br />
+(A) 植物在噴灑巴拉刈後仍可持續進行碳反應　(B) 巴拉刈分解後產生氧使細胞加速受損　(C) 巴拉刈以吸收電子方式干擾電子傳遞過程　(D) 巴拉刈在葉綠體的作用位置主要在基質　(E) 巴拉刈對植物與動物造成毒害的主要胞器完全相同</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>巴拉刈是<strong>強氧化劑</strong>，會<strong>搶走（吸收）電子</strong>，使電子無法順利傳到 NADP⁺，並產生過氧化物。</li>
+<li>(A) ✗ 光反應受阻 ⇒ 沒有 ATP、NADPH ⇒ 碳反應也停。</li>
+<li>(B) ✗ 受損來自它吸電子後生成的<strong>過氧化物</strong>，不是「分解產生氧」。</li>
+<li>(C) ○。</li>
+<li>(D) ✗ 電子傳遞發生在<strong>類囊體膜</strong>。</li>
+<li>(E) ✗ 植物主要毒害葉綠體；人（動物）沒有葉綠體，主要影響粒線體。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q147">
+<header class="qh"><span class="qn">歷屆 13</span><span class="qtag">微生物發酵食品・單選（109 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>許多食品經由微生物發酵而成，下列敘述何者正確？<br />
+(A) 優酪乳是由乳酸菌行有氧呼吸，發酵碳水化合物產生乳酸而成　(B) 啤酒是由啤酒細菌分解穀物產生酒精而成　(C) 食用醋是醋酸菌發酵酒精產生醋酸而成　(D) 豆類不含碳水化合物，無法利用微生物發酵成食品</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 乳酸菌行的是<strong>乳酸發酵（無氧）</strong>。</li>
+<li>(B) ✗ 啤酒由<strong>啤酒酵母菌（真菌）</strong>發酵，不是細菌。</li>
+<li>(C) ○ 醋酸菌把酒精氧化成醋酸。</li>
+<li>(D) ✗ 豆類含碳水化合物（還有蛋白質），可發酵成醬油、納豆等。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q148">
+<header class="qh"><span class="qn">歷屆 14</span><span class="qtag">真核生物的光合作用與呼吸作用・多選（111 學測）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>有關真核生物的光合作用和呼吸作用，下列哪些正確？（多選）<br />
+(A) 光合作用在葉綠體中進行　(B) 發酵作用在粒線體中進行　(C) 光合作用的過程中會產生 ATP　(D) 有氧呼吸產生 ATP 的過程在細胞質中進行　(E) 有些植物細胞內可同時進行光合作用和有氧呼吸</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○。 (B) ✗ 發酵在<strong>細胞質液</strong>。 (C) ○ 光反應產生 ATP。</li>
+<li>(D) ✗ 有氧呼吸產 ATP 的主要過程（檸檬酸循環、氧化磷酸化）在<strong>粒線體</strong>。</li>
+<li>(E) ○ 葉肉細胞同時有葉綠體與粒線體。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q149">
+<header class="qh"><span class="qn">歷屆 15</span><span class="qtag">有氧呼吸與發酵的共同特徵・多選（104 學測修訂）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些是真核細胞的有氧呼吸與發酵作用之共同特徵？（多選）<br />
+(A) 皆產生 ATP　(B) 皆有糖解的過程　(C) 皆有將丙酮酸還原成乳酸的過程　(D) 皆發生在粒線體中　(E) 全都會產生酒精</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>兩者都經過<strong>糖解作用</strong>（細胞質液）並產生 ATP；(C)(E) 只是某些發酵；(D) 發酵不在粒線體。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q150">
+<header class="qh"><span class="qn">歷屆 16</span><span class="qtag">光合色素層析的 Rf・多選（104 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>利用濾紙色層分析法探討各光合色素在展開液（石油醚：丙酮＝9：1）中沿濾紙條往上移動的情形。若定義 Rf＝色素移動的距離／展開液移動的距離，則下列敘述哪些正確？（多選）<br />
+(A) 葉綠素 a 的 Rf 等於葉綠素 b 的 Rf　(B) 葉綠素 b 的 Rf 大於胡蘿蔔素的 Rf　(C) 胡蘿蔔素的 Rf 大於葉綠素 a 的 Rf　(D) 色素 Rf 愈大層析後色素帶離原點愈近　(E) 色素的 Rf 愈小，該色素在濾紙上的移動速度愈慢</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>Rf：胡蘿蔔素 ＞ 葉黃素 ＞ 葉綠素 a ＞ 葉綠素 b。(A)(B) ✗；(C) ○；(D) ✗ Rf 愈大<strong>離原點愈遠</strong>；(E) ○。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q151">
+<header class="qh"><span class="qn">歷屆 17</span><span class="qtag">希爾反應的設計・多選（106 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某生利用 0.5 M 蔗糖溶液萃取地瓜葉中的葉綠體進行 DCPIP 反應，實驗設計如下表所示：A：蔗糖 3 mL、萃取液 1 mL、光照 0 小時、DCPIP 0.5 mL；B：蔗糖 3 mL、萃取液 0、光照 0 小時、DCPIP 0.5 mL；C：蔗糖 3 mL、萃取液 1 mL、光照 1 小時、DCPIP 0.5 mL；D：蔗糖 3 mL、萃取液 0、光照 1 小時、DCPIP 0.5 mL。則下列敘述哪些正確？（多選）<br />
+(A) 加入蔗糖的目的為脹破細胞，以增加葉綠體的萃取量　(B) C 管在初始反應時的 pH 值最高　(C) B 及 D 管皆會呈現藍色　(D) 此設計可得知葉綠體固碳反應的效率　(E) 當 A、C 管加入強氧化劑時，兩管的呈色會相似</p></div><div class="qimgs"><img class="qimg" src="img/A081_74_89_x22-84.jpg" width="1243" height="430" loading="lazy" alt="生物講義 第81頁" data-page="生物講義 p.81"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 0.5 M 蔗糖是<strong>等張</strong>溶液，目的是<strong>避免葉綠體脹破</strong>。</li>
+<li>(B) ✗ 初始（尚未反應）各管 pH 沒有理由不同。</li>
+<li>(C) ○ B、D <strong>沒有葉綠體</strong>，DCPIP 不被還原 ⇒ 藍色。</li>
+<li>(D) ✗ 測的是<strong>光反應</strong>（電子釋放），與固碳反應無關。</li>
+<li>(E) ○ 強氧化劑使 DCPIP 維持氧化態（藍），A、C 都變藍，呈色相似。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q152">
+<header class="qh"><span class="qn">歷屆 18</span><span class="qtag">景天酸代謝與四碳植物的固碳・多選（103 指考修）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列有關碳反應的敘述，哪些正確？（多選）<br />
+(A) 四碳植物將二氧化碳先固定於維管束鞘細胞內　(B) 水稻與鳳梨在臺灣長得好和產量高，主要是因演化出有效的相同固碳方式　(C) 鳳梨在白天將二氧化碳固定於液泡內以避免散失　(D) 景天科植物與四碳植物的固碳時間不同　(E) 水稻與玉米的固碳方式不同</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ C₄ 先固定在<strong>葉肉細胞</strong>（PEP 羧化酶），再送到維管束鞘。</li>
+<li>(B) ✗ 水稻是 C₃、鳳梨是 CAM，固碳方式<strong>不同</strong>。</li>
+<li>(C) ✗ 鳳梨（CAM）在<strong>夜間</strong>固定 CO₂。</li>
+<li>(D) ○ 景天科（CAM）夜間固定、四碳植物白天固定。</li>
+<li>(E) ○ 水稻 C₃、玉米 C₄。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q153">
+<header class="qh"><span class="qn">歷屆 19</span><span class="qtag">破碎葉肉細胞的實驗・多選（110 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>打破菠菜細胞，以不同溶液萃取並收集濾液進行實驗，下列敘述哪些正確？（多選）<br />
+(A) 以 0.5 M 蔗糖液收集的濾液，可在照光下進行希爾反應　(B) 以清水收集的濾液，可以進行過氧化氫酶反應　(C) 過氧化氫酶最佳作用的 pH 值為 10　(D) 在光合色素分離實驗中，展開液與色素的移動距離分別為 5 公分及 2 公分，則該色素 Rf＝2.5　(E) 以石油醚：90% 丙酮約為 9：1 的展開液進行層析實驗，在濾紙上展開速度由慢到快分別為葉綠素 a、葉黃素及胡蘿蔔素</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 等張的蔗糖液保持葉綠體完整，可行希爾反應。</li>
+<li>(B) 講義解答<strong>不選</strong>此項（題目原文的條件下判為不成立；我無法從講義判斷確切理由，請對照老師的解答本）。</li>
+<li>(C) ✗ 過氧化氫酶最適 pH 約 <strong>7</strong>。</li>
+<li>(D) ✗ Rf＝2／5＝<strong>0.4</strong>（Rf 不會大於 1）。</li>
+<li>(E) ○ 速度慢到快＝Rf 小到大：葉綠素 a ＜ 葉黃素 ＜ 胡蘿蔔素。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q154">
+<header class="qh"><span class="qn">歷屆 20</span><span class="qtag">癌細胞的有氧糖解・多選（111 分科）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>人類癌細胞和正常細胞一樣會進行有氧呼吸，然而癌細胞需要更多能量，因而在有氧情況下，會使用大量葡萄糖進行發酵作用，稱之為有氧糖解。下列敘述哪些正確？（多選）<br />
+(A) 癌細胞的有氧糖解不會產生丙酮酸　(B) 有大量癌細胞進行有氧糖解的組織區域內可偵測到高量乳酸　(C) 癌細胞中需要的能量和正常細胞一樣　(D) 癌細胞有氧糖解的過程不需粒線體　(E) 癌細胞有氧呼吸在粒線體中完成</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 糖解先產生<strong>丙酮酸</strong>，再被還原成乳酸。</li>
+<li>(B) ○ 乳酸發酵產物＝乳酸。</li>
+<li>(C) ✗ 題目說癌細胞需要<strong>更多</strong>能量。</li>
+<li>(D) ○ 糖解與發酵都在<strong>細胞質液</strong>。</li>
+<li>(E) ○ 癌細胞仍會進行有氧呼吸，場所是粒線體（後半段）。</li>
+</ul></div>
+</details>
+</article>
+
+<h2 class="section " id="s5">歷屆考題：補充（圖表題與閱讀題，答案依講義解答）</h2>
+
+<article class="q q-pr" id="q155">
+<header class="qh"><span class="qn">歷屆 12</span><span class="qtag">葉片構造與光合作用・單選（107 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A080_63p5_75p5_x5-99.jpg" width="1400" height="287" loading="lazy" alt="生物講義 第80頁" data-page="生物講義 p.80"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p><strong>講義解答為 (B)</strong>：圖為 C₄ 植物葉片橫切，甲為葉肉細胞，CO₂ 在葉肉細胞由 PEP 羧化酶先固定成<strong>四碳化合物（草醯乙酸）</strong>；卡爾文循環在<strong>維管束鞘細胞</strong>進行，所以 (A)（說在甲進行卡爾文循環）不對。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q156">
+<header class="qh"><span class="qn">歷屆 15～16</span><span class="qtag">某種植物葉片橫切面・題組（102 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A081_8p5_24_x5-99.jpg" width="1400" height="404" loading="lazy" alt="生物講義 第81頁" data-page="生物講義 p.81"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>15：(D)　16：(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>講義解答：15 題 (D)（乙、戊細胞可進行光合作用）；16 題 (B) <strong>玉米</strong>（C₄ 植物的維管束鞘有明顯的細胞環，可由葉片橫切構造判斷）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q157">
+<header class="qh"><span class="qn">歷屆 20</span><span class="qtag">植物的兩種胞器・多選（106 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A081_56p5_70p5_x5-99.jpg" width="1400" height="334" loading="lazy" alt="生物講義 第81頁" data-page="生物講義 p.81"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>講義解答為 (A)(E)：電子傳遞鏈在<strong>類囊體膜</strong>（葉綠體）與<strong>粒線體內膜</strong>進行（A ○）；白天兩種胞器都在合成 ATP（E ○）。(B) H₂O 的合成只在粒線體；(C) 糖解在細胞質液；(D) CO₂ 的固定是同化代謝，不是「異化」。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q158">
+<header class="qh"><span class="qn">歷屆 22</span><span class="qtag">景天酸代謝植物的固碳・多選（100 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A082_9_18_x5-99.jpg" width="1400" height="235" loading="lazy" alt="生物講義 第82頁" data-page="生物講義 p.82"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>講義解答為 (C)(E)：CAM 植物的 CO₂ 先在夜間固定成四碳酸，<strong>儲存於液泡</strong>（C ○）；固碳反應（卡爾文循環）要<strong>消耗 ATP 與 NADPH</strong>（E ○）。(A) 固定發生在夜間；(D) 固碳反應不是光反應。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q159">
+<header class="qh"><span class="qn">歷屆 23</span><span class="qtag">粒線體的構造或功能・多選（97 指考）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A082_18p5_28_x5-99.jpg" width="1400" height="221" loading="lazy" alt="生物講義 第82頁" data-page="生物講義 p.82"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>講義解答為 (A)(C)：粒線體有自己的 DNA（A ○），並合成細胞所需的大部分 ATP（C ○）。(B) 不能合成自身所需的全部蛋白質（半自主）；(D) 電子最後傳給 <strong>O₂</strong>（不是水分子）；(E) 質子是送到<strong>膜間腔</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q160">
+<header class="qh"><span class="qn">歷屆 27～29</span><span class="qtag">閱讀一：固碳反應與光照・題組（94 指考修訂）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A082_61_95_x5-99.jpg" width="1400" height="803" loading="lazy" alt="生物講義 第82頁" data-page="生物講義 p.82"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>27：(C)　28：(D)　29：(A)(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>27：本文強調<strong>光照對固碳反應的重要性</strong>（固碳反應並非完全與光照無關）。</li>
+<li>28：Rubisco 之外，至少還有另外 <strong>4 種</strong>酵素需要光照活化，共 <strong>5 種</strong>（講義解答 D）。</li>
+<li>29：Rubisco 活性受 <strong>pH（H⁺ 濃度）、鎂離子濃度、Rubisco 活化酵素、Rubisco 抑制分子</strong>調控；光反應酵素活性不在調控因子之列（講義解答 ABDE）。</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q161">
+<header class="qh"><span class="qn">歷屆 30～33</span><span class="qtag">閱讀二：北歐鯽的新陳代謝・題組（91 指考修訂）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A083_21_96_x5-99.jpg" width="1400" height="1863" loading="lazy" alt="生物講義 第83頁" data-page="生物講義 p.83"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>30：(B)　31：(B)　32：(A)　33：(B)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>30：由圖表研判，北歐鯽體內<strong>肝糖</strong>（儲存的能源）愈多，抗寒（耐缺氧）的能力愈佳。</li>
+<li>31：北歐鯽能在冰凍小池塘存活，是因為<strong>新陳代謝產生酒精</strong>（排入水中，乳酸被轉成酒精，不致堆積）。</li>
+<li>32：金魚缺氧時，<strong>腦部血流量</strong>增為平時兩倍以上。</li>
+<li>33：(B) 發酵的終產物為酒精；(D) 丙酮酸去氫酶位於<strong>肌細胞粒線體</strong>；(E) 肌肉中的<strong>葡萄糖（由肝糖分解）</strong>是能量來源。（講義解答 BDE）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q162">
+<header class="qh"><span class="qn">歷屆 34</span><span class="qtag">光合作用速率與生物鐘・非選（日大）</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A084_9_35_x5-99.jpg" width="1400" height="651" loading="lazy" alt="生物講義 第84頁" data-page="生物講義 p.84"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) O₂ 與 CO₂（O₂ 的生成量及 CO₂ 的消耗量）　(2) 基質　(3) 84 小時　(4) 不能支持，因為生物鐘不受外界環境之影響（講義解答）</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(1) 光合作用的指標氣體：<strong>產生的 O₂</strong>、<strong>消耗的 CO₂</strong>。</li>
+<li>(2) 固碳反應在葉綠體<strong>基質</strong>。</li>
+<li>(3) 光合速率的高峰在 12、36、60 小時（週期 24 小時），下一個高峰在 <strong>84 小時</strong>。</li>
+<li>(4) 講義解答：改為連續光照後，周期消失，<strong>不能支持</strong>「速率高低由生物鐘調控」（依講義解答的說法：生物鐘不受外界環境影響，而這裡的週期消失了）。</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u2-4.html">← 2-4 探討活動：色素層析、希爾反應、酵母菌發酵</a><a href="u復0.html">復0 考前地圖：範圍・脈絡・規則速查 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

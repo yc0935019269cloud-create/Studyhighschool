@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2-5 分子間的作用力｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a class="on" href="u2-5.html"><span>2-5</span>分子間的作用力</a><ul class="subtoc"><li><a href="#s1">重點整理</a></li><li><a href="#s2">例題與類題</a></li><li><a href="#s3">單元練習</a></li></ul></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第2章 化學鍵</div>
+<h1><span class="uid">2-5</span>分子間的作用力</h1>
+<div class="tools"><span class="cnt">本單元 42 題</span>
+<button id="togglePre">隱藏考前速記（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">重點整理</h2>
+<h3>一、分子間作用力</h3>
+<ol>
+<li>氣體、液體可藉降溫、加壓變成液體、固體 → 分子間存在某種作用力。</li>
+<li>分子間作用力愈強，分子物質的<strong>熔點、沸點愈高</strong>（汽化、熔化時要有更大動能來克服它）。</li>
+<li>分子間作用力分為：<strong>偶極−偶極力、偶極−誘發偶極力、分散力</strong>，統稱<strong>凡得瓦力</strong>；氫鍵也是分子間作用力的一種。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><ul>
+<li>分子間作用力比化學鍵弱得多（通常小於 5 kJ/mol），所以不被視為化學鍵。</li>
+<li>共價物質「分子內」是強的共價鍵，「分子間」只有微弱的氫鍵或凡得瓦力。</li>
+<li><strong>影響分子物質熔、沸點的是分子間作用力，與分子內的化學鍵無關。</strong></li>
+</ul></aside>
+<h3>二、凡得瓦力</h3>
+<p><strong>1. 偶極−偶極力</strong>：兩個<strong>極性分子</strong>接近時，一個分子的正端吸引另一個分子的負端。例：HCl 與 HCl。</p>
+<p><strong>2. 偶極−誘發偶極力</strong>：極性分子接近非極性分子，使後者電子雲瞬間分布不均而形成<strong>誘發偶極</strong>，兩者間的吸引力。例：HCl 與 H<sub>2</sub>。</p>
+<p><strong>3. 分散力（倫敦分散力）</strong>：非極性分子偶爾產生電子雲分布不均的<strong>瞬間偶極</strong>，進而使鄰近分子產生誘發偶極，這種吸引力稱為分散力。例：H<sub>2</sub> 與 H<sub>2</sub>。</p>
+<figure class="fig"><img class="figimg" src="img/A085_20_46.jpg" width="1400" height="560" loading="lazy" alt="講義一 第85頁" data-page="講義一 p.85"><figcaption>分散力：瞬間偶極 → 誘發偶極</figcaption></figure>
+
+<aside class="box box-sum"><div class="box-h">整理</div><ul>
+<li>偶極−偶極力：存在於<strong>兩極性分子</strong>之間</li>
+<li>偶極−誘發偶極力：存在於<strong>極性分子與非極性分子</strong>之間</li>
+<li>分散力：存在於<strong>任何分子</strong>之間</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CO<sub>2</sub> 與 CH<sub>4</sub></th>
+<th>HCl 與 CO<sub>2</sub></th>
+<th>HCl 與 H<sub>2</sub>O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>偶極−偶極力</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>偶極−誘發偶極力</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+</tr>
+<tr>
+<td>分散力</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>凡得瓦力</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table></aside>
+<p><strong>4. 影響分散力大小的因素</strong></p>
+<ol>
+<li><strong>電子總數（分子量）</strong>：電子愈多，愈容易產生電子雲分布不均 → 分散力愈大、熔沸點愈高。<br />
+   例：F<sub>2</sub> ＜ Cl<sub>2</sub> ＜ Br<sub>2</sub> ＜ I<sub>2</sub>；O<sub>2</sub> ＞ N<sub>2</sub>；S<sub>8</sub> ＞ P<sub>4</sub> ＞ Cl<sub>2</sub> ＞ Ar</li>
+<li><strong>分子大小</strong>：分子愈大，接觸面積愈大。例：直鏈烷類 C<sub>n</sub>H<sub>2n＋2</sub> 沸點隨碳鏈加長而升高。</li>
+<li><strong>分子形狀</strong>：<br />
+   - <strong>沸點</strong>：同分異構物中，愈接近<strong>球形（支鏈愈多）</strong>，接觸面積愈小，沸點愈低。<br />
+     正戊烷（36 ℃）＞ 異戊烷（28 ℃）＞ 新戊烷（9.5 ℃）<br />
+   - <strong>熔點</strong>：還受晶體堆積影響，<strong>愈對稱</strong>愈容易緊密堆積，熔點愈高。<br />
+     新戊烷（−20 ℃）＞ 正戊烷（−130 ℃）＞ 異戊烷（−159 ℃）<br />
+     反-二氯乙烯（−50 ℃）＞ 順-二氯乙烯（−80.5 ℃）</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>分子量相近時，極性分子的沸點高於非極性分子</strong>（多了偶極−偶極力）。<br />
+例：CO（−192 ℃）＞ N<sub>2</sub>（−196 ℃）；順-二氯乙烯（60.2 ℃）＞ 反-二氯乙烯（48.5 ℃）</p></aside>
+<h3>三、氫鍵</h3>
+<h4>1. 形成</h4>
+<p>H 與電負度大的 <strong>F、O、N</strong> 結合時，H 帶部分正電荷；若旁邊有另一個 F、O、N（<strong>須有孤電子對</strong>）接近，就形成較強的吸引力 → 氫鍵，表示為 <strong>X−H···Y</strong>。</p>
+<figure class="fig"><img class="figimg" src="img/A087_55_67.jpg" width="1400" height="276" loading="lazy" alt="講義一 第87頁" data-page="講義一 p.87"><figcaption>X−H···Y 氫鍵示意</figcaption></figure>
+<h4>2. 特性</h4>
+<ol>
+<li>兼具離子鍵（δ<sup>+</sup>、δ<sup>−</sup> 吸引）、共價鍵（H 的空軌域與 Y 的孤對）與凡得瓦力的部分特性。</li>
+<li>具有<strong>方向性</strong>。</li>
+<li>單一氫鍵強度：F−H···F ＞ O−H···O ＞ N−H···N</li>
+<li>相對強度：<strong>凡得瓦力 : 氫鍵 : 共價鍵 ≈ 1 : 10 : 100</strong></li>
+</ol>
+<h4>3. 分類</h4>
+<p><strong>(1) 分子間氫鍵</strong>：發生在兩個分子之間。H<sub>2</sub>O···H<sub>2</sub>O、NH<sub>3</sub>···NH<sub>3</sub>、H<sub>2</sub>O···NH<sub>3</sub></p>
+<ul>
+<li>固態 H<sub>2</sub>O：每分子平均形成 <strong>2 個</strong>氫鍵（2 個 O−H、2 對孤對）</li>
+<li>固態 HF：每分子平均 <strong>1 個</strong>（1 個 F−H、3 對孤對）</li>
+<li>固態 NH<sub>3</sub>：每分子平均 <strong>1 個</strong>（3 個 N−H、1 對孤對）</li>
+</ul>
+<p><strong>(2) 分子內氫鍵</strong>：發生在同一分子內，通常在<strong>順式異構物</strong>或<strong>苯環鄰位</strong>異構物中，形成穩定的五或六角環。例：順-丁烯二酸、柳酸、鄰-羥基苯甲醛、鄰-苯二酚、蛋白質、DNA</p>
+<figure class="fig"><img class="figimg" src="img/A088_77_90p5.jpg" width="1400" height="340" loading="lazy" alt="講義一 第88頁" data-page="講義一 p.88"><figcaption>分子內氫鍵的例子</figcaption></figure>
+
+<aside class="box box-concept"><div class="box-h">觀念</div><ul>
+<li><strong>HCN</strong> 可形成分子間氫鍵：N 電負度大，隔著一個 C 仍使 H 帶部分正電荷。</li>
+<li><strong>氯</strong>與氮電負度相近，某些情況下含氯分子也可形成氫鍵：氯仿 CHCl<sub>3</sub> 與丙酮可形成分子間氫鍵。</li>
+<li><strong>KHF<sub>2</sub></strong> 是離子化合物但含氫鍵：K<sup>+</sup>[F<sup>−</sup>···H−F]</li>
+</ul></aside>
+<h4>4. 氫鍵的影響</h4>
+<p><strong>(1) 使熔點、沸點升高</strong></p>
+<ul>
+<li>NH<sub>3</sub>、H<sub>2</sub>O、HF 在同族氫化物中沸點異常高：</li>
+<li>7A：HF ＞ HI ＞ HBr ＞ HCl</li>
+<li>6A：H<sub>2</sub>O ＞ H<sub>2</sub>Te ＞ H<sub>2</sub>Se ＞ H<sub>2</sub>S</li>
+<li>5A：SbH<sub>3</sub> ＞ NH<sub>3</sub> ＞ AsH<sub>3</sub> ＞ PH<sub>3</sub></li>
+<li>沸點 H<sub>2</sub>O ＞ HF ＞ NH<sub>3</sub></li>
+</ul>
+<figure class="fig"><img class="figimg" src="img/A089_75_92_x70-92.jpg" width="467" height="610" loading="lazy" alt="講義一 第89頁" data-page="講義一 p.89"><figcaption>各族氫化物的沸點</figcaption></figure>
+<ul>
+<li>同分異構物中，有分子間氫鍵者沸點較高：C<sub>2</sub>H<sub>5</sub>OH（78 ℃）＞ CH<sub>3</sub>OCH<sub>3</sub>（−25 ℃）</li>
+<li>反-丁烯二酸沸點 ＞ 順-丁烯二酸（順式有分子內氫鍵，分子間氫鍵較少）</li>
+</ul>
+<p><strong>(2) 使水溶解度升高</strong>：能與水形成氫鍵者易溶於水，如乙酸、乙醇、丙酮。</p>
+<p><strong>(3) 增加黏滯性</strong>：氫鍵愈多愈黏，如甘油 C<sub>3</sub>H<sub>5</sub>(OH)<sub>3</sub>、乙二醇 C<sub>2</sub>H<sub>4</sub>(OH)<sub>2</sub>。</p>
+<p><strong>(4) 影響結構</strong>：<br />
+1. 液、氣態 HF 以 (HF)<sub>x</sub>（x ＝ 2～6）存在；固態為鏈狀結構。<br />
+2. 水結冰形成四面體網狀結構，留有空隙 → <strong>密度變小</strong>、硬度增大。<br />
+3. 醋酸以氫鍵形成<strong>二聚體</strong>，在低極性有機溶劑中測得分子量約 120。<br />
+4. 蛋白質的螺旋結構（加熱或加酒精會破壞氫鍵，不能復原）。</p>
+<figure class="fig"><img class="figimg" src="img/A090_44_71.jpg" width="1400" height="642" loading="lazy" alt="講義一 第90頁" data-page="講義一 p.90"><figcaption>固態 HF 鏈狀結構、冰的結構、蛋白質 α 螺旋</figcaption></figure>
+<h3>四、分子物質整理</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CO<sub>2</sub> 與 O<sub>2</sub></th>
+<th>H<sub>2</sub>S 與 PCl<sub>3</sub></th>
+<th>CH<sub>4</sub> 與 HCl</th>
+<th>NH<sub>3</sub> 與 H<sub>2</sub>O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>偶極−偶極力</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+<td>○</td>
+</tr>
+<tr>
+<td>偶極−誘發偶極力</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+<td>×</td>
+</tr>
+<tr>
+<td>分散力</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+</tr>
+<tr>
+<td>氫鍵</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<aside class="box box-sum"><div class="box-h">整理</div><p><strong>沸點判斷順序</strong>：氫鍵 → 分子量 → 極性 → 接觸面積<br />
+<strong>熔點判斷順序</strong>：氫鍵 → 分子量 → 對稱性 → 極性</p>
+<ul>
+<li>同分異構物：沸點 正戊烷 ＞ 異戊烷 ＞ 新戊烷；熔點 新戊烷 ＞ 正戊烷 ＞ 異戊烷</li>
+<li>順反異構物：沸點 順 ＞ 反（順式極性大）；熔點 反 ＞ 順（反式對稱）</li>
+</ul></aside>
+<h3>五、各種晶體的比較</h3>
+<table>
+<thead>
+<tr>
+<th>晶體</th>
+<th>組成粒子</th>
+<th>粒子間引力</th>
+<th>性質</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>離子晶體（NaCl、CaCl<sub>2</sub>）</td>
+<td>陰、陽離子</td>
+<td>離子鍵</td>
+<td>高熔點、硬、脆；固態絕緣，熔融可導電</td>
+</tr>
+<tr>
+<td>金屬晶體（Na、Cu）</td>
+<td>陽離子、自由電子</td>
+<td>金屬鍵</td>
+<td>良導體，有延展性</td>
+</tr>
+<tr>
+<td>分子晶體（SO<sub>2</sub>、NH<sub>3</sub>）</td>
+<td>分子</td>
+<td>氫鍵、凡得瓦力</td>
+<td>低熔點、質軟、絕緣</td>
+</tr>
+<tr>
+<td>共價網狀晶體（SiO<sub>2</sub>、C）</td>
+<td>原子</td>
+<td>共價鍵</td>
+<td>高熔點、質硬、絕緣（石墨可導電）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>熔點比較</strong>：<br />
+1. 先判斷晶體種類：金屬＋金屬 → 金屬晶體；金屬＋非金屬 → 離子晶體；非金屬＋非金屬 → 分子晶體或共價網狀固體（SiO<sub>2</sub>、Si、C）<br />
+2. 再判斷熔化時破壞的力：分子晶體破壞氫鍵或凡得瓦力；金屬晶體破壞金屬鍵；離子晶體破壞離子鍵；網狀晶體破壞共價鍵<br />
+3. 一般原則：<strong>共價網狀晶體 ＞ 離子晶體 ＞ 金屬晶體 ＞ 分子晶體</strong></p>
+<p>例：H<sub>2</sub>O(s) 熔化只破壞氫鍵與凡得瓦力；SiO<sub>2</sub>(s) 熔化要破壞共價鍵。</p>
+<h2 class="section " id="s2">例題與類題</h2>
+
+<article class="q q-ex" id="q260">
+<header class="qh"><span class="qn">例題 1</span><span class="qtag">分子間作用力的種類</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A085_63p5_74.jpg" width="1400" height="254" loading="lazy" alt="講義一 第85頁" data-page="講義一 p.85"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>苯是非極性分子、氯仿是極性分子 ⇒ 兩者間有<strong>偶極−誘發偶極力</strong>與<strong>分散力</strong>，統稱<strong>凡得瓦力</strong>。<br />
+沒有離子，所以 (B)(D) 不存在；苯無偶極，所以沒有偶極−偶極力。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q261">
+<header class="qh"><span class="qn">類題 1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A085_86_92.jpg" width="1400" height="170" loading="lazy" alt="講義一 第85頁" data-page="講義一 p.85"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>只有分散力 ⇒ 非極性分子：CO<sub>2</sub>（直線對稱）✓<br />
+氯仿、NF<sub>3</sub>、SO<sub>2</sub> 都是極性分子。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q262">
+<header class="qh"><span class="qn">例題 2</span><span class="qtag">熔點與沸點高低比較</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A087_5_15.jpg" width="1400" height="265" loading="lazy" alt="講義一 第87頁" data-page="講義一 p.87"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 熔點 S<sub>8</sub>（分子量大）＞ P<sub>4</sub></li>
+<li>(B) ○ 反式較對稱，熔點較高</li>
+<li>(C) ✗ 新戊烷接近球形，沸點最低</li>
+<li>(D) ✗ SiH<sub>4</sub> 分子量較大，沸點較高</li>
+<li>(E) ✗ 分子量相同，CO 為極性，沸點較高</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q263">
+<header class="qh"><span class="qn">類題 2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A087_31_40p5.jpg" width="1400" height="214" loading="lazy" alt="講義一 第87頁" data-page="講義一 p.87"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 正戊烷沸點最高是因為<strong>接觸面積最大</strong>，與對稱性無關</li>
+<li>(B) ✗ 異戊烷熔點最低是因為<strong>對稱性最差</strong>（接觸面積最小的是新戊烷）</li>
+<li>(C) ✗ 三者幾乎都無極性；新戊烷沸點最低是因為接近球形、接觸面積最小</li>
+<li>(D) ○ 熔點看堆積：新戊烷最對稱，最容易緊密堆入晶格</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q264">
+<header class="qh"><span class="qn">例題 3</span><span class="qtag">分子間氫鍵</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A088_43_53p5.jpg" width="1400" height="272" loading="lazy" alt="講義一 第88頁" data-page="講義一 p.88"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>分子間氫鍵需要分子本身有 <strong>N−H、O−H 或 F−H</strong> 鍵：<br />
+- NH<sub>3</sub>、CH<sub>3</sub>COOH、C<sub>2</sub>H<sub>5</sub>OH 都有 → 有分子間氫鍵<br />
+- <strong>HCHO</strong>（甲醛）、<strong>CH<sub>3</sub>COOCH<sub>3</sub></strong>（乙酸甲酯）的 H 都接在 C 上 → 分子間<strong>沒有</strong>氫鍵（但可與水形成氫鍵）</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q265">
+<header class="qh"><span class="qn">例題 4</span><span class="qtag">分子內氫鍵</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A089_37p5_51.jpg" width="1400" height="325" loading="lazy" alt="講義一 第89頁" data-page="講義一 p.89"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>分子內氫鍵要在<strong>鄰位</strong>或<strong>順式</strong>，且一邊有 O−H：<br />
+- (A) 鄰-羥基苯甲酸（柳酸）：鄰位 −OH 與 −COOH ✓<br />
+- (B) 間位，太遠 ✗<br />
+- (C) 鄰位但 −CH<sub>3</sub> 無法接受氫鍵 ✗<br />
+- (D) 反式，兩個 COOH 在異側 ✗</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q266">
+<header class="qh"><span class="qn">例題 5</span><span class="qtag">氫鍵的影響</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A091_3_18.jpg" width="1400" height="371" loading="lazy" alt="講義一 第91頁" data-page="講義一 p.91"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ CH<sub>4</sub> 沒有氫鍵</li>
+<li>(B) ○ 單一氫鍵 HF 最強，但 H<sub>2</sub>O 平均每分子可形成 2 個氫鍵，總量最多 → 沸點最高</li>
+<li>(C) ✗ HF 沸點不是最高</li>
+<li>(D) ✗ NH<sub>3</sub> 只有一對孤對，平均每分子只形成 1 個氫鍵</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q267">
+<header class="qh"><span class="qn">類題 3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A091_28_34p5.jpg" width="1400" height="178" loading="lazy" alt="講義一 第91頁" data-page="講義一 p.91"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>四者中<strong>氫鍵</strong>最強（約為凡得瓦力的 10 倍），對沸點影響最大。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q268">
+<header class="qh"><span class="qn">例題 6</span><span class="qtag">氫鍵的影響</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A091_38_57.jpg" width="1400" height="458" loading="lazy" alt="講義一 第91頁" data-page="講義一 p.91"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 冰的氫鍵網狀結構留有空隙</li>
+<li>(B) ○ 醋酸以氫鍵形成二聚體</li>
+<li>(C) ✗ HBr 沸點較高是因為分子量大（分散力），與氫鍵無關</li>
+<li>(D) ○ 加熱破壞蛋白質的氫鍵，使結構改變（變性）</li>
+<li>(E) ✗ 丙酮分子間沒有氫鍵，凝固是因為凡得瓦力</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q269">
+<header class="qh"><span class="qn">類題 4</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A091_76p5_91p5.jpg" width="1400" height="374" loading="lazy" alt="講義一 第91頁" data-page="講義一 p.91"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 水、HF 有分子間氫鍵 → 可用氫鍵解釋</li>
+<li>(B) 反式熔點高是因為<strong>分子較對稱</strong>，與氫鍵無關 ✓</li>
+<li>(C) 乙酸以氫鍵形成二聚體 → 分子量介於 60～120</li>
+<li>(D) 冰的氫鍵網狀結構 → 體積變大</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q270">
+<header class="qh"><span class="qn">例題 7</span><span class="qtag">分子物質的熔點與沸點比較</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A092_64_78p5.jpg" width="1400" height="407" loading="lazy" alt="講義一 第92頁" data-page="講義一 p.92"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ NH<sub>3</sub> 有氫鍵</li>
+<li>(B) ✗ SiH<sub>4</sub> 分子量大，沸點較高</li>
+<li>(C) ✗ HI 分子量大，沸點較高</li>
+<li>(D) ○ HCONH<sub>2</sub>（甲醯胺）有 N−H，可形成分子間氫鍵；CH<sub>3</sub>CHO 沒有</li>
+<li>(E) ✗ 新戊烷接近球形，沸點較低</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q271">
+<header class="qh"><span class="qn">類題 5</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A093_3_22p5.jpg" width="1400" height="463" loading="lazy" alt="講義一 第93頁" data-page="講義一 p.93"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(D)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ O<sub>2</sub> 分子量較大，熔點較高</li>
+<li>(B) ○ 反式對稱，熔點較高</li>
+<li>(C) ✗ H<sub>2</sub>O 有氫鍵，熔點較高</li>
+<li>(D) ○ 乙醇有氫鍵</li>
+<li>(E) ✗ 熔點看對稱性：新戊烷（−20 ℃）＞ 正戊烷（−130 ℃）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q272">
+<header class="qh"><span class="qn">例題 8</span><span class="qtag">鍵型比較</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A094_7_16.jpg" width="1400" height="221" loading="lazy" alt="講義一 第94頁" data-page="講義一 p.94"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>NaOH：Na<sup>+</sup> 與 OH<sup>−</sup> 為<strong>離子鍵</strong>，O−H 為<strong>共價鍵</strong>。<br />
+同時有離子鍵與共價鍵的：<strong>KClO<sub>3</sub></strong>（K<sup>+</sup>、ClO<sub>3</sub><sup>−</sup>）、<strong>NH<sub>4</sub>Cl</strong>（NH<sub>4</sub><sup>+</sup>、Cl<sup>−</sup>）。<br />
+NaCl、MgCl<sub>2</sub> 只有離子鍵；CH<sub>4</sub> 只有共價鍵。</p></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q273">
+<header class="qh"><span class="qn">類題 6</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A094_27p5_34.jpg" width="1400" height="192" loading="lazy" alt="講義一 第94頁" data-page="講義一 p.94"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) NaCl 只有離子鍵，NaOH 還有共價鍵 ✗</li>
+<li>(B) Br<sub>2</sub>、H<sub>2</sub>：共價鍵、分子晶體 ✓</li>
+<li>(C) NH<sub>4</sub>Cl 有共價鍵，NaCl 沒有 ✗</li>
+<li>(D) CO<sub>2</sub> 分子晶體、SiO<sub>2</sub> 網狀晶體 ✗</li>
+<li>(E) Cu、Fe：金屬鍵、金屬晶體 ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q274">
+<header class="qh"><span class="qn">例題 9</span><span class="qtag">各種晶體類型比較</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A094_36p5_47p5.jpg" width="1400" height="272" loading="lazy" alt="講義一 第94頁" data-page="講義一 p.94"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 食鹽破壞離子鍵；葡萄糖破壞分子間力 ✗</li>
+<li>(B) 鋁破壞金屬鍵；硫破壞分子間力 ✗</li>
+<li>(C) 碘、乾冰都是分子晶體，昇華破壞分子間力 ✓</li>
+<li>(D) SiO<sub>2</sub> 破壞共價鍵；冰破壞氫鍵 ✗</li>
+<li>(E) 水、酒精汽化都是破壞氫鍵與凡得瓦力 ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q275">
+<header class="qh"><span class="qn">類題 7</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A094_57_63p5.jpg" width="1400" height="192" loading="lazy" alt="講義一 第94頁" data-page="講義一 p.94"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>SiO<sub>2</sub> 為共價網狀固體，熔化要破壞 Si−O 共價鍵。<br />
+CO<sub>2</sub>、H<sub>2</sub>O 熔化只破壞分子間力；NaCl 破壞離子鍵。</p></div>
+</details>
+</article>
+
+<article class="q q-ex" id="q276">
+<header class="qh"><span class="qn">例題 10</span><span class="qtag">晶體之熔點及沸點比較</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A094_67_78.jpg" width="1400" height="272" loading="lazy" alt="講義一 第94頁" data-page="講義一 p.94"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ O<sub>2</sub> 分子量較大</li>
+<li>(B) ✗ PCl<sub>3</sub> 是分子晶體，NaCl 是離子晶體，NaCl 高得多</li>
+<li>(C) ○ HF 有氫鍵</li>
+<li>(D) ✗ 矽是共價網狀固體，沸點比硫（分子晶體）高</li>
+<li>(E) ✗ SiO<sub>2</sub> 網狀固體遠高於葡萄糖</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-sim" id="q277">
+<header class="qh"><span class="qn">類題 8</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_3_12p5.jpg" width="1400" height="246" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>網狀（SiO<sub>2</sub> 1713 ℃）＞ 離子（NaCl 801 ℃）＞ 金屬（Na 98 ℃）＞ 分子（Cl<sub>2</sub> −101 ℃）</p></div>
+</details>
+</article>
+
+<h2 class="section sec-practice" id="s3">單元練習</h2>
+
+<article class="q q-pr" id="q278">
+<header class="qh"><span class="qn">練習 1</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_23p5_29p5.jpg" width="1400" height="104" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>凡得瓦力大小由分子的<strong>形狀、大小、所含電子數</strong>決定；溫度、壓力不改變分子間力本身的大小。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q279">
+<header class="qh"><span class="qn">練習 2</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_29p5_34.jpg" width="1400" height="94" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>Ar 分子量 40，極性無；選分子量最接近且非極性的：<strong>F<sub>2</sub></strong>（38）。<br />
+（NO 30、H<sub>2</sub> 2、HCl 36.5 為極性）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q280">
+<header class="qh"><span class="qn">練習 3</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_34_50.jpg" width="1400" height="375" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>瞬間偶極要誘發鄰近原子產生「頭尾相接」的偶極：相鄰的兩端電荷必須<strong>相反</strong>。<br />
+- (A) 中間是 ⊕ 對 ⊕，互斥 ✗<br />
+- (B) 「− ⊕｜− ⊕」：相鄰為 ⊕ 對 −，頭尾相吸 ✓<br />
+- (C) 中間是 − 對 −，互斥 ✗<br />
+- (D) 兩個偶極並排同方向，同電荷相鄰 ✗<br />
+- (E) 並排反向雖然也有吸引，但瞬間偶極誘發的典型排列是沿同一軸頭尾相接，最能代表的是 (B)</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q281">
+<header class="qh"><span class="qn">練習 4</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_49p5_54p3.jpg" width="1400" height="111" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>CH<sub>3</sub>F 為極性分子，但 H 接在 C 上，<strong>不能</strong>形成氫鍵 ⇒ 主要為<strong>偶極−偶極力</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q282">
+<header class="qh"><span class="qn">練習 5</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_54p3_58p4.jpg" width="1400" height="95" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><p>I<sub>2</sub> 與 CS<sub>2</sub> 都是非極性分子 ⇒ 只有<strong>分散力</strong>。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q283">
+<header class="qh"><span class="qn">練習 6</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_58p4_62p6.jpg" width="1400" height="97" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><p>只有分散力 ⇒ 非極性分子：<strong>CO<sub>2</sub></strong>。NH<sub>3</sub>、H<sub>2</sub>O、HCl、O<sub>3</sub> 都是極性分子。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q284">
+<header class="qh"><span class="qn">練習 7</span><span class="qtag">主題1・93指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_62p6_84p5.jpg" width="1400" height="509" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 新戊烷最對稱，熔點最高</li>
+<li>(B) ✗ 三者為同分異構物，不是同素異形體</li>
+<li>(C) ○ 接觸面積：正 ＞ 異 ＞ 新</li>
+<li>(D) ○ 沸點愈低，蒸氣壓愈高</li>
+<li>(E) ○</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q285">
+<header class="qh"><span class="qn">練習 8</span><span class="qtag">主題1</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A095_84p5_92.jpg" width="1400" height="204" loading="lazy" alt="講義一 第95頁" data-page="講義一 p.95"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>NF<sub>3</sub> 分子量 71、CF<sub>4</sub> 分子量 88 ⇒ CF<sub>4</sub> 電子較多、分散力較大。NF<sub>3</sub> 沸點反而較高，是因為 NF<sub>3</sub> 為<strong>極性分子</strong>（角錐形），CF<sub>4</sub> 為非極性。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q286">
+<header class="qh"><span class="qn">練習 9</span><span class="qtag">主題1・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A096_5_21p4.jpg" width="1400" height="404" loading="lazy" alt="講義一 第96頁" data-page="講義一 p.96"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ O<sub>2</sub> 分子量較大，沸點較高</li>
+<li>(B) ✗ 熔點：反式較對稱，較高</li>
+<li>(C) ○ 順式為極性，沸點較高</li>
+<li>(D) ✗ CBr<sub>4</sub> 分子量大，熔點較高</li>
+<li>(E) ○ 分子量相同，CO 為極性</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q287">
+<header class="qh"><span class="qn">練習 10</span><span class="qtag">主題1・108指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A096_21p4_35.jpg" width="1400" height="335" loading="lazy" alt="講義一 第96頁" data-page="講義一 p.96"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ COS（O＝C＝S）兩端不同，為極性分子</li>
+<li>(B) ✗ 三者都沒有 O−H、N−H，C＝O 的 O 雖可接受氫鍵，但 CS<sub>2</sub> 不行</li>
+<li>(C) ○ C＝O、C＝S 都是不同原子間的極性鍵</li>
+<li>(D) ✗ CS<sub>2</sub> 為非極性，主要為分散力</li>
+<li>(E) ○ COS 為極性分子</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q288">
+<header class="qh"><span class="qn">練習 11</span><span class="qtag">主題2・95指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A096_38_55.jpg" width="1400" height="399" loading="lazy" alt="講義一 第96頁" data-page="講義一 p.96"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>氫鍵 ＝ X−H···Y，X、Y 都要是 F、O、N，而且虛線必須連在「H」與「Y 的孤對」之間：<br />
+- (A) H−H···H：沒有 F、O、N ✗<br />
+- (B) O−H···O（水與水）✓<br />
+- (C) F−H···F（HF 與 HF）✓<br />
+- (D) 虛線連在 N 與 F 之間，中間沒有 H ✗<br />
+- (E) 水的 O 與乙醇的 O−H 之間：O···H−O ✓</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q289">
+<header class="qh"><span class="qn">練習 12</span><span class="qtag">主題2・110指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A096_55_62p4.jpg" width="1400" height="182" loading="lazy" alt="講義一 第96頁" data-page="講義一 p.96"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ BF<sub>3</sub> 非極性，主要為分散力</li>
+<li>(B) ○ Xe 單原子分子，只有分散力</li>
+<li>(C) ✗ H<sub>2</sub> 只有分散力</li>
+<li>(D) ✗ 共價鍵是分子內的力，不是分子間力</li>
+<li>(E) ✗ HCl 主要為偶極−偶極力（與分散力）</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q290">
+<header class="qh"><span class="qn">練習 13</span><span class="qtag">主題2</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A096_62p4_66p8.jpg" width="1400" height="108" loading="lazy" alt="講義一 第96頁" data-page="講義一 p.96"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)</div>
+<div class="exp"><b class="exp-h">解</b><p>分子間作用力愈小愈接近理想氣體：<strong>氦氣</strong>（單原子、電子最少）。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q291">
+<header class="qh"><span class="qn">練習 14</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A096_66p8_70p9.jpg" width="1400" height="101" loading="lazy" alt="講義一 第96頁" data-page="講義一 p.96"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(C)(D)</div>
+<div class="exp"><b class="exp-h">解</b><p>NH<sub>3</sub>、H<sub>2</sub>O 都是極性分子 ⇒ 偶極−偶極力 ✓、凡得瓦力 ✓、氫鍵 ✓<br />
+兩者都是極性，沒有「誘發」偶極；共價鍵是分子內的鍵。</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q292">
+<header class="qh"><span class="qn">練習 15</span><span class="qtag">主題2・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A096_70p9_93.jpg" width="1400" height="544" loading="lazy" alt="講義一 第96頁" data-page="講義一 p.96"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ 冰的氫鍵網狀結構</li>
+<li>(B) ○ 蛋白質螺旋靠分子內氫鍵</li>
+<li>(C) ○ 甘油有 3 個 −OH，氫鍵更多</li>
+<li>(D) ✗ 食鹽溶於水是離子與水分子的作用（離子−偶極力）</li>
+<li>(E) ○ 乙酸以氫鍵形成二聚體</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q293">
+<header class="qh"><span class="qn">練習 16</span><span class="qtag">主題2・94指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A097_4_18p6.jpg" width="1400" height="300" loading="lazy" alt="講義一 第97頁" data-page="講義一 p.97"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>分子內氫鍵要兩個基團靠得夠近，能圍成 5～6 角環：<br />
+- (A) 1,3-丙二酸：O−H···O＝C 可經 CH<sub>2</sub> 圍成六角環 ✓<br />
+- (B) 鄰-二羥基苯：兩個 −OH 在鄰位 ✓<br />
+- (C) 反-丁烯二酸：兩個 COOH 在雙鍵異側，太遠 ✗<br />
+- (D) 對-羥基苯甲酸：對位，太遠 ✗<br />
+- (E) 鄰-苯二甲酸：兩個 COOH 在鄰位 ✓</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q294">
+<header class="qh"><span class="qn">練習 17</span><span class="qtag">主題2・109指考・非選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A097_18p6_69.jpg" width="1400" height="1034" loading="lazy" alt="講義一 第97頁" data-page="講義一 p.97"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(1) (C) 吸量管（移液管）　(2) 丙與乙（氯仿與乙醚）　(3) 見詳解</div>
+<div class="exp"><b class="exp-h">解</b><p>(1) 精確量取 25.0 mL 要用 <strong>(C) 吸量管</strong>（量筒只能粗略量取）。</p>
+<p>(2) 分子間氫鍵需一方提供帶部分正電的 H（氯仿 CHCl<sub>3</sub> 的 H 被三個 Cl 拉走電子），另一方提供孤電子對（乙醚的 O）⇒ <strong>丙（氯仿）與乙（乙醚）</strong>放熱最多。<br />
+正己烷沒有孤對也沒有帶正電的 H；2,2-二氯丙烷的 H 都接在不帶 Cl 的碳上，不易形成氫鍵。</p>
+<p>(3) Cl<sub>3</sub>C−H ··· :O＝C(CH<sub>3</sub>)<sub>2</sub><br />
+（氯仿的 H 以虛線連到丙酮羰基 O 的孤對電子）</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q295">
+<header class="qh"><span class="qn">練習 18</span><span class="qtag">主題3・98指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A097_71_82.jpg" width="1400" height="239" loading="lazy" alt="講義一 第97頁" data-page="講義一 p.97"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 氨有氫鍵</li>
+<li>(B) ✗ 任何分子間都有分散力</li>
+<li>(C) ○ NH<sub>3</sub>、H<sub>2</sub>S 都是極性分子</li>
+<li>(D) ✗ 苯雖對稱，仍有分散力（凡得瓦力）</li>
+<li>(E) ✗ 氖原子間仍有分散力</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q296">
+<header class="qh"><span class="qn">練習 19</span><span class="qtag">主題3・104指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A098_5_39.jpg" width="1400" height="818" loading="lazy" alt="講義一 第98頁" data-page="講義一 p.98"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(B)(E)</div>
+<div class="exp"><b class="exp-h">解</b><p>六個物質：CS<sub>2</sub>、新戊烷、對-苯二甲酸、乙酸乙酯、反-丁烯二酸、異丙醇<br />
+- (A) ✗ 有 π 鍵的：CS<sub>2</sub>（S＝C＝S）、對-苯二甲酸、乙酸乙酯（C＝O）、反-丁烯二酸 ＝ <strong>4 個</strong><br />
+- (B) ○ 對-苯二甲酸分子量最大，又有兩個 −COOH 形成大量氫鍵，沸點最高<br />
+- (C) ✗ 有分子間氫鍵（含 O−H）的：對-苯二甲酸、反-丁烯二酸、異丙醇 ＝ <strong>3 個</strong><br />
+- (D) ✗ 有孤對的：除了新戊烷以外全部 ＝ <strong>5 個</strong><br />
+- (E) ○ 主要為分散力的非極性分子：CS<sub>2</sub>、新戊烷 ＝ 2 個</p></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q297">
+<header class="qh"><span class="qn">練習 20</span><span class="qtag">主題3</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A098_39_55.jpg" width="1400" height="392" loading="lazy" alt="講義一 第98頁" data-page="講義一 p.98"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ✗ 沸點：反-丁烯二酸 b（分子間氫鍵較多）＞ 順 a</li>
+<li>(B) ✗ 只有 a（順式）有分子內氫鍵，b 沒有</li>
+<li>(C) ○ 熔點：b ＞ a（氫鍵，且反式對稱）；d ＞ c（反式對稱）；丁烯二酸遠高於二氯乙烯</li>
+<li>(D) ✗ a、b 的沸點差是氫鍵造成</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q298">
+<header class="qh"><span class="qn">練習 21</span><span class="qtag">主題4・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A098_57p5_65.jpg" width="1400" height="149" loading="lazy" alt="講義一 第98頁" data-page="講義一 p.98"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) KHF<sub>2</sub>：離子鍵、共價鍵、氫鍵 → 三種 ✓</li>
+<li>(B) CaCl<sub>2</sub>：離子鍵 → 一種 ✓</li>
+<li>(C) H<sub>2</sub>O(s)：共價鍵、氫鍵 → 二種 ✓</li>
+<li>(D) CO<sub>2</sub>(s)：只有共價鍵（分子間是凡得瓦力，不算鍵型）→ 一種 ✗</li>
+<li>(E) NH<sub>4</sub>Cl：離子鍵、共價鍵 → 二種 ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q299">
+<header class="qh"><span class="qn">練習 22</span><span class="qtag">主題4・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A098_65_68p9.jpg" width="1400" height="93" loading="lazy" alt="講義一 第98頁" data-page="講義一 p.98"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>碘昇華、酒精溶於水：只破壞分子間力</li>
+<li>NaCl 熔化：破壞離子鍵</li>
+<li><strong>HCl 溶於水</strong>：解離成 H<sup>+</sup> 與 Cl<sup>−</sup>，H−Cl 共價鍵斷裂 ✓</li>
+<li><strong>鑽石熔化</strong>：破壞 C−C 共價鍵 ✓</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q300">
+<header class="qh"><span class="qn">練習 23</span><span class="qtag">主題4・97指考・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A098_68p9_79.jpg" width="1400" height="242" loading="lazy" alt="講義一 第98頁" data-page="講義一 p.98"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(A)(B)(C)(D)(E)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) ○ NH<sub>3</sub>（−33 ℃）有氫鍵，略高於 Cl<sub>2</sub>（−34 ℃）</li>
+<li>(B) ○ MgCl<sub>2</sub> 是離子化合物，遠高於分子物質 SCl<sub>2</sub></li>
+<li>(C) ○ 甲胺 CH<sub>3</sub>NH<sub>2</sub> 有 N−H，可形成氫鍵；CH<sub>3</sub>F 不行</li>
+<li>(D) ○ 正庚烷分子量較大，分散力較大</li>
+<li>(E) ○ 乙酸（118 ℃）＞ 乙醇（78 ℃）：乙酸分子量較大且可形成二聚體</li>
+</ul></div>
+</details>
+</article>
+
+<article class="q q-pr" id="q301">
+<header class="qh"><span class="qn">練習 24</span><span class="qtag">主題4・105指考</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qimgs"><img class="qimg" src="img/A098_79_87.jpg" width="1400" height="204" loading="lazy" alt="講義一 第98頁" data-page="講義一 p.98"></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
+<div class="ans"><b>答</b>(C)</div>
+<div class="exp"><b class="exp-h">解</b><ul>
+<li>(A) 表面張力 ← 分子間作用力</li>
+<li>(B) ICl 為極性分子 ← 分子間作用力</li>
+<li>(C) 銀飾失去光澤是<strong>化學反應</strong>（生成 Ag<sub>2</sub>S），與分子間作用力無關 ✓</li>
+<li>(D) 碘分子量大、分散力大</li>
+<li>(E) 正戊烷接觸面積大</li>
+</ul></div>
+</details>
+</article>
+</div><div class="pager"><a href="u2-4.html">← 2-4 鍵極性與分子極性</a><a href="u2-綜.html">2-綜 第二章 素養導向與綜合試題 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>
