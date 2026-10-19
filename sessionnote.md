@@ -99,3 +99,10 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 ### 發布前最終驗證
 兩頁最終裁圖與CSS更新後，已再檢查1440/820/390px整頁寬度、六組答案展開收起、書籤重載保存及篩選、十張裁圖載入／放大、手機章節選單、深色模式：全部通過，瀏覽器無pageerror。所有本輪頁碼與圖說已人工對原圖核對。
 全站靜態驗證無錯誤：57頁、16篇的96卡組、366原頁；585題原既有題目保留。本輪未更動舊生物3-1。準備將本輪明確檔案提交main，不含物理、化學、首頁的既有修改。
+
+### Pages實際發布確認
+內容提交 d72285d047aabdcfb90bb10551e89645e356c693 已推送main。公開 earth/u4-1.html、biology/u3-2.html 與本輪10張裁圖全部HTTP200，逐檔比對Git內容一致（兩頁HTML正規化換行後完全相同，圖片原始位元組完全相同），已確認使用者可在Pages看到此版，並非僅push成功。
+公開入口：
+- https://yc0935019269cloud-create.github.io/Studyhighschool/earth/u4-1.html
+- https://yc0935019269cloud-create.github.io/Studyhighschool/biology/u3-2.html
+本紀錄後續單獨提交，不改網頁內容。Claude接手請由earth/4-2開始，再做biology/3-3；先看本檔最後幾段與兩篇.review.json，保留未提交的其他科目工作。
