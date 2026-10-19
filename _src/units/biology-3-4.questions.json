@@ -1,0 +1,34 @@
+[
+  {
+    "n": 1,
+    "tag": "素養混合題1・只看眼色",
+    "q": "<p>若只研究眼色，不考慮其他性狀，則<strong>白眼雌果蠅</strong>與<strong>紅眼雄果蠅</strong>雜交，F₁ 雌、雄果蠅的表現型及其比例為何？</p>",
+    "ans": "F₁ 雌果蠅全為紅眼；雄果蠅全為白眼（雌紅眼：雄白眼＝1：1）。",
+    "exp": "<ol><li>先寫親代：白眼雌 X<sup>d</sup>X<sup>d</sup>；紅眼雄 X<sup>D</sup>Y。</li><li>雌配子只有 X<sup>d</sup>；雄配子 X<sup>D</sup>、Y 各一半。</li><li>女兒＝X<sup>d</sup>（媽）＋X<sup>D</sup>（爸）＝X<sup>D</sup>X<sup>d</sup> → 紅眼。</li><li>兒子＝X<sup>d</sup>（媽）＋Y（爸）＝X<sup>d</sup>Y → 白眼。</li></ol>",
+    "sum": "性聯題先寫 X、Y：爸爸的 X 只給女兒，兒子的 X 只來自媽媽。"
+  },
+  {
+    "n": 2,
+    "tag": "素養混合題2・反交",
+    "q": "<p>承上題，若以同表徵之純種親代<strong>互交</strong>（即紅眼純種雌 × 白眼雄），則 F₁ 雌雄果蠅的表現型及其比例為何？</p>",
+    "ans": "F₁ 雌、雄果蠅全為紅眼。",
+    "exp": "<ol><li>互交＝把雌雄的性狀對調：紅眼純種雌 X<sup>D</sup>X<sup>D</sup> × 白眼雄 X<sup>d</sup>Y。</li><li>女兒 X<sup>D</sup>X<sup>d</sup> → 紅眼；兒子 X<sup>D</sup>Y → 紅眼。</li><li>和第1題結果不同 → 這正是判斷「性聯遺傳」的方法：<strong>正交、反交結果不同</strong>。體染色體遺傳正反交結果相同。</li></ol>",
+    "sum": "正交反交結果不一樣，就是性聯的訊號。"
+  },
+  {
+    "n": 3,
+    "tag": "素養混合題3・體色＋眼色",
+    "q": "<p>基因型為 aaX<sup>d</sup>X<sup>d</sup> 和 AaX<sup>D</sup>Y 的果蠅雜交，F₁ 果蠅的基因型及其比例為何？</p>",
+    "ans": "AaX<sup>D</sup>X<sup>d</sup>：aaX<sup>D</sup>X<sup>d</sup>：AaX<sup>d</sup>Y：aaX<sup>d</sup>Y＝1：1：1：1。",
+    "exp": "<ol><li>A 在體染色體、D 在 X 染色體 → 兩者<strong>獨立</strong>，分開算。</li><li>aa × Aa → Aa：aa＝1：1。</li><li>X<sup>d</sup>X<sup>d</sup> × X<sup>D</sup>Y → X<sup>D</sup>X<sup>d</sup>（雌）：X<sup>d</sup>Y（雄）＝1：1。</li><li>相乘：四種各 1/2×1/2＝1/4。</li></ol><table class=\"reading-table\"><thead><tr><th></th><th>X<sup>D</sup>X<sup>d</sup>（1/2）</th><th>X<sup>d</sup>Y（1/2）</th></tr></thead><tbody><tr><th>Aa（1/2）</th><td>AaX<sup>D</sup>X<sup>d</sup> 1/4</td><td>AaX<sup>d</sup>Y 1/4</td></tr><tr><th>aa（1/2）</th><td>aaX<sup>D</sup>X<sup>d</sup> 1/4</td><td>aaX<sup>d</sup>Y 1/4</td></tr></tbody></table>",
+    "sum": "不同染色體上的基因：各自算比例，再做表相乘。"
+  },
+  {
+    "n": 4,
+    "tag": "素養混合題4・重組率＋性聯（單選）",
+    "q": "<p>若基因 a 和 b 的重組率為 10%，現有黑身短翅白眼的雌果蠅與正常純種雄果蠅雜交得到 F₁，F₁ 雌果蠅所產生的卵基因型為 AbX<sup>D</sup> 和 AbY 之機率各是多少？</p><p>(A) 1/20，0　(B) 1/40，0　(C) 1/20，1/20　(D) 1/40，1/40</p>",
+    "ans": "B。",
+    "exp": "<ol><li>親代：雌 aabbX<sup>d</sup>X<sup>d</sup>（給 ab、X<sup>d</sup>）；雄 AABBX<sup>D</sup>Y（給 AB，X<sup>D</sup> 或 Y）。</li><li>F₁ 雌＝X<sup>D</sup>X<sup>d</sup>，體染色體一條是 AB、一條是 ab（<strong>相引</strong>）。</li><li>a、b 重組率 10% → 重組型配子 Ab、aB 各 5%；親代型 AB、ab 各 45%。</li><li>Ab 的機率 5%＝1/20；卵拿到 X<sup>D</sup> 的機率 1/2 → AbX<sup>D</sup>＝1/20×1/2＝<strong>1/40</strong>。</li><li>卵細胞來自雌果蠅（XX），<strong>不可能帶 Y</strong> → AbY＝<strong>0</strong>。</li></ol>",
+    "sum": "重組率要「除以2」才是單一種重組配子的機率；雌配子絕不帶 Y。"
+  }
+]

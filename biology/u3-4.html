@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3-4 性聯遺傳：先寫性染色體，再算機率｜生物</title>
+<title>3-4 基因的連鎖與互換：重組率與遺傳圖譜｜生物</title>
 <style>:root{
   --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
   --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
@@ -174,11 +174,156 @@ body.only-marked .q:not(.marked){display:none}
 .qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
 .qsum p{margin:.25em 0}
 body.hide-pre .pre{display:none}
-</style><!-- handout-assets START --><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../handout.css"><script defer src="../handout.js"></script><!-- handout-assets END --></head>
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">.authored-unit .fine-note{font-size:14.5px;line-height:1.8;color:var(--muted)}
+.authored-unit .authored-figure{margin:22px auto 26px}
+.authored-unit .authored-figure .figimg{max-width:100%;max-height:580px;width:auto;height:auto;border-radius:6px}
+.authored-unit .fig-composition .figimg,.authored-unit .fig-pressure .figimg{max-height:none}
+.authored-unit figcaption{line-height:1.65;margin-top:7px}
+.authored-unit figcaption span{display:block;font-size:12px;margin-top:3px}
+.authored-unit li{margin-top:7px;margin-bottom:7px}
+.authored-unit .exp ol{margin:10px 0}
+.authored-unit .qsum{font-size:16px}
+.authored-unit .reading-table td{text-align:left;vertical-align:top}
+.authored-unit .reading-table th:first-child{white-space:nowrap}
+.authored-unit .punnett-static{display:table;width:min(100%,520px);margin:18px auto}
+.authored-unit .punnett-static td{padding:12px 8px}
+.authored-unit .punnett-static code{background:none}
+.authored-unit .source-originals{margin:30px 0 10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px}
+.authored-unit .source-originals>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.authored-unit .original-page .figimg{width:100%;height:auto;max-height:none}
+.authored-unit .ref-list{font-size:14px}
+.authored-unit .fig-chromosome .figimg{max-height:none}
+@media(max-width:900px){
+.authored-unit .authored-figure .figimg{max-height:none}
+.authored-unit .qh{flex-wrap:wrap;gap:6px}
+.authored-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+.authored-unit .mark{flex-shrink:0}
+.authored-unit .punnett-static{font-size:15px}
+.authored-unit .punnett-static td,.authored-unit .punnett-static th{padding:8px 5px}
+.authored-unit .source-originals{padding:10px}
+}
+@media print{.authored-unit h2.section{break-after:avoid}.authored-unit .fig{break-inside:avoid}.authored-unit .q{break-inside:auto}.authored-unit .source-originals{display:none}}
+
+.authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
+.authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+</style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
-<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul><!-- integrated-nav START --><div class="nch">第3單元　遺傳學</div><ul><li><a href="u3-1.html"><span>3-1</span>孟德爾遺傳：配子與子代機率</a></li><li><a href="u3-2.html"><span>3-2</span>顯性關係的延伸：血型、多基因與環境</a></li><li><a href="u3-3.html"><span>3-3</span>染色體、核型與性別決定</a></li><li><a class="on" href="u3-4.html"><span>3-4</span>性聯遺傳：先寫性染色體，再算機率</a></li><li><a href="u3-5.html"><span>3-5</span>連鎖與互換：從子代數量推回配子</a></li></ul><p class="source-note"><a href="../sources.html#book=生物1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
-<main class="main"><header class="uh"><div class="crumb">生物｜生物1｜原圖與講解</div><h1><span class="uid">3-4</span>性聯遺傳：先寫性染色體，再算機率</h1><p>讀性聯題時，先把X、Y與等位基因寫完整。只用「男生比較容易」作答，會漏掉究竟問全部孩子、兒子，還是女兒這個關鍵分母。</p><div class="tools"><span class="cnt">3個觀念 · 6題隨堂練習 · 原頁對照</span><button id="openAll">展開六題詳解</button><button id="closeAll">收起詳解</button></div></header><nav class="inline-toc" aria-label="本頁內容"><a href="#learn-1">X聯隱性從一份等位基因開始</a><a href="#learn-2">條件機率要把性別條件寫出來</a><a href="#learn-3">家族圖先排除矛盾，再下結論</a><a href="#original-pages">本節原頁與原題</a></nav><div class="content source-handout"><h2 class="section" id="learn-1">X聯隱性從一份等位基因開始</h2><figure class="fig source-figure"><img class="figimg" src="img/source_3-4_1.webp" width="1424" height="2084" loading="lazy" alt="X聯遺傳：摩根的互交實驗，生物1 PDF第97頁"><figcaption><b>X聯遺傳：摩根的互交實驗</b><span>生物1 · PDF第97頁截圖</span><a href="../sources.html#book=生物1&page=97">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>在題目設定的典型XY模型中，男性對多數X聯基因只有一份等位基因，若該份為隱性變異即可表現。</p><p>女性通常需兩份相應變異才表現典型隱性性狀；異型合子可為帶因者，但實際表現仍可能受X去活化等影響。</p><p>此處用簡化模型練習遺傳計算。</p></div><article class="check-card" id="check-1"><header class="qh"><span class="qn">隨堂練習 1</span><span class="qtag">X聯隱性從一份等位基因開始</span></header><div class="qtext"><p>為何典型XY男性可用一份X聯隱性等位基因表現性狀？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>因Y通常沒有該基因座的對應正常等位基因，無法形成與女性相同的異型合子遮蔽關係。</p></div></details></article><article class="check-card" id="check-2"><header class="qh"><span class="qn">隨堂練習 2</span><span class="qtag">X聯隱性從一份等位基因開始</span></header><div class="qtext"><p>男性能把自己的X染色體直接傳給兒子嗎？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>在此XY模型中不能。兒子由父方取得Y，女兒由父方取得X。</p></div></details></article><h2 class="section" id="learn-2">條件機率要把性別條件寫出來</h2><figure class="fig source-figure"><img class="figimg" src="img/source_3-4_2.webp" width="1312" height="1291" loading="lazy" alt="摩根的交配組合：每次只追一條性染色體，生物1 PDF第97頁"><figcaption><b>摩根的交配組合：每次只追一條性染色體</b><span>生物1 · PDF第97頁截圖</span><a href="../sources.html#book=生物1&page=97">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>設XᴬXᵃ母方與XᴬY父方，四種等機率組合為XᴬXᴬ、XᴬXᵃ、XᴬY、XᵃY。</p><p>全部孩子中表現隱性性狀為1/4；若已知是兒子，則兩種兒子中一種表現，為1/2。</p><p>這兩個答案不同，是分母不同而不是遺傳規則改變。</p></div><article class="check-card" id="check-3"><header class="qh"><span class="qn">隨堂練習 3</span><span class="qtag">條件機率要把性別條件寫出來</span></header><div class="qtext"><p>上述交配中，已知孩子為兒子，表現隱性性狀機率？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>1/2。只在XᴬY、XᵃY兩種兒子內計算。</p></div></details></article><article class="check-card" id="check-4"><header class="qh"><span class="qn">隨堂練習 4</span><span class="qtag">條件機率要把性別條件寫出來</span></header><div class="qtext"><p>上述交配中，隨機一個孩子是帶因女兒的機率？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>1/4，對應四種組合中的XᴬXᵃ。</p></div></details></article><h2 class="section" id="learn-3">家族圖先排除矛盾，再下結論</h2><figure class="fig source-figure"><img class="figimg" src="img/source_3-4_3.webp" width="1248" height="748" loading="lazy" alt="家族譜系原題：先看親子關係，再判斷基因型，生物1 PDF第98頁"><figcaption><b>家族譜系原題：先看親子關係，再判斷基因型</b><span>生物1 · PDF第98頁截圖</span><a href="../sources.html#book=生物1&page=98">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>父傳子現象可幫助判斷是否符合簡單X聯模型；但小家族中恰巧只有男性表現，並不能單獨證明基因在Y上。</p><p>互交結果不同也可能提供性聯線索，仍須檢查完整親代基因型與其他模式。</p><p>無法由資料唯一決定時，要保留多種可能。</p></div><article class="check-card" id="check-5"><header class="qh"><span class="qn">隨堂練習 5</span><span class="qtag">家族圖先排除矛盾，再下結論</span></header><div class="qtext"><p>只有兩名男性表現某性狀，可直接證明Y聯嗎？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>不能。樣本太少，也可能符合其他遺傳模式。</p></div></details></article><article class="check-card" id="check-6"><header class="qh"><span class="qn">隨堂練習 6</span><span class="qtag">家族圖先排除矛盾，再下結論</span></header><div class="qtext"><p>X聯隱性父方XᵃY與正常純合母方XᴬXᴬ，其女兒如何？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>女兒皆為XᴬXᵃ，在簡化完全隱性模型下為帶因者；兒子皆為XᴬY。</p></div></details></article><h2 class="section" id="compare">最後一起比較</h2><table><thead><tr><th>概念</th><th>判讀重點</th><th>注意條件</th></tr></thead><tbody><tr><td>全部孩子</td><td>保留性別機率</td><td>例如1/4</td></tr><tr><td>已知是兒子</td><td>只在兒子中計算</td><td>例如1/2</td></tr><tr><td>父傳子</td><td>父方給Y</td><td>不能把父方X直接傳給兒子</td></tr></tbody></table><h2 class="section" id="original-pages">本節原頁與原題</h2><p>以下依PDF頁序保留完整題幹、圖表、選項與原附答。先看題目、遮住原附答作答，再回上面的觀念與例題核對思路。</p><details class="original-page" id="original-97" data-book="生物1" data-page="97"><summary>生物1｜PDF第 97 頁　性聯遺傳</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/生物1/097.webp" alt="生物1 PDF第97頁完整原圖"><figcaption>原講義PDF第97頁；圖表、選項與附答完整保留。<a href="../sources.html#book=生物1&page=97">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-98" data-book="生物1" data-page="98"><summary>生物1｜PDF第 98 頁　性聯遺傳</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/生物1/098.webp" alt="生物1 PDF第98頁完整原圖"><figcaption>原講義PDF第98頁；圖表、選項與附答完整保留。<a href="../sources.html#book=生物1&page=98">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-99" data-book="生物1" data-page="99"><summary>生物1｜PDF第 99 頁　連鎖、互換與遺傳綜合題</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/生物1/099.webp" alt="生物1 PDF第99頁完整原圖"><figcaption>原講義PDF第99頁；圖表、選項與附答完整保留。<a href="../sources.html#book=生物1&page=99">放大閱讀 ↗</a></figcaption></figure></details></div><div class="pager"><a href="u3-3.html">← 染色體、核型與性別決定</a><a href="u3-5.html">連鎖與互換：從子代數量推回配子 →</a></div></main>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul><!-- integrated-nav START --><div class="nch">第3單元　遺傳學</div><ul><li><a href="u3-1.html"><span>3-1</span>孟德爾遺傳：配子與子代機率</a></li><li><a href="u3-2.html"><span>3-2</span>顯性關係的延伸：血型、多基因與環境</a></li><li><a href="u3-3.html"><span>3-3</span>染色體、核型與性別決定</a></li><li><a class="on" href="u3-4.html"><span>3-4</span>基因的連鎖與互換：重組率與遺傳圖譜</a><ul class="subtoc"><li><a href="#s1">摩根與果蠅</a></li><li><a href="#s2">果蠅試交的三種可能結果</a></li><li><a href="#s3">摩根的實驗結果與推論</a></li><li><a href="#s4">連鎖與互換：用試交判斷</a></li><li><a href="#s5">重組率</a></li><li><a href="#s6">遺傳圖譜與分摩根</a></li><li><a href="#s7">素養混合題：突變果蠅</a></li><li><a href="#s8">本單元整理</a></li></ul></li><li><a href="u3-5.html"><span>3-5</span>單元 3 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><p class="source-note"><a href="../sources.html#book=生物1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第3單元 遺傳學</div><h1><span class="uid">3-4</span>基因的連鎖與互換：重組率與遺傳圖譜</h1><div class="tools"><span class="cnt">4組練習・涵蓋經典演練2.0素養混合題1–4</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><!-- Individually authored against 生物1 PDF99下半–101. Do not replace with the bulk draft. -->
+<h2 class="section" id="s1">摩根與果蠅</h2>
+<ol>
+<li><strong>摩根</strong>用果蠅推出白眼基因在<strong>X染色體</strong>上（性聯遺傳，見3-3）；後來又證明<strong>體染色體上的基因也會連鎖</strong>。</li>
+<li>用的是<strong>黑腹果蠅</strong>：好取得、好養、世代短（約10～14天）、後代多、操作簡單。</li>
+<li>染色體只有<strong>4對</strong>（含1對性染色體），顯微鏡下容易觀察。</li>
+</ol>
+<figure class="fig authored-figure fig-flychromo"><img class="figimg" src="img/biology-3-4-flychromo.webp" width="440" height="256" loading="lazy" alt="果蠅只有4對染色體：3對體染色體＋1對性染色體（雄XY、雌XX）" data-page="生物1 PDF第99頁"><figcaption>果蠅只有4對染色體：3對體染色體＋1對性染色體（雄XY、雌XX）<span>原講義PDF第99頁・印刷第101頁・點圖放大</span></figcaption></figure>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 「連鎖」＝兩個基因在<strong>同一條染色體</strong>上，減數分裂時傾向一起進入同一個配子。<br>
+- 連鎖群數＝染色體對數：果蠅4群（雌），人類女性23群。</p></aside>
+
+<h2 class="section" id="s2">果蠅試交的三種可能結果</h2>
+<ol>
+<li>灰身（B）對黑身（b）為顯性；長翅（V）對殘翅（v）為顯性。</li>
+<li>灰身長翅（BBVV）× 黑身殘翅（bbvv）→ F₁ 全為 BbVv（灰身長翅）。</li>
+<li>再拿 F₁ 和 bbvv <strong>試交</strong>：試交對象只給 bv，所以<strong>子代表現型＝F₁ 配子種類</strong>。</li>
+</ol>
+<aside class="box box-sum"><div class="box-h">整理：三種假設、三種答案</div><table>
+<thead><tr><th>假設</th><th>F₁ 配子</th><th>灰長：黑長：灰殘：黑殘</th></tr></thead>
+<tbody>
+<tr><td>① 不連鎖（不同染色體）</td><td>BV、bV、Bv、bv 各1/4</td><td><strong>1：1：1：1</strong>（四種）</td></tr>
+<tr><td>② 連鎖、完全不互換</td><td>只有 BV、bv</td><td><strong>1：0：0：1</strong>（只有兩種）</td></tr>
+<tr><td>③ 連鎖、重組率20%</td><td>BV、bv 各40%；bV、Bv 各10%</td><td><strong>4：1：1：4</strong>（四種，兩多兩少）</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 出現四種表現型<strong>不代表</strong>不連鎖；要看比例是不是 1:1:1:1。<br>
+- 「兩多兩少」→ 多的那兩種是<strong>親代型</strong>，少的那兩種是<strong>重組型</strong>。</p></aside>
+
+<h2 class="section" id="s3">摩根的實驗結果與推論</h2>
+<figure class="fig authored-figure fig-morgan"><img class="figimg" src="img/biology-3-4-morgan.webp" width="704" height="584" loading="lazy" alt="摩根的試交：灰身長翅 F₁（BbVv）× 黑身殘翅（bbvv）；親代型965、944，重組型206、185，遠離 1:1:1:1" data-page="生物1 PDF第100頁"><figcaption>摩根的試交：灰身長翅 F₁（BbVv）× 黑身殘翅（bbvv）；親代型965、944，重組型206、185，遠離 1:1:1:1<span>原講義PDF第100頁・印刷第102頁・點圖放大</span></figcaption></figure>
+<ol>
+<li>結果：灰長 965、黑殘 944（親代型，多）；灰殘 206、黑長 185（重組型，少）。</li>
+<li>不是 1:1:1:1（不像獨立分配），也不是只有兩種（不像完全連鎖）。</li>
+<li>推論①：體色和翅長基因在<strong>同一條染色體</strong>上，通常一起進入同一配子（同一連鎖群）。</li>
+<li>推論②：減數分裂<strong>聯會</strong>時，同源染色體可能<strong>互換</strong>一段，產生新組合；比例較低的子代就是互換造成的。</li>
+</ol>
+<aside class="box box-sum"><div class="box-h">整理：算一次</div><table>
+<thead><tr><th></th><th>個體數</th></tr></thead>
+<tbody>
+<tr><td>親代型（灰長＋黑殘）</td><td>965＋944＝1909</td></tr>
+<tr><td>重組型（灰殘＋黑長）</td><td>206＋185＝391</td></tr>
+<tr><td>總數</td><td>2300</td></tr>
+<tr><td>重組率</td><td>391÷2300≈<strong>17%</strong></td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 講義說「4:4:1:1」是取整數的大概比例；實際算出約17%，下一頁圖的另一組數據才是剛好20%。<br>
+- 若各樣本數都是期望值 575，就代表獨立分配；差這麼多絕不是取樣誤差。</p></aside>
+
+<h2 class="section" id="s4">連鎖與互換：用試交判斷</h2>
+<ol>
+<li>判斷兩基因有沒有連鎖、有沒有互換：<strong>拿異型合子當親代做試交</strong>。</li>
+<li>沒互換的染色體 → 親代型配子；有互換的染色體 → 重組型配子。</li>
+</ol>
+<figure class="fig authored-figure fig-linkcross"><img class="figimg" src="img/biology-3-4-linkcross.webp" width="1000" height="458" loading="lazy" alt="左：連鎖的兩基因若沒互換只產生兩種配子；右：互換後多出少數重組配子，子代約 40:10:10:40" data-page="生物1 PDF第100頁"><figcaption>左：連鎖的兩基因若沒互換只產生兩種配子；右：互換後多出少數重組配子，子代約 40:10:10:40<span>原講義PDF第100頁・印刷第102頁・點圖放大</span></figcaption></figure>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 哪兩種算「親代型」要看 F₁ <strong>從哪兩個親代拿到哪兩條染色體</strong>。<br>
+- BV/bv（相引）：重組型是 Bv、bV；Bv/bV（相斥）：重組型反過來是 BV、bv。題目常故意給相斥型。</p></aside>
+
+<h2 class="section" id="s5">重組率</h2>
+<figure class="fig authored-figure fig-rfformula"><img class="figimg" src="img/biology-3-4-rfformula.webp" width="1112" height="109" loading="lazy" alt="重組率＝重組配子數 ÷ 全部配子數 ×100%＝試交子代中重組型個體數 ÷ 子代總數 ×100%" data-page="生物1 PDF第100頁"><figcaption>重組率＝重組配子數 ÷ 全部配子數 ×100%＝試交子代中重組型個體數 ÷ 子代總數 ×100%<span>原講義PDF第100頁・印刷第102頁・點圖放大</span></figcaption></figure>
+<ol>
+<li>重組率：發生互換（重組）的配子占全部配子的百分比。</li>
+<li>試交時重組型配子 → 直接變成重組型子代，所以可用子代個體數來算。</li>
+<li>重組率<strong>最大 50%</strong>：就算每個生殖母細胞都互換，四個配子中也只有兩個是重組型。</li>
+</ol>
+<aside class="box box-sum"><div class="box-h">整理：互換的特性</div><table>
+<thead><tr><th>特性</th><th>結果</th></tr></thead>
+<tbody>
+<tr><td>兩基因相距愈遠</td><td>中間愈容易發生互換 → 重組率愈高（<strong>正相關</strong>）</td></tr>
+<tr><td>同源染色體可在幾個部位同時互換</td><td>相距很遠的兩基因重組率會趨近 50%，看起來像獨立分配</td></tr>
+</tbody>
+</table></aside>
+
+<h2 class="section" id="s6">遺傳圖譜與分摩根</h2>
+<ol>
+<li><strong>史提曼</strong>以短臂（p）末端為 0，用重組率標出各基因在染色體上的<strong>相對位置與順序</strong>，就是<strong>遺傳圖譜</strong>。</li>
+<li>單位：重組率 1% ＝ 1 <strong>分摩根（cM）</strong>。</li>
+<li>某基因在遺傳圖譜上的位置稱為<strong>基因座</strong>。</li>
+</ol>
+<figure class="fig authored-figure fig-crossover"><img class="figimg" src="img/biology-3-4-crossover.webp" width="1008" height="707" loading="lazy" alt="聯會時同源染色體互換 → 產生 BV、bv（親代型）與 Bv、bV（重組型）四種卵；460 ÷ 2300 = 20%" data-page="生物1 PDF第101頁"><figcaption>聯會時同源染色體互換 → 產生 BV、bv（親代型）與 Bv、bV（重組型）四種卵；460 ÷ 2300 = 20%<span>原講義PDF第101頁・印刷第103頁・點圖放大</span></figcaption></figure>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 遺傳圖譜是「相對距離」，不是用尺量的實際長度。<br>
+- 「相距 20 個互換單位」＝重組率 20%：兩種重組型配子各 10%，兩種親代型配子各 40%。</p></aside>
+
+<h2 class="section sec-practice" id="s7">素養混合題：突變果蠅</h2>
+<figure class="fig authored-figure fig-mutant"><img class="figimg" src="img/biology-3-4-mutant.webp" width="592" height="159" loading="lazy" alt="素養混合題：突變果蠅的體染色體上有 a、b（連鎖），X 染色體上有 d" data-page="生物1 PDF第101頁"><figcaption>素養混合題：突變果蠅的體染色體上有 a、b（連鎖），X 染色體上有 d<span>原講義PDF第101頁・印刷第103頁・點圖放大</span></figcaption></figure>
+<ol>
+<li>a（黑身）、b（短翅）在<strong>同一條體染色體</strong>上 → 連鎖，要用重組率。</li>
+<li>d（白眼）在<strong>X染色體</strong>上 → 性聯，寫基因型時要寫成 X<sup>D</sup>、X<sup>d</sup>、Y。</li>
+<li>眼色跟 a、b 在不同染色體上 → 和它們獨立，可以分開算再相乘。</li>
+</ol>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">練習 1</span><span class="qtag">素養混合題1・只看眼色</span><button class="mark" type="button" title="標記不會" aria-label="標記練習 1">☆</button></header><div class="qtext"><p>若只研究眼色，不考慮其他性狀，則<strong>白眼雌果蠅</strong>與<strong>紅眼雄果蠅</strong>雜交，F₁ 雌、雄果蠅的表現型及其比例為何？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>F₁ 雌果蠅全為紅眼；雄果蠅全為白眼（雌紅眼：雄白眼＝1：1）。</div><div class="exp"><b class="exp-h">解</b><ol><li>先寫親代：白眼雌 X<sup>d</sup>X<sup>d</sup>；紅眼雄 X<sup>D</sup>Y。</li><li>雌配子只有 X<sup>d</sup>；雄配子 X<sup>D</sup>、Y 各一半。</li><li>女兒＝X<sup>d</sup>（媽）＋X<sup>D</sup>（爸）＝X<sup>D</sup>X<sup>d</sup> → 紅眼。</li><li>兒子＝X<sup>d</sup>（媽）＋Y（爸）＝X<sup>d</sup>Y → 白眼。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>性聯題先寫 X、Y：爸爸的 X 只給女兒，兒子的 X 只來自媽媽。</p></div></div></details></article>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">練習 2</span><span class="qtag">素養混合題2・反交</span><button class="mark" type="button" title="標記不會" aria-label="標記練習 2">☆</button></header><div class="qtext"><p>承上題，若以同表徵之純種親代<strong>互交</strong>（即紅眼純種雌 × 白眼雄），則 F₁ 雌雄果蠅的表現型及其比例為何？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>F₁ 雌、雄果蠅全為紅眼。</div><div class="exp"><b class="exp-h">解</b><ol><li>互交＝把雌雄的性狀對調：紅眼純種雌 X<sup>D</sup>X<sup>D</sup> × 白眼雄 X<sup>d</sup>Y。</li><li>女兒 X<sup>D</sup>X<sup>d</sup> → 紅眼；兒子 X<sup>D</sup>Y → 紅眼。</li><li>和第1題結果不同 → 這正是判斷「性聯遺傳」的方法：<strong>正交、反交結果不同</strong>。體染色體遺傳正反交結果相同。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>正交反交結果不一樣，就是性聯的訊號。</p></div></div></details></article>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">練習 3</span><span class="qtag">素養混合題3・體色＋眼色</span><button class="mark" type="button" title="標記不會" aria-label="標記練習 3">☆</button></header><div class="qtext"><p>基因型為 aaX<sup>d</sup>X<sup>d</sup> 和 AaX<sup>D</sup>Y 的果蠅雜交，F₁ 果蠅的基因型及其比例為何？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>AaX<sup>D</sup>X<sup>d</sup>：aaX<sup>D</sup>X<sup>d</sup>：AaX<sup>d</sup>Y：aaX<sup>d</sup>Y＝1：1：1：1。</div><div class="exp"><b class="exp-h">解</b><ol><li>A 在體染色體、D 在 X 染色體 → 兩者<strong>獨立</strong>，分開算。</li><li>aa × Aa → Aa：aa＝1：1。</li><li>X<sup>d</sup>X<sup>d</sup> × X<sup>D</sup>Y → X<sup>D</sup>X<sup>d</sup>（雌）：X<sup>d</sup>Y（雄）＝1：1。</li><li>相乘：四種各 1/2×1/2＝1/4。</li></ol><table class="reading-table"><thead><tr><th></th><th>X<sup>D</sup>X<sup>d</sup>（1/2）</th><th>X<sup>d</sup>Y（1/2）</th></tr></thead><tbody><tr><th>Aa（1/2）</th><td>AaX<sup>D</sup>X<sup>d</sup> 1/4</td><td>AaX<sup>d</sup>Y 1/4</td></tr><tr><th>aa（1/2）</th><td>aaX<sup>D</sup>X<sup>d</sup> 1/4</td><td>aaX<sup>d</sup>Y 1/4</td></tr></tbody></table><div class="qsum"><span class="qsum-h">小結</span><p>不同染色體上的基因：各自算比例，再做表相乘。</p></div></div></details></article>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">練習 4</span><span class="qtag">素養混合題4・重組率＋性聯（單選）</span><button class="mark" type="button" title="標記不會" aria-label="標記練習 4">☆</button></header><div class="qtext"><p>若基因 a 和 b 的重組率為 10%，現有黑身短翅白眼的雌果蠅與正常純種雄果蠅雜交得到 F₁，F₁ 雌果蠅所產生的卵基因型為 AbX<sup>D</sup> 和 AbY 之機率各是多少？</p><p>(A) 1/20，0　(B) 1/40，0　(C) 1/20，1/20　(D) 1/40，1/40</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><ol><li>親代：雌 aabbX<sup>d</sup>X<sup>d</sup>（給 ab、X<sup>d</sup>）；雄 AABBX<sup>D</sup>Y（給 AB，X<sup>D</sup> 或 Y）。</li><li>F₁ 雌＝X<sup>D</sup>X<sup>d</sup>，體染色體一條是 AB、一條是 ab（<strong>相引</strong>）。</li><li>a、b 重組率 10% → 重組型配子 Ab、aB 各 5%；親代型 AB、ab 各 45%。</li><li>Ab 的機率 5%＝1/20；卵拿到 X<sup>D</sup> 的機率 1/2 → AbX<sup>D</sup>＝1/20×1/2＝<strong>1/40</strong>。</li><li>卵細胞來自雌果蠅（XX），<strong>不可能帶 Y</strong> → AbY＝<strong>0</strong>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>重組率要「除以2」才是單一種重組配子的機率；雌配子絕不帶 Y。</p></div></div></details></article>
+
+<h2 class="section" id="s8">本單元整理</h2>
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead><tr><th>題目線索</th><th>先做的事</th><th>常見誤判</th></tr></thead>
+<tbody>
+<tr><td>試交子代 1:1:1:1</td><td>不連鎖（或相距極遠）</td><td>—</td></tr>
+<tr><td>試交子代只有兩種、1:1</td><td>完全連鎖</td><td>以為是單基因</td></tr>
+<tr><td>試交子代兩多兩少</td><td>連鎖＋互換；少的兩種是重組型</td><td>看到四種就說不連鎖</td></tr>
+<tr><td>算重組率</td><td>重組型個體數 ÷ 總數</td><td>只拿一種重組型去除</td></tr>
+<tr><td>給重組率求配子</td><td>重組型各「一半」、親代型各「(100−重組率)÷2」</td><td>忘了先判斷相引或相斥</td></tr>
+<tr><td>連鎖＋性聯</td><td>體染色體部分與 X 部分分開算，再相乘</td><td>讓卵帶 Y</td></tr>
+</tbody>
+</table></aside>
+<p>下一篇是單元 3 練習題：把 3-1～3-4 的機率、血型、性聯、連鎖放在一起練。</p>
+<details class="source-originals"><summary>核對原講義全頁（生物1 PDF99–101）</summary><p class="fine-note">本節對應印刷101下半–103頁（概念3 基因的連鎖與互換＋經典演練2.0素養混合題1–4）。PDF99上半是上一單元3-3的經典演練4–8。</p><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物1/099.webp" alt="生物1PDF第99頁完整原稿"><figcaption>PDF第99頁／印刷第101頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物1/100.webp" alt="生物1PDF第100頁完整原稿"><figcaption>PDF第100頁／印刷第102頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物1/101.webp" alt="生物1PDF第101頁完整原稿"><figcaption>PDF第101頁／印刷第103頁</figcaption></figure></details>
+</div><div class="pager"><a href="u3-3.html">← 3-3 染色體、核型與性別決定</a><a href="u3-5.html">3-5 單元 3 練習題：滿貫強試出擊＋歷屆考題 →</a></div></main>
 <div class="lightbox" id="lb"><img alt=""></div>
 <script>(function(){
   var KEY = "bio-marked";
