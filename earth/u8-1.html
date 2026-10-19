@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8-1 整合探究：從圖表讀出有根據的答案｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style><!-- handout-assets START --><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../handout.css"><script defer src="../handout.js"></script><!-- handout-assets END --></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- continuation-nav START --><div class="extension-nav"><div class="nch">接著讀｜完整後續講義</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a href="u4-2.html"><span>4-2</span>雲雨的形成：相對濕度與露點</a></li><li><a href="u4-3.html"><span>4-3</span>風的方向：氣壓梯度力與科氏力</a></li><li><a href="u4-4.html"><span>4-4</span>天氣圖、鋒面與臺灣季節天氣</a></li><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li><li><a class="on" href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p><a href="../sources.html#book=地科1&page=1">原講義逐頁閱讀 →</a></p></div><!-- continuation-nav END --></nav>
+<main class="main"><header class="lesson-hero"><div class="crumb">地球科學 / 電子講義 / 8-1</div><h1>整合探究：從圖表讀出有根據的答案</h1><p>探究題常把熟悉概念放進陌生圖表。先把圖上的量、單位與比較對象說清楚，就能避免靠印象猜答案。</p></header><div class="tools"><span class="cnt">六題自我檢核</span><button id="openAll">展開六題詳解</button><button id="closeAll">收起詳解</button></div><div class="content"><section class="reader-guide"><div class="rg-top"><span class="rg-kicker">先把因果順序接起來</span><h2>這一節，沿著這條線理解</h2><div class="flow" aria-label="概念推理順序"><span>讀座標與單位</span><b aria-hidden="true">→</b><span>找變因與對照</span><b aria-hidden="true">→</b><span>描述資料</span><b aria-hidden="true">→</b><span>提出有限度推論</span></div></div><div class="rg-body"><p>先讀概念與比較表，再遮住答案自我檢核；原題圖表與完整頁面可從文末開啟。</p><nav aria-label="本頁目錄"><a href="#learn-1">讀圖先描述，不急著解釋</a>　<a href="#learn-2">實驗與觀測都需要公平比較</a>　<a href="#learn-3">用「主張—證據—推理」作答</a>　</nav></div></section><section class="lesson-section" id="learn-1"><h2>1　讀圖先描述，不急著解釋</h2><p>先說橫軸、縱軸、單位、時間範圍與圖例，再指出峰值、趨勢及異常。若資料是累積量，曲線越陡通常代表增加速率越快，不是累積總量一定最多；若是距平，正值只是高於基準，不表示絕對值一定為正。</p><h3>讀完就練</h3><details class="sol micro-check"><summary>累積雨量圖中曲線最陡的時段，代表什麼？</summary><dl class="micro-answer"><dt>考什麼</dt><dd>讀圖先描述，不急著解釋</dd><dt>怎麼想</dt><dd>先辨認題目給的條件與要比較的量，再沿本節的機制判斷。</dd><dt>答案與理由</dt><dd>單位時間雨量增加最快，也就是該時段降雨強度較大。</dd><dt>常見錯誤</dt><dd>把名稱直接當原因，或忽略題目的範圍與前提。請用答案中的機制核對自己的說法。</dd><dt>再確認一次</dt><dd>遮住答案，試著用完整的一句話向同學說明理由，並指出題目中最關鍵的條件。</dd></dl></details><details class="sol micro-check"><summary>氣溫距平−1°C是否表示當時氣溫一定低於0°C？</summary><dl class="micro-answer"><dt>考什麼</dt><dd>讀圖先描述，不急著解釋</dd><dt>怎麼想</dt><dd>先辨認題目給的條件與要比較的量，再沿本節的機制判斷。</dd><dt>答案與理由</dt><dd>不是。表示低於所選基準平均1°C，絕對氣溫要再加回基準值。</dd><dt>常見錯誤</dt><dd>把名稱直接當原因，或忽略題目的範圍與前提。請用答案中的機制核對自己的說法。</dd><dt>再確認一次</dt><dd>遮住答案，試著用完整的一句話向同學說明理由，並指出題目中最關鍵的條件。</dd></dl></details></section><section class="lesson-section" id="learn-2"><h2>2　實驗與觀測都需要公平比較</h2><p>實驗中盡量只改變欲研究的操縱變因，其他重要條件控制一致；觀測資料無法完全控制時，要留意季節、地形、儀器與樣本差異。重複測量能了解變異，但重複同一系統偏差不會自動得到正確值。</p><h3>讀完就練</h3><details class="sol micro-check"><summary>比較兩地日照與氣溫，發現一起升高，能直接證明只有日照決定氣溫嗎？</summary><dl class="micro-answer"><dt>考什麼</dt><dd>實驗與觀測都需要公平比較</dd><dt>怎麼想</dt><dd>先辨認題目給的條件與要比較的量，再沿本節的機制判斷。</dd><dt>答案與理由</dt><dd>不能。相關不等於唯一因果，仍可能有雲量、海拔或季節等共同影響。</dd><dt>常見錯誤</dt><dd>把名稱直接當原因，或忽略題目的範圍與前提。請用答案中的機制核對自己的說法。</dd><dt>再確認一次</dt><dd>遮住答案，試著用完整的一句話向同學說明理由，並指出題目中最關鍵的條件。</dd></dl></details><details class="sol micro-check"><summary>同一台失準溫度計量100次能消除固定偏差嗎？</summary><dl class="micro-answer"><dt>考什麼</dt><dd>實驗與觀測都需要公平比較</dd><dt>怎麼想</dt><dd>先辨認題目給的條件與要比較的量，再沿本節的機制判斷。</dd><dt>答案與理由</dt><dd>不能。重複測量可降低部分隨機誤差，固定偏差要靠校準等方法處理。</dd><dt>常見錯誤</dt><dd>把名稱直接當原因，或忽略題目的範圍與前提。請用答案中的機制核對自己的說法。</dd><dt>再確認一次</dt><dd>遮住答案，試著用完整的一句話向同學說明理由，並指出題目中最關鍵的條件。</dd></dl></details></section><section class="lesson-section" id="learn-3"><h2>3　用「主張—證據—推理」作答</h2><p>主張先回答題目；證據引用具體數值、區間或圖形特徵；推理再用學科機制連結證據與主張。最後指出資料範圍與可替代解釋。不要把沒有量到的東西寫成已證實，也不要把相關曲線說成必然因果。</p><h3>讀完就練</h3><details class="sol micro-check"><summary>圖中A站全年雨量高於B站，可以直接說A站每天雨都比較多嗎？</summary><dl class="micro-answer"><dt>考什麼</dt><dd>用「主張—證據—推理」作答</dd><dt>怎麼想</dt><dd>先辨認題目給的條件與要比較的量，再沿本節的機制判斷。</dd><dt>答案與理由</dt><dd>不能。全年總量不決定每一天的大小，需日尺度資料才能判斷。</dd><dt>常見錯誤</dt><dd>把名稱直接當原因，或忽略題目的範圍與前提。請用答案中的機制核對自己的說法。</dd><dt>再確認一次</dt><dd>遮住答案，試著用完整的一句話向同學說明理由，並指出題目中最關鍵的條件。</dd></dl></details><details class="sol micro-check"><summary>「因為圖上比較高」為何通常不是完整解釋？</summary><dl class="micro-answer"><dt>考什麼</dt><dd>用「主張—證據—推理」作答</dd><dt>怎麼想</dt><dd>先辨認題目給的條件與要比較的量，再沿本節的機制判斷。</dd><dt>答案與理由</dt><dd>它只描述圖形，還需說明量的意義、具體比較及背後機制。</dd><dt>常見錯誤</dt><dd>把名稱直接當原因，或忽略題目的範圍與前提。請用答案中的機制核對自己的說法。</dd><dt>再確認一次</dt><dd>遮住答案，試著用完整的一句話向同學說明理由，並指出題目中最關鍵的條件。</dd></dl></details></section><section class="lesson-section"><h2>帶走這張比較表</h2><table class="lesson-table"><caption>本節比較表</caption><thead><tr><th>概念</th><th>判斷要點</th><th>使用時注意</th></tr></thead><tbody><tr><td>主張</td><td>直接回答問題</td><td>說清楚比較對象</td></tr><tr><td>證據</td><td>引用可觀測資料</td><td>附數字、單位與區間</td></tr><tr><td>推理</td><td>用概念接起因果</td><td>保留資料限制</td></tr></tbody></table></section><details class="reader-guide"><summary>帶課提示｜學生說不知道時</summary><div class="rg-body"><p>「我們先不急著回答整題。先看『讀圖先描述，不急著解釋』，把題目裡的對象和條件圈起來。接著只說第一個變化，再問它會讓下一步怎樣改變。最後回到比較表，檢查剛剛用了哪一條規則。」</p><p>先讓學生沿箭頭口述，再做每節兩題。若答案正確但無法說明理由，回到該節重新畫關係；能獨立解釋後，再到原講義做完整題組。</p></div></details><aside class="source-links"><b>回到原講義</b><p>地科3.pdf｜PDF第 31–56 頁（非印刷頁碼）。</p><a href="../sources.html#book=地科3&page=31">開啟原頁、練習題與手寫註記 →</a><p class="source-note">原講義全頁保留，沒有裁掉圖表、選項與附答。此頁六題為配合概念另編的檢核題。</p></aside></div><div class="pager"><a href="u7-2.html">← 能量收支、全球暖化與資源選擇</a><a href="index.html">回科目目錄 →</a></div><!-- continuation-index START --><div class="source-note"><a href="../sources.html#book=地科1&page=1">原講義全頁對照閱讀</a>｜可切換冊別、跳頁與搜尋原文。</div><!-- continuation-index END --></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-19",
+  "new_units_tested": 16,
+  "mobile_width": 390,
+  "desktop_width": 1440,
+  "checks": [
+    "six answers expand/collapse",
+    "lesson search",
+    "focus reading restores",
+    "three widgets respond to inputs",
+    "all four source books reach their last page",
+    "source search returns results",
+    "original-page zoom",
+    "mobile has no document overflow"
+  ],
+  "numeric": {
+    "humidity": "20°C, 12hPa => 51.3%",
+    "punnett": "aa x Aa => aa 50%",
+    "recombination_0": "parental each 50%; recombinant each 0%",
+    "recombination_50": "all gametes 25%"
+  },
+  "errors": [],
+  "offline_test": "Browser tool blocks file://; verified over local HTTP. Runtime uses local scripts, local images and no fetch or CDN."
+}
