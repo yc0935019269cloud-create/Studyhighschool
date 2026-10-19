@@ -49,3 +49,6 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 - 既有585題內容未改；新增96題檢核保留。
 - 390px手機版檢查16頁、原圖載入、48張原圖、180頁嵌入、詳解展開收合均通過。
 - 重要：Git提交推上不代表Pages已發布；須檢查Pages build的commit與線上頁面。
+
+## Pages發布設定修正
+重排提交 df56919 已推到main。原Pages設定為workflow，但repo只有舊的dynamic/pages/pages-build-deployment記錄，沒有自訂發布workflow，導致push後未更新。已透過Pages API把build_type改為legacy，來源保持main與根目錄/，並成功要求一次建置（HTTP201 queued）。往後main push應自動更新。線上驗證須檢查首頁整合目錄與新章節原圖，不只檢查Git push成功。
