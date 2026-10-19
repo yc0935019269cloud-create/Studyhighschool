@@ -1,0 +1,50 @@
+{
+  "unit": "biology/3-2",
+  "status": "individually_rewritten",
+  "source_pdf": "生物1",
+  "source_pdf_pages": [
+    89,
+    90,
+    91,
+    92,
+    93
+  ],
+  "source_printed_pages": [
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "sections": 9,
+  "worked_groups": 6,
+  "original_questions_covered": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "source_crops": 5,
+  "viewports": [
+    1440,
+    820,
+    390
+  ],
+  "interaction_checks": [
+    "expand/collapse",
+    "bookmark persistence/filter",
+    "image decode/zoom/Escape",
+    "mobile toc",
+    "dark mode"
+  ],
+  "numeric_verification": "Independent gamete enumeration: check_earth_4_1_biology_3_2.py",
+  "errors": []
+}

@@ -1,0 +1,32 @@
+{
+  "flower_testcross": {
+    "genotypes": 4,
+    "phenotypes": 4,
+    "probability_each": "1/4"
+  },
+  "flower_cross": {
+    "genotypes": 12,
+    "phenotypes": 4,
+    "yellow_tall": "3/8"
+  },
+  "two_loci": {
+    "genotypes": 9,
+    "one_incomplete_phenotypes": 6,
+    "one_dominant_one_recessive": "3/8"
+  },
+  "pigment_counts_out_of_16": [
+    1,
+    4,
+    6,
+    4,
+    1
+  ],
+  "ABO_cross": "4 types each 1/4; AB x O gives A/B only",
+  "card_model": "2 genotypes each 1/2",
+  "pressure_drop_hPa_per_km": [
+    76.3,
+    5
+  ],
+  "mass_below_10km_percent": 75.32,
+  "errors": []
+}

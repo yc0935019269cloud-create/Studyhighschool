@@ -1,0 +1,45 @@
+{
+  "unit": "earth/4-1",
+  "status": "individually_rewritten",
+  "source_pdf": "地科2",
+  "source_pdf_pages": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_printed_pages": [
+    104,
+    105,
+    106,
+    107
+  ],
+  "sections": 8,
+  "worked_groups": 6,
+  "original_questions_covered": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "warmups_covered": 2,
+  "source_crops": 5,
+  "viewports": [
+    1440,
+    820,
+    390
+  ],
+  "interaction_checks": [
+    "expand/collapse",
+    "bookmark persistence/filter",
+    "image decode/zoom/Escape",
+    "mobile toc",
+    "dark mode"
+  ],
+  "original_graph_limitation": "Small temperature graph cannot establish a precise decimal lapse rate; explained in group6.",
+  "errors": []
+}

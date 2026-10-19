@@ -26,8 +26,8 @@ for subject in ('earth','biology'):
   if r.returncode==0:
    before=r.stdout.decode('utf-8').replace('\r\n','\n')
    qs=lambda s:re.findall(r'<article class="q\b.*?</article>',s,re.S)
-   if qs(before)!=qs(t) and rel not in {'biology/u3-1.html'}:errors.append(rel+': existing questions changed')
-   if rel not in {'biology/u3-1.html'}:report['original_questions_preserved']+=len(qs(before))
+   if qs(before)!=qs(t) and rel not in {'biology/u3-1.html','earth/u4-1.html','biology/u3-2.html'}:errors.append(rel+': existing questions changed')
+   if rel not in {'biology/u3-1.html','earth/u4-1.html','biology/u3-2.html'}:report['original_questions_preserved']+=len(qs(before))
 raw=(ROOT/'source-pages.js').read_text(encoding='utf-8')
 books=json.loads(raw.removeprefix('window.SOURCE_BOOKS=').removesuffix(';'))
 for b in books:

@@ -14,5 +14,8 @@
 ## 最新品質規則（優先於前面的批次流程）
 - 使用者要求品質優先，一個單元一個單元慢慢做。不得再將相同大圖加短句模板批次套用。
 - 以既有biology/u1-5.html、u1-4.html的文字層次、表格、框色、精確裁圖與完整解題為參照。先讀原資料，完整鋪陳概念與推導。
-- 已逐篇精修：biology/3-1；其餘新單元仍為待重寫草稿。
-- 此單元只執行 python _src/build_biology_3_1.py。個別精修的來源在 _src/units/；要保留最後的個別覆寫hook。
+- 已逐篇精修：biology/3-1、earth/4-1、biology/3-2；其餘13篇新單元仍為待重寫草稿。
+- 只跑欲修改單元的獨立腳本：python _src/build_biology_3_1.py、python _src/build_earth_4_1.py、python _src/build_biology_3_2.py。個別精修來源在 _src/units/；要保留rebuild_layout.py最後的個別覆寫hook。
+
+- 最新工作節奏：地科一單元 → 生物一單元，品質優先。開始、成稿、驗證、發布各階段立即更新sessionnote.md，讓Claude可接手；下一組earth/4-2 → biology/3-3。
+- earth/4-1六組涵蓋原小試1–8，biology/3-2六組涵蓋原經典演練1–12；96是16篇的練習卡組總數，已精修兩頁改採原題題組，不能再稱96題全為另編新題。

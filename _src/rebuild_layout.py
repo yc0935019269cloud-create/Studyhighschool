@@ -56,3 +56,10 @@ print('Rebuilt 16 source-image handouts; integrated 180 subsequent source pages 
 
 # Individually authored overrides always win over the initial bulk drafts.
 runpy.run_path(str(ROOT/"_src/build_biology_3_1.py"))["build"]()
+
+# Carefully authored, one-unit overrides. Render no other content here.
+import sys
+sys.path.insert(0,str(ROOT/"_src"))
+from individual_unit import build as build_individual
+build_individual("earth-4-1")
+build_individual("biology-3-2")
