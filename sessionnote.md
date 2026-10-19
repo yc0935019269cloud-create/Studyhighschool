@@ -154,3 +154,12 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 
 單頁重建：python _src/build_biology_3_4.py、build_biology_3_5.py、build_earth_4_3.py、build_earth_4_4.py、build_earth_4_z.py。
 尚未提交、尚未推送。物理、化學與其他未提交修改仍不可一併提交。
+
+### Pages實際發布確認（biology/3-4、3-5，earth/4-3、4-4、4-綜）
+提交 b01d6c0 只含生物、地科、首頁與_src的141個檔案，物理化學未動，已推上main。Pages build status=built（commit b01d6c0）。線上5篇新頁、兩科目錄、首頁與抽查圖片逐檔與Git內容比對一致。
+- https://yc0935019269cloud-create.github.io/Studyhighschool/biology/u3-4.html
+- https://yc0935019269cloud-create.github.io/Studyhighschool/biology/u3-5.html
+- https://yc0935019269cloud-create.github.io/Studyhighschool/earth/u4-3.html
+- https://yc0935019269cloud-create.github.io/Studyhighschool/earth/u4-4.html
+- https://yc0935019269cloud-create.github.io/Studyhighschool/earth/u4-%E7%B6%9C.html
+下一步候選：地科單元5（海洋，地科2 PDF35起）；生物需使用者提供單元4講義。
