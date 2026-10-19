@@ -131,4 +131,10 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 
 瀏覽器已檢查：桌面寬度、390px手機寬度皆正常、五張原圖裁切比對原頁清楚無誤、四組題卡展開/收起正常、連結無404、console無錯誤。biology/index.html的題數標籤同步改成4題（原佔位符寫6題）；biology/u3-2.html的側欄本來就已經是正式標題，不需要像earth-4-2那樣改標籤文字。尚未推送、Pages尚未發布。
 
-下一步：連鎖與互換（concept3，PDF99下半起）另成biology/3-4，建議之後接著做；兩篇地科（4-2）與生物（3-3）目前都還沒提交。物理、化學、首頁既有未提交修改依然不得一併提交。
+下一步：連鎖與互換（concept3，PDF99下半起）另成biology/3-4，建議之後接著做。物理、化學、首頁既有未提交修改依然不得一併提交。
+
+### Pages實際發布確認（earth/4-2、biology/3-3）
+提交d588428只含這兩篇相關的58個檔案（含全站34個地科側欄標籤同步），已推上main，物理化學未動。GitHub Pages build（commit d588428916f...）已確認status=built，並實際開啟線上頁面核對：
+- https://yc0935019269cloud-create.github.io/Studyhighschool/earth/u4-2.html
+- https://yc0935019269cloud-create.github.io/Studyhighschool/biology/u3-3.html
+兩頁標題、側欄、正文、圖片皆正確顯示。Claude接手請由biology/3-4（基因的連鎖與互換，生物1 PDF99下半起）開始。
