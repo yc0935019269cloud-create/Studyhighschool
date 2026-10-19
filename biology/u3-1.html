@@ -174,11 +174,197 @@ body.only-marked .q:not(.marked){display:none}
 .qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
 .qsum p{margin:.25em 0}
 body.hide-pre .pre{display:none}
-</style><!-- handout-assets START --><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../handout.css"><script defer src="../handout.js"></script><!-- handout-assets END --></head>
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="mendel-specific">
+/* Local refinements only; original unit typography remains the baseline. */
+.mendel-unit .terms td:first-child,.mendel-unit .cross-types td:first-child{white-space:nowrap;font-weight:700}
+.mendel-unit .terms td:nth-child(2),.mendel-unit .cross-types td:nth-child(2),.mendel-unit .cross-types td:nth-child(3){text-align:left}
+.mendel-unit .fine-note{font-size:14.5px;color:var(--muted);line-height:1.8}
+.mendel-unit .mendel-figure{margin:20px auto 24px}
+.mendel-unit .mendel-figure .figimg{max-width:100%;max-height:440px;width:auto;height:auto;border-radius:6px}
+.mendel-unit .mendel-figure figcaption{margin-top:7px;line-height:1.6}
+.mendel-unit .mendel-figure figcaption span{display:block;font-size:12px;margin-top:2px}
+.mendel-unit .punnett-static{display:table;width:min(100%,480px);margin:16px auto;font-size:17px}
+.mendel-unit .punnett-static caption{caption-side:bottom;font-size:13px;color:var(--muted);padding-top:7px;text-align:center}
+.mendel-unit .punnett-static td{padding:12px 8px}
+.mendel-unit .punnett-static small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.mendel-unit .punnett-static code{background:none}
+.mendel-unit .observations li{margin-bottom:8px}
+.mendel-unit .choices{padding-left:1.6em;margin:8px 0}
+.mendel-unit .choices li{margin:6px 0;padding-left:3px}
+.mendel-unit .exp ol{margin:8px 0}.mendel-unit .exp li{margin:7px 0}
+.mendel-unit .qsum{font-size:16px}
+@media(max-width:900px){
+ .mendel-unit .mendel-figure .figimg{max-height:none;width:auto;max-width:100%}
+ .mendel-unit .punnett-static{font-size:15px}
+ .mendel-unit .punnett-static td,.mendel-unit .punnett-static th{padding:8px 5px}
+ .mendel-unit .qh{flex-wrap:wrap;gap:6px}
+ .mendel-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+ .mendel-unit .mark{flex-shrink:0}
+ .mendel-unit .content th,.mendel-unit .content td{padding:6px 8px}
+}
+@media print{.mendel-unit h2.section{break-after:avoid}.mendel-unit .fig{break-inside:avoid}.mendel-unit .figimg{max-height:380px}.mendel-unit .q{break-inside:auto}}
+
+.mendel-unit .mfigure-experiment .figimg{max-height:none;max-width:min(100%,760px)}
+.mendel-unit .mfigure-di .figimg{max-height:600px}
+@media(max-width:900px){.mendel-unit .mfigure-di .figimg{max-height:none}}
+</style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
-<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul><!-- integrated-nav START --><div class="nch">第3單元　遺傳學</div><ul><li><a class="on" href="u3-1.html"><span>3-1</span>孟德爾遺傳：配子與子代機率</a></li><li><a href="u3-2.html"><span>3-2</span>顯性關係的延伸：血型、多基因與環境</a></li><li><a href="u3-3.html"><span>3-3</span>染色體、核型與性別決定</a></li><li><a href="u3-4.html"><span>3-4</span>性聯遺傳：先寫性染色體，再算機率</a></li><li><a href="u3-5.html"><span>3-5</span>連鎖與互換：從子代數量推回配子</a></li></ul><p class="source-note"><a href="../sources.html#book=生物1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
-<main class="main"><header class="uh"><div class="crumb">生物｜生物1｜原圖與講解</div><h1><span class="uid">3-1</span>孟德爾遺傳：配子與子代機率</h1><p>把等位基因想成同一位置的兩張不同版本卡片。形成配子時每對只帶走一張；受精時再由父母各給一張，組成子代的兩張。</p><div class="tools"><span class="cnt">3個觀念 · 6題隨堂練習 · 原頁對照</span><button id="openAll">展開六題詳解</button><button id="closeAll">收起詳解</button></div></header><nav class="inline-toc" aria-label="本頁內容"><a href="#learn-1">分清基因型與表現型</a><a href="#learn-2">先算組合，再合併表現型</a><a href="#learn-3">獨立分配有前提，機率加法也有前提</a><a href="#original-pages">本節原頁與原題</a></nav><div class="content source-handout"><h2 class="section" id="learn-1">分清基因型與表現型</h2><figure class="fig source-figure"><img class="figimg" src="img/source_3-1_1.webp" width="1312" height="838" loading="lazy" alt="遺傳基本名詞與試交，生物1 PDF第86頁"><figcaption><b>遺傳基本名詞與試交</b><span>生物1 · PDF第86頁截圖</span><a href="../sources.html#book=生物1&page=86">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>在完全顯性模型下，AA與Aa都可能表現顯性，但兩者配子組成不同。</p><p>Aa形成A與a配子的機率各為1/2，這是分離律的結果。</p><p>字母大寫不代表基因較強、較健康或族群中比較常見，只表示此題設定的顯性關係。</p></div><article class="check-card" id="check-1"><header class="qh"><span class="qn">隨堂練習 1</span><span class="qtag">分清基因型與表現型</span></header><div class="qtext"><p>Aa與AA外觀相同，配子也完全相同嗎？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>不是。Aa可產生A、a配子，AA在此位點只產生A配子。</p></div></details></article><article class="check-card" id="check-2"><header class="qh"><span class="qn">隨堂練習 2</span><span class="qtag">分清基因型與表現型</span></header><div class="qtext"><p>顯性性狀一定是族群最多的性狀嗎？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>不一定。顯隱性描述異型合子的表現，不等於族群頻率。</p></div></details></article><details class="optional-widget"><summary>用數值驗證這個觀念</summary><div class="lesson-widget" data-widget="punnett"></div></details><h2 class="section" id="learn-2">先算組合，再合併表現型</h2><figure class="fig source-figure"><img class="figimg" src="img/source_3-1_2.webp" width="1424" height="1133" loading="lazy" alt="一對因子遺傳：分離律與子代組合，生物1 PDF第88頁"><figcaption><b>一對因子遺傳：分離律與子代組合</b><span>生物1 · PDF第88頁截圖</span><a href="../sources.html#book=生物1&page=88">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>Aa×Aa各自產生A與a配子，四種等機率組合是AA、Aa、aA、aa。</p><p>將aA與Aa視為同一基因型，得到1:2:1；若完全顯性且各型存活等條件相同，表現型才是3:1。</p><p>比例是大量子代的理論預期，不保證每四個一定恰有一個隱性。</p></div><article class="check-card" id="check-3"><header class="qh"><span class="qn">隨堂練習 3</span><span class="qtag">先算組合，再合併表現型</span></header><div class="qtext"><p>Aa×Aa得到aa的機率？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>母方給a為1/2、父方給a為1/2，相乘為1/4。</p></div></details></article><article class="check-card" id="check-4"><header class="qh"><span class="qn">隨堂練習 4</span><span class="qtag">先算組合，再合併表現型</span></header><div class="qtext"><p>Aa×Aa中，已知子代顯性，為Aa的機率？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>顯性子代包含AA、Aa、aA三個等機率組合，其中兩個是Aa，所以是2/3。</p></div></details></article><h2 class="section" id="learn-3">獨立分配有前提，機率加法也有前提</h2><figure class="fig source-figure"><img class="figimg" src="img/source_3-1_3.webp" width="1424" height="1019" loading="lazy" alt="兩對因子遺傳：獨立分配，生物1 PDF第88頁"><figcaption><b>兩對因子遺傳：獨立分配</b><span>生物1 · PDF第88頁截圖</span><a href="../sources.html#book=生物1&page=88">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>若兩基因獨立分配，AaBb可產生AB、Ab、aB、ab，各1/4。</p><p>求同時發生可對獨立事件相乘；把不同情況相加時，先確認是否互斥，否則會重複計算。</p><p>基因連鎖時不能直接套9:3:3:1；先回到配子機率。</p></div><article class="check-card" id="check-5"><header class="qh"><span class="qn">隨堂練習 5</span><span class="qtag">獨立分配有前提，機率加法也有前提</span></header><div class="qtext"><p>獨立分配的AaBb×aabb，aabb機率？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>AaBb產生ab配子的機率1/4，aabb只給ab，所以aabb為1/4。</p></div></details></article><article class="check-card" id="check-6"><header class="qh"><span class="qn">隨堂練習 6</span><span class="qtag">獨立分配有前提，機率加法也有前提</span></header><div class="qtext"><p>一對Aa親代連生兩個aa子代，機率多少？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>假設各次受精獨立，為1/4×1/4＝1/16。上一胎不會替下一胎用掉機率。</p></div></details></article><h2 class="section" id="compare">最後一起比較</h2><table><thead><tr><th>概念</th><th>判讀重點</th><th>注意條件</th></tr></thead><tbody><tr><td>基因型比</td><td>AA:Aa:aa＝1:2:1</td><td>Aa×Aa</td></tr><tr><td>表現型比</td><td>顯:隱＝3:1</td><td>另需完全顯性等前提</td></tr><tr><td>試交</td><td>未知顯性個體×隱性純合</td><td>用子代反推基因型</td></tr></tbody></table><h2 class="section" id="original-pages">本節原頁與原題</h2><p>以下依PDF頁序保留完整題幹、圖表、選項與原附答。先看題目、遮住原附答作答，再回上面的觀念與例題核對思路。</p><details class="original-page" id="original-85" data-book="生物1" data-page="85"><summary>生物1｜PDF第 85 頁　孟德爾遺傳</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/生物1/085.webp" alt="生物1 PDF第85頁完整原圖"><figcaption>原講義PDF第85頁；圖表、選項與附答完整保留。<a href="../sources.html#book=生物1&page=85">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-86" data-book="生物1" data-page="86"><summary>生物1｜PDF第 86 頁　孟德爾遺傳</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/生物1/086.webp" alt="生物1 PDF第86頁完整原圖"><figcaption>原講義PDF第86頁；圖表、選項與附答完整保留。<a href="../sources.html#book=生物1&page=86">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-87" data-book="生物1" data-page="87"><summary>生物1｜PDF第 87 頁　孟德爾遺傳</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/生物1/087.webp" alt="生物1 PDF第87頁完整原圖"><figcaption>原講義PDF第87頁；圖表、選項與附答完整保留。<a href="../sources.html#book=生物1&page=87">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-88" data-book="生物1" data-page="88"><summary>生物1｜PDF第 88 頁　孟德爾遺傳</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/生物1/088.webp" alt="生物1 PDF第88頁完整原圖"><figcaption>原講義PDF第88頁；圖表、選項與附答完整保留。<a href="../sources.html#book=生物1&page=88">放大閱讀 ↗</a></figcaption></figure></details></div><div class="pager"><a href="index.html">← 科目目錄</a><a href="u3-2.html">顯性關係的延伸：血型、多基因與環境 →</a></div></main>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul><!-- integrated-nav START --><div class="nch">第3單元　遺傳學</div><ul><li><a class="on" href="u3-1.html"><span>3-1</span>孟德爾遺傳：配子與子代機率</a><ul class="subtoc"><li><a href="#s1">先分清楚：性狀與基因型</a></li><li><a href="#s2">孟德爾的實驗觀察</a></li><li><a href="#s3">分離律與配子</a></li><li><a href="#s4">1：2：1與3：1</a></li><li><a href="#s5">試交與交配名稱</a></li><li><a href="#s6">兩對因子與獨立分配</a></li><li><a href="#s7">機率：且、或與已知</a></li><li><a href="#s8">四個子代的排列</a></li><li><a href="#s9">本單元整理</a></li></ul></li><li><a href="u3-2.html"><span>3-2</span>顯性關係的延伸：血型、多基因與環境</a></li><li><a href="u3-3.html"><span>3-3</span>染色體、核型與性別決定</a></li><li><a href="u3-4.html"><span>3-4</span>性聯遺傳：先寫性染色體，再算機率</a></li><li><a href="u3-5.html"><span>3-5</span>連鎖與互換：從子代數量推回配子</a></li></ul><p class="source-note"><a href="../sources.html#book=生物1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第3單元 遺傳學</div><h1><span class="uid">3-1</span>孟德爾遺傳：配子與子代機率</h1><div class="tools"><span class="cnt">本單元 6 題</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content mendel-unit">
+<!-- Individually authored unit. Preserve the established biology handout structure. -->
+<h2 class="section" id="s1">先分清楚：看見的性狀，不等於裡面的基因型</h2>
+<p>兩株豌豆都是高莖，為什麼自交以後，一株的後代全是高莖，另一株卻會出現矮莖？要回答這個問題，先把<strong>表現型</strong>和<strong>基因型</strong>分開。</p>
+<p>本節先用一個單基因模型：<code>T</code> 代表高莖等位基因，<code>t</code> 代表矮莖等位基因，而且 <code>T</code> 對 <code>t</code> 為<strong>完全顯性</strong>。因此，<code>TT</code> 和 <code>Tt</code> 都是高莖，只有 <code>tt</code> 是矮莖。</p>
+<table class="terms"><thead><tr><th>名詞</th><th>在問什麼？</th><th>豌豆的例子</th></tr></thead><tbody>
+<tr><td>性狀／表徵</td><td>研究哪一項特徵／這項特徵的不同形式</td><td>莖的高矮／高莖、矮莖</td></tr>
+<tr><td>表現型</td><td>實際觀察到的特徵</td><td>高莖或矮莖</td></tr>
+<tr><td>基因型</td><td>這個基因座的等位基因組合</td><td><code>TT</code>、<code>Tt</code>、<code>tt</code></td></tr>
+<tr><td>等位基因</td><td>同一基因座的不同版本</td><td><code>T</code> 與 <code>t</code></td></tr>
+<tr><td>同型合子</td><td>兩份等位基因相同</td><td><code>TT</code> 或 <code>tt</code></td></tr>
+<tr><td>異型合子</td><td>兩份等位基因不同</td><td><code>Tt</code></td></tr>
+</tbody></table>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>顯性、隱性是在比較異型合子的表現。</strong><code>Tt</code> 表現高莖，所以在這個模型裡，<code>T</code> 對 <code>t</code> 為顯性。這不表示 <code>T</code> 比較「強」、比較有利，或在族群中一定比較多。</p></aside>
+<p>從基因型通常可以推表現型；反過來卻不一定。看見矮莖，可判斷為 <code>tt</code>；看見高莖，只能先寫成 <code>T_</code>，底線表示另一份等位基因尚未確定。</p>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">隨堂練習 1</span><span class="qtag">基因型、表現型與配子</span><button class="mark" type="button" title="標記不會" aria-label="標記練習1">☆</button></header><div class="qtext"><p>豌豆高莖 <code>T</code> 對矮莖 <code>t</code> 為完全顯性，下列何者<strong>錯誤</strong>？</p><ol class="choices" type="A"><li><code>TT</code> 個體在這個基因座只形成帶 <code>T</code> 的配子。</li><li><code>Tt</code> 個體可形成帶 <code>T</code> 或帶 <code>t</code> 的配子。</li><li><code>TT</code> 與 <code>Tt</code> 的表現型相同。</li><li>只要觀察到高莖，就能確定基因型是 <code>Tt</code>。</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D</div><div class="exp"><b class="exp-h">解</b><p>先將「看見什麼」與「帶有什麼」分開：</p><ul><li>(A) 正確：兩份都是 <code>T</code>，分開後仍只有 <code>T</code> 這一種。</li><li>(B) 正確：一對 <code>T／t</code> 分離，正常分離下兩種配子各半。</li><li>(C) 正確：完全顯性時，兩者都為高莖。</li><li>(D) 錯誤：高莖可能是 <code>TT</code>，也可能是 <code>Tt</code>，不能單靠外觀選定其中一種。</li></ul><div class="qsum"><span class="qsum-h">小結</span><p>表現型相同，基因型與可形成的配子仍可能不同。</p></div></div></details></article>
+
+<h2 class="section" id="s2">孟德爾先觀察到什麼？</h2>
+<p>孟德爾選擇具有相對表徵的豌豆做雜交，先從<strong>一次只追蹤一種性狀</strong>開始。親代記作 <code>P</code>；親代雜交產生第一子代 <code>F₁</code>，再由 F₁ 自交得到第二子代 <code>F₂</code>。</p>
+<p>純系是指所研究的性狀經多代自交後仍穩定一致的品系。以純系高莖與純系矮莖為例，在本節模型下，親代可寫成 <code>TT × tt</code>。注意原講義表格的兩欄：F₁ 出現什麼表徵？F₂ 又出現什麼表徵？</p>
+<figure class="fig mendel-figure mfigure-experiment"><img class="figimg" src="img/mendel_experiment.webp" width="1056" height="974" loading="lazy" alt="孟德爾七組豌豆雜交實驗：F₁與F₂的觀察結果" data-page="生物1 PDF第87頁"><figcaption>孟德爾七組豌豆雜交實驗：F₁與F₂的觀察結果<span>原講義PDF第87頁・印刷第89頁・點圖放大</span></figcaption></figure>
+<ol class="observations">
+<li><strong>F₁ 全是高莖。</strong>親代有高、有矮，子代卻沒有出現介於兩者之間的中等高度。</li>
+<li><strong>矮莖在 F₂ 再度出現。</strong>矮莖的遺傳因子並沒有在 F₁ 消失，只是未表現出來。</li>
+<li><strong>F₂ 的高莖：矮莖接近 3：1。</strong>原表的高莖 787 株、矮莖 277 株，約為 2.84：1；這是實驗計數，不是理論式算錯。</li>
+<li><strong>交換父本與母本，這些實驗的結果仍相同。</strong>就本節追蹤的豌豆性狀而言，不能把高莖或矮莖只歸因於父方或只歸因於母方。</li>
+</ol>
+<aside class="box box-warn"><div class="box-h">不要把比例當成配額</div><p>理論機率為 1/4，不代表每四株中一定恰有一株矮莖。有限樣本會有隨機波動；在模型與取樣條件適當時，樣本夠多才較可能看出接近理論值的比例。</p></aside>
+
+<h2 class="section" id="s3">分離律：一對等位基因，形成配子時分開</h2>
+<p>接下來要解釋：為什麼 F₁ 看不見的矮莖，到了 F₂ 又會出現？關鍵在<strong>形成配子</strong>這一步。</p>
+<p>回到細胞分裂的概念：一般二倍體個體的同源染色體，在減數分裂第一階段分離。就本節追蹤的基因座而言，一對等位基因會分到不同配子，<strong>每個配子只帶其中一份</strong>。</p>
+<table><thead><tr><th>親代基因型</th><th>可能形成的配子</th><th>每種配子的機率</th></tr></thead><tbody>
+<tr><td><code>TT</code></td><td>只有 <code>T</code></td><td><code>T</code>：100%</td></tr>
+<tr><td><code>Tt</code></td><td><code>T</code>、<code>t</code></td><td>各 1/2</td></tr>
+<tr><td><code>tt</code></td><td>只有 <code>t</code></td><td><code>t</code>：100%</td></tr>
+</tbody></table>
+<p>因此，<code>TT × tt</code> 時，親代分別只提供 <code>T</code> 與 <code>t</code>，F₁ 就全是 <code>Tt</code>。F₁ 自交時，兩方卻各有一半機會提供 <code>t</code>，於是 F₂ 又可能組成 <code>tt</code>。</p>
+<figure class="fig mendel-figure mfigure-mono"><img class="figimg" src="img/mendel_mono.webp" width="672" height="498" loading="lazy" alt="高莖、矮莖的單性雜交：從親代到F₂" data-page="生物1 PDF第88頁"><figcaption>高莖、矮莖的單性雜交：從親代到F₂<span>原講義PDF第88頁・印刷第90頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">分離律的核心</div><p>個體中成對存在；<strong>形成配子時分開，受精後再成對</strong>。分離律講的是等位基因如何傳遞，不等於「後代的表現型永遠是 3：1」。</p></aside>
+
+<h2 class="section" id="s4">從配子組合，推到 1：2：1 與 3：1</h2>
+<p>以 F₁ 自交 <code>Tt × Tt</code> 為例。兩方各提供 <code>T</code> 或 <code>t</code>，機率都是 1/2。先把配子放在方格外，再把兩方各給的一份等位基因填進格內。</p>
+<table class="punnett-static"><caption>Tt × Tt；每一格的機率都是 1/2 × 1/2＝1/4</caption><thead><tr><th scope="col">母方＼父方</th><th scope="col">T（1/2）</th><th scope="col">t（1/2）</th></tr></thead><tbody>
+<tr><th scope="row">T（1/2）</th><td><code>TT</code><small>高莖</small></td><td><code>Tt</code><small>高莖</small></td></tr>
+<tr><th scope="row">t（1/2）</th><td><code>Tt</code><small>高莖</small></td><td><code>tt</code><small>矮莖</small></td></tr>
+</tbody></table>
+<h3>第一步：先統計基因型</h3>
+<p><code>TT</code> 占一格，<code>Tt</code> 占兩格，<code>tt</code> 占一格。因此：</p>
+<blockquote><p>基因型比：<strong>TT：Tt：tt＝1：2：1</strong></p></blockquote>
+<h3>第二步：再合併相同的表現型</h3>
+<p>在完全顯性的前提下，<code>TT</code> 與 <code>Tt</code> 都是高莖，把這三格加起來；矮莖只有 <code>tt</code> 那一格。</p>
+<blockquote><p>表現型比：<strong>高莖：矮莖＝3：1</strong></p></blockquote>
+<aside class="box box-warn"><div class="box-h">比例前面一定要寫對象</div><ul>
+<li><strong>1：2：1</strong> 是這次交配的基因型比；<strong>3：1</strong> 是完全顯性下的表現型比。</li>
+<li>這兩個比例對應的是 <code>Tt × Tt</code>。換成 <code>Tt × tt</code>，就不能照抄。</li>
+<li>方格中的兩個 <code>Tt</code>，雖然等位基因的親本來源不同，仍歸為同一種基因型。</li>
+</ul></aside>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">隨堂練習 2</span><span class="qtag">分離律・比例與期望數</span><button class="mark" type="button" title="標記不會" aria-label="標記練習2">☆</button></header><div class="qtext"><p>一株 <code>Tt</code> 高莖豌豆自交，觀察其 200 株子代。假設完全顯性、各基因型存活機會相同：</p><ol><li>子代的基因型比為何？</li><li>高莖：矮莖的理論比為何？預期有幾株矮莖？</li><li>若實際得到 46 株矮莖，是否僅憑這個數字就能否定分離律？</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>TT：Tt：tt＝1：2：1；高莖：矮莖＝3：1；預期矮莖50株；不能僅憑46株就否定。</div><div class="exp"><b class="exp-h">解</b><ol><li><code>Tt</code> 形成兩種配子，各占 1/2。兩方組合得到 <code>TT、Tt、Tt、tt</code>，每格機率 1/4。</li><li>依基因型統計為 1：2：1；依表現型合併 <code>TT</code>、<code>Tt</code>，成為 3：1。</li><li>矮莖機率 1/4，期望數為 <code>200 × 1/4＝50</code>。</li><li>50 是重複進行這類取樣時的期望，不是每一次實驗必須恰好得到的數量。實際46株可能只是抽樣波動；要評估是否明顯偏離模型，需進一步分析，不能只因不等於50就否定。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>機率乘以子代總數得到的是期望數，不是固定配額。</p></div></div></details></article>
+
+<h2 class="section" id="s5">試交：用子代，判斷未知親代</h2>
+<p>現在把問題反過來：一株高莖豌豆，究竟是 <code>TT</code> 還是 <code>Tt</code>？直接看外表分不出來，就讓它與<strong>隱性同型合子 <code>tt</code></strong> 交配，這叫試交。</p>
+<p>為什麼選 <code>tt</code>？因為它只提供 <code>t</code>，不會把未知親代給出的訊息遮住。子代是 <code>Tt</code>，代表未知親代給了 <code>T</code>；子代是 <code>tt</code>，代表未知親代給了 <code>t</code>。</p>
+<table><thead><tr><th>未知高莖若為……</th><th>試交</th><th>子代的理論結果</th></tr></thead><tbody>
+<tr><td><code>TT</code></td><td><code>TT × tt</code></td><td>全為 <code>Tt</code>，全是高莖</td></tr>
+<tr><td><code>Tt</code></td><td><code>Tt × tt</code></td><td><code>Tt</code>：<code>tt</code>＝1：1，高莖與矮莖各半</td></tr>
+</tbody></table>
+<aside class="box box-concept"><div class="box-h">兩種證據，強度不同</div><p><strong>出現矮莖：</strong>在本節模型與親子關係正確的前提下，可確定未知高莖帶有 <code>t</code>，所以是 <code>Tt</code>。</p><p><strong>目前只看到高莖：</strong>結果符合 <code>TT</code>，但少量子代仍可能剛好都沒有抽到 <code>t</code>，不能直接宣稱已排除 <code>Tt</code>。</p></aside>
+<h3>容易混淆的交配名稱</h3>
+<table class="cross-types"><thead><tr><th>名稱</th><th>看的是什麼？</th><th>例子或用途</th></tr></thead><tbody>
+<tr><td>自交</td><td>同一個體的配子結合；豌豆可自花授粉</td><td><code>Tt</code> 個體自交，可用 <code>Tt × Tt</code> 分析</td></tr>
+<tr><td>雜交</td><td>在本節比較具有不同表徵或基因型的親代</td><td><code>TT × tt</code></td></tr>
+<tr><td>互交</td><td>交換兩種親代的父本、母本角色</td><td>高莖當母本與高莖當父本，分別比較後代</td></tr>
+<tr><td>反交</td><td>子代與親代之一，或同親代基因型的個體交配</td><td><code>F₁ × P</code></td></tr>
+<tr><td>試交</td><td>待測個體與隱性同型合子交配</td><td>判斷未知顯性個體的基因型</td></tr>
+</tbody></table>
+<p class="fine-note">兩個不同個體都是 <code>Tt</code>，不會只因基因型相同就叫自交；反交也不一定是試交，要看交配對象是否為隱性同型合子。互交若有不同結果，需進一步檢查性聯或親本來源等可能因素。</p>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">隨堂練習 3</span><span class="qtag">試交・確定與尚不能確定</span><button class="mark" type="button" title="標記不會" aria-label="標記練習3">☆</button></header><div class="qtext"><p>有兩株未知基因型的高莖豌豆甲、乙，分別與矮莖 <code>tt</code> 試交。甲的子代有7株高莖、1株矮莖；乙目前觀察到8株，全部高莖。</p><p>哪些親代的基因型可以確定？請說明依據。依本節單基因模型作答，不考慮突變或親子辨識錯誤。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>甲可確定為Tt；乙仍可能是TT或Tt。</div><div class="exp"><b class="exp-h">解</b><p><strong>先看甲出現的矮莖。</strong>矮莖一定是 <code>tt</code>：一份 <code>t</code> 來自已知的矮莖親代，另一份必須來自甲。甲本身又是高莖，所以甲是 <code>Tt</code>。</p><p>甲的7：1並不需要剛好等於理論1：1，才能證明它帶有 <code>t</code>；<strong>只要確實出現 <code>tt</code> 子代，就有傳出 <code>t</code> 的證據。</strong></p><p><strong>再看乙。</strong><code>TT × tt</code> 會全高莖；但 <code>Tt × tt</code> 也可能因少量取樣而碰巧全高莖。因此目前尚不能排除 <code>Tt</code>。增加子代數有助於判斷，卻不能把「沒有看到」當作「絕不可能有」。</p><div class="qsum"><span class="qsum-h">小結</span><p>有隱性子代，可以追出隱性等位基因；少量子代全顯性，證據沒有同樣強。</p></div></div></details></article>
+
+<h2 class="section" id="s6">兩對因子：先列配子，再談獨立分配</h2>
+<p>一對等位基因會分離，換成兩對時，還要多問一句：<strong>這一對怎麼分，會不會影響另一對？</strong></p>
+<p>沿用原圖的種子例子：<code>R</code> 對 <code>r</code> 為顯性，表現圓滑；<code>Y</code> 對 <code>y</code> 為顯性，表現黃色。先假設這兩個基因座<strong>獨立分配</strong>，且都符合完全顯性。</p>
+<h3>RrYy 為什麼有四種配子？</h3>
+<p>配子必須從 <code>R／r</code> 中取一份，也從 <code>Y／y</code> 中取一份。因此可能是 <code>RY</code>、<code>Ry</code>、<code>rY</code>、<code>ry</code>；在獨立分配下，各組合的機率都是 1/2 × 1/2＝1/4。</p>
+<table><thead><tr><th>先選這一對</th><th>再選另一對</th><th>組成配子</th><th>機率</th></tr></thead><tbody>
+<tr><td>R</td><td>Y</td><td><code>RY</code></td><td>1/4</td></tr>
+<tr><td>R</td><td>y</td><td><code>Ry</code></td><td>1/4</td></tr>
+<tr><td>r</td><td>Y</td><td><code>rY</code></td><td>1/4</td></tr>
+<tr><td>r</td><td>y</td><td><code>ry</code></td><td>1/4</td></tr>
+</tbody></table>
+<p>配子不能寫成 <code>Rr</code> 或 <code>Yy</code>：那是從同一對拿了兩份，卻漏掉另一個基因座。</p>
+<figure class="fig mendel-figure mfigure-di"><img class="figimg" src="img/mendel_di.webp" width="592" height="786" loading="lazy" alt="兩對因子雜交：四種配子與十六種受精組合" data-page="生物1 PDF第88頁"><figcaption>兩對因子雜交：四種配子與十六種受精組合<span>原講義PDF第88頁・印刷第90頁・點圖放大</span></figcaption></figure>
+<p>原講義的兩性雜交數據為：黃色圓滑315、黃色皺皮101、綠色圓滑108、綠色皺皮32，約為9：3：3：1。下面用兩個基因座各自的機率，說明這個預期比例如何得到。</p>
+<h3>9：3：3：1 可以分開算，不必硬背十六格</h3>
+<p>對 <code>RrYy × RrYy</code>，先分別分析兩個基因座：圓滑的機率為 3/4、皺皮為 1/4；黃色為 3/4、綠色為 1/4。因為兩性狀在此模型中獨立，可將對應機率相乘。</p>
+<table><thead><tr><th>子代表現型</th><th>需要同時符合</th><th>機率</th></tr></thead><tbody>
+<tr><td>黃色圓滑</td><td>黃色且圓滑</td><td>3/4 × 3/4＝9/16</td></tr>
+<tr><td>黃色皺皮</td><td>黃色且皺皮</td><td>3/4 × 1/4＝3/16</td></tr>
+<tr><td>綠色圓滑</td><td>綠色且圓滑</td><td>1/4 × 3/4＝3/16</td></tr>
+<tr><td>綠色皺皮</td><td>綠色且皺皮</td><td>1/4 × 1/4＝1/16</td></tr>
+</tbody></table>
+<aside class="box box-warn"><div class="box-h">這個比例有前提</div><p><strong>9：3：3：1</strong> 對應兩個異型合子交配、兩基因座獨立分配、各自完全顯性，且沒有其他改變比例的因素。連鎖基因不能直接套用四種配子各 1/4；後面的連鎖單元會再處理。</p></aside>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">隨堂練習 4</span><span class="qtag">兩對因子・先拆成兩個基因座</span><button class="mark" type="button" title="標記不會" aria-label="標記練習4">☆</button></header><div class="qtext"><p>種子圓滑 <code>R</code> 對皺皮 <code>r</code>、黃色 <code>Y</code> 對綠色 <code>y</code> 都為完全顯性，兩個基因座獨立分配。以 <code>RrYy × Rryy</code> 交配：</p><ol><li>兩方各可形成哪些配子？</li><li>子代為「黃色皺皮」的機率為何？</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>RrYy：RY、Ry、rY、ry，各1/4；Rryy：Ry、ry，各1/2。黃色皺皮機率1/8。</div><div class="exp"><b class="exp-h">解</b><ol><li>第一個親代在兩個基因座都為異型合子，四種配子各1/4；第二個親代在 <code>Y／y</code> 這一對只有 <code>y</code>，所以只有 <code>Ry</code>、<code>ry</code>。</li><li>先只看形狀：<code>Rr × Rr</code>，子代皺皮 <code>rr</code> 的機率是1/4。</li><li>再只看顏色：<code>Yy × yy</code>，子代黃色 <code>Yy</code> 的機率是1/2。</li><li>黃色且皺皮，需要兩個條件同時成立。獨立分配下可相乘：<code>1/2 × 1/4＝1/8</code>。</li></ol><p>這題的第二親代不是 <code>RrYy</code>，不能直接從9：3：3：1中拿出3/16作答。</p><div class="qsum"><span class="qsum-h">小結</span><p>先讀兩個親代的基因型，再決定各基因座的機率。</p></div></div></details></article>
+
+<h2 class="section" id="s7">機率題：先把「且、或、已知」翻成情況</h2>
+<p>遺傳規則告訴我們一次交配的機率；題目接著可能追問兩個子代、四個子代，或只在某一群子代中計算。<strong>先說清楚要算哪一些情況，再寫算式。</strong></p>
+<table><thead><tr><th>題目語意</th><th>先做什麼？</th><th>本節例子</th></tr></thead><tbody>
+<tr><td>同時符合兩件事</td><td>確認能否視為獨立，再相乘</td><td>黃色且皺皮</td></tr>
+<tr><td>符合甲或符合乙</td><td>若兩種情況互斥，可相加</td><td>子代是 <code>TT</code> 或 <code>Tt</code></td></tr>
+<tr><td>已知符合某條件</td><td>只在符合條件的那一群中重算</td><td>已知高莖，再問是 <code>Tt</code> 的機率</td></tr>
+</tbody></table>
+<aside class="box box-concept"><div class="box-h">加法與乘法的判斷不同</div><p>乘法的簡化要看<strong>獨立</strong>；直接相加要看<strong>互斥</strong>。例如一個子代不可能同時既是 <code>TT</code> 又是 <code>Tt</code>，這兩類可直接相加。若兩種情況有重疊，直接相加就會重複計數。</p></aside>
+<h3>例一：已知高莖，為什麼答案是 2/3？</h3>
+<p>仍是 <code>Tt × Tt</code>。全部子代中，<code>TT</code> 占 1/4、<code>Tt</code> 占 1/2、<code>tt</code> 占 1/4。但「已知高莖」已排除 <code>tt</code>，分母只剩高莖這 3/4。</p>
+<blockquote><p>已知高莖而為 Tt 的機率＝(1/2) ÷ (3/4)＝<strong>2/3</strong></p></blockquote>
+<p>也可以回頭看四格表：符合「高莖」的三格裡，有兩格是 <code>Tt</code>。所以不是仍用全部子代當分母回答 1/2。</p>
+<h3>例二：兩個子代，恰好一高一矮</h3>
+<p>每個子代高莖機率為 3/4、矮莖為 1/4，並假設各次受精獨立。「恰好一高一矮」包含兩個<strong>互斥的順序</strong>：</p>
+<ul><li>第一個高、第二個矮：3/4 × 1/4＝3/16。</li><li>第一個矮、第二個高：1/4 × 3/4＝3/16。</li></ul>
+<p>把這兩種順序相加，得到 6/16＝3/8。若題目指定「第一個高、第二個矮」，則只能算其中一種順序，答案是 3/16。</p>
+<article class="q q-pr" id="check-5"><header class="qh"><span class="qn">隨堂練習 5</span><span class="qtag">兩個子代・恰好與至少</span><button class="mark" type="button" title="標記不會" aria-label="標記練習5">☆</button></header><div class="qtext"><p><code>Tt × Tt</code> 的交配中，每個子代高莖機率3/4、矮莖機率1/4，假設各次受精獨立。兩個子代：</p><ol><li>恰有一株矮莖的機率？</li><li>至少有一株矮莖的機率？</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>恰有一株矮莖為3/8；至少一株矮莖為7/16。</div><div class="exp"><b class="exp-h">解</b><p><strong>「恰好一株」</strong>不包括兩株都矮，只有兩種情況：</p><ul><li>高、矮：3/4 × 1/4＝3/16。</li><li>矮、高：1/4 × 3/4＝3/16。</li></ul><p>兩種情況互斥，相加為 <code>6/16＝3/8</code>。</p><p><strong>「至少一株」</strong>還包含兩株都矮，因此可以再加 <code>1/4 × 1/4＝1/16</code>，得到7/16。</p><p>也可從反面算：至少一株矮＝1−完全沒有矮莖＝<code>1−(3/4)²＝7/16</code>。</p><div class="qsum"><span class="qsum-h">小結</span><p>「至少一個」包括一個、兩個……；用1減去「一個都沒有」常較好算。</p></div></div></details></article>
+
+<h2 class="section" id="s8">四個子代：不要漏掉「哪一個是隱性」</h2>
+<p>原講義用黑毛豚鼠說明相同規則：兩個異型合子交配，黑毛為顯性，單一子代黑毛機率 3/4、棕毛機率 1/4。看圖時先數出每一組有幾隻棕毛，再看同樣數量可以有多少種排列。</p>
+<figure class="fig mendel-figure mfigure-probability"><img class="figimg" src="img/mendel_probability.webp" width="1120" height="498" loading="lazy" alt="四個豚鼠子代的排列數與機率" data-page="生物1 PDF第89頁"><figcaption>四個豚鼠子代的排列數與機率<span>原講義PDF第89頁・印刷第91頁・點圖放大</span></figcaption></figure>
+<h3>以「四個中恰有一個棕毛」為例</h3>
+<ol>
+<li><strong>先固定一個位置。</strong>若指定第一個棕毛、其餘三個黑毛，機率為 1/4 × (3/4)³＝27/256。</li>
+<li><strong>再數棕毛可以在哪裡。</strong>第一、第二、第三、第四個，共四種互斥的排列。</li>
+<li><strong>把四種排列合起來。</strong>4 × 27/256＝108/256＝27/64。</li>
+</ol>
+<p>因此，圖中的係數 <code>1、4、6、4、1</code> 不是另一條要死背的遺傳定律，而是四個位置中放入不同數量棕毛子代的排列數。</p>
+<table><thead><tr><th>四個子代的組成</th><th>排列數</th><th>機率</th></tr></thead><tbody>
+<tr><td>四黑</td><td>1</td><td>(3/4)⁴＝81/256</td></tr>
+<tr><td>三黑一棕</td><td>4</td><td>4 × (3/4)³ × (1/4)＝108/256</td></tr>
+<tr><td>二黑二棕</td><td>6</td><td>6 × (3/4)² × (1/4)²＝54/256</td></tr>
+<tr><td>一黑三棕</td><td>4</td><td>4 × (3/4) × (1/4)³＝12/256</td></tr>
+<tr><td>四棕</td><td>1</td><td>(1/4)⁴＝1/256</td></tr>
+</tbody></table>
+<p>五類已包含所有可能，機率相加應為 1：<code>(81＋108＋54＋12＋1)／256＝1</code>。這也能用來檢查是否漏算排列。</p>
+<article class="q q-pr" id="check-6"><header class="qh"><span class="qn">隨堂練習 6</span><span class="qtag">四個子代・排列與補事件</span><button class="mark" type="button" title="標記不會" aria-label="標記練習6">☆</button></header><div class="qtext"><p>兩個異型合子黑毛豚鼠交配，單一子代黑毛機率3/4、棕毛機率1/4。各次受精獨立，四個子代：</p><ol><li>只有第三個棕毛，其餘皆黑毛，機率多少？</li><li>恰有一個棕毛，但不指定是哪一個，機率多少？</li><li>至少一個棕毛，機率多少？</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>依序為27/256、27/64、175/256。</div><div class="exp"><b class="exp-h">解</b><ol><li><strong>指定第三個棕毛：</strong>順序是黑、黑、棕、黑，只有這一種排列。機率為 <code>(3/4) × (3/4) × (1/4) × (3/4)＝27/256</code>。</li><li><strong>未指定位置，恰有一個棕毛：</strong>棕毛可在四個位置，每種排列的機率均為27/256。因此為 <code>4 × 27/256＝108/256＝27/64</code>。</li><li><strong>至少一個棕毛：</strong>包括一、二、三、四個棕毛。用補事件計算：<code>1−四個全黑＝1−(3/4)⁴＝175/256</code>。</li></ol><p>第三小題不能沿用第二小題的27/64，因為第二小題只計入「恰好一個」。</p><div class="qsum"><span class="qsum-h">小結</span><p>先看有沒有指定位置，再看題目是「恰好」還是「至少」。</p></div></div></details></article>
+
+<h2 class="section" id="s9">本單元整理：每個比例，都要連同交配條件一起記</h2>
+<table><thead><tr><th>要判斷的問題</th><th>先抓住的規則</th><th>最容易錯在哪裡</th></tr></thead><tbody>
+<tr><td>這個個體可形成什麼配子？</td><td>每對等位基因只取一份</td><td>把 <code>Tt</code> 當作一種配子</td></tr>
+<tr><td><code>Tt × Tt</code> 的子代</td><td>先算基因型 1：2：1，再合併表現型</td><td>將基因型比、表現型比混用</td></tr>
+<tr><td>高莖究竟是 <code>TT</code> 還是 <code>Tt</code>？</td><td>與 <code>tt</code> 試交，讀出未知親代的配子</td><td>少量子代全高莖，就斷言一定是 <code>TT</code></td></tr>
+<tr><td>同時追蹤兩個基因座</td><td>先確認獨立分配，再分別計算</td><td>看見兩對基因就套 9：3：3：1</td></tr>
+<tr><td>問兩個、四個子代</td><td>分清指定順序、恰好幾個、至少幾個</td><td>只算一種排列，或把「至少」看成「恰好」</td></tr>
+<tr><td>題目有「已知」</td><td>縮小計算的母群體</td><td>仍拿全部子代當分母</td></tr>
+</tbody></table>
+<aside class="box box-ref"><div class="box-h">讀完自己說一次</div><p>不看筆記，試著說明這三件事：<strong>隱性表徵為何能在 F₂ 再出現？試交為何要選隱性同型合子？恰有一個棕毛為何還要乘以 4？</strong>能說出理由，再進入下一節的顯性關係延伸。</p></aside>
+<p class="fine-note">本節對照《生物1》PDF第 86–89 頁：印刷頁碼為 88–91。第89頁下半的不完全顯性，接在下一節 3-2。<a href="../sources.html#book=生物1&amp;page=86">開啟完整原頁</a>。</p>
+</div><div class="pager"><a href="u2-5.html">← 2-5 能量單元練習</a><a href="u3-2.html">3-2 顯性關係的延伸 →</a></div></main>
 <div class="lightbox" id="lb"><img alt=""></div>
 <script>(function(){
   var KEY = "bio-marked";

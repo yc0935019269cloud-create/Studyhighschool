@@ -25,3 +25,6 @@ python _src/validate_handouts.py
 - 新增16篇沿用前面單元的排版：原講義截圖→逐段文字講解→隨堂練習。48張對應原頁裁圖附PDF頁碼；後續180頁完整原稿直接納入各單元。
 - 新章節已融合在首頁原有科目卡片、各科chgrid目錄及側欄，移除獨立追加區。
 - 裁圖規格：_src/layout-figures.json；版型：_src/rebuild_layout.py；導覽：_src/integrate_navigation.py。build_handouts.py會依序呼叫重建。
+
+## 逐單元品質重做
+目前逐篇精修完成的是生物3-1，其他新增單元待逐篇重寫。3-1直接沿用既有生物單元的原始版型，先建立概念與比較表，再配原圖、推導與完整詳解。正文位於 _src/units/biology-3-1.html，重建使用 python _src/build_biology_3_1.py。

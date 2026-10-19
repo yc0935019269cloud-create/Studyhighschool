@@ -1,0 +1,33 @@
+
+/* Local refinements only; original unit typography remains the baseline. */
+.mendel-unit .terms td:first-child,.mendel-unit .cross-types td:first-child{white-space:nowrap;font-weight:700}
+.mendel-unit .terms td:nth-child(2),.mendel-unit .cross-types td:nth-child(2),.mendel-unit .cross-types td:nth-child(3){text-align:left}
+.mendel-unit .fine-note{font-size:14.5px;color:var(--muted);line-height:1.8}
+.mendel-unit .mendel-figure{margin:20px auto 24px}
+.mendel-unit .mendel-figure .figimg{max-width:100%;max-height:440px;width:auto;height:auto;border-radius:6px}
+.mendel-unit .mendel-figure figcaption{margin-top:7px;line-height:1.6}
+.mendel-unit .mendel-figure figcaption span{display:block;font-size:12px;margin-top:2px}
+.mendel-unit .punnett-static{display:table;width:min(100%,480px);margin:16px auto;font-size:17px}
+.mendel-unit .punnett-static caption{caption-side:bottom;font-size:13px;color:var(--muted);padding-top:7px;text-align:center}
+.mendel-unit .punnett-static td{padding:12px 8px}
+.mendel-unit .punnett-static small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.mendel-unit .punnett-static code{background:none}
+.mendel-unit .observations li{margin-bottom:8px}
+.mendel-unit .choices{padding-left:1.6em;margin:8px 0}
+.mendel-unit .choices li{margin:6px 0;padding-left:3px}
+.mendel-unit .exp ol{margin:8px 0}.mendel-unit .exp li{margin:7px 0}
+.mendel-unit .qsum{font-size:16px}
+@media(max-width:900px){
+ .mendel-unit .mendel-figure .figimg{max-height:none;width:auto;max-width:100%}
+ .mendel-unit .punnett-static{font-size:15px}
+ .mendel-unit .punnett-static td,.mendel-unit .punnett-static th{padding:8px 5px}
+ .mendel-unit .qh{flex-wrap:wrap;gap:6px}
+ .mendel-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+ .mendel-unit .mark{flex-shrink:0}
+ .mendel-unit .content th,.mendel-unit .content td{padding:6px 8px}
+}
+@media print{.mendel-unit h2.section{break-after:avoid}.mendel-unit .fig{break-inside:avoid}.mendel-unit .figimg{max-height:380px}.mendel-unit .q{break-inside:auto}}
+
+.mendel-unit .mfigure-experiment .figimg{max-height:none;max-width:min(100%,760px)}
+.mendel-unit .mfigure-di .figimg{max-height:600px}
+@media(max-width:900px){.mendel-unit .mfigure-di .figimg{max-height:none}}

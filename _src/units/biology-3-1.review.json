@@ -1,0 +1,34 @@
+{
+  "unit": "biology/3-1",
+  "status": "individually_rewritten",
+  "reference_units": [
+    "biology/u1-5.html",
+    "biology/u1-4.html"
+  ],
+  "source_pdf_pages": [
+    86,
+    87,
+    88,
+    89
+  ],
+  "sections": 9,
+  "worked_questions": 6,
+  "source_crops": 4,
+  "table_count": 10,
+  "viewports": [
+    1440,
+    820,
+    390
+  ],
+  "numeric_verification": "Independent enumeration of gamete combinations and offspring sequences; all checks passed.",
+  "interaction_checks": [
+    "expand/collapse",
+    "bookmark persistence",
+    "bookmark filter",
+    "image lightbox and Escape",
+    "mobile toc",
+    "dark mode"
+  ],
+  "remaining_new_units": "15 require individual revision",
+  "errors": []
+}

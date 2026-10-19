@@ -53,3 +53,6 @@ for subject in ('earth','biology'):
 import runpy
 module=runpy.run_path(str(ROOT/'_src/integrate_navigation.py'));module['integrate']()
 print('Rebuilt 16 source-image handouts; integrated 180 subsequent source pages and all chapter cards.')
+
+# Individually authored overrides always win over the initial bulk drafts.
+runpy.run_path(str(ROOT/"_src/build_biology_3_1.py"))["build"]()
