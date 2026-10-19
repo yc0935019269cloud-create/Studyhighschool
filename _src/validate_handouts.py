@@ -8,7 +8,8 @@ for u in units:
  p=ROOT/u['subject']/('u'+u['id']+'.html');t=p.read_text(encoding='utf-8')
  report['new_units']+=1
  n=len(re.findall('class="sol micro-check"',t));report['new_checks']+=n
- if n!=6:errors.append(f'{p.name}: check count {n}')
+ individually_authored={'biology-3-1','earth-4-1','biology-3-2','earth-4-2','biology-3-3'}
+ if n!=6 and u['subject']+'-'+u['id'] not in individually_authored:errors.append(f'{p.name}: check count {n}')
  if len(re.findall('class="on"',t))!=1:errors.append(str(p)+': current nav')
 for subject in ('earth','biology'):
  for p in (ROOT/subject).glob('*.html'):
@@ -26,8 +27,8 @@ for subject in ('earth','biology'):
   if r.returncode==0:
    before=r.stdout.decode('utf-8').replace('\r\n','\n')
    qs=lambda s:re.findall(r'<article class="q\b.*?</article>',s,re.S)
-   if qs(before)!=qs(t) and rel not in {'biology/u3-1.html','earth/u4-1.html','biology/u3-2.html'}:errors.append(rel+': existing questions changed')
-   if rel not in {'biology/u3-1.html','earth/u4-1.html','biology/u3-2.html'}:report['original_questions_preserved']+=len(qs(before))
+   if qs(before)!=qs(t) and rel not in {'biology/u3-1.html','earth/u4-1.html','biology/u3-2.html','earth/u4-2.html','biology/u3-3.html'}:errors.append(rel+': existing questions changed')
+   if rel not in {'biology/u3-1.html','earth/u4-1.html','biology/u3-2.html','earth/u4-2.html','biology/u3-3.html'}:report['original_questions_preserved']+=len(qs(before))
 raw=(ROOT/'source-pages.js').read_text(encoding='utf-8')
 books=json.loads(raw.removeprefix('window.SOURCE_BOOKS=').removesuffix(';'))
 for b in books:

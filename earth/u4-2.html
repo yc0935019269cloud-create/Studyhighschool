@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>4-2 雲雨的形成：相對濕度與露點｜地球科學</title>
+<title>4-2 雲霧的產生：露點、相對溼度與絕熱冷卻｜地球科學</title>
 <style>:root{
   --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
   --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
@@ -173,11 +173,180 @@ body.only-marked .q:not(.marked){display:none}
 .qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
 .qsum p{margin:.25em 0}
 body.hide-pre .pre{display:none}
-</style><!-- handout-assets START --><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../handout.css"><script defer src="../handout.js"></script><!-- handout-assets END --></head>
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">.authored-unit .fine-note{font-size:14.5px;line-height:1.8;color:var(--muted)}
+.authored-unit .authored-figure{margin:22px auto 26px}
+.authored-unit .authored-figure .figimg{max-width:100%;max-height:580px;width:auto;height:auto;border-radius:6px}
+.authored-unit .fig-composition .figimg,.authored-unit .fig-pressure .figimg{max-height:none}
+.authored-unit figcaption{line-height:1.65;margin-top:7px}
+.authored-unit figcaption span{display:block;font-size:12px;margin-top:3px}
+.authored-unit li{margin-top:7px;margin-bottom:7px}
+.authored-unit .exp ol{margin:10px 0}
+.authored-unit .qsum{font-size:16px}
+.authored-unit .reading-table td{text-align:left;vertical-align:top}
+.authored-unit .reading-table th:first-child{white-space:nowrap}
+.authored-unit .punnett-static{display:table;width:min(100%,520px);margin:18px auto}
+.authored-unit .punnett-static td{padding:12px 8px}
+.authored-unit .punnett-static code{background:none}
+.authored-unit .source-originals{margin:30px 0 10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px}
+.authored-unit .source-originals>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.authored-unit .original-page .figimg{width:100%;height:auto;max-height:none}
+.authored-unit .ref-list{font-size:14px}
+.authored-unit .fig-chromosome .figimg{max-height:none}
+@media(max-width:900px){
+.authored-unit .authored-figure .figimg{max-height:none}
+.authored-unit .qh{flex-wrap:wrap;gap:6px}
+.authored-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+.authored-unit .mark{flex-shrink:0}
+.authored-unit .punnett-static{font-size:15px}
+.authored-unit .punnett-static td,.authored-unit .punnett-static th{padding:8px 5px}
+.authored-unit .source-originals{padding:10px}
+}
+@media print{.authored-unit h2.section{break-after:avoid}.authored-unit .fig{break-inside:avoid}.authored-unit .q{break-inside:auto}.authored-unit .source-originals{display:none}}
+
+.authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
+.authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+</style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
-<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- integrated-nav START --><div class="nch">第4單元　大氣與天氣</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a class="on" href="u4-2.html"><span>4-2</span>雲雨的形成：相對濕度與露點</a></li><li><a href="u4-3.html"><span>4-3</span>風的方向：氣壓梯度力與科氏力</a></li><li><a href="u4-4.html"><span>4-4</span>天氣圖、鋒面與臺灣季節天氣</a></li></ul><div class="nch">第5單元　海洋</div><ul><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li></ul><div class="nch">第6單元　天然災害</div><ul><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li></ul><div class="nch">第7單元　氣候變遷與資源</div><ul><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li></ul><div class="nch">第8單元　進階探究</div><ul><li><a href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p class="source-note"><a href="../sources.html#book=地科1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
-<main class="main"><header class="uh"><div class="crumb">地球科學｜地科2｜原圖與講解</div><h1><span class="uid">4-2</span>雲雨的形成：相對濕度與露點</h1><p>冰飲料杯外的水，不是杯內的水穿過杯壁，而是周圍空氣接觸冷杯，降溫後凝結出液滴。從這件小事就能理解露點與雲。</p><div class="tools"><span class="cnt">3個觀念 · 6題隨堂練習 · 原頁對照</span><button id="openAll">展開六題詳解</button><button id="closeAll">收起詳解</button></div></header><nav class="inline-toc" aria-label="本頁內容"><a href="#learn-1">相對濕度是一個比值</a><a href="#learn-2">露點表示要冷到哪裡</a><a href="#learn-3">從上升氣流到降雨還有一步</a><a href="#original-pages">本節原頁與原題</a></nav><div class="content source-handout"><h2 class="section" id="learn-1">相對濕度是一個比值</h2><figure class="fig source-figure"><img class="figimg" src="img/source_4-2_1.webp" width="1424" height="929" loading="lazy" alt="飽和水氣壓隨溫度變化的曲線，地科2 PDF第6頁"><figcaption><b>飽和水氣壓隨溫度變化的曲線</b><span>地科2 · PDF第6頁截圖</span><a href="../sources.html#book=地科2&page=6">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>相對濕度＝實際水氣壓÷同溫飽和水氣壓×100%。</p><p>同樣的實際水氣量，升溫時飽和水氣壓上升，相對濕度反而下降；降溫時相對濕度上升。</p><p>用「空氣能裝水的桶子」只能協助記趨勢，真正要比較的是水氣壓與飽和水氣壓。</p></div><article class="check-card" id="check-1"><header class="qh"><span class="qn">隨堂練習 1</span><span class="qtag">相對濕度是一個比值</span></header><div class="qtext"><p>實際水氣壓12百帕、飽和水氣壓24百帕，相對濕度多少？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>12÷24×100%＝50%。先對應分子是實際、分母是同溫飽和值。</p></div></details></article><article class="check-card" id="check-2"><header class="qh"><span class="qn">隨堂練習 2</span><span class="qtag">相對濕度是一個比值</span></header><div class="qtext"><p>水氣量不變時加熱，相對濕度通常怎樣變？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>下降。飽和水氣壓隨溫度上升而增大，分母變大。</p></div></details></article><details class="optional-widget"><summary>用數值驗證這個觀念</summary><div class="lesson-widget" data-widget="humidity"></div></details><h2 class="section" id="learn-2">露點表示要冷到哪裡</h2><figure class="fig source-figure"><img class="figimg" src="img/source_4-2_2.webp" width="1424" height="1178" loading="lazy" alt="相對濕度、實際水氣壓與飽和值的對照，地科2 PDF第6頁"><figcaption><b>相對濕度、實際水氣壓與飽和值的對照</b><span>地科2 · PDF第6頁截圖</span><a href="../sources.html#book=地科2&page=6">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>讓空氣在水氣含量不變、近似固定氣壓下冷卻，達到飽和時的溫度就是露點。</p><p>氣溫與露點越接近，通常表示距離飽和越近。</p><p>到達露點不代表所有水氣瞬間消失；繼續降溫時，部分水氣凝結，剩餘水氣與液滴之間維持動態平衡。</p></div><article class="check-card" id="check-3"><header class="qh"><span class="qn">隨堂練習 3</span><span class="qtag">露點表示要冷到哪裡</span></header><div class="qtext"><p>氣溫25°C、露點20°C，冷到20°C時發生什麼？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>空氣達到飽和；若有適當表面或凝結核，就能開始凝結。</p></div></details></article><article class="check-card" id="check-4"><header class="qh"><span class="qn">隨堂練習 4</span><span class="qtag">露點表示要冷到哪裡</span></header><div class="qtext"><p>氣溫等於露點時，水氣量是不是零？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>不是。此時仍有水氣，只是實際水氣壓等於該溫度的飽和水氣壓。</p></div></details></article><h2 class="section" id="learn-3">從上升氣流到降雨還有一步</h2><figure class="fig source-figure"><img class="figimg" src="img/source_4-2_3.webp" width="1424" height="2152" loading="lazy" alt="原講義：水的相變與雲霧形成，地科2 PDF第8頁"><figcaption><b>原講義：水的相變與雲霧形成</b><span>地科2 · PDF第8頁截圖</span><a href="../sources.html#book=地科2&page=8">對照完整原頁 ↗</a></figcaption></figure><div class="source-explanation"><h3>這張圖怎麼看</h3><p>空氣上升遇到較低外界氣壓，膨脹並降溫；達到飽和後，水氣在凝結核上形成雲滴。</p><p>雲滴很小，必須透過碰併或冰晶成長等過程長大，才能形成降水。</p><p>因此看見雲不等於一定會下雨。</p><p>迎風坡常因地形抬升而降雨；背風側空氣下降增溫，常較乾燥。</p></div><article class="check-card" id="check-5"><header class="qh"><span class="qn">隨堂練習 5</span><span class="qtag">從上升氣流到降雨還有一步</span></header><div class="qtext"><p>有雲為什麼不一定下雨？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>雲滴可能仍太小，尚未成長到能有效落至地面的雨滴。</p></div></details></article><article class="check-card" id="check-6"><header class="qh"><span class="qn">隨堂練習 6</span><span class="qtag">從上升氣流到降雨還有一步</span></header><div class="qtext"><p>迎風坡容易下雨的因果順序是什麼？</p></div><details class="sol micro-check"><summary>看答案與詳解</summary><div class="exp"><b class="exp-h">解</b><p>地形迫使空氣上升→膨脹降溫→達到飽和→凝結，水滴或冰晶長大後形成降水。</p></div></details></article><h2 class="section" id="compare">最後一起比較</h2><table><thead><tr><th>概念</th><th>判讀重點</th><th>注意條件</th></tr></thead><tbody><tr><td>氣溫</td><td>此刻空氣的溫度</td><td>不是水氣含量</td></tr><tr><td>露點</td><td>冷卻至飽和的溫度</td><td>用來判斷水氣狀況</td></tr><tr><td>相對濕度</td><td>實際／同溫飽和×100%</td><td>會隨溫度改變</td></tr></tbody></table><h2 class="section" id="original-pages">本節原頁與原題</h2><p>以下依PDF頁序保留完整題幹、圖表、選項與原附答。先看題目、遮住原附答作答，再回上面的觀念與例題核對思路。</p><details class="original-page" id="original-6" data-book="地科2" data-page="6"><summary>地科2｜PDF第 6 頁　水氣與雲雨</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/地科2/006.webp" alt="地科2 PDF第6頁完整原圖"><figcaption>原講義PDF第6頁；圖表、選項與附答完整保留。<a href="../sources.html#book=地科2&page=6">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-7" data-book="地科2" data-page="7"><summary>地科2｜PDF第 7 頁　水氣與雲雨</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/地科2/007.webp" alt="地科2 PDF第7頁完整原圖"><figcaption>原講義PDF第7頁；圖表、選項與附答完整保留。<a href="../sources.html#book=地科2&page=7">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-8" data-book="地科2" data-page="8"><summary>地科2｜PDF第 8 頁　水氣與雲雨</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/地科2/008.webp" alt="地科2 PDF第8頁完整原圖"><figcaption>原講義PDF第8頁；圖表、選項與附答完整保留。<a href="../sources.html#book=地科2&page=8">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-9" data-book="地科2" data-page="9"><summary>地科2｜PDF第 9 頁　水氣與雲雨</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/地科2/009.webp" alt="地科2 PDF第9頁完整原圖"><figcaption>原講義PDF第9頁；圖表、選項與附答完整保留。<a href="../sources.html#book=地科2&page=9">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-10" data-book="地科2" data-page="10"><summary>地科2｜PDF第 10 頁　水氣與雲雨</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/地科2/010.webp" alt="地科2 PDF第10頁完整原圖"><figcaption>原講義PDF第10頁；圖表、選項與附答完整保留。<a href="../sources.html#book=地科2&page=10">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-11" data-book="地科2" data-page="11"><summary>地科2｜PDF第 11 頁　水氣與雲雨</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/地科2/011.webp" alt="地科2 PDF第11頁完整原圖"><figcaption>原講義PDF第11頁；圖表、選項與附答完整保留。<a href="../sources.html#book=地科2&page=11">放大閱讀 ↗</a></figcaption></figure></details><details class="original-page" id="original-12" data-book="地科2" data-page="12"><summary>地科2｜PDF第 12 頁　水氣與雲雨</summary><figure class="fig"><img class="figimg" loading="lazy" src="../source-pages/地科2/012.webp" alt="地科2 PDF第12頁完整原圖"><figcaption>原講義PDF第12頁；圖表、選項與附答完整保留。<a href="../sources.html#book=地科2&page=12">放大閱讀 ↗</a></figcaption></figure></details></div><div class="pager"><a href="u4-1.html">← 大氣分層：氣壓、溫度與能量</a><a href="u4-3.html">風的方向：氣壓梯度力與科氏力 →</a></div></main>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- integrated-nav START --><div class="nch">第4單元　大氣與天氣</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a class="on" href="u4-2.html"><span>4-2</span>雲霧的產生：露點、相對溼度與絕熱冷卻</a><ul class="subtoc"><li><a href="#s1">水氣的飽和與相變</a></li><li><a href="#s2">露點與相對溼度</a></li><li><a href="#s3">乾溼球溫度計</a></li><li><a href="#s4">雲、霧、露、霜</a></li><li><a href="#s5">絕熱冷卻</a></li><li><a href="#s6">乾絕熱直減率與溼絕熱直減率</a></li><li><a href="#s7">空氣塊垂直運動的常見原因</a></li><li><a href="#s8">判圖題組：空氣塊會不會持續上升</a></li><li><a href="#s9">本單元整理</a></li></ul></li><li><a href="u4-3.html"><span>4-3</span>風的方向：氣壓梯度力與科氏力</a></li><li><a href="u4-4.html"><span>4-4</span>天氣圖、鋒面與臺灣季節天氣</a></li></ul><div class="nch">第5單元　海洋</div><ul><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li></ul><div class="nch">第6單元　天然災害</div><ul><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li></ul><div class="nch">第7單元　氣候變遷與資源</div><ul><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li></ul><div class="nch">第8單元　進階探究</div><ul><li><a href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p class="source-note"><a href="../sources.html#book=地科1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第4單元 大氣</div><h1><span class="uid">4-2</span>雲霧的產生：露點、相對溼度與絕熱冷卻</h1><div class="tools"><span class="cnt">7組練習・涵蓋原講義小試1–14</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><!-- Individually authored against 地科2 PDF6–12. Do not replace with the bulk draft. -->
+<h2 class="section" id="s1">水氣的飽和與相變</h2>
+<ol>
+<li>溫度愈高的空氣，可容納的水氣愈多，即<strong>飽和水氣壓愈高</strong>。</li>
+<li>原圖橫軸溫度、縱軸水氣壓；中間那條往右上彎的是<strong>飽和曲線</strong>。</li>
+<li>曲線右下方：<strong>未飽和區</strong>（實際水氣壓＜飽和水氣壓）。</li>
+<li>曲線左上方：<strong>過飽和區</strong>（水氣通常已開始凝結，不會持續停留）。</li>
+</ol>
+<figure class="fig authored-figure fig-saturation"><img class="figimg" src="img/earth-4-2-saturation.webp" width="568" height="442" loading="lazy" alt="飽和曲線左方是未飽和區，右方（陰影）是過飽和區；A、B、C、D、E、F都是曲線上下的參考點" data-page="地科2 PDF第6頁"><figcaption>飽和曲線左方是未飽和區，右方（陰影）是過飽和區；A、B、C、D、E、F都是曲線上下的參考點<span>原講義PDF第6頁・印刷第108頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead><tr><th>要使未飽和空氣達飽和</th><th>做法</th></tr></thead>
+<tbody>
+<tr><td>(a) 增加水氣</td><td>讓實際水氣壓升高到等於飽和水氣壓</td></tr>
+<tr><td>(b) 降低溫度</td><td>讓飽和水氣壓降到等於實際水氣壓（<strong>自然界主要走這條路</strong>）</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 降溫達飽和，不一定凝結成水滴，低溫時也可能直接<strong>凝華成冰晶</strong>。<br>
+- 過飽和區只是理論位置，自然界水氣一達飽和通常就相變，不會停在那裡。</p></aside>
+
+<h2 class="section" id="s2">露點與相對溼度</h2>
+<ol>
+<li><strong>露點溫度</strong>：水氣壓不變，純降溫使空氣達飽和，此時的溫度。</li>
+<li>露點<strong>只由實際水氣壓決定</strong>，跟當下氣溫無關。</li>
+<li>兩團空氣只要<strong>實際水氣壓相同，露點就相同</strong>（即使氣溫差很多）。</li>
+</ol>
+<figure class="fig authored-figure fig-rhformula"><img class="figimg" src="img/earth-4-2-rhformula.webp" width="736" height="306" loading="lazy" alt="相對溼度＝目前空氣中實際水氣壓 ÷ 同氣溫下飽和水氣壓 ×100%" data-page="地科2 PDF第6頁"><figcaption>相對溼度＝目前空氣中實際水氣壓 ÷ 同氣溫下飽和水氣壓 ×100%<span>原講義PDF第6頁・印刷第108頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">整理：公式怎麼用</div><table>
+<thead><tr><th>例題</th><th>算法</th></tr></thead>
+<tbody>
+<tr><td>A：31°C，實際水氣壓21 hPa，同溫飽和水氣壓42 hPa</td><td>21÷42×100%＝<strong>50%</strong></td></tr>
+<tr><td>D：40°C，實際水氣壓21 hPa，同溫飽和水氣壓60 hPa</td><td>21÷60×100%≈<strong>35%</strong></td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- A、D水氣壓都21 hPa、露點都約17°C，但相對溼度不同（50% vs 35%）——<strong>水氣壓相同只保證露點相同，不保證相對溼度相同</strong>，分母還要看各自氣溫。<br>
+- 氣溫相同時，實際水氣壓愈高、氣溫與露點差距愈小，相對溼度愈高。</p></aside>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">練習 1</span><span class="qtag">原小試1–3・露點與相對溼度</span><button class="mark" type="button" title="標記不會" aria-label="標記練習1">☆</button></header><div class="qtext"><p>鈺亮分別在9月1日與11月1日在地科教室測量氣溫與實際水氣壓，數據如下表（飽和水氣壓請參考飽和曲線：30°C約40 hPa）：</p><table class="reading-table"><thead><tr><th></th><th>9月1日</th><th>11月1日</th></tr></thead><tbody><tr><th>氣溫</th><td>30°C</td><td>25°C</td></tr><tr><th>實際水氣壓</th><td>35 hPa</td><td>20 hPa</td></tr></tbody></table><ol><li>哪一天的露點溫度較高？請說明判斷方式。</li><li>9月1日空氣的相對溼度為多少？(A)35% (B)40% (C)77.5% (D)87.5% (E)94.3%</li><li>假設11月1日當天水氣量均無改變，請問當天露點溫度約為幾度？(A)15°C (B)17°C (C)20°C (D)25°C (E)27°C</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>①9月1日的露點溫度較高。②D，87.5%。③B，約17°C。</div><div class="exp"><b class="exp-h">解</b><p><strong>第1題：</strong>露點溫度只由實際水氣壓決定，跟當下氣溫無關。9月1日實際水氣壓35 hPa，大於11月1日的20 hPa，所以9月1日對應的飽和溫度（露點）較高。不能用「9月1日氣溫30°C比較高」來推論，氣溫跟露點是兩件事。</p><p><strong>第2題：</strong>相對溼度＝實際水氣壓÷同氣溫下飽和水氣壓×100%。9月1日氣溫30°C，飽和水氣壓約40 hPa，所以相對溼度＝35÷40×100%＝87.5%，選D。</p><p><strong>第3題：</strong>水氣量不變即實際水氣壓維持20 hPa；露點溫度就是「飽和水氣壓等於20 hPa」所對應的溫度。對照飽和曲線，這個溫度約落在17°C附近（與前文A、D兩點實際水氣壓21 hPa、露點17°C的讀值相近），選B。</p><div class="qsum"><span class="qsum-h">小結</span><p>先認住：露點只看實際水氣壓；相對溼度的分母要配對「當下這個溫度」的飽和水氣壓，兩者不要混著用。</p></div></div></details></article>
+
+<h2 class="section" id="s3">乾溼球溫度計</h2>
+<ol>
+<li>乾球：量當時氣溫。</li>
+<li>溼球：紗布上的水<strong>蒸發吸熱</strong>，使讀數低於乾球。</li>
+<li>環境愈乾燥 → 蒸發愈多 → 吸熱愈多 → 溼球愈低 → <strong>乾溼溫差愈大</strong>。</li>
+</ol>
+<figure class="fig authored-figure fig-wetdry"><img class="figimg" src="img/earth-4-2-wetdry.webp" width="1200" height="475" loading="lazy" alt="乾溼球溫度計：溼球紗布靠水分蒸發吸熱降溫，環境愈乾燥，乾、溼球溫差愈大" data-page="地科2 PDF第7頁"><figcaption>乾溼球溫度計：溼球紗布靠水分蒸發吸熱降溫，環境愈乾燥，乾、溼球溫差愈大<span>原講義PDF第7頁・印刷第109頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead><tr><th>空氣狀態</th><th>三個溫度的關係</th></tr></thead>
+<tbody>
+<tr><td>水氣已飽和</td><td>乾球＝溼球＝露點</td></tr>
+<tr><td>水氣未飽和</td><td>乾球 ＞ 溼球 ＞ 露點</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 蒸發一定吸熱，<strong>溼球不可能比乾球高</strong>。<br>
+- 查表法：先鎖定「乾球溫度那一列」，再找相對溼度對應的差值欄位，乾球減差值＝溼球。</p></aside>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">練習 2</span><span class="qtag">原小試・乾溼球溫度計基本題</span><button class="mark" type="button" title="標記不會" aria-label="標記練習2">☆</button></header><div class="qtext"><p>已知甲地氣溫為17°C，水氣達飽和；乙地乾球溫度為20°C，露點溫度17°C。請問：</p><ol><li>甲地乾球溫度、溼球溫度各為何？</li><li>乙地溼球溫度可能為？ (A)20°C (B)18.5°C (C)17°C</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>①乾球＝溼球＝17°C。②B，18.5°C。</div><div class="exp"><b class="exp-h">解</b><p><strong>第1題：</strong>水氣已達飽和時，乾球溫度＝溼球溫度＝露點溫度，三者相等，都是17°C。</p><p><strong>第2題：</strong>乙地水氣未達飽和（乾球20°C≠露點17°C），這時三者的大小關係是「乾球 ＞ 溼球 ＞ 露點」，即 20°C ＞ 溼球 ＞ 17°C。選項中只有(B)18.5°C落在這個範圍內；(A)20°C會跟乾球相等（代表飽和，矛盾），(C)17°C會跟露點相等（也代表飽和，矛盾）。</p><div class="qsum"><span class="qsum-h">小結</span><p>飽和時三溫相等；未飽和時乾球＞溼球＞露點，答案要落在這個嚴格介於中間的範圍。</p></div></div></details></article>
+<article class="q q-pr" id="check-7"><header class="qh"><span class="qn">練習 7</span><span class="qtag">原小試12–14・乾溼球查表與四地比較</span><button class="mark" type="button" title="標記不會" aria-label="標記練習7">☆</button></header><div class="qtext"><p>寒假時，文詠、伊克、茜茂、士桓四人同一時刻分別在不同地點，用乾溼球溫度計量測，數據如下：</p><table class="reading-table"><thead><tr><th></th><th>文詠（甲）</th><th>伊克（乙）</th><th>茜茂（丙）</th><th>士桓（丁）</th></tr></thead><tbody><tr><th>氣溫（乾球）</th><td>17.5°C</td><td>20°C</td><td>22.5°C</td><td>10°C</td></tr><tr><th>相對溼度</th><td>90%</td><td>78%</td><td>68%</td><td>82%</td></tr></tbody></table><ol><li>表二（乾球減溼球溫度所得之差值對相對溼度）中，這個差值會不會有負值？原因為何？(A)會，因為水氣凝結釋放潛熱，溼球可能≥乾球 (B)會，因為水分蒸發釋放潛熱，溼球可能≥乾球 (C)不會，因為水氣凝結吸收潛熱，溼球一定≤乾球 (D)不會，因為水分蒸發吸收潛熱，溼球一定≤乾球 (E)不會，因為水溫一定低於氣溫，溼球一定較低</li><li>四人中誰測得的溼球溫度最低？(A)文詠 (B)伊克 (C)茜茂 (D)士桓 (E)四人一樣低</li><li>四個地區中，露點溫度何處最低？飽和水氣壓何處最高？實際水氣壓何處最低？</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>①D。②D，士桓。③露點溫度最低、實際水氣壓最低都是士桓（丁）；飽和水氣壓最高是茜茂（丙）。</div><div class="exp"><b class="exp-h">解</b><p><strong>第12題：</strong>溼球溫度計測到的低溫，機制是紗布上水分「蒸發」會「吸收」潛熱，使溼球溫度一定小於或等於乾球溫度，差值不會是負值，答案D。A、B把蒸發／凝結與吸熱／放熱配錯；C把機制誤植為「凝結」（乾溼球裝置其實是蒸發，不是凝結）；E的理由（水溫一定低於氣溫）不是這個裝置的真正原理，不能保證恆成立。</p><p><strong>第13題：</strong>查表二，先在乾球溫度那一列中找到對應相對溼度的欄位，讀出差值，再用乾球溫度減去差值：<br>文詠：17.5°C列中90%對應差值1.0 → 溼球17.5−1.0＝16.5°C。<br>伊克：20°C列中78%對應差值2.5 → 溼球20−2.5＝17.5°C。<br>茜茂：22.5°C列中68%對應差值4.0 → 溼球22.5−4.0＝18.5°C。<br>士桓：10°C列中82%對應差值1.5 → 溼球10−1.5＝8.5°C。<br>四人溼球溫度分別約16.5、17.5、18.5、8.5°C，最低的是士桓，選D。</p><p><strong>第14題：</strong>用飽和水氣壓近似公式（Tetens公式）分別估計四地的飽和水氣壓與實際水氣壓（實際水氣壓＝相對溼度×飽和水氣壓）：文詠約20.0 hPa×90%≈18.0 hPa；伊克約23.4 hPa×78%≈18.3 hPa；茜茂約27.3 hPa×68%≈18.5 hPa；士桓約12.3 hPa×82%≈10.1 hPa。可見士桓的飽和水氣壓與實際水氣壓都明顯低於其他三人（氣溫最低），對應的露點溫度也最低；茜茂氣溫最高，飽和水氣壓最高。</p><div class="qsum"><span class="qsum-h">小結</span><p>查相對溼度表，要先鎖定「乾球溫度那一列」，再找對應相對溼度的欄位讀差值；比較露點、飽和水氣壓、實際水氣壓，三者都跟各自的氣溫、相對溼度連動，氣溫最低的一組通常飽和水氣壓與露點也最低。</p></div></div></details></article>
+
+<h2 class="section" id="s4">雲、霧、露、霜</h2>
+<ol>
+<li>成因相同：空氣冷卻達飽和、水氣凝結或凝固。</li>
+<li>高空發生 → <strong>雲</strong>；接近地面或海面 → <strong>霧</strong>。</li>
+<li>附著物體表面，液態 → <strong>露</strong>；固態 → <strong>霜</strong>。</li>
+<li>需要<strong>凝結核</strong>：乾淨空氣即使飽和也難凝結，靠氣膠等微粒讓水氣分子聚集。</li>
+</ol>
+
+<h2 class="section" id="s5">絕熱冷卻</h2>
+<ol>
+<li>空氣是熱的不良導體 → 垂直運動時可視為<strong>絕熱</strong>（與外界無熱量交換）。</li>
+<li>上升：外界氣壓變小 → 空氣塊<strong>膨脹</strong> → 對外作功 → 耗內能 → <strong>降溫</strong>。</li>
+<li>下沉：外界氣壓變大 → 空氣塊<strong>壓縮</strong> → 外界對它作功 → 內能增 → <strong>升溫</strong>。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 爬山愈高愈冷，<strong>不是</strong>摸到山頂原本就冷的空氣，是空氣塊自己絕熱膨脹冷卻。<br>
+- 上升→膨脹→降溫→容易成雲；下沉→壓縮→升溫→多半晴朗。</p></aside>
+
+<h2 class="section" id="s6">乾絕熱直減率與溼絕熱直減率</h2>
+<figure class="fig authored-figure fig-lapse"><img class="figimg" src="img/earth-4-2-lapse.webp" width="960" height="725" loading="lazy" alt="同一張圖比較未飽和空氣塊（乾絕熱，降溫快）與飽和空氣塊（溼絕熱，降溫慢）" data-page="地科2 PDF第8頁"><figcaption>同一張圖比較未飽和空氣塊（乾絕熱，降溫快）與飽和空氣塊（溼絕熱，降溫慢）<span>原講義PDF第8頁・印刷第110頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead><tr><th></th><th>降溫速率</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>①乾絕熱（未飽和）</td><td>約10°C/km，先讀這條</td><td>純膨脹作功，無潛熱釋放</td></tr>
+<tr><td>②溼絕熱（已飽和）</td><td>約4–6°C/km，較慢</td><td>水氣凝結釋放潛熱，部分抵銷降溫</td></tr>
+</tbody>
+</table></aside>
+<ol>
+<li>同一空氣塊：未飽和先走①（較陡），達飽和後轉走②（較緩）。</li>
+<li>圖上<strong>斜率轉折點＝抬升凝結高度</strong>（成雲高度）。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 10°C/km只適用<strong>未飽和空氣塊自己升降</strong>，不要跟對流層「平均環境遞減率」6.5°C/km搞混——一個是空氣塊自己的變化率，一個是固定地點測得的環境剖面。</p></aside>
+
+<h2 class="section sec-practice" id="s7">空氣塊垂直運動的常見原因</h2>
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead><tr><th>類型</th><th>原理</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td>地形抬升</td><td>氣流順地形上升，迎風面成雲雨</td><td>地形雨</td></tr>
+<tr><td>熱力抬升</td><td>低層空氣受熱，密度變小而上升</td><td>午後雷陣雨</td></tr>
+<tr><td>鋒面抬升</td><td>暖空氣密度小，沿冷暖交界面爬升</td><td>鋒面雨</td></tr>
+<tr><td>低層輻合抬升</td><td>空氣向低壓中心匯聚，被迫上升</td><td>颱風</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 判斷對錯只看一條：<strong>上升→體積膨脹、溫度下降；下沉→體積壓縮、溫度上升</strong>。「上升卻縮小」或「上升卻升溫」，方向就反了。</p></aside>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">練習 3</span><span class="qtag">原小試4・水氣敘述（選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記練習3">☆</button></header><div class="qtext"><p>下列關於空氣中水氣的敘述，哪兩項正確？</p><ol type="A"><li>氣溫愈高，空氣愈容易達到飽和。</li><li>實際水氣量較多的空氣塊，其相對溼度不一定比實際水氣量較少的空氣塊高。</li><li>環境大氣相對溼度愈高，水愈容易蒸發成水氣。</li><li>上升氣流容易使水氣凝結、釋放潛熱。</li><li>當露點溫度低於0°C，空氣降溫到露點溫度時，有機會使水氣凝華成冰。</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>A錯：</strong>氣溫愈高，飽和水氣壓愈高，代表要裝進更多水氣才會飽和，應該是「愈不容易」達到飽和，不是愈容易。</p><p><strong>B正確但不是本題要選的敘述：</strong>它說的「水氣量多不保證相對溼度高」方向沒錯（因為還要看各自溫度對應的飽和水氣壓），但這題只應選2項，D、E兩項直接對應課文明確寫出的機制（絕熱冷卻釋放潛熱、低溫凝華成冰），是本題鎖定的標準答案。</p><p><strong>C錯：</strong>相對溼度愈高，代表空氣愈接近飽和，水氣愈不容易再蒸發進入空氣中，方向說反了。</p><p><strong>D對：</strong>上升氣流使空氣塊絕熱膨脹冷卻，達飽和後水氣凝結，會釋放潛熱給空氣塊——這正是第6節溼絕熱直減率變慢的原因。</p><p><strong>E對：</strong>露點溫度低於0°C時，空氣降溫到露點溫度，水氣有機會不經過液態，直接凝華成冰晶，呼應第4節「霜」與凝華的概念。</p><div class="qsum"><span class="qsum-h">小結</span><p>判斷這類敘述，先問：它說的方向，跟「溫度愈高、飽和水氣壓愈高」「相對溼度愈高愈難再蒸發」這兩條基本規則一致嗎？</p></div></div></details></article>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">練習 4</span><span class="qtag">原小試5・哪些條件引發垂直運動（選3項）</span><button class="mark" type="button" title="標記不會" aria-label="標記練習4">☆</button></header><div class="qtext"><p>請問下列哪些是可引發空氣塊做垂直運動、且會隨之發生的正確現象？（應選3項）</p><ol type="A"><li>冷暖氣團相遇，暖空氣塊沿界面上升，使暖空氣塊體積逐漸縮小。</li><li>氣流越過山脈，空氣塊於背風坡下沉，使空氣塊體積逐漸縮小。</li><li>低層空氣向低壓中心匯聚，引發空氣塊上升，使空氣塊氣溫逐漸上升。</li><li>高層空氣輻合，輻合中心空氣塊下沉，使空氣塊氣溫逐漸上升。</li><li>低層空氣受地表加熱而密度變小，使空氣塊上升，空氣塊氣溫因而下降。</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、D、E。</div><div class="exp"><b class="exp-h">解</b><p>先守住一條規則：<strong>空氣塊上升→體積膨脹、溫度下降；空氣塊下沉→體積壓縮、溫度上升</strong>。逐一檢查：</p><ol><li><strong>A錯：</strong>暖空氣沿界面「上升」，應該是絕熱膨脹，體積應該變大，不是縮小。</li><li><strong>B對：</strong>空氣塊在背風坡「下沉」，外界氣壓變大，體積被壓縮而縮小，方向正確。</li><li><strong>C錯：</strong>低層輻合造成空氣塊「上升」，應該絕熱膨脹冷卻、溫度下降，不是上升。</li><li><strong>D對：</strong>高層輻合中心空氣塊「下沉」，絕熱壓縮增溫，氣溫上升，方向正確。</li><li><strong>E對：</strong>地表加熱使空氣塊上升，絕熱膨脹冷卻，氣溫因而下降，方向正確。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>凡是看到「上升」卻接「體積縮小」或「溫度升高」，或「下沉」卻接「體積膨脹」或「溫度下降」，方向就反了。</p></div></div></details></article>
+<ol>
+<li>水三態互換：水氣／冰＝凝華／昇華；水氣／水＝凝結／蒸發；水／冰＝凝固／融化。</li>
+<li>水循環：液態水吸熱蒸發、水氣凝結放潛熱，重新分配地球能量，產生天氣現象；生活淡水多直接或間接來自降水。</li>
+</ol>
+<article class="q q-pr" id="check-5"><header class="qh"><span class="qn">練習 5</span><span class="qtag">原小試6–7・兩地溼度與起霧比較</span><button class="mark" type="button" title="標記不會" aria-label="標記練習5">☆</button></header><div class="qtext"><p>秀惠與冠之於12月6日早上10點分別在宜蘭蘇澳與嘉義布袋鹽田測量，假設整日空氣中水氣量未改變，結果如下表：</p><table class="reading-table"><thead><tr><th></th><th>氣溫</th><th>露點溫度</th><th>氣壓</th><th>當日最高溫</th><th>當日最低溫</th></tr></thead><tbody><tr><th>宜蘭蘇澳</th><td>16°C</td><td>13°C</td><td>1017 hPa</td><td>19°C</td><td>14°C</td></tr><tr><th>嘉義布袋鹽田</th><td>17°C</td><td>8°C</td><td>1015 hPa</td><td>20°C</td><td>8°C</td></tr></tbody></table><ol><li>10點時兩地比較，下列何者正確？(A)蘇澳氣溫較低，因此其相對溼度較低 (B)布袋露點溫度較低，因此其相對溼度較高 (C)蘇澳氣壓較高，因此其空氣中可容納的水氣較多 (D)布袋氣溫與露點溫度差距較大，其相對溼度較低 (E)布袋當日最低溫較低，因此布袋整天的相對溼度較高</li><li>承上題，假設兩地當日最低溫均發生於清晨，則兩地清晨哪一個較易起霧？(A)宜蘭蘇澳 (B)嘉義布袋鹽田</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>①D。②B，嘉義布袋鹽田。</div><div class="exp"><b class="exp-h">解</b><p><strong>第1題：</strong>比較氣溫與露點溫度的差距（愈小，相對溼度愈高）：蘇澳16−13＝3°C；布袋17−8＝9°C。布袋的差距較大，相對溼度較低，故D正確。A把「氣溫較低」直接當成「相對溼度較低」的理由，邏輯跳過了露點，並不成立；C的氣壓不會直接決定空氣能容納多少水氣（那是看溫度的飽和水氣壓）；E的「最低溫較低」不能單獨推出「整天相對溼度較高」。</p><p><strong>第2題：</strong>水氣量整日不變，即露點溫度整日不變。比較「清晨最低溫」跟「露點溫度」的差距：蘇澳14−13＝1°C（還差1°C才到飽和）；布袋8−8＝0°C（清晨最低溫恰好等於露點溫度，已經達到飽和）。所以布袋清晨更容易起霧，選B。</p><div class="qsum"><span class="qsum-h">小結</span><p>判斷相對溼度高低，比氣溫與露點溫度的差距；判斷會不會起霧，看氣溫能不能降到露點溫度。</p></div></div></details></article>
+
+<h2 class="section sec-practice" id="s8">判圖題組：空氣塊會不會持續上升</h2>
+<ol>
+<li>圖上紅線＝空氣塊自身溫度（先陡後緩）；藍線＝周圍大氣溫度。</li>
+<li>紅線斜率轉折點＝成雲高度，也是這團空氣的<strong>露點溫度</strong>。</li>
+<li>比較<strong>同高度</strong>紅、藍兩線：紅線高於藍線（空氣塊較暖、密度小）→ 繼續上升；反之傾向下沉或停止。</li>
+</ol>
+<figure class="fig authored-figure fig-parcelgraph"><img class="figimg" src="img/earth-4-2-parcelgraph.webp" width="480" height="476" loading="lazy" alt="空氣塊上升的溫度變化（紅線）與周圍大氣溫度（藍線）；兩線交會處就是飽和、開始成雲的高度" data-page="地科2 PDF第11頁"><figcaption>空氣塊上升的溫度變化（紅線）與周圍大氣溫度（藍線）；兩線交會處就是飽和、開始成雲的高度<span>原講義PDF第11頁・印刷第113頁・點圖放大</span></figcaption></figure>
+<article class="q q-pr" id="check-6"><header class="qh"><span class="qn">練習 6</span><span class="qtag">原小試8–11・空氣塊上升判圖題組</span><button class="mark" type="button" title="標記不會" aria-label="標記練習6">☆</button></header><div class="qtext"><p>右圖為某地空氣塊上升過程氣溫的變化（紅線），及周圍大氣溫度隨高度的變化（藍線）。當空氣塊溫度高於周圍大氣，則空氣塊易上升。依此回答：</p><ol><li>依圖判斷雲霧的形成高度為何？(A)1000公尺 (B)1500公尺 (C)2000公尺 (D)2500公尺 (E)3000公尺</li><li>假設空氣塊上升過程中跟外界沒有熱量交換、水氣量也無改變，且一達飽和即有雲雨產生，由圖推斷該空氣塊露點溫度為何？(A)8°C (B)15°C (C)18°C (D)22°C (E)25°C</li><li>在高度2000公尺時，此空氣塊將如何運動？(A)繼續上升 (B)繼續下降 (C)停留在此高度</li><li>請問當空氣塊上升至3000公尺處時，露點溫度約幾度？</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>①B，1500公尺。②B，15°C。③A，繼續上升。④約6°C。</div><div class="exp"><b class="exp-h">解</b><p><strong>第8、9題：</strong>紅線一開始走乾絕熱直減率（較陡，每公里約降10°C，尚未飽和），到了某個高度斜率轉緩，改走溼絕熱直減率——這個轉折點就是空氣塊開始飽和、成雲的高度，也就是抬升凝結高度。依原圖讀值，轉折發生在約1500公尺，對應溫度約15°C；這個溫度就是空氣塊的露點溫度（因為水氣量不變，露點溫度本來就不隨高度改變——除非已經開始凝結、水氣量才會變動）。</p><p><strong>第10題：</strong>2000公尺已經超過轉折點（1500公尺），空氣塊走的是溼絕熱直減率，降溫比周圍大氣（藍線）慢；圖上這個高度，紅線（空氣塊溫度）仍高於藍線（周圍大氣溫度），空氣塊密度較小、仍具浮力，所以會繼續上升，選A。</p><p><strong>第11題：</strong>空氣塊一旦達到飽和、開始成雲，之後上升會有水氣持續凝結、降水排出，實際水氣量已經在改變，不能再用「水氣量不變」直接推算露點；但依原圖讀值，3000公尺處對應的露點溫度約6°C，是沿圖上溼絕熱那段繼續讀值的結果。</p><div class="qsum"><span class="qsum-h">小結</span><p>轉折點＝乾絕熱轉溼絕熱＝成雲高度＝（未飽和前）露點溫度；之後比紅、藍兩線哪個高，就知道空氣塊還會不會繼續上升。</p></div></div></details></article>
+
+<h2 class="section" id="s9">本單元整理</h2>
+<aside class="box box-sum"><div class="box-h">整理</div><table>
+<thead><tr><th>題目線索</th><th>先做的事</th><th>常見誤判</th></tr></thead>
+<tbody>
+<tr><td>比露點</td><td>只看實際水氣壓</td><td>誤以為氣溫高＝露點高</td></tr>
+<tr><td>算相對溼度</td><td>實際水氣壓÷「同氣溫」飽和水氣壓</td><td>分母溫度抓錯，或分子分母顛倒</td></tr>
+<tr><td>乾溼球溫差</td><td>愈乾燥、蒸發愈多、溫差愈大</td><td>以為溼球可能比乾球高</td></tr>
+<tr><td>上升為何變冷</td><td>絕熱膨脹作功，耗內能</td><td>誤以為碰到高空冷空氣</td></tr>
+<tr><td>乾、溼絕熱直減率</td><td>未飽和10°C/km；飽和後4–6°C/km</td><td>跟環境遞減率6.5°C/km搞混</td></tr>
+<tr><td>空氣塊會不會續升</td><td>比同高度空氣塊與環境溫度</td><td>只看空氣塊自己降溫，沒跟環境比</td></tr>
+</tbody>
+</table></aside>
+<p>下一節把「上升」接到更大尺度的風：氣壓梯度力與科氏力如何決定風向。</p>
+<details class="source-originals"><summary>核對原講義全頁（地科2 PDF6–12）</summary><p class="fine-note">本節對應印刷108–114頁。原頁保留手寫筆記與紅筆訂正；以本頁推導與題目條件核對，不把手寫選項當作答案依據。</p><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/006.webp" alt="地科2PDF第6頁完整原稿"><figcaption>PDF第6頁／印刷第108頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/007.webp" alt="地科2PDF第7頁完整原稿"><figcaption>PDF第7頁／印刷第109頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/008.webp" alt="地科2PDF第8頁完整原稿"><figcaption>PDF第8頁／印刷第110頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/009.webp" alt="地科2PDF第9頁完整原稿"><figcaption>PDF第9頁／印刷第111頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/010.webp" alt="地科2PDF第10頁完整原稿"><figcaption>PDF第10頁／印刷第112頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/011.webp" alt="地科2PDF第11頁完整原稿"><figcaption>PDF第11頁／印刷第113頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/012.webp" alt="地科2PDF第12頁完整原稿"><figcaption>PDF第12頁／印刷第114頁</figcaption></figure></details>
+<p class="ref-list">延伸核對：<a href="https://www.weather.gov/jetstream/dewpoint" target="_blank" rel="noopener">美國國家氣象局：露點與相對溼度</a>；<a href="https://www.weather.gov/source/zhu/ZHU_Training_Page/definitions/dry_wet_bulb_definition/dry_wet_bulb.html" target="_blank" rel="noopener">乾溼球溫度計原理</a>。</p>
+</div><div class="pager"><a href="u4-1.html">← 4-1 大氣分層：氣壓、溫度與能量</a><a href="u4-3.html">4-3 風的方向：氣壓梯度力與科氏力 →</a></div></main>
 <div class="lightbox" id="lb"><img alt=""></div>
 <script>(function(){
   var KEY = "earth1-marked";

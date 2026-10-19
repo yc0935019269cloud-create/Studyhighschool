@@ -27,8 +27,10 @@ def build(key):
   body=body.replace('{{FIG_'+f['key']+'}}',figure)
  qs=json.loads((SRC/(key+'.questions.json')).read_text(encoding='utf-8'))
  for q in qs:
+  ph='{{Q'+str(q['n'])+'}}'
+  assert ph in body,'question placeholder missing from body: '+ph
   card='<article class="q q-pr" id="check-'+str(q['n'])+'"><header class="qh"><span class="qn">練習 '+str(q['n'])+'</span><span class="qtag">'+q['tag']+'</span><button class="mark" type="button" title="標記不會" aria-label="標記練習'+str(q['n'])+'">☆</button></header><div class="qtext">'+q['q']+'</div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>'+q['ans']+'</div><div class="exp"><b class="exp-h">解</b>'+q['exp']+'<div class="qsum"><span class="qsum-h">小結</span><p>'+q['sum']+'</p></div></div></details></article>'
-  body=body.replace('{{Q'+str(q['n'])+'}}',card)
+  body=body.replace(ph,card)
  pages=''.join('<figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/'+c['source']+'/'+str(p).zfill(3)+'.webp" alt="'+c['source']+'PDF第'+str(p)+'頁完整原稿"><figcaption>PDF第'+str(p)+'頁／印刷第'+str(p+c['offset'])+'頁</figcaption></figure>' for p in c['pages'])
  body=body.replace('{{ORIGINALS}}','<details class="source-originals"><summary>核對原講義全頁（'+c['source']+' PDF'+str(c['pages'][0])+'–'+str(c['pages'][-1])+'）</summary><p class="fine-note">'+c['source_note']+'</p>'+pages+'</details>')
  assert '{{' not in body
@@ -36,6 +38,7 @@ def build(key):
  shell=re.sub(r'<main\b.*?</main>',lambda _:main,shell,count=1,flags=re.S)
  shell=re.sub(r'<title>.*?</title>','<title>'+uid+' '+c['title']+'｜'+c['subject_label']+'</title>',shell,count=1)
  css=(SRC/'individual-unit.css').read_text(encoding='utf-8')
+ shell=re.sub(r'<style id="individual-unit">.*?</style>','',shell,flags=re.S)
  shell=shell.replace('</head>','<link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">'+css+'</style></head>')
  (ROOT/subject/target).write_text(shell,encoding='utf-8')
  print(key+': '+str(len(c['sections']))+' sections; '+str(len(qs))+' worked groups; '+str(len(c['figures']))+' source crops')
