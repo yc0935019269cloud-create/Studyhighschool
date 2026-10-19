@@ -75,3 +75,7 @@ text=text.replace('3 個單元 · 18 份講義','4 個單元 · 23 份講義').r
 text=text.replace('</main>',marked('continuation-home',extra)+'</main>',1)
 home.write_text(text,encoding='utf-8')
 print(json.dumps({'new_units':len(UNITS),'new_checks':len(UNITS)*6,'existing_guides':sum(map(len,GUIDES.values()))}))
+
+# SOURCE_LAYOUT_FINAL
+import runpy
+runpy.run_path(str(ROOT/"_src/rebuild_layout.py"))

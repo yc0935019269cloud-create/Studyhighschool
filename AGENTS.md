@@ -7,3 +7,6 @@
 - 圖示與互動必須保留正確方向、因果關係與適用前提；OCR不能直接視為可信定稿。
 - 驗證 python _src/validate_handouts.py，必要時檢查桌面與390px手機版互動。
 - 提交前檢查git差異，避免夾帶物理、化學及其他對話的未提交修改。
+
+- 使用者已要求以先前單元為範本：原頁截圖配文字解說；不要再加大型概念流程卡或在首頁另設獨立追加清單。新章節需融合在現有卡片裡。
+- 主重建入口 _src/build_handouts.py 會呼叫 rebuild_layout.py 與 integrate_navigation.py；兩者是新版交付的最終輸出層。

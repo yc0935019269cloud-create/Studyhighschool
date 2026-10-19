@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-19",
+  "layout": "original source screenshots + prose + practice",
+  "homepage": {
+    "biology_groups": 4,
+    "biology_lessons": 23,
+    "earth_groups": 9,
+    "earth_lessons": 32,
+    "separate_catalog": 0
+  },
+  "new_units_tested": 16,
+  "source_crops": 48,
+  "inline_original_pages": 180,
+  "mobile_width": 390,
+  "errors": []
+}

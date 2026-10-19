@@ -19,7 +19,7 @@ function find(){
  if(q!==needle){needle=q;at=-1;matches=q?Array.from(main.querySelectorAll('.content p,.content li,.content td,.lesson-section p,.lesson-section summary,.reader-guide p')).filter(e=>e.textContent.includes(q)&&!Array.from(e.children).some(c=>c.textContent.includes(q))):[]}
  if(!matches.length){tools.querySelector('.search-status').textContent=q?'未找到，請換個詞':'請輸入關鍵字';return}
  at=(at+1)%matches.length;const el=matches[at];let d=el.closest('details');while(d){d.open=true;d=d.parentElement.closest('details')}
- if(el.closest('.q')){document.body.classList.remove('read-focus');const b=tools.querySelector('[data-action=focus]');b.setAttribute('aria-pressed','false');b.textContent='專心讀觀念';document.body.classList.remove('only-marked');const om=document.getElementById('onlyMarked');if(om)om.classList.remove('active')}
+ if(el.closest('.q,.check-card')){document.body.classList.remove('read-focus');const b=tools.querySelector('[data-action=focus]');b.setAttribute('aria-pressed','false');b.textContent='專心讀觀念';document.body.classList.remove('only-marked');const om=document.getElementById('onlyMarked');if(om)om.classList.remove('active')}
  el.classList.add('read-match');el.scrollIntoView({block:'center',behavior:'smooth'});tools.querySelector('.search-status').textContent=(at+1)+' / '+matches.length;
 }
 tools.querySelector('[data-action=find]').onclick=find;tools.querySelector('input').onkeydown=e=>{if(e.key==='Enter')find()};
