@@ -231,135 +231,346 @@ body.hide-pre .pre{display:none}
 <div class="content">
 <h2 class="section " id="s1">焦點 1　萬有引力定律</h2>
 
-<aside class="box box-concept"><div class="box-h">觀念</div><p>這一頁可以直接從頭讀下去；遇到藍框公式，想知道「它怎麼推出來、為什麼長這樣」再點開看詳細解釋。上方的「展開全部公式解釋」可以一次打開。</p></aside>
-<p>這個單元的主角只有一條式子——萬有引力定律。先認識它，再用它解釋兩件事：<strong>為什麼東西會往下掉（重力加速度 g）</strong>，以及<strong>為什麼行星、衛星會繞著轉（萬有引力當向心力）</strong>。上一個單元學的圓周運動，在這裡會整個派上用場。</p>
-<h3>一、萬有引力定律</h3>
-<p>1686 年<strong>牛頓</strong>提出：宇宙中任兩個有質量的物體之間都互相吸引，稱為萬有引力（重力）。讓蘋果掉下來的力，和讓月球繞地球轉的力，其實是同一種力。</p>
-<p>這個力有兩個特點：<strong>兩個物體質量愈大，吸引力愈大</strong>（與 M×m 成正比）；<strong>距離愈遠，吸引力變弱得很快</strong>（與距離平方成反比，距離變 2 倍，力只剩 1/4）。寫成式子就是：</p>
-<details class="formula"><summary><span class="f-eq">F<sub>g</sub> ＝ GMm / r²</span><span class="f-tag">萬有引力定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>為什麼和「M × m」成正比？</h5>
-<ol>
-<li>地表上所有物體自由落下的加速度都一樣（g），代表重力 ∝ 物體自己的質量 m（F ＝ mg，m 愈大力愈大，才能讓 a 一樣）。</li>
-<li>由牛頓第三定律，地球拉蘋果的力 ＝ 蘋果拉地球的力。既然力 ∝ 蘋果的質量，站在地球的角度也應該 ∝ 地球的質量。</li>
-<li>兩邊地位對稱 ⇒ <strong>F ∝ M × m</strong>。</li>
-</ol>
-<h5>為什麼是「距離平方」反比？（牛頓的月球驗證）</h5>
+<aside class="box box-concept"><div class="box-h">觀念</div><p>怎麼讀這頁：照順序往下讀，每一步只用「前面已經講過」的東西。藍框公式點開是「為什麼」，第一次讀建議全部點開（上方「展開全部公式解釋」）。<br />
+本單元主線只有一條：<strong>萬有引力公式</strong> → 用它解釋 ①東西為什麼往下掉（重力加速度 g）→ ②行星、衛星為什麼繞著轉（引力當向心力）。</p></aside>
+<h3>〇、先備工具：本單元只用到這三樣舊東西</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>內容</th>
+<th>本單元拿來做什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>牛頓第二定律</td>
+<td>F ＝ ma</td>
+<td>由力求加速度（g、衛星的 a）</td>
+</tr>
+<tr>
+<td>牛頓第三定律</td>
+<td>甲拉乙的力 ＝ 乙拉甲的力，大小相等、方向相反</td>
+<td>說明引力為什麼 ∝ M×m</td>
+</tr>
+<tr>
+<td>等速圓周運動</td>
+<td>向心加速度 a ＝ v²/r ＝ 4π²r/T²；需要的向心力 F ＝ ma</td>
+<td>行星、衛星繞圈</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>月球距地心約 60 倍地球半徑。若引力 ∝ 1/r²，月球處的重力加速度應為 g/60² ＝ 9.8/3600 ≈ <strong>2.7×10<sup>−3</sup> m/s²</strong>。</li>
-<li>用月球的圓周運動算向心加速度：a ＝ 4π²r/T²（r ≈ 3.84×10<sup>8</sup> m、T ≈ 27.3 天）≈ <strong>2.7×10<sup>−3</sup> m/s²</strong>。</li>
-<li>兩者吻合！讓蘋果落地的力和拉住月球的力是<strong>同一種力</strong>。</li>
+<li>4π²r/T² 從哪來：繞一圈的路程 2πr、花時間 T ⇒ v ＝ 2πr/T，代入 v²/r 得 4π²r/T²。</li>
+<li>角速度 ω ＝ 2π/T：轉一圈是 2π 弧度，花時間 T。</li>
+<li>「向心力」不是一種新的力，而是「某個力剛好指向圓心」時的稱呼；本單元這個力就是萬有引力。</li>
 </ul>
-<h5>另一個角度：從克卜勒第三定律反推</h5>
-<p>行星作圓周運動，a ＝ 4π²R/T²；克卜勒發現 T² ∝ R³ ⇒ a ∝ R/R³ ＝ <strong>1/R²</strong>。引力必須是平方反比，才能讓行星遵守週期定律。</p>
-<h5>幾何直覺</h5>
-<p>想像引力從地球向外「散開」，距離 r 處要分攤在面積 4πr² 的球面上，所以強度 ∝ 1/r²——就像燈泡的亮度隨距離平方變暗。</p>
-<h5>G 是什麼</h5>
-<p>重力常數 G ≈ 6.67×10<sup>−11</sup> N·m²/kg²，由卡文迪西用扭秤實驗測得。它非常小，所以日常物體之間的引力感覺不到，只有星球這種超大質量才明顯。</p>
-<h5>使用條件</h5>
+<h3>一、萬有引力定律</h3>
+<p><strong>要解決的問題</strong>：蘋果會往下掉、月球會繞地球轉——是不是同一種力？</p>
+<ol>
+<li>1686 年牛頓提出：任兩個有質量的物體都互相吸引，稱為<strong>萬有引力</strong>（又稱重力）。</li>
+<li>力的大小由兩件事決定：<ul>
+<li>兩物體質量相乘 M×m 愈大，力愈大</li>
+<li>距離 r 愈大，力愈小，而且是<strong>平方</strong>地變小：r 變 2 倍，力變 1/4</li>
+</ul>
+</li>
+<li>合起來寫成式子，前面補一個比例常數 G：</li>
+</ol>
+<details class="formula"><summary><span class="f-eq">F<sub>g</sub> ＝ GMm / r²</span><span class="f-tag">萬有引力定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>1. 為什麼 ∝ M × m？（只用牛頓第二、第三定律）</h5>
+<ol>
+<li>實驗事實：不計空氣阻力，輕重物體落下的加速度都是 g。</li>
+<li>由 F ＝ ma：要讓 a 一樣，質量 m 大的物體受力就要成比例地大 ⇒ 地球拉物體的力 ∝ <strong>被拉物體的質量 m</strong>。</li>
+<li>反過來看：物體也在拉地球，這時「被拉的」是地球，同理這個力 ∝ <strong>地球質量 M</strong>。</li>
+<li>牛頓第三定律：這兩個力大小相等，是同一個數字 ⇒ 它必須同時 ∝ m 又 ∝ M ⇒ <strong>F ∝ Mm</strong>。</li>
+</ol>
+<h5>2. 為什麼 ∝ 1/r²？（牛頓的月球驗證）</h5>
+<ol>
+<li>已知：地表離地心 1 個地球半徑，那裡 g ＝ 9.8 m/s²；月球離地心約 60 個地球半徑。</li>
+<li>假設引力 ∝ 1/r²：月球那裡的加速度應是 9.8 ÷ 60² ≈ <strong>2.7×10<sup>−3</sup> m/s²</strong>。</li>
+<li>實際量：月球繞地球做圓周運動，r ≈ 3.84×10<sup>8</sup> m、T ≈ 27.3 天，代入先備工具 a ＝ 4π²r/T² ≈ <strong>2.7×10<sup>−3</sup> m/s²</strong>。</li>
+<li>兩種方法各自算出的數字一樣 ⇒ 平方反比的假設成立；而且讓蘋果落地、讓月球繞圈的是<strong>同一種力</strong>。</li>
+</ol>
+<p>（焦點 2 學完克卜勒第三定律後，還有第二個證據，放在那裡的公式框。）</p>
+<h5>3. 直覺圖像（類比，不是證明）</h5>
+<p>從地球「散出去」的影響，到距離 r 時要分攤在面積 4πr² 的球面上，所以每一點分到的 ∝ 1/r²——和燈泡離愈遠愈暗是同一個幾何道理。</p>
+<h5>4. G 是什麼</h5>
 <ul>
-<li>只能直接用在<strong>兩質點</strong>；多個質點要做<strong>向量和</strong>。</li>
-<li>均勻球體（或球殼）對<strong>球外</strong>質點，可以把質量看成集中在球心，r 取球心距離。</li>
+<li>比例常數 G ≈ 6.67×10<sup>−11</sup> N·m²/kg²，由卡文迪西用扭秤實驗測得。</li>
+<li>G 非常小 ⇒ 兩個人、兩本書之間的引力小到感覺不到；要有星球那麼大的質量才明顯。</li>
 </ul></div></details>
 
 <figure class="fig"><img class="figimg" src="img/A043_40p5_48_x17-97.jpg" width="1400" height="212" loading="lazy" alt="選修物理1、2 第43頁" data-page="選修物理1、2 p.43"><figcaption>(a) 兩質點　(b) 兩均勻球體　(c) 地球與物體</figcaption></figure>
-<p>這條式子原本是給「質點」用的。好消息是：均勻的球體（像地球、行星）對球外物體的吸引，可以把球的質量看成<strong>全部集中在球心</strong>，所以距離 r 一律從<strong>球心</strong>量起。</p>
+<p><strong>距離 r 要從哪裡量到哪裡？</strong></p>
+<ol>
+<li>公式原本是給<strong>質點</strong>用的（質點：大小可以忽略、看成一個點的物體），如圖(a)。</li>
+<li>兩物體不是點怎麼辦？牛頓證明：<strong>均勻球體</strong>（或球殼）吸引球外物體時，效果和「質量全部集中在球心」一樣（證明要用微積分，高中直接用結論）。</li>
+<li>所以：兩顆均勻球 ⇒ r ＝ <strong>球心距</strong>，如圖(b)；地球與地面外的物體 ⇒ r ＝ 物體到<strong>地心</strong>的距離（r ≥ 地球半徑），如圖(c)。</li>
+<li>好幾個物體同時吸引 ⇒ 一對一對分開算，再做<strong>向量和</strong>。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
+<li>F ∝ Mm、∝ 1/r²：比例題寫「新/舊 ＝ (M 比)×(m 比)÷(r 比)²」</li>
+<li>r 一律量到<strong>球心</strong>，不是到表面</li>
+<li>多個星體：每一對各算一次，再向量相加</li>
+</ul></aside>
 <h3>二、地表附近的重力</h3>
-<p>我們平常說的「重量」，其實就是地球對物體的萬有引力。讓它等於 mg，就能看出重力加速度 g 是怎麼來的，也能解釋為什麼愈高 g 愈小、為什麼輕重物體掉得一樣快。</p>
+<p><strong>要解決的問題</strong>：地球拉你的力，就是你的「重量」mg。把上一節的引力公式和 mg 畫上等號，就能知道 g 由什麼決定。</p>
+<ol>
+<li>物體在地表上方高度 h 處，到地心的距離 r ＝ R<sub>e</sub> ＋ h（r 量到地心，上一節的規則）。</li>
+<li>重量 ＝ 地球引力（忽略地球自轉的小影響）：mg ＝ GM<sub>e</sub>m/r²。</li>
+<li>兩邊都有 m，可以消掉 ⇒ g 與物體質量無關。</li>
+</ol>
 <details class="formula"><summary><span class="f-eq">g ＝ GM<sub>e</sub>/(R<sub>e</sub> ＋ h)²；地表 g ＝ GM<sub>e</sub>/R<sub>e</sub>²</span><span class="f-tag">重力加速度</span><span class="f-hint">為什麼？</span></summary>
 <div class="f-body"><h5>推導</h5>
-<p>物體的重量就是地球對它的萬有引力：<br />
-mg ＝ GM<sub>e</sub>m/r²，r 是到<strong>地心</strong>的距離 ＝ R<sub>e</sub> ＋ h<br />
-兩邊的 m 約掉 ⇒ <strong>g ＝ GM<sub>e</sub>/r²</strong></p>
-<h5>邏輯重點</h5>
+<p>mg ＝ GM<sub>e</sub>m/(R<sub>e</sub> ＋ h)² ⇒ 約去 m ⇒ <strong>g ＝ GM<sub>e</sub>/(R<sub>e</sub> ＋ h)²</strong><br />
+在地表 h ＝ 0 ⇒ g ＝ GM<sub>e</sub>/R<sub>e</sub>²</p>
+<h5>由式子讀出三件事</h5>
 <ol>
-<li><strong>m 約掉了</strong> ⇒ 重力加速度與物體質量無關，輕重物體同時落地（伽利略）在這裡得到解釋。</li>
-<li>g 只跟「星球質量」和「離星球中心多遠」有關，所以愈高 g 愈小；到了 2 倍地球半徑的地方（h ＝ R<sub>e</sub>），g 只剩 1/4。</li>
-<li>地表附近 h ≪ R<sub>e</sub>，所以 g ≈ 9.8 m/s² 可視為定值。</li>
+<li><strong>m 不見了</strong> ⇒ 輕重物體落下一樣快（伽利略觀察到的現象，在這裡得到原因）。</li>
+<li>g 只看「地球質量」與「離地心多遠」：h ＝ R<sub>e</sub> 時離地心 2R<sub>e</sub>，g 變成 1/2² ＝ 1/4。</li>
+<li>地表附近 h 遠小於 R<sub>e</sub>（幾公里對 6400 公里），R<sub>e</sub> ＋ h ≈ R<sub>e</sub> ⇒ g 幾乎不變，≈ 9.8 m/s²。</li>
 </ol>
-<h5>好用的代換（黃金代換）</h5>
-<p><strong>GM<sub>e</sub> ＝ gR<sub>e</sub>²</strong>：題目給 g 和地球半徑、卻沒給 G 和 M 時，用這個把 GM 換掉。</p></div></details>
-<p>比較不同星球時，把星球質量寫成「密度 × 體積」，就能得到另一種常用的比例式：</p>
+<h5>黃金代換</h5>
+<p>地表 g ＝ GM<sub>e</sub>/R<sub>e</sub>² 移項 ⇒ <strong>GM<sub>e</sub> ＝ gR<sub>e</sub>²</strong>。<br />
+題目給 g、R<sub>e</sub>，卻沒給 G、M<sub>e</sub> 時，用它把 GM<sub>e</sub> 整個換掉。</p></div></details>
+<p><strong>比較不同星球</strong>：把地球換成任一星球（質量 M、半徑 R），表面 g ＝ GM/R²。如果題目給的是密度，再用「質量 ＝ 密度 × 體積」把 M 換掉：</p>
 <details class="formula"><summary><span class="f-eq">g ∝ M/R² ∝ ρR</span><span class="f-tag">比較不同星球表面</span><span class="f-hint">為什麼？</span></summary>
 <div class="f-body"><h5>推導</h5>
-<p>g ＝ GM/R²，而 M ＝ ρ × (4/3)πR³<br />
-⇒ g ＝ G·ρ·(4/3)πR³/R² ＝ (4/3)πGρ·R ⇒ <strong>g ∝ ρR</strong></p>
-<h5>什麼時候用</h5>
-<ul>
-<li>給質量比、半徑比 ⇒ 用 g ∝ M/R²</li>
-<li>給密度比、半徑比 ⇒ 用 g ∝ ρR</li>
-</ul>
-<h5>在別的星球上什麼會變？</h5>
-<ul>
-<li>單擺週期 T ＝ 2π√(ℓ/g)：<strong>會變</strong></li>
-<li>彈簧振子週期 T ＝ 2π√(m/k)：<strong>不變</strong>（公式裡沒有 g）</li>
-<li>同初速拋射高度 H ＝ v²sin²θ/(2g)：∝ 1/g</li>
-<li>物體質量不變，重量 mg 會變</li>
-</ul></div></details>
-<p><strong>重力場</strong>：換個角度看，地球好像在周圍每一點都「佈置」好了一個拉力的強度，任何物體放進來就會被拉。把「每 1 公斤受多少重力」定義成重力場 g，它只和地球、位置有關，和放進來的物體無關，而且數值剛好就是那裡的重力加速度。</p>
+<ol>
+<li>表面 g ＝ GM/R²</li>
+<li>球的體積是 (4/3)πR³ ⇒ M ＝ ρ·(4/3)πR³（ρ 為密度）</li>
+<li>代入：g ＝ G·ρ·(4/3)πR³/R² ＝ (4/3)πGρR ⇒ <strong>g ∝ ρR</strong></li>
+</ol>
+<h5>選哪一條</h5>
+<table>
+<thead>
+<tr>
+<th>題目給</th>
+<th>用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>質量比、半徑比</td>
+<td>g ∝ M/R²</td>
+</tr>
+<tr>
+<td>密度比、半徑比</td>
+<td>g ∝ ρR</td>
+</tr>
+</tbody>
+</table>
+<h5>換到別的星球，什麼跟著變？（判斷法：公式裡有沒有 g）</h5>
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>公式</th>
+<th>會不會變</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>質量</td>
+<td>m</td>
+<td>不變（物質多少不因地點改變）</td>
+</tr>
+<tr>
+<td>重量</td>
+<td>mg</td>
+<td>變，∝ g</td>
+</tr>
+<tr>
+<td>單擺週期</td>
+<td>2π√(ℓ/g)</td>
+<td>變，∝ 1/√g</td>
+</tr>
+<tr>
+<td>彈簧振子週期</td>
+<td>2π√(m/k)</td>
+<td>不變（式子裡沒有 g）</td>
+</tr>
+<tr>
+<td>同初速斜拋最大高度</td>
+<td>v²sin²θ/(2g)</td>
+<td>變，∝ 1/g</td>
+</tr>
+</tbody>
+</table></div></details>
+<p><strong>重力場</strong></p>
+<ol>
+<li>F ＝ GMm/r² 裡有 m：同一個位置放不同物體，受力就不同，不方便描述「這個位置」本身。</li>
+<li>改問「每 1 kg 放在這裡受多少力」：F/m，m 就消掉了，只剩地球和位置 ⇒ 這個量叫<strong>重力場</strong> g（單位 N/kg）。</li>
+<li>地球周圍每一點都有自己的 g（有大小、有方向）；物體放進去，受力就是 F ＝ mg。</li>
+</ol>
 <details class="formula"><summary><span class="f-eq">g ＝ F<sub>g</sub>/m ＝ GM<sub>e</sub>/r²（r ≥ R<sub>e</sub>）</span><span class="f-tag">重力場</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>為什麼要定義「場」</h5>
-<p>F ＝ GMm/r² 跟放進去的物體質量 m 有關；除以 m 之後，<strong>g 只由地球和位置決定</strong>，跟放什麼東西進來無關。<br />
-所以可以說：地球在它周圍的每一點都「準備好」一個 g，任何物體放進來就受 F ＝ mg。</p>
-<h5>邏輯重點</h5>
+<div class="f-body"><h5>為什麼它和重力加速度數值相同</h5>
+<p>重力場的定義 g ＝ F/m；只受重力時 F ＝ ma ⇒ a ＝ F/m。兩者是同一個數（N/kg ＝ m/s²）。</p>
+<h5>重力場的三個性質</h5>
 <ul>
-<li>重力場強度（N/kg）和重力加速度（m/s²）在數值上相等，因為 F ＝ mg ＝ ma。</li>
-<li>方向指向地心，量值與距離平方成反比。</li>
-<li>好幾個星體同時存在時，某點的 g 是各星體的 g <strong>向量相加</strong>。</li>
-<li>以後學電場 E ＝ F/q，是一模一樣的想法。</li>
-</ul></div></details>
+<li>方向：指向地心</li>
+<li>大小：GM<sub>e</sub>/r²，∝ 1/r²（r 從地心量，r ≥ R<sub>e</sub>）</li>
+<li>好幾個星體同時存在：某點的 g ＝ 各星體的 g <strong>向量相加</strong></li>
+</ul>
+<h5>預告</h5>
+<p>之後的電場 E ＝ F/q 是完全相同的想法：把「受力」除以「被作用的那個量」，得到只屬於空間位置的量。</p></div></details>
 
 <figure class="fig"><img class="figimg" src="img/A043_73_91_x68-98.jpg" width="528" height="551" loading="lazy" alt="選修物理1、2 第43頁" data-page="選修物理1、2 p.43"><figcaption>地球的重力場：量值與距離平方成反比，方向指向地心</figcaption></figure>
 
+<aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
+<li>重量 ＝ 引力 ⇒ g ＝ GM/r²，與物體質量無關</li>
+<li>高度 h 時 r ＝ R ＋ h，別忘了加 R</li>
+<li>沒給 G、M ⇒ GM ＝ gR²</li>
+<li>星球比較：給質量用 M/R²，給密度用 ρR</li>
+</ul></aside>
+
 <h2 class="section " id="s2">焦點 2　行星與人造衛星的運動</h2>
 <h3>三、克卜勒行星運動三定律</h3>
-<p>在牛頓之前，克卜勒花了很多年整理第谷的天文觀測資料，歸納出行星運動的三條規律。當時他只知道「是這樣」，不知道「為什麼」；後來牛頓用萬有引力和運動定律，把三條定律全部推導出來。<strong>第一定律</strong>說軌道的形狀，<strong>第二定律</strong>說行星在軌道上哪裡快哪裡慢，<strong>第三定律</strong>說不同行星的軌道大小和週期的關係。</p>
-<figure class="fig"><img class="figimg" src="img/A046_20_38p5_x73-98.jpg" width="490" height="581" loading="lazy" alt="選修物理1、2 第46頁" data-page="選修物理1、2 p.46"><figcaption>橢圓軌道與面積定律</figcaption></figure>
-<p><strong>第一定律（軌道定律）</strong>：行星的軌道是橢圓，太陽不在正中央，而在其中一個焦點。所以行星有時離太陽近（近日點），有時遠（遠日點）。</p>
-<details class="formula"><summary><span class="f-eq">第一定律：R ＝ (r<sub>max</sub> ＋ r<sub>min</sub>)/2 ＝ 半長軸 a</span><span class="f-tag">軌道定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>內容</h5>
-<p>行星以<strong>橢圓</strong>軌道繞太陽，太陽在橢圓的一個<strong>焦點</strong>上（不是中心）。</p>
-<h5>為什麼平均半徑是這個？</h5>
-<p>從近日點經太陽到遠日點，剛好是橢圓的<strong>長軸</strong>：長軸 ＝ r<sub>min</sub> ＋ r<sub>max</sub>。<br />
-一半就是<strong>半長軸 a</strong>，把橢圓軌道拿去用第三定律時，R 就代半長軸。</p>
-<h5>邏輯重點</h5>
-<p>大部分行星的橢圓很接近圓，所以高中常把行星運動簡化成圓周運動，結果（例如 R³/T²）一樣成立。</p></div></details>
-<p><strong>第二定律（面積定律）</strong>：行星和太陽的連線，在相同時間內掃過相同的面積。離太陽近時連線短，要掃出一樣的面積就得跑得快，所以行星在近日點最快、遠日點最慢。</p>
-<details class="formula"><summary><span class="f-eq">第二定律：ΔA/Δt ＝ 定值</span><span class="f-tag">面積定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>內容</h5>
-<p>相同時間內，行星與太陽連線掃過的<strong>面積相同</strong>。</p>
-<h5>為什麼？（角動量守恆）</h5>
+<p><strong>先講清楚來龍去脈</strong></p>
 <ol>
-<li>太陽對行星的引力沿著兩者連線，對太陽的力矩 τ ＝ rF sin180° ＝ 0。</li>
-<li>沒有力矩 ⇒ <strong>角動量 L ＝ m r v<sub>⊥</sub> 守恆</strong>。</li>
-<li>很短的時間 Δt 內，掃過的是一個細長三角形，面積 ≈ ½ × r × (v<sub>⊥</sub>Δt)<br />
-⇒ ΔA/Δt ＝ ½ r v<sub>⊥</sub> ＝ <strong>L/(2m) ＝ 定值</strong></li>
+<li>克卜勒（比牛頓早約 80 年）整理第谷多年的行星觀測資料，歸納出三條規律——他知道「是這樣」，但不知道「為什麼」。</li>
+<li>牛頓用焦點 1 的萬有引力 ＋ 運動定律，把三條全部推了出來 ⇒ 這是萬有引力正確的有力證據。</li>
+<li>三條定律各回答一個問題：</li>
 </ol>
-<h5>直覺</h5>
-<p>離太陽近時 r 小，要掃出同樣面積，就得跑得快 ⇒ <strong>近日點最快、遠日點最慢</strong>。就像溜冰選手收手轉得快。</p>
-<h5>注意</h5>
-<p>面積定律只能比較<strong>同一顆行星、同一條軌道</strong>的不同位置；不同行星的面積速率不一樣（圓軌道時 ∝ √R）。</p></div></details>
-<p><strong>第三定律（週期定律）</strong>：離太陽愈遠的行星，繞一圈花的時間愈長，而且有精確的比例——軌道半徑的立方除以週期的平方，對所有行星都是同一個數。</p>
-<details class="formula"><summary><span class="f-eq">第三定律：R³/T² ＝ GM/4π² ＝ 常數 K</span><span class="f-tag">週期定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導（用圓軌道）</h5>
-<p>萬有引力提供向心力：<br />
-GMm/R² ＝ m·4π²R/T²<br />
-m 約掉，整理：<strong>R³/T² ＝ GM/(4π²)</strong></p>
-<h5>邏輯重點</h5>
+<table>
+<thead>
+<tr>
+<th>定律</th>
+<th>回答的問題</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一（軌道定律）</td>
+<td>軌道是什麼形狀？</td>
+<td>橢圓，太陽在一個焦點</td>
+</tr>
+<tr>
+<td>第二（面積定律）</td>
+<td>同一條軌道上哪裡快？</td>
+<td>近日點快、遠日點慢</td>
+</tr>
+<tr>
+<td>第三（週期定律）</td>
+<td>不同行星的軌道大小與週期？</td>
+<td>R³/T² 都相同</td>
+</tr>
+</tbody>
+</table>
+<figure class="fig"><img class="figimg" src="img/A046_20_38p5_x73-98.jpg" width="490" height="581" loading="lazy" alt="選修物理1、2 第46頁" data-page="選修物理1、2 p.46"><figcaption>橢圓軌道與面積定律</figcaption></figure>
+<p><strong>先認識橢圓</strong>（第一定律要用的名詞）</p>
+<ul>
+<li>橢圓：像被壓扁的圓。裡面有兩個特別的點叫<strong>焦點</strong>，不在正中央，而是左右各偏一邊。</li>
+<li><strong>長軸</strong>：橢圓最長的那條直徑；<strong>半長軸 a</strong> ＝ 長軸的一半。</li>
+<li>圓是特例：兩個焦點重合在圓心，半長軸就是半徑。</li>
+</ul>
+<p><strong>第一定律（軌道定律）</strong></p>
 <ol>
-<li>右邊只剩 G 和<strong>中心星體的質量 M</strong> ⇒ 繞同一顆星的所有行星（衛星）K 都相同；中心星不同，K 就不同（繞太陽和繞地球不能混用）。</li>
-<li>繞行物體自己的質量 m 約掉了 ⇒ 大衛星、小衛星在同一軌道上週期一樣。</li>
-<li>反過來用：量出某衛星的 R 和 T，就能算出<strong>中心星體的質量</strong> M ＝ 4π²R³/(GT²)——這就是「秤地球、秤太陽」的方法。</li>
-<li>橢圓軌道時，R 代半長軸。</li>
-</ol></div></details>
+<li>行星的軌道是橢圓，太陽在其中一個焦點上。</li>
+<li>太陽偏在一邊 ⇒ 行星離太陽的距離會變：最近點叫<strong>近日點</strong>（距離 r<sub>min</sub>），最遠點叫<strong>遠日點</strong>（距離 r<sub>max</sub>）。</li>
+<li>近日點、遠日點都在長軸的兩端，太陽夾在中間 ⇒ 近日距 ＋ 遠日距 ＝ 長軸。</li>
+</ol>
+<details class="formula"><summary><span class="f-eq">第一定律：R ＝ (r<sub>max</sub> ＋ r<sub>min</sub>)/2 ＝ 半長軸 a</span><span class="f-tag">軌道定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>為什麼平均半徑是這個？</h5>
+<ol>
+<li>近日點、太陽、遠日點三者都在長軸上，太陽夾在中間。</li>
+<li>所以 r<sub>min</sub> ＋ r<sub>max</sub> ＝ 整條長軸 ⇒ 除以 2 ＝ 半長軸 a。</li>
+<li>之後第三定律遇到橢圓軌道，「R」一律代<strong>半長軸</strong>。</li>
+</ol>
+<h5>為什麼高中常把軌道當成圓？</h5>
+<p>大部分行星的橢圓非常接近圓（地球的近日距、遠日距只差約 3%）；當成圓來算，R³/T² 的結果一樣成立。</p></div></details>
+<p><strong>第二定律（面積定律）</strong></p>
+<ol>
+<li>把太陽和行星連一條線，行星移動時，這條線像雨刷一樣「掃」過一塊面積。</li>
+<li>定律：<strong>相同時間內掃過的面積相同</strong>。</li>
+<li>推論：近日點時連線短，要在同樣時間掃出同樣大的面積，走過的弧就得長 ⇒ 跑得快；遠日點相反 ⇒ <strong>近日點最快、遠日點最慢</strong>。</li>
+</ol>
+<details class="formula"><summary><span class="f-eq">第二定律：ΔA/Δt ＝ 定值</span><span class="f-tag">面積定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>為什麼？（只用幾何：三角形面積 ＝ ½ × 底 × 高）</h5>
+<ol>
+<li>先想<strong>沒有引力</strong>：行星在相等時間內走等長的直線 AB、BC。從太陽 S 看，三角形 SAB 和 SBC 的底 AB ＝ BC、高（S 到這條直線的距離）也相同 ⇒ 面積相等。</li>
+<li>再<strong>加上引力</strong>：在 B 點太陽拉一下，這一拉的方向<strong>沿著 BS 指向太陽</strong>，所以行星的落點從 C 被拉到 C′，而 CC′ 與 BS 平行。</li>
+<li>三角形 SBC 與 SBC′ 共用底 SB，頂點 C、C′ 在一條平行於 SB 的線上 ⇒ 高相同 ⇒ 面積相同。</li>
+<li>所以每段相等時間掃過的面積都一樣。整個論證只用到一件事：<strong>引力永遠指向太陽</strong>。</li>
+</ol>
+<h5>另一種說法（第 6 單元會學）</h5>
+<p>引力沿著連線 ⇒ 對太陽的力矩 ＝ 0 ⇒ 角動量守恆 ⇒ ΔA/Δt ＝ L/(2m) 為定值。現在先記幾何版即可。</p>
+<h5>小心</h5>
+<ul>
+<li>只能比較<strong>同一顆行星</strong>在自己軌道上的不同位置。</li>
+<li>不同行星的面積速率不同（圓軌道時 ＝ πR²/T，第四節會看到它 ∝ √R）。</li>
+</ul></div></details>
+<p><strong>第三定律（週期定律）</strong></p>
+<ol>
+<li>離太陽愈遠的行星，繞一圈愈久。</li>
+<li>精確的關係：軌道半徑的立方 ÷ 週期的平方，對繞太陽的每顆行星都是<strong>同一個數 K</strong>。</li>
+<li>K 可以用萬有引力推出來，推完就知道 K 由什麼決定：</li>
+</ol>
+<details class="formula"><summary><span class="f-eq">第三定律：R³/T² ＝ GM/4π² ＝ 常數 K</span><span class="f-tag">週期定律</span><span class="f-hint">為什麼？</span></summary>
+<div class="f-body"><h5>推導（把軌道當成圓）</h5>
+<ol>
+<li>行星繞太陽做圓周運動，所需的向心力由萬有引力提供（先備工具）：<br />
+GMm/R² ＝ m·4π²R/T²</li>
+<li>兩邊 m 約掉，移項 ⇒ <strong>R³/T² ＝ GM/(4π²)</strong></li>
+</ol>
+<h5>由式子讀出四件事</h5>
+<ol>
+<li>K 只含 G 和<strong>中心星體質量 M</strong> ⇒ 繞同一顆中心星的天體共用一個 K；繞太陽的 K 和繞地球的 K 不同，不能混用。</li>
+<li>繞行物體的質量 m 約掉了 ⇒ 大衛星、小衛星在同一軌道上週期相同。</li>
+<li>反過來用：量到某衛星的 R、T，就能「秤」出中心星質量 M ＝ 4π²R³/(GT²)。</li>
+<li>橢圓軌道：R 代半長軸（第一定律）。</li>
+</ol>
+<h5>平方反比的第二個證據（焦點 1 預告的）</h5>
+<p>圓軌道 a ＝ 4π²R/T²；第三定律說 T² ∝ R³ ⇒ a ∝ R/R³ ＝ 1/R²。<br />
+行星的加速度 ∝ 1/R²，力 ＝ ma 也就 ∝ 1/R² ⇒ 只有平方反比的引力，才會讓行星遵守週期定律。</p></div></details>
+
+<aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
+<li>橢圓軌道：R 代 (r<sub>max</sub> ＋ r<sub>min</sub>)/2</li>
+<li>面積定律：只比同一條軌道；近日快、遠日慢</li>
+<li>R³/T² ＝ K：中心星相同才能用；比例題寫 (R<sub>1</sub>/R<sub>2</sub>)³ ＝ (T<sub>1</sub>/T<sub>2</sub>)²</li>
+</ul></aside>
 <h3>四、行星與人造衛星的圓周運動</h3>
-<p>把軌道近似成圓，所有衛星問題都只用一個想法：<strong>萬有引力就是向心力</strong>。讓 GMm/R² 等於 mv²/R（或 m·4π²R/T²），衛星的質量 m 會約掉，所以衛星的速率、週期、加速度<strong>只由中心星體質量和軌道半徑決定</strong>。最重要的結論是：<strong>軌道愈高，跑得愈慢、週期愈長</strong>。</p>
+<p><strong>要解決的問題</strong>：一顆衛星在半徑 R 的圓軌道上，速率、週期、加速度各是多少？</p>
+<ol>
+<li>唯一的想法：<strong>萬有引力 ＝ 向心力</strong>（衛星只受中心星的引力，而這個力剛好指向圓心）。</li>
+<li>把向心力寫成不同形式，就分別解出 v、T、a。</li>
+<li>衛星質量 m 每次都會約掉 ⇒ 結果只由中心星質量 M 和軌道半徑 R 決定。</li>
+</ol>
 <details class="formula"><summary><span class="f-eq">v ＝ √(GM/R)，T ＝ 2π√(R³/GM)，a ＝ GM/R²</span><span class="f-tag">萬有引力 ＝ 向心力</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
-<p>GMm/R² ＝ m v²/R ⇒ <strong>v ＝ √(GM/R)</strong><br />
-GMm/R² ＝ m·4π²R/T² ⇒ <strong>T ＝ 2π√(R³/GM)</strong><br />
-GMm/R² ＝ ma ⇒ <strong>a ＝ GM/R²</strong>（就是那個位置的重力場 g）</p>
-<h5>反直覺的重點：軌道愈高，跑得愈「慢」</h5>
-<p>R 愈大，引力愈弱，只需要較小的向心力，速率就愈小；而且要繞的圈又更大 ⇒ 週期大幅變長（T ∝ R<sup>3/2</sup>）。</p>
+<div class="f-body"><h5>推導（三行都從同一個等號出發）</h5>
+<table>
+<thead>
+<tr>
+<th>向心力寫成</th>
+<th>等式</th>
+<th>解出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mv²/R</td>
+<td>GMm/R² ＝ mv²/R</td>
+<td>v ＝ √(GM/R)</td>
+</tr>
+<tr>
+<td>m·4π²R/T²</td>
+<td>GMm/R² ＝ m·4π²R/T²</td>
+<td>T ＝ 2π√(R³/GM)</td>
+</tr>
+<tr>
+<td>ma</td>
+<td>GMm/R² ＝ ma</td>
+<td>a ＝ GM/R²（＝ 該處重力場）</td>
+</tr>
+</tbody>
+</table>
+<h5>反直覺：軌道愈高，跑得愈慢</h5>
+<ol>
+<li>R 大 ⇒ 引力 GMm/R² 小。</li>
+<li>引力就是向心力 mv²/R；向心力小 ⇒ 只能維持較小的 v（v² ＝ GM/R）。</li>
+<li>速率變小、要繞的圈又變大 ⇒ 週期大幅變長（T ∝ R<sup>3/2</sup>）。</li>
+</ol>
 <table>
 <thead>
 <tr>
@@ -380,7 +591,7 @@ GMm/R² ＝ ma ⇒ <strong>a ＝ GM/R²</strong>（就是那個位置的重力�
 <td>變小</td>
 </tr>
 <tr>
-<td>ω</td>
+<td>ω ＝ 2π/T</td>
 <td>∝ R<sup>−3/2</sup></td>
 <td>變小</td>
 </tr>
@@ -396,32 +607,61 @@ GMm/R² ＝ ma ⇒ <strong>a ＝ GM/R²</strong>（就是那個位置的重力�
 </tr>
 </tbody>
 </table>
-<h5>為什麼太空人會「失重」？</h5>
-<p>太空人和太空船一起以同樣的加速度 a ＝ GM/R² 自由落下（一直往地球掉，但水平速度夠快，所以一直掉不到地面）。他仍然受重力，只是地板不用撐他，所以感覺不到重量。</p></div></details>
-<p>貼著地表飛的衛星半徑就是地球半徑，那裡的重力加速度正好是 g，於是得到一個很有名的數字——第一宇宙速度，約每秒 7.9 公里。</p>
+<p>面積速率怎麼來：一個週期掃過整個圓 πR²，除以 T；把 T ＝ 2πR/v 代入得 ½Rv，再把 v 換成 √(GM/R) ⇒ ½√(GMR)。</p>
+<h5>太空人為什麼「失重」？</h5>
+<ol>
+<li>太空人仍然受重力——正是這個引力提供向心力（太空站高度的 g 仍約地表的 9 成）。</li>
+<li>太空人和太空船有同一個加速度 GM/R²，一起「往地球掉」；只是水平速度夠快，一直掉不到地面。</li>
+<li>兩者一起掉，地板不用撐他 ⇒ 沒有支撐力，所以「感覺」不到重量。</li>
+</ol></div></details>
+<p><strong>第一宇宙速度</strong>：衛星貼著地表飛（R ≈ R<sub>e</sub>）是最低的圓軌道，那裡的重力加速度就是 g：</p>
 <details class="formula"><summary><span class="f-eq">表面衛星：v ＝ √(gR<sub>e</sub>) ≈ 7.9 km/s</span><span class="f-tag">第一宇宙速度</span><span class="f-hint">為什麼？</span></summary>
 <div class="f-body"><h5>推導</h5>
-<p>貼地飛行時 R ≈ R<sub>e</sub>，此處的重力加速度就是 g：<br />
-mg ＝ m v²/R<sub>e</sub> ⇒ <strong>v ＝ √(gR<sub>e</sub>)</strong> ＝ √(9.8 × 6.4×10<sup>6</sup>) ≈ 7.9×10<sup>3</sup> m/s</p>
-<h5>邏輯（牛頓的大砲）</h5>
-<p>水平發射砲彈，第一秒掉下 ½gt² ≈ 5 m，跟初速無關。如果初速夠快，砲彈往前飛的同時，地面也因為地球是圓的而「彎下去」同樣多，砲彈就永遠掉不到地面——這就是繞地球轉。</p></div></details>
-<ul>
-<li><strong>同步衛星</strong>：週期 ＝ 地球自轉週期 <strong>24 小時</strong>，且軌道面與<strong>赤道面</strong>一致 ⇒ 從地面看好像停在赤道上空不動。因為 T 被規定成 24 小時，由週期定律，軌道半徑也就只有一個固定值，所有同步衛星都在同一高度（約 3.6 萬公里）。</li>
-</ul>
-<p>最後是常考的「兩顆衛星多久相遇一次」。這其實和兩個人在操場跑步誰追上誰是同一件事，看的是兩者<strong>角速度的差</strong>。</p>
+<p>貼地飛 ⇒ 引力 ＝ mg，向心力 ＝ mv²/R<sub>e</sub><br />
+mg ＝ mv²/R<sub>e</sub> ⇒ <strong>v ＝ √(gR<sub>e</sub>)</strong> ＝ √(9.8 × 6.4×10<sup>6</sup>) ≈ 7.9×10<sup>3</sup> m/s<br />
+（也可以由 v ＝ √(GM/R) 配合黃金代換 GM ＝ gR<sub>e</sub>² 得到同一個結果。）</p>
+<h5>直覺：牛頓的大砲</h5>
+<ol>
+<li>從高處水平射出砲彈，水平、鉛直分開看：不管初速多少，第 1 秒都往下掉 ½gt² ≈ 5 m。</li>
+<li>地球是圓的：往前走一段距離，地面本身也會「彎下去」。</li>
+<li>初速快到「地面彎下去的量」＝「砲彈掉下的量」⇒ 砲彈永遠落不到地 ⇒ 繞地球轉。這個速度約 7.9 km/s（每秒前進 7.9 km，地面恰好彎下約 5 m）。</li>
+</ol></div></details>
+<p><strong>同步衛星</strong></p>
+<ol>
+<li>定義：週期 ＝ 地球自轉週期 <strong>24 小時</strong>、在<strong>赤道上空</strong>、和地球同向轉 ⇒ 從地面看它停在天空同一點不動（適合通訊、氣象）。</li>
+<li>為什麼一定在赤道上空：引力指向地心，所以衛星的軌道面一定通過地心（下圖）；要一直待在地面某點正上方，那一點隨自轉畫出的圓也必須以地心為圓心——只有赤道符合。</li>
+<li>為什麼高度固定：T 規定是 24 小時，由 R³/T² ＝ GM/4π²，R 只有一個解 ≈ 4.2×10<sup>7</sup> m（離地心），扣掉地球半徑，離地約 3.6 萬公里。</li>
+</ol>
 <figure class="fig"><img class="figimg" src="img/A047_8_26_x55-92.jpg" width="737" height="620" loading="lazy" alt="選修物理1、2 第47頁" data-page="選修物理1、2 p.47"><figcaption>人造衛星的軌道面通過地心</figcaption></figure>
-
+<p><strong>會合週期</strong></p>
+<p><strong>要解決的問題</strong>：兩顆衛星繞同一顆星，多久「相遇」（和中心星排成一直線）一次？</p>
+<ul>
+<li>這和兩人在操場同向跑步、快的人追上慢的人是同一件事：看的是<strong>角速度的差</strong>。</li>
+</ul>
 <details class="formula"><summary><span class="f-eq">會合週期：同向 1/t ＝ 1/T<sub>1</sub> − 1/T<sub>2</sub>；反向 1/t ＝ 1/T<sub>1</sub> ＋ 1/T<sub>2</sub></span><span class="f-tag">追趕問題</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>邏輯：操場跑步</h5>
-<p>兩人在操場同方向跑，快的人每多跑一整圈就會追上慢的人一次。<br />
-- 每秒快的人比慢的人多轉 (ω<sub>1</sub> − ω<sub>2</sub>)<br />
-- 多轉一整圈 2π 就相遇一次 ⇒ (ω<sub>1</sub> − ω<sub>2</sub>)·t ＝ 2π<br />
-- 用 ω ＝ 2π/T 代入 ⇒ <strong>1/T<sub>1</sub> − 1/T<sub>2</sub> ＝ 1/t</strong></p>
-<p>反方向跑時，兩人是「相向」靠近，相對角速度是 ω<sub>1</sub> ＋ ω<sub>2</sub> ⇒ <strong>1/T<sub>1</sub> ＋ 1/T<sub>2</sub> ＝ 1/t</strong>。</p>
-<h5>生活例子</h5>
-<p>時鐘的分針和時針：同向轉，T<sub>1</sub> ＝ 1 小時、T<sub>2</sub> ＝ 12 小時 ⇒ 1/t ＝ 1 − 1/12 ⇒ t ＝ 12/11 小時才重疊一次（不是剛好 1 小時）。</p>
+<div class="f-body"><h5>推導（同向）</h5>
+<ol>
+<li>角速度 ω ＝ 2π/T（先備工具）。</li>
+<li>每秒快的比慢的多轉 (ω<sub>1</sub> − ω<sub>2</sub>)。</li>
+<li>多轉滿一整圈 2π 就再追上一次 ⇒ (ω<sub>1</sub> − ω<sub>2</sub>)·t ＝ 2π。</li>
+<li>代入 ω ＝ 2π/T，兩邊除以 2π ⇒ <strong>1/T<sub>1</sub> − 1/T<sub>2</sub> ＝ 1/t</strong>（T<sub>1</sub> 是週期較短、較快的那顆）。</li>
+</ol>
+<h5>反向</h5>
+<p>兩者迎面靠近，相對角速度是 ω<sub>1</sub> ＋ ω<sub>2</sub> ⇒ <strong>1/T<sub>1</sub> ＋ 1/T<sub>2</sub> ＝ 1/t</strong>。</p>
+<h5>驗算例子：時鐘</h5>
+<p>分針 T<sub>1</sub> ＝ 1 小時、時針 T<sub>2</sub> ＝ 12 小時，同向 ⇒ 1/t ＝ 1 − 1/12 ＝ 11/12 ⇒ t ＝ 12/11 小時（約 1 小時 5.5 分），不是剛好 1 小時。</p>
 <h5>解題步驟</h5>
-<p>先用會合條件求出週期，再用 R ∝ T<sup>2/3</sup>、v ∝ 1/√R、a ∝ 1/R² 換成題目要的量。</p></div></details>
+<ol>
+<li>由相遇條件求出未知的週期。</li>
+<li>再用第四節的比例：R ∝ T<sup>2/3</sup>、v ∝ 1/√R、a ∝ 1/R² 換成題目要的量。</li>
+</ol></div></details>
+
+<aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
+<li>衛星題只有一個等號：GMm/R² ＝ 向心力，m 一定約掉</li>
+<li>軌道愈高：a、v、ω 都變小，只有 T 和面積速率變大</li>
+<li>貼地 v ≈ 7.9 km/s；同步衛星 T ＝ 24 h、在赤道上空、高度固定（約 3.6 萬 km）</li>
+<li>會合：同向用減、反向用加</li>
+</ul></aside>
 
 <h2 class="section " id="s3">範例與類題</h2>
 
