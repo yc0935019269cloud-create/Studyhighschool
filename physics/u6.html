@@ -231,54 +231,363 @@ body.hide-pre .pre{display:none}
 <div class="content">
 <h2 class="section " id="s1">焦點 1　質心運動</h2>
 
-<aside class="box box-concept"><div class="box-h">觀念</div><p>這一頁可以直接從頭讀下去；遇到藍框公式，想知道「它怎麼推出來、為什麼長這樣」再點開看詳細解釋。上方的「展開全部公式解釋」可以一次打開。</p></aside>
-<p>牛頓第二定律 F ＝ ma 很好用，但碰撞、爆炸這類事件裡，力非常大、作用時間又極短，根本量不到力的細節。這個單元換一個角度：不問「力多大」，改問「<strong>力作用了一段時間後，運動改變了多少</strong>」。這就引出動量、衝量，以及物理學最重要的守恆律之一──動量守恆。最後再把同樣的想法搬到轉動上，得到角動量。</p>
+<aside class="box box-concept"><div class="box-h">觀念</div><p>怎麼讀這頁：照順序往下讀，每一步只用「前面已經講過」的東西。藍框公式點開是「為什麼」，第一次讀建議全部點開（上方「展開全部公式解釋」）。<br />
+每個公式框都照同一個順序寫：<strong>① 先看懂每個符號 → ② 白話翻譯 → ③ 推導（每一步為什麼）→ ④ 代數字感受大小 → ⑤ 常見錯誤</strong>。<br />
+本單元主線：F ＝ ma 碰到碰撞、爆炸就不好用（力極大、時間極短，量不到）→ 改問「力作用一段時間後，運動改變多少」→ <strong>動量、衝量</strong> → 整個系統的代表點<strong>質心</strong> → <strong>動量守恆</strong>（焦點 2）→ 同樣的想法搬到轉動：<strong>角動量</strong>（焦點 3）。</p></aside>
+<h3>〇、先備工具</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>內容</th>
+<th>本單元拿來做什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>牛頓第二定律</td>
+<td>ΣF ＝ ma；加速度 a ＝ Δv/Δt（速度每秒改變多少）</td>
+<td>推出「衝量 ＝ 動量變化」</td>
+</tr>
+<tr>
+<td>牛頓第三定律</td>
+<td>甲推乙、乙推甲，兩力大小相等、方向相反、同時出現同時消失</td>
+<td>內力互相抵消 ⇒ 動量守恆</td>
+</tr>
+<tr>
+<td>向量的正負號</td>
+<td>一直線上的運動，先規定一個方向為正，反方向就寫負號</td>
+<td>動量、衝量都有方向</td>
+</tr>
+<tr>
+<td>重心（第 4 單元）</td>
+<td>以重量為權重的平均位置</td>
+<td>質心公式長得一樣</td>
+</tr>
+<tr>
+<td>力矩（第 4 單元）</td>
+<td>τ ＝ rF sinθ ＝ F × 力臂</td>
+<td>焦點 3 的角動量</td>
+</tr>
+</tbody>
+</table>
 <h3>一、動量與衝量</h3>
-<p>物體的「運動量」要同時看質量和速度：一顆慢慢滾的保齡球和一顆高速的子彈都很難擋住。把兩者相乘，就是動量。</p>
+<p><strong>要解決的問題</strong>：球撞牆、車相撞的那一瞬間，力變化得極快，根本量不到 F 隨時間怎麼變；但撞擊<strong>前後的速度</strong>很好量。能不能只靠前後的速度，算出撞擊的效果？</p>
+<ol>
+<li>物體的「運動量」要同時看質量和速度：慢慢滾的保齡球和高速的子彈都很難擋 ⇒ 定義<strong>動量 p ＝ mv</strong>。</li>
+<li>要改變運動，不只要看出多大力，還要看出力多久 ⇒ 定義<strong>衝量 J ＝ FΔt</strong>。</li>
+<li>下一個公式框會證明：<strong>衝量剛好等於動量的變化</strong>。</li>
+</ol>
 <details class="formula"><summary><span class="f-eq">p ＝ mv（kg·m/s）；J ＝ FΔt ＝ F–t 圖面積（N·s）</span><span class="f-tag">動量與衝量</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>動量</h5>
-<p>動量是<strong>向量</strong>，方向和速度相同。質量固定時，動量的變化 Δp ＝ m·Δv──所以一定要注意方向：球以 v 撞牆反彈回 v，Δp 是 2mv，不是 0。</p>
-<h5>衝量</h5>
-<p>力乘上作用時間叫衝量。力不是定值時，衝量 ＝ F–t 圖下的面積（t 軸上方為正、下方為負）。</p>
-<h5>為什麼要定義衝量</h5>
-<p>同樣的「推一把」效果，可以是大力推一下，也可以是小力推很久；衝量把「力的大小」和「作用多久」合在一起，才是真正改變運動的量。</p></div></details>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+<th>單位</th>
+<th>方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td>動量</td>
+<td>kg·m/s</td>
+<td>和速度 v 同方向</td>
+</tr>
+<tr>
+<td>m</td>
+<td>質量</td>
+<td>kg</td>
+<td>—</td>
+</tr>
+<tr>
+<td>v</td>
+<td>速度（有方向，用正負號表示）</td>
+<td>m/s</td>
+<td>—</td>
+</tr>
+<tr>
+<td>J</td>
+<td>衝量</td>
+<td>N·s</td>
+<td>和力 F 同方向</td>
+</tr>
+<tr>
+<td>F</td>
+<td>作用力（力在變時取平均力）</td>
+<td>N</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Δt</td>
+<td>力作用的時間</td>
+<td>s</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<ul>
+<li>動量 ＝「多重 × 多快」：衡量「要讓它停下來有多難」。</li>
+<li>衝量 ＝「多大力 × 推多久」：衡量「這一推對運動的影響有多大」。</li>
+</ul>
+<h5>③ 為什麼衝量 ＝ F–t 圖面積</h5>
+<ol>
+<li>力固定時，F–t 圖是一個長方形：高 F、寬 Δt ⇒ 面積 ＝ F × Δt ＝ 衝量。</li>
+<li>力在變時，把時間切成很多小段，每一小段的力幾乎固定 ⇒ 每段都是一個細長方形，全部加起來就是曲線下的面積。</li>
+<li>t 軸上方的面積算正、下方算負（力的方向相反）。</li>
+</ol>
+<h5>④ 代數字感受大小</h5>
+<table>
+<thead>
+<tr>
+<th>物體</th>
+<th>質量</th>
+<th>速度</th>
+<th>動量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>子彈</td>
+<td>0.01 kg</td>
+<td>600 m/s</td>
+<td>6 kg·m/s</td>
+</tr>
+<tr>
+<td>棒球</td>
+<td>0.15 kg</td>
+<td>40 m/s</td>
+<td>6 kg·m/s</td>
+</tr>
+<tr>
+<td>慢跑的人</td>
+<td>60 kg</td>
+<td>3 m/s</td>
+<td>180 kg·m/s</td>
+</tr>
+<tr>
+<td>汽車</td>
+<td>1000 kg</td>
+<td>15 m/s</td>
+<td>15000 kg·m/s</td>
+</tr>
+</tbody>
+</table>
+<p>子彈很輕但很快，動量可以和棒球一樣——所以「難不難擋」要質量和速度一起看。</p>
+<p><strong>方向一定要算進去</strong>：0.5 kg 的球以 10 m/s 撞牆，以 10 m/s 反彈。規定「朝牆」為正：<br />
+Δp ＝ p<sub>後</sub> − p<sub>前</sub> ＝ 0.5 × (−10) − 0.5 × (＋10) ＝ <strong>−10 kg·m/s</strong><br />
+大小是 2mv ＝ 10，不是 0（速度大小沒變，但方向整個反過來）。</p>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>反彈題直接用「速率相減」得到 0：動量是向量，要先定正方向。</li>
+<li>單位：N·s 和 kg·m/s 是同一個單位（由 F ＝ ma，N ＝ kg·m/s²，再乘 s）。</li>
+</ul></div></details>
 
 <details class="formula"><summary><span class="f-eq">ΣF·Δt ＝ Δp（衝量–動量定理）；F ＝ Δp/Δt</span><span class="f-tag">牛頓第二定律的原始形式</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
-<p>ΣF ＝ ma ＝ m·Δv/Δt ⇒ 兩邊乘 Δt：<strong>ΣF·Δt ＝ mΔv ＝ Δp</strong><br />
-合力的衝量就等於動量的變化。反過來寫 ΣF ＝ Δp/Δt：<strong>合力就是動量的時變率</strong>──這其實是牛頓當初寫第二定律的形式，F ＝ ma 只是質量不變時的特例。</p>
-<h5>生活應用：為什麼安全氣囊、安全帶有用？</h5>
-<p>撞車時人的動量變化 Δp 是固定的（從原速度變成 0），平均力 F ＝ Δp/Δt。氣囊把作用時間 Δt 拉長，平均力就變小。<br />
-接球時手往後收、跳遠落在沙坑、跳下時彎膝蓋，都是同一個道理。</p>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ΣF</td>
+<td>合力：物體受到的所有力的向量和</td>
+</tr>
+<tr>
+<td>Δt</td>
+<td>合力作用的時間</td>
+</tr>
+<tr>
+<td>Δp</td>
+<td>動量的變化 ＝ p<sub>後</sub> − p<sub>前</sub></td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「合力推了多久，動量就改變多少。」反過來：<strong>動量要改變的量一樣時，作用時間愈長，需要的力就愈小。</strong></p>
+<h5>③ 推導：每一步為什麼可以這樣做</h5>
+<ol>
+<li>牛頓第二定律：ΣF ＝ ma。</li>
+<li>加速度的定義是「速度每秒改變多少」：a ＝ Δv/Δt ⇒ ΣF ＝ m·Δv/Δt。</li>
+<li>兩邊同乘 Δt：ΣF·Δt ＝ mΔv。</li>
+<li>質量不變時 mΔv ＝ m(v<sub>後</sub> − v<sub>前</sub>) ＝ mv<sub>後</sub> − mv<sub>前</sub> ＝ Δp ⇒ <strong>ΣF·Δt ＝ Δp</strong>。</li>
+<li>移項寫成 ΣF ＝ Δp/Δt：<strong>合力 ＝ 動量每秒改變多少</strong>。這其實是牛頓當初寫第二定律的形式，F ＝ ma 只是質量不變時的特例。</li>
+</ol><figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 290" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><g class="a-ink"><line x1="60" y1="245" x2="520" y2="245"/><polygon points="530,245 520,249.2 520,240.8"/></g><g class="a-ink"><line x1="60" y1="245" x2="60" y2="35"/><polygon points="60,25 64.2,35 55.8,35"/></g><text class="tb" x="50" y="38" text-anchor="end">F</text><text class="tb" x="526" y="271" text-anchor="end">t</text><path class="shade2" d="M80,245 L80.0,245.0 L81.2,234.5 L82.3,224.1 L83.5,213.7 L84.7,203.4 L85.8,193.2 L87.0,183.2 L88.2,173.3 L89.3,163.7 L90.5,154.2 L91.7,145.0 L92.8,136.1 L94.0,127.4 L95.2,119.1 L96.3,111.2 L97.5,103.6 L98.7,96.4 L99.8,89.6 L101.0,83.2 L102.2,77.3 L103.3,71.8 L104.5,66.8 L105.7,62.3 L106.8,58.3 L108.0,54.8 L109.2,51.8 L110.3,49.4 L111.5,47.5 L112.7,46.1 L113.8,45.3 L115.0,45.0 L116.2,45.3 L117.3,46.1 L118.5,47.5 L119.7,49.4 L120.8,51.8 L122.0,54.8 L123.2,58.3 L124.3,62.3 L125.5,66.8 L126.7,71.8 L127.8,77.3 L129.0,83.2 L130.2,89.6 L131.3,96.4 L132.5,103.6 L133.7,111.2 L134.8,119.1 L136.0,127.4 L137.2,136.1 L138.3,145.0 L139.5,154.2 L140.7,163.7 L141.8,173.3 L143.0,183.2 L144.2,193.2 L145.3,203.4 L146.5,213.7 L147.7,224.1 L148.8,234.5 L150.0,245.0 L150,245 Z"/><path class="curve4" d="M80.0,245.0 L81.2,234.5 L82.3,224.1 L83.5,213.7 L84.7,203.4 L85.8,193.2 L87.0,183.2 L88.2,173.3 L89.3,163.7 L90.5,154.2 L91.7,145.0 L92.8,136.1 L94.0,127.4 L95.2,119.1 L96.3,111.2 L97.5,103.6 L98.7,96.4 L99.8,89.6 L101.0,83.2 L102.2,77.3 L103.3,71.8 L104.5,66.8 L105.7,62.3 L106.8,58.3 L108.0,54.8 L109.2,51.8 L110.3,49.4 L111.5,47.5 L112.7,46.1 L113.8,45.3 L115.0,45.0 L116.2,45.3 L117.3,46.1 L118.5,47.5 L119.7,49.4 L120.8,51.8 L122.0,54.8 L123.2,58.3 L124.3,62.3 L125.5,66.8 L126.7,71.8 L127.8,77.3 L129.0,83.2 L130.2,89.6 L131.3,96.4 L132.5,103.6 L133.7,111.2 L134.8,119.1 L136.0,127.4 L137.2,136.1 L138.3,145.0 L139.5,154.2 L140.7,163.7 L141.8,173.3 L143.0,183.2 L144.2,193.2 L145.3,203.4 L146.5,213.7 L147.7,224.1 L148.8,234.5 L150.0,245.0"/><path class="shade" d="M190,245 L190.0,245.0 L194.7,242.4 L199.3,239.8 L204.0,237.2 L208.7,234.6 L213.3,232.1 L218.0,229.5 L222.7,227.1 L227.3,224.7 L232.0,222.3 L236.7,220.0 L241.3,217.8 L246.0,215.6 L250.7,213.5 L255.3,211.5 L260.0,209.6 L264.7,207.8 L269.3,206.1 L274.0,204.5 L278.7,203.1 L283.3,201.7 L288.0,200.4 L292.7,199.3 L297.3,198.3 L302.0,197.4 L306.7,196.7 L311.3,196.1 L316.0,195.6 L320.7,195.3 L325.3,195.1 L330.0,195.0 L334.7,195.1 L339.3,195.3 L344.0,195.6 L348.7,196.1 L353.3,196.7 L358.0,197.4 L362.7,198.3 L367.3,199.3 L372.0,200.4 L376.7,201.7 L381.3,203.1 L386.0,204.5 L390.7,206.1 L395.3,207.8 L400.0,209.6 L404.7,211.5 L409.3,213.5 L414.0,215.6 L418.7,217.8 L423.3,220.0 L428.0,222.3 L432.7,224.7 L437.3,227.1 L442.0,229.5 L446.7,232.1 L451.3,234.6 L456.0,237.2 L460.7,239.8 L465.3,242.4 L470.0,245.0 L470,245 Z"/><path class="curve" d="M190.0,245.0 L194.7,242.4 L199.3,239.8 L204.0,237.2 L208.7,234.6 L213.3,232.1 L218.0,229.5 L222.7,227.1 L227.3,224.7 L232.0,222.3 L236.7,220.0 L241.3,217.8 L246.0,215.6 L250.7,213.5 L255.3,211.5 L260.0,209.6 L264.7,207.8 L269.3,206.1 L274.0,204.5 L278.7,203.1 L283.3,201.7 L288.0,200.4 L292.7,199.3 L297.3,198.3 L302.0,197.4 L306.7,196.7 L311.3,196.1 L316.0,195.6 L320.7,195.3 L325.3,195.1 L330.0,195.0 L334.7,195.1 L339.3,195.3 L344.0,195.6 L348.7,196.1 L353.3,196.7 L358.0,197.4 L362.7,198.3 L367.3,199.3 L372.0,200.4 L376.7,201.7 L381.3,203.1 L386.0,204.5 L390.7,206.1 L395.3,207.8 L400.0,209.6 L404.7,211.5 L409.3,213.5 L414.0,215.6 L418.7,217.8 L423.3,220.0 L428.0,222.3 L432.7,224.7 L437.3,227.1 L442.0,229.5 L446.7,232.1 L451.3,234.6 L456.0,237.2 L460.7,239.8 L465.3,242.4 L470.0,245.0"/><text class="tf" x="152" y="52" text-anchor="start">撞硬地：時間短、力很大</text><text class="tc" x="330" y="183" text-anchor="middle">撞氣囊：時間長、力小</text><text class="ts" x="115" y="269" text-anchor="middle">Δt 短</text><text class="ts" x="330" y="269" text-anchor="middle">Δt 長（4 倍）</text><text class="tb" x="300" y="110" text-anchor="middle">兩塊面積相同 ＝ 同樣的衝量 ＝ 同樣的 Δp</text></svg><figcaption>F–t 圖下的面積就是衝量。人從同樣速度停下來，Δp 固定 ⇒ 面積固定；把作用時間拉長 4 倍，平均力就只剩 1/4。</figcaption></figure><h5>④ 代數字：為什麼安全氣囊有用</h5>
+<p>60 kg 的人以 15 m/s（54 km/h）撞車後停下：Δp ＝ 60 × 15 ＝ 900 kg·m/s（大小），不管撞到什麼都一樣。</p>
+<table>
+<thead>
+<tr>
+<th>撞到</th>
+<th>停下所需時間 Δt</th>
+<th>平均力 F ＝ Δp/Δt</th>
+<th>約是體重的幾倍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方向盤</td>
+<td>0.01 s</td>
+<td>90000 N</td>
+<td>約 150 倍</td>
+</tr>
+<tr>
+<td>安全氣囊</td>
+<td>0.2 s</td>
+<td>4500 N</td>
+<td>約 8 倍</td>
+</tr>
+</tbody>
+</table>
+<p>同一個道理：接球時手往後收、跳遠落在沙坑、跳下時彎膝蓋——都是拉長 Δt 來降低平均力。</p>
 <h5>解題</h5>
 <ul>
 <li>給 F–t 圖 ⇒ 面積就是 Δp</li>
 <li>給 a–t 圖 ⇒ 面積是 Δv，再乘 m 得衝量</li>
-<li>衝量適用於變力，只要算的是「平均力」就行</li>
+<li>求平均力 ⇒ F ＝ Δp/Δt</li>
+</ul>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>ΣF 是<strong>合力</strong>。例如球落地反彈：地面推力 N 向上、重力 mg 向下 ⇒ (N − mg)Δt ＝ Δp。只有 Δt 極短時，N 遠大於 mg，才可以忽略 mg。</li>
+<li>Δp 忘了方向（見上一框的反彈例）。</li>
 </ul></div></details>
+
+<aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
+<li>p ＝ mv、J ＝ FΔt，都是向量；先規定正方向</li>
+<li>衝量 ＝ 動量變化 ＝ F–t 圖面積</li>
+<li>同樣 Δp，Δt 愈長，平均力愈小</li>
+<li>反彈：Δp 大小 ＝ m(v<sub>前</sub> ＋ v<sub>後</sub>)</li>
+</ul></aside>
 <h3>二、質心</h3>
-<p>一個複雜的系統（爆炸的砲彈、走在船上的人），每個部分的運動都很亂，但有一個點的運動非常單純──<strong>質心</strong>。整個系統的質量可以看成集中在質心，外力決定質心怎麼動，內力（彼此的推拉、爆炸）完全不影響它。</p>
+<p><strong>要解決的問題</strong>：爆炸的砲彈、在船上走的人——整個系統裡每一部分都在亂動，有沒有一個點的運動很單純？</p>
+<ol>
+<li>有，叫<strong>質心</strong>：整個系統的質量可以看成集中在這一點。</li>
+<li>下面先定義它<strong>在哪裡</strong>（位置），再看它<strong>怎麼動</strong>（速度、加速度）。</li>
+<li>結論只有一句：<strong>只有外力能改變質心的運動；系統內部的推拉（內力）動不了它。</strong></li>
+</ol>
 <figure class="fig"><img class="figimg" src="img/A054_57_72_x62-98.jpg" width="730" height="490" loading="lazy" alt="選修物理1、2 第54頁" data-page="選修物理1、2 p.54"><figcaption>砲彈爆炸後，各碎片落地前的共同質心仍沿原來的拋物線運動</figcaption></figure>
 
 <details class="formula"><summary><span class="f-eq">r<sub>CM</sub> ＝ (m<sub>1</sub>r<sub>1</sub> ＋ m<sub>2</sub>r<sub>2</sub> ＋ …)/(m<sub>1</sub> ＋ m<sub>2</sub> ＋ …)；雙質點 r<sub>1</sub>/r<sub>2</sub> ＝ m<sub>2</sub>/m<sub>1</sub></span><span class="f-tag">質心位置</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>意義</h5>
-<p>質心就是「以質量為權重的平均位置」，和上一單元的重心公式一模一樣（地表附近兩者重合）。</p>
-<h5>雙質點的比例</h5>
-<p>以質心為原點，m<sub>1</sub>r<sub>1</sub> ＋ m<sub>2</sub>r<sub>2</sub> ＝ 0 ⇒ <strong>到質心的距離和質量成反比</strong>：重的離質心近。像蹺蹺板的支點要靠近重的人。</p></div></details>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m<sub>1</sub>、m<sub>2</sub>…</td>
+<td>系統內各物體的質量</td>
+</tr>
+<tr>
+<td>r<sub>1</sub>、r<sub>2</sub>…（公式前半）</td>
+<td>各物體的位置座標（要先選一個原點）</td>
+</tr>
+<tr>
+<td>r<sub>CM</sub></td>
+<td>質心的位置（CM ＝ center of mass）</td>
+</tr>
+<tr>
+<td>r<sub>1</sub>、r<sub>2</sub>（雙質點比例式）</td>
+<td>兩物體各自<strong>到質心的距離</strong></td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「質心 ＝ 以質量為權重的平均位置」——質量大的，說話比較大聲，質心就靠近它。<br />
+這和第 4 單元的重心公式一模一樣（地表附近重力場均勻時，兩者是同一點）。</p>
+<h5>③ 雙質點的比例：為什麼重的離質心近</h5>
+<ol>
+<li>把原點選在質心上 ⇒ r<sub>CM</sub> ＝ 0 ⇒ 分子 m<sub>1</sub>x<sub>1</sub> ＋ m<sub>2</sub>x<sub>2</sub> ＝ 0。</li>
+<li>兩物體在質心兩側，座標一正一負 ⇒ 看大小：<strong>m<sub>1</sub>r<sub>1</sub> ＝ m<sub>2</sub>r<sub>2</sub></strong>。</li>
+<li>⇒ r<sub>1</sub>/r<sub>2</sub> ＝ m<sub>2</sub>/m<sub>1</sub>：到質心的距離和質量成反比——就像蹺蹺板，重的人要坐得離支點近才平衡。</li>
+</ol><figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="o" x1="80" y1="100" x2="480" y2="100"/><circle class="fb" cx="80" cy="100" r="26"/><text class="ts" x="80" y="106" text-anchor="middle">3 kg</text><circle class="fg" cx="480" cy="100" r="14"/><text class="ts" x="480" y="76" text-anchor="middle">1 kg</text><polygon class="fy" points="180,104 166,130 194,130"/><text class="tf" x="180" y="84" text-anchor="middle">質心</text><g class="a-mute"><line x1="80" y1="152" x2="180" y2="152"/></g><g class="a-mute"><polygon points="80,152 88,155.2 88,148.8"/></g><g class="a-mute"><polygon points="180,152 172,148.8 172,155.2"/></g><text class="tm" x="130" y="174" text-anchor="middle">r<tspan dy="4" font-size="72%">1</tspan><tspan dy="-4">&#8203;</tspan></text><g class="a-mute"><line x1="180" y1="152" x2="480" y2="152"/></g><g class="a-mute"><polygon points="180,152 188,155.2 188,148.8"/></g><g class="a-mute"><polygon points="480,152 472,148.8 472,155.2"/></g><text class="tm" x="330" y="174" text-anchor="middle">r<tspan dy="4" font-size="72%">2</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tc" x="280" y="210" text-anchor="middle">m<tspan dy="4" font-size="72%">1</tspan><tspan dy="-4">&#8203;</tspan>r<tspan dy="4" font-size="72%">1</tspan><tspan dy="-4">&#8203;</tspan> ＝ m<tspan dy="4" font-size="72%">2</tspan><tspan dy="-4">&#8203;</tspan>r<tspan dy="4" font-size="72%">2</tspan><tspan dy="-4">&#8203;</tspan>：3 × 1 ＝ 1 × 3 ⇒ r<tspan dy="4" font-size="72%">1</tspan><tspan dy="-4">&#8203;</tspan> : r<tspan dy="4" font-size="72%">2</tspan><tspan dy="-4">&#8203;</tspan> ＝ 1 : 3 ＝ m<tspan dy="4" font-size="72%">2</tspan><tspan dy="-4">&#8203;</tspan> : m<tspan dy="4" font-size="72%">1</tspan><tspan dy="-4">&#8203;</tspan></text></svg><figcaption>質心像蹺蹺板的平衡點：重的那端離質心近、輕的那端離質心遠，距離和質量成反比。</figcaption></figure><h5>④ 代數字</h5>
+<ul>
+<li>3 kg 在 x ＝ 0、1 kg 在 x ＝ 4 m：x<sub>CM</sub> ＝ (3×0 ＋ 1×4)/(3 ＋ 1) ＝ 1 m ⇒ 離 3 kg 那顆 1 m、離 1 kg 那顆 3 m（1 : 3 ＝ 質量的反比）✔</li>
+<li>地球與月球：M<sub>地</sub> ≈ 81 M<sub>月</sub>、相距 3.84×10<sup>5</sup> km ⇒ 質心離地心 3.84×10<sup>5</sup>/82 ≈ 4700 km，比地球半徑 6400 km 還小 ⇒ 地月系統的質心在<strong>地球內部</strong>。</li>
+</ul>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>質心不一定在物體上（例如甜甜圈的質心在中間的洞）。</li>
+<li>算座標前一定要先選原點；選哪裡都可以，但同一題要一致。</li>
+</ul></div></details>
 
 <details class="formula"><summary><span class="f-eq">v<sub>CM</sub> ＝ Σm<sub>i</sub>v<sub>i</sub>/M；p<sub>總</sub> ＝ Mv<sub>CM</sub>；ΣF<sub>外</sub> ＝ Ma<sub>CM</sub></span><span class="f-tag">質心運動</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
-<p>質心位置公式對時間取變化率，就得到質心速度；再取一次得到質心加速度。<br />
-- Σm<sub>i</sub>v<sub>i</sub> 就是系統的總動量 ⇒ <strong>總動量 ＝ 總質量 × 質心速度</strong><br />
-- 每個質點 m<sub>i</sub>a<sub>i</sub> ＝ 它受的外力 ＋ 內力；全部加起來，內力成對抵消（第三定律）⇒ <strong>ΣF<sub>外</sub> ＝ Ma<sub>CM</sub></strong></p>
-<h5>邏輯重點：內力動不了質心</h5>
-<ul>
-<li>砲彈在空中爆炸，爆炸力是內力 ⇒ 碎片的質心仍沿原拋物線飛（只要碎片都還在空中）。</li>
-<li>人在船上走（水無阻力）⇒ 人和船的質心不動，人往前走，船就往後退。</li>
-<li>這個性質讓很多「位移」問題不用管過程，只要用「質心位置不變」列一條式子。</li>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td>系統總質量 ＝ m<sub>1</sub> ＋ m<sub>2</sub> ＋ …</td>
+</tr>
+<tr>
+<td>Σm<sub>i</sub>v<sub>i</sub></td>
+<td>每個物體的動量全部加起來 ＝ 系統總動量</td>
+</tr>
+<tr>
+<td>v<sub>CM</sub>、a<sub>CM</sub></td>
+<td>質心的速度、加速度</td>
+</tr>
+<tr>
+<td>ΣF<sub>外</sub></td>
+<td>系統<strong>外面</strong>的東西施給系統的力，全部加起來</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<ol>
+<li>質心速度 ＝ 各物體速度以質量為權重的平均。</li>
+<li>總動量 ＝ 把全部質量放在質心、以質心速度跑的動量。</li>
+<li><strong>只有外力能讓質心加速</strong>，就像整個系統是一顆質量 M 的質點。</li>
+</ol>
+<h5>③ 推導：每一步為什麼</h5>
+<ol>
+<li>質心位置 x<sub>CM</sub> ＝ Σm<sub>i</sub>x<sub>i</sub>/M。經過一小段時間 Δt，每個 x<sub>i</sub> 改變了 Δx<sub>i</sub> ⇒ Δx<sub>CM</sub> ＝ Σm<sub>i</sub>Δx<sub>i</sub>/M。</li>
+<li>兩邊同除以 Δt（位移 ÷ 時間 ＝ 速度）⇒ v<sub>CM</sub> ＝ Σm<sub>i</sub>v<sub>i</sub>/M。</li>
+<li>兩邊同乘 M ⇒ Mv<sub>CM</sub> ＝ Σm<sub>i</sub>v<sub>i</sub> ＝ <strong>總動量</strong>。</li>
+<li>對速度再做一次同樣的事（速度變化 ÷ 時間 ＝ 加速度）⇒ Ma<sub>CM</sub> ＝ Σm<sub>i</sub>a<sub>i</sub>。</li>
+<li>每一項 m<sub>i</sub>a<sub>i</sub> ＝ 物體 i 受的合力 ＝ 外力 ＋ 系統內其他物體給它的內力。</li>
+<li>全部加起來時，內力都是成對出現（第三定律：甲推乙、乙推甲，大小相等方向相反）⇒ 一對一對抵消 ⇒ 只剩外力 ⇒ <strong>ΣF<sub>外</sub> ＝ Ma<sub>CM</sub></strong>。</li>
+</ol>
+<h5>內力動不了質心：看動畫</h5><figure class="viz viz-anim"><div class="viz-h">動畫解（可播放、可拖曳時間軸）</div><div class="sim" data-sim="u6explode" data-p="{}"></div><figcaption>爆炸力是碎片之間的內力：碎片各飛各的，但質心（×）仍沿原本的拋物線前進。直到較重的碎片落地，地面對它施力（外力），質心才離開原拋物線。</figcaption></figure><ul>
+<li>砲彈在空中爆炸，爆炸力是碎片之間的內力 ⇒ 碎片的質心仍沿原拋物線飛（只要碎片都還在空中；一落地，地面就給了外力）。</li>
+</ul><figure class="viz viz-anim"><div class="viz-h">動畫解（可播放、可拖曳時間軸）</div><div class="sim" data-sim="boat" data-p="{&quot;M&quot;: 100, &quot;m&quot;: 50, &quot;L&quot;: 6}"></div><figcaption>水平方向沒有外力 ⇒ 質心不動：人往右走，船就往左退。人相對船走 6 m，人對岸只走 4 m，船退 2 m。</figcaption></figure><ul>
+<li>人在船上走（水的阻力不計）⇒ 水平方向沒有外力 ⇒ 人和船的質心不動：人往前走，船就往後退。</li>
 </ul>
-<h5>解題：質心不動的位移問題</h5>
-<p>人（m）在船（M）上相對船走了 L，船退 x：m(L − x) ＝ Mx ⇒ <strong>x ＝ mL/(M ＋ m)</strong></p></div></details>
+<h5>④ 解題：質心不動的位移問題</h5>
+<p>人（m）在船（M）上，相對船走了 L；設船往反方向退了 x：</p>
+<ol>
+<li>人相對岸只走了 L − x（自己走 L，但腳下的船往回退了 x）。</li>
+<li>質心不動 ⇒ 質心的位移 Σm<sub>i</sub>Δx<sub>i</sub>/M ＝ 0 ⇒ m(L − x) − Mx ＝ 0。</li>
+<li>⇒ m(L − x) ＝ Mx ⇒ <strong>x ＝ mL/(M ＋ m)</strong></li>
+<li>代數字：M ＝ 100 kg、m ＝ 50 kg、L ＝ 6 m ⇒ x ＝ 50×6/150 ＝ 2 m；人對岸走 4 m（和上面動畫一致）。</li>
+</ol>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>L 是人<strong>相對船</strong>走的距離；人對岸的位移是 L − x。</li>
+<li>有外力（例如地面摩擦）時，質心就不一定不動。</li>
+</ul></div></details>
+
+<aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
+<li>質心 ＝ 質量加權平均位置；雙質點 m<sub>1</sub>r<sub>1</sub> ＝ m<sub>2</sub>r<sub>2</sub></li>
+<li>總動量 ＝ Mv<sub>CM</sub>；ΣF<sub>外</sub> ＝ Ma<sub>CM</sub></li>
+<li>內力（爆炸、人推船）不改變質心運動</li>
+<li>船上走路：m(L − x) ＝ Mx</li>
+</ul></aside>
 
 <h2 class="section " id="s2">焦點 1　範例與類題</h2>
 
@@ -287,9 +596,11 @@ body.hide-pre .pre{display:none}
 <div class="qimgs"><img class="qimg" src="img/A055_49_67.jpg" width="1400" height="422" loading="lazy" alt="選修物理1、2 第55頁" data-page="選修物理1、2 p.55"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(B)</div>
-<div class="exp"><b class="exp-h">解</b><p>a–t 圖面積 ＝ Δv：<br />
-- 0～1 s：2 × 1 ＝ 2<br />
-- 1～4 s：由 2 直線降到 −2，上下兩塊三角形面積相等，合計 0</p>
+<div class="exp"><b class="exp-h">解</b><p>a–t 圖面積 ＝ Δv：</p>
+<ul>
+<li>0～1 s：2 × 1 ＝ 2</li>
+<li>1～4 s：由 2 直線降到 −2，上下兩塊三角形面積相等，合計 0</li>
+</ul>
 <p>Δv ＝ 2 m/s ⇒ 衝量 ＝ mΔv ＝ 2 × 2 ＝ <strong>4 N·s</strong></p></div>
 </details>
 </article>
@@ -299,9 +610,11 @@ body.hide-pre .pre{display:none}
 <div class="qimgs"><img class="qimg" src="img/A055_80_92.jpg" width="1400" height="308" loading="lazy" alt="選修物理1、2 第55頁" data-page="選修物理1、2 p.55"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>1 : 11</div>
-<div class="exp"><b class="exp-h">解</b><p>由圖 a ＝ −1 ＋ t/2（t ＝ 0 時 −1，t ＝ 2 時 0）。衝量 ∝ a–t 面積：<br />
-- 0～5 s：−1 × 5 ＋ (25/4) ＝ 1.25<br />
-- 5～10 s：−1 × 5 ＋ (100 − 25)/4 ＝ 13.75</p>
+<div class="exp"><b class="exp-h">解</b><p>由圖 a ＝ −1 ＋ t/2（t ＝ 0 時 −1，t ＝ 2 時 0）。衝量 ∝ a–t 面積：</p>
+<ul>
+<li>0～5 s：−1 × 5 ＋ (25/4) ＝ 1.25</li>
+<li>5～10 s：−1 × 5 ＋ (100 − 25)/4 ＝ 13.75</li>
+</ul>
 <p>比 ＝ 1.25 : 13.75 ＝ <strong>1 : 11</strong></p></div>
 </details>
 </article>
@@ -348,19 +661,81 @@ body.hide-pre .pre{display:none}
 
 <h2 class="section " id="s3">焦點 2　動量守恆</h2>
 <h3>三、動量守恆律</h3>
-<p>由 ΣF ＝ Δp/Δt 立刻得到：只要系統不受外力（或外力和為零），總動量就不會變。這條定律不在乎系統內部發生什麼事，碰撞、爆炸、互相推拉都一樣成立。</p>
+<p><strong>要解決的問題</strong>：碰撞、爆炸時內部的力又大又亂，能不能完全不管它，直接由「前」算出「後」？</p>
+<ol>
+<li>焦點 1 得到：ΣF<sub>外</sub> ＝ Ma<sub>CM</sub>，也就是 ΣF<sub>外</sub> ＝（總動量的變化）÷ Δt（內力已經成對抵消）。</li>
+<li>如果外力的和為零 ⇒ 總動量的變化 ＝ 0 ⇒ <strong>總動量不變</strong>。</li>
+<li>這個結論完全沒用到內力有多大、怎麼變——所以碰撞、爆炸、互相推拉都一樣成立。</li>
+</ol>
 <details class="formula"><summary><span class="f-eq">ΣF<sub>外</sub> ＝ 0 ⇒ p<sub>1</sub> ＋ p<sub>2</sub> ＋ … ＝ p<sub>1</sub>&#x27; ＋ p<sub>2</sub>&#x27; ＋ …</span><span class="f-tag">動量守恆</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>為什麼內力不影響總動量</h5>
-<p>A 推 B，B 也推 A，兩力大小相等、方向相反、作用時間相同 ⇒ 兩者得到的衝量<strong>大小相等、方向相反</strong>：Δp<sub>A</sub> ＝ −Δp<sub>B</sub>，總和不變。</p>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p<sub>1</sub>、p<sub>2</sub>…</td>
+<td>事件（碰撞、爆炸）<strong>之前</strong>各物體的動量 m<sub>1</sub>v<sub>1</sub>、m<sub>2</sub>v<sub>2</sub>…</td>
+</tr>
+<tr>
+<td>p<sub>1</sub>′、p<sub>2</sub>′…</td>
+<td>事件<strong>之後</strong>各物體的動量（右上角一撇 ＝ 之後）</td>
+</tr>
+<tr>
+<td>ΣF<sub>外</sub></td>
+<td>系統外面施給系統的力的總和</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「系統不受外力（或外力互相抵消）時，大家的動量加起來，事件前 ＝ 事件後。動量只是在系統內部<strong>換手</strong>，總量不會多也不會少。」</p>
+<h5>③ 為什麼內力不影響總動量</h5>
+<ol>
+<li>A 推 B 的力和 B 推 A 的力：大小相等、方向相反（第三定律）。</li>
+<li>兩個力<strong>同時出現、同時消失</strong> ⇒ 作用時間 Δt 一樣。</li>
+<li>⇒ 兩者得到的衝量大小相等、方向相反 ⇒ Δp<sub>A</sub> ＝ −Δp<sub>B</sub>：A 少掉多少，B 就多出多少，總和不變。</li>
+</ol><figure class="viz viz-anim"><div class="viz-h">動畫解（可播放、可拖曳時間軸）</div><div class="sim" data-sim="u6collide" data-p="{}"></div><figcaption>甲車（2 kg，3 m/s）撞靜止的乙車（1 kg）。碰撞時兩車互推的力大小相等、方向相反：甲少掉的動量剛好等於乙得到的，下方的總動量長條從頭到尾不變。</figcaption></figure><h5>④ 代數字</h5>
+<p><strong>碰撞（上面動畫）</strong>：甲 2 kg、3 m/s 撞靜止的乙 1 kg，撞後甲 1 m/s、乙 4 m/s（向右為正）。</p>
+<ul>
+<li>前：2×3 ＋ 1×0 ＝ 6 kg·m/s</li>
+<li>後：2×1 ＋ 1×4 ＝ 6 kg·m/s ✔</li>
+</ul>
+<p><strong>開槍的後座</strong>：4 kg 的槍射出 0.01 kg、400 m/s 的子彈，原本都靜止。</p>
+<ul>
+<li>前：總動量 0</li>
+<li>後：0.01×400 ＋ 4×v ＝ 0 ⇒ v ＝ <strong>−1 m/s</strong>（負號：槍往後退）</li>
+</ul>
 <h5>分方向守恆</h5>
 <p>動量是向量，可以一個方向一個方向看。<strong>哪個方向沒有外力，哪個方向的動量就守恆</strong>。<br />
 例：光滑地面上的盒子裡單擺在擺，鉛直方向有重力、正向力（不守恆），但水平方向沒有外力 ⇒ 水平動量守恆。</p>
 <h5>碰撞與爆炸為什麼可以用</h5>
-<p>碰撞、爆炸時的內力極大、時間極短；重力、摩擦力這些外力在這麼短的時間內給的衝量可以忽略。所以<strong>碰撞或爆炸前後的瞬間</strong>，視為動量守恆。</p>
+<ol>
+<li>碰撞、爆炸時內力極大、時間極短（例如 0.01 s）。</li>
+<li>重力、摩擦力這些外力一直都在，但在這麼短的時間內給的衝量（外力 × 0.01 s）跟巨大內力相比可以忽略。</li>
+<li>所以<strong>碰撞或爆炸前後的瞬間</strong>，視為動量守恆。</li>
+</ol>
 <h5>雙質點的推論</h5>
-<p>Δp<sub>1</sub> ＝ −Δp<sub>2</sub>：兩者動量變化大小相同、方向相反。但<strong>速度變化</strong>不一樣：質量小的速度變得多（槍的後座比子彈慢得多）。</p></div></details>
+<p>Δp<sub>1</sub> ＝ −Δp<sub>2</sub>：兩者動量變化大小相同、方向相反。但<strong>速度變化</strong>不一樣：Δv ＝ Δp/m，質量小的速度變得多。<br />
+例：上面的碰撞，甲 Δv ＝ −2 m/s、乙 Δv ＝ ＋4 m/s；開槍時子彈 400 m/s、槍只有 1 m/s。</p>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>速度忘了帶正負號（相向運動的兩物體，其中一個是負的）。</li>
+<li>系統沒選完整：互相作用的物體都要包進來，力才會變成內力。</li>
+<li>外力明顯且作用時間長（例如有摩擦的地面上滑行一段距離）時，不能直接用。</li>
+</ul></div></details>
 
 <figure class="fig"><img class="figimg" src="img/A057_48_58_x20-80.jpg" width="1203" height="327" loading="lazy" alt="選修物理1、2 第57頁" data-page="選修物理1、2 p.57"><figcaption>碰撞與爆炸：瞬間前後總動量守恆</figcaption></figure>
+
+<aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
+<li>外力和為零 ⇒ 總動量守恆；只要某方向外力為零，該方向就守恆</li>
+<li>碰撞、爆炸前後瞬間一律用動量守恆</li>
+<li>先規定正方向，所有速度帶符號</li>
+<li>Δp 一樣大，質量小的 Δv 大</li>
+</ul></aside>
 
 <h2 class="section " id="s4">焦點 2　範例與類題</h2>
 
@@ -369,9 +744,11 @@ body.hide-pre .pre{display:none}
 <div class="qimgs"><img class="qimg" src="img/A058_8p5_26.jpg" width="1400" height="432" loading="lazy" alt="選修物理1、2 第58頁" data-page="選修物理1、2 p.58"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(E)</div>
-<div class="exp"><b class="exp-h">解</b><p>最高點只有水平速度 v，三塊質量各 m：<br />
-- 乙自由落下 ⇒ 水平速度 0<br />
-- 丙循原路徑回到拋射點 ⇒ 水平速度 −v</p>
+<div class="exp"><b class="exp-h">解</b><p>最高點只有水平速度 v，三塊質量各 m：</p>
+<ul>
+<li>乙自由落下 ⇒ 水平速度 0</li>
+<li>丙循原路徑回到拋射點 ⇒ 水平速度 −v</li>
+</ul>
 <p>3mv ＝ m v<sub>甲</sub> ＋ 0 ＋ m(−v) ⇒ v<sub>甲</sub> ＝ 4v ⇒ 甲 : 丙 ＝ <strong>4</strong></p></div>
 </details>
 </article>
@@ -444,10 +821,12 @@ m ＝ 20/40 ＝ <strong>0.5 kg</strong></p></div>
 <div class="qimgs"><img class="qimg" src="img/A059_57_70.jpg" width="1400" height="315" loading="lazy" alt="選修物理1、2 第59頁" data-page="選修物理1、2 p.59"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(A)</div>
-<div class="exp"><b class="exp-h">解</b><p>三者都朝原點運動而碰撞：<br />
-- 3m：(3mv, 0)<br />
-- 右上的 m：√2v 朝左下 ⇒ (−mv, −mv)<br />
-- 右下的 m：(−mv, ＋mv)</p>
+<div class="exp"><b class="exp-h">解</b><p>三者都朝原點運動而碰撞：</p>
+<ul>
+<li>3m：(3mv, 0)</li>
+<li>右上的 m：√2v 朝左下 ⇒ (−mv, −mv)</li>
+<li>右下的 m：(−mv, ＋mv)</li>
+</ul>
 <p>總動量 (mv, 0)，總質量 5m ⇒ <strong>v/5</strong></p></div>
 </details>
 </article>
@@ -574,12 +953,14 @@ m(d − x) ＝ Mx ⇒ <strong>x ＝ md/(M ＋ m)</strong>（與 k 無關）</p><
 <div class="qimgs"><img class="qimg" src="img/A061_38_52.jpg" width="1400" height="335" loading="lazy" alt="選修物理1、2 第61頁" data-page="選修物理1、2 p.61"><img class="qimg" src="img/A061_69_81p2.jpg" width="1400" height="280" loading="lazy" alt="選修物理1、2 第61頁" data-page="選修物理1、2 p.61"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(B)(D)</div>
-<div class="exp"><b class="exp-h">解</b><p>水平無外力 ⇒ 水平質心不動，乙往右時盒往左，乙往左時盒往右。<br />
-- (A) ✗<br />
-- (B) ○ 左高點 → 最低點：乙向右 ⇒ 盒向左<br />
-- (C) ✗ 最低點 → 右高點：乙仍向右 ⇒ 盒向<strong>左</strong><br />
-- (D) ○ 右高點 → 最低點：乙向左 ⇒ 盒向右<br />
-- (E) ✗ 最低點 → 左高點：乙向左 ⇒ 盒向<strong>右</strong></p></div>
+<div class="exp"><b class="exp-h">解</b><p>水平無外力 ⇒ 水平質心不動，乙往右時盒往左，乙往左時盒往右。</p>
+<ul>
+<li>(A) ✗</li>
+<li>(B) ○ 左高點 → 最低點：乙向右 ⇒ 盒向左</li>
+<li>(C) ✗ 最低點 → 右高點：乙仍向右 ⇒ 盒向<strong>左</strong></li>
+<li>(D) ○ 右高點 → 最低點：乙向左 ⇒ 盒向右</li>
+<li>(E) ✗ 最低點 → 左高點：乙向左 ⇒ 盒向<strong>右</strong></li>
+</ul></div>
 </details>
 </article>
 
@@ -633,50 +1014,238 @@ F ＝ mΔv/Δt ＝ 0.05 × 50/0.10 ＝ <strong>25 N</strong></p></div>
 
 <h2 class="section " id="s7">焦點 3　角動量守恆</h2>
 <h3>四、角動量</h3>
-<p>轉動世界裡有一個和動量對應的量：角動量。它描述物體「繞某一點轉動的運動量」，所以和動量一樣大小有關，也和「離轉軸多遠、方向歪不歪」有關──跟力矩和力的關係完全一樣。</p>
+<p><strong>要解決的問題</strong>：溜冰選手、行星、繩子甩的球都在「繞著轉」，轉動也有一個像動量那樣的「運動量」嗎？</p>
+<p>用類比來建：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>移動</th>
+<th>轉動</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>運動量</td>
+<td>動量 p ＝ mv</td>
+<td>角動量 L</td>
+</tr>
+<tr>
+<td>改變它的東西</td>
+<td>力 F</td>
+<td>力矩 τ（第 4 單元）</td>
+</tr>
+<tr>
+<td>關係</td>
+<td>F ＝ Δp/Δt</td>
+<td>τ ＝ ΔL/Δt</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>回顧力矩：τ ＝ rF sinθ ＝ F × 力臂 d，其中 d ＝ 參考點到<strong>力的作用線</strong>的垂直距離。</li>
+<li>角動量用<strong>同一個算法</strong>，只是把力 F 換成動量 p：L ＝ rp sinθ ＝ p × d。</li>
+</ol>
 <figure class="fig"><img class="figimg" src="img/A063_19_38_x62-92.jpg" width="527" height="547" loading="lazy" alt="選修物理1、2 第63頁" data-page="選修物理1、2 p.63"><figcaption>角動量 L ＝ r × p，方向由右手定則決定</figcaption></figure>
 
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 290" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><line class="dim" x1="40" y1="110" x2="540" y2="110"/><g class="a-ink"><line x1="110" y1="235" x2="291.6" y2="115.5"/><polygon points="300,110 294,119 289.3,112"/></g><text class="ti" x="190" y="160" text-anchor="middle">r</text><g class="a-vel"><line x1="300" y1="110" x2="430" y2="110"/><polygon points="440,110 430,114.2 430,105.8"/></g><text class="tv" x="450" y="96" text-anchor="middle">p ＝ mv</text><line class="o" x1="110" y1="235" x2="110" y2="110"/><rect class="f" x="110" y="110" width="12" height="12" rx="0"/><text class="tf" x="100" y="177.5" text-anchor="end">d ＝ r sinθ</text><circle class="fo" cx="110" cy="235" r="5"/><text class="ts" x="110" y="259" text-anchor="middle">參考點 O</text><circle class="fb" cx="300" cy="110" r="8"/><path class="o" d="M266,110 A34,34 0 0 0 271.5,128.5"/><text class="t" x="254" y="136" text-anchor="middle">θ</text><text class="tb" x="320" y="200" text-anchor="start">L ＝ p × d ＝ r p sinθ</text><text class="tm" x="320" y="228" text-anchor="start">（力矩 τ ＝ F × d，把 F 換成 p）</text><text class="tm" x="320" y="256" text-anchor="start">虛線：動量的「作用線」</text></svg><figcaption>角動量只看動量 p 的作用線離參考點多遠（d）：d 愈大，「繞著 O 轉」的效果愈強。作用線通過 O（d ＝ 0）時，L ＝ 0。</figcaption></figure>
+
 <details class="formula"><summary><span class="f-eq">L ＝ r × p，L ＝ rp sinθ；圓周運動 L ＝ mvr ＝ mr²ω</span><span class="f-tag">角動量</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>和力矩的對照</h5>
-<p>力矩 τ ＝ r × F；角動量 L ＝ r × p──把力換成動量而已。<br />
-- 移動：p，改變它的是力 F ＝ Δp/Δt<br />
-- 轉動：L，改變它的是力矩 τ ＝ ΔL/Δt</p>
-<h5>圓周運動</h5>
-<p>以圓心為參考點，r 與 p 垂直（sin90° ＝ 1）：L ＝ mvr；再用 v ＝ rω ⇒ <strong>L ＝ mr²ω</strong>。</p>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+<th>單位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L</td>
+<td>角動量</td>
+<td>kg·m²/s</td>
+</tr>
+<tr>
+<td>r</td>
+<td>從參考點指到物體的位置向量</td>
+<td>m</td>
+</tr>
+<tr>
+<td>p</td>
+<td>物體的動量 mv</td>
+<td>kg·m/s</td>
+</tr>
+<tr>
+<td>θ</td>
+<td>r 和 p 的夾角</td>
+<td>—</td>
+</tr>
+<tr>
+<td>r sinθ</td>
+<td>參考點到動量作用線的垂直距離（「力臂」）</td>
+<td>m</td>
+</tr>
+<tr>
+<td>ω</td>
+<td>角速度（每秒轉幾弧度）</td>
+<td>rad/s</td>
+</tr>
+<tr>
+<td>×</td>
+<td>外積：大小 ＝ rp sinθ，方向用右手定則</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「角動量 ＝ 動量 × 動量的作用線離參考點的垂直距離。」</p>
+<ul>
+<li>同樣的動量，離參考點愈遠、方向愈「側著」，繞這一點轉的效果愈強。</li>
+<li>正對著參考點衝過來（θ ＝ 0），作用線通過參考點 ⇒ L ＝ 0。</li>
+<li>一定要先說「對哪一點」：換參考點，L 就不同（和力矩一樣）。</li>
+</ul>
+<h5>③ 圓周運動為什麼是 mvr ＝ mr²ω</h5>
+<ol>
+<li>以圓心為參考點，r 沿半徑、速度沿切線 ⇒ 兩者垂直，sin90° ＝ 1 ⇒ L ＝ rp ＝ mvr。</li>
+<li>弧長 ＝ 半徑 × 角度（弧度）⇒ 每秒走的弧長 v ＝ rω。</li>
+<li>代入：L ＝ m(rω)r ＝ <strong>mr²ω</strong>。</li>
+</ol>
 <h5>方向</h5>
-<p>右手四指沿轉動方向彎曲，大拇指就是 L 的方向（也是角速度 ω 的方向）。逆時針轉 ⇒ 指出紙面。</p></div></details>
+<p>右手四指沿轉動方向彎曲，大拇指就是 L 的方向（也是角速度 ω 的方向）。逆時針轉 ⇒ 指出紙面。</p>
+<h5>④ 代數字</h5>
+<ul>
+<li>0.5 kg 的球用 0.8 m 長的繩子以 2 m/s 繞圈：L ＝ 0.5 × 2 × 0.8 ＝ <strong>0.8 kg·m²/s</strong>。</li>
+<li>直線運動也可以有角動量：2 kg·m/s 的物體沿直線經過，作用線離 O 點 3 m ⇒ 對 O 點 L ＝ 2 × 3 ＝ 6 kg·m²/s；它直線前進時 d 一直是 3 m ⇒ L 一直是 6（沒有力，L 不變）。</li>
+</ul>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>沒說參考點就談角動量。</li>
+<li>用 r 直接乘 p：要乘的是<strong>垂直距離</strong> r sinθ。</li>
+</ul></div></details>
 
 <figure class="fig"><img class="figimg" src="img/A063_52_66.jpg" width="1400" height="326" loading="lazy" alt="選修物理1、2 第63頁" data-page="選修物理1、2 p.63"><figcaption>移動與轉動物理量的對照</figcaption></figure>
 <h3>五、角動量守恆</h3>
+<p><strong>要解決的問題</strong>：什麼情況下角動量不會變？——和「沒有外力 ⇒ 動量守恆」同一個句型：<strong>沒有力矩 ⇒ 角動量守恆</strong>。</p>
 <details class="formula"><summary><span class="f-eq">τ ＝ ΔL/Δt；τ ＝ 0 ⇒ L 守恆</span><span class="f-tag">角動量守恆</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
-<p>τ ＝ r × F ＝ r × Δp/Δt ＝ Δ(r × p)/Δt ＝ <strong>ΔL/Δt</strong><br />
-所以合力矩為零時，角動量不變。</p>
-<h5>什麼時候力矩為零？──連心力</h5>
-<p>力的作用線永遠通過參考點（如繩子穿過小孔拉球、太陽拉行星），r 和 F 平行，τ ＝ 0 ⇒ 角動量守恆。</p>
-<h5>應用</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>τ</td>
+<td>對參考點的合力矩</td>
+</tr>
+<tr>
+<td>ΔL</td>
+<td>角動量的變化（對同一個參考點）</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「力矩推了多久，角動量就改變多少；沒有力矩，角動量就不變。」</p>
+<h5>③ 推導</h5>
+<ol>
+<li>力矩 τ ＝ r × F，而 F ＝ Δp/Δt（焦點 1）⇒ τ ＝ r × Δp/Δt。</li>
+<li>L ＝ r × p 改變時，r 和 p 兩個都在變：ΔL ≈ (Δr) × p ＋ r × (Δp)。</li>
+<li>Δr ＝ vΔt 和 p ＝ mv 方向相同 ⇒ 兩個平行向量外積為 0（sin0° ＝ 0）⇒ 第一項消失。</li>
+<li>⇒ ΔL ＝ r × Δp ⇒ <strong>τ ＝ ΔL/Δt</strong>。合力矩為零時，ΔL ＝ 0，角動量不變。</li>
+</ol>
+<h5>什麼時候力矩為零？——連心力</h5>
+<p>力的作用線永遠通過參考點（如繩子穿過小孔拉球、太陽拉行星）⇒ r 和 F 平行，力臂 ＝ 0 ⇒ τ ＝ 0 ⇒ 角動量守恆。</p><figure class="viz viz-anim"><div class="viz-h">動畫解（可播放、可拖曳時間軸）</div><div class="sim" data-sim="u6rope" data-p="{&quot;m&quot;: 0.5, &quot;r0&quot;: 0.8, &quot;v0&quot;: 2.0}"></div><figcaption>繩子拉力永遠指向小孔 ⇒ 對小孔的力矩為 0 ⇒ 角動量 mvr 守恆：半徑縮成一半，速率變 2 倍，角速度變 4 倍。（慢動作）</figcaption></figure><h5>④ 代數字：繩穿小孔（上面的動畫）</h5>
+<p>0.5 kg 的球，半徑 0.8 m、速率 2 m/s；從下面把繩子拉短到 0.4 m：</p>
+<ol>
+<li>繩力指向小孔 ⇒ 對小孔力矩 0 ⇒ mvr 不變：0.5 × 2 × 0.8 ＝ 0.5 × v′ × 0.4 ⇒ v′ ＝ <strong>4 m/s</strong>（半徑一半，速率 2 倍）。</li>
+<li>角速度 ω ＝ v/r：原本 2/0.8 ＝ 2.5 rad/s，之後 4/0.4 ＝ 10 rad/s ⇒ <strong>4 倍</strong>（也可由 mr²ω 不變：r 變 1/2，r² 變 1/4，ω 就要變 4 倍）。</li>
+</ol>
+<h5>其他應用</h5>
 <ul>
-<li><strong>溜冰選手收手</strong>：r 變小，要保持 L ＝ mr²ω 不變，ω 就變大，轉得更快。</li>
-<li><strong>繩穿小孔</strong>：半徑縮小一半，mvr 不變 ⇒ 速率變 2 倍。</li>
-<li><strong>行星</strong>：近日點 r 小速度快，r<sub>近</sub>v<sub>近</sub> ＝ r<sub>遠</sub>v<sub>遠</sub>。</li>
+<li><strong>溜冰選手收手</strong>：手收回來，質量離轉軸變近（r 變小）；要保持 L ＝ mr²ω 不變，ω 就變大，轉得更快。</li>
+<li><strong>行星</strong>：引力指向太陽 ⇒ 角動量守恆 ⇒ 近日點 r 小、速度快：r<sub>近</sub>v<sub>近</sub> ＝ r<sub>遠</sub>v<sub>遠</sub>（第 5 單元用幾何推過的同一件事）。</li>
+</ul>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>角動量守恆 ≠ 速率不變：繩穿小孔、行星的速率都在變。</li>
+<li>有力不代表有力矩：連心力有力，但對中心的力矩是 0。</li>
+<li>動量不守恆時，角動量仍可能守恆：繩穿小孔時繩力是外力 ⇒ 動量<strong>不</strong>守恆；但它對小孔沒有力矩 ⇒ 角動量<strong>守恆</strong>。</li>
 </ul></div></details>
 
 <figure class="fig"><img class="figimg" src="img/A063_73_83_x70-99.jpg" width="510" height="259" loading="lazy" alt="選修物理1、2 第63頁" data-page="選修物理1、2 p.63"><figcaption>行星繞日：引力通過太陽，角動量守恆</figcaption></figure>
 
 <details class="formula"><summary><span class="f-eq">ΔA/Δt ＝ ½r²ω ＝ L/(2m)</span><span class="f-tag">面積速率與克卜勒第二定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
-<p>很短的時間內，連線掃過一個細扇形：ΔA ＝ ½r²Δθ ⇒ ΔA/Δt ＝ ½r²ω<br />
-乘上 m/m：½r²ω ＝ mr²ω/(2m) ＝ <strong>L/(2m)</strong></p>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ΔA/Δt</td>
+<td>面積速率：連線每秒掃過的面積</td>
+</tr>
+<tr>
+<td>r</td>
+<td>物體到中心（太陽）的距離</td>
+</tr>
+<tr>
+<td>ω</td>
+<td>角速度</td>
+</tr>
+<tr>
+<td>L、m</td>
+<td>角動量、物體質量</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「面積速率和角動量只差一個 2m 倍」⇒ 一個不變，另一個就不變。</p>
+<h5>③ 推導</h5>
+<ol>
+<li>很短的時間 Δt 內，連線轉過小角度 Δθ，掃過一個細扇形。</li>
+<li>扇形面積：整個圓 πr² 對應 2π 弧度 ⇒ 每 1 弧度是 ½r² ⇒ ΔA ＝ ½r²Δθ。</li>
+<li>除以 Δt：ΔA/Δt ＝ ½r²·(Δθ/Δt) ＝ ½r²ω。</li>
+<li>分子分母同乘 m：½r²ω ＝ mr²ω/(2m) ＝ <strong>L/(2m)</strong>（mr²ω 就是角動量 L）。</li>
+</ol>
 <h5>邏輯</h5>
 <p>角動量守恆 ⇒ 面積速率固定 ⇒ 克卜勒第二定律（等面積定律）其實就是角動量守恆。<br />
 反過來：知道面積速率 A，就知道 <strong>L ＝ 2mA</strong>。</p></div></details>
 <h3>六、Summary 重點</h3>
+<table>
+<thead>
+<tr>
+<th>移動</th>
+<th>轉動</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>動量 p ＝ mv</td>
+<td>角動量 L ＝ rp sinθ（圓周 mvr ＝ mr²ω）</td>
+</tr>
+<tr>
+<td>衝量 FΔt ＝ Δp</td>
+<td>力矩 × 時間 τΔt ＝ ΔL</td>
+</tr>
+<tr>
+<td>外力和為零 ⇒ 動量守恆</td>
+<td>合力矩為零 ⇒ 角動量守恆</td>
+</tr>
+</tbody>
+</table>
 <ol>
 <li>衝量 ＝ 動量變化；延長作用時間可以降低平均力。</li>
 <li>內力不影響系統的質心運動與總動量。</li>
 <li>某方向外力和為零，該方向動量守恆；碰撞、爆炸前後瞬間視為動量守恆。</li>
 <li>角動量改變是因為受到力矩；力矩與角動量同向則 L 增加，反向則減少。</li>
-<li>用角動量守恆前，先確認對該參考點的合力矩為零。</li>
+<li>用角動量守恆前，先確認對該參考點的合力矩為零（連心力最常見）。</li>
 </ol>
 <h2 class="section " id="s8">焦點 3　範例與類題</h2>
 
@@ -711,11 +1280,13 @@ F ＝ mΔv/Δt ＝ 0.05 × 50/0.10 ＝ <strong>25 N</strong></p></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(A)(C)</div>
 <div class="exp"><b class="exp-h">解</b><p>(A) ○ M<sub>1</sub>g ＝ mrω² ⇒ M<sub>1</sub> ＝ mrω²/g<br />
-繩的拉力通過小孔 ⇒ 角動量守恆：半徑減半，mvr 不變 ⇒ v 變 2 倍，ω ＝ v/r 變 <strong>4 倍</strong><br />
-- (B) ✗ 張力通過中心，力矩為零<br />
-- (C) ○ M<sub>2</sub>g ＝ m(2v)²/(r/2) ＝ 8mv²/r ＝ 8M<sub>1</sub>g<br />
-- (D) ✗ 速率 2 倍，動能 4 倍<br />
-- (E) ✗ 角速度變為 4ω</p></div>
+繩的拉力通過小孔 ⇒ 角動量守恆：半徑減半，mvr 不變 ⇒ v 變 2 倍，ω ＝ v/r 變 <strong>4 倍</strong></p>
+<ul>
+<li>(B) ✗ 張力通過中心，力矩為零</li>
+<li>(C) ○ M<sub>2</sub>g ＝ m(2v)²/(r/2) ＝ 8mv²/r ＝ 8M<sub>1</sub>g</li>
+<li>(D) ✗ 速率 2 倍，動能 4 倍</li>
+<li>(E) ✗ 角速度變為 4ω</li>
+</ul></div>
 </details>
 </article>
 
@@ -1541,6 +2112,206 @@ S.gasbox={w:560,h:300,dur:9,
   note:function(t){
     var c=S.gasbox._sim(),i=Math.min(c.frames.length-1,Math.round(t/c.dt)),L=c.xr[i]-c.x0;
     return '體積 V ∝ '+Math.round(L)+'（原 360）；撞擊次數約隨 1/V 增加 ⇒ 壓力 P ∝ 1/V。';
+  }};
+})();
+
+/* 動畫解（四）：第5、6單元正文的動畫 */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,Arrow=H.Arrow,S=window.SIMS;
+function f2(x){return (Math.round(x*100)/100).toFixed(2);}
+function f1(x){return (Math.round(x*10)/10).toFixed(1);}
+function poly(parent,cls){return E('polyline',{'class':cls,points:''},parent);}
+
+/* ---------- 第5單元：牛頓的大砲 ---------- */
+S.u5cannon={w:560,h:330,dur:7,
+  _sim:function(){
+    if(S.u5cannon._c)return S.u5cannon._c;
+    var R=72,r0=108,Tc=6,vc=2*Math.PI*r0/Tc,GM=vc*vc*r0,fs=[0.5,0.8,1.0],out=[];
+    fs.forEach(function(f){
+      var x=0,y=r0,vx=f*vc,vy=0,dt=0.002,t=0,arr=[[0,x,y]],land=null;
+      while(t<S.u5cannon.dur){
+        var r=Math.hypot(x,y),a=GM/(r*r*r);
+        vx-=a*x*dt;vy-=a*y*dt;x+=vx*dt;y+=vy*dt;t+=dt;
+        if(Math.hypot(x,y)<=R){land=t;var k=R/Math.hypot(x,y);x*=k;y*=k;arr.push([t,x,y]);break;}
+        arr.push([t,x,y]);
+      }
+      out.push({arr:arr,land:land});
+    });
+    return (S.u5cannon._c={R:R,r0:r0,out:out});
+  },
+  build:function(svg){
+    var c=S.u5cannon._sim(),cx=280,cy=178;
+    E('circle',{'class':'fg',cx:cx,cy:cy,r:c.R},svg);T(svg,cx,cy+5,'地球','t');
+    E('polygon',{'class':'fy',points:(cx-14)+','+(cy-c.R+3)+' '+cx+','+(cy-c.r0)+' '+(cx+14)+','+(cy-c.R+3)},svg);
+    var cls=['curve4','curve2','curve'],fill=['fwo','fp','fa'],name=['慢','較快','剛好 √(GM/r)'];
+    var tr=[],ball=[];
+    for(var i=0;i<3;i++){tr.push(poly(svg,cls[i]));ball.push(E('circle',{'class':fill[i],r:6},svg));
+      E('line',{'class':cls[i],x1:18,y1:24+i*22,x2:44,y2:24+i*22},svg);T(svg,52,29+i*22,name[i],'ts','start');}
+    return function(t){
+      for(var i=0;i<3;i++){
+        var a=c.out[i].arr,pts='',last=a[0];
+        for(var k=0;k<a.length&&a[k][0]<=t;k++){last=a[k];if(k%6===0)pts+=(cx+last[1]).toFixed(1)+','+(cy-last[2]).toFixed(1)+' ';}
+        pts+=(cx+last[1]).toFixed(1)+','+(cy-last[2]).toFixed(1);
+        tr[i].setAttribute('points',pts);ball[i].setAttribute('cx',cx+last[1]);ball[i].setAttribute('cy',cy-last[2]);
+      }
+    };
+  },
+  note:function(t){
+    var c=S.u5cannon._sim(),s=[];
+    if(c.out[0].land&&t>=c.out[0].land)s.push('慢的那顆已落地');
+    if(c.out[1].land&&t>=c.out[1].land)s.push('較快的那顆飛得比較遠，但也落地了');
+    var msg='三顆砲彈同時水平射出，往下掉的快慢一樣（都由重力決定），差別只在往前飛多快。';
+    if(s.length)msg+='<br>'+s.join('；')+'。';
+    if(t>4)msg+='<br><b>綠色那顆：往前飛的同時地面也彎下去同樣多，永遠落不到地面 ⇒ 繞地球轉。</b>';
+    return msg;
+  }};
+
+/* ---------- 第5單元：等面積定律 ---------- */
+S.u5kepler={w:560,h:300,dur:12,
+  _g:{cx:260,cy:150,a:200,e:0.714},
+  _pos:function(fr){
+    var g=S.u5kepler._g,b=g.a*Math.sqrt(1-g.e*g.e),M=2*Math.PI*fr,Ee=M;
+    for(var k=0;k<40;k++)Ee=Ee-(Ee-g.e*Math.sin(Ee)-M)/(1-g.e*Math.cos(Ee));
+    return [g.cx+g.a*Math.cos(Ee),g.cy-b*Math.sin(Ee),1-g.e*Math.cos(Ee)];
+  },
+  build:function(svg){
+    var g=S.u5kepler._g,b=g.a*Math.sqrt(1-g.e*g.e),fx=g.cx+g.a*g.e,P=S.u5kepler._pos,N=12;
+    var path0=[];for(var i=0;i<=120;i++){var q=2*Math.PI*i/120;path0.push((g.cx+g.a*Math.cos(q))+','+(g.cy-b*Math.sin(q)));}
+    var secs=[];for(var j=0;j<N;j++)secs.push(E('polygon',{'class':j%2?'shade2':'shade',points:''},svg));
+    E('polyline',{'class':'curve',points:path0.join(' ')},svg);
+    E('circle',{'class':'fy',cx:fx,cy:g.cy,r:13},svg);T(svg,fx,g.cy+32,'太陽','ts');
+    T(svg,g.cx+g.a+6,g.cy-10,'近日點','tv','start');T(svg,g.cx-g.a-6,g.cy-10,'遠日點','tv','end');
+    var ln=E('line',{'class':'thin',x1:fx,y1:g.cy,x2:fx,y2:g.cy},svg),pl=E('circle',{'class':'fxo',r:8},svg);
+    function sector(f0,f1){var s=fx+','+g.cy;for(var k=0;k<=24;k++){var q=P(f0+(f1-f0)*k/24);s+=' '+q[0].toFixed(1)+','+q[1].toFixed(1);}return s;}
+    return function(t){
+      var fr=t/S.u5kepler.dur;
+      for(var j=0;j<N;j++){var f0=j/N,f1=Math.min(fr,(j+1)/N);secs[j].setAttribute('points',fr>f0?sector(f0,f1):'');}
+      var q=P(Math.min(fr,0.99999));pl.setAttribute('cx',q[0]);pl.setAttribute('cy',q[1]);ln.setAttribute('x2',q[0]);ln.setAttribute('y2',q[1]);
+    };
+  },
+  note:function(t){
+    var g=S.u5kepler._g,q=S.u5kepler._pos(Math.min(t/S.u5kepler.dur,0.99999)),r=q[2],rmax=1+g.e;
+    var v=Math.sqrt(2/r-1),vmin=Math.sqrt(2/rmax-1),n=Math.min(12,Math.floor(t/S.u5kepler.dur*12)+1);
+    return '正在畫第 '+n+' 塊扇形（每塊都花 T/12）。目前離太陽 '+f2(r)+' a，速率是遠日點的 <b>'+f1(v/vmin)+' 倍</b>。';
+  }};
+
+/* ---------- 第5單元：會合週期 ---------- */
+S.u5synod={w:560,h:300,dur:9,
+  _p:{T1:1.5,T2:4.5,r1:60,r2:125},
+  build:function(svg){
+    var p=S.u5synod._p,cx=170,cy=150;
+    E('circle',{'class':'thin',cx:cx,cy:cy,r:p.r1},svg);E('circle',{'class':'thin',cx:cx,cy:cy,r:p.r2},svg);
+    E('circle',{'class':'fy',cx:cx,cy:cy,r:15},svg);
+    var wedge=E('path',{'class':'shade2',d:''},svg);
+    var l1=E('line',{'class':'thin',x1:cx,y1:cy,x2:cx,y2:cy},svg),l2=E('line',{'class':'thin',x1:cx,y1:cy,x2:cx,y2:cy},svg);
+    var s1=E('circle',{'class':'fb',r:8},svg),s2=E('circle',{'class':'fp',r:10},svg);
+    T(svg,330,60,'內圈（藍）週期 T_{1}','ts','start');T(svg,330,84,'外圈（橘）週期 T_{2} ＝ 3T_{1}','ts','start');
+    T(svg,330,108,'紅色扇形 ＝ 內圈領先的角度','ts','start');
+    var c1=T(svg,330,150,'','t','start'),c2=T(svg,330,178,'','t','start'),c3=T(svg,330,206,'','tc','start'),c4=T(svg,330,240,'','tf','start');
+    return function(t){
+      var th1=2*Math.PI*t/p.T1,th2=2*Math.PI*t/p.T2,x1=cx+p.r1*Math.cos(th1),y1=cy-p.r1*Math.sin(th1),x2=cx+p.r2*Math.cos(th2),y2=cy-p.r2*Math.sin(th2);
+      s1.setAttribute('cx',x1);s1.setAttribute('cy',y1);s2.setAttribute('cx',x2);s2.setAttribute('cy',y2);
+      l1.setAttribute('x2',x1);l1.setAttribute('y2',y1);l2.setAttribute('x2',x2);l2.setAttribute('y2',y2);
+      var d=(th1-th2)%(2*Math.PI),R=40,ax=cx+R*Math.cos(th2),ay=cy-R*Math.sin(th2),bx=cx+R*Math.cos(th2+d),by=cy-R*Math.sin(th2+d);
+      wedge.setAttribute('d',d>0.01?'M'+cx+','+cy+' L'+ax+','+ay+' A'+R+','+R+' 0 '+(d>Math.PI?1:0)+' 0 '+bx+','+by+' Z':'');
+      var n1=t/p.T1,n2=t/p.T2;
+      H.setText(c1,'內圈已轉 '+f2(n1)+' 圈');H.setText(c2,'外圈已轉 '+f2(n2)+' 圈');
+      H.setText(c3,'內圈多轉 '+f2(n1-n2)+' 圈');H.setText(c4,'已相遇 '+Math.floor(n1-n2+1e-6)+' 次');
+    };
+  },
+  note:function(t){
+    var p=S.u5synod._p;
+    return '時間 '+f2(t/p.T1)+' T<sub>1</sub>。內圈每<b>多轉滿 1 圈</b>就追上外圈一次 ⇒ 每隔 t ＝ 1.5T<sub>1</sub> 相遇（不是 T<sub>1</sub>，因為外圈也在往前跑）。';
+  }};
+
+/* ---------- 第6單元：砲彈爆炸，質心照走拋物線 ---------- */
+S.u6explode={w:560,h:300,
+  _p:{x0:40,gy:262,vx:90,vy:260,g:200,te:1.3,m1:1,m2:2,u1:[190,80],u2:[40,-40]},
+  _st:function(t){
+    var p=S.u6explode._p,g=p.g;
+    function para(x,y,vx,vy,tt){return [x+vx*tt,y-vy*tt+0.5*g*tt*tt];}
+    if(t<=p.te){var q=para(p.x0,p.gy,p.vx,p.vy,t);return {one:true,a:q,b:q,cm:q,land:false};}
+    var top=para(p.x0,p.gy,p.vx,p.vy,p.te),dt=t-p.te;
+    function frag(u){
+      var y0=top[1],a=0.5*g,bq=-u[1],cq=y0-p.gy,tl=(-bq+Math.sqrt(bq*bq-4*a*cq))/(2*a),tt=Math.min(dt,tl);
+      return {pos:para(top[0],y0,u[0],u[1],tt),landed:dt>=tl};
+    }
+    var A=frag(p.u1),B=frag(p.u2),M=p.m1+p.m2;
+    var cm=[(p.m1*A.pos[0]+p.m2*B.pos[0])/M,(p.m1*A.pos[1]+p.m2*B.pos[1])/M];
+    return {one:false,a:A.pos,b:B.pos,cm:cm,land:A.landed||B.landed,bl:B.landed};
+  },
+  dur:function(){return 3.3;},
+  build:function(svg){
+    var p=S.u6explode._p;
+    E('line',{'class':'o',x1:10,y1:p.gy,x2:550,y2:p.gy},svg);
+    var pts='';for(var i=0;i<=60;i++){var tt=2.6*i/60;pts+=(p.x0+p.vx*tt)+','+(p.gy-p.vy*tt+0.5*p.g*tt*tt)+' ';}
+    E('polyline',{'class':'curve dash',points:pts},svg);
+    T(svg,20,26,'虛線：沒爆炸時的拋物線','tm','start');
+    var trail=poly(svg,'curve4');
+    var shell=E('circle',{'class':'fb',r:9},svg),fa=E('circle',{'class':'fb',r:6},svg),fb=E('circle',{'class':'fg',r:9},svg);
+    var la=T(svg,0,0,'1 kg','ts'),lb=T(svg,0,0,'2 kg','ts');
+    var cmg=E('g',{},svg);E('line',{'class':'o',x1:-7,y1:-7,x2:7,y2:7,style:'stroke:var(--warn);stroke-width:3'},cmg);E('line',{'class':'o',x1:-7,y1:7,x2:7,y2:-7,style:'stroke:var(--warn);stroke-width:3'},cmg);
+    var lc=T(svg,0,0,'質心','tf'),boom=E('circle',{'class':'shade2',r:0},svg);
+    var tr=[];
+    return function(t){
+      var s=S.u6explode._st(t);
+      shell.style.display=s.one?'':'none';fa.style.display=fb.style.display=s.one?'none':'';la.style.display=lb.style.display=(t-p.te>0.25)?'':'none';
+      shell.setAttribute('cx',s.a[0]);shell.setAttribute('cy',s.a[1]);
+      fa.setAttribute('cx',s.a[0]);fa.setAttribute('cy',s.a[1]);fb.setAttribute('cx',s.b[0]);fb.setAttribute('cy',s.b[1]);
+      la.setAttribute('x',s.a[0]);la.setAttribute('y',s.a[1]-12);lb.setAttribute('x',s.b[0]);lb.setAttribute('y',s.b[1]-15);
+      cmg.setAttribute('transform','translate('+s.cm[0]+','+s.cm[1]+')');lc.setAttribute('x',s.cm[0]+22);lc.setAttribute('y',s.cm[1]+18);
+      var dtb=t-p.te;boom.setAttribute('r',dtb>0&&dtb<0.3?60*dtb/0.3:0);
+      var top=[p.x0+p.vx*p.te,p.gy-p.vy*p.te+0.5*p.g*p.te*p.te];boom.setAttribute('cx',top[0]);boom.setAttribute('cy',top[1]);
+      var q='';for(var k=0;k<=40;k++){var tk=t*k/40,sk=S.u6explode._st(tk);q+=sk.cm[0].toFixed(1)+','+sk.cm[1].toFixed(1)+' ';}
+      trail.setAttribute('points',q);
+    };
+  },
+  note:function(t){
+    var p=S.u6explode._p,s=S.u6explode._st(t);
+    if(t<p.te)return '砲彈只受重力，沿拋物線飛。';
+    if(!s.bl)return '<b>爆炸！</b>爆炸力是碎片之間的內力：1 kg 碎片往右上飛、2 kg 碎片往右下飛，但質心（×，橘色軌跡）仍走在原本的虛線上。';
+    return '2 kg 碎片落地後，地面對它施力（外力）⇒ 從這一刻起質心離開原拋物線。「質心照走拋物線」只在碎片都還在空中時成立。';
+  }};
+
+/* ---------- 第6單元：碰撞前後總動量不變 ---------- */
+S.u6collide={w:560,h:270,dur:4.0,
+  _p:{m1:2,m2:1,v1:3,K:25,x1:20,x2:206,w1:66,w2:58,tc:1.6},
+  _st:function(t){
+    var p=S.u6collide._p,v1=p.v1,u1=(p.m1-p.m2)/(p.m1+p.m2)*v1,u2=2*p.m1/(p.m1+p.m2)*v1;
+    if(t<p.tc)return {x1:p.x1+v1*p.K*t,x2:p.x2,v1:v1,v2:0};
+    var d=t-p.tc;return {x1:p.x1+v1*p.K*p.tc+u1*p.K*d,x2:p.x2+u2*p.K*d,v1:u1,v2:u2};
+  },
+  build:function(svg){
+    var p=S.u6collide._p,gy=110;
+    E('line',{'class':'o',x1:10,y1:gy,x2:550,y2:gy},svg);
+    var c1=E('rect',{'class':'fb',y:gy-34,width:p.w1,height:34,rx:4},svg),c2=E('rect',{'class':'fg',y:gy-28,width:p.w2,height:28,rx:4},svg);
+    var t1=T(svg,0,gy-12,'甲 2 kg','ts'),t2=T(svg,0,gy-9,'乙 1 kg','ts');
+    var a1=Arrow(svg,'vel'),a2=Arrow(svg,'vel'),v1=T(svg,0,0,'','tv'),v2=T(svg,0,0,'','tv');
+    var rows=[['甲的動量 p_{甲}','fb'],['乙的動量 p_{乙}','fg'],['總動量','fy']],bars=[],vals=[],X=150,Kp=45;
+    for(var i=0;i<3;i++){var y=150+i*36;T(svg,X-10,y+17,rows[i][0],'ts','end');bars.push(E('rect',{'class':rows[i][1],x:X,y:y,width:0,height:22,rx:3},svg));vals.push(T(svg,0,y+17,'','t','start'));}
+    E('line',{'class':'dim',x1:X+6*Kp,y1:142,x2:X+6*Kp,y2:262},svg);
+    return function(t){
+      var s=S.u6collide._st(t);
+      c1.setAttribute('x',s.x1);c2.setAttribute('x',s.x2);t1.setAttribute('x',s.x1+p.w1/2);t2.setAttribute('x',s.x2+p.w2/2);
+      a1.set(s.x1+p.w1/2,gy-48,s.x1+p.w1/2+s.v1*14,gy-48);a2.set(s.x2+p.w2/2,gy-42,s.x2+p.w2/2+s.v2*14,gy-42);
+      H.setText(v1,s.v1>0?f1(s.v1)+' m/s':'');v1.setAttribute('x',s.x1+p.w1/2+s.v1*7);v1.setAttribute('y',gy-58);
+      H.setText(v2,s.v2>0?f1(s.v2)+' m/s':'靜止');v2.setAttribute('x',s.x2+p.w2/2+s.v2*7);v2.setAttribute('y',gy-52);
+      var pv=[p.m1*s.v1,p.m2*s.v2,p.m1*s.v1+p.m2*s.v2];
+      for(var i=0;i<3;i++){bars[i].setAttribute('width',pv[i]*Kp);vals[i].setAttribute('x',X+pv[i]*Kp+8);H.setText(vals[i],f1(pv[i])+' kg·m/s');}
+    };
+  },
+  note:function(t){
+    var p=S.u6collide._p;
+    if(t<p.tc)return '碰撞前：甲 2 × 3 ＝ 6 kg·m/s，乙 0，總動量 6 kg·m/s。';
+    return '碰撞後：甲 2 × 1 ＝ 2，乙 1 × 4 ＝ 4，總和仍是 <b>6 kg·m/s</b>。甲少了 4、乙多了 4 ⇒ Δp<sub>甲</sub> ＝ −Δp<sub>乙</sub>；但速度變化不同（甲 −2 m/s、乙 ＋4 m/s），質量小的變得多。';
+  }};
+
+/* ---------- 第6單元：繩穿小孔（角動量守恆），沿用 pullrope 的畫面 ---------- */
+S.u6rope={w:560,h:300,dur:8,
+  build:function(svg,p){return S.pullrope.build(svg,p);},
+  note:function(t,p){
+    var u=t/8,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),v=p.v0*p.r0/r,w=v/r,w0=p.v0/p.r0;
+    return '半徑 r＝'+f2(r)+' m，速率 v＝'+f2(v)+' m/s，<b>r × v ＝ '+f2(r*v)+'（不變）</b>，角速度 ω ＝ v/r 是原來的 '+f1(w/w0)+' 倍。紅＝繩子拉力（指向小孔），藍＝速度。';
   }};
 })();
 

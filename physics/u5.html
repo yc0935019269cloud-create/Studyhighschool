@@ -232,6 +232,7 @@ body.hide-pre .pre{display:none}
 <h2 class="section " id="s1">焦點 1　萬有引力定律</h2>
 
 <aside class="box box-concept"><div class="box-h">觀念</div><p>怎麼讀這頁：照順序往下讀，每一步只用「前面已經講過」的東西。藍框公式點開是「為什麼」，第一次讀建議全部點開（上方「展開全部公式解釋」）。<br />
+每個公式框都照同一個順序寫：<strong>① 先看懂每個符號 → ② 白話翻譯 → ③ 推導（每一步為什麼可以這樣做）→ ④ 代數字感受大小 → ⑤ 常見錯誤</strong>。<br />
 本單元主線只有一條：<strong>萬有引力公式</strong> → 用它解釋 ①東西為什麼往下掉（重力加速度 g）→ ②行星、衛星為什麼繞著轉（引力當向心力）。</p></aside>
 <h3>〇、先備工具：本單元只用到這三樣舊東西</h3>
 <table>
@@ -261,10 +262,47 @@ body.hide-pre .pre{display:none}
 </tbody>
 </table>
 <ul>
-<li>4π²r/T² 從哪來：繞一圈的路程 2πr、花時間 T ⇒ v ＝ 2πr/T，代入 v²/r 得 4π²r/T²。</li>
-<li>角速度 ω ＝ 2π/T：轉一圈是 2π 弧度，花時間 T。</li>
+<li>4π²r/T² 從哪來：繞一圈的路程 2πr、花時間 T ⇒ v ＝ 2πr/T，代入 v²/r ＝ (2πr/T)²/r ＝ 4π²r/T²。</li>
+<li>角速度 ω ＝ 2π/T：轉一圈是 2π 弧度（360°），花時間 T。</li>
 <li>「向心力」不是一種新的力，而是「某個力剛好指向圓心」時的稱呼；本單元這個力就是萬有引力。</li>
 </ul>
+<p><strong>本單元常用的數字</strong>（代數字時查這裡）：</p>
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>符號</th>
+<th>數值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>重力常數</td>
+<td>G</td>
+<td>6.67×10<sup>−11</sup> N·m²/kg²</td>
+</tr>
+<tr>
+<td>地球質量</td>
+<td>M<sub>e</sub></td>
+<td>6.0×10<sup>24</sup> kg</td>
+</tr>
+<tr>
+<td>地球半徑</td>
+<td>R<sub>e</sub></td>
+<td>6.4×10<sup>6</sup> m（6400 km）</td>
+</tr>
+<tr>
+<td>地表重力加速度</td>
+<td>g</td>
+<td>9.8 m/s²</td>
+</tr>
+<tr>
+<td>兩者相乘</td>
+<td>GM<sub>e</sub></td>
+<td>≈ 4.0×10<sup>14</sup> N·m²/kg</td>
+</tr>
+</tbody>
+</table>
 <h3>一、萬有引力定律</h3>
 <p><strong>要解決的問題</strong>：蘋果會往下掉、月球會繞地球轉——是不是同一種力？</p>
 <ol>
@@ -277,14 +315,52 @@ body.hide-pre .pre{display:none}
 <li>合起來寫成式子，前面補一個比例常數 G：</li>
 </ol>
 <details class="formula"><summary><span class="f-eq">F<sub>g</sub> ＝ GMm / r²</span><span class="f-tag">萬有引力定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>1. 為什麼 ∝ M × m？（只用牛頓第二、第三定律）</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+<th>單位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F<sub>g</sub></td>
+<td>兩物體互相吸引的力（甲拉乙、乙拉甲，一樣大）</td>
+<td>N</td>
+</tr>
+<tr>
+<td>G</td>
+<td>重力常數，宇宙中固定不變的數 6.67×10<sup>−11</sup></td>
+<td>N·m²/kg²</td>
+</tr>
+<tr>
+<td>M、m</td>
+<td>兩個物體各自的質量</td>
+<td>kg</td>
+</tr>
+<tr>
+<td>r</td>
+<td>兩物體<strong>中心</strong>之間的距離</td>
+<td>m</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「引力 ＝ 一個很小的常數 × 兩個質量相乘 ÷ 距離的平方。」</p>
+<ul>
+<li>分子：M、m 任一個變 2 倍，F 變 2 倍。</li>
+<li>分母：r 有平方，r 變 2 倍，F 變 1/2² ＝ 1/4；r 變 3 倍，F 變 1/9。</li>
+</ul>
+<h5>③ 推導（一）為什麼 ∝ M × m？（只用牛頓第二、第三定律）</h5>
 <ol>
 <li>實驗事實：不計空氣阻力，輕重物體落下的加速度都是 g。</li>
 <li>由 F ＝ ma：要讓 a 一樣，質量 m 大的物體受力就要成比例地大 ⇒ 地球拉物體的力 ∝ <strong>被拉物體的質量 m</strong>。</li>
 <li>反過來看：物體也在拉地球，這時「被拉的」是地球，同理這個力 ∝ <strong>地球質量 M</strong>。</li>
 <li>牛頓第三定律：這兩個力大小相等，是同一個數字 ⇒ 它必須同時 ∝ m 又 ∝ M ⇒ <strong>F ∝ Mm</strong>。</li>
 </ol>
-<h5>2. 為什麼 ∝ 1/r²？（牛頓的月球驗證）</h5>
+<h5>③ 推導（二）為什麼 ∝ 1/r²？（牛頓的月球驗證）</h5>
 <ol>
 <li>已知：地表離地心 1 個地球半徑，那裡 g ＝ 9.8 m/s²；月球離地心約 60 個地球半徑。</li>
 <li>假設引力 ∝ 1/r²：月球那裡的加速度應是 9.8 ÷ 60² ≈ <strong>2.7×10<sup>−3</sup> m/s²</strong>。</li>
@@ -292,12 +368,22 @@ body.hide-pre .pre{display:none}
 <li>兩種方法各自算出的數字一樣 ⇒ 平方反比的假設成立；而且讓蘋果落地、讓月球繞圈的是<strong>同一種力</strong>。</li>
 </ol>
 <p>（焦點 2 學完克卜勒第三定律後，還有第二個證據，放在那裡的公式框。）</p>
-<h5>3. 直覺圖像（類比，不是證明）</h5>
-<p>從地球「散出去」的影響，到距離 r 時要分攤在面積 4πr² 的球面上，所以每一點分到的 ∝ 1/r²——和燈泡離愈遠愈暗是同一個幾何道理。</p>
-<h5>4. G 是什麼</h5>
+<h5>直覺圖像：為什麼是「平方」？（類比，不是證明）</h5><figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 270" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><circle class="fy" cx="50" cy="135" r="9"/><text class="ts" x="50" y="167" text-anchor="middle">地球</text><line class="dim" x1="50" y1="135" x2="170" y2="115"/><line class="dim" x1="50" y1="135" x2="170" y2="155"/><rect class="fg" x="170" y="115" width="40" height="40" rx="0"/><text class="ts" x="190" y="177" text-anchor="middle">距離 r：1 格</text><text class="tc" x="190" y="105" text-anchor="middle">每格 1</text><line class="dim" x1="50" y1="135" x2="290" y2="95"/><line class="dim" x1="50" y1="135" x2="290" y2="175"/><rect class="fg" x="290" y="95" width="80" height="80" rx="0"/><line class="thin" x1="330" y1="95" x2="330" y2="175"/><line class="thin" x1="290" y1="135" x2="370" y2="135"/><text class="ts" x="330" y="197" text-anchor="middle">距離 2r：4 格</text><text class="tc" x="330" y="85" text-anchor="middle">每格 1/4</text><line class="dim" x1="50" y1="135" x2="410" y2="75"/><line class="dim" x1="50" y1="135" x2="410" y2="195"/><rect class="fg" x="410" y="75" width="120" height="120" rx="0"/><line class="thin" x1="450" y1="75" x2="450" y2="195"/><line class="thin" x1="410" y1="115" x2="530" y2="115"/><line class="thin" x1="490" y1="75" x2="490" y2="195"/><line class="thin" x1="410" y1="155" x2="530" y2="155"/><text class="ts" x="470" y="217" text-anchor="middle">距離 3r：9 格</text><text class="tc" x="470" y="65" text-anchor="middle">每格 1/9</text><text class="tm" x="280" y="262" text-anchor="middle">同樣多的「拉力影響」攤在 1、4、9 格上 ⇒ 每一格分到的強度 ∝ 1/r²</text></svg><figcaption>直覺圖像（類比）：距離變 2 倍，影響要攤開的面積變 2² ＝ 4 倍，所以每一點分到的只剩 1/4。</figcaption></figure><h5>④ 代數字感受大小</h5>
+<ul>
+<li>兩個 60 kg 的同學相距 1 m：F ＝ 6.67×10<sup>−11</sup> × 60 × 60 ÷ 1² ≈ <strong>2.4×10<sup>−7</sup> N</strong>——比一粒灰塵的重量還小，所以感覺不到。</li>
+<li>地球拉一個 60 kg 的人（r ＝ 地球半徑）：F ＝ 4.0×10<sup>14</sup> × 60 ÷ (6.4×10<sup>6</sup>)² ≈ <strong>586 N</strong>——剛好 ≈ 60 × 9.8，就是他的體重。</li>
+<li>差別在哪：地球質量大了 10<sup>23</sup> 倍，G 再小也被撐起來了。</li>
+</ul>
+<h5>G 是什麼</h5>
 <ul>
 <li>比例常數 G ≈ 6.67×10<sup>−11</sup> N·m²/kg²，由卡文迪西用扭秤實驗測得。</li>
-<li>G 非常小 ⇒ 兩個人、兩本書之間的引力小到感覺不到；要有星球那麼大的質量才明顯。</li>
+<li>單位怎麼來：G ＝ F·r²/(Mm) ⇒ N·m²/kg²。</li>
+</ul>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>r 量到物體表面：要量到<strong>中心</strong>（下一段說明）。</li>
+<li>忘記平方：距離 2 倍，力是 1/4 不是 1/2。</li>
+<li>以為大的拉小的比較大力：第三定律，兩邊一樣大；只是小的那個質量小，所以<strong>加速度</strong>比較大。</li>
 </ul></div></details>
 
 <figure class="fig"><img class="figimg" src="img/A043_40p5_48_x17-97.jpg" width="1400" height="212" loading="lazy" alt="選修物理1、2 第43頁" data-page="選修物理1、2 p.43"><figcaption>(a) 兩質點　(b) 兩均勻球體　(c) 地球與物體</figcaption></figure>
@@ -321,27 +407,173 @@ body.hide-pre .pre{display:none}
 <li>兩邊都有 m，可以消掉 ⇒ g 與物體質量無關。</li>
 </ol>
 <details class="formula"><summary><span class="f-eq">g ＝ GM<sub>e</sub>/(R<sub>e</sub> ＋ h)²；地表 g ＝ GM<sub>e</sub>/R<sub>e</sub>²</span><span class="f-tag">重力加速度</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
-<p>mg ＝ GM<sub>e</sub>m/(R<sub>e</sub> ＋ h)² ⇒ 約去 m ⇒ <strong>g ＝ GM<sub>e</sub>/(R<sub>e</sub> ＋ h)²</strong><br />
-在地表 h ＝ 0 ⇒ g ＝ GM<sub>e</sub>/R<sub>e</sub>²</p>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+<th>數值／單位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>g</td>
+<td>重力加速度：只受重力時速度每秒增加多少；也 ＝ 每 1 kg 受幾牛頓的重力</td>
+<td>地表 9.8 m/s²</td>
+</tr>
+<tr>
+<td>M<sub>e</sub></td>
+<td>地球質量（下標 e ＝ earth）</td>
+<td>6.0×10<sup>24</sup> kg</td>
+</tr>
+<tr>
+<td>R<sub>e</sub></td>
+<td>地球半徑</td>
+<td>6.4×10<sup>6</sup> m</td>
+</tr>
+<tr>
+<td>h</td>
+<td>物體離「地面」的高度</td>
+<td>m</td>
+</tr>
+<tr>
+<td>R<sub>e</sub> ＋ h</td>
+<td>物體離「地心」的距離，就是萬有引力公式裡的 r</td>
+<td>m</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「某個高度的 g ＝（G × 地球質量）÷（到地心距離）²。」<br />
+⇒ g 只跟「地球有多重」和「你離地心多遠」有關，<strong>跟你自己多重無關</strong>。</p>
+<h5>③ 推導：每一步為什麼可以這樣做</h5>
+<ol>
+<li>重量 W ＝ mg：這是 g 的定義（F ＝ ma 中，只受重力時的 a 就叫 g）。</li>
+<li>重量的真正來源是地球的萬有引力：F ＝ GM<sub>e</sub>m/r²，其中 r ＝ R<sub>e</sub> ＋ h。</li>
+<li>這是<strong>同一個力的兩種寫法</strong>，所以可以畫等號：mg ＝ GM<sub>e</sub>m/(R<sub>e</sub> ＋ h)²。</li>
+<li>等號兩邊都乘了 m ⇒ 兩邊同除以 m（「約去 m」）⇒ <strong>g ＝ GM<sub>e</sub>/(R<sub>e</sub> ＋ h)²</strong>。</li>
+<li>站在地面上 h ＝ 0 ⇒ g ＝ GM<sub>e</sub>/R<sub>e</sub>²。</li>
+</ol>
+<h5>④ 代數字：這條式子真的算得出 9.8 嗎？</h5>
+<ul>
+<li>GM<sub>e</sub> ＝ 6.67×10<sup>−11</sup> × 6.0×10<sup>24</sup> ≈ 4.0×10<sup>14</sup></li>
+<li>R<sub>e</sub>² ＝ (6.4×10<sup>6</sup>)² ≈ 4.1×10<sup>13</sup></li>
+<li>g ＝ 4.0×10<sup>14</sup> ÷ 4.1×10<sup>13</sup> ≈ <strong>9.8 m/s²</strong> ✔——課本上的 9.8 就是這樣來的。</li>
+</ul>
+<h5>高度愈高，g 怎麼變？</h5>
+<p>分母是「到地心距離」的平方 ⇒ g 和（到地心距離）² 成反比：</p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>離地心</th>
+<th>g 是地表的幾倍</th>
+<th>g（m/s²）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地面</td>
+<td>1 R<sub>e</sub></td>
+<td>1</td>
+<td>9.8</td>
+</tr>
+<tr>
+<td>台北 101 頂（h ≈ 0.5 km）</td>
+<td>≈ 1.0001 R<sub>e</sub></td>
+<td>≈ 0.9998</td>
+<td>幾乎不變</td>
+</tr>
+<tr>
+<td>國際太空站（h ≈ 400 km）</td>
+<td>≈ 1.06 R<sub>e</sub></td>
+<td>≈ 0.89</td>
+<td>≈ 8.7</td>
+</tr>
+<tr>
+<td>h ＝ R<sub>e</sub></td>
+<td>2 R<sub>e</sub></td>
+<td>1/4</td>
+<td>≈ 2.45</td>
+</tr>
+<tr>
+<td>h ＝ 2R<sub>e</sub></td>
+<td>3 R<sub>e</sub></td>
+<td>1/9</td>
+<td>≈ 1.09</td>
+</tr>
+</tbody>
+</table><figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><rect class="fg" x="70" y="50" width="105" height="200" rx="0"/><text class="ts" x="122.5" y="230" text-anchor="middle">地球內部</text><text class="ts" x="122.5" y="246" text-anchor="middle">（不適用）</text><g class="a-ink"><line x1="70" y1="250" x2="532.5" y2="250"/><polygon points="542.5,250 532.5,254.2 532.5,245.8"/></g><g class="a-ink"><line x1="70" y1="250" x2="70" y2="30"/><polygon points="70,20 74.2,30 65.8,30"/></g><text class="tb" x="62" y="34" text-anchor="end">g</text><text class="tm" x="538.5" y="290" text-anchor="end">離地心距離 r</text><path class="curve" d="M175.0,50.0 L178.6,62.9 L182.1,74.7 L185.7,85.3 L189.3,95.0 L192.8,103.9 L196.4,112.0 L200.0,119.5 L203.6,126.4 L207.1,132.7 L210.7,138.6 L214.3,144.1 L217.8,149.1 L221.4,153.8 L225.0,158.2 L228.6,162.3 L232.1,166.1 L235.7,169.7 L239.3,173.0 L242.8,176.2 L246.4,179.1 L250.0,181.9 L253.5,184.5 L257.1,187.0 L260.7,189.4 L264.2,191.6 L267.8,193.7 L271.4,195.6 L275.0,197.5 L278.5,199.3 L282.1,201.0 L285.7,202.6 L289.2,204.1 L292.8,205.6 L296.4,207.0 L299.9,208.3 L303.5,209.6 L307.1,210.8 L310.7,211.9 L314.2,213.0 L317.8,214.1 L321.4,215.1 L324.9,216.1 L328.5,217.0 L332.1,217.9 L335.7,218.8 L339.2,219.6 L342.8,220.4 L346.4,221.1 L349.9,221.9 L353.5,222.6 L357.1,223.2 L360.6,223.9 L364.2,224.5 L367.8,225.1 L371.4,225.7 L374.9,226.3 L378.5,226.8 L382.1,227.4 L385.6,227.9 L389.2,228.4 L392.8,228.8 L396.3,229.3 L399.9,229.7 L403.5,230.2 L407.1,230.6 L410.6,231.0 L414.2,231.4 L417.8,231.8 L421.3,232.1 L424.9,232.5 L428.5,232.8 L432.0,233.2 L435.6,233.5 L439.2,233.8 L442.8,234.1 L446.3,234.4 L449.9,234.7 L453.5,235.0 L457.0,235.3 L460.6,235.5 L464.2,235.8 L467.7,236.1 L471.3,236.3 L474.9,236.5 L478.4,236.8 L482.0,237.0 L485.6,237.2 L489.2,237.4 L492.7,237.7 L496.3,237.9 L499.9,238.1 L503.4,238.3 L507.0,238.5 L510.6,238.6 L514.2,238.8 L517.7,239.0 L521.3,239.2 L524.9,239.3 L528.4,239.5 L532.0,239.7"/><line class="dim" x1="175" y1="250" x2="175" y2="50"/><circle class="fwo" cx="175" cy="50" r="5"/><text class="ts" x="175" y="270" text-anchor="middle">R<tspan dy="4" font-size="72%">e</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tf" x="185" y="40" text-anchor="start">9.8（地表）</text><line class="dim" x1="280" y1="250" x2="280" y2="200"/><circle class="fwo" cx="280" cy="200" r="5"/><text class="ts" x="280" y="270" text-anchor="middle">2R<tspan dy="4" font-size="72%">e</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tf" x="290" y="190" text-anchor="start">2.45（× 1/4）</text><line class="dim" x1="385" y1="250" x2="385" y2="227.8"/><circle class="fwo" cx="385" cy="227.8" r="5"/><text class="ts" x="385" y="270" text-anchor="middle">3R<tspan dy="4" font-size="72%">e</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tf" x="377" y="213.8" text-anchor="end">1.09（× 1/9）</text><line class="dim" x1="490" y1="250" x2="490" y2="237.5"/><circle class="fwo" cx="490" cy="237.5" r="5"/><text class="ts" x="490" y="270" text-anchor="middle">4R<tspan dy="4" font-size="72%">e</tspan><tspan dy="-4">&#8203;</tspan></text><text class="tf" x="490" y="219.5" text-anchor="middle">0.61（× 1/16）</text></svg><figcaption>g 隨「到地心的距離」平方反比遞減：距離 2 倍，g 剩 1/4；3 倍剩 1/9。地表附近幾公里的高度在圖上連一根線的寬度都不到，所以 g 幾乎不變。</figcaption></figure><ul>
+<li>日常的高度和 6400 km 比起來太小 ⇒ 地面附近 g 當成定值 9.8；要到幾百公里以上才看得出差別。</li>
+<li>太空站上 g 仍有地表的 9 成——太空人「失重」不是因為沒有重力（第四節解釋）。</li>
+</ul>
 <h5>由式子讀出三件事</h5>
 <ol>
-<li><strong>m 不見了</strong> ⇒ 輕重物體落下一樣快（伽利略觀察到的現象，在這裡得到原因）。</li>
-<li>g 只看「地球質量」與「離地心多遠」：h ＝ R<sub>e</sub> 時離地心 2R<sub>e</sub>，g 變成 1/2² ＝ 1/4。</li>
-<li>地表附近 h 遠小於 R<sub>e</sub>（幾公里對 6400 公里），R<sub>e</sub> ＋ h ≈ R<sub>e</sub> ⇒ g 幾乎不變，≈ 9.8 m/s²。</li>
+<li><strong>式子裡沒有 m</strong> ⇒ 輕重物體落下一樣快（伽利略觀察到的現象，在這裡得到原因）。</li>
+<li>g 只看「地球質量」與「離地心多遠」。</li>
+<li>地表附近 R<sub>e</sub> ＋ h ≈ R<sub>e</sub> ⇒ g 幾乎是定值。</li>
 </ol>
-<h5>黃金代換</h5>
-<p>地表 g ＝ GM<sub>e</sub>/R<sub>e</sub>² 移項 ⇒ <strong>GM<sub>e</sub> ＝ gR<sub>e</sub>²</strong>。<br />
-題目給 g、R<sub>e</sub>，卻沒給 G、M<sub>e</sub> 時，用它把 GM<sub>e</sub> 整個換掉。</p></div></details>
+<h5>黃金代換 GM<sub>e</sub> ＝ gR<sub>e</sub>²</h5>
+<ul>
+<li>由來：地表的 g ＝ GM<sub>e</sub>/R<sub>e</sub>²，兩邊同乘 R<sub>e</sub>²。</li>
+<li>為什麼好用：G（6.67×10<sup>−11</sup>）和 M<sub>e</sub>（6.0×10<sup>24</sup>）都是難記的極小／極大數，相乘之後可以換成熟悉的 g（9.8）和 R<sub>e</sub>（6400 km）。</li>
+<li>示範：求 h ＝ R<sub>e</sub> 處的 g′<ol>
+<li>g′ ＝ GM<sub>e</sub>/(R<sub>e</sub> ＋ R<sub>e</sub>)² ＝ GM<sub>e</sub>/(4R<sub>e</sub>²)</li>
+<li>把 GM<sub>e</sub> 換成 gR<sub>e</sub>²：g′ ＝ gR<sub>e</sub>²/(4R<sub>e</sub>²)</li>
+<li>R<sub>e</sub>² 上下約掉：g′ ＝ <strong>g/4</strong>——連數字都不用代。</li>
+</ol>
+</li>
+</ul>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>把 h 當成 r：r 一定量到<strong>地心</strong>，＝ R<sub>e</sub> ＋ h。</li>
+<li>忘記平方：離地心 2 倍，g 是 1/4 不是 1/2。</li>
+<li>以為重的東西 g 比較大：m 已經約掉了。</li>
+</ul></div></details>
 <p><strong>比較不同星球</strong>：把地球換成任一星球（質量 M、半徑 R），表面 g ＝ GM/R²。如果題目給的是密度，再用「質量 ＝ 密度 × 體積」把 M 換掉：</p>
 <details class="formula"><summary><span class="f-eq">g ∝ M/R² ∝ ρR</span><span class="f-tag">比較不同星球表面</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>∝</td>
+<td>「成正比」：左邊會跟著右邊變同樣的倍數（常數 G 一樣，比較時可以先不寫）</td>
+</tr>
+<tr>
+<td>M、R</td>
+<td>星球的質量、半徑</td>
+</tr>
+<tr>
+<td>ρ</td>
+<td>密度：每立方公尺有幾公斤（kg/m³）</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<ul>
+<li>g ∝ M/R²：星球愈重，表面 g 愈大；星球愈大（站得離中心愈遠），g 愈小。</li>
+<li>g ∝ ρR：<strong>密度一樣</strong>時，星球愈大，表面 g 反而愈大（因為質量 ∝ R³，長得比 R² 快）。</li>
+</ul>
+<h5>③ 推導</h5>
 <ol>
-<li>表面 g ＝ GM/R²</li>
-<li>球的體積是 (4/3)πR³ ⇒ M ＝ ρ·(4/3)πR³（ρ 為密度）</li>
-<li>代入：g ＝ G·ρ·(4/3)πR³/R² ＝ (4/3)πGρR ⇒ <strong>g ∝ ρR</strong></li>
+<li>表面 g ＝ GM/R²（上一個公式框，把地球換成這顆星）</li>
+<li>球的體積是 (4/3)πR³ ⇒ M ＝ 密度 × 體積 ＝ ρ·(4/3)πR³</li>
+<li>代入：g ＝ G·ρ·(4/3)πR³/R² ＝ (4/3)πG·ρR</li>
+<li>(4/3)πG 是固定的數 ⇒ <strong>g ∝ ρR</strong></li>
 </ol>
-<h5>選哪一條</h5>
+<h5>④ 代數字：月球表面的 g</h5>
+<p>月球質量約地球的 1/81，半徑約地球的 0.27 倍：<br />
+g<sub>月</sub>/g<sub>地</sub> ＝ (1/81) ÷ (0.27)² ＝ (1/81) ÷ 0.073 ≈ <strong>1/6</strong> ⇒ 月球上的 g ≈ 1.6 m/s²，跳起來的高度約是地球上的 6 倍。</p>
+<h5>怎麼寫比例式</h5>
+<p>g<sub>星</sub>/g<sub>地</sub> ＝ (M<sub>星</sub>/M<sub>地</sub>) ÷ (R<sub>星</sub>/R<sub>地</sub>)²<br />
+例：質量 2 倍、半徑 2 倍 ⇒ g ＝ 2 ÷ 2² ＝ 1/2 倍。</p>
 <table>
 <thead>
 <tr>
@@ -383,7 +615,7 @@ body.hide-pre .pre{display:none}
 <tr>
 <td>單擺週期</td>
 <td>2π√(ℓ/g)</td>
-<td>變，∝ 1/√g</td>
+<td>變，∝ 1/√g（g 變 1/4 ⇒ 週期變 2 倍）</td>
 </tr>
 <tr>
 <td>彈簧振子週期</td>
@@ -404,7 +636,33 @@ body.hide-pre .pre{display:none}
 <li>地球周圍每一點都有自己的 g（有大小、有方向）；物體放進去，受力就是 F ＝ mg。</li>
 </ol>
 <details class="formula"><summary><span class="f-eq">g ＝ F<sub>g</sub>/m ＝ GM<sub>e</sub>/r²（r ≥ R<sub>e</sub>）</span><span class="f-tag">重力場</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>為什麼它和重力加速度數值相同</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>g（重力場）</td>
+<td>放在這一點的每 1 kg 受到多少重力，單位 N/kg；有方向（指向地心）</td>
+</tr>
+<tr>
+<td>F<sub>g</sub></td>
+<td>放進來的物體實際受到的重力</td>
+</tr>
+<tr>
+<td>r</td>
+<td>這一點到地心的距離，r ≥ R<sub>e</sub>（在地面或地面以外）</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「地球在周圍每一點都事先『準備好』一個拉力強度 g；不管放什麼東西進來，受力都是 m × g。」<br />
+例：地表 g ＝ 9.8 N/kg ⇒ 1 kg 受 9.8 N，5 kg 受 49 N。</p>
+<h5>③ 為什麼它和重力加速度數值相同</h5>
 <p>重力場的定義 g ＝ F/m；只受重力時 F ＝ ma ⇒ a ＝ F/m。兩者是同一個數（N/kg ＝ m/s²）。</p>
 <h5>重力場的三個性質</h5>
 <ul>
@@ -412,6 +670,13 @@ body.hide-pre .pre{display:none}
 <li>大小：GM<sub>e</sub>/r²，∝ 1/r²（r 從地心量，r ≥ R<sub>e</sub>）</li>
 <li>好幾個星體同時存在：某點的 g ＝ 各星體的 g <strong>向量相加</strong></li>
 </ul>
+<h5>④ 代數字：地球和月球之間哪裡重力場為零？</h5>
+<ol>
+<li>地球拉向地球、月球拉向月球，方向相反 ⇒ 兩者大小相等的地方抵消。</li>
+<li>設離地心 x、地月距離 D：GM<sub>e</sub>/x² ＝ GM<sub>月</sub>/(D − x)²</li>
+<li>M<sub>月</sub> ＝ M<sub>e</sub>/81 ⇒ (D − x)/x ＝ √(1/81) ＝ 1/9 ⇒ x ＝ 0.9D</li>
+<li>結論：在地月連線、離地心 9/10 處，重力場為零（偏向質量小的月球那一側）。</li>
+</ol>
 <h5>預告</h5>
 <p>之後的電場 E ＝ F/q 是完全相同的想法：把「受力」除以「被作用的那個量」，得到只屬於空間位置的量。</p></div></details>
 
@@ -422,6 +687,7 @@ body.hide-pre .pre{display:none}
 <li>高度 h 時 r ＝ R ＋ h，別忘了加 R</li>
 <li>沒給 G、M ⇒ GM ＝ gR²</li>
 <li>星球比較：給質量用 M/R²，給密度用 ρR</li>
+<li>兩星之間場為零的點，靠近質量小的那一顆</li>
 </ul></aside>
 
 <h2 class="section " id="s2">焦點 2　行星與人造衛星的運動</h2>
@@ -465,6 +731,7 @@ body.hide-pre .pre{display:none}
 <li><strong>長軸</strong>：橢圓最長的那條直徑；<strong>半長軸 a</strong> ＝ 長軸的一半。</li>
 <li>圓是特例：兩個焦點重合在圓心，半長軸就是半徑。</li>
 </ul>
+<figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><path class="curve" d="M80,150 A200,110 0 1 0 480,150 A200,110 0 1 0 80,150"/><line class="dim" x1="80" y1="150" x2="480" y2="150"/><circle class="fy" cx="447" cy="150" r="13"/><text class="ts" x="429" y="134" text-anchor="end">太陽（焦點）</text><circle class="f" cx="113" cy="150" r="5"/><text class="ts" x="117" y="174" text-anchor="start">另一個焦點（空的）</text><circle class="fo" cx="280" cy="150" r="3"/><text class="ts" x="280" y="140" text-anchor="middle">中心</text><circle class="fxo" cx="480" cy="150" r="7"/><circle class="fxo" cx="80" cy="150" r="7"/><text class="tv" x="490" y="138" text-anchor="start">近日點</text><text class="tv" x="70" y="138" text-anchor="end">遠日點</text><g class="a-mute"><line x1="447" y1="172" x2="480" y2="172"/></g><g class="a-mute"><polygon points="447,172 455,175.2 455,168.8"/></g><g class="a-mute"><polygon points="480,172 472,168.8 472,175.2"/></g><text class="tm" x="488" y="178" text-anchor="start">r<tspan dy="4" font-size="72%">min</tspan><tspan dy="-4">&#8203;</tspan></text><g class="a-mute"><line x1="80" y1="212" x2="447" y2="212"/></g><g class="a-mute"><polygon points="80,212 88,215.2 88,208.8"/></g><g class="a-mute"><polygon points="447,212 439,208.8 439,215.2"/></g><text class="tm" x="263.5" y="204" text-anchor="middle">r<tspan dy="4" font-size="72%">max</tspan><tspan dy="-4">&#8203;</tspan>（遠日距）</text><g class="a-mute"><line x1="280" y1="76" x2="480" y2="76"/></g><g class="a-mute"><polygon points="280,76 288,79.2 288,72.8"/></g><g class="a-mute"><polygon points="480,76 472,72.8 472,79.2"/></g><text class="tm" x="380" y="68" text-anchor="middle">半長軸 a</text><g class="a-mute"><line x1="80" y1="284" x2="480" y2="284"/></g><g class="a-mute"><polygon points="80,284 88,287.2 88,280.8"/></g><g class="a-mute"><polygon points="480,284 472,280.8 472,287.2"/></g><text class="tc" x="280" y="308" text-anchor="middle">長軸 ＝ r<tspan dy="4" font-size="72%">max</tspan><tspan dy="-4">&#8203;</tspan> ＋ r<tspan dy="4" font-size="72%">min</tspan><tspan dy="-4">&#8203;</tspan> ＝ 2a</text></svg><figcaption>近日點、太陽、遠日點都在長軸上，太陽夾在中間 ⇒ r<sub>max</sub> ＋ r<sub>min</sub> ＝ 長軸 ＝ 2a。橢圓愈扁，兩個焦點離中心愈遠；圓是兩焦點重合的特例。</figcaption></figure>
 <p><strong>第一定律（軌道定律）</strong></p>
 <ol>
 <li>行星的軌道是橢圓，太陽在其中一個焦點上。</li>
@@ -472,34 +739,104 @@ body.hide-pre .pre{display:none}
 <li>近日點、遠日點都在長軸的兩端，太陽夾在中間 ⇒ 近日距 ＋ 遠日距 ＝ 長軸。</li>
 </ol>
 <details class="formula"><summary><span class="f-eq">第一定律：R ＝ (r<sub>max</sub> ＋ r<sub>min</sub>)/2 ＝ 半長軸 a</span><span class="f-tag">軌道定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>為什麼平均半徑是這個？</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r<sub>min</sub></td>
+<td>近日距：近日點到太陽的距離</td>
+</tr>
+<tr>
+<td>r<sub>max</sub></td>
+<td>遠日距：遠日點到太陽的距離</td>
+</tr>
+<tr>
+<td>a</td>
+<td>半長軸：長軸的一半</td>
+</tr>
+<tr>
+<td>R</td>
+<td>「平均軌道半徑」：把橢圓軌道拿去用第三定律時代入的 R</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「橢圓軌道的平均半徑，就是最近距離和最遠距離的平均。」</p>
+<h5>③ 為什麼平均半徑是這個？</h5>
 <ol>
-<li>近日點、太陽、遠日點三者都在長軸上，太陽夾在中間。</li>
-<li>所以 r<sub>min</sub> ＋ r<sub>max</sub> ＝ 整條長軸 ⇒ 除以 2 ＝ 半長軸 a。</li>
+<li>近日點、太陽、遠日點三者都在長軸上，太陽夾在中間（見上圖）。</li>
+<li>所以 r<sub>min</sub> ＋ r<sub>max</sub> ＝ 整條長軸 ＝ 2a ⇒ 除以 2 ＝ 半長軸 a。</li>
 <li>之後第三定律遇到橢圓軌道，「R」一律代<strong>半長軸</strong>。</li>
 </ol>
-<h5>為什麼高中常把軌道當成圓？</h5>
-<p>大部分行星的橢圓非常接近圓（地球的近日距、遠日距只差約 3%）；當成圓來算，R³/T² 的結果一樣成立。</p></div></details>
+<h5>④ 代數字：地球軌道</h5>
+<p>近日距 1.47×10<sup>11</sup> m、遠日距 1.52×10<sup>11</sup> m ⇒ R ＝ (1.47 ＋ 1.52)/2 × 10<sup>11</sup> ≈ 1.50×10<sup>11</sup> m。<br />
+兩者只差約 3%，所以地球軌道非常接近圓——高中常把行星軌道當成圓來算，R³/T² 的結果一樣成立。</p>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>太陽不在橢圓中心，是在<strong>焦點</strong>。</li>
+<li>第三定律代的是半長軸 a，不是近日距或遠日距。</li>
+</ul></div></details>
 <p><strong>第二定律（面積定律）</strong></p>
 <ol>
 <li>把太陽和行星連一條線，行星移動時，這條線像雨刷一樣「掃」過一塊面積。</li>
 <li>定律：<strong>相同時間內掃過的面積相同</strong>。</li>
 <li>推論：近日點時連線短，要在同樣時間掃出同樣大的面積，走過的弧就得長 ⇒ 跑得快；遠日點相反 ⇒ <strong>近日點最快、遠日點最慢</strong>。</li>
 </ol>
+<figure class="viz viz-anim"><div class="viz-h">動畫解（可播放、可拖曳時間軸）</div><div class="sim" data-sim="u5kepler" data-p="{}"></div><figcaption>每一塊扇形都只花 T/12 的時間。近日點附近的扇形又短又胖、遠日點附近的又長又瘦，但 12 塊面積都一樣 ⇒ 近日點跑得快、遠日點跑得慢。</figcaption></figure>
+
 <details class="formula"><summary><span class="f-eq">第二定律：ΔA/Δt ＝ 定值</span><span class="f-tag">面積定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>為什麼？（只用幾何：三角形面積 ＝ ½ × 底 × 高）</h5>
-<ol>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ΔA</td>
+<td>一段時間內，太陽–行星連線掃過的面積</td>
+</tr>
+<tr>
+<td>Δt</td>
+<td>那段時間</td>
+</tr>
+<tr>
+<td>ΔA/Δt</td>
+<td><strong>面積速率</strong>：每秒掃過多少面積</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「不管行星在軌道哪裡，每一秒掃過的面積都一樣大。」</p>
+<h5>③ 為什麼？（只用幾何：三角形面積 ＝ ½ × 底 × 高）</h5><figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><polygon class="fg" points="90,255 140,90 290,90"/><polygon class="fp" points="90,255 290,90 366.7,150.5"/><path class="dim" d="M90,255 L440,90 L290,90"/><line class="dim" x1="486.3" y1="51.8" x2="308.9" y2="198.2"/><line class="thin" x1="40" y1="90" x2="530" y2="90"/><g class="a-force"><line x1="290" y1="90" x2="232.1" y2="137.7"/><polygon points="224.4,144.1 229.5,134.5 234.8,141"/></g><text class="tf" x="220" y="140" text-anchor="end">在 B 點太陽拉一下</text><circle class="fy" cx="90" cy="255" r="12"/><text class="ts" x="90" y="287" text-anchor="middle">太陽 S</text><circle class="fo" cx="140" cy="90" r="5"/><text class="tb" x="140" y="78" text-anchor="middle">A</text><circle class="fo" cx="290" cy="90" r="5"/><text class="tb" x="290" y="78" text-anchor="middle">B</text><circle class="fo" cx="440" cy="90" r="5"/><text class="tb" x="440" y="78" text-anchor="middle">C</text><circle class="fwo" cx="366.7" cy="150.5" r="5"/><text class="tf" x="378.7" y="154.5" text-anchor="start">C′（實際落點）</text><text class="tc" x="170" y="165" text-anchor="middle">△SAB</text><text class="tp" x="345" y="140" text-anchor="middle">△SBC′</text><text class="tm" x="505" y="70" text-anchor="end">CC′ ∥ SB</text></svg><figcaption>① 沒有力：AB ＝ BC 等長，△SAB、△SBC 等底同高 ⇒ 面積相等。② 太陽在 B 點拉一下，方向沿 BS，所以落點從 C 移到 C′，而 CC′ 和 SB 平行。③ △SBC 與 △SBC′ 共用底 SB、頂點在同一條平行線上 ⇒ 高相同 ⇒ 面積相等。</figcaption></figure><ol>
 <li>先想<strong>沒有引力</strong>：行星在相等時間內走等長的直線 AB、BC。從太陽 S 看，三角形 SAB 和 SBC 的底 AB ＝ BC、高（S 到這條直線的距離）也相同 ⇒ 面積相等。</li>
 <li>再<strong>加上引力</strong>：在 B 點太陽拉一下，這一拉的方向<strong>沿著 BS 指向太陽</strong>，所以行星的落點從 C 被拉到 C′，而 CC′ 與 BS 平行。</li>
 <li>三角形 SBC 與 SBC′ 共用底 SB，頂點 C、C′ 在一條平行於 SB 的線上 ⇒ 高相同 ⇒ 面積相同。</li>
 <li>所以每段相等時間掃過的面積都一樣。整個論證只用到一件事：<strong>引力永遠指向太陽</strong>。</li>
 </ol>
+<h5>近日點、遠日點的速率比（常考）</h5>
+<ol>
+<li>在近日點和遠日點，速度剛好和連線垂直。</li>
+<li>很短的時間 Δt 內掃過一個細長三角形：底 ＝ r（連線長）、高 ＝ vΔt（走過的距離）⇒ 面積 ＝ ½·r·vΔt。</li>
+<li>面積速率相同：½r<sub>近</sub>v<sub>近</sub> ＝ ½r<sub>遠</sub>v<sub>遠</sub> ⇒ <strong>r<sub>近</sub>v<sub>近</sub> ＝ r<sub>遠</sub>v<sub>遠</sub></strong></li>
+<li>⇒ v<sub>近</sub>/v<sub>遠</sub> ＝ r<sub>遠</sub>/r<sub>近</sub>：距離差幾倍，速率就反過來差幾倍。</li>
+</ol>
+<h5>④ 代數字</h5>
+<p>地球：r<sub>遠</sub>/r<sub>近</sub> ＝ 1.52/1.47 ≈ 1.034 ⇒ 地球在近日點（每年 1 月初）比遠日點快約 3.4%。</p>
 <h5>另一種說法（第 6 單元會學）</h5>
 <p>引力沿著連線 ⇒ 對太陽的力矩 ＝ 0 ⇒ 角動量守恆 ⇒ ΔA/Δt ＝ L/(2m) 為定值。現在先記幾何版即可。</p>
-<h5>小心</h5>
+<h5>⑤ 常見錯誤</h5>
 <ul>
-<li>只能比較<strong>同一顆行星</strong>在自己軌道上的不同位置。</li>
-<li>不同行星的面積速率不同（圓軌道時 ＝ πR²/T，第四節會看到它 ∝ √R）。</li>
+<li>只能比較<strong>同一顆行星</strong>在自己軌道上的不同位置；不同行星的面積速率不同（圓軌道時 ＝ πR²/T，第四節會看到它 ∝ √R）。</li>
+<li>r<sub>近</sub>v<sub>近</sub> ＝ r<sub>遠</sub>v<sub>遠</sub> 只在近日點、遠日點（速度垂直連線）直接成立；其他位置要用垂直連線的速度分量。</li>
 </ul></div></details>
 <p><strong>第三定律（週期定律）</strong></p>
 <ol>
@@ -508,11 +845,42 @@ body.hide-pre .pre{display:none}
 <li>K 可以用萬有引力推出來，推完就知道 K 由什麼決定：</li>
 </ol>
 <details class="formula"><summary><span class="f-eq">第三定律：R³/T² ＝ GM/4π² ＝ 常數 K</span><span class="f-tag">週期定律</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導（把軌道當成圓）</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>軌道半徑（橢圓時用半長軸）</td>
+</tr>
+<tr>
+<td>T</td>
+<td>週期：繞一圈花的時間</td>
+</tr>
+<tr>
+<td>M</td>
+<td><strong>中心星體</strong>（被繞的那一顆，例如太陽）的質量</td>
+</tr>
+<tr>
+<td>K</td>
+<td>比值 R³/T²；繞同一顆中心星的天體都一樣</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「繞同一顆星的天體，軌道半徑的立方和週期的平方成正比。」<br />
+例：半徑變 4 倍 ⇒ R³ 變 64 倍 ⇒ T² 也要變 64 倍 ⇒ T 變 8 倍。</p>
+<h5>③ 推導（把軌道當成圓）</h5>
 <ol>
-<li>行星繞太陽做圓周運動，所需的向心力由萬有引力提供（先備工具）：<br />
-GMm/R² ＝ m·4π²R/T²</li>
-<li>兩邊 m 約掉，移項 ⇒ <strong>R³/T² ＝ GM/(4π²)</strong></li>
+<li>為什麼用 m·4π²R/T² 這種向心力寫法：我們要找 R 和 <strong>T</strong> 的關係，所以選含 T 的那一種（先備工具）。</li>
+<li>引力提供向心力：GMm/R² ＝ m·4π²R/T²</li>
+<li>兩邊都有 m ⇒ 約掉：GM/R² ＝ 4π²R/T²</li>
+<li>把 R 都移到左邊、T 移到右邊（兩邊同乘 R²T²/4π²）⇒ <strong>R³/T² ＝ GM/(4π²)</strong></li>
 </ol>
 <h5>由式子讀出四件事</h5>
 <ol>
@@ -521,13 +889,23 @@ GMm/R² ＝ m·4π²R/T²</li>
 <li>反過來用：量到某衛星的 R、T，就能「秤」出中心星質量 M ＝ 4π²R³/(GT²)。</li>
 <li>橢圓軌道：R 代半長軸（第一定律）。</li>
 </ol>
+<h5>④ 代數字：用「天文單位、年」最好算</h5>
+<ul>
+<li>把地球軌道半徑當 1 單位（1 AU）、週期當 1 年 ⇒ 繞太陽的 K ＝ 1³/1² ＝ 1。</li>
+<li>木星 R ≈ 5.2 AU ⇒ T² ＝ 5.2³ ≈ 140.6 ⇒ T ≈ <strong>11.9 年</strong>（實際 11.86 年，吻合）。</li>
+</ul>
 <h5>平方反比的第二個證據（焦點 1 預告的）</h5>
 <p>圓軌道 a ＝ 4π²R/T²；第三定律說 T² ∝ R³ ⇒ a ∝ R/R³ ＝ 1/R²。<br />
-行星的加速度 ∝ 1/R²，力 ＝ ma 也就 ∝ 1/R² ⇒ 只有平方反比的引力，才會讓行星遵守週期定律。</p></div></details>
+行星的加速度 ∝ 1/R²，力 ＝ ma 也就 ∝ 1/R² ⇒ 只有平方反比的引力，才會讓行星遵守週期定律。</p>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>拿繞地球的月球和繞太陽的地球套同一個 K（中心星不同）。</li>
+<li>比例寫反：是 R³ ∝ T²，所以 T ∝ R<sup>3/2</sup>、R ∝ T<sup>2/3</sup>。</li>
+</ul></div></details>
 
 <aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
 <li>橢圓軌道：R 代 (r<sub>max</sub> ＋ r<sub>min</sub>)/2</li>
-<li>面積定律：只比同一條軌道；近日快、遠日慢</li>
+<li>面積定律：只比同一條軌道；近日快、遠日慢；r<sub>近</sub>v<sub>近</sub> ＝ r<sub>遠</sub>v<sub>遠</sub></li>
 <li>R³/T² ＝ K：中心星相同才能用；比例題寫 (R<sub>1</sub>/R<sub>2</sub>)³ ＝ (T<sub>1</sub>/T<sub>2</sub>)²</li>
 </ul></aside>
 <h3>四、行星與人造衛星的圓周運動</h3>
@@ -538,40 +916,77 @@ GMm/R² ＝ m·4π²R/T²</li>
 <li>衛星質量 m 每次都會約掉 ⇒ 結果只由中心星質量 M 和軌道半徑 R 決定。</li>
 </ol>
 <details class="formula"><summary><span class="f-eq">v ＝ √(GM/R)，T ＝ 2π√(R³/GM)，a ＝ GM/R²</span><span class="f-tag">萬有引力 ＝ 向心力</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導（三行都從同一個等號出發）</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td>中心星體質量（衛星繞地球時就是 M<sub>e</sub>）</td>
+</tr>
+<tr>
+<td>R</td>
+<td>衛星到<strong>中心星球心</strong>的距離（＝ 地球半徑 ＋ 離地高度）</td>
+</tr>
+<tr>
+<td>v</td>
+<td>衛星速率</td>
+</tr>
+<tr>
+<td>T</td>
+<td>繞一圈的時間</td>
+</tr>
+<tr>
+<td>a</td>
+<td>向心加速度（＝ 那個位置的重力場 g）</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<ul>
+<li>v ＝ √(GM/R)：軌道愈高（R 大），跑得愈<strong>慢</strong>。</li>
+<li>T ＝ 2π√(R³/GM)：軌道愈高，繞一圈愈<strong>久</strong>，而且久得很快（R<sup>3/2</sup>）。</li>
+<li>a ＝ GM/R²：就是那個高度的 g。</li>
+</ul>
+<h5>③ 推導（三行都從同一個等號出發）</h5>
+<p>向心力有三種寫法（先備工具），題目問什麼就選哪一種：</p>
 <table>
 <thead>
 <tr>
 <th>向心力寫成</th>
 <th>等式</th>
-<th>解出</th>
+<th>約掉 m、整理後</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>mv²/R</td>
 <td>GMm/R² ＝ mv²/R</td>
-<td>v ＝ √(GM/R)</td>
+<td>v² ＝ GM/R ⇒ v ＝ √(GM/R)</td>
 </tr>
 <tr>
 <td>m·4π²R/T²</td>
 <td>GMm/R² ＝ m·4π²R/T²</td>
-<td>T ＝ 2π√(R³/GM)</td>
+<td>T² ＝ 4π²R³/GM ⇒ T ＝ 2π√(R³/GM)</td>
 </tr>
 <tr>
 <td>ma</td>
 <td>GMm/R² ＝ ma</td>
-<td>a ＝ GM/R²（＝ 該處重力場）</td>
+<td>a ＝ GM/R²</td>
 </tr>
 </tbody>
 </table>
-<h5>反直覺：軌道愈高，跑得愈慢</h5>
+<h5>反直覺：軌道愈高，跑得愈慢——為什麼？</h5>
 <ol>
 <li>R 大 ⇒ 引力 GMm/R² 小。</li>
-<li>引力就是向心力 mv²/R；向心力小 ⇒ 只能維持較小的 v（v² ＝ GM/R）。</li>
-<li>速率變小、要繞的圈又變大 ⇒ 週期大幅變長（T ∝ R<sup>3/2</sup>）。</li>
-</ol>
-<table>
+<li>引力就是向心力 mv²/R；向心力小 ⇒ 只能「彎住」較小的速率（v² ＝ GM/R）。</li>
+<li>速率變小、要繞的圈又變大 ⇒ 週期大幅變長。</li>
+</ol><figure class="viz "><div class="viz-h">圖解</div><svg class="vsvg " viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><circle class="thin" cx="150" cy="150" r="34"/><circle class="thin" cx="150" cy="150" r="136"/><circle class="fg" cx="150" cy="150" r="18"/><text class="ts" x="150" y="155" text-anchor="middle">地球</text><circle class="fb" cx="184" cy="150" r="7"/><circle class="fb" cx="286" cy="150" r="7"/><g class="a-vel"><line x1="184" y1="150" x2="184" y2="84"/><polygon points="184,74 188.2,84 179.8,84"/></g><text class="tv" x="198" y="80" text-anchor="middle">v</text><g class="a-vel"><line x1="286" y1="150" x2="286" y2="122"/><polygon points="286,112 290.2,122 281.8,122"/></g><text class="tv" x="264" y="124" text-anchor="middle">v/2</text><text class="ts" x="188" y="172" text-anchor="start">R</text><text class="ts" x="290" y="172" text-anchor="start">4R</text><text class="tb" x="467" y="60" text-anchor="middle">內圈</text><text class="tb" x="522" y="60" text-anchor="middle">外圈</text><text class="ts" x="322" y="96" text-anchor="start">軌道半徑</text><text class="t" x="467" y="96" text-anchor="middle">R</text><text class="tf" x="522" y="96" text-anchor="middle">4R</text><text class="ts" x="322" y="132" text-anchor="start">速率 v ∝ 1/√R</text><text class="t" x="467" y="132" text-anchor="middle">v</text><text class="tf" x="522" y="132" text-anchor="middle">v/2</text><text class="ts" x="322" y="168" text-anchor="start">週期 T ∝ R<tspan dy="-6" font-size="72%">3/2</tspan><tspan dy="6">&#8203;</tspan></text><text class="t" x="467" y="168" text-anchor="middle">T</text><text class="tf" x="522" y="168" text-anchor="middle">8T</text><text class="ts" x="322" y="204" text-anchor="start">加速度 a ∝ 1/R²</text><text class="t" x="467" y="204" text-anchor="middle">a</text><text class="tf" x="522" y="204" text-anchor="middle">a/16</text><text class="tm" x="322" y="244" text-anchor="start">外圈：速率一半、路程 4 倍</text><text class="tm" x="322" y="268" text-anchor="start">⇒ 繞一圈的時間 8 倍</text></svg><figcaption>同一顆地球的兩條圓軌道，半徑差 4 倍：外圈引力只剩 1/16，只能維持一半的速率，繞一圈的路又是 4 倍長，所以週期是 8 倍。</figcaption></figure><table>
 <thead>
 <tr>
 <th>量</th>
@@ -608,19 +1023,88 @@ GMm/R² ＝ m·4π²R/T²</li>
 </tbody>
 </table>
 <p>面積速率怎麼來：一個週期掃過整個圓 πR²，除以 T；把 T ＝ 2πR/v 代入得 ½Rv，再把 v 換成 √(GM/R) ⇒ ½√(GMR)。</p>
+<h5>④ 代數字：太空站 vs 月球</h5>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>太空站（離地 400 km）</th>
+<th>月球</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>6.8×10<sup>6</sup> m</td>
+<td>3.84×10<sup>8</sup> m</td>
+</tr>
+<tr>
+<td>v ＝ √(4.0×10<sup>14</sup>/R)</td>
+<td>≈ 7.7 km/s</td>
+<td>≈ 1.0 km/s</td>
+</tr>
+<tr>
+<td>T ＝ 2πR/v</td>
+<td>≈ 93 分鐘</td>
+<td>≈ 27 天</td>
+</tr>
+</tbody>
+</table>
+<p>月球比太空站高了約 56 倍，速率卻只剩約 1/7、週期長了約 400 倍——和 v ∝ 1/√R、T ∝ R<sup>3/2</sup> 吻合。</p>
 <h5>太空人為什麼「失重」？</h5>
 <ol>
 <li>太空人仍然受重力——正是這個引力提供向心力（太空站高度的 g 仍約地表的 9 成）。</li>
 <li>太空人和太空船有同一個加速度 GM/R²，一起「往地球掉」；只是水平速度夠快，一直掉不到地面。</li>
 <li>兩者一起掉，地板不用撐他 ⇒ 沒有支撐力，所以「感覺」不到重量。</li>
-</ol></div></details>
+</ol>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>R 代離地高度：要代「離地心」＝ R<sub>e</sub> ＋ h。</li>
+<li>以為要飛高就要飛快：同一中心星的圓軌道，高的反而慢。</li>
+</ul></div></details>
 <p><strong>第一宇宙速度</strong>：衛星貼著地表飛（R ≈ R<sub>e</sub>）是最低的圓軌道，那裡的重力加速度就是 g：</p>
+<figure class="viz viz-anim"><div class="viz-h">動畫解（可播放、可拖曳時間軸）</div><div class="sim" data-sim="u5cannon" data-p="{}"></div><figcaption>從高山水平射出三顆砲彈（慢、較快、剛好）。地球是圓的，砲彈往前飛時地面也在「彎下去」；速度剛好讓兩者一樣多時（綠），砲彈永遠落不到地面，就成了繞地球的衛星。</figcaption></figure>
+
 <details class="formula"><summary><span class="f-eq">表面衛星：v ＝ √(gR<sub>e</sub>) ≈ 7.9 km/s</span><span class="f-tag">第一宇宙速度</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導</h5>
-<p>貼地飛 ⇒ 引力 ＝ mg，向心力 ＝ mv²/R<sub>e</sub><br />
-mg ＝ mv²/R<sub>e</sub> ⇒ <strong>v ＝ √(gR<sub>e</sub>)</strong> ＝ √(9.8 × 6.4×10<sup>6</sup>) ≈ 7.9×10<sup>3</sup> m/s<br />
-（也可以由 v ＝ √(GM/R) 配合黃金代換 GM ＝ gR<sub>e</sub>² 得到同一個結果。）</p>
-<h5>直覺：牛頓的大砲</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>貼著地面繞地球做圓周運動所需的速率</td>
+</tr>
+<tr>
+<td>g</td>
+<td>地表重力加速度 9.8 m/s²</td>
+</tr>
+<tr>
+<td>R<sub>e</sub></td>
+<td>地球半徑 6.4×10<sup>6</sup> m</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「想在地面附近繞地球一圈不掉下來，速率要約每秒 7.9 公里。」</p>
+<ul>
+<li>它是<strong>所有圓軌道中最快的</strong>（R 最小 ⇒ v 最大）；也是發射衛星進入軌道所需的最低速率。</li>
+</ul>
+<h5>③ 推導</h5>
+<ol>
+<li>貼地飛 ⇒ 受的引力就是重量 mg；需要的向心力是 mv²/R<sub>e</sub>。</li>
+<li>引力提供向心力：mg ＝ mv²/R<sub>e</sub></li>
+<li>約掉 m，兩邊乘 R<sub>e</sub>：v² ＝ gR<sub>e</sub> ⇒ <strong>v ＝ √(gR<sub>e</sub>)</strong></li>
+<li>也可以由 v ＝ √(GM/R) 配合黃金代換 GM ＝ gR<sub>e</sub>² 得到同一個結果。</li>
+</ol>
+<h5>④ 代數字</h5>
+<p>v ＝ √(9.8 × 6.4×10<sup>6</sup>) ＝ √(6.3×10<sup>7</sup>) ≈ 7.9×10<sup>3</sup> m/s ≈ <strong>7.9 km/s</strong>（約音速的 23 倍）。<br />
+繞一圈 T ＝ 2πR<sub>e</sub>/v ≈ 5.1×10<sup>3</sup> s ≈ 85 分鐘。</p>
+<h5>直覺：牛頓的大砲（看上面的動畫）</h5>
 <ol>
 <li>從高處水平射出砲彈，水平、鉛直分開看：不管初速多少，第 1 秒都往下掉 ½gt² ≈ 5 m。</li>
 <li>地球是圓的：往前走一段距離，地面本身也會「彎下去」。</li>
@@ -630,7 +1114,7 @@ mg ＝ mv²/R<sub>e</sub> ⇒ <strong>v ＝ √(gR<sub>e</sub>)</strong> ＝ √
 <ol>
 <li>定義：週期 ＝ 地球自轉週期 <strong>24 小時</strong>、在<strong>赤道上空</strong>、和地球同向轉 ⇒ 從地面看它停在天空同一點不動（適合通訊、氣象）。</li>
 <li>為什麼一定在赤道上空：引力指向地心，所以衛星的軌道面一定通過地心（下圖）；要一直待在地面某點正上方，那一點隨自轉畫出的圓也必須以地心為圓心——只有赤道符合。</li>
-<li>為什麼高度固定：T 規定是 24 小時，由 R³/T² ＝ GM/4π²，R 只有一個解 ≈ 4.2×10<sup>7</sup> m（離地心），扣掉地球半徑，離地約 3.6 萬公里。</li>
+<li>為什麼高度固定：T 規定是 24 小時，由 R³ ＝ GMT²/4π² ＝ 4.0×10<sup>14</sup> × (8.6×10<sup>4</sup>)² ÷ 39.5 ≈ 7.5×10<sup>22</sup> ⇒ R ≈ 4.2×10<sup>7</sup> m（離地心，約 6.6 個地球半徑），扣掉地球半徑，離地約 <strong>3.6 萬公里</strong>。</li>
 </ol>
 <figure class="fig"><img class="figimg" src="img/A047_8_26_x55-92.jpg" width="737" height="620" loading="lazy" alt="選修物理1、2 第47頁" data-page="選修物理1、2 p.47"><figcaption>人造衛星的軌道面通過地心</figcaption></figure>
 <p><strong>會合週期</strong></p>
@@ -638,23 +1122,61 @@ mg ＝ mv²/R<sub>e</sub> ⇒ <strong>v ＝ √(gR<sub>e</sub>)</strong> ＝ √
 <ul>
 <li>這和兩人在操場同向跑步、快的人追上慢的人是同一件事：看的是<strong>角速度的差</strong>。</li>
 </ul>
+<figure class="viz viz-anim"><div class="viz-h">動畫解（可播放、可拖曳時間軸）</div><div class="sim" data-sim="u5synod" data-p="{}"></div><figcaption>內圈週期 T<sub>1</sub>、外圈 T<sub>2</sub> ＝ 3T<sub>1</sub>。內圈每多跑滿一整圈就追上外圈一次：1/t ＝ 1/T<sub>1</sub> − 1/T<sub>2</sub> ⇒ t ＝ 1.5T<sub>1</sub>。</figcaption></figure>
+
 <details class="formula"><summary><span class="f-eq">會合週期：同向 1/t ＝ 1/T<sub>1</sub> − 1/T<sub>2</sub>；反向 1/t ＝ 1/T<sub>1</sub> ＋ 1/T<sub>2</sub></span><span class="f-tag">追趕問題</span><span class="f-hint">為什麼？</span></summary>
-<div class="f-body"><h5>推導（同向）</h5>
+<div class="f-body"><h5>① 先看懂每個符號</h5>
+<table>
+<thead>
+<tr>
+<th>符號</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T<sub>1</sub></td>
+<td>較快（內圈、週期短）那顆的週期</td>
+</tr>
+<tr>
+<td>T<sub>2</sub></td>
+<td>較慢（外圈、週期長）那顆的週期</td>
+</tr>
+<tr>
+<td>t</td>
+<td>會合週期：從一次相遇到下一次相遇的時間</td>
+</tr>
+</tbody>
+</table>
+<h5>② 白話翻譯</h5>
+<p>「1/T 就是『每單位時間轉幾圈』。同向時，快的每單位時間比慢的多轉 (1/T<sub>1</sub> − 1/T<sub>2</sub>) 圈；多轉滿 1 圈就相遇一次。」</p>
+<h5>③ 推導（同向）</h5>
 <ol>
 <li>角速度 ω ＝ 2π/T（先備工具）。</li>
 <li>每秒快的比慢的多轉 (ω<sub>1</sub> − ω<sub>2</sub>)。</li>
 <li>多轉滿一整圈 2π 就再追上一次 ⇒ (ω<sub>1</sub> − ω<sub>2</sub>)·t ＝ 2π。</li>
-<li>代入 ω ＝ 2π/T，兩邊除以 2π ⇒ <strong>1/T<sub>1</sub> − 1/T<sub>2</sub> ＝ 1/t</strong>（T<sub>1</sub> 是週期較短、較快的那顆）。</li>
+<li>代入 ω ＝ 2π/T，兩邊除以 2π ⇒ <strong>1/T<sub>1</sub> − 1/T<sub>2</sub> ＝ 1/t</strong>。</li>
 </ol>
 <h5>反向</h5>
 <p>兩者迎面靠近，相對角速度是 ω<sub>1</sub> ＋ ω<sub>2</sub> ⇒ <strong>1/T<sub>1</sub> ＋ 1/T<sub>2</sub> ＝ 1/t</strong>。</p>
-<h5>驗算例子：時鐘</h5>
+<h5>檢查式子合不合理</h5>
+<ul>
+<li>外圈不動（T<sub>2</sub> → ∞）：1/t ＝ 1/T<sub>1</sub> ⇒ t ＝ T<sub>1</sub>，轉一圈就回到它旁邊 ✔</li>
+<li>兩者一樣快（T<sub>1</sub> ＝ T<sub>2</sub>）：1/t ＝ 0 ⇒ 永遠追不上 ✔</li>
+<li>上面動畫：T<sub>2</sub> ＝ 3T<sub>1</sub> ⇒ 1/t ＝ 1/T<sub>1</sub> − 1/(3T<sub>1</sub>) ＝ 2/(3T<sub>1</sub>) ⇒ t ＝ 1.5T<sub>1</sub> ✔</li>
+</ul>
+<h5>④ 代數字：時鐘</h5>
 <p>分針 T<sub>1</sub> ＝ 1 小時、時針 T<sub>2</sub> ＝ 12 小時，同向 ⇒ 1/t ＝ 1 − 1/12 ＝ 11/12 ⇒ t ＝ 12/11 小時（約 1 小時 5.5 分），不是剛好 1 小時。</p>
 <h5>解題步驟</h5>
 <ol>
 <li>由相遇條件求出未知的週期。</li>
 <li>再用第四節的比例：R ∝ T<sup>2/3</sup>、v ∝ 1/√R、a ∝ 1/R² 換成題目要的量。</li>
-</ol></div></details>
+</ol>
+<h5>⑤ 常見錯誤</h5>
+<ul>
+<li>以為 t ＝ T<sub>1</sub>：忘了慢的那顆也在往前跑。</li>
+<li>同向、反向用錯：同向是「追」，用減；反向是「迎面」，用加。</li>
+</ul></div></details>
 
 <aside class="box box-concept"><div class="box-h">考前提醒</div><ul>
 <li>衛星題只有一個等號：GMm/R² ＝ 向心力，m 一定約掉</li>
@@ -690,12 +1212,14 @@ a ＝ G(4M)/(d/2)² − GM/(d/2)² ＝ 16GM/d² − 4GM/d² ＝ <strong>12GM/d²
 <div class="qimgs"><img class="qimg" src="img/A045_8_30.jpg" width="1400" height="539" loading="lazy" alt="選修物理1、2 第45頁" data-page="選修物理1、2 p.45"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(A)(B)(C)</div>
-<div class="exp"><b class="exp-h">解</b><p>g ∝ M/R²：g' ＝ 4 ÷ (1/4)² ＝ <strong>64g</strong><br />
-- (A) ○<br />
-- (B) ○ H ∝ 1/g ⇒ 128/64 ＝ 2 m<br />
-- (C) ○ 單擺 T ∝ 1/√g ⇒ 4/√64 ＝ 0.5 s<br />
-- (D) ✗ 彈簧振子 T ＝ 2π√(m/k)，與 g 無關，仍為 4 s<br />
-- (E) ✗ 重力 mg 為 <strong>64 倍</strong></p></div>
+<div class="exp"><b class="exp-h">解</b><p>g ∝ M/R²：g' ＝ 4 ÷ (1/4)² ＝ <strong>64g</strong></p>
+<ul>
+<li>(A) ○</li>
+<li>(B) ○ H ∝ 1/g ⇒ 128/64 ＝ 2 m</li>
+<li>(C) ○ 單擺 T ∝ 1/√g ⇒ 4/√64 ＝ 0.5 s</li>
+<li>(D) ✗ 彈簧振子 T ＝ 2π√(m/k)，與 g 無關，仍為 4 s</li>
+<li>(E) ✗ 重力 mg 為 <strong>64 倍</strong></li>
+</ul></div>
 </details>
 </article>
 
@@ -895,9 +1419,11 @@ S<sub>1</sub> : S<sub>2</sub> ＝ √1 : √2 ＝ <strong>1 : √2</strong></p><
 <div class="qimgs"><img class="qimg" src="img/A051_32p5_48.jpg" width="1400" height="366" loading="lazy" alt="選修物理1、2 第51頁" data-page="選修物理1、2 p.51"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(A)</div>
-<div class="exp"><b class="exp-h">解</b><p>用「完整球 − 挖掉的小球」：<br />
-- 完整球對 A（距球心 R）：GMm/R²<br />
-- 挖掉的小球質量 M/8（體積 1/8），球心距 A 為 R/2：G(M/8)m/(R/2)² ＝ GMm/(2R²)</p>
+<div class="exp"><b class="exp-h">解</b><p>用「完整球 − 挖掉的小球」：</p>
+<ul>
+<li>完整球對 A（距球心 R）：GMm/R²</li>
+<li>挖掉的小球質量 M/8（體積 1/8），球心距 A 為 R/2：G(M/8)m/(R/2)² ＝ GMm/(2R²)</li>
+</ul>
 <p>F ＝ GMm/R² − GMm/(2R²) ＝ <strong>GMm/(2R²)</strong></p></div>
 </details>
 </article>
@@ -944,12 +1470,14 @@ y ＝ √(gR) ＝ √(10 × 6.4×10<sup>6</sup>) ＝ <strong>8×10<sup>3</sup> m
 <div class="qimgs"><img class="qimg" src="img/A052_48p5_64p5.jpg" width="1400" height="359" loading="lazy" alt="選修物理1、2 第52頁" data-page="選修物理1、2 p.52"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(D)</div>
-<div class="exp"><b class="exp-h">解</b><p>甲是同步衛星，軌道半徑較大。<br />
-- (A) ✗ v ∝ 1/√R，甲較慢<br />
-- (B) ✗ a ∝ 1/R²，甲較小<br />
-- (C) ✗ 同步衛星週期 ＝ 地球<strong>自轉</strong>週期（1 天），不是公轉週期（1 年）<br />
-- (D) ○ 面積速率 ∝ √R，甲較大<br />
-- (E) ✗</p></div>
+<div class="exp"><b class="exp-h">解</b><p>甲是同步衛星，軌道半徑較大。</p>
+<ul>
+<li>(A) ✗ v ∝ 1/√R，甲較慢</li>
+<li>(B) ✗ a ∝ 1/R²，甲較小</li>
+<li>(C) ✗ 同步衛星週期 ＝ 地球<strong>自轉</strong>週期（1 天），不是公轉週期（1 年）</li>
+<li>(D) ○ 面積速率 ∝ √R，甲較大</li>
+<li>(E) ✗</li>
+</ul></div>
 </details>
 </article>
 
@@ -958,10 +1486,12 @@ y ＝ √(gR) ＝ √(10 × 6.4×10<sup>6</sup>) ＝ <strong>8×10<sup>3</sup> m
 <div class="qimgs"><img class="qimg" src="img/A052_64p5_87p5.jpg" width="1400" height="510" loading="lazy" alt="選修物理1、2 第52頁" data-page="選修物理1、2 p.52"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>(C)</div>
-<div class="exp"><b class="exp-h">解</b><p>恆星與行星質量都不變，行星軌道半徑變 1/2。<br />
-- (A)(B) ✗ T ∝ R<sup>3/2</sup> ⇒ 變為 (1/2)<sup>3/2</sup> ＝ 1/(2√2) 倍<br />
-- (C) ○ 恆星表面 g ＝ GM/R<sub>s</sub>²，R<sub>s</sub> 變 2 倍 ⇒ g 變 <strong>1/4</strong><br />
-- (D)(E) ✗ 兩者間引力 ∝ 1/r²，r 變一半 ⇒ 引力變 <strong>4 倍</strong>（兩者互為作用力、反作用力，大小相同）</p></div>
+<div class="exp"><b class="exp-h">解</b><p>恆星與行星質量都不變，行星軌道半徑變 1/2。</p>
+<ul>
+<li>(A)(B) ✗ T ∝ R<sup>3/2</sup> ⇒ 變為 (1/2)<sup>3/2</sup> ＝ 1/(2√2) 倍</li>
+<li>(C) ○ 恆星表面 g ＝ GM/R<sub>s</sub>²，R<sub>s</sub> 變 2 倍 ⇒ g 變 <strong>1/4</strong></li>
+<li>(D)(E) ✗ 兩者間引力 ∝ 1/r²，r 變一半 ⇒ 引力變 <strong>4 倍</strong>（兩者互為作用力、反作用力，大小相同）</li>
+</ul></div>
 </details>
 </article>
 
@@ -1004,10 +1534,12 @@ GMm/R² ＝ m ω² × MR/(M ＋ m) ⇒ <strong>ω² ＝ G(M ＋ m)/R³</strong><
 <div class="qimgs"><img class="qimg" src="img/A053_13_41.jpg" width="1400" height="626" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"><img class="qimg" src="img/A053_75_86.jpg" width="1400" height="256" loading="lazy" alt="選修物理1、2 第53頁" data-page="選修物理1、2 p.53"></div>
 <details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary>
 <div class="ans"><b>答</b>見詳解</div>
-<div class="exp"><b class="exp-h">解</b><p>可舉以下任兩項：<br />
-1. 在 L<sub>2</sub>，太陽、地球、月球都在望遠鏡的<strong>同一側</strong>，用一面遮陽罩就能同時擋住三者的熱輻射，容易維持 50 K 以下的低溫。<br />
-2. L<sub>2</sub> 離太陽比 L<sub>1</sub> 遠，接收到的太陽輻射較少，較容易保持低溫。<br />
-3. 背向太陽與地球時，前方整片天空都沒有強光源干擾，可觀察的範圍廣；在 L<sub>1</sub> 則望遠鏡朝外看時，一側是太陽、另一側是地球，會互相干擾。</p></div>
+<div class="exp"><b class="exp-h">解</b><p>可舉以下任兩項：</p>
+<ol>
+<li>在 L<sub>2</sub>，太陽、地球、月球都在望遠鏡的<strong>同一側</strong>，用一面遮陽罩就能同時擋住三者的熱輻射，容易維持 50 K 以下的低溫。</li>
+<li>L<sub>2</sub> 離太陽比 L<sub>1</sub> 遠，接收到的太陽輻射較少，較容易保持低溫。</li>
+<li>背向太陽與地球時，前方整片天空都沒有強光源干擾，可觀察的範圍廣；在 L<sub>1</sub> 則望遠鏡朝外看時，一側是太陽、另一側是地球，會互相干擾。</li>
+</ol></div>
 </details>
 </article>
 </div><div class="pager"><a href="u4.html">← 4 摩擦力與靜力平衡</a><a href="u6.html">6 動量與角動量 →</a></div></main>
@@ -1645,6 +2177,206 @@ S.gasbox={w:560,h:300,dur:9,
   note:function(t){
     var c=S.gasbox._sim(),i=Math.min(c.frames.length-1,Math.round(t/c.dt)),L=c.xr[i]-c.x0;
     return '體積 V ∝ '+Math.round(L)+'（原 360）；撞擊次數約隨 1/V 增加 ⇒ 壓力 P ∝ 1/V。';
+  }};
+})();
+
+/* 動畫解（四）：第5、6單元正文的動畫 */
+(function(){
+var H=window.SIMH,E=H.E,T=H.T,Arrow=H.Arrow,S=window.SIMS;
+function f2(x){return (Math.round(x*100)/100).toFixed(2);}
+function f1(x){return (Math.round(x*10)/10).toFixed(1);}
+function poly(parent,cls){return E('polyline',{'class':cls,points:''},parent);}
+
+/* ---------- 第5單元：牛頓的大砲 ---------- */
+S.u5cannon={w:560,h:330,dur:7,
+  _sim:function(){
+    if(S.u5cannon._c)return S.u5cannon._c;
+    var R=72,r0=108,Tc=6,vc=2*Math.PI*r0/Tc,GM=vc*vc*r0,fs=[0.5,0.8,1.0],out=[];
+    fs.forEach(function(f){
+      var x=0,y=r0,vx=f*vc,vy=0,dt=0.002,t=0,arr=[[0,x,y]],land=null;
+      while(t<S.u5cannon.dur){
+        var r=Math.hypot(x,y),a=GM/(r*r*r);
+        vx-=a*x*dt;vy-=a*y*dt;x+=vx*dt;y+=vy*dt;t+=dt;
+        if(Math.hypot(x,y)<=R){land=t;var k=R/Math.hypot(x,y);x*=k;y*=k;arr.push([t,x,y]);break;}
+        arr.push([t,x,y]);
+      }
+      out.push({arr:arr,land:land});
+    });
+    return (S.u5cannon._c={R:R,r0:r0,out:out});
+  },
+  build:function(svg){
+    var c=S.u5cannon._sim(),cx=280,cy=178;
+    E('circle',{'class':'fg',cx:cx,cy:cy,r:c.R},svg);T(svg,cx,cy+5,'地球','t');
+    E('polygon',{'class':'fy',points:(cx-14)+','+(cy-c.R+3)+' '+cx+','+(cy-c.r0)+' '+(cx+14)+','+(cy-c.R+3)},svg);
+    var cls=['curve4','curve2','curve'],fill=['fwo','fp','fa'],name=['慢','較快','剛好 √(GM/r)'];
+    var tr=[],ball=[];
+    for(var i=0;i<3;i++){tr.push(poly(svg,cls[i]));ball.push(E('circle',{'class':fill[i],r:6},svg));
+      E('line',{'class':cls[i],x1:18,y1:24+i*22,x2:44,y2:24+i*22},svg);T(svg,52,29+i*22,name[i],'ts','start');}
+    return function(t){
+      for(var i=0;i<3;i++){
+        var a=c.out[i].arr,pts='',last=a[0];
+        for(var k=0;k<a.length&&a[k][0]<=t;k++){last=a[k];if(k%6===0)pts+=(cx+last[1]).toFixed(1)+','+(cy-last[2]).toFixed(1)+' ';}
+        pts+=(cx+last[1]).toFixed(1)+','+(cy-last[2]).toFixed(1);
+        tr[i].setAttribute('points',pts);ball[i].setAttribute('cx',cx+last[1]);ball[i].setAttribute('cy',cy-last[2]);
+      }
+    };
+  },
+  note:function(t){
+    var c=S.u5cannon._sim(),s=[];
+    if(c.out[0].land&&t>=c.out[0].land)s.push('慢的那顆已落地');
+    if(c.out[1].land&&t>=c.out[1].land)s.push('較快的那顆飛得比較遠，但也落地了');
+    var msg='三顆砲彈同時水平射出，往下掉的快慢一樣（都由重力決定），差別只在往前飛多快。';
+    if(s.length)msg+='<br>'+s.join('；')+'。';
+    if(t>4)msg+='<br><b>綠色那顆：往前飛的同時地面也彎下去同樣多，永遠落不到地面 ⇒ 繞地球轉。</b>';
+    return msg;
+  }};
+
+/* ---------- 第5單元：等面積定律 ---------- */
+S.u5kepler={w:560,h:300,dur:12,
+  _g:{cx:260,cy:150,a:200,e:0.714},
+  _pos:function(fr){
+    var g=S.u5kepler._g,b=g.a*Math.sqrt(1-g.e*g.e),M=2*Math.PI*fr,Ee=M;
+    for(var k=0;k<40;k++)Ee=Ee-(Ee-g.e*Math.sin(Ee)-M)/(1-g.e*Math.cos(Ee));
+    return [g.cx+g.a*Math.cos(Ee),g.cy-b*Math.sin(Ee),1-g.e*Math.cos(Ee)];
+  },
+  build:function(svg){
+    var g=S.u5kepler._g,b=g.a*Math.sqrt(1-g.e*g.e),fx=g.cx+g.a*g.e,P=S.u5kepler._pos,N=12;
+    var path0=[];for(var i=0;i<=120;i++){var q=2*Math.PI*i/120;path0.push((g.cx+g.a*Math.cos(q))+','+(g.cy-b*Math.sin(q)));}
+    var secs=[];for(var j=0;j<N;j++)secs.push(E('polygon',{'class':j%2?'shade2':'shade',points:''},svg));
+    E('polyline',{'class':'curve',points:path0.join(' ')},svg);
+    E('circle',{'class':'fy',cx:fx,cy:g.cy,r:13},svg);T(svg,fx,g.cy+32,'太陽','ts');
+    T(svg,g.cx+g.a+6,g.cy-10,'近日點','tv','start');T(svg,g.cx-g.a-6,g.cy-10,'遠日點','tv','end');
+    var ln=E('line',{'class':'thin',x1:fx,y1:g.cy,x2:fx,y2:g.cy},svg),pl=E('circle',{'class':'fxo',r:8},svg);
+    function sector(f0,f1){var s=fx+','+g.cy;for(var k=0;k<=24;k++){var q=P(f0+(f1-f0)*k/24);s+=' '+q[0].toFixed(1)+','+q[1].toFixed(1);}return s;}
+    return function(t){
+      var fr=t/S.u5kepler.dur;
+      for(var j=0;j<N;j++){var f0=j/N,f1=Math.min(fr,(j+1)/N);secs[j].setAttribute('points',fr>f0?sector(f0,f1):'');}
+      var q=P(Math.min(fr,0.99999));pl.setAttribute('cx',q[0]);pl.setAttribute('cy',q[1]);ln.setAttribute('x2',q[0]);ln.setAttribute('y2',q[1]);
+    };
+  },
+  note:function(t){
+    var g=S.u5kepler._g,q=S.u5kepler._pos(Math.min(t/S.u5kepler.dur,0.99999)),r=q[2],rmax=1+g.e;
+    var v=Math.sqrt(2/r-1),vmin=Math.sqrt(2/rmax-1),n=Math.min(12,Math.floor(t/S.u5kepler.dur*12)+1);
+    return '正在畫第 '+n+' 塊扇形（每塊都花 T/12）。目前離太陽 '+f2(r)+' a，速率是遠日點的 <b>'+f1(v/vmin)+' 倍</b>。';
+  }};
+
+/* ---------- 第5單元：會合週期 ---------- */
+S.u5synod={w:560,h:300,dur:9,
+  _p:{T1:1.5,T2:4.5,r1:60,r2:125},
+  build:function(svg){
+    var p=S.u5synod._p,cx=170,cy=150;
+    E('circle',{'class':'thin',cx:cx,cy:cy,r:p.r1},svg);E('circle',{'class':'thin',cx:cx,cy:cy,r:p.r2},svg);
+    E('circle',{'class':'fy',cx:cx,cy:cy,r:15},svg);
+    var wedge=E('path',{'class':'shade2',d:''},svg);
+    var l1=E('line',{'class':'thin',x1:cx,y1:cy,x2:cx,y2:cy},svg),l2=E('line',{'class':'thin',x1:cx,y1:cy,x2:cx,y2:cy},svg);
+    var s1=E('circle',{'class':'fb',r:8},svg),s2=E('circle',{'class':'fp',r:10},svg);
+    T(svg,330,60,'內圈（藍）週期 T_{1}','ts','start');T(svg,330,84,'外圈（橘）週期 T_{2} ＝ 3T_{1}','ts','start');
+    T(svg,330,108,'紅色扇形 ＝ 內圈領先的角度','ts','start');
+    var c1=T(svg,330,150,'','t','start'),c2=T(svg,330,178,'','t','start'),c3=T(svg,330,206,'','tc','start'),c4=T(svg,330,240,'','tf','start');
+    return function(t){
+      var th1=2*Math.PI*t/p.T1,th2=2*Math.PI*t/p.T2,x1=cx+p.r1*Math.cos(th1),y1=cy-p.r1*Math.sin(th1),x2=cx+p.r2*Math.cos(th2),y2=cy-p.r2*Math.sin(th2);
+      s1.setAttribute('cx',x1);s1.setAttribute('cy',y1);s2.setAttribute('cx',x2);s2.setAttribute('cy',y2);
+      l1.setAttribute('x2',x1);l1.setAttribute('y2',y1);l2.setAttribute('x2',x2);l2.setAttribute('y2',y2);
+      var d=(th1-th2)%(2*Math.PI),R=40,ax=cx+R*Math.cos(th2),ay=cy-R*Math.sin(th2),bx=cx+R*Math.cos(th2+d),by=cy-R*Math.sin(th2+d);
+      wedge.setAttribute('d',d>0.01?'M'+cx+','+cy+' L'+ax+','+ay+' A'+R+','+R+' 0 '+(d>Math.PI?1:0)+' 0 '+bx+','+by+' Z':'');
+      var n1=t/p.T1,n2=t/p.T2;
+      H.setText(c1,'內圈已轉 '+f2(n1)+' 圈');H.setText(c2,'外圈已轉 '+f2(n2)+' 圈');
+      H.setText(c3,'內圈多轉 '+f2(n1-n2)+' 圈');H.setText(c4,'已相遇 '+Math.floor(n1-n2+1e-6)+' 次');
+    };
+  },
+  note:function(t){
+    var p=S.u5synod._p;
+    return '時間 '+f2(t/p.T1)+' T<sub>1</sub>。內圈每<b>多轉滿 1 圈</b>就追上外圈一次 ⇒ 每隔 t ＝ 1.5T<sub>1</sub> 相遇（不是 T<sub>1</sub>，因為外圈也在往前跑）。';
+  }};
+
+/* ---------- 第6單元：砲彈爆炸，質心照走拋物線 ---------- */
+S.u6explode={w:560,h:300,
+  _p:{x0:40,gy:262,vx:90,vy:260,g:200,te:1.3,m1:1,m2:2,u1:[190,80],u2:[40,-40]},
+  _st:function(t){
+    var p=S.u6explode._p,g=p.g;
+    function para(x,y,vx,vy,tt){return [x+vx*tt,y-vy*tt+0.5*g*tt*tt];}
+    if(t<=p.te){var q=para(p.x0,p.gy,p.vx,p.vy,t);return {one:true,a:q,b:q,cm:q,land:false};}
+    var top=para(p.x0,p.gy,p.vx,p.vy,p.te),dt=t-p.te;
+    function frag(u){
+      var y0=top[1],a=0.5*g,bq=-u[1],cq=y0-p.gy,tl=(-bq+Math.sqrt(bq*bq-4*a*cq))/(2*a),tt=Math.min(dt,tl);
+      return {pos:para(top[0],y0,u[0],u[1],tt),landed:dt>=tl};
+    }
+    var A=frag(p.u1),B=frag(p.u2),M=p.m1+p.m2;
+    var cm=[(p.m1*A.pos[0]+p.m2*B.pos[0])/M,(p.m1*A.pos[1]+p.m2*B.pos[1])/M];
+    return {one:false,a:A.pos,b:B.pos,cm:cm,land:A.landed||B.landed,bl:B.landed};
+  },
+  dur:function(){return 3.3;},
+  build:function(svg){
+    var p=S.u6explode._p;
+    E('line',{'class':'o',x1:10,y1:p.gy,x2:550,y2:p.gy},svg);
+    var pts='';for(var i=0;i<=60;i++){var tt=2.6*i/60;pts+=(p.x0+p.vx*tt)+','+(p.gy-p.vy*tt+0.5*p.g*tt*tt)+' ';}
+    E('polyline',{'class':'curve dash',points:pts},svg);
+    T(svg,20,26,'虛線：沒爆炸時的拋物線','tm','start');
+    var trail=poly(svg,'curve4');
+    var shell=E('circle',{'class':'fb',r:9},svg),fa=E('circle',{'class':'fb',r:6},svg),fb=E('circle',{'class':'fg',r:9},svg);
+    var la=T(svg,0,0,'1 kg','ts'),lb=T(svg,0,0,'2 kg','ts');
+    var cmg=E('g',{},svg);E('line',{'class':'o',x1:-7,y1:-7,x2:7,y2:7,style:'stroke:var(--warn);stroke-width:3'},cmg);E('line',{'class':'o',x1:-7,y1:7,x2:7,y2:-7,style:'stroke:var(--warn);stroke-width:3'},cmg);
+    var lc=T(svg,0,0,'質心','tf'),boom=E('circle',{'class':'shade2',r:0},svg);
+    var tr=[];
+    return function(t){
+      var s=S.u6explode._st(t);
+      shell.style.display=s.one?'':'none';fa.style.display=fb.style.display=s.one?'none':'';la.style.display=lb.style.display=(t-p.te>0.25)?'':'none';
+      shell.setAttribute('cx',s.a[0]);shell.setAttribute('cy',s.a[1]);
+      fa.setAttribute('cx',s.a[0]);fa.setAttribute('cy',s.a[1]);fb.setAttribute('cx',s.b[0]);fb.setAttribute('cy',s.b[1]);
+      la.setAttribute('x',s.a[0]);la.setAttribute('y',s.a[1]-12);lb.setAttribute('x',s.b[0]);lb.setAttribute('y',s.b[1]-15);
+      cmg.setAttribute('transform','translate('+s.cm[0]+','+s.cm[1]+')');lc.setAttribute('x',s.cm[0]+22);lc.setAttribute('y',s.cm[1]+18);
+      var dtb=t-p.te;boom.setAttribute('r',dtb>0&&dtb<0.3?60*dtb/0.3:0);
+      var top=[p.x0+p.vx*p.te,p.gy-p.vy*p.te+0.5*p.g*p.te*p.te];boom.setAttribute('cx',top[0]);boom.setAttribute('cy',top[1]);
+      var q='';for(var k=0;k<=40;k++){var tk=t*k/40,sk=S.u6explode._st(tk);q+=sk.cm[0].toFixed(1)+','+sk.cm[1].toFixed(1)+' ';}
+      trail.setAttribute('points',q);
+    };
+  },
+  note:function(t){
+    var p=S.u6explode._p,s=S.u6explode._st(t);
+    if(t<p.te)return '砲彈只受重力，沿拋物線飛。';
+    if(!s.bl)return '<b>爆炸！</b>爆炸力是碎片之間的內力：1 kg 碎片往右上飛、2 kg 碎片往右下飛，但質心（×，橘色軌跡）仍走在原本的虛線上。';
+    return '2 kg 碎片落地後，地面對它施力（外力）⇒ 從這一刻起質心離開原拋物線。「質心照走拋物線」只在碎片都還在空中時成立。';
+  }};
+
+/* ---------- 第6單元：碰撞前後總動量不變 ---------- */
+S.u6collide={w:560,h:270,dur:4.0,
+  _p:{m1:2,m2:1,v1:3,K:25,x1:20,x2:206,w1:66,w2:58,tc:1.6},
+  _st:function(t){
+    var p=S.u6collide._p,v1=p.v1,u1=(p.m1-p.m2)/(p.m1+p.m2)*v1,u2=2*p.m1/(p.m1+p.m2)*v1;
+    if(t<p.tc)return {x1:p.x1+v1*p.K*t,x2:p.x2,v1:v1,v2:0};
+    var d=t-p.tc;return {x1:p.x1+v1*p.K*p.tc+u1*p.K*d,x2:p.x2+u2*p.K*d,v1:u1,v2:u2};
+  },
+  build:function(svg){
+    var p=S.u6collide._p,gy=110;
+    E('line',{'class':'o',x1:10,y1:gy,x2:550,y2:gy},svg);
+    var c1=E('rect',{'class':'fb',y:gy-34,width:p.w1,height:34,rx:4},svg),c2=E('rect',{'class':'fg',y:gy-28,width:p.w2,height:28,rx:4},svg);
+    var t1=T(svg,0,gy-12,'甲 2 kg','ts'),t2=T(svg,0,gy-9,'乙 1 kg','ts');
+    var a1=Arrow(svg,'vel'),a2=Arrow(svg,'vel'),v1=T(svg,0,0,'','tv'),v2=T(svg,0,0,'','tv');
+    var rows=[['甲的動量 p_{甲}','fb'],['乙的動量 p_{乙}','fg'],['總動量','fy']],bars=[],vals=[],X=150,Kp=45;
+    for(var i=0;i<3;i++){var y=150+i*36;T(svg,X-10,y+17,rows[i][0],'ts','end');bars.push(E('rect',{'class':rows[i][1],x:X,y:y,width:0,height:22,rx:3},svg));vals.push(T(svg,0,y+17,'','t','start'));}
+    E('line',{'class':'dim',x1:X+6*Kp,y1:142,x2:X+6*Kp,y2:262},svg);
+    return function(t){
+      var s=S.u6collide._st(t);
+      c1.setAttribute('x',s.x1);c2.setAttribute('x',s.x2);t1.setAttribute('x',s.x1+p.w1/2);t2.setAttribute('x',s.x2+p.w2/2);
+      a1.set(s.x1+p.w1/2,gy-48,s.x1+p.w1/2+s.v1*14,gy-48);a2.set(s.x2+p.w2/2,gy-42,s.x2+p.w2/2+s.v2*14,gy-42);
+      H.setText(v1,s.v1>0?f1(s.v1)+' m/s':'');v1.setAttribute('x',s.x1+p.w1/2+s.v1*7);v1.setAttribute('y',gy-58);
+      H.setText(v2,s.v2>0?f1(s.v2)+' m/s':'靜止');v2.setAttribute('x',s.x2+p.w2/2+s.v2*7);v2.setAttribute('y',gy-52);
+      var pv=[p.m1*s.v1,p.m2*s.v2,p.m1*s.v1+p.m2*s.v2];
+      for(var i=0;i<3;i++){bars[i].setAttribute('width',pv[i]*Kp);vals[i].setAttribute('x',X+pv[i]*Kp+8);H.setText(vals[i],f1(pv[i])+' kg·m/s');}
+    };
+  },
+  note:function(t){
+    var p=S.u6collide._p;
+    if(t<p.tc)return '碰撞前：甲 2 × 3 ＝ 6 kg·m/s，乙 0，總動量 6 kg·m/s。';
+    return '碰撞後：甲 2 × 1 ＝ 2，乙 1 × 4 ＝ 4，總和仍是 <b>6 kg·m/s</b>。甲少了 4、乙多了 4 ⇒ Δp<sub>甲</sub> ＝ −Δp<sub>乙</sub>；但速度變化不同（甲 −2 m/s、乙 ＋4 m/s），質量小的變得多。';
+  }};
+
+/* ---------- 第6單元：繩穿小孔（角動量守恆），沿用 pullrope 的畫面 ---------- */
+S.u6rope={w:560,h:300,dur:8,
+  build:function(svg,p){return S.pullrope.build(svg,p);},
+  note:function(t,p){
+    var u=t/8,sm=u*u*(3-2*u),r=p.r0*(1-0.5*sm),v=p.v0*p.r0/r,w=v/r,w0=p.v0/p.r0;
+    return '半徑 r＝'+f2(r)+' m，速率 v＝'+f2(v)+' m/s，<b>r × v ＝ '+f2(r*v)+'（不變）</b>，角速度 ω ＝ v/r 是原來的 '+f1(w/w0)+' 倍。紅＝繩子拉力（指向小孔），藍＝速度。';
   }};
 })();
 
