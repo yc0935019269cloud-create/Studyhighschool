@@ -1,0 +1,105 @@
+[
+ {
+  "n": 1,
+  "label": "演練 1",
+  "tag": "外顯子題組・哪些序列提早終止（多選）",
+  "q": "<p>某生針對白框的核苷酸序列進行修改，修改後的序列如選項所示，其中有些基因序列改變而產生終止序列（TAA、TAG 或 TGA）。下列哪些選項序列造成甲基因所形成的蛋白質，會提早終止在 Exon 2 的白框處？（多選）</p><p>(A) <span style=\"word-break:break-all\">TCAGACAGCCCAATAAGGGCAGG</span><br>(B) <span style=\"word-break:break-all\">TCATGGCAGAATAAGGGCAGG</span><br>(C) <span style=\"word-break:break-all\">TCATGGCAGCCCAAATAAGGGCAG</span><br>(D) <span style=\"word-break:break-all\">TCATGACAGCCCAATAAGGGCAGG</span><br>(E) <span style=\"word-break:break-all\">TCATGGTAGCCCAATAAGGGCAGG</span></p>",
+  "ans": "CDE。",
+  "exp": "<p>讀框由 TCA（Ser）開始，每3個一組，找有沒有 TAA、TAG、TGA：</p><table><thead><tr><th>選項</th><th>分組</th><th>終止？</th></tr></thead><tbody><tr><td>原序列</td><td>TCA TGG CAG CCC AAT AAG GGC AGG</td><td>無</td></tr><tr><td>(A)</td><td>TCA GAC AGC CCA ATA AGG GCA GG</td><td>無</td></tr><tr><td>(B)</td><td>TCA TGG CAG AAT AAG GGC AGG（少了 CCC，3個一起刪，不框移）</td><td>無</td></tr><tr><td>(C)</td><td>TCA TGG CAG CCC AA<strong>A</strong> <strong>TAA</strong> …（插入一個 A，框移）</td><td>TAA ✓</td></tr><tr><td>(D)</td><td>TCA <strong>TGA</strong> CAG …（TGG→TGA，無義突變）</td><td>TGA ✓</td></tr><tr><td>(E)</td><td>TCA TGG <strong>TAG</strong> …（CAG→TAG，無義突變）</td><td>TAG ✓</td></tr></tbody></table><p>注意：(A) 的序列中雖有「TAA」字樣（ATA│AGG 交界），但不在讀框上，不算終止。</p>",
+  "sum": "找終止要對準讀框；插入1個會框移，刪3個只少一個胺基酸。"
+ },
+ {
+  "n": 2,
+  "label": "演練 2",
+  "tag": "外顯子題組・提早終止的影響（多選）",
+  "q": "<p>關於上述提早終止特性的甲基因，下列敘述哪些正確？（多選）</p><p>(A) 甲基因所在的基因體仍可進行 DNA 半保留複製　(B) 甲基因仍可進行轉錄作用　(C) 所表現的蛋白質仍可執行 Exon 3 所負責之功能　(D) Exon 1 仍可完整轉譯為正確的多肽鏈　(E) 若移至細菌中，就不會發生轉譯提前終止現象</p>",
+  "ans": "ABD。",
+  "exp": "<ol><li>(A) 對：複製只看鹼基配對，序列改了照樣能複製。</li><li>(B) 對：轉錄靠啟動子；改動在 Exon 2 中間，不影響轉錄，只是 mRNA 也帶著終止密碼子。</li><li>(C) 錯：轉譯在 Exon 2 就停了，Exon 3 的部分根本沒做出來。</li><li>(D) 對：Exon 1 在終止點之前，序列沒變 → 照常正確轉譯。</li><li>(E) 錯：遺傳密碼有<strong>普遍性</strong>，細菌也把 TAA/TAG/TGA（mRNA 的 UAA/UAG/UGA）當終止。另外細菌不會剪接內含子，問題只會更多。</li></ol>",
+  "sum": "終止密碼子只影響轉譯「之後」的部分；複製、轉錄照常。"
+ },
+ {
+  "n": 3,
+  "label": "演練 3",
+  "tag": "外顯子題組・鹼基對如何替換（非選）",
+  "q": "<p>由於基因中一個鹼基對發生替換，而導致右圖過程合成的肽鏈中第 8 位胺基酸由異亮胺酸（密碼子有 AUU、AUC、AUA）變成蘇胺酸（密碼子有 ACU、ACC、ACA、ACG），試述該基因的這個鹼基對如何替換？</p>{{FIG}}",
+  "figs": [
+   {
+    "page": 29,
+    "crop": [
+     69,
+     7,
+     88,
+     21.5
+    ]
+   }
+  ],
+  "ans": "mRNA 密碼子的第2個鹼基由 U 變成 C；所以基因中這個位置的鹼基對由 T–A（編碼股 T、模版股 A）變成 C–G（編碼股 C、模版股 G）。",
+  "exp": "<ol><li>比較兩組密碼子：AUU→ACU、AUC→ACC、AUA→ACA，只要<strong>第2個鹼基 U→C</strong> 就能從 Ile 變 Thr，符合「一個鹼基對替換」。（其他位置改一個都變不成 Thr。）</li><li>mRNA 和<strong>編碼股</strong>相同（U↔T）：編碼股該位置 T→C。</li><li>mRNA 和<strong>模版股</strong>互補：模版股該位置 A→G。</li><li>所以這個鹼基對由 <strong>A–T 變成 G–C</strong>（以模版股表示），是一個誤義突變。</li></ol>",
+  "sum": "先比密碼子找哪一位變，再換回 DNA：mRNA 同編碼股、補模版股。"
+ },
+ {
+  "n": 4,
+  "label": "演練 4",
+  "tag": "NIPT 題組・唐氏症的突變類型",
+  "q": "<p>唐氏症屬於下列何種突變？</p><p>(A) 點突變　(B) 基因重複　(C) 三體　(D) 三倍體</p>",
+  "ans": "C。",
+  "exp": "<ol><li>唐氏症：第21號染色體有<strong>3條</strong>（2n＋1），其他染色體正常 → 非整倍體中的<strong>三體</strong>。</li><li>(D) 三倍體是<strong>每一套</strong>都變3套（3n），人類無法存活。</li><li>(A)(B) 是基因層次或片段的變異，不是整條染色體多一條。</li></ol>",
+  "sum": "多一「條」＝三體（2n＋1）；多一「套」＝三倍體（3n）。"
+ },
+ {
+  "n": 5,
+  "label": "演練 5",
+  "tag": "NIPT 題組・讀核型",
+  "q": "<p>如果某孕婦在母血檢驗後得知有 1/6 機會生下唐寶寶，並進行胎兒核型檢驗，得到結果如右圖，根據該圖可確定下列敘述何者正確？</p>{{FIG}}<p>(A) 這是個正常男孩　(B) 這是個唐氏症女孩　(C) 這是個患有貓叫症的男孩　(D) 這是個透納氏症的男孩</p>",
+  "figs": [
+   {
+    "page": 29,
+    "crop": [
+     63.5,
+     60.5,
+     88,
+     74
+    ]
+   }
+  ],
+  "ans": "A。",
+  "exp": "<ol><li>逐對數：1～22 號每號都是<strong>2條</strong>，第21號也只有2條 → 不是唐氏症。</li><li>性染色體：<strong>X 一條、Y 一條</strong> → 男性（有 Y）。</li><li>(B) 錯：21號沒有3條，且有 Y 是男生。(C) 貓叫症是第5號短臂缺失，圖中5號兩條外形相同，看不出缺失。(D) 透納氏症是 44＋X（只有一條 X、沒有 Y），而且一定是女性。</li><li>結論：核型正常的男孩。母血檢驗的 1/6 只是「機率」，核型檢查才是確診。</li></ol>",
+  "sum": "讀核型：先數21號、再看性染色體；有 Y 就是男。"
+ },
+ {
+  "n": 6,
+  "label": "演練 6",
+  "tag": "NIPT 題組・MPSS 的依據（非選）",
+  "q": "<p>根據文中所提的非侵入式產前檢查，檢驗方法之一的 MPSS 為什麼可以判斷個別 cfDNA 屬於哪一個染色體，這樣的檢驗能力應該歸功於哪一事件的完成？</p>",
+  "ans": "因為人類每條染色體的 DNA 序列都已經被解讀出來，把 cfDNA 片段定序後和這份資料比對，就知道它來自哪條染色體；這要歸功於「人類基因體計畫」的完成。",
+  "exp": "<ol><li>MPSS 只是把大量短片段定出序列；要知道「這段序列在哪條染色體上」，必須有一份人類全部染色體的標準序列可以比對。</li><li>題幹說「搭配人體基因解碼資料」→ 這份資料就是<strong>人類基因體計畫</strong>（2003年完成，解讀人類約 30 億個鹼基對）的成果。</li><li>一段夠長的序列在基因體中通常只出現在一個位置（第7題算給你看），所以能準確對應。</li></ol>",
+  "sum": "定序＋人類基因體資料比對 → 知道片段來自哪條染色體。"
+ },
+ {
+  "n": 7,
+  "label": "演練 7",
+  "tag": "NIPT 題組・隨機相同的機率（非選）",
+  "q": "<p>一段由 1000 個核苷酸組成的單股 DNA 經定序後確認位於第 2 號染色體短臂的特定位置，其他任意位置隨機組合出相同序列的機率為何？</p>",
+  "ans": "(1/4)<sup>1000</sup>。",
+  "exp": "<ol><li>每個位置有 A、T、G、C 四種可能，隨機出現指定那一種的機率是 1/4。</li><li>1000 個位置都要剛好相同，且各位置獨立 → 相乘：(1/4)×(1/4)×…＝(1/4)<sup>1000</sup>。</li><li>這個數字極小（約 10<sup>−602</sup>），人類基因體只有約 3×10<sup>9</sup> 個鹼基對，所以 1000 個鹼基的片段幾乎只可能來自一個位置。</li></ol>",
+  "sum": "n 個鹼基完全相同的機率＝(1/4)ⁿ；這就是 DNA 序列能「定位」的原因。"
+ },
+ {
+  "n": 8,
+  "label": "演練 8",
+  "tag": "RNAi 題組・被阻斷的步驟",
+  "q": "<p>RNAi 技術是因下列哪個步驟無法進行才得以抑制基因表現？</p><p>(A) 複製　(B) 轉錄　(C) 轉譯　(D) 修飾</p>",
+  "ans": "C。",
+  "exp": "<ol><li>RNAi 的目標是 <strong>mRNA</strong>：消音複體上的 siRNA 和 mRNA 互補相黏，再由切片器把 mRNA 摧毀。</li><li>DNA 沒有被改，複製 (A)、轉錄 (B) 都照常；mRNA 照樣做出來。</li><li>但 mRNA 被摧毀後，核糖體沒有 mRNA 可讀 → <strong>轉譯</strong>無法進行 → 蛋白質做不出來。</li><li>連蛋白質都沒有，就談不上修飾 (D)；被阻斷的關鍵步驟是轉譯。</li></ol>",
+  "sum": "RNAi 砍的是 mRNA → 轉譯做不成；DNA 和轉錄不受影響。"
+ },
+ {
+  "n": 9,
+  "label": "演練 9",
+  "tag": "RNAi 題組・消音複體上的片段（非選）",
+  "q": "<p>下列何者最可能是 RNA 消音複體上的遺傳物質片段？</p><p>甲：<span style=\"word-break:break-all\">ATTCGGCTTAGGCCTTAAATTC</span><br>乙：<span style=\"word-break:break-all\">AUUCGGCUUACCGGUUAUUAAC</span><br>丙：<span style=\"word-break:break-all\">AUUCGGCUUACCGGUUAAUUGGCCUAGCCA</span><br>丁：<span style=\"word-break:break-all\">AUUCGGCUUACCGGUUAAUUGG</span><br>　　<span style=\"word-break:break-all\">UAAGCCGAAUGGCCAAUUAACC</span></p>",
+  "ans": "乙。",
+  "exp": "<p>依題幹，消音複體上的是：① <strong>RNA</strong> ② <strong>單股</strong>（雙股 siRNA 解開後只裝一股）③ 約 <strong>22 個</strong>核苷酸。</p><ol><li>甲：有 T、沒有 U → 是 DNA ✗。</li><li>乙：有 U 的 RNA、單股、數一數是 <strong>22 個</strong> ✓。</li><li>丙：RNA、單股，但有 30 個，太長 ✗。</li><li>丁：上下兩股各 22 個且完全互補 → 是<strong>雙股</strong> siRNA，尚未解開 ✗。</li></ol>",
+  "sum": "三個條件一起看：RNA（有 U）、單股、約 22 個。"
+ }
+]

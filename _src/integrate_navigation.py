@@ -5,8 +5,17 @@ UNITS=json.loads((ROOT/'_src/continuation.json').read_text(encoding='utf-8'))
 TITLES={'biology':{'3':'遺傳學'},'earth':{'4':'大氣與天氣','5':'海洋','6':'天然災害','7':'氣候變遷與資源','8':'進階探究'}}
 def strip(t,n):return re.sub(r'<!-- '+n+r' START -->.*?<!-- '+n+r' END -->','',t,flags=re.S)
 def marked(n,s):return '<!-- '+n+' START -->'+s+'<!-- '+n+' END -->'
+# Individually authored units that have no bulk-draft entry in continuation.json.
+EXTRA={'biology':[('4','分子生物學',['4-1','4-2','4-3','4-4','4-5'])]}
+def extra_units(subject,ids):
+ out=[]
+ for i in ids:
+  c=json.loads((ROOT/'_src/units'/(subject+'-'+i+'.json')).read_text(encoding='utf-8'))
+  n=len(json.loads((ROOT/'_src/units'/(subject+'-'+i+'.questions.json')).read_text(encoding='utf-8')))
+  out.append({'subject':subject,'id':i,'title':c['title'],'count':n})
+ return out
 def groups(subject):
- return [(key,title,[u for u in UNITS if u['subject']==subject and u['id'].split('-')[0]==key]) for key,title in TITLES[subject].items()]
+ return [(key,title,[u for u in UNITS if u['subject']==subject and u['id'].split('-')[0]==key]) for key,title in TITLES[subject].items()]+[(key,title,extra_units(subject,ids)) for key,title,ids in EXTRA.get(subject,[])]
 def home_groups(subject):
  out=''
  for n,title,us in groups(subject):
@@ -36,7 +45,7 @@ def integrate():
    if p.name=='index.html':
     cards=''
     for n,title,us in groups(subject):
-     cards+='<section class="chcard"><h2>第'+n+'單元<br><span>'+title+'</span></h2><ul>'+''.join('<li><a href="u'+u['id']+'.html"><b>'+u['id']+'</b> '+html.escape(u['title'])+'<em>6 題</em></a></li>' for u in us)+'</ul></section>'
+     cards+='<section class="chcard"><h2>第'+n+'單元<br><span>'+title+'</span></h2><ul>'+''.join('<li><a href="u'+u['id']+'.html"><b>'+u['id']+'</b> '+html.escape(u['title'])+'<em>'+str(u.get('count',6))+' 題</em></a></li>' for u in us)+'</ul></section>'
     t=re.sub(r'(<div class="chgrid">.*?)(</div>)',lambda m:m[1]+marked('integrated-index',cards)+m[2],t,count=1,flags=re.S)
     if subject=='biology':t=t.replace('共 18 個單元、254 題。','共 23 份講義，原有254題與新增30題概念檢核。')
     else:t=t.replace('地科 1：地球的歷史・天文・地質','地科 1–3：歷史・天文・地質・大氣・海洋・氣候')

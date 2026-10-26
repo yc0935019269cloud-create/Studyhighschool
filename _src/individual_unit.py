@@ -7,6 +7,10 @@ import re,json,html
 ROOT=Path(__file__).resolve().parent.parent
 SRC=ROOT/'_src/units'
 
+def printed(c,page):
+ # Printed page number; print_pages overrides pages after a gap in the scanned PDF.
+ return c.get('print_pages',{}).get(str(page),page+c['offset'])
+
 def build(key):
  c=json.loads((SRC/(key+'.json')).read_text(encoding='utf-8'))
  subject=c['subject'];uid=c['id'];target='u'+uid+'.html'
@@ -23,7 +27,7 @@ def build(key):
   box=[round(v*(w if i%2==0 else h)/100) for i,v in enumerate(f['crop'])]
   crop=im.crop(box);dest=ROOT/subject/'img'/(key+'-'+f['key']+'.webp')
   crop.save(dest,'WEBP',quality=91,method=4)
-  figure='<figure class="fig authored-figure fig-'+f['key']+'"><img class="figimg" src="img/'+dest.name+'" width="'+str(crop.width)+'" height="'+str(crop.height)+'" loading="lazy" alt="'+html.escape(f['caption'],quote=True)+'" data-page="'+c['source']+' PDF第'+str(f['page'])+'頁"><figcaption>'+f['caption']+'<span>原講義PDF第'+str(f['page'])+'頁・印刷第'+str(f['page']+c['offset'])+'頁・點圖放大</span></figcaption></figure>'
+  figure='<figure class="fig authored-figure fig-'+f['key']+'"><img class="figimg" src="img/'+dest.name+'" width="'+str(crop.width)+'" height="'+str(crop.height)+'" loading="lazy" alt="'+html.escape(f['caption'],quote=True)+'" data-page="'+c['source']+' PDF第'+str(f['page'])+'頁"><figcaption>'+f['caption']+'<span>原講義PDF第'+str(f['page'])+'頁・印刷第'+str(printed(c,f['page']))+'頁・點圖放大</span></figcaption></figure>'
   body=body.replace('{{FIG_'+f['key']+'}}',figure)
  qs=json.loads((SRC/(key+'.questions.json')).read_text(encoding='utf-8'))
  for q in qs:
@@ -43,7 +47,7 @@ def build(key):
   label=q.get('label','練習 '+str(q['n']))
   card='<article class="q q-pr" id="check-'+str(q['n'])+'"><header class="qh"><span class="qn">'+label+'</span><span class="qtag">'+q['tag']+'</span><button class="mark" type="button" title="標記不會" aria-label="標記'+label+'">☆</button></header><div class="qtext">'+qtext+'</div>'+qfigs+'<details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>'+q['ans']+'</div><div class="exp"><b class="exp-h">解</b>'+q['exp']+'<div class="qsum"><span class="qsum-h">小結</span><p>'+q['sum']+'</p></div></div></details></article>'
   body=body.replace(ph,card)
- pages=''.join('<figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/'+c['source']+'/'+str(p).zfill(3)+'.webp" alt="'+c['source']+'PDF第'+str(p)+'頁完整原稿"><figcaption>PDF第'+str(p)+'頁／印刷第'+str(p+c['offset'])+'頁</figcaption></figure>' for p in c['pages'])
+ pages=''.join('<figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/'+c['source']+'/'+str(p).zfill(3)+'.webp" alt="'+c['source']+'PDF第'+str(p)+'頁完整原稿"><figcaption>PDF第'+str(p)+'頁／印刷第'+str(printed(c,p))+'頁</figcaption></figure>' for p in c['pages'])
  body=body.replace('{{ORIGINALS}}','<details class="source-originals"><summary>核對原講義全頁（'+c['source']+' PDF'+str(c['pages'][0])+'–'+str(c['pages'][-1])+'）</summary><p class="fine-note">'+c['source_note']+'</p>'+pages+'</details>')
  assert '{{' not in body
  main='<main class="main"><header class="uh"><div class="crumb">'+c['chapter']+'</div><h1><span class="uid">'+uid+'</span>'+c['title']+'</h1><div class="tools"><span class="cnt">'+c['count_label']+'</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit">'+body+'</div><div class="pager"><a href="'+c['prev'][0]+'">← '+c['prev'][1]+'</a><a href="'+c['next'][0]+'">'+c['next'][1]+' →</a></div></main>'

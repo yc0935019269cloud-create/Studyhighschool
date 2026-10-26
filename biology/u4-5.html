@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4-5 生物科技：PCR、重組 DNA 與基因轉殖｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">.authored-unit .fine-note{font-size:14.5px;line-height:1.8;color:var(--muted)}
+.authored-unit .authored-figure{margin:22px auto 26px}
+.authored-unit .authored-figure .figimg{max-width:100%;max-height:580px;width:auto;height:auto;border-radius:6px}
+.authored-unit .fig-composition .figimg,.authored-unit .fig-pressure .figimg{max-height:none}
+.authored-unit figcaption{line-height:1.65;margin-top:7px}
+.authored-unit figcaption span{display:block;font-size:12px;margin-top:3px}
+.authored-unit li{margin-top:7px;margin-bottom:7px}
+.authored-unit .exp ol{margin:10px 0}
+.authored-unit .qsum{font-size:16px}
+.authored-unit .reading-table td{text-align:left;vertical-align:top}
+.authored-unit .reading-table th:first-child{white-space:nowrap}
+.authored-unit .punnett-static{display:table;width:min(100%,520px);margin:18px auto}
+.authored-unit .punnett-static td{padding:12px 8px}
+.authored-unit .punnett-static code{background:none}
+.authored-unit .source-originals{margin:30px 0 10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px}
+.authored-unit .source-originals>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.authored-unit .original-page .figimg{width:100%;height:auto;max-height:none}
+.authored-unit .ref-list{font-size:14px}
+.authored-unit .fig-chromosome .figimg{max-height:none}
+@media(max-width:900px){
+.authored-unit .authored-figure .figimg{max-height:none}
+.authored-unit .qh{flex-wrap:wrap;gap:6px}
+.authored-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+.authored-unit .mark{flex-shrink:0}
+.authored-unit .punnett-static{font-size:15px}
+.authored-unit .punnett-static td,.authored-unit .punnett-static th{padding:8px 5px}
+.authored-unit .source-originals{padding:10px}
+}
+@media print{.authored-unit h2.section{break-after:avoid}.authored-unit .fig{break-inside:avoid}.authored-unit .q{break-inside:auto}.authored-unit .source-originals{display:none}}
+
+.authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
+.authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul><!-- integrated-nav START --><div class="nch">第3單元　遺傳學</div><ul><li><a href="u3-1.html"><span>3-1</span>孟德爾遺傳：配子與子代機率</a></li><li><a href="u3-2.html"><span>3-2</span>顯性關係的延伸：血型、多基因與環境</a></li><li><a href="u3-3.html"><span>3-3</span>染色體、核型與性別決定</a></li><li><a href="u3-4.html"><span>3-4</span>基因的連鎖與互換：重組率與遺傳圖譜</a></li><li><a href="u3-5.html"><span>3-5</span>單元 3 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><!-- u4-nav START --><div class="nch">第4單元　分子生物學</div><ul><li><a href="u4-1.html"><span>4-1</span>核酸的發現：轉形作用與噬菌體實驗</a></li><li><a href="u4-2.html"><span>4-2</span>核酸的構造與 DNA 複製</a></li><li><a href="u4-3.html"><span>4-3</span>基因表現：轉錄、轉譯與調控</a></li><li><a href="u4-4.html"><span>4-4</span>遺傳變異：染色體變異與基因突變</a></li><li><a class="on" href="u4-5.html"><span>4-5</span>生物科技：PCR、重組 DNA 與基因轉殖</a><ul class="subtoc"><li><a href="#s1">先備：要複製一段 DNA 需要什麼</a></li><li><a href="#s2">基因放大（一）：在細菌裡複製</a></li><li><a href="#s3">基因放大（二）：PCR</a></li><li><a href="#s4">重組 DNA：限制酶與連接酶</a></li><li><a href="#s5">重組 DNA 的完整流程</a></li><li><a href="#s6">基因轉殖：細菌、植物、動物</a></li><li><a href="#s7">安全評估與人類基因體計畫</a></li><li><a href="#s8">經典演練：PCR 題組 1–4</a></li><li><a href="#s9">經典演練：試管嬰兒題組 5–8</a></li><li><a href="#s10">經典演練：限制酶與親子鑑定 9–11</a></li><li><a href="#s11">探討活動：DNA 粗萃取與 PCR、電泳</a></li><li><a href="#s12">探討活動演練 1–3</a></li><li><a href="#s13">本篇整理</a></li></ul></li></ul><!-- u4-nav END --><p class="source-note"><a href="../sources.html#book=生物1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第4單元 分子生物學</div><h1><span class="uid">4-5</span>生物科技：PCR、重組 DNA 與基因轉殖</h1><div class="tools"><span class="cnt">14題・概念5演練1–11＋探討活動演練1–3</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><!-- Individually authored against 生物2 PDF30下半–37 (印刷142–143 missing from the scan). Do not replace with the bulk draft. -->
+<h2 class="section" id="s1">先備：要複製一段 DNA 需要什麼</h2>
+<ol>
+<li>生物科技就是把 4-1～4-4 學到的分子工具拿來用。先複習 4-2 的 DNA 複製需要哪些東西：</li>
+</ol>
+<aside class="box box-sum"><div class="box-h">先備：複製的材料</div><table>
+<thead><tr><th>材料</th><th>作用</th><th>本篇怎麼用</th></tr></thead>
+<tbody>
+<tr><td>模版 DNA</td><td>照著它配對</td><td>想要複製的「目標基因」</td></tr>
+<tr><td>引子</td><td>聚合酶不能從零開始，要有起點</td><td>PCR 用人工合成的 <strong>DNA 引子</strong></td></tr>
+<tr><td>dATP、dGTP、dCTP、dTTP</td><td>原料＋能量</td><td>同上</td></tr>
+<tr><td>DNA 聚合酶</td><td>把核苷酸接到 3′ 端</td><td>PCR 要用<strong>耐高溫</strong>的</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-sum"><div class="box-h">本篇三大技術</div><table>
+<thead><tr><th>技術</th><th>目的</th></tr></thead>
+<tbody>
+<tr><td>基因放大</td><td>把一段 DNA 複製出很多份</td></tr>
+<tr><td>重組 DNA</td><td>把目標基因「剪下、貼到」載體上</td></tr>
+<tr><td>基因轉殖</td><td>把重組 DNA 送進細菌、植物或動物，讓牠表現新性狀</td></tr>
+</tbody>
+</table></aside>
+
+<h2 class="section" id="s2">基因放大（一）：在細菌裡複製</h2>
+<ol>
+<li><strong>基因放大技術</strong>：快速、大量複製任何一段 DNA 的方法，可以在活體或試管內進行。</li>
+<li>活體：把基因接到<strong>質體</strong>（細菌中獨立於染色體外的小環狀 DNA）上，質體能在細菌體內自己複製；細菌分裂又快 → 基因跟著大量複製。</li>
+</ol>
+
+<h2 class="section" id="s3">基因放大（二）：PCR</h2>
+<ol>
+<li>1987年，<strong>穆勒斯</strong>發展出<strong>聚合酶連鎖反應（PCR）</strong>：在<strong>試管中</strong>快速、大量複製某一特定 DNA 片段。</li>
+<li>試管裡沒有解旋酶，改用<strong>加熱</strong>把雙股拆開；但一般的 DNA 聚合酶遇熱會失去活性 → 需要耐高溫的聚合酶。</li>
+</ol>
+<figure class="fig authored-figure fig-taq"><img class="figimg" src="img/biology-4-5-taq.webp" width="1216" height="453" loading="lazy" alt="PCR 專用的耐高溫 DNA 聚合酶：1976 年錢嘉韻教授從溫泉細菌 Thermus aquaticus 分離出 Taq 聚合酶" data-page="生物2 PDF第30頁"><figcaption>PCR 專用的耐高溫 DNA 聚合酶：1976 年錢嘉韻教授從溫泉細菌 Thermus aquaticus 分離出 Taq 聚合酶<span>原講義PDF第30頁・印刷第138頁・點圖放大</span></figcaption></figure>
+<figure class="fig authored-figure fig-pcr"><img class="figimg" src="img/biology-4-5-pcr.webp" width="1008" height="1018" loading="lazy" alt="PCR：每一循環（加熱→冷卻→延伸）DNA 數目加倍，1→2→4→8" data-page="生物2 PDF第31頁"><figcaption>PCR：每一循環（加熱→冷卻→延伸）DNA 數目加倍，1→2→4→8<span>原講義PDF第31頁・印刷第139頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">整理：PCR 一個循環的三步</div><table>
+<thead><tr><th>步驟</th><th>溫度</th><th>發生什麼</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>① 加熱（變性）</td><td>約 90 °C</td><td>雙股 DNA 分開</td><td>高溫使鹼基間的<strong>氫鍵斷裂</strong>（取代解旋酶）</td></tr>
+<tr><td>② 冷卻（黏合）</td><td>約 60 °C</td><td>一對 DNA 引子分別和兩條單股配對</td><td>降溫後氫鍵能重新形成；引子短、量多，比長股先配上</td></tr>
+<tr><td>③ 延伸</td><td>約 70 °C（Taq 最適 72 °C）</td><td>Taq 聚合酶從引子延長新股（5′→3′）</td><td>72 °C 是 Taq 活性最強的溫度</td></tr>
+</tbody>
+</table></aside>
+<ol>
+<li>每一循環 DNA 數目<strong>加倍</strong>：1 → 2 → 4 → 8…；做 n 次循環，理論上變成原來的 <strong>2<sup>n</sup></strong> 倍（10 次就是 2<sup>10</sup>≈1000 倍）。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- PCR 和細胞內複製的差別：PCR <strong>不用解旋酶、不用連接酶</strong>，引子是 <strong>DNA</strong>（細胞內是 RNA 引子）。<br>
+- 溫度高低：變性 ＞ 延伸 ＞ 黏合。口訣「<strong>90 拆、60 黏、72 長</strong>」。<br>
+- 引子決定「複製哪一段」：兩個引子夾住的那段才會被大量放大。</p></aside>
+
+<h2 class="section" id="s4">重組 DNA：限制酶與連接酶</h2>
+<aside class="box box-sum"><div class="box-h">整理：兩把關鍵工具</div><table>
+<thead><tr><th>酵素</th><th>作用</th><th>重點</th></tr></thead>
+<tbody>
+<tr><td><strong>限制酶</strong>（剪刀）</td><td>辨識特定的核苷酸序列並切斷</td><td>辨識序列有<strong>對稱性</strong>（兩股從 5′ 讀一樣）；細菌用它切碎入侵的病毒 DNA，保護自己</td></tr>
+<tr><td><strong>DNA 連接酶</strong>（膠水）</td><td>把相鄰兩段 DNA 末端以<strong>磷酸二酯鍵</strong>接起來</td><td>4-2 複製時接岡崎片段的就是它</td></tr>
+</tbody>
+</table></aside>
+<figure class="fig authored-figure fig-ecori"><img class="figimg" src="img/biology-4-5-ecori.webp" width="704" height="351" loading="lazy" alt="限制酶 EcoRI 辨識 5′-GAATTC-3′，在 G 與 A 之間切開，兩邊各留下 AATT 的單股「黏性端」" data-page="生物2 PDF第32頁"><figcaption>限制酶 EcoRI 辨識 5′-GAATTC-3′，在 G 與 A 之間切開，兩邊各留下 AATT 的單股「黏性端」<span>原講義PDF第32頁・印刷第140頁・點圖放大</span></figcaption></figure>
+<ol>
+<li>例：大腸桿菌的 <em>Eco</em>RI 辨識 5′-<strong>GAATTC</strong>-3′（另一股從 5′ 讀也是 GAATTC → 對稱），在 G 和 A 之間切。</li>
+<li>兩股的切點錯開 → 切口留下一小段單股 AATT，叫<strong>黏性端</strong>。用<strong>同一種</strong>限制酶切兩種 DNA，黏性端剛好互補，能靠氫鍵黏在一起。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 判斷對稱：把一股反過來寫互補序列，若和原本相同就是對稱。GAATTC 的互補股 3′-CTTAAG-5′，從 5′ 讀＝GAATTC ✓。<br>
+- 黏性端只是「氫鍵暫時黏住」，一定要加<strong>連接酶</strong>接上磷酸二酯鍵才牢固。</p></aside>
+
+<h2 class="section" id="s5">重組 DNA 的完整流程</h2>
+<ol>
+<li><strong>重組 DNA 分子</strong>：用限制酶和連接酶把目標基因放進<strong>載體</strong>（質體或病毒的 DNA），再送進宿主細胞複製和表現。</li>
+<li>目標基因的來源：直接從生物體分離，或人工合成。</li>
+</ol>
+<figure class="fig authored-figure fig-recomb"><img class="figimg" src="img/biology-4-5-recomb.webp" width="1120" height="678" loading="lazy" alt="重組 DNA 的製備與篩選：①分離兩種 DNA ②同一種限制酶切割 ③黏性端配對 ④連接酶接合 ⑤送回細菌 ⑥抗生素培養基篩選 ⑦大量培養" data-page="生物2 PDF第32頁"><figcaption>重組 DNA 的製備與篩選：①分離兩種 DNA ②同一種限制酶切割 ③黏性端配對 ④連接酶接合 ⑤送回細菌 ⑥抗生素培養基篩選 ⑦大量培養<span>原講義PDF第32頁・印刷第140頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">整理：七個步驟與原因</div><table>
+<thead><tr><th>步驟</th><th>做法</th><th>為什麼</th></tr></thead>
+<tbody>
+<tr><td>①</td><td>分離細菌質體（載體）和目標基因</td><td>兩種來源的 DNA</td></tr>
+<tr><td>②</td><td>用<strong>同一種限制酶</strong>分別切割</td><td>切出互補的黏性端</td></tr>
+<tr><td>③</td><td>混合，黏性端以鹼基配對形成氫鍵</td><td>目標基因嵌進質體缺口</td></tr>
+<tr><td>④</td><td>加 <strong>DNA 連接酶</strong></td><td>以磷酸二酯鍵接牢</td></tr>
+<tr><td>⑤</td><td>重組質體以<strong>轉形作用</strong>送回細菌</td><td>4-1 的轉形：細菌吸收外界 DNA</td></tr>
+<tr><td>⑥</td><td>用<strong>標誌基因</strong>篩選，例如在含抗生素的培養基上培養</td><td>質體上有抗抗生素基因 → 只有吸收了質體的細菌能活</td></tr>
+<tr><td>⑦</td><td>把篩出的細菌大量繁殖</td><td>每個細菌都帶目標基因的複本（活體基因放大）</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 標誌基因的用途是「<strong>認出誰拿到了質體</strong>」，常見的是抗生素抗性基因或螢光基因。<br>
+- 目標基因能在細菌中表現，是因為遺傳密碼有<strong>普遍性</strong>（4-3）；但真核基因有內含子，細菌不會剪接，所以常改用人工合成或沒有內含子的版本。</p></aside>
+
+<h2 class="section" id="s6">基因轉殖：細菌、植物、動物</h2>
+<ol>
+<li><strong>基因轉殖技術</strong>：用基因工程把遺傳物質送進活細胞或生物體，產生基因改造。<strong>不包括</strong>傳統育種、細胞融合、原生質融合、雜交、誘變、體外受精、體細胞變異及染色體倍增（這些都沒有把特定外源基因放進去）。</li>
+</ol>
+<aside class="box box-sum"><div class="box-h">整理：三種轉殖生物</div><table>
+<thead><tr><th>對象</th><th>方法</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>細菌</td><td>重組質體轉形（第5節）</td><td>細菌表現出目標基因的性狀 → 基因轉殖細菌</td></tr>
+<tr><td>植物（較容易）</td><td>① 農桿菌的 <strong>Ti 質體</strong> ② <strong>基因槍</strong></td><td>Ti 質體上的 <strong>T-DNA</strong> 容易嵌入植物染色體；導入後用<strong>組織培養</strong>把單一細胞養成整株</td></tr>
+<tr><td>動物</td><td>① <strong>顯微注射</strong>到受精卵的細胞核（1981 年轉殖鼠）② 以病毒 DNA 當載體感染胚胎細胞 ③ 電穿孔</td><td>要在受精卵或早期胚胎時放入，長大後全身細胞才都帶有該基因</td></tr>
+</tbody>
+</table></aside>
+<figure class="fig authored-figure fig-ti"><img class="figimg" src="img/biology-4-5-ti.webp" width="1072" height="339" loading="lazy" alt="農桿菌的 Ti 質體：目標基因接進 T-DNA，導入植物細胞後嵌入染色體，再組織培養成植株" data-page="生物2 PDF第33頁"><figcaption>農桿菌的 Ti 質體：目標基因接進 T-DNA，導入植物細胞後嵌入染色體，再組織培養成植株<span>原講義PDF第33頁・印刷第141頁・點圖放大</span></figcaption></figure>
+<figure class="fig authored-figure fig-gun"><img class="figimg" src="img/biology-4-5-gun.webp" width="1040" height="272" loading="lazy" alt="基因槍：把包著 DNA 的金屬顆粒射進植物細胞" data-page="生物2 PDF第33頁"><figcaption>基因槍：把包著 DNA 的金屬顆粒射進植物細胞<span>原講義PDF第33頁・印刷第141頁・點圖放大</span></figcaption></figure>
+<figure class="fig authored-figure fig-mouse"><img class="figimg" src="img/biology-4-5-mouse.webp" width="880" height="453" loading="lazy" alt="1981 年以顯微注射製備基因轉殖鼠：把基因注入受精卵的細胞核，再放回代孕母鼠" data-page="生物2 PDF第33頁"><figcaption>1981 年以顯微注射製備基因轉殖鼠：把基因注入受精卵的細胞核，再放回代孕母鼠<span>原講義PDF第33頁・印刷第141頁・點圖放大</span></figcaption></figure>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 植物比動物容易：植物細胞有<strong>全能性</strong>，一個轉殖成功的細胞就能組織培養成整株。<br>
+- 動物要注射到<strong>受精卵</strong>：之後所有細胞都由它分裂而來，才會全部帶有新基因。</p></aside>
+
+<h2 class="section" id="s7">安全評估與人類基因體計畫</h2>
+<aside class="box box-concept"><div class="box-h">缺頁說明</div><p>原講義印刷第142–143頁沒有收進這份 PDF，這兩頁的內容（概念5第4點起到基因改造食品的前段）無法對照。下面從印刷第144頁現有內容接續整理。</p></aside>
+<ol>
+<li>基因改造產品的<strong>安全評估</strong>：在臺灣由國科會、農業部、衛生福利部把關，評估兩方面：
+<ul><li>會不會干擾人體代謝、影響健康。</li>
+<li>會不會衝擊環境生態。</li></ul></li>
+</ol>
+<aside class="box box-sum"><div class="box-h">整理：人類基因體計畫（HGP）</div><table>
+<thead><tr><th>項目</th><th>內容</th></tr></thead>
+<tbody>
+<tr><td>基因體</td><td>生物體內<strong>單套</strong>完整的 DNA 序列</td></tr>
+<tr><td>目標</td><td>繪製遺傳圖譜與物理圖譜、定出基因體序列、找出未知基因、基因命名與功能分析</td></tr>
+<tr><td>規模</td><td>約 <strong>30 億（3×10<sup>9</sup>）個鹼基對</strong>；18 國參與（美、英、德、法、日、中國等）</td></tr>
+<tr><td>完成</td><td><strong>2003 年底</strong>大部分定序完成；人類基因約 <strong>20000～25000 個</strong></td></tr>
+<tr><td>優點</td><td>加速醫學與生技發展，了解疾病成因，幫助新藥與療法開發</td></tr>
+<tr><td>爭議</td><td>倫理、法律、社會問題：任意製造人類胚胎、產前性別篩檢而終止懷孕、個人基因資料保密</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 30 億鹼基對裡只有約 2 萬多個基因 → 大部分 DNA 不是編碼蛋白質的基因。<br>
+- 4-4 的非侵入式產前檢驗能把 DNA 片段「對回」染色體，就是靠 HGP 的序列資料。</p></aside>
+
+<h2 class="section sec-practice" id="s8">經典演練：PCR 題組 1–4</h2>
+<aside class="box box-ref"><div class="box-h">題組敘述（學術探究）</div><p>分子生物學家經常利用聚合酶連鎖反應（PCR）來獲得多量基因複製本，下圖為 PCR 的模式圖，甲、乙、丙分別代表三種不同溫度的處理步驟。</p></aside>
+<figure class="fig authored-figure fig-qpcr"><img class="figimg" src="img/biology-4-5-qpcr.webp" width="816" height="401" loading="lazy" alt="演練1–4附圖：PCR 模式圖，甲、乙、丙為三種溫度的處理步驟" data-page="生物2 PDF第34頁"><figcaption>演練1–4附圖：PCR 模式圖，甲、乙、丙為三種溫度的處理步驟<span>原講義PDF第34頁・印刷第144頁・點圖放大</span></figcaption></figure>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">演練 1</span><span class="qtag">PCR 題組・三步驟溫度</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 1">☆</button></header><div class="qtext"><p>甲、乙、丙的溫度高低依序為何？</p><p>(A) 甲＞乙＞丙　(B) 甲＞丙＞乙　(C) 乙＞丙＞甲　(D) 甲＝丙＞乙</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><ol><li>看圖判斷步驟：甲之後雙股變單股 → <strong>加熱變性</strong>（約 90 °C）。乙之後引子附著 → <strong>冷卻黏合</strong>（約 60 °C）。丙之後 DNA 聚合酶延伸引子 → <strong>延伸</strong>（約 70～72 °C）。</li><li>排序：甲（90）＞丙（72）＞乙（60）。</li><li>(D) 錯：圖下方另寫「加熱至約 90 °C 從步驟②重複」，那是回到甲的溫度，不是丙。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>90 拆 ＞ 72 長 ＞ 60 黏。</p></div></div></details></article>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">演練 2</span><span class="qtag">PCR 題組・延伸用的酵素（非選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 2">☆</button></header><div class="qtext"><p>在丙步驟的溫度下進行引子延長的反應，需要加入何種酵素？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>耐高溫的 DNA 聚合酶（例如 Taq DNA 聚合酶）。</div><div class="exp"><b class="exp-h">解</b><ol><li>延長新股＝把去氧核苷酸接到引子的 3′ 端 → 需要 <strong>DNA 聚合酶</strong>。</li><li>每個循環都要加熱到 90 °C，一般生物的聚合酶會變性失活；Taq 聚合酶來自溫泉細菌，耐高溫，且在 72 °C 活性最強。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>PCR 只需要一種酵素：耐熱 DNA 聚合酶。</p></div></div></details></article>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">演練 3</span><span class="qtag">PCR 題組・需要幾次循環（非選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 3">☆</button></header><div class="qtext"><p>若有充足的引子、酵素和原料供應，則欲得到十億個以上的目標基因複製本，至少需要進行幾次的複製？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>30 次（以一個目標 DNA 起算）。</div><div class="exp"><b class="exp-h">解</b><ol><li>每循環加倍：n 次後有 2<sup>n</sup> 個。</li><li>要 2<sup>n</sup> ≥ 10<sup>9</sup>。</li><li>2<sup>10</sup>＝1024≈10<sup>3</sup> → 2<sup>30</sup>＝(2<sup>10</sup>)<sup>3</sup>≈1.07×10<sup>9</sup> ✓；2<sup>29</sup>≈5.4×10<sup>8</sup>，還不到十億 ✗。</li><li>所以至少 <strong>30</strong> 次。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>記住 2¹⁰≈1000：每 10 次循環多 1000 倍。</p></div></div></details></article>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">演練 4</span><span class="qtag">PCR 題組・細胞內複製 vs PCR（非選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 4">☆</button></header><div class="qtext"><p>回答有關 DNA 複製的問題（以代號作答）：</p><p>a.限制酶　b.胺基酸　c.tRNA　d.核糖體　e.能量　f.去氧核糖核苷酸　g.核糖核苷酸　h.NADPH　i.DNA 聚合酶　j.RNA 聚合酶　k.DNA　ℓ.DNA 引子　m.RNA 引子　n.DNA 連接酶　o.解旋酶</p><ol><li>細胞內 DNA 複製需要上列哪些項目參與？</li><li>PCR 反應中需要上列哪些項目參與？</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) e、f、i、k、m、n、o；(2) e、f、i、k、ℓ。</div><div class="exp"><b class="exp-h">解</b><p><strong>(1) 細胞內</strong>：模版 DNA（k）、原料去氧核糖核苷酸（f，以三磷酸形式同時提供能量 e）、解旋酶拆開雙股（o）、RNA 引子當起點（m）、DNA 聚合酶延長（i）、DNA 連接酶接岡崎片段（n）。</p><p><strong>(2) PCR</strong>：模版 k、原料 f、能量 e、人工合成的 <strong>DNA 引子</strong>（ℓ）、耐熱 DNA 聚合酶（i）。不用解旋酶（改用加熱）、不用連接酶（沒有要接的片段）、引子是 DNA 不是 RNA。</p><p>不選的：a 限制酶是剪 DNA 的；b、c、d 是轉譯用的；g、j 是轉錄用的（RNA 引子雖由導引酶合成，但選項沒有導引酶）；h 是光合作用的。</p><div class="qsum"><span class="qsum-h">小結</span><p>PCR＝模版＋DNA 引子＋dNTP＋耐熱聚合酶；細胞內多了解旋酶、RNA 引子、連接酶。</p></div></div></details></article>
+
+<h2 class="section sec-practice" id="s9">經典演練：試管嬰兒題組 5–8</h2>
+<aside class="box box-ref"><div class="box-h">題組敘述（新聞時事）</div><p>臺大醫院以「全基因體放大術（WGA）」做體外胚胎細胞的基因檢測，協助一對攜帶有地中海貧血症基因的夫婦，生下一健康且符合移植條件的女嬰，這對夫婦為地中海貧血症基因的攜帶者，本身不會發病，只是每懷一胎，胎兒患有地中海貧血的機率為四分之一。他們已生有一個罹患地中海貧血症的兒子，希望能再生一個健康的孩子，並能幫生病的哥哥做親屬間的細胞移植。WGA 可同時反覆檢測多個基因，且不會互相干擾，可快速檢測地中海貧血症等單一基因疾病，再順便配對 HLA 是否吻合。將母親的卵與父親的精子透過試管嬰兒技術在體外結合成受精卵後，再用 WGA 挑出沒有地中海貧血症且 HLA 與病童相符的受精卵，植回母親的子宮內發育。試管嬰兒在母親體內長到 11 週時，臺大醫院幫胎兒做「絨毛膜採樣」的檢查，以再次確保其健康狀況與 HLA 和哥哥的完全吻合，此寶寶出生後已捐出自己的臍帶血，並移植給罹患重度地中海貧血症的哥哥。根據上述短文，回答下列問題。</p></aside>
+<article class="q q-pr" id="check-5"><header class="qh"><span class="qn">演練 5</span><span class="qtag">試管嬰兒題組・試管嬰兒是什麼</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 5">☆</button></header><div class="qtext"><p>關於試管嬰兒的敘述，下列何者正確？</p><p>(A) 屬於遺傳工程　(B) 無性生殖　(C) 不需受精　(D) 母體子宮發育</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><ol><li>試管嬰兒：卵和精子在體外結合成受精卵，再<strong>植回母親子宮</strong>發育 → (D) 對。</li><li>(B)(C) 錯：有精卵<strong>受精</strong>，屬有性生殖。</li><li>(A) 錯：沒有把外源基因剪接、轉殖進去，只是在體外受精（基因轉殖的定義也明列不包括體外受精）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>試管嬰兒＝體外受精＋植回子宮，仍是有性生殖。</p></div></div></details></article>
+<article class="q q-pr" id="check-6"><header class="qh"><span class="qn">演練 6</span><span class="qtag">試管嬰兒題組・用了哪些技術（多選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 6">☆</button></header><div class="qtext"><p>臺大生殖醫學團隊應用了哪些生物技術使這對夫婦生下健康寶寶？（多選）</p><p>(A) 基因轉殖技術　(B) 基因放大技術　(C) 離體培養　(D) 臍帶血幹細胞移植　(E) 絨毛膜採樣、分析</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>BCE。</div><div class="exp"><b class="exp-h">解</b><ol><li>(B) ✓：WGA（全基因體放大術）就是把胚胎細胞微量的 DNA 大量複製後再檢測。</li><li>(C) ✓：精卵在體外結合，受精卵在體外培養到能檢測、植入。</li><li>(E) ✓：懷孕 11 週做絨毛膜採樣，再次確認。</li><li>(A) ✗：沒有放入外源基因。</li><li>(D) ✗：臍帶血移植是寶寶出生後用來<strong>救哥哥</strong>，不是讓夫婦生下健康寶寶的技術。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>看清楚問的是「讓夫婦生下健康寶寶」用到的技術。</p></div></div></details></article>
+<article class="q q-pr" id="check-7"><header class="qh"><span class="qn">演練 7</span><span class="qtag">試管嬰兒題組・健康寶寶的基因型（非選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 7">☆</button></header><div class="qtext"><p>若以 A 表示正常基因，a 表示地中海貧血症基因，則有關這位健康寶寶的基因型與父母親相同的機率是多少？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>2/3。</div><div class="exp"><b class="exp-h">解</b><ol><li>父母都是攜帶者 Aa × Aa → 子代 AA：Aa：aa＝1：2：1。</li><li>寶寶已確定<strong>沒有</strong>地中海貧血（篩選過）→ 只看 AA、Aa，共 3 份。</li><li>和父母相同（Aa）占 2 份 → <strong>2/3</strong>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>「已知正常」要先刪掉 aa，再算比例。</p></div></div></details></article>
+<article class="q q-pr" id="check-8"><header class="qh"><span class="qn">演練 8</span><span class="qtag">試管嬰兒題組・自然受孕的機率（非選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 8">☆</button></header><div class="qtext"><p>若已知親兄弟姐妹之間，HLA 相符合的機率為 1/4，則這對夫婦欲自然受孕而生下可以救哥哥且不患病的健康寶寶，其機率為多少？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>3/16。</div><div class="exp"><b class="exp-h">解</b><ol><li>不患病（AA 或 Aa）：3/4。</li><li>HLA 和哥哥相符：1/4。</li><li>兩件事都要成立，且 HLA 基因與地中海貧血基因在不同染色體上、彼此獨立 → 相乘：3/4×1/4＝<strong>3/16</strong>。</li><li>機率不到 1/5，這就是醫院要用 WGA 先挑胚胎的原因。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>兩個獨立條件同時成立 → 機率相乘。</p></div></div></details></article>
+
+<h2 class="section sec-practice" id="s10">經典演練：限制酶與親子鑑定 9–11</h2>
+<aside class="box box-ref"><div class="box-h">題組敘述（學術探究）</div><p>人體細胞內含有抑制癌症發生的 <em>p53</em> 基因，下圖表示從正常人和患者體內獲取的 <em>p53</em> 基因部分區域。請回答下列問題。</p></aside>
+<figure class="fig authored-figure fig-qp53"><img class="figimg" src="img/biology-4-5-qp53.webp" width="544" height="339" loading="lazy" alt="演練9–10附圖：p53 基因部分區域的兩個限制酶 E 識別序列（CCGG），以及正常人與患者在第一個切點的序列" data-page="生物2 PDF第36頁"><figcaption>演練9–10附圖：p53 基因部分區域的兩個限制酶 E 識別序列（CCGG），以及正常人與患者在第一個切點的序列<span>原講義PDF第36頁・印刷第146頁・點圖放大</span></figcaption></figure>
+<article class="q q-pr" id="check-9"><header class="qh"><span class="qn">演練 9</span><span class="qtag">限制酶題組・患者被切成幾段（非選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 9">☆</button></header><div class="qtext"><p>已知限制酶 E 識別序列為 CCGG，若用此酵素完全切割患者 <em>p53</em> 基因部分區域（如上圖），則將被切割成長度為多少的 DNA 片段？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>460 對鹼基與 220 對鹼基兩段。</div><div class="exp"><b class="exp-h">解</b><ol><li>正常人有兩個 CCGG 切點，把這段切成 290、170、220 三段。</li><li>患者在第一個切點的序列是 GAA<strong>CT</strong>GGAGG：CCGG 變成 CTGG → 限制酶 E <strong>認不得、不切</strong>。</li><li>少了第一刀，前兩段連在一起：290＋170＝<strong>460</strong>；第二刀照切，剩下 <strong>220</strong>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>突變破壞辨識序列 → 少一刀 → 相鄰兩段相加。</p></div></div></details></article>
+<article class="q q-pr" id="check-10"><header class="qh"><span class="qn">演練 10</span><span class="qtag">限制酶題組・推基因型（非選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 10">☆</button></header><div class="qtext"><p>若某人 <em>p53</em> 基因部分區域經限制酶 E 完全切割後，共出現 170、220、290 和 460 四種鹼基對片段，則推論此人的基因型為何（以 p<sup>+</sup> 表示正常 p53 基因，p<sup>−</sup> 表示異常基因）？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>p<sup>+</sup>p<sup>−</sup>（異型合子）。</div><div class="exp"><b class="exp-h">解</b><ol><li>正常基因 p<sup>+</sup> 切出：290、170、220。</li><li>異常基因 p<sup>−</sup> 切出：460、220。</li><li>同時出現 170、290（只有 p<sup>+</sup> 會有）和 460（只有 p<sup>−</sup> 會有）→ 兩種基因都有 → p<sup>+</sup>p<sup>−</sup>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>找「只有某一型才有」的片段當證據。</p></div></div></details></article>
+<article class="q q-pr" id="check-11"><header class="qh"><span class="qn">演練 11</span><span class="qtag">親子鑑定・DNA 條帶（多選）</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 11">☆</button></header><div class="qtext"><p>X 女為了確認孩子的親生父親究竟是甲、乙或丙，於是做了 DNA 親子鑑定如右圖，圖中的小橫線稱為 DNA 條帶，下列敘述何者正確？（多選）</p><div class="qimgs"><img class="qimg" src="img/biology-4-5-q11-1.webp" width="264" height="362" loading="lazy" alt="題目附圖" data-page="生物2 PDF第36頁"></div><p>(A) 圖中的條帶代表 DNA 上的基因序列　(B) 要製作該資料必須先萃取其 DNA，並用聚合酶連鎖反應（PCR）擴增 DNA 數量　(C) 該資料中不同的條帶是限制酶作用造成　(D) 製作該條帶時，DNA 片段必須放在電場的正極　(E) 乙最可能是孩子的親生父親</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>BCE。</div><div class="exp"><b class="exp-h">解</b><ol><li>(A) ✗：每條帶是一段<strong>長度</strong>特定的 DNA 片段，表示它跑到的位置，並不是基因序列本身。</li><li>(B) ✓：先萃取 DNA；樣本量少時用 PCR 放大到足夠的量。</li><li>(C) ✓：用限制酶切 DNA，不同人的切點不同 → 片段長度不同 → 條帶位置不同。</li><li>(D) ✗：DNA 帶負電，要放在<strong>負極</strong>端，往正極跑。</li><li>(E) ✓：孩子有 6 條帶（由上數第1、2、4、5、8、10 列），其中第1、5 列和 X 女相同（來自母親）；其餘第2、4、8、10 列必須來自父親 → 只有乙四條全有（甲、丙都缺）。</li></ol><p>原頁沒有附答案；B、C 是以本講義教的「限制酶切割＋電泳」方法來判斷。</p><div class="qsum"><span class="qsum-h">小結</span><p>親子鑑定：扣掉和母親相同的條帶，剩下的都要在生父身上找到。</p></div></div></details></article>
+
+<h2 class="section" id="s11">探討活動：DNA 粗萃取與 PCR、電泳</h2>
+<figure class="fig authored-figure fig-lab"><img class="figimg" src="img/biology-4-5-lab.webp" width="1200" height="712" loading="lazy" alt="探討活動：DNA 粗萃取步驟與 PCR 操作的前兩步" data-page="生物2 PDF第36頁"><figcaption>探討活動：DNA 粗萃取步驟與 PCR 操作的前兩步<span>原講義PDF第36頁・印刷第146頁・點圖放大</span></figcaption></figure>
+<aside class="box box-sum"><div class="box-h">整理：DNA 粗萃取每一步的原因</div><table>
+<thead><tr><th>步驟</th><th>做法</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>奇異果汁加<strong>洗碗精</strong></td><td>界面活性劑（十二烷基硫酸鈉）破壞脂質構成的細胞膜、核膜，釋出染色體</td></tr>
+<tr><td>2</td><td>攪拌後加 <strong>5 M NaCl</strong></td><td>組蛋白和 Cl⁻ 結合而離開 DNA；DNA 的磷酸基帶負電、互相排斥，不易凝聚而溶在溶液中</td></tr>
+<tr><td>3</td><td>加鮮榨<strong>鳳梨汁</strong>，紗布過濾</td><td>鳳梨含<strong>蛋白酶</strong>，分解蛋白質；過濾去掉殘渣</td></tr>
+<tr><td>4</td><td>沿杯壁緩慢加 <strong>95% 冰酒精</strong></td><td>DNA 不溶於酒精 → 在酒精與水的交界處析出白色雲狀物，用吸管吸起</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-sum"><div class="box-h">整理：PCR 與電泳操作</div><table>
+<thead><tr><th>步驟</th><th>做法</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>混合</td><td>微量滴管加藥劑與樣本，離心機快轉 10 秒</td><td>讓反應液沉到微量試管尖端</td></tr>
+<tr><td>加油</td><td>液面加約 50 μL 礦物油</td><td>防止加熱時水分蒸發</td></tr>
+<tr><td>溫度循環</td><td>90 °C 1 分鐘 → 引子黏合（引子 GC ＜50% 用約 55 °C；＞50% 用約 60 °C）1 分鐘 → 72 °C 延長；共 20～30 循環</td><td>GC 對有 3 個氫鍵，GC 多的引子黏得牢，可用較高溫</td></tr>
+<tr><td>電泳</td><td>1.5% 洋菜糖膠片；樣本與標準品混承載緩衝液（甘油＋溴酚藍）加入小槽；接電源</td><td>甘油讓樣本沉入槽中；溴酚藍追蹤跑到哪裡</td></tr>
+<tr><td>方向</td><td>DNA 往<strong>正極</strong>移動</td><td>DNA 有許多磷酸基 → 帶<strong>負電</strong></td></tr>
+<tr><td>觀察</td><td>泡溴化乙錠（EtBr），紫外光照射發出螢光</td><td>EtBr 會和 DNA 結合</td></tr>
+<tr><td>判讀</td><td>短片段跑得快（離起點遠）、長片段跑得慢；和已知長度的標準品比較</td><td>膠片像篩網，大分子較難穿過</td></tr>
+</tbody>
+</table></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
+- 樣本槽要放在<strong>負極</strong>那一端，DNA 才會往正極跑進膠片。<br>
+- 酒精析出、鹽溶解、界面活性劑破膜、蛋白酶去蛋白：每一種藥劑對應一個目的。</p></aside>
+
+<h2 class="section sec-practice" id="s12">探討活動演練 1–3</h2>
+<article class="q q-pr" id="check-12"><header class="qh"><span class="qn">探討 1</span><span class="qtag">探討活動・DNA 萃取（104指考）</span><button class="mark" type="button" title="標記不會" aria-label="標記探討 1">☆</button></header><div class="qtext"><p>下列有關 DNA 萃取的敘述，何者正確？</p><p>(A) 從洋蔥與大腸桿菌中萃取出的 DNA 由不同種類的核苷酸組成　(B) 清潔劑的作用為使細胞破裂，但洋蔥細胞具細胞壁因此清潔劑沒用　(C) 萃取洋蔥的 DNA 時，使用木瓜酵素去除細胞壁　(D) 從洋蔥葉片與莖中可萃取出具相同序列的 DNA</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><ol><li>(A) ✗：所有生物的 DNA 都由同樣 4 種去氧核糖核苷酸（A、T、G、C）組成，不同的是<strong>排列順序</strong>。</li><li>(B) ✗：清潔劑破壞的是<strong>細胞膜、核膜</strong>（脂質膜）；細胞壁可以靠搗碎、研磨打破，清潔劑仍然必要。</li><li>(C) ✗：木瓜酵素和鳳梨汁一樣是<strong>蛋白酶</strong>，用來分解蛋白質，不是去除細胞壁（細胞壁主要是纖維素）。</li><li>(D) ✓：同一株洋蔥的細胞都由同一個受精卵經有絲分裂而來，DNA 序列相同（不同部位只是表現的基因不同）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>同一個體各部位 DNA 相同；清潔劑破膜、蛋白酶去蛋白。</p></div></div></details></article>
+<aside class="box box-ref"><div class="box-h">第 13、14 題題組敘述（109指考）</div><p>某生分離一種 RNA 病毒甲的遺傳物質，進行定序後將與其他病毒株的遺傳物質做比對。整個實驗過程繁複，①～⑦是他實驗的主要幾項步驟。依上述資訊及習得的知識，回答下列問題。<br>①打破細胞分離病毒甲　②酒精沉澱病毒 RNA　③將 RNA 轉為 DNA　④加入蛋白質分解酵素去掉蛋白殼體　⑤純化 DNA　⑥加入 DNA 聚合酶進行反應　⑦分析病毒核酸序列</p></aside>
+<article class="q q-pr" id="check-13"><header class="qh"><span class="qn">探討 2</span><span class="qtag">探討活動・RNA 病毒定序步驟（109指考）</span><button class="mark" type="button" title="標記不會" aria-label="標記探討 2">☆</button></header><div class="qtext"><p>下列最合理的實驗步驟順序為何者？</p><p>(A) ①④②③⑥⑤⑦　(B) ①⑤④②⑥③⑦　(C) ①②④⑥③⑤⑦　(D) ①⑤③⑥④②⑦</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><ol><li>①先打破細胞、分離出病毒甲。</li><li>④病毒是「蛋白殼＋核酸」，先用蛋白質分解酵素去掉殼體，核酸才露出來。</li><li>②再用酒精把 RNA 沉澱下來收集（核酸不溶於酒精）。</li><li>③定序與比對常用 DNA，所以把 RNA 反轉錄成 DNA。</li><li>⑥加入 DNA 聚合酶反應（如 PCR）大量複製。</li><li>⑤純化 DNA。</li><li>⑦分析序列。→ ①④②③⑥⑤⑦。</li></ol><p>其他選項都在 RNA 還沒出現前就要「純化 DNA」(⑤)，或在轉成 DNA 前就做 DNA 聚合酶反應，不合理。</p><div class="qsum"><span class="qsum-h">小結</span><p>順序：取出 → 去殼 → 收核酸 → RNA 轉 DNA → 放大 → 純化 → 定序。</p></div></div></details></article>
+<article class="q q-pr" id="check-14"><header class="qh"><span class="qn">探討 3</span><span class="qtag">探討活動・DNA 病毒可省略的步驟（109指考）</span><button class="mark" type="button" title="標記不會" aria-label="標記探討 3">☆</button></header><div class="qtext"><p>如果病毒乙的遺傳物質為 DNA，則相同的實驗可去除下列哪一項步驟？</p><p>(A) ②　(B) ③　(C) ④　(D) ⑥</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><ol><li>步驟③「將 RNA 轉為 DNA」是因為病毒甲的遺傳物質是 RNA。</li><li>病毒乙本來就是 DNA → 不需要反轉錄 → 可去除③。</li><li>②（酒精沉澱核酸）對 DNA 一樣需要；④去蛋白殼、⑥放大也都還要做。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>RNA → DNA 這一步只有 RNA 病毒才需要。</p></div></div></details></article>
+
+<h2 class="section" id="s13">本篇整理</h2>
+<aside class="box box-sum"><div class="box-h">整理：看到什麼，想到什麼</div><table>
+<thead><tr><th>題目線索</th><th>想到</th><th>常見誤判</th></tr></thead>
+<tbody>
+<tr><td>PCR 三溫度</td><td>90 拆、60 黏、72 長；Taq 耐熱</td><td>以為要加解旋酶、連接酶</td></tr>
+<tr><td>循環 n 次</td><td>2<sup>n</sup> 倍；求「至少幾次」用 2<sup>n</sup> ≥ 目標</td><td>用 2n 或 n²</td></tr>
+<tr><td>限制酶</td><td>辨識對稱序列、切出黏性端；序列被突變破壞就不切</td><td>以為限制酶可切任何地方</td></tr>
+<tr><td>重組流程</td><td>同一種限制酶 → 配對 → 連接酶 → 轉形 → 標誌基因篩選</td><td>忘了連接酶或篩選</td></tr>
+<tr><td>電泳條帶</td><td>短的跑遠；DNA 帶負電往正極</td><td>放錯電極</td></tr>
+<tr><td>親子鑑定</td><td>孩子的條帶一半來自母親，其餘必須都在生父身上</td><td>只比對幾條就下結論</td></tr>
+</tbody>
+</table></aside>
+<p>第 4 單元的正課到這裡結束。單元練習題（PDF38–52，滿貫強試出擊＋歷屆考題）之後再另做成一篇。</p>
+<details class="source-originals"><summary>核對原講義全頁（生物2 PDF30–37）</summary><p class="fine-note">本節對應印刷138下半–147頁：概念5 生物科技、探討活動，以及兩組經典演練2.0（概念5的素養混合題1–11、探討活動的演練1–3）。注意：掃描檔在PDF33（印刷141）之後直接接PDF34（印刷144），印刷142–143頁沒有收進PDF，概念5第4～9點的前半（例如複製動物、基因改造食品的說明）因此缺漏，本頁只依現有頁面編寫，沒有自行補寫缺頁內容。PDF38起是單元4練習題。原頁沒有附答案，本頁答案依題幹與正文逐題推導。</p><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/030.webp" alt="生物2PDF第30頁完整原稿"><figcaption>PDF第30頁／印刷第138頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/031.webp" alt="生物2PDF第31頁完整原稿"><figcaption>PDF第31頁／印刷第139頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/032.webp" alt="生物2PDF第32頁完整原稿"><figcaption>PDF第32頁／印刷第140頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/033.webp" alt="生物2PDF第33頁完整原稿"><figcaption>PDF第33頁／印刷第141頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/034.webp" alt="生物2PDF第34頁完整原稿"><figcaption>PDF第34頁／印刷第144頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/035.webp" alt="生物2PDF第35頁完整原稿"><figcaption>PDF第35頁／印刷第145頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/036.webp" alt="生物2PDF第36頁完整原稿"><figcaption>PDF第36頁／印刷第146頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/037.webp" alt="生物2PDF第37頁完整原稿"><figcaption>PDF第37頁／印刷第147頁</figcaption></figure></details>
+</div><div class="pager"><a href="u4-4.html">← 4-4 遺傳變異：染色體變異與基因突變</a><a href="index.html">回生物目錄 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>
