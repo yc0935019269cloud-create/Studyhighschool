@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>基1 段考總複習 1-1～2-1：一招一題（課後講義）｜選修化學 II</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+
+/* 圖解／動畫解 */
+.viz{margin:10px 16px 6px;border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden}
+.viz-h{padding:3px 14px;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent);background:var(--accent-soft)}
+.viz-anim .viz-h{color:var(--pr);background:var(--pr-soft)}
+.viz svg{display:block;width:100%;height:auto}
+.viz figcaption{padding:6px 16px 10px;font-size:14.5px;line-height:1.65;color:var(--muted);border-top:1px dashed var(--line)}
+.viz text{font-family:inherit;font-size:16px;fill:var(--ink);stroke:none}
+.viz .tm{fill:var(--muted);font-size:14px}.viz .ts{font-size:13px}.viz .tb{font-weight:700}.viz .tl{font-size:19px}
+.viz .tf{fill:var(--warn)}.viz .tv{fill:var(--ex)}.viz .ta{fill:var(--ok)}.viz .tp{fill:var(--pr)}.viz .tw{fill:var(--sim)}.viz .tc{fill:var(--accent)}
+.viz .o,.viz .axis,.viz .curve,.viz .curve2,.viz .curve3,.viz .curve4,.viz .dim,.viz .hatch,.viz .thin{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.viz .o{stroke:var(--ink);stroke-width:2}
+.viz .thin{stroke:var(--ink);stroke-width:1}
+.viz .axis{stroke:var(--ink);stroke-width:1.6}
+.viz .hatch{stroke:var(--muted);stroke-width:1.5}
+.viz .dim{stroke:var(--muted);stroke-width:1.4;stroke-dasharray:5 4}
+.viz .f{fill:var(--paper);stroke:var(--ink);stroke-width:2}
+.viz .fb{fill:var(--ex-soft);stroke:var(--ex);stroke-width:2}
+.viz .fg{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+.viz .fy{fill:var(--sum-soft);stroke:var(--sum);stroke-width:2}
+.viz .fw{fill:var(--warn-soft);stroke:var(--warn);stroke-width:2}
+.viz .fp{fill:var(--pr-soft);stroke:var(--pr);stroke-width:2}
+.viz .fo{fill:var(--ink);stroke:none}
+.viz .fa{fill:var(--accent);stroke:none}
+.viz .fwo{fill:var(--warn);stroke:none}
+.viz .fxo{fill:var(--ex);stroke:none}
+.viz .fmu{fill:var(--muted);stroke:none}
+.viz .curve{stroke:var(--accent);stroke-width:2.6}
+.viz .curve2{stroke:var(--pr);stroke-width:2.6}
+.viz .curve3{stroke:var(--sim);stroke-width:2.6}
+.viz .curve4{stroke:var(--warn);stroke-width:2.6}
+.viz .dash{stroke-dasharray:6 5}
+.viz .shade{fill:var(--accent);fill-opacity:.18;stroke:none}
+.viz .shade2{fill:var(--warn);fill-opacity:.16;stroke:none}
+.viz [class^="a-"] line{stroke-width:2.6;stroke-linecap:round}
+.viz .a-force line{stroke:var(--warn)}.viz .a-force polygon{fill:var(--warn)}
+.viz .a-vel line{stroke:var(--ex)}.viz .a-vel polygon{fill:var(--ex)}
+.viz .a-acc line{stroke:var(--ok)}.viz .a-acc polygon{fill:var(--ok)}
+.viz .a-ink line{stroke:var(--ink)}.viz .a-ink polygon{fill:var(--ink)}
+.viz .a-mute line{stroke:var(--muted);stroke-width:1.5}.viz .a-mute polygon{fill:var(--muted)}
+.viz .a-pr line{stroke:var(--pr)}.viz .a-pr polygon{fill:var(--pr)}
+.viz .a-sim line{stroke:var(--sim)}.viz .a-sim polygon{fill:var(--sim)}
+.simctl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:6px 12px 8px;border-top:1px dashed var(--line)}
+.simctl input[type=range]{flex:1;min-width:120px;accent-color:var(--accent)}
+.simctl .stime{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:4.5em;text-align:right}
+.simnote{padding:2px 16px 8px;font-size:15px;color:var(--ink);min-height:1.6em}
+@media print{.simctl{display:none}}
+
+/* 基本盤頁 */
+.viz.fig-sm svg{max-width:540px;margin:0 auto}
+.qtext .viz{margin:6px 0 12px}
+.kb{display:inline-block;font-size:13px;font-weight:700;line-height:1.6;color:var(--ex);background:var(--ex-soft);border:1px solid var(--line);border-radius:999px;padding:0 9px;margin:2px 2px;text-decoration:none;white-space:nowrap}
+.kb:hover{border-color:var(--ex)}
+ol.steps li{margin:6px 0}
+.content ul.tree,.content ul.tree ul{list-style:none;padding-left:1.3em;margin:0}
+.content ul.tree{padding-left:0;margin:10px 0;background:var(--bg);border-radius:12px;padding:10px 16px}
+.content ul.tree ul{border-left:2px solid var(--line);margin-left:.4em}
+.content ul.tree li{position:relative;margin:4px 0}
+.content ul.tree ul>li::before{content:"";position:absolute;left:-1.3em;top:.95em;width:1em;border-top:2px solid var(--line)}
+
+.step{border-left:3px solid var(--accent);padding:2px 0 4px 14px;margin:12px 0}
+.step-h{font-weight:700;margin-bottom:2px}
+.step-h b{display:inline-block;background:var(--accent);color:var(--paper);border-radius:6px;padding:0 8px;margin-right:8px;font-size:13.5px}
+.exp .step p{display:block}
+.eq{display:block;margin:3px 0 3px 1em;font-weight:600;font-variant-numeric:tabular-nums}
+.why{background:var(--sum-soft);border-radius:8px;padding:5px 12px;font-size:15.5px;margin:6px 0}
+.why b{color:var(--sum);margin-right:8px}
+.solfig{margin:6px 0 10px}
+.hints{padding:6px 18px 10px;border-top:1px dashed var(--line)}
+.hints-h{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+details.hint{margin:4px 0}
+details.hint summary{cursor:pointer;display:inline-block;color:var(--sum);font-weight:700;font-size:14.5px;padding:2px 10px;border:1px solid var(--line);border-radius:999px;background:var(--sum-soft)}
+details.hint p{margin:6px 0 2px;padding:6px 12px;background:var(--sum-soft);border-radius:8px}
+.qsub{margin:0;padding:6px 18px;font-weight:800;font-size:14.5px;letter-spacing:.06em;color:var(--ex);background:var(--ex-soft);border-top:1px solid var(--line)}
+.qsub-pr{color:var(--pr);background:var(--pr-soft)}
+.qtag.when-class{color:var(--paper);background:var(--accent);border-color:var(--accent);font-weight:700}
+.qtag.when-brief{color:var(--accent);border-color:var(--accent)}
+.pre-body table{margin:6px 0}
+.checks label.chk{display:flex;gap:10px;align-items:flex-start;padding:6px 10px;border-bottom:1px dashed var(--line);cursor:pointer}
+.checks input{margin-top:.45em;accent-color:var(--accent);width:18px;height:18px;flex:none}
+.checks h4{margin-top:16px}
+
+/* 化學基1：軌域箱子、路易斯結構 */
+.ob{display:inline-block;min-width:2.3em;padding:0 4px;border:1.5px solid var(--ink);text-align:center;font-weight:700;line-height:1.5;margin-right:-1.5px;background:var(--paper)}
+.obs{white-space:nowrap;margin:0 4px}
+.viz .lw{font-size:22px;font-weight:700}
+.viz .cap{font-size:14px;fill:var(--muted)}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">選修化學 II<small>講義電子化</small></a><div class="nch">第1章　原子結構與週期表</div><ul><li><a href="u1-1.html"><span>1-1</span>氫原子光譜與波耳氫原子模型</a></li><li><a href="u1-2.html"><span>1-2</span>原子軌域</a></li><li><a href="u1-3.html"><span>1-3</span>電子組態與週期表</a></li><li><a href="u1-4.html"><span>1-4</span>原子性質的週期性</a></li><li><a href="u1-綜.html"><span>1-綜</span>第一章 素養導向與綜合試題</a></li></ul><div class="nch">第2章　化學鍵</div><ul><li><a href="u2-1.html"><span>2-1</span>化學鍵的種類</a></li><li><a href="u2-2.html"><span>2-2</span>雙中心分子路易斯結構與價鍵理論</a></li><li><a href="u2-3.html"><span>2-3</span>混成軌域與價殼層電子對斥力學說</a></li><li><a href="u2-4.html"><span>2-4</span>鍵極性與分子極性</a></li><li><a href="u2-5.html"><span>2-5</span>分子間的作用力</a></li><li><a href="u2-綜.html"><span>2-綜</span>第二章 素養導向與綜合試題</a></li></ul><div class="nch">第3章　反應速率</div><ul><li><a href="u3-1.html"><span>3-1</span>化學反應速率</a></li><li><a href="u3-2.html"><span>3-2</span>碰撞學說與反應機構</a></li><li><a href="u3-3.html"><span>3-3</span>影響反應速率的因素（I）本質、濃度、接觸面積、溫度</a></li><li><a href="u3-4.html"><span>3-4</span>影響反應速率的因素（II）催化劑</a></li><li><a href="u實驗1.html"><span>實驗1</span>秒錶反應</a></li><li><a href="u3-綜.html"><span>3-綜</span>第三章 素養導向與綜合試題</a></li></ul><div class="nch">第一次段考復習　物質構造＋反應速率</div><ul><li><a href="u復0.html"><span>復0</span>考前總整理：完整考點・迷思・熱區</a></li><li><a class="on" href="u基1.html"><span>基1</span>段考總複習 1-1～2-1：一招一題（課後講義）</a><ul class="subtoc"><li><a href="#s1">使用說明與公式卡</a></li><li><a href="#s2">1-1　光譜與波耳模型</a></li><li><a href="#s3">1-2　原子軌域</a></li><li><a href="#s4">1-3　電子組態與週期表</a></li><li><a href="#s5">1-4　原子性質的週期性</a></li><li><a href="#s6">2-1　化學鍵的種類</a></li><li><a href="#s7">段考模擬</a></li><li><a href="#s8">考前自我檢核</a></li></ul></li><li><a href="u復1.html"><span>復1</span>原子結構與週期性難題</a></li><li><a href="u復2.html"><span>復2</span>化學鍵・分子形狀・分子間力難題</a></li><li><a href="u復3.html"><span>復3</span>反應速率難題</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：物質構造＋反應速率</a></li></ul></nav>
+<main class="main"><header class="uh"><div class="crumb">第一次段考復習 物質構造＋反應速率</div>
+<h1><span class="uid">基1</span>段考總複習 1-1～2-1：一招一題（課後講義）</h1>
+<div class="tools"><span class="cnt">本單元 17 招（每招例題＋練習）＋15 題模擬</span>
+<button id="togglePre">隱藏想法提示（自測用）</button><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header>
+<div class="content">
+<h2 class="section " id="s1">使用說明與公式卡</h2>
+<aside class="box box-concept"><div class="box-h">這份講義怎麼用</div><p>這次段考範圍是 <strong>1-1 氫原子光譜 → 1-2 原子軌域 → 1-3 電子組態 → 1-4 週期性 → 2-1 化學鍵的種類</strong>。每一節拆成幾「招」，每一招都有：<strong>這招的想法</strong>（先看比喻）→ <strong>例題</strong>（上課一起做過的）→ <strong>練習</strong>（換題目，回家自己做）。</p><p><strong>回家的順序</strong>：① 先把「例題」不看詳解重算一次 ② 再做「練習」，做完才打開答案 ③ 錯的題目按右上角 ☆ 標起來，考前只看 ☆。標「回家自學」的招式上課沒講，照同樣方法自己讀。</p><p>常數：h＝6.626×10⁻³⁴ J·s、c＝3×10⁸ m/s、亞佛加厥數 6.02×10²³；氫原子 E<sub>n</sub>＝−1312/n² kJ/mol；每莫耳能量換波長可用 λ(nm) ≈ 1.196×10⁵ ÷ ΔE(kJ/mol)。</p></aside>
+<h3>上課講了哪些、回家要補哪些</h3><table><thead><tr><th>節</th><th>上課講／帶過</th><th>回家自學</th></tr></thead><tbody><tr><td>1-1 光譜</td><td style="text-align:left"><a class="kb" href="#g1">光譜 1</a> <a class="kb" href="#g2">光譜 2</a> <a class="kb" href="#g3">光譜 3</a></td><td style="text-align:left"><a class="kb" href="#g4">光譜 4</a></td></tr><tr><td>1-2 軌域</td><td style="text-align:left"><a class="kb" href="#o1">軌域 1</a> <a class="kb" href="#o2">軌域 2</a></td><td style="text-align:left">—</td></tr><tr><td>1-3 組態</td><td style="text-align:left"><a class="kb" href="#e1">組態 1</a> <a class="kb" href="#e2">組態 2</a> <a class="kb" href="#e3">組態 3</a> <a class="kb" href="#e4">組態 4</a></td><td style="text-align:left">—</td></tr><tr><td>1-4 週期性</td><td style="text-align:left"><a class="kb" href="#p1">週期 1</a> <a class="kb" href="#p2">週期 2</a> <a class="kb" href="#p3">週期 3</a></td><td style="text-align:left">—</td></tr><tr><td>2-1 化學鍵</td><td style="text-align:left"><a class="kb" href="#b1">化學鍵 1</a> <a class="kb" href="#b2">化學鍵 2</a> <a class="kb" href="#b3">化學鍵 3</a> <a class="kb" href="#b4">化學鍵 4</a></td><td style="text-align:left">—</td></tr></tbody></table><h3>公式卡（考前一晚看這張）</h3><table><thead><tr><th>節</th><th>⚠️ 一定要背</th></tr></thead><tbody><tr><td>1-1 光譜</td><td style="text-align:left">E＝hν＝hc/λ（每莫耳 ×6.02×10²³）；<strong>E<sub>n</sub>＝−1312/n²</strong>；<strong>ΔE＝1312(1/n<sub>低</sub>² − 1/n<sub>高</sub>²)</strong>；光區看終點：<strong>1 紫 2 可 3 紅</strong>；大量原子 C(n,2) 條、單一原子最多 n−1 個光子</td></tr><tr><td>1-2 軌域</td><td style="text-align:left">ℓ＝0～n−1（s p d f）；mℓ 有 2ℓ＋1 個；第 n 層：<strong>n 種、n² 個軌域、2n² 個電子</strong>；1p、2d、3f 不存在；能階：<strong>氫只看 n，多電子看 n＋ℓ（平手比 n）</strong></td></tr><tr><td>1-3 組態</td><td style="text-align:left">1s 2s 2p 3s 3p 4s 3d 4p 5s；遞建、洪德違反 → 激發態，包立違反 → 不存在；<strong>Cr＝[Ar]3d⁵4s¹、Cu＝[Ar]3d¹⁰4s¹</strong>；陽離子<strong>先拿 4s</strong>；鈍氣 2、10、18、36、54、86</td></tr><tr><td>1-4 週期性</td><td style="text-align:left">半徑：先比層數，再比質子數；等電子 原子序大的小；游離能 <strong>2A＞3A、5A＞6A</strong>；<strong>IE<sub>n＋1</sub> ≫ IE<sub>n</sub> ⇒ n 個價電子</strong>；電負度 F 最大；電子親和力 Cl＞F</td></tr><tr><td>2-1 化學鍵</td><td style="text-align:left">金屬＋非金屬 → 離子；金屬 → 金屬；非金屬 → 分子（C、Si、SiC、SiO₂、BN 是網狀）；離子鍵 ∝ <strong>Q⁺Q⁻/(r⁺＋r⁻)</strong> 先比電荷；路易斯五步驟；八隅例外 BF₃、NO、PCl₅、SF₆；鍵級高 → 短而強</td></tr></tbody></table><p>想練得更細：回到各節講義 <a href="u1-1.html">1-1</a>、<a href="u1-2.html">1-2</a>、<a href="u1-3.html">1-3</a>、<a href="u1-4.html">1-4</a>、<a href="u2-1.html">2-1</a> 做例題與單元練習。基本盤都會了，再挑戰 <a href="u復1.html">復1 原子結構與週期性難題</a>（全部都在範圍內）和 <a href="u復2.html#q483">復2 難題 10～12</a>（晶體熔點、鍵級、鍵的種類）。<br>注意：復2 的其他題、復4 的 VSEPR／分子間力／反應速率題<strong>不在這次範圍</strong>。</p>
+<h2 class="section " id="s2">第一部分　1-1 氫原子光譜與波耳模型（4 招）</h2>
+<article class="q" id="g1">
+<header class="qh"><span class="qn">光譜 第1招</span><span class="qtag">光的能量 E＝hν＝hc/λ</span><span class="qtag when-brief">上課帶過</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：夏天把你曬傷的是紫外線，不是紅外線——<strong>波長愈短，每一顆光子的「拳頭」愈重</strong>。</li><li>光的波動性：c＝νλ，c＝3×10⁸ m/s；1 nm＝10⁻⁹ m。</li><li>光的粒子性：一個光子的能量 <strong>E＝hν＝hc/λ</strong>（h＝6.626×10⁻³⁴ J·s）⇒ 能量 ∝ 頻率 ∝ 1/波長。</li><li>題目問「每莫耳光子」：一個光子的能量 × 6.02×10²³。</li><li>⚠️ 一定要背：能量大 → 小：<strong>γ 射線 ＞ X 射線 ＞ 紫外線 ＞ 可見光（紫＞藍＞綠＞紅）＞ 紅外線 ＞ 微波 ＞ 無線電波</strong>（波長剛好相反）；可見光約 400～700 nm。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>波長 400 nm 的紫光。(1) 頻率是多少？(2) 一個光子的能量是多少焦耳？(3) 1 莫耳光子的能量約多少 kJ？(4) 波長 700 nm 的紅光，光子能量是紫光的幾倍？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 7.5×10¹⁴ s⁻¹　(2) 4.97×10⁻¹⁹ J　(3) 約 299 kJ　(4) 4/7 倍（比較小）</div><div class="exp"><b class="exp-h">解</b><p>(1) ν＝c/λ＝(3×10⁸) ÷ (400×10⁻⁹)＝<strong>7.5×10¹⁴ s⁻¹</strong>。</p><p>(2) E＝hν＝6.626×10⁻³⁴ × 7.5×10¹⁴ ≈ <strong>4.97×10⁻¹⁹ J</strong>。</p><p>(3) 4.97×10⁻¹⁹ × 6.02×10²³ ≈ 2.99×10⁵ J ≈ <strong>299 kJ</strong>。</p><p>(4) E ∝ 1/λ ⇒ E<sub>紅</sub> : E<sub>紫</sub>＝400 : 700 ⇒ 紅光是紫光的 <strong>4/7</strong>。</p><p><strong>❌ 常見錯誤</strong>：(1) nm 忘了換成 m；(3) 忘了乘 6.02×10²³。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>波長愈短能量愈大；問「每莫耳」要乘 6.02×10²³。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>波長 500 nm 的綠光。(1) 頻率？(2) 一個光子的能量？(3) 每莫耳光子的能量約多少 kJ？(4) 把紅外線、X 射線、可見光、微波依光子能量由大到小排列。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 6.0×10¹⁴ s⁻¹　(2) 3.98×10⁻¹⁹ J　(3) 約 239 kJ　(4) X 射線 ＞ 可見光 ＞ 紅外線 ＞ 微波</div><div class="exp"><b class="exp-h">解</b><p>(1) 3×10⁸ ÷ (500×10⁻⁹)＝6.0×10¹⁴ s⁻¹。(2) 6.626×10⁻³⁴ × 6.0×10¹⁴ ≈ 3.98×10⁻¹⁹ J。(3) × 6.02×10²³ ≈ 2.39×10⁵ J ≈ 239 kJ。(4) 照電磁波譜的順序。</p></div></details>
+</article>
+<article class="q" id="g2">
+<header class="qh"><span class="qn">光譜 第2招</span><span class="qtag">波耳能階＝樓梯</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：電子的能量是「<strong>樓梯</strong>」不是「斜坡」——只能站在台階上，不能停在兩階中間。往上跳要吸收<strong>剛好一段樓梯差</strong>的能量；往下跳就把差額變成光放出來。台階愈往上愈密。</li><li>能階：<strong>E<sub>n</sub>＝−1312/n² kJ/mol</strong>（＝−2.179×10⁻¹⁸/n² J／個）。n＝1 是<strong>基態</strong>（最低），n ≥ 2 是<strong>激發態</strong>；n＝∞ 時 E＝0，電子脫離原子＝<strong>游離</strong>。</li><li>躍遷：<strong>ΔE＝1312 × (1/n<sub>低</sub>² − 1/n<sub>高</sub>²)</strong> kJ/mol；高 → 低 <strong>放光</strong>、低 → 高 <strong>吸光</strong>。</li><li>氫原子的游離能＝E<sub>∞</sub> − E<sub>1</sub>＝<strong>1312 kJ/mol</strong>。</li><li>能量換波長：λ＝hc/E；用每莫耳能量時可以直接算 λ(nm) ≈ 1.196×10⁵ ÷ ΔE(kJ/mol)。</li><li>⚠️ 光子的能量必須<strong>剛好等於</strong>某兩能階的差才會被吸收（或大於游離能，直接把電子打掉）。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>氫原子 E<sub>n</sub>＝−1312/n² kJ/mol。(1) 求 E<sub>1</sub>、E<sub>2</sub>、E<sub>3</sub>。(2) 電子由 n＝3 躍遷到 n＝2，放出多少能量？光的波長約多少 nm？(3) 2→1 放出的能量是 3→2 的幾倍？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) −1312、−328、約 −146 kJ/mol　(2) 約 182 kJ/mol，約 656 nm（紅光）　(3) 5.4 倍</div><div class="exp"><b class="exp-h">解</b><p>(1) E<sub>1</sub>＝−1312/1＝<strong>−1312</strong>；E<sub>2</sub>＝−1312/4＝<strong>−328</strong>；E<sub>3</sub>＝−1312/9 ≈ <strong>−146</strong>（kJ/mol）。</p><p>(2) ΔE＝1312 × (1/4 − 1/9)＝1312 × 5/36 ≈ <strong>182 kJ/mol</strong>；λ ≈ 1.196×10⁵ ÷ 182 ≈ <strong>656 nm</strong>，是可見光中的紅光（巴耳末系第一條）。</p><p>(3) (1 − 1/4) ÷ (1/4 − 1/9)＝(3/4) ÷ (5/36)＝27/5＝<strong>5.4 倍</strong>。掉到 1 樓摔得比掉到 2 樓重。</p><p><strong>❌ 常見錯誤</strong>：寫成 1312 × (1/2 − 1/3)——公式裡是 n²。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>ΔE＝1312 × (1/n<sub>低</sub>² − 1/n<sub>高</sub>²)；掉得愈深（終點愈低），能量愈大。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) 電子由 n＝4 躍遷到 n＝2，放出多少 kJ/mol？波長約多少 nm？(2) 基態氫原子吸收一個能量為 1230 kJ/mol 的光子，電子會跳到第幾層？(3) 基態氫原子能不能吸收 1000 kJ/mol 的光子？為什麼？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 246 kJ/mol，約 486 nm　(2) n＝4　(3) 不能</div><div class="exp"><b class="exp-h">解</b><p>(1) 1312 × (1/4 − 1/16)＝1312 × 3/16＝246 kJ/mol；λ ≈ 1.196×10⁵ ÷ 246 ≈ 486 nm。</p><p>(2) 1312 × (1 − 1/n²)＝1230 ⇒ 1/n²＝82/1312＝1/16 ⇒ n＝4。</p><p>(3) 跳到 n＝2 要 984、跳到 n＝3 要約 1166，1000 卡在中間，不等於任何能階差，也小於游離能 1312 ⇒ <strong>不吸收</strong>。</p></div></details>
+</article>
+<article class="q" id="g3">
+<header class="qh"><span class="qn">光譜 第3招</span><span class="qtag">譜系看「降落在幾樓」＋數譜線</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：從樓上跳下來，跳到 1 樓摔最重（能量最大）→ 紫外線；跳到 2 樓 → 可見光；跳到 3 樓以上 → 紅外線。<strong>光區只看「終點」</strong>。</li><li><table><thead><tr><th>系列</th><th>終點</th><th>光區</th><th>第一條（能量最小、波長最長）</th><th>最末條（能量最大）</th></tr></thead><tbody><tr><td>來曼</td><td>n＝1</td><td>紫外</td><td>2→1</td><td>∞→1</td></tr><tr><td>巴耳末</td><td>n＝2</td><td>可見</td><td>3→2（656 nm 紅光）</td><td>∞→2</td></tr><tr><td>帕申</td><td>n＝3</td><td>紅外</td><td>4→3</td><td>∞→3</td></tr></tbody></table></li><li>口訣：<strong>1 紫 2 可 3 紅</strong>（布拉克 n＝4、蒲芬德 n＝5 也是紅外）。</li><li>數譜線：<strong>大量</strong>氫原子從第 n 層往下，任兩層之間都會出現 ⇒ <strong>C(n,2)＝n(n−1)/2 條</strong>；<strong>單一個</strong>原子每次只放一個光子，一階一階掉最多 <strong>n−1 個</strong>。</li><li>同一系列的譜線，往高頻率（短波長）那一端愈來愈密。</li></ul></div></details>
+<figure class="viz fig-sm"><div class="viz-h">圖：大量氫原子從 n＝4 往下跳（按比例畫，台階愈往上愈密）</div><svg viewBox="0 0 560 385" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="氫原子能階與六條躍遷"><line class="dim" x1="110" y1="40.0" x2="470" y2="40.0"/><text class="tm" x="100" y="45.0" text-anchor="end">n＝∞</text><text class="tm" x="478" y="45.0" text-anchor="start">0（游離）</text><line class="o" x1="110" y1="58.8" x2="470" y2="58.8"/><text class="tm" x="100" y="63.8" text-anchor="end">n＝4</text><text class="tm" x="478" y="63.8" text-anchor="start">−82</text><line class="o" x1="110" y1="73.3" x2="470" y2="73.3"/><text class="tm" x="100" y="78.3" text-anchor="end">n＝3</text><text class="tm" x="478" y="78.3" text-anchor="start">−146</text><line class="o" x1="110" y1="115.0" x2="470" y2="115.0"/><text class="tm" x="100" y="120.0" text-anchor="end">n＝2</text><text class="tm" x="478" y="120.0" text-anchor="start">−328</text><line class="o" x1="110" y1="340.0" x2="470" y2="340.0"/><text class="tm" x="100" y="345.0" text-anchor="end">n＝1</text><text class="tm" x="478" y="345.0" text-anchor="start">−1312</text><g class="a-sim"><line x1="150" y1="58.8" x2="150" y2="331.0"/><polygon points="150,340.0 145,330.0 155,330.0"/></g><g class="a-sim"><line x1="185" y1="73.3" x2="185" y2="331.0"/><polygon points="185,340.0 180,330.0 190,330.0"/></g><g class="a-sim"><line x1="220" y1="115.0" x2="220" y2="331.0"/><polygon points="220,340.0 215,330.0 225,330.0"/></g><g class="a-acc"><line x1="300" y1="58.8" x2="300" y2="106.0"/><polygon points="300,115.0 295,105.0 305,105.0"/></g><g class="a-acc"><line x1="340" y1="73.3" x2="340" y2="106.0"/><polygon points="340,115.0 335,105.0 345,105.0"/></g><g class="a-pr"><line x1="420" y1="58.8" x2="420" y2="64.3"/><polygon points="420,73.3 415,63.3 425,63.3"/></g><text class="tw tb" x="185" y="368" text-anchor="middle">來曼系：落到 1 樓 → 紫外</text><text class="ta tb" x="340" y="140" text-anchor="middle">巴耳末系：落到 2 樓 → 可見</text><text class="tp tb" x="430" y="98" text-anchor="middle">帕申系 → 紅外</text><text class="tm" x="12" y="24" text-anchor="start">能量（kJ/mol）右側標示</text></svg><figcaption>從 n＝4 往下共有 C(4,2)＝6 種跳法：落到 1 樓的 3 條（紫外）、落到 2 樓的 2 條（可見）、落到 3 樓的 1 條（紅外）。最長的箭頭 4→1 能量最大；最短的 4→3 能量最小、波長最長。</figcaption></figure>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>大量氫原子被激發到 n＝4，之後往低能階躍遷。(1) 最多可觀察到幾條譜線？(2) 其中幾條是可見光？是哪幾個躍遷？(3) 能量最大的是哪一條？波長最長的是哪一條？(4) 若只有一個氫原子，最多放出幾個光子？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 6 條　(2) 2 條：4→2、3→2　(3) 能量最大 4→1；波長最長 4→3　(4) 3 個</div><div class="exp"><b class="exp-h">解</b><p>(1) C(4,2)＝<strong>6 條</strong>：4→3、4→2、4→1、3→2、3→1、2→1（看上面的圖）。</p><p>(2) 終點 n＝2 的才是可見光：<strong>4→2、3→2</strong>。</p><p>(3) 能量最大＝掉最深＝<strong>4→1</strong>（1312 × 15/16＝1230 kJ/mol）；波長最長＝能量最小＝最上面相鄰的 <strong>4→3</strong>（約 64 kJ/mol，紅外線）。</p><p>(4) 4→3→2→1，<strong>3 個</strong>。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>光區看終點（1 紫 2 可 3 紅）；大量原子 C(n,2)，一個原子 n−1。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>大量氫原子被激發到 n＝6。(1) 最多幾條譜線？(2) 紫外線、可見光、紅外線各幾條？(3) 巴耳末系的第一條是哪個躍遷？(4) 只有一個氫原子時，最多放出幾個光子？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 15 條　(2) 紫外 5、可見 4、紅外 6　(3) 3→2　(4) 5 個</div><div class="exp"><b class="exp-h">解</b><p>(1) C(6,2)＝15。(2) 終點 n＝1：6、5、4、3、2 → 1，共 5 條；終點 n＝2：6、5、4、3 → 2，共 4 條；其餘終點 n ≥ 3：15 − 5 − 4＝6 條。</p><p>(3) 第一條＝相鄰＝3→2（656 nm 紅光）。(4) 6→5→4→3→2→1，5 個。</p></div></details>
+</article>
+<article class="q" id="g4">
+<header class="qh"><span class="qn">光譜 第4招</span><span class="qtag">波耳模型的成功與限制</span><span class="qtag when-home">回家自學</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li>拉塞福模型的兩個困難：① 無法解釋原子為什麼穩定（古典物理認為繞核的電子會輻射能量、最後墜入原子核）② 無法解釋明線光譜。</li><li>波耳保留「電子繞核」的行星模型（向心力＝原子核與電子的庫侖引力），再加兩個假設：<strong>穩定態</strong>（在特定軌道上不輻射）＋<strong>躍遷</strong>（吸收或放出的能量＝能階差）。</li><li>⚠️ 波耳模型只適用於<strong>單電子</strong>的原子或離子：H、He⁺、Li²⁺；He、Li 等多電子原子不適用。</li><li>氫原子光譜是不連續的<strong>明線光譜</strong>（發射光譜）；白熾燈泡、陽光經三稜鏡是<strong>連續光譜</strong>。</li><li>主量子數 n 從 1 開始，沒有 n＝0。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>（多選）下列敘述哪些正確？<br>(A) 氫原子光譜是明線光譜<br>(B) 白熾燈泡的光經三稜鏡分光後是連續光譜<br>(C) 波耳模型可以解釋 He⁺ 的光譜<br>(D) 波耳模型可以準確解釋所有原子的光譜<br>(E) 電子在穩定軌道上運動時，會不斷放出能量</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)(B)(C)</div><div class="exp"><b class="exp-h">解</b><p>(C) 對：He⁺ 只有 1 個電子。(D) 錯：只適用單電子。(E) 錯：穩定態不輻射，這正是波耳的第一個假設。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>波耳只管單電子；在穩定軌道上不放光，跳下來才放光。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>（多選）<br>(A) 波耳認為電子繞核的向心力來自原子核與電子之間的庫侖引力<br>(B) 依古典物理，繞核運動的電子會輻射能量而墜入原子核<br>(C) 波耳模型可以解釋 Li 原子的光譜<br>(D) 電子由 n＝3 躍遷到 n＝1 會放出紫外線<br>(E) 主量子數可以為 0</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)(B)(D)</div><div class="exp"><b class="exp-h">解</b><p>(C) 錯：Li 有 3 個電子，Li²⁺ 才可以。(D) 對：終點 n＝1 是來曼系（紫外）。(E) 錯：n＝1, 2, 3…。</p></div></details>
+</article>
+<h2 class="section " id="s3">第二部分　1-2 原子軌域（2 招）</h2>
+<article class="q" id="o1">
+<header class="qh"><span class="qn">軌域 第1招</span><span class="qtag">四個量子數＝電子的旅館地址</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：原子是一間旅館。<strong>n＝樓層</strong>（愈高愈大、能量愈高）；<strong>ℓ＝房型</strong>（s、p、d、f）；<strong>mℓ＝同一種房型的第幾間</strong>（方向）；<strong>ms＝房間裡的兩張床</strong>（自旋 ↑、↓）。</li><li><table><thead><tr><th>量子數</th><th>代表</th><th>可能值</th></tr></thead><tbody><tr><td>主量子數 n</td><td>大小、能量（K、L、M、N 層）</td><td>1, 2, 3…</td></tr><tr><td>角量子數 ℓ</td><td>形狀（s、p、d、f）</td><td>0, 1, …, n−1</td></tr><tr><td>磁量子數 mℓ</td><td>方位（軌域個數 2ℓ＋1）</td><td>−ℓ … 0 … ＋ℓ</td></tr><tr><td>自旋量子數 ms</td><td>自旋</td><td>＋½、−½</td></tr></tbody></table></li><li>數數：第 n 層有 <strong>n 種副殼層、n² 個軌域、最多 2n² 個電子</strong>（n＝1, 2, 3, 4 → 2、8、18、32）。s、p、d、f 各有 <strong>1、3、5、7</strong> 個軌域，最多 <strong>2、6、10、14</strong> 個電子。</li><li>⚠️ 不存在的軌域：<strong>1p、2d、3f</strong>（ℓ 不能 ≥ n）——第 2 層才有 p，第 3 層才有 d，第 4 層才有 f。</li><li>形狀：s 球形、無方向性（n 愈大球愈大）；p 啞鈴形，px、py、pz 互相垂直、能量相同；d 多為雙啞鈴形。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>(1) n＝3 的主殼層有幾種副殼層？幾個軌域？最多容納幾個電子？(2) 2s、2d、3p、3f、4f、1p 中，哪些軌域不存在？(3) n＝4、ℓ＝2 是什麼軌域？有幾個？最多容納幾個電子？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 3 種（3s、3p、3d）、9 個、18 個　(2) 2d、3f、1p　(3) 4d，5 個，10 個</div><div class="exp"><b class="exp-h">解</b><p>(1) ℓ＝0、1、2 ⇒ 3s、3p、3d；軌域 1＋3＋5＝9＝3²；電子 2×9＝18。</p><p>(2) ℓ 最大只到 n−1：n＝2 只有 s、p ⇒ 2d 不存在；n＝3 只有 s、p、d ⇒ 3f 不存在；n＝1 只有 s ⇒ 1p 不存在。</p><p>(3) ℓ＝2 是 d ⇒ 4d；mℓ＝−2～＋2 共 5 個；5×2＝10。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>第 n 層：n 種、n² 個、2n² 個電子；s p d f＝1 3 5 7 個軌域。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) n＝4 有幾種副殼層？幾個軌域？最多幾個電子？(2) ℓ＝1 時，mℓ 可以是哪些值？這是什麼軌域？(3) 下列 (n, ℓ, mℓ) 組合哪些不合理？(2, 1, 0)、(2, 2, 1)、(3, 2, −2)、(1, 0, 1)、(3, 1, −1)</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 4 種、16 個、32 個　(2) −1、0、＋1，p 軌域　(3) (2, 2, 1)、(1, 0, 1)</div><div class="exp"><b class="exp-h">解</b><p>(1) 4s、4p、4d、4f；1＋3＋5＋7＝16；32。(2) mℓ＝−ℓ～＋ℓ ⇒ −1、0、＋1，3 個 ⇒ p。</p><p>(3) (2, 2, 1)：ℓ 不能等於 n。(1, 0, 1)：ℓ＝0 時 mℓ 只能是 0。</p></div></details>
+</article>
+<article class="q" id="o2">
+<header class="qh"><span class="qn">軌域 第2招</span><span class="qtag">能階順序：氫看 n，多電子看 n＋ℓ</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：氫原子只有一個電子，像旅館只住一個客人，房價只看樓層；多電子原子的電子會互相推擠，房型也會影響房價，所以要算「<strong>n＋ℓ</strong>」這個總價——總價一樣時，<strong>樓層（n）高的比較貴</strong>。</li><li>單電子（H、He⁺、Li²⁺）：<strong>只看 n</strong>。1s ＜ 2s＝2p ＜ 3s＝3p＝3d ＜ 4s＝4p＝4d＝4f。</li><li>多電子：<strong>(n＋ℓ) 大者高；(n＋ℓ) 相同時 n 大者高</strong>。1s ＜ 2s ＜ 2p ＜ 3s ＜ 3p ＜ 4s ＜ 3d ＜ 4p ＜ 5s …</li><li>算法示範：4s＝4＋0＝4，3d＝3＋2＝5 ⇒ 4s 較低；3p＝3＋1＝4，4s＝4＋0＝4 平手 ⇒ n 大的 4s 較高。</li><li>⚠️ 同一副殼層的 3 個 p（或 5 個 d）能量永遠相同。題目問「對氫和多電子原子<strong>都成立</strong>」時，兩套規則各檢查一次。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>（多選）下列能階關係，哪些「對氫原子和多電子原子<strong>都成立</strong>」？<br>(A) 1s ＜ 2s　(B) 2s ＜ 2p　(C) 3p ＜ 4s　(D) 4s ＜ 3d　(E) 3d ＜ 4p</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)(C)(E)</div><div class="exp"><b class="exp-h">解</b><table><thead><tr><th>選項</th><th>氫（看 n）</th><th>多電子（看 n＋ℓ）</th><th>都成立？</th></tr></thead><tbody><tr><td>(A) 1s＜2s</td><td>1＜2 ✓</td><td>1＜2 ✓</td><td>✓</td></tr><tr><td>(B) 2s＜2p</td><td>2＝2 ✗</td><td>2＜3 ✓</td><td>✗</td></tr><tr><td>(C) 3p＜4s</td><td>3＜4 ✓</td><td>4＝4，n 大的 4s 高 ✓</td><td>✓</td></tr><tr><td>(D) 4s＜3d</td><td>4＞3 ✗</td><td>4＜5 ✓</td><td>✗</td></tr><tr><td>(E) 3d＜4p</td><td>3＜4 ✓</td><td>5＝5，n 大的 4p 高 ✓</td><td>✓</td></tr></tbody></table><p><strong>❌ 常見錯誤</strong>：(D) 在多電子原子沒錯，但氫原子是 4s ＞ 3d，所以不選。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>氫只看 n；多電子看 n＋ℓ，平手比 n。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>（多選）下列能階關係，哪些「對氫原子和多電子原子都成立」？<br>(A) 2p ＜ 3s　(B) 3s ＜ 3p　(C) 4s ＜ 4p　(D) 3d ＜ 4s　(E) 4d ＜ 5s</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)</div><div class="exp"><b class="exp-h">解</b><p>(A) 氫 2＜3 ✓；多電子 3＝3 平手，n 大的 3s 高 ✓。(B)(C) 氫同一層能量相等 ✗。(D) 多電子 3d（5）＞ 4s（4）✗。(E) 多電子 4d（6）＞ 5s（5）✗。</p></div></details>
+</article>
+<h2 class="section " id="s4">第三部分　1-3 電子組態與週期表（4 招）</h2>
+<article class="q" id="e1">
+<header class="qh"><span class="qn">組態 第1招</span><span class="qtag">填電子三大原則</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻（旅館住房規則）</strong>：① <strong>遞建原理</strong>：先住便宜（能量低）的房間 ② <strong>包立不相容原理</strong>：一間房最多 2 個人，而且頭腳相反（自旋相反）③ <strong>洪德定則</strong>：像坐公車，雙人座先一人坐一排、方向一樣，每排都有人才開始併坐。</li><li>填充順序（斜線法）：<strong>1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s → 4f → 5d → 6p</strong>。</li><li>例：2p³ 要填成 <span class="obs"><span class="ob">↑</span><span class="ob">↑</span><span class="ob">↑</span></span>（洪德），不是 <span class="obs"><span class="ob">↑↓</span><span class="ob">↑</span><span class="ob">&nbsp;</span></span>。</li><li>⚠️ 一定要背：違反<strong>遞建或洪德 → 激發態</strong>（可以存在，只是能量較高）；違反<strong>包立 → 不存在</strong>。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>₇N 有 7 個電子。判斷下列組態是基態、激發態或不存在：</p><p>(A) 1s² 2s² 2px¹ 2py¹ 2pz¹<br>(B) 1s² 2s² 2px² 2py¹<br>(C) 1s² 2s¹ 2p⁴<br>(D) 1s² 2s³ 2p²<br>(E) 1s² 2s² 2p² 3s¹</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A) 基態　(B) 激發態　(C) 激發態　(D) 不存在　(E) 激發態</div><div class="exp"><b class="exp-h">解</b><p>(A) 照順序填、2p 的三個電子分開坐 ⇒ <strong>基態</strong>。</p><p>(B) 2p 還有空位卻先成對 <span class="obs"><span class="ob">↑↓</span><span class="ob">↑</span><span class="ob">&nbsp;</span></span> ⇒ 違反洪德 ⇒ <strong>激發態</strong>。</p><p>(C) 2s 沒填滿就去填 2p ⇒ 違反遞建 ⇒ <strong>激發態</strong>。</p><p>(D) 2s 只有一個軌域，最多 2 個電子，卻放 3 個 ⇒ 違反包立 ⇒ <strong>不存在</strong>。</p><p>(E) 2p 沒填滿就去填 3s ⇒ 違反遞建 ⇒ <strong>激發態</strong>。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>遞建、洪德 → 激發態；包立 → 不存在。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>₆C 有 6 個電子。判斷下列組態是基態、激發態或不存在：</p><p>(A) 1s² 2s² 2px¹ 2py¹<br>(B) 1s² 2s² 2px²<br>(C) 1s² 2s¹ 2p³<br>(D) 1s³ 2s¹ 2p²<br>(E) 1s² 2s² 2p¹ 3s¹</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A) 基態　(B) 激發態　(C) 激發態　(D) 不存在　(E) 激發態</div><div class="exp"><b class="exp-h">解</b><p>(B) 違反洪德。(C) 2s 沒滿就填 2p，違反遞建。(D) 1s 放 3 個，違反包立。(E) 違反遞建。</p></div></details>
+</article>
+<article class="q" id="e2">
+<header class="qh"><span class="qn">組態 第2招</span><span class="qtag">寫組態：Cr、Cu 要背</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：寫地址要從縣市寫到門牌——<strong>填</strong>的時候 4s 比 3d 先，但<strong>寫</strong>的時候照 n 由小到大，3d 寫在 4s 前面。</li><li>鈍氣簡寫：[He]＝2、[Ne]＝10、[Ar]＝18、[Kr]＝36 個電子。例：₁₇Cl＝[Ne]3s²3p⁵；₂₀Ca＝[Ar]4s²；₂₃V＝[Ar]3d³4s²。</li><li>⚠️ 一定要背的例外：<strong>₂₄Cr＝[Ar]3d⁵4s¹；₂₉Cu＝[Ar]3d¹⁰4s¹</strong>（d 半滿、全滿特別穩定，從 4s 借一個電子；寫成 3d⁴4s²、3d⁹4s² 是激發態）。</li><li>未成對電子數：把最後的副殼層畫成箱子，照洪德先一格一個，再成對，數單獨的箭頭。</li><li>價電子：主族看最外層的 ns、np；過渡元素看 (n−1)d 和 ns。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>寫出基態電子組態（可用鈍氣簡寫），並寫出未成對電子數：(1) ₁₇Cl　(2) ₂₀Ca　(3) ₂₆Fe　(4) ₂₄Cr　(5) ₂₉Cu</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) [Ne]3s²3p⁵，1　(2) [Ar]4s²，0　(3) [Ar]3d⁶4s²，4　(4) [Ar]3d⁵4s¹，6　(5) [Ar]3d¹⁰4s¹，1</div><div class="exp"><b class="exp-h">解</b><p>(1) 3p⁵ ⇒ <span class="obs"><span class="ob">↑↓</span><span class="ob">↑↓</span><span class="ob">↑</span></span> ⇒ 1 個。(2) 4s² 成對 ⇒ 0。</p><p>(3) 3d⁶：5 個箱子先各放 1 個，第 6 個再成對 ⇒ <span class="obs"><span class="ob">↑↓</span><span class="ob">↑</span><span class="ob">↑</span><span class="ob">↑</span><span class="ob">↑</span></span> ⇒ <strong>4 個</strong>；4s² 成對。</p><p>(4) 3d⁵ <span class="obs"><span class="ob">↑</span><span class="ob">↑</span><span class="ob">↑</span><span class="ob">↑</span><span class="ob">↑</span></span> 五個單獨＋4s¹ 一個 ⇒ <strong>6 個</strong>。</p><p>(5) 3d¹⁰ 全成對，只有 4s¹ ⇒ 1 個。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>寫的時候 3d 在 4s 前；Cr、Cu 從 4s 借一個。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>寫出基態組態與未成對電子數：(1) ₁₅P　(2) ₂₅Mn　(3) ₃₀Zn　(4) ₈O　(5) ₁₉K</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) [Ne]3s²3p³，3　(2) [Ar]3d⁵4s²，5　(3) [Ar]3d¹⁰4s²，0　(4) 1s²2s²2p⁴，2　(5) [Ar]4s¹，1</div><div class="exp"><b class="exp-h">解</b><p>(1) 3p³ 三個分開坐 ⇒ 3。(2) 3d⁵ 半滿 ⇒ 5。(3) 全部成對 ⇒ 0。(4) 2p⁴ ⇒ <span class="obs"><span class="ob">↑↓</span><span class="ob">↑</span><span class="ob">↑</span></span> ⇒ 2。(5) 19＝18＋1，第 19 個電子進 4s（4s 比 3d 低）。</p></div></details>
+</article>
+<article class="q" id="e3">
+<header class="qh"><span class="qn">組態 第3招</span><span class="qtag">離子組態：陽離子先拿 4s</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：4s 是 n＝4，住在最外層；有人來搶電子，最外面的先被搶走。「<strong>4s 先住進來，也先被搶走</strong>。」</li><li>陰離子：多的電子照填充順序往後加。Cl⁻＝[Ne]3s²3p⁶＝[Ar]。</li><li>陽離子：先寫中性原子，再從 <strong>n 最大</strong>的軌域拿（過渡元素<strong>先拿 4s，再拿 3d</strong>）。</li><li>Fe＝[Ar]3d⁶4s² → <strong>Fe²⁺＝[Ar]3d⁶</strong> → <strong>Fe³⁺＝[Ar]3d⁵</strong>（3d 半滿，比 Fe²⁺ 穩定）。</li><li>⚠️ 電子數一樣，組態不一定一樣：Fe⁺（25 個電子）＝[Ar]3d⁶4s¹；Co²⁺（也是 25 個）＝[Ar]3d⁷。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>寫出電子組態：(1) Fe²⁺　(2) Fe³⁺　(3) Cu⁺　(4) S²⁻　(5) Fe²⁺ 和 Fe³⁺ 哪一個比較穩定？為什麼？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) [Ar]3d⁶　(2) [Ar]3d⁵　(3) [Ar]3d¹⁰　(4) [Ne]3s²3p⁶（＝[Ar]）　(5) Fe³⁺，3d⁵ 半滿</div><div class="exp"><b class="exp-h">解</b><p>(1) Fe＝[Ar]3d⁶4s²，先拿走 4s 的 2 個。(2) 再從 3d 拿 1 個。(3) Cu＝[Ar]3d¹⁰4s¹，拿走 4s¹。(4) S＝[Ne]3s²3p⁴，加 2 個進 3p。(5) 3d⁵ 半滿特別穩定。</p><p><strong>❌ 常見錯誤</strong>：Fe²⁺ 寫成 [Ar]3d⁴4s²——拿錯地方了，要先拿 4s。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>陽離子先拿 4s，再拿 3d。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) Mn²⁺　(2) Zn²⁺　(3) Cu²⁺　(4) Na⁺　(5) K⁺、Ca²⁺、Cl⁻、Na⁺、S²⁻ 中，哪些和 Ar 的電子組態相同？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) [Ar]3d⁵　(2) [Ar]3d¹⁰　(3) [Ar]3d⁹　(4) 1s²2s²2p⁶　(5) K⁺、Ca²⁺、Cl⁻、S²⁻</div><div class="exp"><b class="exp-h">解</b><p>(1) Mn＝[Ar]3d⁵4s²，拿走 4s²。(2) Zn＝[Ar]3d¹⁰4s²，拿走 4s²。(3) Cu＝[Ar]3d¹⁰4s¹，先拿 4s¹，再拿 1 個 3d。(4) Na＝[Ne]3s¹，拿走 3s¹，和 Ne 相同。</p><p>(5) 有 18 個電子的才和 Ar 相同；Na⁺ 只有 10 個。</p></div></details>
+</article>
+<article class="q" id="e4">
+<header class="qh"><span class="qn">組態 第4招</span><span class="qtag">原子序 → 週期與族</span><span class="qtag when-brief">上課帶過</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：鈍氣的原子序是高速公路的里程碑：<strong>He 2、Ne 10、Ar 18、Kr 36、Xe 54、Rn 86</strong>。找最近的里程碑，往前或往後數。</li><li>每週期元素數：2、8、8、18、18、32、32（第 3 週期沒有 3d，因為 3d 比 4s 高）。</li><li>比鈍氣<strong>多 1 → 下一週期 1A；多 2 → 2A</strong>；<strong>少 1 → 同週期 7A；少 2 → 6A</strong>；少 3 → 5A。</li><li>主族（A 族）：族數＝價電子數（He 除外）。第 4 週期 21～30 號是過渡元素（B 族，填 3d）。</li><li>同族往下：C 6 → Si 14 → Ge 32 → Sn 50 → Pb 82（差 8、18、18、32）。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>判斷週期與族：(1) 原子序 35　(2) 原子序 38　(3) 原子序 26　(4) 與 C（6 號）同族、位於第 4 週期的元素，原子序是多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 第 4 週期 7A（Br）　(2) 第 5 週期 2A（Sr）　(3) 第 4 週期 8B（Fe）　(4) 32（Ge）</div><div class="exp"><b class="exp-h">解</b><p>(1) 36（Kr）− 1 ⇒ Kr 那一週期的 7A。(2) 36 ＋ 2 ⇒ 下一週期的 2A。(3) [Ar]3d⁶4s²，填到 3d ⇒ 過渡元素，第 4 週期 8B。(4) 6 ＋ 8＝14（Si，第 3 週期），14 ＋ 18＝32（第 4 週期）。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>用鈍氣 2、10、18、36、54、86 當里程碑。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) 原子序 53　(2) 原子序 56　(3) 原子序 19　(4) Pb 與 C 同族、在第 6 週期，原子序是多少？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 第 5 週期 7A（I）　(2) 第 6 週期 2A（Ba）　(3) 第 4 週期 1A（K）　(4) 82</div><div class="exp"><b class="exp-h">解</b><p>(1) 54 − 1。(2) 54 ＋ 2。(3) 18 ＋ 1。(4) 6 ＋ 8 ＋ 18 ＋ 18 ＋ 32＝82。</p></div></details>
+</article>
+<h2 class="section " id="s5">第四部分　1-4 原子性質的週期性（3 招）</h2>
+<article class="q" id="p1">
+<header class="qh"><span class="qn">週期 第1招</span><span class="qtag">半徑：先比層數，再比核電荷</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：原子像洋蔥，<strong>層數多的一定比較大</strong>；層數一樣時，看原子核「管得多緊」——質子愈多，把電子拉得愈緊，就愈小。</li><li>依序檢查四條規則：<br>① 同族往下 → <strong>變大</strong>（層數多）：Cs ＞ Rb ＞ K ＞ Na ＞ Li<br>② 同週期往右 → <strong>變小</strong>（核電荷大）：Na ＞ Mg ＞ Al ＞ Si ＞ P ＞ S ＞ Cl<br>③ 等電子（電子數相同）→ <strong>原子序大的小</strong>：N³⁻ ＞ O²⁻ ＞ F⁻ ＞ Ne ＞ Na⁺ ＞ Mg²⁺ ＞ Al³⁺<br>④ 同一元素 → <strong>陰離子 ＞ 原子 ＞ 陽離子</strong>，正電愈多愈小：Cl⁻ ＞ Cl；Fe ＞ Fe²⁺ ＞ Fe³⁺</li><li>「原子半徑」一般指共價半徑（兩個同種原子以單鍵相連時，核間距的一半）或金屬半徑。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>由大到小排列：(1) Na、Mg、K　(2) O²⁻、F⁻、Na⁺、Mg²⁺　(3) Cl、Cl⁻　(4) S²⁻、Cl⁻、K⁺、Ca²⁺</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) K ＞ Na ＞ Mg　(2) O²⁻ ＞ F⁻ ＞ Na⁺ ＞ Mg²⁺　(3) Cl⁻ ＞ Cl　(4) S²⁻ ＞ Cl⁻ ＞ K⁺ ＞ Ca²⁺</div><div class="exp"><b class="exp-h">解</b><p>(1) K 有 4 層最大；Na、Mg 同週期，Mg 核電荷大較小。</p><p>(2) 都是 10 個電子（等電子），質子數 8、9、11、12 ⇒ 質子愈多愈小。</p><p>(3) 多一個電子，電子互斥 ⇒ 變大。(4) 都是 18 個電子，質子 16、17、19、20。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>先比層數，層數一樣比質子數。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>由大到小排列：(1) Li、Na、Be　(2) N³⁻、O²⁻、F⁻、Ne　(3) Fe、Fe²⁺、Fe³⁺　(4) Na⁺ 和 Cl⁻ 哪個大？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) Na ＞ Li ＞ Be　(2) N³⁻ ＞ O²⁻ ＞ F⁻ ＞ Ne　(3) Fe ＞ Fe²⁺ ＞ Fe³⁺　(4) Cl⁻</div><div class="exp"><b class="exp-h">解</b><p>(1) Na 有 3 層；Li、Be 同週期，Be 較小。(2) 等電子（10 個），質子 7、8、9、10。(3) 拿走愈多電子愈小。(4) Na⁺ 只剩 2 層（和 Ne 一樣），Cl⁻ 有 3 層（和 Ar 一樣）。</p></div></details>
+</article>
+<article class="q" id="p2">
+<header class="qh"><span class="qn">週期 第2招</span><span class="qtag">游離能：鋸齒＋暴增</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：游離能＝「<strong>搶走一個電子要花的力氣</strong>」。原子愈小、核愈強，愈難搶；電子排得愈整齊（全滿、半滿），愈難拆。</li><li>定義：M(g) → M⁺(g) ＋ e⁻，吸熱。</li><li>同族往下 → 變小（Li ＞ Na ＞ K）；同週期往右 → 大致變大，但呈<strong>鋸齒</strong>：<strong>2A ＞ 3A</strong>（Be ＞ B、Mg ＞ Al，ns² 全滿）、<strong>5A ＞ 6A</strong>（N ＞ O、P ＞ S，np³ 半滿）。鈍氣最大、鹼金屬最小。</li><li>第 2 週期：<strong>Li ＜ B ＜ Be ＜ C ＜ O ＜ N ＜ F ＜ Ne</strong>。</li><li>連續游離能：IE₁ ＜ IE₂ ＜ IE₃ ＜ …；找「<strong>暴增</strong>」：<strong>IE<sub>n＋1</sub> ≫ IE<sub>n</sub> ⇒ 有 n 個價電子</strong> ⇒ 第 n 族（A 族）。（拿完價電子就變成鈍氣組態，再拿要拆內層，會撞牆。）</li><li>等電子：原子序大的游離能大：F⁻ ＜ Ne ＜ Na⁺ ＜ Mg²⁺。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>(1) 將 Li、Be、B、C、N、O 依第一游離能由小到大排列。(2) 某第三週期元素的連續游離能（kJ/mol）依序為 738、1451、7733、10543。它有幾個價電子？是哪一族？是哪個元素？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) Li ＜ B ＜ Be ＜ C ＜ O ＜ N　(2) 2 個價電子，2A 族，Mg</div><div class="exp"><b class="exp-h">解</b><p>(1) 大方向往右變大，再把兩個鋸齒挑出來：Be（2s² 全滿）＞ B；N（2p³ 半滿）＞ O。</p><p>(2) 1451 → 7733 跳了 5 倍以上（暴增在 IE₂ → IE₃）⇒ 前 2 個是價電子 ⇒ 2A 族；第三週期 2A＝<strong>Mg</strong>。</p><p><strong>❌ 常見錯誤</strong>：暴增發生在 IE₂ → IE₃，價電子是 2 個，不是 3 個。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>2A＞3A、5A＞6A；暴增前有幾個，就有幾個價電子。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) Na、Mg、Al、P、S、Cl 依第一游離能由小到大排列。(2) 某第三週期元素的連續游離能（kJ/mol）為 578、1817、2745、11577，是哪個元素？(3) F⁻、Ne、Na⁺ 依游離能由小到大排列。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) Na ＜ Al ＜ Mg ＜ S ＜ P ＜ Cl　(2) Al（3 個價電子，3A）　(3) F⁻ ＜ Ne ＜ Na⁺</div><div class="exp"><b class="exp-h">解</b><p>(1) 鋸齒：Mg ＞ Al、P ＞ S。實際值依序約 496、578、738、1000、1012、1251 kJ/mol。</p><p>(2) 2745 → 11577 暴增（IE₃ → IE₄）⇒ 3 個價電子 ⇒ 3A ⇒ Al。(3) 都是 10 個電子，質子 9、10、11 ⇒ 質子愈多愈難拿。</p></div></details>
+</article>
+<article class="q" id="p3">
+<header class="qh"><span class="qn">週期 第3招</span><span class="qtag">電負度與電子親和力</span><span class="qtag when-brief">上課帶過</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：電負度＝拔河時拉「共用電子對」的力氣。<strong>F 是全班最強（4.0）</strong>。</li><li>電負度：同族往下變小，同週期往右變大（F ＞ O ＞ N ＞ C；F ＞ Cl ＞ Br ＞ I）。H 約 2.1，大約是金屬／非金屬的分界：金屬小、非金屬大。</li><li>應用：電負度<strong>差大 → 一方把電子整個搶走 → 離子鍵</strong>（Na 0.9、Cl 3.0，差 2.1 → NaCl）；<strong>差小 → 共用 → 共價鍵</strong>（H 2.1、Cl 3.0，差 0.9 → HCl）。</li><li>電子親和力：原子得到一個電子時放出的熱，愈大＝愈想要電子。7A 最大，但 <strong>Cl ＞ F ＞ Br ＞ I</strong>（Cl 最大，不是 F！）；2A、N、8A 組態穩定，不容易得電子。</li><li>⚠️ 最大的電子親和力（Cl 349）仍小於最小的游離能（Cs 368 kJ/mol）⇒ Na(g) ＋ Cl(g) → Na⁺(g) ＋ Cl⁻(g) 是<strong>吸熱</strong>的（＋496 − 349＝＋147 kJ/mol）。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>(1) 將 Na、Cl、F、O 依電負度由大到小排列。(2) 鹵素中電子親和力最大的是誰？(3) C 與 O、H 與 Cl、K 與 F、N 與 H，哪一對最可能形成離子鍵？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) F ＞ O ＞ Cl ＞ Na　(2) Cl　(3) K 與 F</div><div class="exp"><b class="exp-h">解</b><p>(1) F 4.0、O 3.5、Cl 3.0、Na 0.9。(2) 特例要背：Cl ＞ F。</p><p>(3) K 在左下（電負度很小）、F 在右上（最大），差最大 ⇒ 離子鍵；其他三對都是非金屬＋非金屬 ⇒ 共價鍵。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>F 最強；差大離子鍵、差小共價鍵；電子親和力 Cl ＞ F。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) N、O、P 依電負度由大到小排列。(2) 第二週期中，電子親和力最大的元素是？(3) 下列哪一組的電負度差最大？Cs 與 F、Na 與 Cl、H 與 F、C 與 Cl</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) O ＞ N ＞ P　(2) F　(3) Cs 與 F</div><div class="exp"><b class="exp-h">解</b><p>(1) O 3.5、N 3.0、P 2.1。(2) 同週期 7A 最大 ⇒ F（「Cl ＞ F」是同族比較，F 仍是第 2 週期最大）。(3) Cs 是電負度最小的元素之一（0.7），F 最大（4.0）。</p></div></details>
+</article>
+<h2 class="section " id="s6">第五部分　2-1 化學鍵的種類（4 招）</h2>
+<article class="q" id="b1">
+<header class="qh"><span class="qn">化學鍵 第1招</span><span class="qtag">四種物質一張表</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：離子鍵＝正負磁鐵一顆顆吸成一大塊；金屬鍵＝金屬陽離子泡在「電子海」裡；共價鍵＝兩個原子手牽手共用電子；共價網狀固體＝整塊都手牽手，像一顆超巨大分子。</li><li><strong>先判斷是哪一種</strong>：金屬＋非金屬（或含 NH₄⁺ 的鹽）→ 離子化合物；只有金屬 → 金屬；非金屬＋非金屬 → 分子；<strong>例外：金剛石、石墨（C）、Si、SiC、SiO₂、BN → 共價網狀固體</strong>。</li><li><table><thead><tr><th></th><th>離子化合物</th><th>金屬</th><th>分子</th><th>共價網狀固體</th></tr></thead><tbody><tr><td>粒子間的力</td><td>陰陽離子靜電引力</td><td>陽離子＋自由電子</td><td>分子內共價鍵；分子間力很弱</td><td>原子間共價鍵</td></tr><tr><td>熔點</td><td>高</td><td>多數高（Hg −39 ℃）</td><td>低</td><td>很高</td></tr><tr><td>導電</td><td>固態不導；熔融或水溶液可導</td><td>良導體</td><td>不導</td><td>不導（石墨沿層面可導）</td></tr><tr><td>其他</td><td>硬而脆、沒有延展性</td><td>延展性好、導熱</td><td>質軟</td><td>很硬（石墨軟，可當潤滑劑）</td></tr><tr><td>化學式</td><td>實驗式</td><td>實驗式</td><td>分子式</td><td>實驗式</td></tr></tbody></table></li><li>離子晶體受力錯位 → 同電荷相對互斥 → 碎裂；金屬受力錯位 → 陽離子仍泡在電子海裡 → 只變形不斷裂。NaCl 晶體中每個 Na⁺ 被 6 個 Cl⁻ 包圍。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>把 NaCl、Cu、CO₂、SiO₂、NH₄Cl、金剛石、H₂O、MgO 分成四類，並回答：(1) 哪一個固態就能導電？(2) 哪些要用分子式表示？(3) NH₄Cl 中含有哪些化學鍵？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>離子：NaCl、NH₄Cl、MgO；金屬：Cu；分子：CO₂、H₂O；網狀：SiO₂、金剛石　(1) Cu　(2) CO₂、H₂O　(3) 離子鍵＋共價鍵（其中一個 N−H 是配位共價鍵）</div><div class="exp"><b class="exp-h">解</b><p>NH₄Cl 雖然全是非金屬，但有 NH₄⁺ ⇒ 離子化合物。SiO₂ 和 CO₂ 長得像，但 SiO₂ 是網狀固體。</p><p>(3) NH₄⁺ 和 Cl⁻ 之間是離子鍵；NH₄⁺ 內部 4 個 N−H 是共價鍵，其中一個是 NH₃ 用孤對電子接上 H⁺ 形成的<strong>配位共價鍵</strong>（形成後 4 個 N−H 完全一樣）。</p><p><strong>❌ 常見錯誤</strong>：看到 SiO₂ 就當成分子（熔點低）——它是網狀固體，熔點很高。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>先分類，性質查表；C、Si、SiC、SiO₂、BN 是網狀。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>把 KBr、Al、SiC、CH₄、(NH₄)₂SO₄、石墨、I₂、Na₂O 分成四類，並回答：(1) 哪些固態就能導電？(2) 哪一個熔點最低？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>離子：KBr、(NH₄)₂SO₄、Na₂O；金屬：Al；分子：CH₄、I₂；網狀：SiC、石墨　(1) Al、石墨　(2) CH₄</div><div class="exp"><b class="exp-h">解</b><p>(1) 金屬靠自由電子導電；石墨是網狀固體的例外，沿層面可導電。(2) 分子物質熔點低，CH₄ 分子最小，常溫是氣體。</p></div></details>
+</article>
+<article class="q" id="b2">
+<header class="qh"><span class="qn">化學鍵 第2招</span><span class="qtag">比熔點：離子先比電荷再比半徑</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：離子鍵就是庫侖力，跟磁鐵一樣——磁力愈強（電荷愈大）、靠愈近（半徑愈小），吸得愈緊，愈難熔化。</li><li>離子鍵強度（晶格能）∝ <strong>(Q⁺ × Q⁻) ÷ (r⁺ ＋ r⁻)</strong>：<strong>先比電荷乘積，電荷一樣再比半徑</strong>。MgO（2×2＝4，2800 ℃）≫ NaCl（1×1，801 ℃）；LiF（845 ℃）＞ NaCl；MgO ＞ CaO。</li><li>晶格能：1 莫耳離子晶體拆成氣態陰、陽離子所吸收的能量（NaCl：＋788 kJ/mol），愈大愈穩定、熔點愈高。</li><li>金屬鍵：<strong>價電子愈多、半徑愈小 → 愈強</strong>。同週期往右變強 Na（98 ℃）＜ Mg（650）＜ Al（660）；鹼金屬往下變弱 Li ＞ Na ＞ K ＞ Rb ＞ Cs。</li><li>⚠️ 鹼土金屬堆積方式不同，熔點沒有規律（Mg 反而最低），不要硬套。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>依熔點由高到低排列：(1) NaCl、MgO、KCl　(2) NaF、NaCl、NaBr　(3) Na、Mg、Al　(4) Li、Na、K</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) MgO ＞ NaCl ＞ KCl　(2) NaF ＞ NaCl ＞ NaBr　(3) Al ＞ Mg ＞ Na　(4) Li ＞ Na ＞ K</div><div class="exp"><b class="exp-h">解</b><p>(1) 電荷乘積 MgO 是 4、NaCl 和 KCl 是 1 ⇒ MgO 最高；NaCl、KCl 再比半徑：Na⁺ ＜ K⁺ ⇒ NaCl ＞ KCl。</p><p>(2) 電荷一樣，陰離子 F⁻ ＜ Cl⁻ ＜ Br⁻ ⇒ NaF 最高（993、801、747 ℃）。</p><p>(3) 價電子 1、2、3 ⇒ Al 最強。(4) 同族往下半徑變大 ⇒ 變弱。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>離子：先電荷、後半徑；金屬：價電子多、半徑小就強。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>依熔點由高到低排列：(1) CaO、MgO、BaO　(2) LiF、LiCl、LiI　(3) K、Ca　(4) NaCl、CaO</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) MgO ＞ CaO ＞ BaO　(2) LiF ＞ LiCl ＞ LiI　(3) Ca ＞ K　(4) CaO ＞ NaCl</div><div class="exp"><b class="exp-h">解</b><p>(1) 電荷都是 2×2，陽離子 Mg²⁺ ＜ Ca²⁺ ＜ Ba²⁺。(2) 電荷一樣，陰離子 F⁻ ＜ Cl⁻ ＜ I⁻。(3) Ca 有 2 個價電子、K 只有 1 個（約 842 ℃ 對 63 ℃）。(4) 電荷乘積 4 對 1。</p></div></details>
+</article>
+<article class="q" id="b3">
+<header class="qh"><span class="qn">化學鍵 第3招</span><span class="qtag">路易斯結構＋八隅體例外</span><span class="qtag when-class">★ 上課講</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：像分零用錢——先算總共有多少錢（價電子總數），先分給外圍的人，讓每人湊滿 8 個（H 只要 2 個），剩下的給中心；中心不夠 8 個，就跟外圍的人借一對來共用（變雙鍵或參鍵）。</li><li><ol class="steps"><li>算價電子總數：陰離子加上電荷數、陽離子減去（PCl₃：5＋7×3＝26；NH₄⁺：5＋4−1＝8；SO₄²⁻：6＋6×4＋2＝32）</li><li>中心原子和外圍原子先用單鍵連起來</li><li>剩下的電子先分給外圍原子，滿足八隅體（H 只要 2）</li><li>再剩下的給中心原子</li><li>中心原子不足 8 個 → 把外圍原子的孤對電子拉過來，形成雙鍵或參鍵</li></ol></li><li>名詞：共用的電子對＝鍵結電子對；沒共用的＝孤對電子。單鍵 H−H、雙鍵 O＝O、參鍵 N≡N。</li><li>⚠️ 八隅體例外：① 奇數電子：NO、NO₂ ② 缺電子：BF₃、BH₃（B 只有 6 個）③ 擴充八隅：第 3 週期以後的中心原子可以超過 8 個，如 PCl₅（10 個）、SF₆（12 個）。</li><li>配位共價鍵：一方出整對電子、一方出空軌域。H⁺ ＋ :NH₃ → NH₄⁺；H⁺ ＋ H₂O → H₃O⁺。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>(1) 算出價電子總數並畫出路易斯結構，寫出中心原子有幾對孤對電子：NH₃、CO₂、HCN<br>(2) BF₃、NO、PCl₅、CH₄、SF₆ 中，哪些含有不符合八隅體規則的原子？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) NH₃：8 個，N 有 1 對孤對；CO₂：16 個，O＝C＝O，C 沒有孤對；HCN：10 個，H−C≡N，C 沒有孤對　(2) BF₃、NO、PCl₅、SF₆</div><div class="exp"><b class="exp-h">解</b><figure class="viz fig-sm"><div class="viz-h">路易斯結構（例題）</div><svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="路易斯結構（例題）"><line class="o" x1="80.0" y1="60.0" x2="68.0" y2="60.0"/><line class="o" x1="110.0" y1="60.0" x2="122.0" y2="60.0"/><line class="o" x1="95.0" y1="75.0" x2="95.0" y2="87.0"/><text class="lw" x="95.0" y="68.0" text-anchor="middle">N</text><text class="lw" x="53.0" y="68.0" text-anchor="middle">H</text><text class="lw" x="137.0" y="68.0" text-anchor="middle">H</text><text class="lw" x="95.0" y="110.0" text-anchor="middle">H</text><circle class="fo" cx="90.5" cy="41.0" r="2.7"/><circle class="fo" cx="99.5" cy="41.0" r="2.7"/><text class="cap" x="95.0" y="140" text-anchor="middle">NH₃：8 個價電子</text><line class="o" x1="240.0" y1="56.0" x2="265.0" y2="56.0"/><line class="o" x1="240.0" y1="64.0" x2="265.0" y2="64.0"/><line class="o" x1="295.0" y1="56.0" x2="320.0" y2="56.0"/><line class="o" x1="295.0" y1="64.0" x2="320.0" y2="64.0"/><text class="lw" x="225.0" y="68.0" text-anchor="middle">O</text><text class="lw" x="280.0" y="68.0" text-anchor="middle">C</text><text class="lw" x="335.0" y="68.0" text-anchor="middle">O</text><circle class="fo" cx="220.5" cy="41.0" r="2.7"/><circle class="fo" cx="229.5" cy="41.0" r="2.7"/><circle class="fo" cx="229.5" cy="79.0" r="2.7"/><circle class="fo" cx="220.5" cy="79.0" r="2.7"/><circle class="fo" cx="330.5" cy="41.0" r="2.7"/><circle class="fo" cx="339.5" cy="41.0" r="2.7"/><circle class="fo" cx="339.5" cy="79.0" r="2.7"/><circle class="fo" cx="330.5" cy="79.0" r="2.7"/><text class="cap" x="280.0" y="140" text-anchor="middle">CO₂：16 個價電子</text><line class="o" x1="427.0" y1="60.0" x2="447.0" y2="60.0"/><line class="o" x1="477.0" y1="54.0" x2="497.0" y2="54.0"/><line class="o" x1="477.0" y1="60.0" x2="497.0" y2="60.0"/><line class="o" x1="477.0" y1="66.0" x2="497.0" y2="66.0"/><text class="lw" x="412.0" y="68.0" text-anchor="middle">H</text><text class="lw" x="462.0" y="68.0" text-anchor="middle">C</text><text class="lw" x="512.0" y="68.0" text-anchor="middle">N</text><circle class="fo" cx="531.0" cy="55.5" r="2.7"/><circle class="fo" cx="531.0" cy="64.5" r="2.7"/><text class="cap" x="462.0" y="140" text-anchor="middle">HCN：10 個價電子</text></svg></figure>
+<p>NH₃：5＋1×3＝8。3 個 N−H 用掉 6 個，剩 2 個給 N ⇒ N 有 1 對孤對，N 周圍 8 個 ✓。</p><p>CO₂：4＋6×2＝16。先 O−C−O 用掉 4 個，剩 12 個先給兩個 O 各 6 個（O 滿 8），C 只有 4 個 ⇒ 兩邊各借一對 ⇒ O＝C＝O，每個 O 剩 2 對孤對。</p><p>HCN：1＋4＋5＝10。H−C−N 用掉 4 個，剩 6 個給 N（N 滿 8），C 只有 4 個 ⇒ 向 N 借兩對 ⇒ H−C≡N，N 剩 1 對孤對。</p><p>(2) BF₃ 中 B 只有 6 個；NO 價電子 5＋6＝11 是奇數，一定有原子湊不滿 8；PCl₅ 中 P 有 10 個；SF₆ 中 S 有 12 個；CH₄ 的 C 剛好 8 個。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>先算總數、先餵外圍、剩的給中心、不夠就拉雙鍵。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) 算出價電子總數並畫出路易斯結構：H₂O、N₂、CH₂O（甲醛，C 在中心）、NH₄⁺<br>(2) 說明 NH₄⁺ 中的配位共價鍵是怎麼形成的。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) H₂O：8，O 有 2 對孤對；N₂：10，兩個 N 各 1 對孤對；CH₂O：12，C＝O，O 有 2 對孤對；NH₄⁺：8，沒有孤對　(2) NH₃ 的 N 用一對孤對電子接上 H⁺（H⁺ 提供空軌域）</div><div class="exp"><b class="exp-h">解</b><figure class="viz fig-sm"><div class="viz-h">路易斯結構（練習答案）</div><svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="路易斯結構（練習答案）"><line class="o" x1="55.0" y1="55.0" x2="45.0" y2="55.0"/><line class="o" x1="70.0" y1="70.0" x2="70.0" y2="82.0"/><text class="lw" x="70.0" y="63.0" text-anchor="middle">O</text><text class="lw" x="30.0" y="63.0" text-anchor="middle">H</text><text class="lw" x="70.0" y="105.0" text-anchor="middle">H</text><circle class="fo" cx="65.5" cy="36.0" r="2.7"/><circle class="fo" cx="74.5" cy="36.0" r="2.7"/><circle class="fo" cx="89.0" cy="50.5" r="2.7"/><circle class="fo" cx="89.0" cy="59.5" r="2.7"/><text class="cap" x="56.7" y="150" text-anchor="middle">H₂O：8</text><line class="o" x1="192.0" y1="56.0" x2="218.0" y2="56.0"/><line class="o" x1="192.0" y1="62.0" x2="218.0" y2="62.0"/><line class="o" x1="192.0" y1="68.0" x2="218.0" y2="68.0"/><text class="lw" x="177.0" y="70.0" text-anchor="middle">N</text><text class="lw" x="233.0" y="70.0" text-anchor="middle">N</text><circle class="fo" cx="158.0" cy="66.5" r="2.7"/><circle class="fo" cx="158.0" cy="57.5" r="2.7"/><circle class="fo" cx="252.0" cy="57.5" r="2.7"/><circle class="fo" cx="252.0" cy="66.5" r="2.7"/><text class="cap" x="205.0" y="150" text-anchor="middle">N₂：10</text><line class="o" x1="330.0" y1="55.0" x2="318.0" y2="55.0"/><line class="o" x1="345.0" y1="70.0" x2="345.0" y2="82.0"/><line class="o" x1="360.0" y1="51.0" x2="382.0" y2="51.0"/><line class="o" x1="360.0" y1="59.0" x2="382.0" y2="59.0"/><text class="lw" x="345.0" y="63.0" text-anchor="middle">C</text><text class="lw" x="303.0" y="63.0" text-anchor="middle">H</text><text class="lw" x="345.0" y="105.0" text-anchor="middle">H</text><text class="lw" x="397.0" y="63.0" text-anchor="middle">O</text><circle class="fo" cx="392.5" cy="36.0" r="2.7"/><circle class="fo" cx="401.5" cy="36.0" r="2.7"/><circle class="fo" cx="401.5" cy="74.0" r="2.7"/><circle class="fo" cx="392.5" cy="74.0" r="2.7"/><text class="cap" x="347.5" y="150" text-anchor="middle">CH₂O：12</text><line class="o" x1="475.0" y1="62.0" x2="467.0" y2="62.0"/><line class="o" x1="505.0" y1="62.0" x2="513.0" y2="62.0"/><line class="o" x1="490.0" y1="47.0" x2="490.0" y2="39.0"/><line class="o" x1="490.0" y1="77.0" x2="490.0" y2="85.0"/><text class="lw" x="490.0" y="70.0" text-anchor="middle">N</text><text class="lw" x="452.0" y="70.0" text-anchor="middle">H</text><text class="lw" x="528.0" y="70.0" text-anchor="middle">H</text><text class="lw" x="490.0" y="32.0" text-anchor="middle">H</text><text class="lw" x="490.0" y="108.0" text-anchor="middle">H</text><text class="tl tb" x="520" y="30" text-anchor="middle">+</text><text class="cap" x="490.0" y="150" text-anchor="middle">NH₄⁺：8</text></svg></figure>
+<p>H₂O：1×2＋6＝8；2 個 O−H 用 4 個，剩 4 個給 O ⇒ 2 對孤對。N₂：5×2＝10；N≡N 用 6 個，每個 N 各 1 對孤對。</p><p>CH₂O：4＋1×2＋6＝12；先 3 個單鍵用 6 個，剩 6 個給 O，C 只有 6 個 ⇒ 借 O 一對變 C＝O。NH₄⁺：5＋4−1＝8，4 個 N−H 剛好用完。</p></div></details>
+</article>
+<article class="q" id="b4">
+<header class="qh"><span class="qn">化學鍵 第4招</span><span class="qtag">共振、鍵級、鍵長與鍵能</span><span class="qtag when-brief">上課帶過</span><button class="mark" title="標記不會">☆</button></header>
+<details class="pre" open><summary><span class="pre-h">這招的想法</span><span class="pre-sub">先看比喻，再做題</span></summary><div class="pre-body"><ul><li><strong>比喻</strong>：騾子是馬和驢生的，牠不會一下子是馬、一下子是驢——牠就是兩者的混合。共振也一樣：<strong>實際結構是所有共振式的「平均」</strong>，所以每個鍵都一樣長。</li><li>鍵級＝總共幾條鍵 ÷ 分到幾個位置：<strong>SO₃、NO₃⁻、CO₃²⁻＝4/3</strong>（4 條鍵分給 3 個位置）；<strong>O₃＝3/2</strong>。</li><li><strong>鍵級愈高（綁的繩子愈多）→ 鍵長愈短、鍵能愈大</strong>：C−C 鍵長 乙烷 ＞ 乙烯 ＞ 乙炔；鍵能相反。</li><li>鍵級相同時，<strong>原子愈小 → 鍵愈短、愈強</strong>：鍵能 H−F ＞ H−Cl ＞ H−Br；H−H ＞ Cl−Cl ＞ Br−Br ＞ I−I。</li><li>鍵能＝打斷 1 莫耳化學鍵吸收的熱＝形成時放出的熱。H₂ 在核間距 0.74 Å 時位能最低（−437 kJ/mol）⇒ 鍵長 0.74 Å、鍵能 437 kJ/mol。</li><li>⚠️ 例外：F₂ 鍵能特別小（Cl₂ ＞ Br₂ ＞ F₂ ＞ I₂）；C≡O 鍵能 ＞ N≡N。</li></ul></div></details>
+<div class="qsub">✏️ 例題（上課一起做）</div>
+<div class="qtext"><p>(1) 乙烷、乙烯、乙炔的碳碳鍵，鍵長由長到短排列。(2) NO₃⁻ 中三個 N−O 鍵長是否相同？鍵級是多少？(3) H−F、H−Cl、H−Br 依鍵能由大到小排列。(4) F₂、Cl₂、Br₂ 依鍵能由大到小排列。</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 乙烷 ＞ 乙烯 ＞ 乙炔　(2) 相同，4/3　(3) H−F ＞ H−Cl ＞ H−Br　(4) Cl₂ ＞ Br₂ ＞ F₂</div><div class="exp"><b class="exp-h">解</b><p>(1) 單鍵 ＞ 雙鍵 ＞ 參鍵。(2) NO₃⁻ 有 3 個共振式（一個 N＝O、兩個 N−O 輪流），平均後三個鍵一樣，鍵級＝(2＋1＋1)/3＝4/3。</p><p>(3) 原子 F ＜ Cl ＜ Br，鍵愈短愈強。(4) F₂ 是例外，鍵能特別小。</p><div class="qsum"><b class="qsum-h">記住這一句</b><p>鍵級高 → 短而強；共振 → 每個鍵一樣；F₂ 是例外。</p></div></div></details>
+<div class="qsub qsub-pr">📝 練習（回家自己做，做完再對答案）</div>
+<div class="qtext"><p>(1) CO₃²⁻ 和 O₃ 的鍵級各是多少？(2) N₂、O₂、F₂ 依鍵長由短到長排列。(3) C−C、C＝C、C≡C 哪一個鍵能最大？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 4/3、3/2　(2) N₂ ＜ O₂ ＜ F₂　(3) C≡C</div><div class="exp"><b class="exp-h">解</b><p>(1) CO₃²⁻ 三個共振式，(2＋1＋1)/3；O₃ 兩個共振式，(2＋1)/2。(2) N≡N 參鍵、O＝O 雙鍵、F−F 單鍵 ⇒ 鍵級愈高愈短。(3) 參鍵最強。</p></div></details>
+</article>
+<h2 class="section sec-practice" id="s7">段考模擬（15 題綜合）</h2>
+<p>全部招式都練過後再做，<strong>限時 25 分鐘</strong>。每題詳解最後都寫了用到哪幾招，錯了就回去重看那一招。</p>
+<article class="q q-pr" id="m1">
+<header class="qh"><span class="qn">模擬 1</span><span class="qtag">光譜・觀念多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述哪些正確？<br>(A) 氫原子光譜是連續光譜<br>(B) 電子由 n＝5 躍遷至 n＝2 放出的光屬於可見光<br>(C) 巴耳末系中能量最低的譜線是 3→2<br>(D) 基態氫原子可以吸收任意能量的光子而躍遷<br>(E) 波耳模型可以準確解釋 He 原子的光譜</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(B)(C)</div><div class="exp"><b class="exp-h">解</b><p>(A) 錯：明線光譜。(B) 對：終點 n＝2 ⇒ 可見光（約 434 nm）。(C) 對：相鄰兩層能量最小。(D) 錯：要剛好等於能階差。(E) 錯：He 有 2 個電子。（用到：光譜第 2、3、4 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m2">
+<header class="qh"><span class="qn">模擬 2</span><span class="qtag">光譜・計算</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>氫原子 E<sub>n</sub>＝−1312/n² kJ/mol。電子由 n＝4 躍遷至 n＝2，放出的能量為多少 kJ/mol？<br>(A) 82　(B) 182　(C) 246　(D) 984　(E) 1230</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(C)</div><div class="exp"><b class="exp-h">解</b><p>1312 × (1/4 − 1/16)＝1312 × 3/16＝246。其他選項：(A) 是 n＝4 的游離能、(B) 是 3→2、(D) 是 2→1、(E) 是 4→1。（用到：光譜第 2 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m3">
+<header class="qh"><span class="qn">模擬 3</span><span class="qtag">軌域・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些軌域<strong>不存在</strong>？<br>(A) 1p　(B) 2d　(C) 3d　(D) 4f　(E) 3f</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)(B)(E)</div><div class="exp"><b class="exp-h">解</b><p>ℓ 最大到 n−1：第 1 層只有 s、第 2 層才有 p、第 3 層才有 d、第 4 層才有 f。（用到：軌域第 1 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m4">
+<header class="qh"><span class="qn">模擬 4</span><span class="qtag">軌域・能階</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>在多電子原子中，下列軌域能量最高的是？<br>(A) 3p　(B) 4s　(C) 3d　(D) 3s　(E) 2p</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(C)</div><div class="exp"><b class="exp-h">解</b><p>n＋ℓ：3p＝4、4s＝4、3d＝5、3s＝3、2p＝3 ⇒ 3d 最大。（用到：軌域第 2 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m5">
+<header class="qh"><span class="qn">模擬 5</span><span class="qtag">組態・例外</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>₂₄Cr 的基態電子組態為？<br>(A) [Ar]3d⁴4s²　(B) [Ar]3d⁵4s¹　(C) [Ar]3d⁶　(D) [Ar]4s²4p⁴　(E) [Ar]3d³4s²4p¹</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(B)</div><div class="exp"><b class="exp-h">解</b><p>d 半滿較穩定，從 4s 借一個。(A) 是激發態。（用到：組態第 2 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m6">
+<header class="qh"><span class="qn">模擬 6</span><span class="qtag">組態・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列哪些是「激發態」（不是基態，但可以存在）的組態？<br>(A) 1s²2s²2p⁶3s¹<br>(B) 1s²2s¹2p¹<br>(C) 1s²2s³<br>(D) 1s²2s²2px²<br>(E) 1s²2s²2p⁶3s²3p⁶3d¹</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(B)(D)(E)</div><div class="exp"><b class="exp-h">解</b><p>(A) Na 的基態。(B) Be 的激發態（2s 沒滿就填 2p，違反遞建）。(C) 2s 放 3 個，違反包立 ⇒ 不存在。(D) C 的激發態（違反洪德）。(E) 共 19 個電子，第 19 個應進 4s，違反遞建。（用到：組態第 1 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m7">
+<header class="qh"><span class="qn">模擬 7</span><span class="qtag">週期・半徑</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列半徑大小排列何者正確？<br>(A) Na⁺ ＞ Mg²⁺ ＞ F⁻　(B) F⁻ ＞ Na⁺ ＞ Mg²⁺　(C) Mg²⁺ ＞ Na⁺ ＞ F⁻　(D) Na⁺ ＞ F⁻ ＞ Mg²⁺　(E) F⁻ ＞ Mg²⁺ ＞ Na⁺</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(B)</div><div class="exp"><b class="exp-h">解</b><p>三者都是 10 個電子（等電子），質子數 F 9 ＜ Na 11 ＜ Mg 12 ⇒ 質子愈多愈小。（用到：週期第 1 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m8">
+<header class="qh"><span class="qn">模擬 8</span><span class="qtag">週期・游離能</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列第一游離能大小順序何者正確？<br>(A) Li ＜ Be ＜ B ＜ C　(B) B ＜ Be ＜ C ＜ N　(C) N ＜ O ＜ F　(D) C ＜ N ＜ O　(E) Ne ＜ F</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(B)</div><div class="exp"><b class="exp-h">解</b><p>鋸齒：Be ＞ B、N ＞ O。(A)(C)(D) 都忽略了鋸齒；(E) 鈍氣最大。（用到：週期第 2 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m9">
+<header class="qh"><span class="qn">模擬 9</span><span class="qtag">週期・連續游離能</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>某元素的連續游離能（kJ/mol）：IE₁＝496、IE₂＝4562、IE₃＝6910、IE₄＝9543。此元素最可能是？<br>(A) Na　(B) Mg　(C) Al　(D) Si　(E) P</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)</div><div class="exp"><b class="exp-h">解</b><p>IE₁ → IE₂ 就暴增（496 → 4562，約 9 倍）⇒ 只有 1 個價電子 ⇒ 1A ⇒ Na。（用到：週期第 2 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m10">
+<header class="qh"><span class="qn">模擬 10</span><span class="qtag">化學鍵・多選</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述哪些正確？<br>(A) NaCl 固體不導電，熔融時可以導電<br>(B) 金屬能導電，是因為有可以自由移動的價電子<br>(C) SiO₂ 是分子化合物，熔點低<br>(D) NH₄Cl 是離子化合物，但其中也含有共價鍵<br>(E) 石墨和金剛石都不導電</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)(B)(D)</div><div class="exp"><b class="exp-h">解</b><p>(C) 錯：SiO₂ 是共價網狀固體，熔點很高。(E) 錯：石墨沿層面可導電。（用到：化學鍵第 1 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m11">
+<header class="qh"><span class="qn">模擬 11</span><span class="qtag">化學鍵・熔點</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>CaO、NaF、KBr 的熔點由高到低排列，何者正確？<br>(A) NaF ＞ CaO ＞ KBr　(B) CaO ＞ NaF ＞ KBr　(C) KBr ＞ NaF ＞ CaO　(D) CaO ＞ KBr ＞ NaF　(E) NaF ＞ KBr ＞ CaO</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(B)</div><div class="exp"><b class="exp-h">解</b><p>先比電荷乘積：CaO 是 4，最高；NaF、KBr 都是 1，再比半徑：Na⁺、F⁻ 都比 K⁺、Br⁻ 小 ⇒ NaF ＞ KBr。（約 2613、993、734 ℃）（用到：化學鍵第 2 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m12">
+<header class="qh"><span class="qn">模擬 12</span><span class="qtag">化學鍵・八隅體</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>（多選）下列哪些分子中含有不符合八隅體規則的原子？<br>(A) BH₃　(B) H₂O　(C) SF₆　(D) NO₂　(E) CCl₄</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(A)(C)(D)</div><div class="exp"><b class="exp-h">解</b><p>(A) B 只有 6 個。(C) S 有 12 個。(D) 價電子 5＋6×2＝17，奇數。(B)(E) 都符合。（用到：化學鍵第 3 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m13">
+<header class="qh"><span class="qn">模擬 13</span><span class="qtag">化學鍵・鍵長鍵能</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>下列敘述何者正確？<br>(A) 乙烷的 C−C 鍵比乙烯的 C＝C 鍵短<br>(B) 乙炔的 C≡C 鍵能最小<br>(C) 鍵長 H−F ＜ H−Cl ＜ H−Br<br>(D) NO₃⁻ 中三個 N−O 鍵長不相等<br>(E) O₃ 中兩個 O−O 鍵一長一短</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(C)</div><div class="exp"><b class="exp-h">解</b><p>(A) 單鍵最長。(B) 參鍵鍵能最大。(C) 對：原子 F ＜ Cl ＜ Br。(D)(E) 錯：共振 ⇒ 每個鍵一樣長。（用到：化學鍵第 4 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m14">
+<header class="qh"><span class="qn">模擬 14</span><span class="qtag">非選・光譜計算</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>氫原子 E<sub>n</sub>＝−1312/n² kJ/mol。電子由 n＝3 躍遷到 n＝1。<br>(1) 放出多少 kJ/mol 的能量？(2) 屬於哪一個系列？哪一個光區？(3) 波長約多少 nm？</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) 約 1166 kJ/mol　(2) 來曼系，紫外線　(3) 約 103 nm</div><div class="exp"><b class="exp-h">解</b><p>(1) 1312 × (1 − 1/9)＝1312 × 8/9 ≈ 1166。(2) 終點 n＝1 ⇒ 來曼系 ⇒ 紫外。(3) λ ≈ 1.196×10⁵ ÷ 1166 ≈ 103 nm。（用到：光譜第 2、3 招）</p></div></details>
+</article>
+<article class="q q-pr" id="m15">
+<header class="qh"><span class="qn">模擬 15</span><span class="qtag">非選・組態</span><button class="mark" title="標記不會">☆</button></header>
+<div class="qtext"><p>寫出下列各粒子的電子組態（可用 [Ar]），並寫出未成對電子數：<br>(1) ₂₉Cu　(2) ₂₇Co　(3) Co³⁺　(4) Cr³⁺（₂₄Cr）</p></div>
+<details class="sol"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>(1) [Ar]3d¹⁰4s¹，1　(2) [Ar]3d⁷4s²，3　(3) [Ar]3d⁶，4　(4) [Ar]3d³，3</div><div class="exp"><b class="exp-h">解</b><p>(1) 例外，從 4s 借一個。(2) 3d⁷ ⇒ <span class="obs"><span class="ob">↑↓</span><span class="ob">↑↓</span><span class="ob">↑</span><span class="ob">↑</span><span class="ob">↑</span></span> ⇒ 3。(3) 先拿 4s²，再拿 1 個 3d ⇒ 3d⁶ ⇒ 4。(4) Cr＝[Ar]3d⁵4s¹，先拿 4s¹，再拿 2 個 3d ⇒ 3d³ ⇒ 3。（用到：組態第 2、3 招）</p></div></details>
+</article>
+<h2 class="section " id="s8">考前自我檢核</h2>
+<p>每一項都能打勾，就代表這個單元的基本盤沒問題了。（勾選會記在這台電腦的瀏覽器裡。）</p>
+<div class="checks"><h4>1-1 光譜</h4><label class="chk"><input type="checkbox" data-k="c0_0"> 我會用 E＝hc/λ 算光子能量，題目問每莫耳時會乘 6.02×10²³</label><label class="chk"><input type="checkbox" data-k="c0_1"> 我會用 ΔE＝1312×(1/n<sub>低</sub>²−1/n<sub>高</sub>²) 算躍遷能量，知道高→低放光</label><label class="chk"><input type="checkbox" data-k="c0_2"> 我能說出「1 紫 2 可 3 紅」，知道光區只看終點</label><label class="chk"><input type="checkbox" data-k="c0_3"> 我會數譜線：大量原子 C(n,2)、單一原子 n−1</label><h4>1-2 軌域</h4><label class="chk"><input type="checkbox" data-k="c1_0"> 我知道第 n 層有 n 種、n² 個軌域、2n² 個電子，也知道 1p、2d、3f 不存在</label><label class="chk"><input type="checkbox" data-k="c1_1"> 我會比較能階：氫只看 n，多電子看 n＋ℓ</label><h4>1-3 組態</h4><label class="chk"><input type="checkbox" data-k="c2_0"> 我能判斷組態是基態、激發態，還是不存在</label><label class="chk"><input type="checkbox" data-k="c2_1"> 我寫得出 1～30 號的組態，包含 Cr、Cu 的例外</label><label class="chk"><input type="checkbox" data-k="c2_2"> 我會寫過渡元素陽離子（先拿 4s），也會數未成對電子</label><label class="chk"><input type="checkbox" data-k="c2_3"> 我會用鈍氣原子序推出週期和族</label><h4>1-4 週期性</h4><label class="chk"><input type="checkbox" data-k="c3_0"> 我會排半徑（含等電子系列）</label><label class="chk"><input type="checkbox" data-k="c3_1"> 我會排第一游離能（含 2A＞3A、5A＞6A），並從連續游離能看出價電子數</label><label class="chk"><input type="checkbox" data-k="c3_2"> 我知道電負度 F 最大、電子親和力 Cl＞F</label><h4>2-1 化學鍵</h4><label class="chk"><input type="checkbox" data-k="c4_0"> 我能把物質分成離子、金屬、分子、網狀四類，並說出各自的性質</label><label class="chk"><input type="checkbox" data-k="c4_1"> 我會比離子化合物和金屬的熔點</label><label class="chk"><input type="checkbox" data-k="c4_2"> 我會畫路易斯結構，也會指出八隅體例外</label><label class="chk"><input type="checkbox" data-k="c4_3"> 我知道共振、鍵級和鍵長、鍵能的關係</label></div>
+<h3>樹狀記憶圖</h3>
+<ul class="tree"><li><strong>段考範圍 1-1～2-1</strong><ul>
+<li><strong>1-1 光譜</strong>：電子只能站在樓梯上<ul><li>E＝hν＝hc/λ，波長短能量大（1）</li><li>E<sub>n</sub>＝−1312/n²；ΔE＝1312(1/n<sub>低</sub>²−1/n<sub>高</sub>²)（2）</li><li>1 紫 2 可 3 紅；C(n,2) 與 n−1（3）；波耳只管單電子（4）</li></ul></li>
+<li><strong>1-2 軌域</strong>：旅館地址<ul><li>n、ℓ、mℓ、ms；n 種、n² 個、2n² 電子（1）</li><li>氫看 n，多電子看 n＋ℓ（2）</li></ul></li>
+<li><strong>1-3 組態</strong>：住房規則<ul><li>遞建、包立、洪德；激發態 vs 不存在（1）</li><li>Cr、Cu 借一個（2）；陽離子先拿 4s（3）；鈍氣里程碑（4）</li></ul></li>
+<li><strong>1-4 週期性</strong>：先比層數，再比核電荷<ul><li>半徑、等電子（1）</li><li>游離能鋸齒與暴增（2）</li><li>電負度 F 最大、電子親和力 Cl＞F（3）</li></ul></li>
+<li><strong>2-1 化學鍵</strong>：先分類，性質跟著來<ul><li>四種物質表（1）</li><li>熔點：電荷 → 半徑；金屬：價電子、半徑（2）</li><li>路易斯五步驟、八隅例外、配位鍵（3）</li><li>共振、鍵級、鍵長鍵能（4）</li></ul></li>
+</ul></li></ul>
+<script>(function(){var K="chem-jiban1-check";function L(){try{return JSON.parse(localStorage.getItem(K)||"{}")}catch(e){return {}}}
+var m=L();document.querySelectorAll('.chk input').forEach(function(c){c.checked=!!m[c.dataset.k];c.addEventListener('change',function(){var n=L();if(c.checked)n[c.dataset.k]=1;else delete n[c.dataset.k];try{localStorage.setItem(K,JSON.stringify(n))}catch(e){}});});})();</script>
+
+</div><div class="pager"><a href="u復0.html">← 復0 考前總整理：完整考點・迷思・熱區</a><a href="u復1.html">復1 原子結構與週期性難題 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "chem2-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示想法提示" : "隱藏想法提示（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>
