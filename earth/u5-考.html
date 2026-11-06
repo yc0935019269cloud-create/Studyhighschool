@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5-考 考點教學：考試會怎麼問｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">.authored-unit .fine-note{font-size:14.5px;line-height:1.8;color:var(--muted)}
+.authored-unit .authored-figure{margin:22px auto 26px}
+.authored-unit .authored-figure .figimg{max-width:100%;max-height:580px;width:auto;height:auto;border-radius:6px}
+.authored-unit .fig-composition .figimg,.authored-unit .fig-pressure .figimg{max-height:none}
+.authored-unit figcaption{line-height:1.65;margin-top:7px}
+.authored-unit figcaption span{display:block;font-size:12px;margin-top:3px}
+.authored-unit li{margin-top:7px;margin-bottom:7px}
+.authored-unit .exp ol{margin:10px 0}
+.authored-unit .qsum{font-size:16px}
+.authored-unit .reading-table td{text-align:left;vertical-align:top}
+.authored-unit .reading-table th:first-child{white-space:nowrap}
+.authored-unit .punnett-static{display:table;width:min(100%,520px);margin:18px auto}
+.authored-unit .punnett-static td{padding:12px 8px}
+.authored-unit .punnett-static code{background:none}
+.authored-unit .source-originals{margin:30px 0 10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px}
+.authored-unit .source-originals>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.authored-unit .original-page .figimg{width:100%;height:auto;max-height:none}
+.authored-unit .ref-list{font-size:14px}
+.authored-unit .fig-chromosome .figimg{max-height:none}
+@media(max-width:900px){
+.authored-unit .authored-figure .figimg{max-height:none}
+.authored-unit .qh{flex-wrap:wrap;gap:6px}
+.authored-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+.authored-unit .mark{flex-shrink:0}
+.authored-unit .punnett-static{font-size:15px}
+.authored-unit .punnett-static td,.authored-unit .punnett-static th{padding:8px 5px}
+.authored-unit .source-originals{padding:10px}
+}
+@media print{.authored-unit h2.section{break-after:avoid}.authored-unit .fig{break-inside:avoid}.authored-unit .q{break-inside:auto}.authored-unit .source-originals{display:none}}
+
+.authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
+.authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- integrated-nav START --><div class="nch">第4單元　大氣與天氣</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a href="u4-2.html"><span>4-2</span>雲霧的產生：露點、相對溼度與絕熱冷卻</a></li><li><a href="u4-3.html"><span>4-3</span>風向與風速：氣壓梯度力、科氏力與摩擦力</a></li><li><a href="u4-4.html"><span>4-4</span>氣象觀測與天氣圖：衛星、雷達、鋒面與臺灣季節天氣</a></li><li><a href="u4-綜.html"><span>4-綜</span>單元 4 歷屆試題與關鍵考題</a></li><li><a href="u4-考.html"><span>4-考</span>考點教學：考試會怎麼問</a></li></ul><div class="nch">第5單元　海洋</div><ul><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li><li><a class="on" href="u5-考.html"><span>5-考</span>考點教學：考試會怎麼問</a><ul class="subtoc"><li><a href="#s1">考點 1：海水的溫度、鹽度與密度</a></li><li><a href="#s2">考點 2：鹽度看水的收支</a></li><li><a href="#s3">考點 3：波浪與淺水變化</a></li><li><a href="#s4">考點 4：表層洋流與黑潮</a></li><li><a href="#s5">考點 5：湧升流</a></li><li><a href="#s6">考點 6：聖嬰與反聖嬰</a></li><li><a href="#s7">考點 7：大潮與小潮</a></li><li><a href="#s8">考點 8：潮位圖判讀</a></li><li><a href="#s9">重點對比整理</a></li></ul></li></ul><div class="nch">第6單元　天然災害</div><ul><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li></ul><div class="nch">第7單元　氣候變遷與資源</div><ul><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li></ul><div class="nch">第8單元　進階探究</div><ul><li><a href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p class="source-note"><a href="../sources.html#book=地科1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第5單元 海洋</div><h1><span class="uid">5-考</span>考點教學：考試會怎麼問</h1><div class="tools"><span class="cnt">8個考點・24題・重點對比整理</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><h2 class="section" id="s1">考點 1：海水的溫度、鹽度與密度</h2>
+<ol><li>鹽度是每公斤海水中溶解物質的總克數；全球平均約 35‰。</li><li>同鹽度下，海水通常越冷密度越大；同溫度下，鹽度越高密度越大。</li><li>密度大的水在下、密度小的水在上時較穩定，因為下層水不易上浮。</li><li>表層受波浪與海流攪拌，形成溫度變化小的混合層；其下斜溫層的溫度隨深度快速下降。</li><li>低緯度的表層較溫暖，因此表層和深層的溫差較大，斜溫層較明顯。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給溫度、鹽度或密度隨深度的圖，判斷分層與穩定度。<br>- 看到「混合層」「斜溫層」「密度向下遞增」，先確認橫軸、縱軸。<br><strong>常見陷阱</strong><br>- 不要把鹽度數值當成百分比；35‰是千分之三十五。</p></aside>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">小試 3</span><span class="qtag">海水的溫度、鹽度與密度</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 3">☆</button></header><div class="qtext"><p>關於海水溫度水平與垂直變化之敘述，何者正確？</p><p>(A) 緯度及深度均相同的海水，溫度即相同　(B) 由於赤道終年晝夜等長，無四季變化，因此位於赤道上的某區海水的溫度均維持不變　(C) 因波浪、海流的作用，使得表層混合層垂直方向水溫變化不大　(D) 全世界陽光可穿透的極限深度以下之水溫均相同　(E) 高緯度地區的斜溫層溫度變化最顯著。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「水平與垂直變化」，先區分混合層和斜溫層，再檢查各選項是否把水溫說成完全不變。</p><ol><li>(C) 正確：波浪與海流攪拌表層海水，使混合層水溫較均勻。</li><li>(A) 錯：海流等因素也會影響水溫。(B) 錯：赤道海溫仍可能隨時間改變。</li><li>(D) 錯：深層水溫差異小，不代表全都相同。(E) 錯：低緯度表層較暖，斜溫層通常較明顯。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>看水體穩不穩，先比較上下層密度。</p></div></div></details></article>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">歷屆 4</span><span class="qtag">海水的溫度、鹽度與密度・102 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 4">☆</button></header><div class="qtext"><p>臺灣平地四季的氣溫一般約在 10～35℃ 的範圍，而海洋表面鹽度受蒸發或降雨作用而增高或降低，近海河口的鹽度則被河水稀釋。下列何者是臺灣四周海域離岸十公里外海之表層海水可能的溫度 T（℃）和鹽度 S（單位為‰，代表千分比）？</p><p>(A) T＝15；S＝7　(B) T＝25；S＝34　(C) T＝30；S＝3.5　(D) T＝35；S＝30　(E) T＝40；S＝10。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目給了「離岸十公里」與千分比單位；先拿選項與一般海水約 35‰ 比較。</p><ol><li>全球海水平均鹽度約 35‰，離岸海水的鹽度應接近這個量級；25℃ 也在合理的表層水溫範圍內，故選 (B)。</li><li>(A)、(C)、(E) 的鹽度遠低於一般外海海水，(E) 的溫度也偏高；(D) 的溫度過高且鹽度偏低。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>看水體穩不穩，先比較上下層密度。</p></div></div></details></article>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">歷屆 8</span><span class="qtag">海水的溫度、鹽度與密度</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 8">☆</button></header><div class="qtext"><p>海洋除了可依溫度隨深度的差異加以分層外，也可由密度變化來加以分層。下列各圖是不同海域密度隨深度的變化，其中哪一海域最不容易發生垂直的對流？</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q3-1.webp" width="1072" height="249" loading="lazy" alt="題目附圖" data-page="地科2 PDF第65頁"></div></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看「最不容易發生垂直的對流」，先在每張圖比較上層與下層的密度。</p><ol><li>最穩定的分層是密度小的水在上、密度大的水在下，而且上下密度差較大。</li><li>(B) 的密度向下增加，且差異比 (A) 大，因此最不容易發生垂直對流；(C) 上下密度相同，(D)、(E) 的上層密度較大，均不如 (B) 穩定。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>看水體穩不穩，先比較上下層密度。</p></div></div></details></article>
+<p><strong>記住：</strong>看水體穩不穩，先比較上下層密度。</p>
+<h2 class="section" id="s2">考點 2：鹽度看水的收支</h2>
+<ol><li>蒸發會移走淡水、留下鹽類，因此剩下的海水鹽度升高。</li><li>降雨、河水注入和融冰都會增加淡水，因此海水鹽度降低。</li><li>副熱帶蒸發量通常大於降雨量，所以表層鹽度偏高；赤道降雨較多，鹽度相對較低。</li><li>高緯度有融冰淡水注入，因此鹽度也偏低；沿岸還要考慮河水。</li><li>水量維持不變時，流入量要補足流出與淨蒸發；鹽量維持不變時，流入和流出的鹽量要相等。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給降雨、蒸發圖，或比較不同海域的鹽度。<br>- 看到「維持不變」「流入量」「流出量」，先分別列水量與鹽量收支。<br><strong>常見陷阱</strong><br>- 不要只看溫度；鹽度還取決於淡水進出。</p></aside>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">歷屆 12</span><span class="qtag">鹽度看水的收支・106 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 12">☆</button></header><div class="qtext"><p>漂浮在海面上的海冰（冰山），僅考慮其融化的過程，最有可能造成當地海域發生下列哪一種現象？</p><p>(A) 海平面上升　(B) 海平面下降　(C) 表層海水鹽度增加　(D) 表層海水鹽度降低　(E) 表層海水溫度增加。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「海冰融化」，先判斷進入海洋的是淡水還是鹽。</p><ol><li>(D) 正確：融冰加入淡水，稀釋表層海水。</li><li>(A)、(B) 錯：漂浮冰排開的水重與冰重相等，融化不是本題海平面升降的主要效應。(C) 錯：淡水使鹽度下降。(E) 錯：融冰吸熱，不會使水溫增加。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>淡水減少鹽度升，淡水增加鹽度降。</p></div></div></details></article>
+<article class="q q-pr" id="check-5"><header class="qh"><span class="qn">歷屆 20</span><span class="qtag">鹽度看水的收支・108 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 20">☆</button></header><div class="qtext"><p>地中海因其年平均的蒸發量大於降雨量，所以地中海海水的鹽度高於大西洋。地中海與大西洋的海水在直布羅陀海峽交換，其流量與鹽度的垂直剖面示意圖如圖，其中從大西洋流入地中海的入流量為 Q1，鹽度為 S1。從地中海流出的出流量為 Q2，鹽度為 S2。假設出、入流的溫度相同，且蒸發效應不可忽略，則下列何種組合能夠滿足地中海的海水體積與鹽度維持不變？</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q5-1.webp" width="520" height="203" loading="lazy" alt="題目附圖" data-page="地科2 PDF第67頁"></div><p>(A) S1＝S2，Q1＝Q2　(B) S1＝S2，Q1＞Q2　(C) S1＜S2，Q1＝Q2　(D) S1＜S2，Q1＜Q2　(E) S1＜S2，Q1＞Q2。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「體積與鹽度維持不變」，先列水量收支，再比較地中海與大西洋的鹽度。</p><ol><li>地中海鹽度高於大西洋，因此流入水的鹽度 S1 小於流出水的鹽度 S2。</li><li>淨蒸發會帶走水；若水量維持不變，流入量必須補足流出與淨蒸發，所以 Q1＞Q2，選 (E)。</li><li>(A)、(B) 的鹽度關係不對；(C)、(D) 的流量關係不能補足淨蒸發。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>淡水減少鹽度升，淡水增加鹽度降。</p></div></div></details></article>
+<article class="q q-pr" id="check-6"><header class="qh"><span class="qn">歷屆 27</span><span class="qtag">鹽度看水的收支・111 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 27">☆</button></header><div class="qtext"><p>鰻魚可感知鹽度以找尋適當河川。已知表層之黑潮水鹽度為 33‰，河水鹽度為 1‰，假設水體充分混合，當鰻魚所在水域之鹽度為 25‰ 時，黑潮水與河水混合的重量比例為何？</p><p>(A) 3：1　(B) 2：3　(C) 1：1　(D) 3：2　(E) 1：2。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到兩種鹽度的水充分混合，先設兩種水的重量，再列混合前後鹽量相等。</p><ol><li>設黑潮水與河水重量分別為 x、y，鹽量守恆為 33x＋1y＝25(x＋y)。</li><li>整理得 8x＝24y，所以 x：y＝3：1，選 (A)；其他比例代入後的混合鹽度均不為 25‰。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>淡水減少鹽度升，淡水增加鹽度降。</p></div></div></details></article>
+<p><strong>記住：</strong>淡水減少鹽度升，淡水增加鹽度降。</p>
+<h2 class="section" id="s3">考點 3：波浪與淺水變化</h2>
+<ol><li>風把能量傳給海面形成風浪；風越強、吹得越久、範圍越大，波浪可獲得越多能量。</li><li>離開風域仍繼續傳播的長浪稱為湧浪；深水波主要傳遞能量，水質點大致在原地繞行。</li><li>波浪靠岸、水深變淺時，海床影響變大，所以波速降低。</li><li>頻率不變時，波速等於頻率乘波長；波速降低，波長縮短，波高升高，最後可能碎裂。</li><li>同一波前的淺水部分較慢，因此波前會彎曲，逐漸與海岸線接近平行。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 描述波浪從外海進入淺水，問波速、波長、波高的變化。<br>- 給等深線與波前圖，問波浪偏折方向。<br><strong>常見陷阱</strong><br>- 不要以為波往前傳，海水就跟著整體向前移。</p></aside>
+<article class="q q-pr" id="check-7"><header class="qh"><span class="qn">歷屆 1</span><span class="qtag">波浪與淺水變化・學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 1">☆</button></header><div class="qtext"><p>有關風吹海面引起的波浪，下列敘述何者正確？</p><p>(A) 波浪之波高愈大，波長愈短　(B) 風速愈大，產生波浪之波高愈小　(C) 風速愈大，提供海水產生波浪的能量愈少　(D) 頻率相同的兩種波浪，波長較長者其傳播速率較快。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「頻率相同」與波長比較，先寫下波速＝頻率×波長。</p><ol><li>(D) 正確：波速＝頻率×波長，頻率相同時波長越長，波速越快。</li><li>(A) 錯：波高大不代表波長必定短；(B)、(C) 錯：風較強通常提供更多能量，形成較高的波。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>靠岸變淺，波慢、波長短、波高升。</p></div></div></details></article>
+<article class="q q-pr" id="check-8"><header class="qh"><span class="qn">歷屆 14</span><span class="qtag">波浪與淺水變化・107 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 14">☆</button></header><div class="qtext"><p>波浪是一種海水上下起伏的運動。下列對波浪的敘述何者正確？</p><p>(A) 海面波浪都是由於風吹造成　(B) 波浪由外海傳遞至岸邊時，波浪的前進方向會因海岸線的不平直，往水深較深的海域偏折　(C) 颱風尚未到達臺灣，已經在臺灣海岸可見該颱風造成的湧浪　(D) 海灣受波浪侵蝕的力量較海岬處大，所以海灣會繼續往陸地內凹　(E) 波浪靠近岸時，因受地形影響而破碎，所以碎浪對岸邊結構物沒影響。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到颱風尚未到岸卻已有波浪，先想離開風域仍可向外傳播的湧浪。</p><ol><li>(C) 正確：湧浪可以在颱風抵達之前傳到海岸。</li><li>(A) 錯：氣壓變化、海底地震等也能形成波浪。(B) 錯：淺水處波速較慢，波前因此偏折。</li><li>(D) 錯：波能在海岬較集中，侵蝕較強。(E) 錯：碎浪仍有能量，會影響海岸。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>靠岸變淺，波慢、波長短、波高升。</p></div></div></details></article>
+<article class="q q-pr" id="check-9"><header class="qh"><span class="qn">關鍵 14</span><span class="qtag">波浪與淺水變化</span><button class="mark" type="button" title="標記不會" aria-label="標記關鍵 14">☆</button></header><div class="qtext"><p>下列關於風域中風吹拂海面形成波浪的敘述，何者錯誤？</p><p>(A) 風吹拂海面，形成浪的區域稱為風域　(B) 颱風系統所形成的風浪，由於風向與風速頻繁改變，會形成不同週期與波長的波浪　(C) 風吹拂海面的距離愈長，能夠產生的波浪週期愈長　(D) 風速愈快，形成的波浪波高愈高　(E) 風吹拂海面持續時間愈長，能夠產生的波浪波長愈短。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目問風域中各項敘述的錯誤處；先比較風的持續時間、距離與能量。</p><ol><li>(E) 錯：風吹得越久，海水獲得較多能量，形成的波浪波長可更長。</li><li>(A) 至 (D) 正確：風域是風生成波浪的區域；風速、方向、吹拂距離與時間都影響波浪。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>靠岸變淺，波慢、波長短、波高升。</p></div></div></details></article>
+<p><strong>記住：</strong>靠岸變淺，波慢、波長短、波高升。</p>
+<h2 class="section" id="s4">考點 4：表層洋流與黑潮</h2>
+<ol><li>長時間吹拂海面的風會帶動海水，形成風成流；表層海流多屬此類。</li><li>中低緯度大洋環流在北半球大致順時針、南半球大致逆時針，與風和科氏力作用有關。</li><li>暖流把較暖的水帶到流經處，寒流則帶來較冷的水；要和周圍同緯度海水比較。</li><li>黑潮主流終年沿臺灣東側由南往北流，水溫和鹽度相對附近海域較高。</li><li>冬季中國沿岸流往南，夏季臺灣海峽暖流較易往北；黑潮東側主流仍往北。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給臺灣海流箭頭或冬夏海溫圖，辨認流向和季節。<br>- 看到「漂流路徑」「暖流」「黑潮」，先找海流從哪裡流向哪裡。<br><strong>常見陷阱</strong><br>- 不要把冬季臺灣海峽的沿岸流，當成東岸黑潮主流。</p></aside>
+<article class="q q-pr" id="check-10"><header class="qh"><span class="qn">歷屆 7</span><span class="qtag">表層洋流與黑潮・103 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 7">☆</button></header><div class="qtext"><p>在 2011 年 3 月 11 日，日本東北部外海發生強烈地震並引發海嘯。臨海的福島核電廠隨之發生嚴重的核能災害，導致含輻射的廢水意外地洩漏到海洋中。由於日本東北部外海有親潮自北方沿岸向南流，到日本東部外海（約北緯 35°）碰到黑潮，因此長時間後，在表層的輻射廢水最可能的漂流去向為何？</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q10-1.webp" width="384" height="331" loading="lazy" alt="題目附圖" data-page="地科2 PDF第65頁"></div><p>(A) 先向南流，之後順著黑潮向西南流到臺灣附近　(B) 先向南流，遇到黑潮後轉向東流向中太平洋　(C) 先向南流，到黑潮後湧升到表層並滯留在日本東南部海域　(D) 往北流到北海道海域再轉入日本海　(E) 先向南流，碰到黑潮後下沉到深層並滯留在日本東南部海域。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到親潮和黑潮交會的漂流路徑，先依題幹追蹤親潮流向，再接上北太平洋表層環流。</p><ol><li>先隨親潮南流，遇黑潮後，表層水可隨北太平洋海流往東，故選 (B)。</li><li>(A) 黑潮並非向西南流至臺灣；(C)、(E) 的湧升或下沉滯留不是題述表層流向；(D) 與親潮向南不符。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>黑潮沿臺灣東側向北，是較暖的表層海流。</p></div></div></details></article>
+<article class="q q-pr" id="check-11"><header class="qh"><span class="qn">歷屆 24</span><span class="qtag">表層洋流與黑潮・110 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 24">☆</button></header><div class="qtext"><p>海流是大洋中特定流向且持續的大規模海水運動。下列哪些是其生成原因？（應選 2 項）</p><p>(A) 風吹拂海面　(B) 日、月引力　(C) 海底地震　(D) 地球自轉　(E) 海水密度不同。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>AE。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「生成原因」，先區分風成流與密度流，再辨認會改變流向的因素。</p><ol><li>(A) 正確：風長時間吹拂形成風成流。(E) 正確：密度差可驅動密度流。</li><li>(B) 主要造成潮汐；(C) 可引發海嘯；(D) 的科氏效應改變流向，但不是這裡所問的海流生成原因。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>黑潮沿臺灣東側向北，是較暖的表層海流。</p></div></div></details></article>
+<article class="q q-pr" id="check-12"><header class="qh"><span class="qn">小試 4</span><span class="qtag">表層洋流與黑潮</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 4">☆</button></header><div class="qtext"><p>附圖為臺灣附近海域冬、夏兩季水溫分布圖，關於此圖的敘述何者正確？</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q12-1.webp" width="688" height="408" loading="lazy" alt="題目附圖" data-page="地科2 PDF第50頁"></div><p>(A) 甲圖臺灣西岸有一大群烏魚由北往南游到澎湖附近產卵　(B) 乙圖臺灣此時西岸有親潮流經　(C) 臺灣附近海域因季節變化所產生的溫差，最大溫差出現在西南海域　(D) 甲圖與乙圖中臺灣東岸的海流均是黑潮　(E) 乙圖臺灣西北方海域溫度較低是因為湧升流造成的。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>先比較甲、乙兩圖水溫判斷季節，再找臺灣東岸終年流經的海流。</p><ol><li>甲圖水溫較高，代表夏季；乙圖較冷，代表冬季。兩季臺灣東岸均有黑潮，故 (D) 正確。</li><li>(A) 烏魚南下與冬季沿岸冷水有關；(B) 臺灣西岸冬季主要為中國沿岸流，不是親潮。</li><li>(C) 圖上較大的季節溫差在西北側；(E) 乙圖西北側低溫主要與冬季沿岸冷水有關。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>黑潮沿臺灣東側向北，是較暖的表層海流。</p></div></div></details></article>
+<p><strong>記住：</strong>黑潮沿臺灣東側向北，是較暖的表層海流。</p>
+<h2 class="section" id="s5">考點 5：湧升流</h2>
+<ol><li>湧升流是下層海水向上補充的流動；表層海水離岸後，深層海水便可能上升補位。</li><li>海流遇到隆起的海底地形受阻時，也可能被迫向上湧升，例如臺灣東北外海。</li><li>湧升流帶來較冷的深層水，所以表層海溫較低，溫暖混合層變薄。</li><li>深層水帶來營養鹽，浮游藻類容易繁盛，因此有利漁場形成；由附圖也可比較深淺水中的二氧化碳。</li><li>暖濕空氣流經較冷海面時容易冷卻凝結，所以海面較易形成霧。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給沿岸風向、海底地形或表層水溫圖，判斷湧升流。<br>- 看到「冷水上升」「營養鹽」「漁場」，先找深層水是否補充表層。<br><strong>常見陷阱</strong><br>- 低溫、營養鹽較多可以判斷；鹽度仍需看實際海水來源。</p></aside>
+<article class="q q-pr" id="check-13"><header class="qh"><span class="qn">歷屆 9</span><span class="qtag">湧升流・104 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 9">☆</button></header><div class="qtext"><p>海水除了水平方向流動外，也會垂直流動，向上流動稱為湧升流，關於湧升流之敘述及有湧升流的海域與鄰近海域比較，哪些正確？（應選 3 項）</p><p>(A) 一般海流之垂直流速與水平流速相當　(B) 通常是受風吹或地形影響而產生　(C) 此海域表層海水密度較低　(D) 此海域白天海上吹向陸地的海風較強　(E) 此海域的表層海水通常有較高的營養鹽。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>BDE。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「向上流動」與沿岸海域，先想上湧深層水的溫度和營養鹽。</p><ol><li>(A) 錯：海流垂直流速通常遠小於水平流速。(B) 正確：風吹使表層水離岸，或海底地形阻擋，都可能造成湧升。</li><li>(C) 錯：上湧較冷深層水，表層密度通常較高。(D) 正確：冷海面與白天陸地溫差較大，有利海風。(E) 正確：深水將營養鹽帶到表層。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>深層冷水上升，也把營養鹽帶到表層。</p></div></div></details></article>
+<article class="q q-pr" id="check-14"><header class="qh"><span class="qn">歷屆 11</span><span class="qtag">湧升流・105 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 11">☆</button></header><div class="qtext"><p>有湧升流現象的海域，其表層海水特性相較周圍海域有顯著不同，甚至會影響該區域天氣或氣候的變化。下列哪些是湧升流海域的特徵？（應選 2 項）</p><p>(A) 海面易形成霧　(B) 表層海水溶氧量增加　(C) 表層海水鹽度降低　(D) 表層海水較透明　(E) 混合層厚度變薄。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>AE。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目問湧升流的特徵，先從冷深水上升推想海面溫度與混合層。</p><ol><li>(A) 正確：較暖濕的空氣經冷海面易冷卻凝結成霧。(E) 正確：冷深水上湧，使上方溫暖混合層變薄。</li><li>(B) 錯：深水溶氧不一定比表層高。(C) 錯：鹽度變化取決於水源。(D) 錯：營養鹽促進浮游生物繁盛，不一定較透明。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>深層冷水上升，也把營養鹽帶到表層。</p></div></div></details></article>
+<aside class="box box-ref"><div class="box-h">題組敘述</div><p>海水中的氣體主要來自大氣、火山活動，以及海水中的化學作用或生物作用產生。附圖是海水中氧氣和二氧化碳含量隨深度變化圖。</p></aside>
+<article class="q q-pr" id="check-15"><header class="qh"><span class="qn">小試 3</span><span class="qtag">湧升流</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 3">☆</button></header><div class="qtext"><p>沿岸海域有湧升流現象的地方，與相鄰且沒有湧升流的其他海域相比，其表層海水主要特色包括下列哪幾項？（應選 2 項）</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q15-1.webp" width="216" height="328" loading="lazy" alt="題目附圖" data-page="地科2 PDF第61頁"></div><p>(A) 溶氧量較高　(B) CO₂ 含量較高　(C) 密度較低　(D) 營養鹽濃度較高　(E) 鹽度較高。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>BD。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「與相鄰且沒有湧升流」比較，先辨認上湧海水來自哪一層。</p><ol><li>(B)、(D) 正確：深層海水含較多二氧化碳與營養鹽，上湧可將它們帶至表層。</li><li>(A) 錯：深水溶氧不一定較高；(C) 錯：冷水上湧通常使表層密度較大；(E) 錯：鹽度需視海水來源，不能一概而論。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>深層冷水上升，也把營養鹽帶到表層。</p></div></div></details></article>
+<p><strong>記住：</strong>深層冷水上升，也把營養鹽帶到表層。</p>
+<h2 class="section" id="s6">考點 6：聖嬰與反聖嬰</h2>
+<ol><li>正常年赤道東風推動表層海水向西，暖水聚集西太平洋；東太平洋有冷水湧升。</li><li>聖嬰時東風減弱，暖水向東移，東太平洋水溫升高，湧升流減弱。</li><li>聖嬰時東太平洋降雨增加，西太平洋降雨減少；因為暖水和上升氣流的區域向東移。</li><li>反聖嬰時東風比正常強，東太平洋湧升較強、海溫較低，西側更暖濕。</li><li>比較異常圖時，正值是比長期平均暖，負值是比長期平均冷；異常值不是實際溫度。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 比較赤道太平洋海溫異常、氣壓或海水剖面圖。<br>- 看到「東風增強或減弱」，先判斷暖水與湧升流的變化。<br><strong>常見陷阱</strong><br>- 「比正常年升高」不代表東側一定比西側暖。</p></aside>
+<article class="q q-pr" id="check-16"><header class="qh"><span class="qn">小試 5</span><span class="qtag">聖嬰與反聖嬰</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 5">☆</button></header><div class="qtext"><p>關於聖嬰現象與反聖嬰現象之敘述，哪些正確？（應選 3 項）</p><p>(A) 聖嬰時期，赤道西太平洋地區溫暖的混合層厚度較反聖嬰時期厚　(B) 反聖嬰時期，赤道太平洋地區東風增強，東太平洋海域的湧升流也較強　(C) 聖嬰現象發生時，印尼氣候轉為較乾燥，有可能爆發霾害　(D) 聖嬰時期東太平洋氣壓值會較反聖嬰時期高　(E) 這兩個現象均受海洋與大氣間的熱力方式與動力方式交互作用影響。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>BCE。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>先比較聖嬰與反聖嬰的赤道東風強弱，再推暖水、降雨與湧升流。</p><ol><li>(A) 錯：聖嬰時暖水東移，西側溫暖混合層較薄。(B) 對：反聖嬰東風與東側湧升較強。</li><li>(C) 對：西側降雨減少，印尼較乾燥。(D) 錯：聖嬰時東側氣壓相對降低。(E) 對：兩者都是海氣交互作用。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>聖嬰東風弱、東太平洋變暖；反聖嬰的變化大致相反。</p></div></div></details></article>
+<article class="q q-pr" id="check-17"><header class="qh"><span class="qn">歷屆 17</span><span class="qtag">聖嬰與反聖嬰・108 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 17">☆</button></header><div class="qtext"><p>聖嬰現象是大氣與海洋交互作用下的大自然變化，會導致地球上部分地區短期氣候異常。有關聖嬰現象發生時所伴隨的大氣與海洋變化或影響，下列敘述何者錯誤？</p><p>(A) 赤道東風減弱　(B) 赤道東太平洋地區海溫上升　(C) 南美洲西岸湧升流增強　(D) 赤道西太平洋地區海水高度降低　(E) 赤道西太平洋地區降雨量減少。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「聖嬰」及問錯誤，先從赤道東風減弱推論東側湧升的變化。</p><ol><li>(C) 錯：東風減弱、暖水東移，東太平洋湧升流受到抑制。</li><li>(A)、(B)、(D)、(E) 均符合聖嬰：東風較弱，暖水東移，西側海面下降且降雨減少。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>聖嬰東風弱、東太平洋變暖；反聖嬰的變化大致相反。</p></div></div></details></article>
+<article class="q q-pr" id="check-18"><header class="qh"><span class="qn">小試 9</span><span class="qtag">聖嬰與反聖嬰</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 9">☆</button></header><div class="qtext"><p>附圖甲、乙、丙應為何時期？</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q18-1.webp" width="912" height="272" loading="lazy" alt="題目附圖" data-page="地科2 PDF第63頁"></div><table class="reading-table"><thead><tr><th>選項</th><th>甲圖</th><th>乙圖</th><th>丙圖</th></tr></thead><tbody><tr><td>(A)</td><td>聖嬰時期</td><td>反聖嬰時期</td><td>正常時期</td></tr><tr><td>(B)</td><td>反聖嬰時期</td><td>聖嬰時期</td><td>正常時期</td></tr><tr><td>(C)</td><td>反聖嬰時期</td><td>正常時期</td><td>聖嬰時期</td></tr><tr><td>(D)</td><td>聖嬰時期</td><td>正常時期</td><td>反聖嬰時期</td></tr><tr><td>(E)</td><td>正常時期</td><td>聖嬰時期</td><td>反聖嬰時期</td></tr></tbody></table></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>比較三張圖的東太平洋暖水範圍與斜溫層，先找暖水最向東擴張的圖。</p><ol><li>甲圖暖水向東擴展，為聖嬰；丙圖東側冷水上湧較強，為反聖嬰；乙圖介於兩者之間，為正常時期。</li><li>只有 (D) 同時符合三圖；其餘選項至少錯配一圖。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>聖嬰東風弱、東太平洋變暖；反聖嬰的變化大致相反。</p></div></div></details></article>
+<p><strong>記住：</strong>聖嬰東風弱、東太平洋變暖；反聖嬰的變化大致相反。</p>
+<h2 class="section" id="s7">考點 7：大潮與小潮</h2>
+<ol><li>潮差是一次滿潮與相鄰乾潮的水位差，反映海水升降的幅度。</li><li>朔與望時，日、地、月大致成一直線，日月引潮效果加成，因此潮差較大，稱為大潮；日食發生在朔。</li><li>上弦與下弦時，日、地、月約成直角，引潮效果部分抵消，因此潮差較小，稱為小潮。</li><li>大潮的滿潮通常較高、乾潮較低；小潮兩者距離較近。</li><li>月球每天繞地球移動，因此半日潮地區相應的乾潮時間每天約延後 50 分鐘。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給月相、農曆日期或日地月位置，問潮差變化。<br>- 看到「朔」「望」「弦月」，先判斷三者的相對位置。<br><strong>常見陷阱</strong><br>- 大潮指潮差大，不是指整天海水都較高。</p></aside>
+<article class="q q-pr" id="check-19"><header class="qh"><span class="qn">小試 1</span><span class="qtag">大潮與小潮</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 1">☆</button></header><div class="qtext"><p>璇儀某日到七股（半日潮）的海邊觀察潮間帶的生物活動情形，已知觀察潮間帶最好於乾潮前一小時到達海邊開始觀測，若當日海邊第一次乾潮時間為中午 12 點，且當日全天均無看見月亮（朔），若下次要在 4 天後再來觀測，璇儀於下列哪個時間到達海邊較恰當？</p><p>(A) 上午 9：00　(B) 上午 12：00　(C) 下午 2：00　(D) 下午 4：00　(E) 下午 6：00。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「半日潮」與「4 天後」，先估算乾潮時間每天延後多少。</p><ol><li>相應乾潮每天約延後 50 分，4 天約延後 200 分，即 3 小時 20 分。</li><li>乾潮約在下午 3：20，提前一小時約為下午 2：20，最接近 (C)；其他時間距離較遠。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>朔望大潮、弦月小潮，比較的是潮差。</p></div></div></details></article>
+<article class="q q-pr" id="check-20"><header class="qh"><span class="qn">小試 2</span><span class="qtag">大潮與小潮</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 2">☆</button></header><div class="qtext"><p>承上題，4 天後看到的乾潮水位，比上次高或低？原因為何？</p><p>(A) 較高，因為月相為朔時是大潮，乾潮水位最低，4 天後，乾潮水位不會那麼低　(B) 較低，因為月相為朔時是小潮，乾潮水位最高，4 天後，乾潮水位相對較低　(C) 較高，因為月相為朔時是小潮，乾潮水位最低，4 天後，乾潮水位不會那麼低　(D) 較低，因為月相為朔時是大潮，乾潮水位最高，4 天後，乾潮水位會較低　(E) 一樣高，乾潮水位與月相無關。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>承接上一題的「朔」，先判斷當天是大潮還是小潮，再比較乾潮水位。</p><ol><li>上題當日月相為朔，屬大潮，潮差較大，乾潮水位較低；4 天後往小潮靠近，乾潮水位較高，因此選 (A)。</li><li>(B)、(C) 把朔誤認為小潮；(D) 把大潮乾潮水位說成最高；(E) 忽略月相與潮差的關聯。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>朔望大潮、弦月小潮，比較的是潮差。</p></div></div></details></article>
+<article class="q q-pr" id="check-21"><header class="qh"><span class="qn">關鍵 9</span><span class="qtag">大潮與小潮</span><button class="mark" type="button" title="標記不會" aria-label="標記關鍵 9">☆</button></header><div class="qtext"><p>2012 年 5 月 21 日清晨 6 點，愷方在臺灣北海岸觀看日環食，當時可見海水為乾潮，請問六天後約幾點可以再見到乾潮時的海邊景觀，且海水水位與日環食當日比，較高或較低？</p><p>(A) 6 點，水位較低　(B) 11 點，水位較高　(C) 18 點，水位較低　(D) 11 點，水位較低　(E) 6 點，水位較高。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>從「日環食」判斷月相，再把乾潮每天延後的時間累加六天。</p><ol><li>日環食發生在朔，接近大潮，乾潮水位較低；六天後接近小潮，乾潮水位較高。</li><li>每天相應乾潮約延後 50 分，六天共約 5 小時，故由 6 點推至約 11 點，選 (B)。其他選項的時間或水位方向不符。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>朔望大潮、弦月小潮，比較的是潮差。</p></div></div></details></article>
+<p><strong>記住：</strong>朔望大潮、弦月小潮，比較的是潮差。</p>
+<h2 class="section" id="s8">考點 8：潮位圖判讀</h2>
+<ol><li>潮位圖的橫軸是時間、縱軸是水位；曲線高點是滿潮，低點是乾潮。</li><li>潮差讀相鄰高點和低點的水位差；潮汐週期讀相鄰兩次滿潮的時間差。</li><li>半日潮一天約兩次滿潮，兩次滿潮相隔約 12 小時 25 分；滿潮到相鄰乾潮約 6 小時 12 分。</li><li>月球繞地球公轉，所以同一地點每天相應的滿潮時間約延後 50 分鐘。</li><li>比較不同站時，各站高低點的時間和縱軸刻度都要分別讀取。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給潮位隨時間的曲線，問潮差、週期、漲退潮時間或站點比較。<br>- 看到「相隔多久」讀橫軸，看到「相差多高」讀縱軸。<br><strong>常見陷阱</strong><br>- 滿潮到乾潮只是一半週期，不是完整週期。</p></aside>
+<article class="q q-pr" id="check-22"><header class="qh"><span class="qn">小試 6</span><span class="qtag">潮位圖判讀</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 6">☆</button></header><div class="qtext"><p>附圖為某處潮位站之簡圖與某段時間其所測得的水壓變化情形，利用水壓變化可推知水位變化，參考附圖，下列敘述何者錯誤？</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q22-1.webp" width="448" height="181" loading="lazy" alt="題目附圖" data-page="地科2 PDF第57頁"><img class="qimg" src="img/earth-5-考-q22-2.webp" width="288" height="407" loading="lazy" alt="題目附圖" data-page="地科2 PDF第57頁"></div><p>(A) 附圖時間內之潮差相近　(B) 此處潮汐類型為半日潮　(C) 12/13 約 2 點為乾潮　(D) 此處每天滿潮時刻約提早 50 分鐘　(E) 每次漲潮時間約歷時 6 個多小時。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>先把水壓曲線的高低點對應滿潮與乾潮，再讀橫軸的日期和時間。</p><ol><li>(D) 錯：半日潮相應滿潮時間每天約延後 50 分，而非提早。</li><li>(A) 圖中各次高低水壓差相近；(B) 約一天兩次滿潮；(C) 12/13 約 2 點在低點附近；(E) 低點到下一高點約六個多小時，因此均符合圖示。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>潮差看高度差，週期看同類高點的時間差。</p></div></div></details></article>
+<article class="q q-pr" id="check-23"><header class="qh"><span class="qn">歷屆 28</span><span class="qtag">潮位圖判讀・112 學測</span><button class="mark" type="button" title="標記不會" aria-label="標記歷屆 28">☆</button></header><div class="qtext"><p>附圖為臺灣四個潮位站在 7 月 26 日至 7 月 28 日三天中的海水面高度紀錄，海水面高度均以基隆的海平面作為基準點。若潮汐為影響港灣汙染物擴散之主因，根據這四個紀錄判斷，以下敘述哪些正確？（應選 2 項）</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q23-1.webp" width="1056" height="566" loading="lazy" alt="題目附圖" data-page="地科2 PDF第69頁"></div><p>(A) 各測站每日 24 小時內會有兩次潮汐週期　(B) 各測站乾潮的發生時間不完全相同　(C) 7 月 27 日上午 9 時，各測站均處於退潮階段　(D) 臺北港站的潮差較馬祖站的潮差大　(E) 花蓮站附近的港灣，汙染物較難擴散。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>BE。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>先看四圖的縱軸刻度，再分別比較低點時間與高低水位差。</p><ol><li>(A) 錯：相鄰滿潮約隔 12 小時 25 分，兩週期略長於 24 小時。(B) 對：各站低點時間不同。</li><li>(C) 錯：該時刻各站曲線並非都下降。(D) 錯：馬祖潮差比臺北港大。(E) 對：花蓮水位起伏較小，依題目假設潮汐較不利汙染物擴散。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>潮差看高度差，週期看同類高點的時間差。</p></div></div></details></article>
+<article class="q q-pr" id="check-24"><header class="qh"><span class="qn">關鍵 11</span><span class="qtag">潮位圖判讀</span><button class="mark" type="button" title="標記不會" aria-label="標記關鍵 11">☆</button></header><div class="qtext"><p>附圖為某地連續 25 小時之海水水位變化圖，橫坐標所標示時間均為當地滿潮或乾潮時間，現假設月球公轉週期變為現在的 2 倍，但其與地球的距離、及其他所有影響潮汐的因素均無改變，那麼下列敘述哪些正確？（應選 2 項）</p><div class="qimgs"><img class="qimg" src="img/earth-5-考-q24-1.webp" width="464" height="226" loading="lazy" alt="題目附圖" data-page="地科2 PDF第72頁"></div><p>(A) 此處潮汐週期變為 6 小時 12 分　(B) 此處滿潮水位變成 0.5 公尺　(C) 此處潮差變為 4 公尺　(D) 若今日早上 6 點滿潮，明日滿潮時刻約為 6 點 25 分　(E) 每一次退潮約歷時 6 小時 6 分。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>DE。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到月球公轉週期加倍，先推每天公轉角度變化，再估算滿潮延後時間。</p><ol><li>月球公轉週期加倍，約每日移動的角度減半，相應滿潮每天延後約 25 分，因此 (D) 正確。</li><li>兩次滿潮間約 12 小時 12.5 分；滿潮到相鄰乾潮約為其半，即約 6 小時 6 分，(E) 正確，(A) 錯。</li><li>題設距離及其他因素不變，水位振幅不因公轉週期加倍而直接變成選項所述，故 (B)、(C) 錯。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>潮差看高度差，週期看同類高點的時間差。</p></div></div></details></article>
+<p><strong>記住：</strong>潮差看高度差，週期看同類高點的時間差。</p>
+<h2 class="section" id="s9">重點對比整理</h2>
+<aside class="box box-sum"><div class="box-h">對比：溫度 vs 鹽度對密度的影響</div><table><thead><tr><th>比較</th><th>溫度</th><th>鹽度</th></tr></thead><tbody><tr><td>其他條件相同</td><td>越冷密度越大</td><td>越鹹密度越大</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：表層環流 vs 深層環流</div><table><thead><tr><th>比較</th><th>表層環流</th><th>深層環流</th></tr></thead><tbody><tr><td>主要驅動</td><td>風</td><td>溫度、鹽度造成的密度差</td></tr><tr><td>速度</td><td>相對較快</td><td>相對緩慢</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：暖流 vs 寒流</div><table><thead><tr><th>比較</th><th>暖流</th><th>寒流</th></tr></thead><tbody><tr><td>相對周圍水溫</td><td>較高</td><td>較低</td></tr><tr><td>例子</td><td>黑潮</td><td>祕魯涼流</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：深水的波 vs 淺水的波</div><table><thead><tr><th>比較</th><th>深水的波</th><th>淺水的波</th></tr></thead><tbody><tr><td>海床影響</td><td>不明顯</td><td>明顯</td></tr><tr><td>水質點軌跡</td><td>近圓形</td><td>扁橢圓形</td></tr><tr><td>波速</td><td>較快</td><td>較慢，波長也縮短</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：正常年 vs 聖嬰 vs 反聖嬰</div><table><thead><tr><th>比較</th><th>正常年</th><th>聖嬰</th><th>反聖嬰</th></tr></thead><tbody><tr><td>赤道東風</td><td>正常</td><td>減弱</td><td>增強</td></tr><tr><td>東太平洋海溫</td><td>較西側低</td><td>比正常高</td><td>比正常低</td></tr><tr><td>東側湧升</td><td>明顯</td><td>減弱</td><td>增強</td></tr><tr><td>西側降雨</td><td>較多</td><td>較正常少</td><td>較正常多</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：大潮 vs 小潮</div><table><thead><tr><th>比較</th><th>大潮</th><th>小潮</th></tr></thead><tbody><tr><td>月相</td><td>朔、望</td><td>上弦、下弦</td></tr><tr><td>日地月位置</td><td>約成一直線</td><td>約成直角</td></tr><tr><td>潮差</td><td>較大</td><td>較小</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：潮差 vs 週期</div><table><thead><tr><th>比較</th><th>潮差</th><th>週期</th></tr></thead><tbody><tr><td>讀法</td><td>相鄰滿潮與乾潮的高度差</td><td>相鄰兩次滿潮的時間差</td></tr><tr><td>方向與單位</td><td>縱軸，公尺等</td><td>橫軸，小時等</td></tr></tbody></table></aside>
+<p>解題時先辨認圖表的軸與單位，再用對應關係推論。</p>
+<details class="source-originals"><summary>核對原講義全頁（地科2 PDF40–72）</summary><p class="fine-note">題目選自地科2 單元 5 的小試身手、歷屆試題與關鍵考題。手邊沒有原書解答本，答案依題目條件推導或依原稿印刷。</p><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/040.webp" alt="地科2PDF第40頁完整原稿"><figcaption>PDF第40頁／印刷第142頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/050.webp" alt="地科2PDF第50頁完整原稿"><figcaption>PDF第50頁／印刷第152頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/056.webp" alt="地科2PDF第56頁完整原稿"><figcaption>PDF第56頁／印刷第158頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/057.webp" alt="地科2PDF第57頁完整原稿"><figcaption>PDF第57頁／印刷第159頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/061.webp" alt="地科2PDF第61頁完整原稿"><figcaption>PDF第61頁／印刷第163頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/062.webp" alt="地科2PDF第62頁完整原稿"><figcaption>PDF第62頁／印刷第164頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/063.webp" alt="地科2PDF第63頁完整原稿"><figcaption>PDF第63頁／印刷第165頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/064.webp" alt="地科2PDF第64頁完整原稿"><figcaption>PDF第64頁／印刷第166頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/065.webp" alt="地科2PDF第65頁完整原稿"><figcaption>PDF第65頁／印刷第167頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/066.webp" alt="地科2PDF第66頁完整原稿"><figcaption>PDF第66頁／印刷第168頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/067.webp" alt="地科2PDF第67頁完整原稿"><figcaption>PDF第67頁／印刷第169頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/068.webp" alt="地科2PDF第68頁完整原稿"><figcaption>PDF第68頁／印刷第170頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/069.webp" alt="地科2PDF第69頁完整原稿"><figcaption>PDF第69頁／印刷第171頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/071.webp" alt="地科2PDF第71頁完整原稿"><figcaption>PDF第71頁／印刷第173頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/072.webp" alt="地科2PDF第72頁完整原稿"><figcaption>PDF第72頁／印刷第174頁</figcaption></figure></details>
+</div><div class="pager"><a href="u5-3.html">← 5-3 潮汐</a><a href="u6-1.html">6-1 天然災害 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

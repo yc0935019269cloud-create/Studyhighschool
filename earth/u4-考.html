@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4-考 考點教學：考試會怎麼問｜地球科學</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">.authored-unit .fine-note{font-size:14.5px;line-height:1.8;color:var(--muted)}
+.authored-unit .authored-figure{margin:22px auto 26px}
+.authored-unit .authored-figure .figimg{max-width:100%;max-height:580px;width:auto;height:auto;border-radius:6px}
+.authored-unit .fig-composition .figimg,.authored-unit .fig-pressure .figimg{max-height:none}
+.authored-unit figcaption{line-height:1.65;margin-top:7px}
+.authored-unit figcaption span{display:block;font-size:12px;margin-top:3px}
+.authored-unit li{margin-top:7px;margin-bottom:7px}
+.authored-unit .exp ol{margin:10px 0}
+.authored-unit .qsum{font-size:16px}
+.authored-unit .reading-table td{text-align:left;vertical-align:top}
+.authored-unit .reading-table th:first-child{white-space:nowrap}
+.authored-unit .punnett-static{display:table;width:min(100%,520px);margin:18px auto}
+.authored-unit .punnett-static td{padding:12px 8px}
+.authored-unit .punnett-static code{background:none}
+.authored-unit .source-originals{margin:30px 0 10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px}
+.authored-unit .source-originals>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.authored-unit .original-page .figimg{width:100%;height:auto;max-height:none}
+.authored-unit .ref-list{font-size:14px}
+.authored-unit .fig-chromosome .figimg{max-height:none}
+@media(max-width:900px){
+.authored-unit .authored-figure .figimg{max-height:none}
+.authored-unit .qh{flex-wrap:wrap;gap:6px}
+.authored-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+.authored-unit .mark{flex-shrink:0}
+.authored-unit .punnett-static{font-size:15px}
+.authored-unit .punnett-static td,.authored-unit .punnett-static th{padding:8px 5px}
+.authored-unit .source-originals{padding:10px}
+}
+@media print{.authored-unit h2.section{break-after:avoid}.authored-unit .fig{break-inside:avoid}.authored-unit .q{break-inside:auto}.authored-unit .source-originals{display:none}}
+
+.authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
+.authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- integrated-nav START --><div class="nch">第4單元　大氣與天氣</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a href="u4-2.html"><span>4-2</span>雲霧的產生：露點、相對溼度與絕熱冷卻</a></li><li><a href="u4-3.html"><span>4-3</span>風向與風速：氣壓梯度力、科氏力與摩擦力</a></li><li><a href="u4-4.html"><span>4-4</span>氣象觀測與天氣圖：衛星、雷達、鋒面與臺灣季節天氣</a></li><li><a href="u4-綜.html"><span>4-綜</span>單元 4 歷屆試題與關鍵考題</a></li><li><a class="on" href="u4-考.html"><span>4-考</span>考點教學：考試會怎麼問</a><ul class="subtoc"><li><a href="#s1">考點 1：氣壓與空氣質量</a></li><li><a href="#s2">考點 2：大氣分層與溫度成因</a></li><li><a href="#s3">考點 3：露點與相對溼度</a></li><li><a href="#s4">考點 4：乾溼球溫度計</a></li><li><a href="#s5">考點 5：雲、霧、露、霜的形成</a></li><li><a href="#s6">考點 6：絕熱冷卻與空氣塊上升、翻山</a></li><li><a href="#s7">考點 7：風的三種力與判斷風向</a></li><li><a href="#s8">考點 8：冷熱與氣壓：熱力環流</a></li><li><a href="#s9">考點 9：衛星雲圖與氣象雷達</a></li><li><a href="#s10">考點 10：天氣圖、鋒面與氣旋</a></li><li><a href="#s11">考點 11：臺灣的季節天氣與雨型</a></li><li><a href="#s12">重點對比整理</a></li></ul></li></ul><div class="nch">第5單元　海洋</div><ul><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li><li><a href="u5-考.html"><span>5-考</span>考點教學：考試會怎麼問</a></li></ul><div class="nch">第6單元　天然災害</div><ul><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li></ul><div class="nch">第7單元　氣候變遷與資源</div><ul><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li></ul><div class="nch">第8單元　進階探究</div><ul><li><a href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p class="source-note"><a href="../sources.html#book=地科1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第4單元 大氣</div><h1><span class="uid">4-考</span>考點教學：考試會怎麼問</h1><div class="tools"><span class="cnt">11個考點・39題・重點對比整理</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><h2 class="section" id="s1">考點 1：氣壓與空氣質量</h2>
+<ol><li>氣壓是單位面積上方空氣柱的重量；高度愈高，頭頂剩下的空氣愈少，所以氣壓愈低。</li><li>低空空氣較密，因此相同高度差內，低空的氣壓降幅通常比高空大。標準氣壓約 1013 hPa，也等於 76 cmHg。</li><li>某高度以上的空氣重量占比＝該高度氣壓÷地面氣壓；以下占比＝（地面氣壓－該高度氣壓）÷地面氣壓，因為氣壓差代表兩高度之間空氣的重量。</li><li>讀圖先確認高度、氣壓的座標與單位，再用同一張圖的讀值計算。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給氣壓高度圖，問變化率或某高度以下的空氣占比。<br>- 看到「上方空氣柱重量」就先分辨以上或以下。<br><strong>常見陷阱</strong><br>- 高空氣壓仍下降，但空氣稀薄，等高度的降幅較小；不要把以上占比當以下占比。</p></aside>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">4-綜 歷屆 1</span><span class="qtag">學測・氣壓與高度（選錯誤）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 1">☆</button></header><div class="qtext"><p>附圖為大氣壓力與離地高度的關係圖，下列有關氣壓的敘述，何者<strong>錯誤</strong>？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q1-1.webp" width="304" height="267" loading="lazy" alt="題目附圖" data-page="地科2 PDF第23頁"></div><p>(A) 利用氣壓與高度的相關性，氣壓計也可以作為高度計　(B) 地面的氣壓相當於高約 76 公分水銀柱底面承受的壓力　(C) 離地面 8 公里處的高空氣壓，大致已小於 0.5 大氣壓　(D) 距地面愈高，其氣壓隨高度的變化率愈來愈大</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到氣壓與高度曲線，先讀座標，再比較相同高度差的氣壓降幅。</p><ol><li>(A) 對：氣壓與高度一一對應，飛機、登山錶就是用氣壓推高度。</li><li>(B) 對：1 大氣壓＝76 cmHg。</li><li>(C) 對：圖上 8 公里處約 27 cmHg，小於 0.5 大氣壓（38 cmHg）。</li><li>(D) <strong>錯</strong>：曲線愈往上愈「立起來」，同樣上升 1 公里，氣壓減少得愈來愈少 → 變化率<strong>愈來愈小</strong>（高空空氣稀薄）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>低空氣壓降得快、高空降得慢。</p></div></div></details></article>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">4-綜 歷屆 7</span><span class="qtag">103學測・3000 公尺以下的空氣占多少</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 7">☆</button></header><div class="qtext"><p>氣壓可以代表單位面積上方空氣柱的重量。某一氣象站的海拔高度大約是 3000 公尺，平均氣壓大約是 700 百帕，在 3000 公尺高度以下的大氣層，約占整個大氣層空氣重量的多少百分比？</p><p>(A) 10　(B) 20　(C) 30　(D) 40　(E) 50</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目問測站高度以下的重量占比，先用地面氣壓減去測站氣壓。</p><ol><li>海平面氣壓約 1013 百帕＝整層大氣的重量。</li><li>3000 公尺處 700 百帕＝3000 公尺以上的空氣重量。</li><li>3000 公尺以下：(1013－700)÷1013 ≈ 0.31 → 約 <strong>30%</strong>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>某高度以下的空氣比例＝(地面氣壓－該高度氣壓)÷地面氣壓。</p></div></div></details></article>
+<p>下一題用這張圖。先確認縱軸是高度；底部左半邊讀密度、右半邊讀氣壓。</p>
+<figure class="fig authored-figure fig-density"><img class="figimg" src="img/earth-4-考-density.webp" width="392" height="260" loading="lazy" alt="氣壓、空氣密度隨高度的變化（底部左右刻度不同）" data-page="地科2 PDF第4頁"><figcaption>氣壓、空氣密度隨高度的變化（底部左右刻度不同）<span>原講義PDF第4頁・印刷第106頁・點圖放大</span></figcaption></figure>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">4-1 小試</span><span class="qtag">原小試4・氣壓換算質量比例</span><button class="mark" type="button" title="標記不會" aria-label="標記4-1 小試">☆</button></header><div class="qtext"><p>在靜力平衡的假設下，依同一張圖估計：距地面10公里以內的空氣，占此地上空整根空氣柱質量的百分比約為多少？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>約75%；圖讀值有誤差，約74–76%皆接近。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到「10 公里以內」與氣壓圖，先讀地面和 10 公里的氣壓，再求兩者差值。</p><p><strong>先辨別上下：</strong>10公里處的氣壓表示「10公里以上」那段空氣的重量，題目卻問「10公里以下」。</p><p>以圖上地面約1000 hPa、10公里約250 hPa估算：</p><blockquote><p>10公里以下占比＝(1000−250)÷1000＝0.75＝75%。</p></blockquote><p>若依另一頁標示採地面1013 hPa、高空250 hPa，則為 <code>763÷1013≈75.3%</code>；若原圖讀值略不同，結果會有小差異。原頁手寫74%不必當成精確常數。</p><p>若直接用250÷1000＝25%，求到的是10公里<strong>以上</strong>，剛好和題目相反。</p><div class="qsum"><span class="qsum-h">小結</span><p>先算上方剩多少，再用總量扣掉，才是指定高度以下。</p></div></div></details></article>
+<p><strong>記住：</strong>氣壓代表上方空氣重量；求下方占比要先相減。</p>
+
+<h2 class="section" id="s2">考點 2：大氣分層與溫度成因</h2>
+<ol><li>依溫度由下往上分為對流層、平流層、中氣層、增溫層；平均溫度趨勢依序為降、升、降、升。</li><li>對流層主要由受太陽加熱的地表加熱，因此愈往上通常愈冷；水氣與天氣變化主要集中在這裡。</li><li>平流層的臭氧吸收紫外線，使上部增溫、結構較穩定；臭氧是微量氣體，水氣通常比近地面少。</li><li>增溫層氣體吸收高能紫外線和 X 射線而升溫；但空氣稀薄，溫度計的讀數也受日照及散熱影響。</li><li>電離層橫跨中氣層上部與增溫層，可影響部分無線電波傳播；它依電離狀態命名，與溫度分層不同。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給溫度與高度圖，辨認分層、熱源及現象。<br>- 看到臭氧、紫外線、電離或高空溫度計，先確認所在高度與作用。<br><strong>常見陷阱</strong><br>- 臭氧集中不代表比氧氣多；氣體溫度高，也不能直接當成溫度計讀數。</p></aside>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">4-綜 歷屆 2</span><span class="qtag">學測・溫度垂直結構的成因（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 2">☆</button></header><div class="qtext"><p>依據大氣平均垂直結構，在對流層中溫度隨高度上升而降低，每公里約降 6.5°C；但在對流層頂溫度不再降低，大致維持一定；最上層的大氣溫度則隨高度增加而增加。形成這種結構的主要原因為哪些？</p><p>(A) 因為太陽輻射中的無線電波加熱了最上層的大氣　(B) 因為太陽輻射中的紫外線、X 射線加熱了最上層的大氣　(C) 因為臭氧吸收太陽輻射中的紫外線，增加了溫度，使對流層頂的溫度大致維持一定　(D) 因為人類的活動使二氧化碳增加，造成溫室效應，使最上層的大氣溫度增加　(E) 因為大氣的對流活動，將地面附近的能量帶至對流層頂，使對流層頂的溫度大致維持一定</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到對流層頂和最上層的溫度結構，先分別找出上下兩處吸收輻射的氣體。</p><ol><li>最上層（增溫層）：氣體吸收太陽的<strong>紫外線、X 射線</strong>而升溫（B 對）；無線電波幾乎不被吸收（A 錯）。</li><li>對流層頂以上（平流層）有<strong>臭氧</strong>吸收紫外線加熱，使溫度不再隨高度下降（C 對）。</li><li>(D) 溫室氣體主要讓<strong>對流層</strong>增溫，與最上層無關。</li><li>(E) 對流把熱往上送，但對流層內溫度仍隨高度遞減；對流層頂停止降溫的原因是上方臭氧加熱，不是對流。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>每一層的熱源：對流層－地面；平流層－臭氧吸收紫外線；增溫層－紫外線、X射線。</p></div></div></details></article>
+<article class="q q-pr" id="check-5"><header class="qh"><span class="qn">4-綜 關鍵 1</span><span class="qtag">大氣溫度垂直分布（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 1">☆</button></header><div class="qtext"><p>附圖為地球大氣溫度垂直分布圖（由下而上：甲、乙、丙、丁），關於各層的敘述，哪些正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q5-1.webp" width="256" height="349" loading="lazy" alt="題目附圖" data-page="地科2 PDF第28頁"></div><p>(A) 天氣變化主要發生在高度約 20 公里的範圍內，即甲層與乙層的下部　(B) 將某地百葉箱中之水銀溫度計拿至 120 公里高空，其溫度指標會立即顯示約 70 度的高溫　(C) 乙層又可稱臭氧層，且愈上層臭氧含量愈高　(D) 甲層主要能量來自地表　(E) 丙層與丁層均有氣體游離的現象，地表可仰賴高層游離的氣體來做無線電波通訊</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到各層溫度剖面，先依高度的溫度變化標出四層，再逐項核對現象。</p><ol><li>(A) 錯：天氣只發生在<strong>甲層</strong>（對流層，約 12 公里內）。</li><li>(B) 錯：增溫層空氣極稀薄，氣體分子溫度高但能傳給溫度計的熱很少，溫度計不會顯示高溫。</li><li>(C) 錯：臭氧在平流層約 20～30 公里最多，不是愈上層愈多。</li><li>(D) 對：對流層主要由地面加熱。</li><li>(E) 對：電離層從中氣層上部延伸到增溫層，能反射無線電波。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>增溫層「溫度高」但「不燙」：空氣太稀薄。</p></div></div></details></article>
+<p>飛機沿平流層底部飛行，以下判斷該處的大氣性質。</p>
+<article class="q q-pr" id="check-6"><header class="qh"><span class="qn">4-1 小試</span><span class="qtag">原小試2・平流層的特徵</span><button class="mark" type="button" title="標記不會" aria-label="標記4-1 小試">☆</button></header><div class="qtext"><p>承上題，飛機位於平流層。下列哪項敘述正確？</p><ol type="A"><li>氣壓約為800 hPa。</li><li>臭氧所占比例比氧氣高。</li><li>大氣垂直運動比地表附近劇烈。</li><li>水氣含量比地表附近低。</li><li>空氣多呈游離狀態。</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D，水氣含量比地表附近低。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目指定飛機位於平流層，先比較該層與近地面的水氣及垂直運動。</p><p>水氣主要集中在低層對流層，進入平流層的空氣通常很乾，所以D符合本題條件。</p><table class="reading-table"><thead><tr><th>選項</th><th>判斷理由</th></tr></thead><tbody><tr><td>A</td><td>800 hPa仍是較低空的氣壓，與題設平流層不合；應依圖中高度讀對應氣壓。</td></tr><tr><td>B</td><td>臭氧雖在此相對集中，仍是微量氣體，不會超過約21%的氧氣。</td></tr><tr><td>C</td><td>平流層平均結構穩定，強烈垂直對流通常較不發達。</td></tr><tr><td>E</td><td>平流層的空氣仍主要為中性，不能把它當成高空電離區。</td></tr></tbody></table><div class="qsum"><span class="qsum-h">小結</span><p>「臭氧較集中」是在比較不同高度的臭氧，不是在說臭氧多過氧氣。</p></div></div></details></article>
+<p><strong>記住：</strong>先認溫度變化的層次，再對應熱源與水氣分布。</p>
+
+<h2 class="section" id="s3">考點 3：露點與相對溼度</h2>
+<ol><li>飽和是空氣中的實際水氣壓達到該氣溫的飽和水氣壓；氣溫愈高，飽和水氣壓愈大。</li><li>露點是水氣壓不變時，空氣降溫到飽和的溫度；露點愈高，代表實際水氣壓愈高。</li><li>相對溼度＝實際水氣壓÷當時氣溫的飽和水氣壓×100%；它比較的是距離飽和有多近。</li><li>比較氣溫與露點圖時，差距愈小通常愈接近飽和；若實際水氣變化不大，清晨氣溫低時相對溼度通常較高。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給各地氣溫、露點表，或一天中兩條溫度曲線，分別比較水氣多寡與相對溼度。<br>- 看到「最接近飽和」先看氣溫與露點差距；問實際水氣先看露點。<br><strong>常見陷阱</strong><br>- 水氣多不等於相對溼度高，因為相對溼度還要看當時氣溫。</p></aside>
+<article class="q q-pr" id="check-7"><header class="qh"><span class="qn">4-綜 歷屆 4</span><span class="qtag">學測・五城市：相對溼度最高</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 4">☆</button></header><div class="qtext"><p>在空氣中的水氣量不變的情況下，溫度降低而使空氣中的水氣量達到飽和之溫度稱為露點。甲～戊五個城市的氣溫和露點如下表。哪一個城市的相對溼度最高？</p><table class="reading-table"><thead><tr><th>城市</th><th>甲</th><th>乙</th><th>丙</th><th>丁</th><th>戊</th></tr></thead><tbody><tr><th>氣溫（°C）</th><td>35</td><td>34</td><td>30</td><td>20</td><td>20</td></tr><tr><th>露點（°C）</th><td>32</td><td>30</td><td>29</td><td>14</td><td>10</td></tr></tbody></table><p>(A) 甲　(B) 乙　(C) 丙　(D) 丁　(E) 戊</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到城市的氣溫與露點表，先逐一比較兩者差距。</p><p>氣溫與露點<strong>差距愈小</strong>，愈接近飽和，相對溼度愈高。差距：甲 3、乙 4、丙 <strong>1</strong>、丁 6、戊 10 → 丙最高。</p><div class="qsum"><span class="qsum-h">小結</span><p>相對溼度：比「氣溫－露點」的差，愈小愈溼。</p></div></div></details></article>
+<article class="q q-pr" id="check-8"><header class="qh"><span class="qn">4-綜 歷屆 5</span><span class="qtag">學測・五城市：水氣最多</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 5">☆</button></header><div class="qtext"><p>承上表，哪一個城市單位體積空氣中所含的水氣最多？</p><p>(A) 甲　(B) 乙　(C) 丙　(D) 丁　(E) 戊</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目承接前一題的城市表，問實際水氣時先比較各城市露點。</p><p>實際水氣量只看<strong>露點</strong>：露點愈高，水氣愈多。甲的露點 32°C 最高 → 甲。</p><div class="qsum"><span class="qsum-h">小結</span><p>水氣多寡看露點；潮不潮溼（相對溼度）看氣溫和露點的差。</p></div></div></details></article>
+<article class="q q-pr" id="check-9"><header class="qh"><span class="qn">4-綜 歷屆 9</span><span class="qtag">105學測・溫度與露點何時最接近</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 9">☆</button></header><div class="qtext"><p>一般來說，要讓空氣達到飽和的方式有增加水氣和降低溫度兩種方式。露點是一種溼度的表示法，它可以反映空氣中實際水氣含量的多寡。如果沒有特別天氣系統影響的情況下，一天中溫度與露點在什麼時間最接近？</p><p>(A) 中午　(B) 午後　(C) 傍晚　(D) 清晨　(E) 早上十點附近</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到一天中氣溫和露點最接近的時刻，先找一般情況下氣溫最低的時段。</p><p>一天中水氣量（露點）變化不大，氣溫變化大。氣溫最低在<strong>清晨日出前後</strong>，此時氣溫最接近露點，相對溼度最高，也最容易起霧、結露。</p><div class="qsum"><span class="qsum-h">小結</span><p>清晨最溼、午後最乾。</p></div></div></details></article>
+<article class="q q-pr" id="check-10"><header class="qh"><span class="qn">4-綜 歷屆 10</span><span class="qtag">107學測・逐時氣溫與露點（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 10">☆</button></header><div class="qtext"><p>附圖為某測站某日逐時氣溫與露點溫度變化圖，關於該測站當日的天氣狀況描述，下列哪些正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q10-1.webp" width="336" height="281" loading="lazy" alt="題目附圖" data-page="地科2 PDF第24頁"></div><p>(A) 當日 6 時實際水氣含量最高　(B) 當日 6 時相對溼度最高　(C) 當日 12 時相對溼度最低　(D) 當日 14 時空氣中飽和水氣含量最高　(E) 當日清晨有濃霧發生</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到逐時氣溫與露點曲線，先分清兩條線，再比較各時刻露點及溫差。</p><ol><li>(A) 錯：水氣量看露點，露點最高在 12～14 時左右，不是 6 時。</li><li>(B) 對：6 時氣溫最低、與露點差距最小（約 2°C）→ 相對溼度最高。</li><li>(C) 錯：差距最大約在 14 時（約 7°C），不是 12 時。</li><li>(D) 對：飽和水氣量只看氣溫，14 時附近氣溫最高。</li><li>(E) 錯：清晨氣溫仍比露點高約 2°C，沒有達到飽和，不會有濃霧。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>水氣量看露點；飽和量看氣溫；溼不溼看兩者差。</p></div></div></details></article>
+<p><strong>記住：</strong>露點看實際水氣，相對溼度還要看氣溫。</p>
+
+<h2 class="section" id="s4">考點 4：乾溼球溫度計</h2>
+<ol><li>乾球直接測氣溫；溼球包有溼紗布，水蒸發吸熱，因此溼球讀數不高於乾球。</li><li>空氣愈乾燥，水愈容易蒸發，溼球降溫愈多，所以乾溼球溫差通常愈大。</li><li>未飽和時乾球溫度＞溼球溫度＞露點；飽和時三者相等，因為水不再淨蒸發。</li><li>飽和時相對溼度都是 100%，但溫度較高的飽和空氣仍可有較多水氣。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 比較兩地或兩天的乾球、溼球與露點，判斷氣溫、水氣或溼度。<br>- 看到溼紗布先想蒸發吸熱；看到兩球等溫先判斷是否飽和。<br><strong>常見陷阱</strong><br>- 氣溫不是兩球平均；相對溼度相同也不代表實際水氣相同。</p></aside>
+<article class="q q-pr" id="check-11"><header class="qh"><span class="qn">4-2 小試</span><span class="qtag">原小試・乾溼球溫度計基本題</span><button class="mark" type="button" title="標記不會" aria-label="標記4-2 小試">☆</button></header><div class="qtext"><p>已知甲地氣溫為17°C，水氣達飽和；乙地乾球溫度為20°C，露點溫度17°C。請問：</p><ol><li>甲地乾球溫度、溼球溫度各為何？</li><li>乙地溼球溫度可能為？ (A)20°C (B)18.5°C (C)17°C</li></ol></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>①乾球＝溼球＝17°C。②B，18.5°C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到飽和與未飽和兩地，先各自寫出乾球、溼球和露點的大小關係。</p><p><strong>第1題：</strong>水氣已達飽和時，乾球溫度＝溼球溫度＝露點溫度，三者相等，都是17°C。</p><p><strong>第2題：</strong>乙地水氣未達飽和（乾球20°C≠露點17°C），這時三者的大小關係是「乾球 ＞ 溼球 ＞ 露點」，即 20°C ＞ 溼球 ＞ 17°C。選項中只有(B)18.5°C落在這個範圍內；(A)20°C會跟乾球相等（代表飽和，矛盾），(C)17°C會跟露點相等（也代表飽和，矛盾）。</p><div class="qsum"><span class="qsum-h">小結</span><p>飽和時三溫相等；未飽和時乾球＞溼球＞露點，答案要落在這個嚴格介於中間的範圍。</p></div></div></details></article>
+<article class="q q-pr" id="check-12"><header class="qh"><span class="qn">4-綜 歷屆 19</span><span class="qtag">112學測・乾溼球讀數相同（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 19">☆</button></header><div class="qtext"><p>乾、溼球溫度計可用來測量空氣溼度。若甲地測得的乾、溼球溫度皆為 30°C，而乙地乾、溼球溫度皆為 20°C。下列敘述哪些正確？</p><p>(A) 兩地的相對溼度一樣　(B) 甲地的相對溼度較高　(C) 甲地的相對溼度較低　(D) 兩地的水氣含量相等　(E) 甲地的水氣含量較多　(F) 甲地的水氣含量較少</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>兩地乾球與溼球各自相等，先判斷飽和狀態，再比較兩地溫度。</p><ol><li>乾球＝溼球 → 已飽和 → 兩地相對溼度都是 <strong>100%</strong>（A 對）。</li><li>飽和時露點＝氣溫：甲露點 30°C、乙 20°C → 甲水氣較多（E 對）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>乾球＝溼球＝露點 ⇔ 飽和。</p></div></div></details></article>
+<article class="q q-pr" id="check-13"><header class="qh"><span class="qn">4-綜 關鍵 9</span><span class="qtag">實驗・乾溼球溫度計（選錯誤）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 9">☆</button></header><div class="qtext"><p>垂文分別在 9 月 1 日與 9 月 2 日做乾溼球實驗，結果如下圖（接裝水容器的是溼球），請問下列選項何者<strong>錯誤</strong>？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q13-1.webp" width="701" height="333" loading="lazy" alt="題目附圖" data-page="地科2 PDF第30頁"></div><p>(A) 由於乾球與溼球之平均溫度均為 29°C，因此兩日氣溫均為 29°C　(B) 9 月 1 日之飽和水氣壓較低　(C) 9 月 2 日測量時之相對溼度較低　(D) 溼球溫度比乾球溫度低的原因為水蒸發會吸熱　(E) 這兩日水氣均未達飽和</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到兩天的乾溼球圖，先辨認接水容器的是哪一球，讀出乾球氣溫和兩球溫差。</p><ol><li>(A) <strong>錯</strong>：氣溫就是<strong>乾球</strong>的讀數，不是乾、溼球的平均。</li><li>(B) 對：9 月 1 日乾球較低 → 飽和水氣壓較低。</li><li>(C) 對：9 月 2 日乾、溼球溫差較大 → 較乾燥。</li><li>(D) 對。(E) 對：兩天乾、溼球都不相等 → 都沒飽和。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>氣溫＝乾球；溫差大＝乾燥。</p></div></div></details></article>
+<p><strong>記住：</strong>乾球量氣溫，乾溼球差距反映蒸發與溼度。</p>
+
+<h2 class="section" id="s5">考點 5：雲、霧、露、霜的形成</h2>
+<ol><li>水氣達飽和可經降溫或增加水氣；自然界常由降溫達飽和，再凝結成水滴或凝華成冰晶。</li><li>高空懸浮的水滴或冰晶是雲，接近地面的叫霧；附著物體表面的液態水是露，冰晶是霜。</li><li>空氣中的氣膠可作凝結核，幫助水氣聚集；冷物表面若低於周圍空氣的露點，水氣可能在表面凝結。</li><li>地面輻射冷卻、暖溼空氣流過冷海面，或氣流受熱、地形及輻合抬升，都可能使空氣冷卻成雲霧；下沉則壓縮增溫，不易凝結。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給飽和曲線、冷鏡片或氣流運動情境，問哪種途徑容易凝結。<br>- 看到迎風坡、冷海面、地面輻合或高壓下沉，先判斷空氣升降與冷暖。<br><strong>常見陷阱</strong><br>- 雲與霧主要差在位置；露與霜附著表面，不要只憑「有水氣」就判定凝結。</p></aside>
+<article class="q q-pr" id="check-14"><header class="qh"><span class="qn">4-綜 歷屆 3</span><span class="qtag">99學測・露的形成途徑</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 3">☆</button></header><div class="qtext"><p>附圖是水氣含量和溫度的關係圖，粗線為飽和曲線，甲、乙、丙和丁的箭頭方向分別代表大氣中的水氣要達到飽和的途徑。關於自然現象「露」的形成，主要是透過哪一種途徑而達到飽和？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q14-1.webp" width="512" height="317" loading="lazy" alt="題目附圖" data-page="地科2 PDF第23頁"></div><p>甲：溫度固定時，增加水氣而達飽和；乙：經升高溫度及減少水氣量而達飽和；丙：水氣含量不變時，降低溫度而達飽和；丁：經降低溫度及增加水氣而達飽和。</p><p>(A) 甲　(B) 乙　(C) 丙　(D) 丁</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到飽和曲線與露的形成，先找夜間冷卻時溫度和水氣量各如何改變。</p><p>露：夜間地面輻射冷卻，貼近地面的空氣<strong>水氣量不變、溫度下降</strong>到露點，水氣凝結在物體表面 → 丙（水平往左走到飽和曲線）。</p><div class="qsum"><span class="qsum-h">小結</span><p>自然界的雲、霧、露多半靠「降溫」達飽和。</p></div></div></details></article>
+<article class="q q-pr" id="check-15"><header class="qh"><span class="qn">4-綜 關鍵 3</span><span class="qtag">情境・走出冷氣房眼鏡起霧</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 3">☆</button></header><div class="qtext"><p>學校 K 館溫度設定為 25°C 恆溫，某日室外氣溫 34°C、相對溼度 95%，另一日室外氣溫 18°C、相對溼度同為 95%。戴眼鏡的其昌從 K 館走出去時，哪時候鏡片較易霧掉？</p><p>(A) 34°C 時　(B) 18°C 時</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到冷鏡片走到室外，先比較鏡片溫度與室外空氣的露點。</p><ol><li>鏡片剛出門時約 25°C；室外空氣碰到鏡片被冷卻，若降到露點以下就在鏡片上凝結。</li><li>34°C、95% 的露點約 33°C，高於 25°C → 碰到鏡片就凝結起霧。</li><li>18°C、95% 的露點約 17°C，比鏡片還冷 → 不會凝結。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>物體溫度低於空氣露點 → 表面凝結。</p></div></div></details></article>
+<article class="q q-pr" id="check-16"><header class="qh"><span class="qn">4-綜 關鍵 7</span><span class="qtag">最不易有雲霧</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 7">☆</button></header><div class="qtext"><p>下列哪種情形<strong>最不易</strong>有雲霧產生？</p><p>(A) 氣流沿著迎風面上升　(B) 暖溼空氣吹過冷海面　(C) 空氣受地表溫度加溫而上升　(D) 地表空氣水平往低壓中心輻合　(E) 地表高壓中心空氣往外輻散</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目問最不易形成雲霧的氣流，先判斷各情境是冷卻、上升還是下沉。</p><p>高壓中心地面輻散，必有上方空氣<strong>下沉</strong>補充 → 壓縮增溫 → 不易成雲。A、C、D 都造成上升冷卻；B 是平流霧。</p><div class="qsum"><span class="qsum-h">小結</span><p>高壓：輻散、下沉、晴朗。</p></div></div></details></article>
+<article class="q q-pr" id="check-17"><header class="qh"><span class="qn">4-綜 歷屆 21</span><span class="qtag">113學測・水氣不變時最不可能凝結（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 21">☆</button></header><div class="qtext"><p>若空氣中水氣含量不變，下列哪些方式<strong>最不可能</strong>發生水氣凝結現象？</p><p>(A) 氣流受到地形抬升，沿著迎風坡爬升　(B) 暖空氣吹過冷海面　(C) 地表輻射冷卻導致空氣溫度改變　(D) 空氣在地面高壓區的上空向下沉　(E) 空氣塊過山後產生落山風</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>水氣含量不變且問凝結，先找哪些過程會讓空氣降溫或增溫。</p><p>水氣不變時，要凝結只能靠<strong>降溫</strong>。A（上升絕熱冷卻）、B（被冷海面冷卻，平流霧）、C（輻射冷卻，輻射霧、露）都會降溫。D、E 都是空氣<strong>下沉、壓縮增溫</strong>，離飽和愈來愈遠。</p><div class="qsum"><span class="qsum-h">小結</span><p>下沉 → 增溫 → 不會凝結。</p></div></div></details></article>
+<p><strong>記住：</strong>先看空氣是否冷卻至飽和，再看水滴或冰晶的位置。</p>
+
+<h2 class="section" id="s6">考點 6：絕熱冷卻與空氣塊上升、翻山</h2>
+<ol><li>絕熱指空氣塊不與環境交換熱量；上升時外界氣壓降低，空氣塊膨脹作功而降溫，下沉則壓縮升溫。</li><li>未飽和上升通常以乾絕熱率約 10°C／公里降溫；題目若給露點每公里下降 2°C，兩者差距每公里縮小 8°C，直到相等而成雲。</li><li>飽和後水氣凝結釋放潛熱，部分抵銷降溫，所以溼絕熱降溫較慢；用題目指定的每公里降溫值，飽和時氣溫與露點相等。</li><li>翻山時分段計算：先算成雲高度，再算飽和上升；若水分已降落，背風坡下沉依未飽和的乾絕熱率增溫。</li><li>環境平均氣溫遞減率是不同高度的環境氣溫差，不是空氣塊的絕熱率；題目給哪一種就用哪一種。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給山高、山腳氣溫與露點，求雲底、山頂或背風坡溫度。<br>- 看到「不與環境交換熱量」，先判斷起點是否飽和；氣壓圖則先讀高度。<br><strong>常見陷阱</strong><br>- 不可整趟只用一種遞減率；問雲底要找剛達飽和的位置，不是所有已在雲內的位置。</p></aside>
+<article class="q q-pr" id="check-18"><header class="qh"><span class="qn">4-綜 歷屆 14</span><span class="qtag">109學測・飽和空氣塊上升</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 14">☆</button></header><div class="qtext"><p>已知未飽和空氣塊的溫度直減率約為 10°C/公里，飽和空氣塊的溫度直減率約為 6°C/公里。若觀測員在地面空地量到氣溫、露點溫度皆為 30°C，則在地面的一個空氣塊，若不與環境交換熱量，上升到 2 公里高度時，其氣溫、露點溫度為下列何者？</p><p>(A) 氣溫 10°C、露點 10°C　(B) 氣溫 10°C、露點 18°C　(C) 氣溫 18°C、露點 18°C　(D) 氣溫 18°C、露點 30°C　(E) 氣溫 30°C、露點 30°C</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目給地面氣溫與露點相同，先判斷空氣塊出發時是否飽和。</p><p>氣溫＝露點 → 一開始就飽和，一路用 6°C/km：30－6×2＝<strong>18°C</strong>。上升時持續飽和（多的水氣凝結掉），露點＝氣溫＝18°C。</p><div class="qsum"><span class="qsum-h">小結</span><p>已飽和的空氣塊：露點跟著氣溫一起降。</p></div></div></details></article>
+<article class="q q-pr" id="check-19"><header class="qh"><span class="qn">4-綜 歷屆 11</span><span class="qtag">108學測・空氣塊翻山（應選3項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 11">☆</button></header><div class="qtext"><p>如果不與外在環境交換能量，當未飽和時，一個空氣塊每上升 1000 m，其溫度會降低約 10°C，露點會降低約 2°C；而飽和後，每上升 1000 m 其溫度會降低約 5°C。如圖，有一座高度 2000 m 的山，氣流在迎風面受地形抬升、沿坡面上升，當水氣達到飽和後，開始成雲和降水。如果在迎風面山腳下（甲地）觀測到氣溫為 30°C，露點為 22°C。假設空氣塊由甲地到達山頂（乙地），再下降到背風面山腳下（丙地）的過程，不與外在環境交換能量，則下列敘述哪些正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q19-1.webp" width="448" height="220" loading="lazy" alt="題目附圖" data-page="地科2 PDF第24頁"></div><p>(A) 空氣塊開始成雲時的露點約為 15°C　(B) 空氣塊到達乙地的溫度約為 15°C　(C) 空氣塊到達乙地的露點約為 15°C　(D) 空氣塊到達丙地的溫度約為 28°C　(E) 空氣塊到達丙地的溫度約為 35°C</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、C、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到迎風坡、山頂與背風坡，先用氣溫和露點的下降率求成雲高度。</p><ol><li>成雲高度：30－10h＝22－2h → h＝1 km，此時溫度＝露點＝<strong>20°C</strong>（A 錯）。</li><li>1→2 km 已飽和：20－5×1＝<strong>15°C</strong>；飽和時露點＝溫度 → 乙地溫度、露點都是 15°C（B、C 對）。</li><li>下山 2 km，水已降掉、不再飽和 → 每公里增溫 10°C：15＋20＝<strong>35°C</strong>（E 對、D 錯）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>焚風：上山前段降溫快、後段降溫慢；下山一路快速增溫 → 背風面又乾又熱。</p></div></div></details></article>
+<article class="q q-pr" id="check-20"><header class="qh"><span class="qn">4-綜 歷屆 12</span><span class="qtag">109學測・帕斯卡的山</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 12">☆</button></header><div class="qtext"><p>法國數學家帕斯卡利用兩支相似的水銀氣壓計，將一支帶到多姆山的山頂，一支留在山腳下，發現山頂的氣壓計高度比山腳下的低了 7.6 公分。假設山腳下的氣壓為一大氣壓（約 1013 百帕），氣溫約 20°C，試由附圖判斷多姆山高度及山頂的氣溫分別為多少？（平均溫度遞減率為每上升 100 公尺下降 0.65°C）</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q20-1.webp" width="373" height="299" loading="lazy" alt="題目附圖" data-page="地科2 PDF第25頁"></div><p>(A) 約 500 公尺高，山頂氣溫約 15.0°C　(B) 約 500 公尺高，山頂氣溫約 17.5°C　(C) 約 1000 公尺高，山頂氣溫約 10.0°C　(D) 約 1000 公尺高，山頂氣溫約 13.5°C　(E) 約 1500 公尺高，山頂氣溫約 10.0°C</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到水銀柱降低量和氣壓高度圖，先求山頂氣壓，再讀高度並套用題設的環境遞減率。</p><ol><li>山頂水銀柱：76－7.6＝68.4 cm＝0.9 大氣壓 → 1013×0.9 ≈ <strong>912 百帕</strong>。</li><li>查圖：約 900 百帕對應約 1000 公尺 → 山高約 <strong>1000 公尺</strong>。</li><li>氣溫：20－0.65×(1000÷100)＝20－6.5＝<strong>13.5°C</strong>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>水銀柱降 10% → 氣壓降 10% → 低空大約上升 1 公里。</p></div></div></details></article>
+<article class="q q-pr" id="check-21"><header class="qh"><span class="qn">4-綜 歷屆 23</span><span class="qtag">113學測・誰剛好開始成雲（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 23">☆</button></header><div class="qtext"><p>一個未飽和空氣塊在上升過程中，假設不與環境交換熱量，每上升 1 公里，溫度約降低 10°C；露點每上升 1 公里約降低 2°C。假設有五個地點，在高度為 0 時其溫度和露點如下表，若各自的空氣塊上升至附圖的高度時，哪些地點較可能開始形成雲層的雲底？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q21-1.webp" width="216" height="240" loading="lazy" alt="題目附圖" data-page="地科2 PDF第27頁"></div><table class="reading-table"><thead><tr><th>地點</th><th>甲</th><th>乙</th><th>丙</th><th>丁</th><th>戊</th></tr></thead><tbody><tr><th>溫度（°C）</th><td>18</td><td>22</td><td>26</td><td>30</td><td>34</td></tr><tr><th>露點（°C）</th><td>12</td><td>14</td><td>18</td><td>18</td><td>14</td></tr></tbody></table><p>(A) 甲　(B) 乙　(C) 丙　(D) 丁　(E) 戊</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到各地氣溫、露點與抬升高度，先求每地溫差，再算剛達飽和的高度。</p><ol><li>溫度與露點每公里差距縮小 10－2＝8°C → 成雲高度（雲底）＝(溫度－露點)÷8 km。</li><li>甲 6÷8＝0.75；乙 8÷8＝<strong>1</strong>；丙 8÷8＝1；丁 12÷8＝1.5；戊 20÷8＝<strong>2.5</strong> km。</li><li>圖中上升高度：甲 0.5、乙 1、丙 1.5、丁 2、戊 2.5 km。</li><li>剛好到達雲底的是<strong>乙、戊</strong>；甲還沒到，丙、丁已超過雲底（雲底在更低處）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>雲底高度（km）≈（氣溫－露點）÷ 8。</p></div></div></details></article>
+<p><strong>記住：</strong>先找飽和轉折點，再按每一段的條件計算。</p>
+
+<h2 class="section" id="s7">考點 7：風的三種力與判斷風向</h2>
+<ol><li>氣壓梯度力垂直等壓線，由高壓指向低壓；等壓線愈密，梯度力通常愈大。</li><li>科氏力使運動中的空氣在北半球向前進方向右偏，且垂直風向；同緯度下風速愈快，科氏力愈大。</li><li>高空摩擦小，地轉風的梯度力與科氏力平衡，風平行等壓線；北半球背對風來向時，低壓在左。</li><li>地面摩擦力與風向相反，會減慢風速及科氏力，因此風斜穿等壓線吹向低壓；摩擦愈大，穿越角度通常愈大。</li><li>風向按風的來向命名：例如北風是由北往南吹；圖上箭頭若表示流動方向，讀名稱前要先反過來。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給等壓線和方向箭頭，問梯度力、科氏力或地面與高空風向。<br>- 看到海陸摩擦比較，先比較風速，再比較科氏力。<br><strong>常見陷阱</strong><br>- 梯度力指向低壓，但風不一定直接吹向低壓；風名是來向。</p></aside>
+<article class="q q-pr" id="check-22"><header class="qh"><span class="qn">4-綜 歷屆 16</span><span class="qtag">110學測・白貝羅定律</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 16">☆</button></header><div class="qtext"><p>十九世紀中期，荷蘭氣象學家白貝羅發現：在北半球，若背對風的來向，則高壓在其右邊，低壓在左邊。但後來發現，這個經驗定律比較適合應用在航空或航海上，而不太適合在陸地上使用。其最主要的原因為何？</p><p>(A) 因為海上或空中的氣象測站較少，使用經驗定律比較方便　(B) 因為海上及空中的摩擦力較小，風向比較不會偏轉　(C) 因為陸地上的氣壓梯度力比較小，風速比較快　(D) 因為陸上氣象資訊更新較快，不必使用經驗定律　(E) 因為航運比陸運更需要氣象資訊</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目比較航海、航空和陸地的風向判讀，先比較摩擦力對風的影響。</p><p>白貝羅定律其實就是「風平行等壓線」的地轉風。海上、高空摩擦小，風接近平行等壓線，定律準；陸地摩擦大，風斜穿等壓線吹向低壓，夾角大，用這個定律判斷高低壓就會偏差。</p><div class="qsum"><span class="qsum-h">小結</span><p>摩擦小 → 接近地轉風 → 白貝羅定律準。</p></div></div></details></article>
+<article class="q q-pr" id="check-23"><header class="qh"><span class="qn">4-3 小試 5</span><span class="qtag">學測・摩擦力的影響</span><button class="mark" type="button" title="標記不會" aria-label="標記4-3 小試 5">☆</button></header><div class="qtext"><p>如果在赤道以外的地方考慮近地面的風，由於流動的空氣與地面有摩擦力，則下列哪一項敘述是正確的？</p><p>(A) 摩擦力使風速降低，科氏力隨之減小　(B) 摩擦力使風速降低，科氏力隨之增大　(C) 摩擦力對風速沒影響，但對科氏力影響很大　(D) 摩擦力對科氏力沒影響，但對風速影響很大　(E) 摩擦力對風速和科氏力都沒有影響</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到近地面摩擦力，先判斷風速變化，再推論科氏力變化。</p><p>摩擦力與風向相反 → 風速變慢；科氏力大小和風速成正比 → 科氏力也變小。這就是摩擦力「間接」影響風向的原因。</p><div class="qsum"><span class="qsum-h">小結</span><p>摩擦 → 風慢 → 科氏力小 → 偏轉少。</p></div></div></details></article>
+<article class="q q-pr" id="check-24"><header class="qh"><span class="qn">4-3 小試 6</span><span class="qtag">學測・由高空北風推地面風</span><button class="mark" type="button" title="標記不會" aria-label="標記4-3 小試 6">☆</button></header><div class="qtext"><p>氣壓梯度力和科氏力平衡時所吹的風稱為地轉風。北半球某地高空的地轉風是吹北風，假設從地面到高空的等壓線分布型態不變，則地面風最有可能吹什麼風？</p><p>(A) 北風　(B) 東風　(C) 西南西風　(D) 東北東風　(E) 北北西風</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到北半球高空地轉風的風名，先換成空氣移動方向，再找低壓側。</p><ol><li>高空吹北風 → 空氣往南走，等壓線呈南北走向。</li><li>北半球地轉風：背風而立，低壓在左。面向南方時左手邊是<strong>東</strong> → 東邊低壓、西邊高壓 → 梯度力指向<strong>東</strong>。</li><li>地面風：從梯度力（往東）往右偏約 60～75° → 往<strong>南南東</strong>吹 → 從北北西吹來。</li><li>也可以這樣想：地面風比地轉風「再偏向低壓一點」→ 北風稍微偏向東邊的低壓 → 北北西風。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>地面風＝地轉風往低壓側轉 15～30°。</p></div></div></details></article>
+<article class="q q-pr" id="check-25"><header class="qh"><span class="qn">4-綜 關鍵 12</span><span class="qtag">北半球等壓線與箭頭（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 12">☆</button></header><div class="qtext"><p>右圖為北半球某地之地面等壓線分布圖（左上 1008 hPa、右下 1012 hPa），關於 ①～⑧ 之箭頭方向敘述哪些正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q25-1.webp" width="323" height="309" loading="lazy" alt="題目附圖" data-page="地科2 PDF第31頁"></div><p>(A) 此地風向為 ③　(B) 此地面風向所受科氏力方向為 ④　(C) 若高空等壓線分布如地面一樣，高空地轉風方向為 ⑤　(D) 氣壓梯度力方向為 ⑦　(E) 地轉風的科氏力方向為 ②</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C、D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到等壓線和多個方向箭頭，先畫出由高壓垂直指向低壓的梯度力。</p><ol><li>氣壓梯度力：垂直等壓線、指向低壓（左上）→ <strong>⑦</strong>（D 對）。</li><li>地轉風：由 ⑦ 右偏 90°、平行等壓線 → <strong>⑤</strong>（C 對）。</li><li>地面風：介於 ⑦ 與 ⑤ 之間 → ④（A 錯）。</li><li>科氏力在風的右方垂直：地面風 ④ 的科氏力約 ⑥（B 錯）；地轉風 ⑤ 的科氏力是 ⑧，與梯度力 ⑦ 相反（E 錯）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>梯度力 → 右轉 90° 是地轉風 → 再右轉 90° 是它的科氏力。</p></div></div></details></article>
+<p><strong>記住：</strong>先由高壓指向低壓，再依半球與摩擦判斷風。</p>
+
+<h2 class="section" id="s8">考點 8：冷熱與氣壓：熱力環流</h2>
+<ol><li>同氣壓下，冷空氣密度較大，因此同樣高度內包含的空氣較重，氣壓隨高度下降較快，等壓面較密。</li><li>暖氣柱膨脹，等壓面間距較大；在理想熱力環流中，近地面暖區空氣上升、形成低壓，冷區下沉、形成高壓。</li><li>環流的近地面氣流由冷高壓吹向暖低壓，高空再流回；這是題設中的簡化環流，暖空氣不一定都上升。</li><li>地面氣壓相同，代表同面積上方空氣柱重量相同；較暖空氣的飽和水氣壓較高。</li><li>比較海陸風時也要看摩擦：相同緯度及梯度力下，陸地摩擦較大，風較慢、科氏力較小。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給冷暖氣柱的等壓面，或指定兩地氣壓相同，問密度、升降與風。<br>- 比較陸地和海洋風時，留意是否指定相同緯度與梯度力。<br><strong>常見陷阱</strong><br>- 不可只憑暖就斷定一定上升；氣壓相同時，也不可說某處整根氣柱較重。</p></aside>
+<article class="q q-pr" id="check-26"><header class="qh"><span class="qn">4-3 小試 8</span><span class="qtag">冷熱造成的氣壓差（熱力環流）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-3 小試 8">☆</button></header><div class="qtext"><p>假設附圖為溫度不同所導致甲、乙兩地氣壓差異之垂直等壓線分布圖：甲地上方的等壓面<strong>間距較大</strong>、往乙地逐漸收攏；最低一條等壓面在甲地較低、在乙地較高。關於兩地之敘述何者正確？</p><p>(A) 甲地近地面氣壓較高　(B) 乙地近地面氣溫較高　(C) 地面空氣為甲吹向乙　(D) 乙地應有垂直下沉氣流　(E) 甲地近地面附近空氣密度較高</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到冷暖氣柱的等壓面間距，先判斷哪一側氣柱膨脹，再比較近地面氣壓。</p><ol><li>等壓面間距大 → 氣柱受熱膨脹 → <strong>甲地較熱</strong>，乙地較冷。</li><li>近地面：最低的等壓面在乙地比較高 → 同一高度乙的氣壓較大 → <strong>乙地面高壓、甲地面低壓</strong>（A 錯）。</li><li>B 錯：乙較冷。E 錯：甲熱空氣密度較小。</li><li>C 錯：地面風由高壓吹向低壓 → 由<strong>乙吹向甲</strong>。</li><li>D 對：乙地面高壓 → 中心下沉；甲則上升，形成熱力環流。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>地面：熱 → 低壓、上升；冷 → 高壓、下沉。（高空則相反）</p></div></div></details></article>
+<article class="q q-pr" id="check-27"><header class="qh"><span class="qn">4-綜 關鍵 13</span><span class="qtag">陸地與海洋的風</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 13">☆</button></header><div class="qtext"><p>有兩地分別位於緯度 25 度，甲地位於摩擦力較大的陸地，乙地位於海洋，當兩地氣壓梯度力相等時，下列兩地之比較敘述何者正確？</p><p>(A) 甲地風速較快　(B) 甲地科氏力較小　(C) 乙地風向與等壓線夾角較大　(D) 乙地科氏力與摩擦力的夾角較小　(E) 甲地科氏力與風向的夾角較小</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>兩地緯度和梯度力相同但海陸摩擦不同，先比較風速，再判斷科氏力與夾角。</p><ol><li>甲摩擦大 → 風速慢（A 錯）→ 科氏力小（B 對）→ 偏轉少 → 與等壓線夾角<strong>大</strong>（C 說乙較大，錯）。</li><li>(D)(E) 錯：科氏力永遠垂直風向、摩擦力永遠與風向相反，所以科氏力與風向夾 90°、與摩擦力也夾 90°，兩地都一樣。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>夾角題：三力之間的固定角度不會變，會變的是風與等壓線的夾角。</p></div></div></details></article>
+<article class="q q-pr" id="check-28"><header class="qh"><span class="qn">4-綜 關鍵 14</span><span class="qtag">冷暖兩地，地面氣壓相同（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 14">☆</button></header><div class="qtext"><p>今有兩地空氣溫度如圖所示：甲地冷、乙地暖，假設這兩地的地面氣壓值相同，關於此兩地空氣之敘述哪些正確？</p><p>(A) 甲地空氣密度較乙地小　(B) 甲地的地表附近垂直等壓線較乙地密集　(C) 乙地為暖空氣，因此中心一定為上升氣流　(D) 乙地單位面積上空氣柱的重量低於甲地　(E) 乙地空氣可容納水氣較多</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目指定冷暖兩地地面氣壓相同，先利用氣壓相同判斷氣柱重量，再比較密度。</p><ol><li>(A) 錯：冷空氣密度較大。</li><li>(B) 對：密度大 → 氣壓隨高度降得快 → 等壓面靠得近、較密。</li><li>(C) 錯：暖不一定上升，例如副熱帶太平洋高壓又暖又下沉。</li><li>(D) 錯：地面氣壓相同 → 空氣柱重量相同。</li><li>(E) 對：溫度高 → 飽和水氣量大。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>冷 → 密 → 等壓面擠在一起。</p></div></div></details></article>
+<p><strong>記住：</strong>先確認比較條件，再由密度、氣壓與摩擦推論。</p>
+
+<h2 class="section" id="s9">考點 9：衛星雲圖與氣象雷達</h2>
+<ol><li>可見光雲圖利用雲反射的陽光：雲愈白通常愈厚，需要日照；紅外線雲圖看雲頂溫度，通常愈白表示雲頂愈冷、愈高，日夜可用。</li><li>兩圖搭配可比較雲厚與雲頂高度；衛星雲圖呈現雲頂，不能直接判斷雲底。</li><li>雷達主動發射波並接收降水粒子回波；回波強通常與降雨較強有關，但相關不等於固定比例。</li><li>都卜勒雷達利用回波頻率變化判斷粒子沿雷達方向接近或遠離：接近時回波頻率較高。</li><li>比較雲圖與天氣圖時，先找雲帶、旋渦與高低壓，再看季風的迎風面；地面高壓通常下沉、少雲。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 對照兩種衛星雲圖，或比較雷達回波、雨量及地面天氣圖。<br>- 看到都卜勒，先判斷降水粒子相對雷達是接近還是遠離。<br><strong>常見陷阱</strong><br>- 可見光白與紅外線白代表不同性質；瞬時回波與累積雨量相關，不代表一定正比。</p></aside>
+<p>以下雲圖為同一時刻的可見光與紅外線影像；可見光愈白代表雲愈厚，紅外線愈白代表雲頂愈高。</p>
+<article class="q q-pr" id="check-29"><header class="qh"><span class="qn">4-4 小試 2</span><span class="qtag">混合題・可見光＋紅外線雲圖</span><button class="mark" type="button" title="標記不會" aria-label="標記4-4 小試 2">☆</button></header><div class="qtext"><div class="qimgs"><img class="qimg" src="img/earth-4-考-q29-1.webp" width="875" height="337" loading="lazy" alt="題目附圖" data-page="地科2 PDF第21頁"></div><p>關於附圖中 A 區域與 B 區域中雲的特色敘述，何者正確？</p><p>(A) A 區域應為高壓帶，地面氣流輻合，形成雲雨天氣　(B) B 區域應該有旺盛的上升氣流，形成厚且高聳的積狀雲　(C) A 區域的雲頂比 B 區域高　(D) A、B 兩區域的雲均為薄雲　(E) 兩地的雲底一樣低</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到同時刻的可見光與紅外線雲圖，先分別比較各區的雲厚及雲頂高度。</p><ol><li><strong>A</strong>：可見光偏白（厚），紅外線暗（雲頂低、溫度高）→ 又厚又低的雲（層狀雲）。</li><li><strong>B</strong>：可見光白、紅外線也白 → 又厚、雲頂又高 → 旺盛上升氣流形成的<strong>積雨雲</strong>（B 對）。</li><li>(A) 高壓是地面輻散、下沉，不會輻合成雲雨 ✗。(C) A 雲頂較低 ✗。(D) 兩區在可見光都不暗，不是薄雲 ✗。(E) 兩種雲圖都只看得到雲頂，無法判斷雲底 ✗。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>可見光看厚薄、紅外線看高低；兩張都白 → 積雨雲。</p></div></div></details></article>
+<article class="q q-pr" id="check-30"><header class="qh"><span class="qn">4-綜 關鍵 17</span><span class="qtag">圖表・雲圖找錯誤的標示（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 17">☆</button></header><div class="qtext"><p>附圖一為 2020 年 10 月 9 日早上 7:30 的紅外線衛星雲圖，附圖二為綜合各種天氣觀測所繪出的地面天氣圖，但甲、乙、丙當中有一個地方標示錯誤，請比對兩張圖，下列敘述哪些正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q30-1.webp" width="890" height="421" loading="lazy" alt="題目附圖" data-page="地科2 PDF第32頁"></div><p>(A) 臺灣已受大陸高壓的影響，盛行東北風　(B) 該時刻花蓮地區位於背風面，氣溫應高於同緯度的臺中地區　(C) 甲為高壓沒錯，因為 10 月大陸冷高壓勢力擴張，且高壓中心天氣晴朗少雲　(D) 乙應是錯誤的，已經 10 月了，在那麼高的緯度不可能有颱風　(E) 丙應是正確的，隨著太陽南移，赤道以北海域有機會發展高壓環流</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A、C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到紅外線雲圖配地面天氣圖，先對照雲系與高低壓位置，再判斷季風方向。</p><ol><li>雲圖：大陸北方少雲 → 甲為高壓合理（C 對）；日本南方有一團圓形密雲 → 乙的颱風正確（D 錯，10 月仍可能有颱風北上）。</li><li>南海、菲律賓一帶雲很多 → 丙應是低壓或熱帶擾動，標成高壓是錯的（E 錯）。</li><li>大陸高壓南伸 → 臺灣吹東北風（A 對）；花蓮面向東北風，是<strong>迎風面</strong>（B 錯）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>雲圖找高壓：大片無雲；找颱風：圓形密實雲團。</p></div></div></details></article>
+<article class="q q-pr" id="check-31"><header class="qh"><span class="qn">4-綜 關鍵 19</span><span class="qtag">混合題・雷達回波與雨量</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 19">☆</button></header><div class="qtext"><p>圖一為 2004 年 7 月 2 日 7:00 敏督利颱風引進西南氣流時期之臺灣地區雷達回波圖，圖二為 7 月 2 日 0:00～12:00 臺灣各地 12 小時累積雨量分布圖。比較兩張圖，雷達回波的強弱與降雨量之關係為何？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q31-1.webp" width="458" height="319" loading="lazy" alt="題目附圖" data-page="地科2 PDF第32頁"></div><p>(A) 正比　(B) 正相關　(C) 反比　(D) 負相關　(E) 相關性極低</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到雷達回波與累積雨量兩張圖，先比較強回波區與大雨量區的位置。</p><p>回波強的地方（臺灣中南部、西南方），累積雨量也大 → 同增同減 → <strong>正相關</strong>。但只看兩張圖無法確定是嚴格的「正比」（成固定倍數），所以選正相關。</p><div class="qsum"><span class="qsum-h">小結</span><p>同方向變化但不是固定倍數 → 正相關，不是正比。</p></div></div></details></article>
+<article class="q q-pr" id="check-32"><header class="qh"><span class="qn">4-綜 關鍵 20</span><span class="qtag">混合題・都卜勒雷達</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 20">☆</button></header><div class="qtext"><p>承上題，請依據都卜勒效應原理判斷，此時期位於墾丁的都卜勒雷達，其朝向臺灣南部外海雲系所發出的雷達波頻率，與收到的回波頻率相比，有無不同？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>有不同：收到的回波頻率較高。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>承接前題的西南氣流與墾丁雷達，先判斷南方雲系相對雷達是接近或遠離。</p><p>西南氣流把臺灣南方、西南方海上的雲系往東北方（朝臺灣、朝墾丁）推，雲系是<strong>朝雷達接近</strong>，反射回來的波被壓縮 → 回波頻率<strong>變高</strong>。都卜勒雷達就是用頻率的變化來推算風（降水粒子）朝向或遠離雷達的速度。</p><div class="qsum"><span class="qsum-h">小結</span><p>接近 → 頻率變高；遠離 → 頻率變低。</p></div></div></details></article>
+<p><strong>記住：</strong>可見光看厚、紅外線看雲頂，雷達看降水與運動。</p>
+
+<h2 class="section" id="s10">考點 10：天氣圖、鋒面與氣旋</h2>
+<ol><li>等壓線連接同氣壓位置；往中心氣壓升高是高壓，降低是低壓。北半球近地面高壓順時針向外吹、下沉；低壓逆時針向內吹、上升。</li><li>測站符號的圓圈表示雲量，風桿長線指向風的來向；氣壓簡寫省略前面的 9 或 10 與小數點，要配合附近等壓線還原。</li><li>冷鋒是冷空氣推進暖空氣，三角形尖端指移動方向；暖鋒用半圓，滯留鋒則是半圓和三角形分列兩側。</li><li>冷鋒通常較快，追上暖鋒可形成囚錮鋒；北半球溫帶氣旋的低壓中心連接冷、暖鋒，兩鋒之間可有暖區。</li><li>熱帶氣旋形成於低緯暖海面，通常沒有鋒面；溫帶氣旋形成於中緯度冷暖氣團交界，水平尺度通常較大。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 讀測站符號、等壓線與鋒面，判斷氣壓、風向和各區天氣。<br>- 看到三角形先看尖端；看到氣旋先找中心和鋒面。<br><strong>常見陷阱</strong><br>- 風桿指來向，與氣流前進方向相反；不能只憑單張天氣圖斷定一定有濃霧。</p></aside>
+<article class="q q-pr" id="check-33"><header class="qh"><span class="qn">4-綜 關鍵 15</span><span class="qtag">圖表・天氣符號與地面天氣圖</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 15">☆</button></header><div class="qtext"><p>附圖一為天氣符號參考圖，附圖二為臺灣附近的地面天氣圖，已知每 4 hPa 繪一條等壓線，下列敘述何者正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q33-1.webp" width="560" height="310" loading="lazy" alt="題目附圖" data-page="地科2 PDF第31頁"></div><p class="fine-note">圖二中 A 旁手寫的 H 是筆記。</p><p>(A) A 處為上升氣流　(B) B 處的氣溫為 18°C　(C) B 處的天氣符號氣壓應標示為 240　(D) B 處天氣狀況應為陰雨綿綿　(E) 此處清晨會有濃霧發生</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C（原頁手寫 D 是錯的）。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到等壓線與測站符號，先找線距和氣壓增減，再讀氣溫、露點及雲量。</p><ol><li>等壓線由外往 A 遞增（最外圍 1020），A 是<strong>高壓</strong> → 下沉氣流（A 錯）。</li><li>B 左上 19 是氣溫、左下 17 是露點（B 錯）。</li><li>B 在 1020 往內一條 → <strong>1024.0 hPa</strong>，省略寫法為「240」（C 對）。</li><li>B 的圓圈是空心的 → 晴天、雲量少，不是陰雨（D 錯）。</li><li>(E) 只憑這張圖無法斷定清晨一定有濃霧。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>氣壓省略寫法：1024.0 → 240；1013.6 → 136。</p></div></div></details></article>
+<article class="q q-pr" id="check-34"><header class="qh"><span class="qn">4-綜 關鍵 16</span><span class="qtag">冷鋒南下時的臺灣天氣（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 16">☆</button></header><div class="qtext"><p>附圖為臺灣附近地面天氣圖：大陸上有高壓，一道冷鋒由東北向西南延伸到臺灣北方附近。關於臺灣各地區的天氣現象及圖中鋒面之敘述，哪些正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q34-1.webp" width="464" height="366" loading="lazy" alt="題目附圖" data-page="地科2 PDF第31頁"></div><p>(A) 臺南此時吹西南風　(B) 花蓮此時晴朗高溫　(C) 宜蘭此時又溼又冷　(D) 冷鋒逐漸往西北方向移動　(E) 暖鋒逆時針約繞 180 度後可抵臺灣，此時約夏季　(F) 冷鋒移動速度較暖鋒快，因此冷鋒有機會追上暖鋒</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C、F。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到大陸高壓與冷鋒，先讀三角形方向，再判斷臺灣的季風及迎風面。</p><ol><li>冷鋒後方是大陸冷高壓 → 臺灣吹東北季風。宜蘭在迎風面 → 又溼又冷（C 對）；花蓮也在東北風迎風側，不會晴朗高溫（B 錯）；臺南吹偏北風，不是西南風（A 錯）。</li><li>冷鋒三角形指向東南 → 往<strong>東南</strong>移動（D 錯）。</li><li>(E) 錯：暖鋒不會繞一圈到臺灣，冬季也不是夏季。</li><li>(F) 對：冷鋒移動快，追上暖鋒形成<strong>囚錮鋒</strong>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>冷鋒符號的尖角＝前進方向。</p></div></div></details></article>
+<article class="q q-pr" id="check-35"><header class="qh"><span class="qn">4-綜 歷屆 22</span><span class="qtag">113學測・溫帶氣旋</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 22">☆</button></header><div class="qtext"><p>北半球有一溫帶氣旋，其地面氣壓與鋒面的分布如附圖所示（丙在低壓中心，甲在東側，丁在西側，乙在中心南方）。下列有關此天氣圖的敘述，何者正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q35-1.webp" width="253" height="287" loading="lazy" alt="題目附圖" data-page="地科2 PDF第27頁"></div><p class="fine-note">原圖上的著色與「冷氣團、暖氣團」等字是手寫筆記。</p><p>(A) 甲地點大約吹西風　(B) 乙地點的溫度最低　(C) 丙地點的氣壓最高　(D) 丁地點大約吹西北風　(E) 乙地點的天氣是陰雨天</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到北半球溫帶氣旋圖，先找低壓中心及冷暖鋒，再判斷各地風的來向。</p><ol><li>北半球低壓：地面風<strong>逆時針</strong>旋入中心。</li><li>甲在東側：氣流往北走並往內偏 → 吹南風或東南風，不是西風（A 錯）。</li><li>丁在西側：氣流往南走並往內（東）偏 → 從西北吹來 → <strong>西北風</strong>（D 對）。</li><li>乙在冷鋒前、暖鋒後的<strong>暖區</strong>，溫度不是最低，天氣多半較好（B、E 錯）。</li><li>丙是低壓中心，氣壓最低（C 錯）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>溫帶氣旋：西側吹北、西北風（冷），暖區在冷暖鋒之間。</p></div></div></details></article>
+<p><strong>記住：</strong>先找高低壓中心，再看鋒面、風向和測站符號。</p>
+
+<h2 class="section" id="s11">考點 11：臺灣的季節天氣與雨型</h2>
+<ol><li>冬季大陸冷高壓增強，臺灣常吹東北季風；北部、東北部迎風，較易陰雨。</li><li>5～6 月鋒面常停留在華南到臺灣附近，形成梅雨；夏季常見大陸低壓、太平洋高壓及偏南風，也可能有午後雷陣雨或颱風。</li><li>夏季陸地因比熱較小而升溫快，較暖的陸地容易形成熱低壓；太平洋高壓中心則盛行下沉，不利雷雨。</li><li>雷雨通常需要充足水氣與旺盛上升氣流；冷乾氣團或高壓下沉區較不利形成。</li><li>讀降雨表時，月平均＝全年雨量÷12；某月降雨日平均＝月雨量÷降雨日數。雨跡日數若已包含在降雨日數內，要排除時才相減。</li></ol>
+<aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 由冷高壓、鋒面、太平洋高壓或颱風配對季節；也可能比較月雨量和雨日。<br>- 問雷雨先看水氣和上升氣流；問平均先確認分母。<br><strong>常見陷阱</strong><br>- 雨日多不代表每個雨日的平均雨量大；一年的統計也不代表每年完全相同。</p></aside>
+<article class="q q-pr" id="check-36"><header class="qh"><span class="qn">4-綜 關鍵 23</span><span class="qtag">閱讀・天氣圖配月份（選錯誤）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 23">☆</button></header><div class="qtext"><p>附圖甲～丁為臺灣不同時期之地面天氣圖。關於月份與天氣圖之配對，何者<strong>錯誤</strong>？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q36-1.webp" width="789" height="476" loading="lazy" alt="題目附圖" data-page="地科2 PDF第34頁"></div><p>(A) 1 月－甲　(B) 5 月－丙　(C) 7 月－乙　(D) 9 月－丁　(E) 11 月－乙</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到四張天氣圖配月份，先分別找冷高壓、鋒面、太平洋高壓及颱風。</p><ol><li>甲：冷鋒南下 → 冬季（1 月合理）。</li><li>乙：太平洋高壓籠罩、少雲 → 盛夏（7 月）。</li><li>丙：低壓帶著鋒面延伸到華南 → 春季、梅雨前後（5 月）。</li><li>丁：兩個颱風 → 夏秋（9 月）。</li><li>11 月應是東北季風、冷高壓的型態，不會是乙 → (E) 錯。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>一張圖只對應一種季節型態，(C)(E) 同樣配乙，必有一錯。</p></div></div></details></article>
+<article class="q q-pr" id="check-37"><header class="qh"><span class="qn">4-綜 關鍵 18</span><span class="qtag">圖表・夏季天氣圖（選錯誤）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 關鍵 18">☆</button></header><div class="qtext"><p>如圖所示之地面天氣圖（大陸上為低壓，太平洋上為高壓），下列有關此時期之敘述何者<strong>錯誤</strong>？</p><div class="qimgs"><img class="qimg" src="img/earth-4-考-q37-1.webp" width="445" height="349" loading="lazy" alt="題目附圖" data-page="地科2 PDF第32頁"></div><p>(A) 此季節可能為夏季　(B) 此時臺灣盛行偏南的風　(C) 大陸會形成低壓是因為陸地比熱小，因此此時期氣溫比海洋的氣溫低　(D) 此季節臺灣易被颱風侵襲　(E) 此時期臺灣西南沿海午後容易有雷陣雨發生</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到大陸低壓與太平洋高壓，先判斷季節，再比較海陸升溫速度。</p><p>陸地比熱小 → 夏天升溫快 → 陸地比海洋<strong>熱</strong> → 空氣受熱膨脹上升，地面形成低壓。(C) 把結果說反了。其餘都是夏季特徵。</p><div class="qsum"><span class="qsum-h">小結</span><p>夏：陸熱 → 陸低壓；冬：陸冷 → 陸高壓。</p></div></div></details></article>
+<article class="q q-pr" id="check-38"><header class="qh"><span class="qn">4-綜 歷屆 8</span><span class="qtag">103學測・雷雨不易發生（應選2項）</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 8">☆</button></header><div class="qtext"><p>雷雨一般較<strong>不容易</strong>發生在什麼樣的天氣系統或條件中？</p><p>(A) 極地大陸氣團中心　(B) 春天的鋒面系統　(C) 梅雨季的西南氣流　(D) 夏日午後旺盛的對流　(E) 太平洋高壓中心</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A、E。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>題目問雷雨不易發生的條件，先檢查各系統是否具備水氣與上升氣流。</p><p>雷雨需要<strong>旺盛上升氣流＋充足水氣</strong>。極地大陸氣團又冷又乾、大氣穩定（A）；太平洋高壓中心盛行下沉氣流（E）→ 都不易有雷雨。鋒面、西南氣流、夏日熱對流都有強烈上升運動。</p><div class="qsum"><span class="qsum-h">小結</span><p>下沉、乾冷、穩定 → 不易有雷雨。</p></div></div></details></article>
+<article class="q q-pr" id="check-39"><header class="qh"><span class="qn">4-綜 歷屆 20</span><span class="qtag">112學測・臺北 2010 年雨量表</span><button class="mark" type="button" title="標記不會" aria-label="標記4-綜 歷屆 20">☆</button></header><div class="qtext"><p>下表為臺北氣象站 2010 年各月份的總降雨量、降雨日數（含雨跡日數）及雨跡日數統計表，雨跡代表當天降水量小於 0.1 mm。下列敘述何者正確？</p><table class="reading-table"><thead><tr><th>月</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>總計</th></tr></thead><tbody><tr><th>總降雨量(mm)</th><td>105.3</td><td>232.6</td><td>66.5</td><td>112.5</td><td>183.9</td><td>419.6</td><td>89.1</td><td>388.5</td><td>144.2</td><td>345.4</td><td>127.3</td><td>63.4</td><td>2278.3</td></tr><tr><th>降雨日數(天)</th><td>16</td><td>18</td><td>11</td><td>21</td><td>17</td><td>23</td><td>13</td><td>13</td><td>18</td><td>24</td><td>19</td><td>7</td><td>200</td></tr><tr><th>雨跡日數(天)</th><td>1</td><td>5</td><td>5</td><td>3</td><td>3</td><td>0</td><td>1</td><td>0</td><td>3</td><td>5</td><td>5</td><td>1</td><td>32</td></tr></tbody></table><p>(A) 臺北測站 2010 年的平均「月降雨量」超過 200 mm　(B) 臺北測站冬季的總降雨量高於夏季　(C) 臺北測站 12 月發生降雨日的平均日降雨量為全年最大　(D) 臺北測站 8 月發生降雨日的平均日降雨量大於 6 月　(E) 若排除僅發生雨跡的日數，臺北測站 2010 年降雨日數仍超過半年以上</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><p><strong>認出考點：</strong>看到月雨量、降雨日及雨跡日數表，先確認各選項要用的總量和分母。</p><ol><li>(A) 2278.3÷12 ≈ 190 mm，沒超過 200 ✗。</li><li>(B) 冬（12、1、2 月）＝63.4＋105.3＋232.6＝401.3；夏（6、7、8 月）＝419.6＋89.1＋388.5＝897.2 → 夏季多 ✗。</li><li>(C) 12 月：63.4÷7≈9.1 mm/天；8 月就有 29.9，不是最大 ✗。</li><li>(D) 8 月 388.5÷13≈<strong>29.9</strong>；6 月 419.6÷23≈<strong>18.2</strong> → 8 月較大 ✓。</li><li>(E) 200－32＝168 天 &lt; 182.5 天（半年）✗。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>表格題：先寫算式再比，別用眼睛估。</p></div></div></details></article>
+<p><strong>記住：</strong>先認季節系統，再分清雨量、雨日與平均值。</p>
+
+<h2 class="section" id="s12">重點對比整理</h2>
+<aside class="box box-sum"><div class="box-h">對比：露點 vs 相對溼度</div><table><thead><tr><th>比較</th><th>露點</th><th>相對溼度</th></tr></thead><tbody><tr><td>代表</td><td>冷卻至飽和的溫度</td><td>實際與飽和水氣壓之比</td></tr><tr><td>判讀</td><td>看實際水氣多寡</td><td>看離飽和有多近</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：雲 vs 霧 vs 露、霜</div><table><thead><tr><th>比較</th><th>雲</th><th>霧</th><th>露、霜</th></tr></thead><tbody><tr><td>位置</td><td>空中懸浮</td><td>接近地面懸浮</td><td>附著物表</td></tr><tr><td>狀態</td><td>水滴或冰晶</td><td>水滴或冰晶</td><td>露為液態、霜為冰晶</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：乾絕熱 vs 溼絕熱</div><table><thead><tr><th>比較</th><th>乾絕熱</th><th>溼絕熱</th></tr></thead><tbody><tr><td>適用</td><td>未飽和空氣塊</td><td>飽和上升空氣塊</td></tr><tr><td>上升降溫</td><td>約 10°C／公里</td><td>較慢；依題設數值</td></tr><tr><td>原因</td><td>膨脹作功</td><td>凝結釋放潛熱</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：地轉風 vs 近地面的風</div><table><thead><tr><th>比較</th><th>地轉風</th><th>近地面的風</th></tr></thead><tbody><tr><td>作用力</td><td>梯度力與科氏力平衡</td><td>另受摩擦力</td></tr><tr><td>與等壓線</td><td>平行</td><td>斜穿，偏向低壓</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：高壓 vs 低壓</div><table><thead><tr><th>比較</th><th>高壓</th><th>低壓</th></tr></thead><tbody><tr><td>地面氣流</td><td>向外輻散</td><td>向內輻合</td></tr><tr><td>垂直運動</td><td>通常下沉</td><td>通常上升</td></tr><tr><td>北半球旋向</td><td>順時針</td><td>逆時針</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：冷鋒 vs 暖鋒 vs 滯留鋒</div><table><thead><tr><th>比較</th><th>冷鋒</th><th>暖鋒</th><th>滯留鋒</th></tr></thead><tbody><tr><td>符號</td><td>三角形</td><td>半圓</td><td>三角形與半圓分列兩側</td></tr><tr><td>移動</td><td>冷空氣推進</td><td>暖空氣推進</td><td>移動緩慢</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：溫帶氣旋 vs 熱帶氣旋</div><table><thead><tr><th>比較</th><th>溫帶氣旋</th><th>熱帶氣旋</th></tr></thead><tbody><tr><td>形成區</td><td>中緯度冷暖氣團交界</td><td>低緯度暖海面</td></tr><tr><td>鋒面</td><td>常連冷、暖鋒</td><td>通常無鋒面</td></tr><tr><td>尺度</td><td>通常較大</td><td>通常較小</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：可見光雲圖 vs 紅外線雲圖 vs 雷達回波</div><table><thead><tr><th>比較</th><th>可見光雲圖</th><th>紅外線雲圖</th><th>雷達回波</th></tr></thead><tbody><tr><td>主要判讀</td><td>雲厚薄</td><td>雲頂溫度與高度</td><td>降水位置與強弱</td></tr><tr><td>亮或強</td><td>白通常較厚</td><td>白通常較冷、較高</td><td>強通常雨較強</td></tr><tr><td>觀測</td><td>需日照</td><td>日夜可用</td><td>主動發射波</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">對比：臺灣冬季 vs 梅雨季 vs 夏季</div><table><thead><tr><th>比較</th><th>冬季</th><th>梅雨季</th><th>夏季</th></tr></thead><tbody><tr><td>常見系統</td><td>大陸冷高壓</td><td>滯留鋒</td><td>大陸低壓、太平洋高壓</td></tr><tr><td>天氣</td><td>東北季風、迎風面雨</td><td>鋒面帶來降雨</td><td>偏南風、午後雷雨、颱風</td></tr></tbody></table></aside>
+<p>遇到題目先辨認要比較的量，再用對應的原因或公式判斷。</p>
+
+</div><div class="pager"><a href="u4-綜.html">← 4-綜 單元 4 歷屆試題與關鍵考題</a><a href="u5-1.html">5-1 海水性質與波浪 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "earth1-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("openF"); if (!b) return;
+  if (!document.querySelector("details.formula")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var fs = document.querySelectorAll("details.formula"), anyClosed = [].some.call(fs, function(d){ return !d.open; });
+    fs.forEach(function(d){ d.open = anyClosed; });
+    this.textContent = anyClosed ? "收起全部公式解釋" : "展開全部公式解釋";
+  };
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>
