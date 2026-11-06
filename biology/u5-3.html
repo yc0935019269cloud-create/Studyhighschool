@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5-3 演化的證據與分類｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">.authored-unit .fine-note{font-size:14.5px;line-height:1.8;color:var(--muted)}
+.authored-unit .authored-figure{margin:22px auto 26px}
+.authored-unit .authored-figure .figimg{max-width:100%;max-height:580px;width:auto;height:auto;border-radius:6px}
+.authored-unit .fig-composition .figimg,.authored-unit .fig-pressure .figimg{max-height:none}
+.authored-unit figcaption{line-height:1.65;margin-top:7px}
+.authored-unit figcaption span{display:block;font-size:12px;margin-top:3px}
+.authored-unit li{margin-top:7px;margin-bottom:7px}
+.authored-unit .exp ol{margin:10px 0}
+.authored-unit .qsum{font-size:16px}
+.authored-unit .reading-table td{text-align:left;vertical-align:top}
+.authored-unit .reading-table th:first-child{white-space:nowrap}
+.authored-unit .punnett-static{display:table;width:min(100%,520px);margin:18px auto}
+.authored-unit .punnett-static td{padding:12px 8px}
+.authored-unit .punnett-static code{background:none}
+.authored-unit .source-originals{margin:30px 0 10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px}
+.authored-unit .source-originals>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.authored-unit .original-page .figimg{width:100%;height:auto;max-height:none}
+.authored-unit .ref-list{font-size:14px}
+.authored-unit .fig-chromosome .figimg{max-height:none}
+@media(max-width:900px){
+.authored-unit .authored-figure .figimg{max-height:none}
+.authored-unit .qh{flex-wrap:wrap;gap:6px}
+.authored-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+.authored-unit .mark{flex-shrink:0}
+.authored-unit .punnett-static{font-size:15px}
+.authored-unit .punnett-static td,.authored-unit .punnett-static th{padding:8px 5px}
+.authored-unit .source-originals{padding:10px}
+}
+@media print{.authored-unit h2.section{break-after:avoid}.authored-unit .fig{break-inside:avoid}.authored-unit .q{break-inside:auto}.authored-unit .source-originals{display:none}}
+
+.authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
+.authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul><!-- integrated-nav START --><div class="nch">第3單元　遺傳學</div><ul><li><a href="u3-1.html"><span>3-1</span>孟德爾遺傳：配子與子代機率</a></li><li><a href="u3-2.html"><span>3-2</span>顯性關係的延伸：血型、多基因與環境</a></li><li><a href="u3-3.html"><span>3-3</span>染色體、核型與性別決定</a></li><li><a href="u3-4.html"><span>3-4</span>基因的連鎖與互換：重組率與遺傳圖譜</a></li><li><a href="u3-5.html"><span>3-5</span>單元 3 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><!-- u4-nav START --><div class="nch">第4單元　分子生物學</div><ul><li><a href="u4-1.html"><span>4-1</span>核酸的發現：轉形作用與噬菌體實驗</a></li><li><a href="u4-2.html"><span>4-2</span>核酸的構造與 DNA 複製</a></li><li><a href="u4-3.html"><span>4-3</span>基因表現：轉錄、轉譯與調控</a></li><li><a href="u4-4.html"><span>4-4</span>遺傳變異：染色體變異與基因突變</a></li><li><a href="u4-5.html"><span>4-5</span>生物科技：PCR、重組 DNA 與基因轉殖</a></li><li><a href="u4-6.html"><span>4-6</span>單元 4 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><!-- u4-nav END --><!-- u5-nav START --><div class="nch">第5單元　演化</div><ul><li><a href="u5-1.html"><span>5-1</span>生命的起源</a></li><li><a href="u5-2.html"><span>5-2</span>演化觀念與機制</a></li><li><a class="on" href="u5-3.html"><span>5-3</span>演化的證據與分類</a><ul class="subtoc"><li><a href="#s1">分類與共同祖先</a></li><li><a href="#s2">化石與地質年代</a></li><li><a href="#s3">解剖學：同源、同功與痕跡構造</a></li><li><a href="#s4">胚胎學與生物地理學</a></li><li><a href="#s5">生物化學與鳥類的親緣關係</a></li><li><a href="#s6">支序系統學與演化樹</a></li><li><a href="#s7">分類系統的重建</a></li><li><a href="#s8">生物多樣性與滅絕</a></li><li><a href="#s9">經典演練：支序樹題組 1–4</a></li><li><a href="#s10">經典演練：分類與內共生題組 5–8</a></li><li><a href="#s11">本篇整理</a></li></ul></li><li><a href="u5-4.html"><span>5-4</span>族群遺傳與哈溫定律</a></li><li><a href="u5-5.html"><span>5-5</span>樺尺蛾探討活動與病毒</a></li><li><a href="u5-6.html"><span>5-6</span>單元 5 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><!-- u5-nav END --><p class="source-note"><a href="../sources.html#book=生物1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第5單元 演化</div><h1><span class="uid">5-3</span>演化的證據與分類</h1><div class="tools"><span class="cnt">8題・經典演練2.0素養混合題1–8</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><h2 class="section" id="s1">分類與共同祖先</h2>
+<ol><li>這節要問：分類如何反映生物間的親緣關係？</li><li>18 世紀<strong>林奈</strong>依生物形態分類，採界、綱、目、屬、種的階梯式架構，每個物種都有特定分類地位。</li><li>林奈相信創造論，認為物種不變，因此這套分類無法呈現親緣關係。</li><li><strong>達爾文</strong>以樹狀圖解釋演化，並以親緣關係作分類依據。</li><li>同一祖先演化出的物種組成分類群；不同分類群若有更早的共同祖先，又可合成更大的分類群。</li><li>共同祖先代表過去的祖先，不是指某個現生物種。</li><li>人類與黑猩猩的共同祖先較晚，因而比人類與舊世界猴的共同祖先更近。</li></ol>
+<figure class="fig authored-figure fig-primates"><img class="figimg" src="img/biology-5-3-primates.webp" width="992" height="702" loading="lazy" alt="靈長類共同祖先與親緣關係" data-page="生物2 PDF第62頁"><figcaption>靈長類共同祖先與親緣關係<span>原講義PDF第62頁・印刷第172頁・點圖放大</span></figcaption></figure>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>- 比較親緣要找最近共同祖先：共同祖先越近、分叉越少，親緣越近。</p></aside>
+
+<h2 class="section" id="s2">化石與地質年代</h2>
+<ol><li>這節要問：過去的生物留下什麼演化線索？</li><li><strong>化石</strong>是保存在地層中的古代生物遺跡，包括硬殼、骨骼、身體全部或局部，以及活動痕跡。</li><li>陸生生物較不易形成化石，因為遺體易受風化、吞食、腐化和分解。</li><li>水生生物的遺骸常迅速被沉積物覆蓋，因而減慢腐化分解；硬骨或骨骼再經礦物化，較可能形成化石。</li><li>化石形成與發現需要一連串條件：適時適地死亡、埋藏、石化，再經地殼變動使岩層裸露，才可能被發現。</li><li>地質年代按先後排列不同生物的出現與消失，可供比較生命歷史。</li></ol>
+<figure class="fig authored-figure fig-geology"><img class="figimg" src="img/biology-5-3-geology.webp" width="1072" height="837" loading="lazy" alt="地質年代表：開始時間與生物演化" data-page="生物2 PDF第63頁"><figcaption>地質年代表：開始時間與生物演化<span>原講義PDF第63頁・印刷第173頁・點圖放大</span></figcaption></figure>
+
+<h2 class="section" id="s3">解剖學：同源、同功與痕跡構造</h2>
+<ol><li>這節要問：外形或功能相似，是否一定代表親緣近？</li><li><strong>同源構造</strong>指同一祖先演化出的不同生物，其器官胚胎發生相同、基本構造相似。</li><li>哺乳類、爬蟲類與鳥類的前肢是例子；因適應不同環境而改變，屬<strong>趨異演化</strong>。</li></ol>
+<figure class="fig authored-figure fig-homology"><img class="figimg" src="img/biology-5-3-homology.webp" width="512" height="407" loading="lazy" alt="人、馬、鯨、鱷、鳥與蝙蝠前肢的同源構造" data-page="生物2 PDF第62頁"><figcaption>人、馬、鯨、鱷、鳥與蝙蝠前肢的同源構造<span>原講義PDF第62頁・印刷第172頁・點圖放大</span></figcaption></figure>
+<ol><li><strong>同功構造</strong>來自不同祖先，因適應環境而演化出相似功能，是<strong>趨同演化</strong>的結果。</li><li>鳥翼和昆蟲翅都能飛；聖誕紅的紅色部分不是花瓣，卻具有花瓣功能。</li><li>同功構造不能直接作親緣分類依據，因為功能相似可能由不同起源獨立形成。</li><li><strong>痕跡構造</strong>在相近種類中構造退化且無功能；這是多次突變經天擇的結果，並非用進廢退。</li><li>人的盲腸、闌尾、尾骨、智齒、體毛和動耳肌是例子。</li></ol>
+<figure class="fig authored-figure fig-vestige"><img class="figimg" src="img/biology-5-3-vestige.webp" width="720" height="295" loading="lazy" alt="人類的痕跡器官" data-page="生物2 PDF第63頁"><figcaption>人類的痕跡器官<span>原講義PDF第63頁・印刷第173頁・點圖放大</span></figcaption></figure>
+<ol><li>鯨魚沒有後鰭（腹鰭），尾鰭起始處仍有退化骨盆和後肢骨痕跡。</li><li>紐西蘭希威鳥（奇異鳥、無翼鳥）不會飛，僅有退化翼骨痕跡。</li></ol>
+<figure class="fig authored-figure fig-whale"><img class="figimg" src="img/biology-5-3-whale.webp" width="480" height="295" loading="lazy" alt="鯨的腹鰭為痕跡器官" data-page="生物2 PDF第64頁"><figcaption>鯨的腹鰭為痕跡器官<span>原講義PDF第64頁・印刷第174頁・點圖放大</span></figcaption></figure>
+
+<h2 class="section" id="s4">胚胎學與生物地理學</h2>
+<ol><li>這節要問：胚胎與地理分布如何提供親緣線索？</li><li>1866 年<strong>赫克爾（Ernst Haeckel）</strong>提出<strong>重演說</strong>：個體胚胎發生過程簡略重演祖先種族演化歷史。</li><li>脊椎動物源自相同祖先，所以胚胎發育初期相似，後期才有不同發展。</li><li>中胚層形成後不久，早期胚胎都有中空神經管、咽囊、脊索和尾部。</li><li>人類早期胚胎的心臟與魚類相似，有一心房、一心室；最後發育成二心房、二心室。</li><li>魚的咽囊後來發展為鰓弧；人的咽囊發展為耳咽管。</li><li>重演說有言過其實之處：哺乳動物發生過程並未依序經過魚期、兩生期、爬蟲期；發生重演的是胚胎演化，而非個體演化。</li></ol>
+<figure class="fig authored-figure fig-embryo"><img class="figimg" src="img/biology-5-3-embryo.webp" width="576" height="430" loading="lazy" alt="魚類、爬蟲類、鳥類及人類的早期胚胎" data-page="生物2 PDF第64頁"><figcaption>魚類、爬蟲類、鳥類及人類的早期胚胎<span>原講義PDF第64頁・印刷第174頁・點圖放大</span></figcaption></figure>
+<ol><li>生物地理學的基本假設：每種生物在某一時間、某一地點出現一次，起源地稱<strong>種源中心</strong>。</li><li>個體增加後從中心向外散布，遇到障礙便受限制，所以各物種有一定分布範圍。</li><li>黑猩猩、大猩猩分布非洲；貓熊、老虎分布亞洲大陸；澳洲是單孔類與有袋類僅有的分布地區。</li><li>加拉巴哥與威德角群島緯度、氣候相似，但生物不同：前者近南美種類，後者近非洲種類。</li><li>此分布支持島上生物分別由鄰近大陸遷來，再演化成新物種，因為島嶼生物與鄰近大陸較相似。</li></ol>
+<aside class="box box-sum"><div class="box-h">整理：島嶼來源與生物</div><table><thead><tr><th>島嶼</th><th>形成與生物</th></tr></thead><tbody><tr><td>大陸島嶼</td><td>原為大陸一部分，後來分離；島上生物與原大陸近似，差異取決於分離久暫。</td></tr><tr><td>海洋島嶼</td><td>海底火山噴出物或珊瑚礁形成；起初無生物，後由鄰近大陸遷入或被攜入，再逐漸演化。</td></tr></tbody></table></aside>
+<ol><li>海洋島嶼通常缺少陸生哺乳類與兩生類，因為距大陸遠，牠們無法自力跨越海洋。</li><li>島嶼與大陸隔離，所以特殊的動、植物相足以說明演化的真實性。</li></ol>
+
+<h2 class="section" id="s5">生物化學與鳥類的親緣關係</h2>
+<ol><li>這節要問：分子和化石如何協助重建親緣關係？</li><li>物種的血緣關係反映在 DNA 和蛋白質上；核苷酸或胺基酸排列愈相似，親緣愈近。</li></ol>
+<figure class="fig authored-figure fig-sequence"><img class="figimg" src="img/biology-5-3-sequence.webp" width="1104" height="306" loading="lazy" alt="核苷酸與胺基酸序列的比較" data-page="生物2 PDF第65頁"><figcaption>核苷酸與胺基酸序列的比較<span>原講義PDF第65頁・印刷第175頁・點圖放大</span></figcaption></figure>
+<ol><li><strong>始祖鳥</strong>有爬蟲類特徵：喙中有牙齒、翅端有趾爪、長尾椎骨；也有鳥類特徵：羽毛和翅膀。</li><li><strong>近鳥龍</strong>是有羽毛的小型恐龍，視為恐龍演化到鳥類的中間物種。</li></ol>
+<figure class="fig authored-figure fig-birds"><img class="figimg" src="img/biology-5-3-birds.webp" width="1072" height="384" loading="lazy" alt="始祖鳥化石、復原圖與近鳥龍" data-page="生物2 PDF第65頁"><figcaption>始祖鳥化石、復原圖與近鳥龍<span>原講義PDF第65頁・印刷第175頁・點圖放大</span></figcaption></figure>
+<ol><li>鳥類與鱷魚等爬蟲類有許多相似構造；化石、解剖、胚胎、DNA 和蛋白質序列共同協助重建親緣。</li><li>以往把鳥類、爬蟲類及哺乳類分成三個分類群，也有學者認為爬蟲類是鳥類及哺乳類的共同祖先。</li><li>目前認為鳥類與已滅絕的恐龍可能只是爬蟲類演化過程中的一個分支。</li><li>鳥類與恐龍最接近，其次是現生爬蟲類；與同為內溫動物的哺乳類反而較遠。</li><li>體溫調節是適應不同環境的同功現象，因此內溫、外溫特徵不適合作為建立親緣的依據。</li></ol>
+<figure class="fig authored-figure fig-reptiles"><img class="figimg" src="img/biology-5-3-reptiles.webp" width="1088" height="407" loading="lazy" alt="爬蟲類和鳥類的分類及重建後的親緣關係" data-page="生物2 PDF第66頁"><figcaption>爬蟲類和鳥類的分類及重建後的親緣關係<span>原講義PDF第66頁・印刷第176頁・點圖放大</span></figcaption></figure>
+
+<h2 class="section" id="s6">支序系統學與演化樹</h2>
+<ol><li>這節要問：怎樣讀樹狀圖，才能判斷分類群的親緣？</li><li>1950 年代，德國昆蟲學者<strong>赫尼格（Willi Henning）</strong>主張分類應反映親緣，並以共祖關係建立二叉樹狀圖。</li><li>每個節點代表祖先一分為二，形成兩個對等的<strong>姊妹群</strong>；不可能在同一時空一分為三或更多。</li><li><strong>祖徵</strong>是較原始的同源特徵；<strong>衍徵</strong>是較進化的同源特徵。</li><li>共同衍徵可作為親緣接近、來自同一祖先的證據，因為它由該祖先傳給後代。</li></ol>
+<aside class="box box-sum"><div class="box-h">整理：三種分類群</div><table><thead><tr><th>名稱</th><th>包含的成員</th></tr></thead><tbody><tr><td>單系群</td><td>一個祖先物種及其所有後代。</td></tr><tr><td>並系群</td><td>一個祖先物種及部分、非全部後代。</td></tr><tr><td>複系群</td><td>遠距親緣物種，但不含它們最近的共同祖先。</td></tr></tbody></table></aside>
+<ol><li>樹上排列順序不代表演化順序，因為支條可繞節點旋轉 180°。</li><li>例如單子葉植物與蘚苔、蕨類與蘚苔的親緣關係等距，因為共同祖先都是節點 A。</li><li>現生物種都經歷相同的演化時間；臺北樹蛙（Rhacophorus taipeianus）與現代人（Homo sapiens）皆如此。</li><li>蛙的起源雖早於哺乳類，不能因此認為現代人累積較多變異或更進化。</li><li>有時間軸時，支條長度代表分化後演化時間；無時間軸時通常代表物種變異程度。</li></ol>
+<figure class="fig authored-figure fig-cladograms"><img class="figimg" src="img/biology-5-3-cladograms.webp" width="1104" height="316" loading="lazy" alt="直狀分支圖與矩狀分支圖" data-page="生物2 PDF第67頁"><figcaption>直狀分支圖與矩狀分支圖<span>原講義PDF第67頁・印刷第177頁・點圖放大</span></figcaption></figure>
+
+<h2 class="section" id="s7">分類系統的重建</h2>
+<ol><li>這節要問：新研究如何改變分類系統？</li><li>分類系統依新研究持續修正，依序有二界、三界、五界、六界與三域。</li><li>二界為 18 世紀林奈提出；三界為 19 世紀；五界由惠特克於 1969 年提出。</li><li>渥易斯於 1980 年提出六界，1990 年提出三域：真細菌域、古細菌域、真核生物域。</li><li><strong>二域說</strong>認為真核生物由古細菌吞噬真細菌後內共生形成；古細菌與真核生物基因高度相似，支持此想法。</li></ol>
+<figure class="fig authored-figure fig-systems"><img class="figimg" src="img/biology-5-3-systems.webp" width="1088" height="430" loading="lazy" alt="二界至三域分類系統的演變" data-page="生物2 PDF第67頁"><figcaption>二界至三域分類系統的演變<span>原講義PDF第67頁・印刷第177頁・點圖放大</span></figcaption></figure>
+<figure class="fig authored-figure fig-domains"><img class="figimg" src="img/biology-5-3-domains.webp" width="784" height="362" loading="lazy" alt="三域說與二域說的比較" data-page="生物2 PDF第67頁"><figcaption>三域說與二域說的比較<span>原講義PDF第67頁・印刷第177頁・點圖放大</span></figcaption></figure>
+
+<h2 class="section" id="s8">生物多樣性與滅絕</h2>
+<ol><li>這節要問：多樣性如何產生，物種滅絕又有什麼影響？</li><li><strong>生物多樣性</strong>包括遺傳（基因）多樣性、物種多樣性和生態系多樣性。</li><li>多樣性是演化的結果，因為生物與環境、生物與生物持續互動。</li><li>原始大氣氧比例低，最原始生命不需氧；藍綠菌（藻）出現後氧增加，演化出有氧呼吸生物，也有生物避居貧氧環境。</li><li>約 4 億年前造山運動增加陸地面積，部分生物演化出適應陸地乾燥環境的構造。</li><li>環境多樣使生物沒有固定演化方向，而是不斷分歧，演化出多種生命形式。</li><li>植物與植食動物、開花植物與傳粉動物、掠食者與獵物彼此互動，在天擇下累積有利性狀，加速演化。</li><li>遺傳變異本身沒有方向；複雜互動與環境差異使生物產生不同適應方式。</li><li>有性生殖形成新的基因組合，擴展基因多樣性；經輻射適應可形成各種物種。</li><li>化石研究發現九成物種消失；過去 5 億年間發生 5 次大滅絕，包括恐龍的滅絕。</li><li>恐龍滅絕後哺乳類繁盛，因為牠們取代了恐龍的各種生態地位。</li><li>人類活動是否開啟第六次大滅絕？保育生物多樣性是地球村一分子的義務。</li></ol>
+<figure class="fig authored-figure fig-diversity"><img class="figimg" src="img/biology-5-3-diversity.webp" width="1008" height="611" loading="lazy" alt="演化形成物種多樣性與大滅絕時間軸" data-page="生物2 PDF第68頁"><figcaption>演化形成物種多樣性與大滅絕時間軸<span>原講義PDF第68頁・印刷第178頁・點圖放大</span></figcaption></figure>
+
+<h2 class="section sec-practice" id="s9">經典演練：支序樹題組 1–4</h2>
+<ol><li>這節要運用祖徵、衍徵與共同祖先讀懂支序樹。</li></ol>
+<aside class="box box-ref"><div class="box-h">題組敘述（學術探究）</div><p>支序分類學所繪製的支序樹（又稱親緣關係樹），為一個二分叉的生命樹，分叉點稱為節，代表過去的共同祖先，節與節之間的枝條稱為節間，新物種如同枝條不斷從原有物種分支出來，每一物種就是生命樹上的一個分支，而親緣關係較近的物種會被歸在較近的枝條。</p><p>要建構一群現有生物的支序樹時，會先選與這群生物親緣關係較遠的生物當作外群。一個特徵若是同時表現在外群和這群生物的共同祖先身上時，稱之為「祖徵」；建構支序樹時，常以祖徵放在支序樹的根部，但祖徵並不適合用來判斷支序樹中各物種的親緣關係。只出現在共同祖先的後代，因演化改變的特徵，稱為「衍徵」；會被標示在節間或枝條上，衍徵可以用來區別支序樹中不同的物種。</p><p>一群生物可能有相同的衍徵，稱為共衍徵。例如：脊椎動物中，所有「具有四肢」這個衍徵的物種，可以被分類在一群，具有四肢即為共衍徵。假若有物種①及②，牠們的共同祖先是③，而③的祖先則是④。若①及②都有共同的特徵 X，而③也有，但④卻沒有，則特徵 X 就是一種源自①及②最後共同祖先③的共衍徵。下圖為一簡約的支序樹，甲～戊為演化出來的不同物種，圖中 A～F 代表祖徵，a～f 為衍徵，其中 a 是由 A 演化而成，b 由 B 演化而成，其餘特徵依此類推。根據上文及過去習得知識，回答下列問題：</p></aside>
+<figure class="fig authored-figure fig-questiontree"><img class="figimg" src="img/biology-5-3-questiontree.webp" width="464" height="294" loading="lazy" alt="演練1–4：支序樹及祖徵" data-page="生物2 PDF第69頁"><figcaption>演練1–4：支序樹及祖徵<span>原講義PDF第69頁・印刷第179頁・點圖放大</span></figcaption></figure>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">演練 1</span><span class="qtag">支序樹・祖徵</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 1">☆</button></header><div class="qtext"><p>物種乙尚具有的祖徵為何？（由 ABCDEF 6 個特徵中選出）</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、E、F。</div><div class="exp"><b class="exp-h">解</b><ol><li>由根部走到乙，經過 c、d 和 a，表示祖徵 C、D 和 A 已分別變成衍徵。</li><li>路徑未經 b、e、f，所以 B、E、F 仍是祖徵。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>沿根到乙的路徑檢查改變：未改變的是 B、E、F。</p></div></div></details></article>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">演練 2</span><span class="qtag">支序樹・共衍徵</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 2">☆</button></header><div class="qtext"><p>下列何者是丙和戊的共衍徵？（由 abcdef 6 個特徵中選出）</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>c、e。</div><div class="exp"><b class="exp-h">解</b><ol><li>從根部到丙及戊的共同路徑都經過 c 和 e，所以兩者共享 c、e。</li><li>f 在丙分出之後，a、b、d 位於其他分支，因此不是兩者的共衍徵。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>共同路徑上的衍徵 c、e 為丙和戊共有。</p></div></div></details></article>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">演練 3</span><span class="qtag">支序樹與演化・多選</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 3">☆</button></header><div class="qtext"><p>根據上圖、支序樹概念與達爾文的演化理論，下列敘述哪些正確？（多選）</p><p>(A)外群比甲物種先演化出來　(B)達爾文也認為物種間有共同祖先　(C)乙和丙的親緣關係，較甲和乙的親緣關係近　(D)從支序樹分支的所有枝條，都是能在天擇中適應，存活至今的物種　(E)若物種甲～戊是加拉巴哥群島的雀鳥，則牠們的共同祖先應來自南美洲。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、E。</div><div class="exp"><b class="exp-h">解</b><ol><li>(A) 錯：外群較早分支，但現生物種都經歷相同的演化時間，所以不能說現生的外群比甲先演化出來。</li><li>(B) 對：達爾文以共同祖先解釋物種同源。</li><li>(C) 錯：甲和乙的最近共同祖先比乙和丙的近。</li><li>(D) 錯：枝條表示演化支系，不能據此斷定所有支系都存活至今。</li><li>(E) 對：加拉巴哥群島的生物與鄰近南美大陸種類相近，可推測祖先從南美遷來。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>親緣看最近共同祖先，枝條排列不代表現生物種的先後。</p></div></div></details></article>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">演練 4</span><span class="qtag">DNA 序列與支序樹</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 4">☆</button></header><div class="qtext"><p>除外表特徵外，DNA 序列也可被用來建構支序樹。今有三種生物某相同基因的部分 DNA 序列如下表，假設可將三個物種中含氮鹼基序列與其他兩者差異最大者當作外群，並將外群生物的含氮鹼基序列視為祖徵，每個含氮鹼基的差異視為一個衍徵，以繪製支序樹，則下列哪一選項的支序樹最為正確？</p><div class="qimgs"><img class="qimg" src="img/biology-5-3-q4-1.webp" width="336" height="204" loading="lazy" alt="題目附圖" data-page="生物2 PDF第69頁"><img class="qimg" src="img/biology-5-3-q4-2.webp" width="1008" height="181" loading="lazy" alt="題目附圖" data-page="生物2 PDF第69頁"></div></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>A。</div><div class="exp"><b class="exp-h">解</b><ol><li>物種 1 與 2 只差一處；物種 3 與兩者差異較大，所以物種 3 是外群。</li><li>物種 1、2 相對物種 3 共同具有 C 和 T，應放在兩者共同的枝條上。</li><li>物種 1 另有 G，應放在物種 1 單獨的枝條上；符合 (A)。</li><li>(B) 把 G 放在物種 2；(C)、(D) 把物種 3 放錯位置，因為外群應該最先分出。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>先找差異較大的外群，再把共同衍徵放在共同枝條。</p></div></div></details></article>
+
+<h2 class="section sec-practice" id="s10">經典演練：分類與內共生題組 5–8</h2>
+<ol><li>這節要比較真細菌、古細菌與真核生物，並運用內共生圖推理。</li></ol>
+<aside class="box box-ref"><div class="box-h">題組敘述（學術探究）</div><p>一開始，地球的生物形成後，就在海洋中逐漸發展。海洋環境萬分多樣，扮演保留生物發展的成果，及促其持續演化的場所或棲地的角色。最原始的多樣性形成是由單細胞的真細菌和古細菌所組成。接著是細胞核的生成，形成真核生物體，於是開啟了真核生物域的大演化。美國渥易斯博士（Carl Woese）於 1977 年提出六界分類系統，他將沒有核膜、膜狀胞器及 DNA 呈環狀的原核生物，區分為真細菌界及古細菌界，主要是因為兩者的核糖體 RNA 序列具有很大的差異性。此外在細胞壁、細胞膜成分、基因結構、菌體形態及生存環境上也不同。細菌的細胞壁主要成分是肽聚糖，古細菌的細胞壁主要是由醣蛋白所構成，不含肽聚糖。分析真細菌、古細菌和真核生物的基因結構及表現模式後發現，雖然真細菌和古細菌的基因都形成操縱組，但古細菌卻和真核生物的基因同樣具有內含子。古細菌成員有的生活在缺氧泥濘地或共生於動物的腸道中，如甲烷菌；有的生活於極端環境，如極端嗜鹽菌、極端嗜熱菌。請依據本文及習得的知識回答下列問題：</p></aside>
+<article class="q q-pr" id="check-5"><header class="qh"><span class="qn">演練 5</span><span class="qtag">內共生・多選</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 5">☆</button></header><div class="qtext"><p>請由下圖推論，下列敘述哪些正確？（多選）</p><p>(A)粒線體與葉綠體的形成可用「細胞膜內陷說」來解釋　(B)圖(a)的細菌應為好氧異營菌　(C)圖(b)的細菌應為光合自營菌，如藍綠菌　(D)粒線體的外膜可能來自真核細胞膜　(E)葉綠體未被攝入前為獨立生存的細菌，故此胞器又稱為「全自主性胞器」。</p><div class="qimgs"><img class="qimg" src="img/biology-5-3-q5-1.webp" width="560" height="600" loading="lazy" alt="題目附圖" data-page="生物2 PDF第70頁"></div></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B、C、D。</div><div class="exp"><b class="exp-h">解</b><ol><li>(A) 錯：圖示細菌被攝入並共生，支持內共生說。</li><li>(B) 對：細菌 A 對應粒線體，其祖先可進行好氧代謝。</li><li>(C) 對：細菌 B 對應可行光合作用的葉綠體，類似藍綠菌。</li><li>(D) 對：攝入時宿主細胞膜可包圍細菌，形成外膜。</li><li>(E) 錯：葉綠體依賴細胞提供部分所需物質，屬半自主性胞器。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>粒線體與葉綠體可用內共生說解釋；葉綠體是半自主性胞器。</p></div></div></details></article>
+<article class="q q-pr" id="check-6"><header class="qh"><span class="qn">演練 6</span><span class="qtag">原核生物構造</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 6">☆</button></header><div class="qtext"><p>下列有關原核生物細胞構造的敘述，何者正確？</p><p>(A)藍綠菌缺乏核糖體 RNA　(B)極端嗜鹽菌具有膜狀胞器　(C)甲烷菌的細胞壁含肽聚糖　(D)古細菌與真核生物的 DNA 都呈線狀　(E)真細菌與古細菌的基因都能以操縱組模式來調節基因表現。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>E。</div><div class="exp"><b class="exp-h">解</b><ol><li>(A) 錯：藍綠菌有含 RNA 的核糖體。</li><li>(B) 錯：極端嗜鹽菌是古細菌，沒有膜狀胞器。</li><li>(C) 錯：甲烷菌是古細菌，其細胞壁不含肽聚糖。</li><li>(D) 錯：古細菌為原核生物，其 DNA 呈環狀。</li><li>(E) 對：真細菌和古細菌的基因都可形成操縱組，調節基因表現。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>真細菌和古細菌都可用操縱組調控，但古細菌細胞壁不含肽聚糖。</p></div></div></details></article>
+<article class="q q-pr" id="check-7"><header class="qh"><span class="qn">演練 7</span><span class="qtag">分類與親緣</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 7">☆</button></header><div class="qtext"><p>下列有關文章中的敘述及推論，何者正確？</p><p>(A)六界分類系統較五界分類系統多了病毒界　(B)真細菌在生態系中無法扮演生產者角色　(C)先生成域，再生成界，最後形成物種　(D)原始細胞生成細胞核後，再演化為真細菌與古細菌等生物體　(E)古細菌與真核生物的親緣關係較古細菌與真細菌更為接近。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>E。</div><div class="exp"><b class="exp-h">解</b><ol><li>(A) 錯：六界區分真細菌界和古細菌界，並未增設病毒界。</li><li>(B) 錯：藍綠菌是真細菌，可光合作用而作生產者。</li><li>(C) 錯：域、界、物種是分類階層，並非形成的時間順序。</li><li>(D) 錯：真細菌和古細菌為無細胞核的原核生物。</li><li>(E) 對：古細菌與真核生物基因結構等具有相似性，顯示親緣較近。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>分類階層不是出現順序；古細菌與真核生物的親緣較接近。</p></div></div></details></article>
+<article class="q q-pr" id="check-8"><header class="qh"><span class="qn">演練 8</span><span class="qtag">林奈與達爾文分類</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 8">☆</button></header><div class="qtext"><p>科學發展是與時並進的，最近的研究發現是古細菌將真細菌吞噬後共生，才演化出真核細胞。在生物分類上，林奈和達爾文在科學發展上都有極大的貢獻，試問兩人的觀點最大的差異為何？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>林奈依形態分類並認為物種不變；達爾文認為物種演化、具有共同祖先，分類應反映親緣關係。</div><div class="exp"><b class="exp-h">解</b><ol><li>林奈以形態建立階層分類，並相信物種不變，所以分類未呈現演化親緣。</li><li>達爾文認為物種由共同祖先分化，因而以親緣關係作為分類依據。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>林奈依形態且主張物種不變；達爾文依共同祖先與演化親緣分類。</p></div></div></details></article>
+
+<h2 class="section" id="s11">本篇整理</h2>
+<ol><li>這節要把證據、分類與多樣性的重點接起來。</li></ol>
+<aside class="box box-sum"><div class="box-h">整理：從證據到親緣</div><table><thead><tr><th>線索</th><th>判讀</th></tr></thead><tbody><tr><td>化石</td><td>保留過去生物及活動痕跡，但形成與發現需要多種條件。</td></tr><tr><td>同源構造、胚胎、分子</td><td>可提供共同祖先的證據；同功構造的功能相似可能獨立演化。</td></tr><tr><td>支序樹</td><td>找最近共同祖先與共同衍徵，判斷親緣與分類群。</td></tr><tr><td>多樣性</td><td>生物與環境互動、有性生殖及物種分化共同影響多樣性。</td></tr></tbody></table></aside>
+<p>下一篇進入族群遺傳與哈溫定律，觀察族群中基因比例如何變化。</p>
+<details class="source-originals"><summary>核對原講義全頁（生物2 PDF61–70）</summary><p class="fine-note">對應印刷171–180頁：PDF61由演化概念對分類系統的影響開始，PDF62–68為演化證據、親緣、分類與多樣性，PDF69–70為經典演練題組1–8。書上此處沒有附答案，依題幹與內容推導。六界系統的年份，書上正文寫1980年、題組文章寫1977年，照原文保留。</p><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/061.webp" alt="生物2PDF第61頁完整原稿"><figcaption>PDF第61頁／印刷第171頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/062.webp" alt="生物2PDF第62頁完整原稿"><figcaption>PDF第62頁／印刷第172頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/063.webp" alt="生物2PDF第63頁完整原稿"><figcaption>PDF第63頁／印刷第173頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/064.webp" alt="生物2PDF第64頁完整原稿"><figcaption>PDF第64頁／印刷第174頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/065.webp" alt="生物2PDF第65頁完整原稿"><figcaption>PDF第65頁／印刷第175頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/066.webp" alt="生物2PDF第66頁完整原稿"><figcaption>PDF第66頁／印刷第176頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/067.webp" alt="生物2PDF第67頁完整原稿"><figcaption>PDF第67頁／印刷第177頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/068.webp" alt="生物2PDF第68頁完整原稿"><figcaption>PDF第68頁／印刷第178頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/069.webp" alt="生物2PDF第69頁完整原稿"><figcaption>PDF第69頁／印刷第179頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/070.webp" alt="生物2PDF第70頁完整原稿"><figcaption>PDF第70頁／印刷第180頁</figcaption></figure></details>
+</div><div class="pager"><a href="u5-2.html">← 5-2 演化觀念與機制</a><a href="u5-4.html">5-4 族群遺傳與哈溫定律 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>

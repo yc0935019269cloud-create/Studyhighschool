@@ -6,7 +6,7 @@ TITLES={'biology':{'3':'遺傳學'},'earth':{'4':'大氣與天氣','5':'海洋',
 def strip(t,n):return re.sub(r'<!-- '+n+r' START -->.*?<!-- '+n+r' END -->','',t,flags=re.S)
 def marked(n,s):return '<!-- '+n+' START -->'+s+'<!-- '+n+' END -->'
 # Individually authored units that have no bulk-draft entry in continuation.json.
-EXTRA={'biology':[('4','分子生物學',['4-1','4-2','4-3','4-4','4-5','4-6'])]}
+EXTRA={'biology':[('4','分子生物學',['4-1','4-2','4-3','4-4','4-5','4-6']),('5','演化',['5-1','5-2','5-3','5-4','5-5','5-6'])]}
 def extra_units(subject,ids):
  out=[]
  for i in ids:

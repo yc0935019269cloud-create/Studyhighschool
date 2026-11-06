@@ -26,6 +26,10 @@ def build(key):
   im=Image.open(ROOT/'source-pages'/c['source']/(str(f['page']).zfill(3)+'.webp'));w,h=im.size
   box=[round(v*(w if i%2==0 else h)/100) for i,v in enumerate(f['crop'])]
   crop=im.crop(box);dest=ROOT/subject/'img'/(key+'-'+f['key']+'.webp')
+  # Optional: paint over stray neighbouring text that a crop cannot exclude (page percent).
+  for b in f.get('blank',[]):
+   r=[round(v*(w if i%2==0 else h)/100)-box[i%2] for i,v in enumerate(b)]
+   crop.paste(crop.getpixel((r[2],r[3])),r)
   crop.save(dest,'WEBP',quality=91,method=4)
   figure='<figure class="fig authored-figure fig-'+f['key']+'"><img class="figimg" src="img/'+dest.name+'" width="'+str(crop.width)+'" height="'+str(crop.height)+'" loading="lazy" alt="'+html.escape(f['caption'],quote=True)+'" data-page="'+c['source']+' PDF第'+str(f['page'])+'頁"><figcaption>'+f['caption']+'<span>原講義PDF第'+str(f['page'])+'頁・印刷第'+str(printed(c,f['page']))+'頁・點圖放大</span></figcaption></figure>'
   body=body.replace('{{FIG_'+f['key']+'}}',figure)

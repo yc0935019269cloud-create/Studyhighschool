@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5-4 族群遺傳與哈溫定律｜生物</title>
+<style>:root{
+  --bg:#f6f4ef; --paper:#fffdf9; --ink:#23272e; --muted:#6b7280; --line:#e4dfd4;
+  --accent:#0f7c7a; --accent-soft:#e3f2f0; --ex:#2f6fd1; --ex-soft:#e9f0fc;
+  --sim:#8a5cc7; --pr:#b3621b; --pr-soft:#fbefe3; --ok:#177245; --ok-soft:#e5f4ea;
+  --warn:#b42318; --warn-soft:#fdecea; --sum:#7c5a00; --sum-soft:#fff6d8;
+  --side:#fbfaf6; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 14px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#16181c; --paper:#1f2227; --ink:#e7e5e0; --muted:#9aa1ab; --line:#33373e;
+  --accent:#4cc3bd; --accent-soft:#1c3533; --ex:#7aa7ff; --ex-soft:#1d2940;
+  --sim:#b894ec; --pr:#f0a55e; --pr-soft:#3a2a1a; --ok:#6bd39b; --ok-soft:#183124;
+  --warn:#ff8a80; --warn-soft:#3b1d1b; --sum:#ffd666; --sum-soft:#352d12; --side:#1a1d21;
+  --shadow:none;
+}
+ .qimg,.figimg{filter:brightness(.92)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.85 "Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+a{color:var(--accent)}
+sub,sup{font-size:.72em;line-height:0}
+/* sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:280px;overflow-y:auto;background:var(--side);
+  border-right:1px solid var(--line);padding:18px 14px 40px;font-size:14.5px;line-height:1.5}
+.brand{display:block;font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;margin:0 6px 14px}
+.brand small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.nch{margin:16px 6px 6px;font-weight:700;color:var(--accent);font-size:13.5px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.side li a span{color:var(--muted);font-variant-numeric:tabular-nums;min-width:2.4em}
+.side li a:hover{background:var(--accent-soft)}
+.side li a.on{background:var(--accent);color:#fff}.side li a.on span{color:#fff;opacity:.85}
+.subtoc{margin:4px 0 6px 20px!important;border-left:2px solid var(--line)}
+.subtoc a{font-size:13.5px;padding:3px 10px!important;color:var(--muted)!important}
+.menu{display:none}
+.main{margin-left:280px;max-width:980px;padding:28px 40px 80px}
+/* unit header */
+.uh{margin-bottom:22px}
+.crumb{color:var(--muted);font-size:14px}
+h1{font-size:30px;line-height:1.35;margin:4px 0 12px}
+.uid{display:inline-block;background:var(--accent);color:#fff;border-radius:10px;padding:0 12px;margin-right:12px;font-size:.8em;vertical-align:.12em}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line)}
+.tools .cnt{color:var(--muted);font-size:14px;margin-right:auto}
+button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:4px 14px;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* content */
+.content{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px 36px 36px;box-shadow:var(--shadow)}
+.content h2.section{margin:40px -36px 18px;padding:12px 36px;background:var(--accent-soft);color:var(--accent);
+  font-size:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.content h2.section.sec-practice{background:var(--pr-soft);color:var(--pr)}
+.content h2.section:first-child{margin-top:-10px;border-top:0;border-radius:16px 16px 0 0}
+.content h3{font-size:21px;margin:30px 0 8px;padding-left:12px;border-left:5px solid var(--accent)}
+.content h4{font-size:18px;margin:22px 0 6px;color:var(--accent)}
+.content h5{font-size:17px;margin:16px 0 4px}
+.content p{margin:8px 0}
+.content ul,.content ol{padding-left:1.6em;margin:6px 0}
+.content li{margin:3px 0}
+.content strong{color:var(--warn);font-weight:700}
+.content table{border-collapse:collapse;margin:12px 0;font-size:15.5px;display:block;overflow-x:auto;max-width:100%}
+.content th,.content td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+.content th{background:var(--accent-soft)}
+.content code{font-family:inherit;background:var(--accent-soft);padding:1px 6px;border-radius:6px}
+.box{border-radius:12px;padding:10px 18px;margin:14px 0;border:1px solid var(--line)}
+.box-h{font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:2px}
+.box-concept{background:var(--accent-soft)}.box-concept .box-h{color:var(--accent)}
+.box-warn{background:var(--warn-soft)}.box-warn .box-h{color:var(--warn)}
+.box-sum{background:var(--sum-soft)}.box-sum .box-h{color:var(--sum)}
+.box-ref{background:var(--ok-soft)}.box-ref .box-h{color:var(--ok)}
+.fig{margin:14px 0;text-align:center}
+.figimg{max-width:100%;max-height:460px;width:auto;height:auto;border-radius:8px;cursor:zoom-in}
+.fig figcaption{font-size:13.5px;color:var(--muted)}
+/* question card */
+.q{border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;background:var(--paper)}
+.qh{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--ex-soft);border-bottom:1px solid var(--line)}
+.q-pr .qh{background:var(--pr-soft)}
+.q-sim .qh{background:color-mix(in srgb,var(--sim) 12%,var(--paper))}
+.qn{font-weight:800;color:var(--ex)}.q-pr .qn{color:var(--pr)}.q-sim .qn{color:var(--sim)}
+.qtag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.mark{margin-left:auto;border:0;background:none;font-size:20px;padding:0 4px;color:var(--muted)}
+.q.marked .mark{color:#e0a100}
+.q.marked{border-color:#e0a100}
+.qimgs{padding:10px 12px 4px;background:#fff}
+.qimg{display:block;width:100%;height:auto;cursor:zoom-in}
+.qimg+.qimg{margin-top:6px}
+.sol{border-top:1px dashed var(--line)}
+.sol summary{cursor:pointer;padding:9px 16px;color:var(--accent);font-weight:700;font-size:15px;list-style:none;user-select:none}
+.sol summary::-webkit-details-marker{display:none}
+.sol summary::before{content:"▸ ";}
+.sol[open] summary::before{content:"▾ ";}
+.sol .sum-hide{display:none}.sol[open] .sum-show{display:none}.sol[open] .sum-hide{display:inline}
+.ans{margin:0 16px 8px;padding:8px 14px;background:var(--ok-soft);border-radius:10px;font-weight:700;color:var(--ok)}
+.ans b,.exp-h{display:inline-block;background:var(--ok);color:#fff;border-radius:6px;padding:0 7px;margin-right:10px;font-size:14px}
+.exp{margin:0 16px 14px;padding:4px 14px 8px;border-left:3px solid var(--line)}
+.exp-h{background:var(--muted)}
+.exp p:first-of-type{display:inline}
+body.only-marked .q:not(.marked){display:none}
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.pager a{flex:1;max-width:48%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.pager a:last-child{text-align:right}
+/* index */
+.hero h1{font-size:34px}.hero h1 small{font-size:18px;color:var(--muted);font-weight:500}
+.hero .tip{color:var(--muted);font-size:14.5px}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px}
+.chcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.chcard h2{margin:0 0 8px;font-size:15px;color:var(--accent)}.chcard h2 span{font-size:21px;color:var(--ink)}
+.chcard ul{list-style:none;padding:0;margin:0}
+.chcard li a{display:flex;gap:8px;padding:7px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.chcard li a b{color:var(--accent);min-width:2.6em}.chcard li a em{margin-left:auto;font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+/* lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}.lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:6px}
+@media (max-width:900px){
+  .side{transform:translateX(-100%);transition:transform .2s;z-index:40;box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .menu{display:block;position:fixed;right:12px;bottom:14px;z-index:41;background:var(--accent);color:#fff;border:0;box-shadow:0 2px 10px rgba(0,0,0,.25);padding:8px 16px}
+  .main{margin-left:0;padding:16px 16px 70px}
+  .content{padding:6px 16px 20px;border-radius:12px}
+  .content h2.section{margin:30px -16px 14px;padding:10px 16px}
+  h1{font-size:24px}
+  .qimgs{padding:6px}
+  .ans,.exp{margin-left:10px;margin-right:10px}
+}
+@media print{
+  .side,.menu,.tools button,.pager,.mark{display:none!important}
+  .main{margin:0;max-width:none;padding:0}
+  .content{border:0;box-shadow:none;padding:0}
+  .q{break-inside:avoid}
+  body{background:#fff}
+}
+.content blockquote{margin:10px 0;padding:8px 18px;background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;font-size:17.5px}
+.content blockquote p{margin:4px 0}
+
+/* clickable formula */
+.formula{margin:12px 0;border:1.5px solid var(--accent);border-radius:12px;background:var(--paper);overflow:hidden}
+.formula summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--accent-soft)}
+.formula summary::-webkit-details-marker{display:none}
+.formula summary:hover{filter:brightness(.97)}
+.f-eq{font-size:19px;font-weight:700;letter-spacing:.02em}
+.f-tag{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:0 10px;background:var(--paper)}
+.f-hint{margin-left:auto;font-size:13.5px;font-weight:700;color:var(--accent);white-space:nowrap}
+.f-hint::before{content:"💡 點我看 "}
+.formula[open] .f-hint::before{content:"收起 "}
+.formula[open] .f-hint{color:var(--muted)}
+.f-body{padding:6px 18px 12px;border-top:1px dashed var(--line);font-size:16.5px}
+.f-body h5{margin:12px 0 2px;color:var(--accent);font-size:15px;letter-spacing:.05em}
+.f-body blockquote{font-size:16.5px}
+
+/* 文字題幹 */
+.qtext{padding:12px 18px 6px;font-size:17px;line-height:1.9;background:var(--paper)}
+.qtext p{margin:.35em 0}
+.qtext table{margin:8px 0}
+
+/* 考前速記／小結 */
+.pre{margin:0;border-bottom:1px dashed var(--line);background:var(--sum-soft)}
+.pre summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:8px 16px;user-select:none}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary::before{content:"▸";color:var(--sum)}
+.pre[open] summary::before{content:"▾"}
+.pre-h{font-weight:800;color:var(--sum);letter-spacing:.08em;font-size:15px}
+.pre-sub{font-size:13px;color:var(--muted)}
+.pre-body{padding:0 18px 10px;font-size:16.5px;line-height:1.8}
+.pre-body p{margin:.3em 0}
+.pre-body ul,.pre-body ol{margin:.2em 0}
+.pre-body table{font-size:15px;margin:6px 0}
+.qsum{margin:12px 0 4px;padding:8px 14px;border-radius:10px;background:var(--sum-soft);border:1px solid var(--line)}
+.qsum-h{display:inline-block;background:var(--sum);color:var(--paper);border-radius:6px;padding:0 8px;margin-bottom:2px;font-size:14px;letter-spacing:.1em}
+.qsum p{margin:.25em 0}
+body.hide-pre .pre{display:none}
+</style><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><style id="individual-unit">.authored-unit .fine-note{font-size:14.5px;line-height:1.8;color:var(--muted)}
+.authored-unit .authored-figure{margin:22px auto 26px}
+.authored-unit .authored-figure .figimg{max-width:100%;max-height:580px;width:auto;height:auto;border-radius:6px}
+.authored-unit .fig-composition .figimg,.authored-unit .fig-pressure .figimg{max-height:none}
+.authored-unit figcaption{line-height:1.65;margin-top:7px}
+.authored-unit figcaption span{display:block;font-size:12px;margin-top:3px}
+.authored-unit li{margin-top:7px;margin-bottom:7px}
+.authored-unit .exp ol{margin:10px 0}
+.authored-unit .qsum{font-size:16px}
+.authored-unit .reading-table td{text-align:left;vertical-align:top}
+.authored-unit .reading-table th:first-child{white-space:nowrap}
+.authored-unit .punnett-static{display:table;width:min(100%,520px);margin:18px auto}
+.authored-unit .punnett-static td{padding:12px 8px}
+.authored-unit .punnett-static code{background:none}
+.authored-unit .source-originals{margin:30px 0 10px;padding:12px 16px;border:1px solid var(--line);border-radius:10px}
+.authored-unit .source-originals>summary{cursor:pointer;font-weight:700;color:var(--accent)}
+.authored-unit .original-page .figimg{width:100%;height:auto;max-height:none}
+.authored-unit .ref-list{font-size:14px}
+.authored-unit .fig-chromosome .figimg{max-height:none}
+@media(max-width:900px){
+.authored-unit .authored-figure .figimg{max-height:none}
+.authored-unit .qh{flex-wrap:wrap;gap:6px}
+.authored-unit .qtag{white-space:normal;max-width:calc(100% - 36px);font-size:12px}
+.authored-unit .mark{flex-shrink:0}
+.authored-unit .punnett-static{font-size:15px}
+.authored-unit .punnett-static td,.authored-unit .punnett-static th{padding:8px 5px}
+.authored-unit .source-originals{padding:10px}
+}
+@media print{.authored-unit h2.section{break-after:avoid}.authored-unit .fig{break-inside:avoid}.authored-unit .q{break-inside:auto}.authored-unit .source-originals{display:none}}
+
+.authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
+.authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+</style></head>
+<body>
+<button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
+<nav class="side" id="side"><a class="brand" href="index.html">生物<small>講義電子化</small></a><div class="nch">第1單元　細胞學</div><ul><li><a href="u1-1.html"><span>1-1</span>生命現象與細胞學說</a></li><li><a href="u1-2.html"><span>1-2</span>維持生物體的基本物質（原生質）</a></li><li><a href="u1-3.html"><span>1-3</span>酵素與輔酶</a></li><li><a href="u1-4.html"><span>1-4</span>細胞的構造與功能</a></li><li><a href="u1-5.html"><span>1-5</span>物質進出細胞的方式</a></li><li><a href="u1-6.html"><span>1-6</span>細胞的生殖與分化</a></li><li><a href="u1-7.html"><span>1-7</span>探討活動：顯微觀察、有機物檢測、膜通透性、酵素活性</a></li><li><a href="u1-8.html"><span>1-8</span>單元 1 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第2單元　維持生命現象的能量</div><ul><li><a href="u2-1.html"><span>2-1</span>光合作用</a></li><li><a href="u2-2.html"><span>2-2</span>呼吸作用</a></li><li><a href="u2-3.html"><span>2-3</span>細胞代謝與能量</a></li><li><a href="u2-4.html"><span>2-4</span>探討活動：色素層析、希爾反應、酵母菌發酵</a></li><li><a href="u2-5.html"><span>2-5</span>單元 2 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><div class="nch">第一次段考復習　單元 1 細胞學＋單元 2 維持生命現象的能量</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>細胞學難題（上）：學說、物質、胞器、膜與運輸</a></li><li><a href="u復2.html"><span>復2</span>細胞學難題（下）：酵素、細胞週期、分裂與分化</a></li><li><a href="u復3.html"><span>復3</span>能量難題：光合作用、呼吸作用、ATP</a></li><li><a href="u復4.html"><span>復4</span>考前猜題模擬卷：單元 1 細胞學＋單元 2 能量</a></li></ul><!-- integrated-nav START --><div class="nch">第3單元　遺傳學</div><ul><li><a href="u3-1.html"><span>3-1</span>孟德爾遺傳：配子與子代機率</a></li><li><a href="u3-2.html"><span>3-2</span>顯性關係的延伸：血型、多基因與環境</a></li><li><a href="u3-3.html"><span>3-3</span>染色體、核型與性別決定</a></li><li><a href="u3-4.html"><span>3-4</span>基因的連鎖與互換：重組率與遺傳圖譜</a></li><li><a href="u3-5.html"><span>3-5</span>單元 3 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><!-- u4-nav START --><div class="nch">第4單元　分子生物學</div><ul><li><a href="u4-1.html"><span>4-1</span>核酸的發現：轉形作用與噬菌體實驗</a></li><li><a href="u4-2.html"><span>4-2</span>核酸的構造與 DNA 複製</a></li><li><a href="u4-3.html"><span>4-3</span>基因表現：轉錄、轉譯與調控</a></li><li><a href="u4-4.html"><span>4-4</span>遺傳變異：染色體變異與基因突變</a></li><li><a href="u4-5.html"><span>4-5</span>生物科技：PCR、重組 DNA 與基因轉殖</a></li><li><a href="u4-6.html"><span>4-6</span>單元 4 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><!-- u4-nav END --><!-- u5-nav START --><div class="nch">第5單元　演化</div><ul><li><a href="u5-1.html"><span>5-1</span>生命的起源</a></li><li><a href="u5-2.html"><span>5-2</span>演化觀念與機制</a></li><li><a href="u5-3.html"><span>5-3</span>演化的證據與分類</a></li><li><a class="on" href="u5-4.html"><span>5-4</span>族群遺傳與哈溫定律</a><ul class="subtoc"><li><a href="#s1">族群遺傳與等位基因頻率</a></li><li><a href="#s2">族群頻率為什麼改變</a></li><li><a href="#s3">哈溫平衡的公式與條件</a></li><li><a href="#s4">應用一：野花與苯酮尿症</a></li><li><a href="#s5">應用二：ABO 血型與性聯遺傳</a></li><li><a href="#s6">經典演練：海茄苳族群題組 1–4</a></li><li><a href="#s7">經典演練：島嶼鳥類題組 5–8</a></li><li><a href="#s8">本篇整理</a></li></ul></li><li><a href="u5-5.html"><span>5-5</span>樺尺蛾探討活動與病毒</a></li><li><a href="u5-6.html"><span>5-6</span>單元 5 練習題：滿貫強試出擊＋歷屆考題</a></li></ul><!-- u5-nav END --><p class="source-note"><a href="../sources.html#book=生物1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<main class="main"><header class="uh"><div class="crumb">第5單元 演化</div><h1><span class="uid">5-4</span>族群遺傳與哈溫定律</h1><div class="tools"><span class="cnt">8題・經典演練2.0素養混合題1–8</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><h2 class="section" id="s1">族群遺傳與等位基因頻率</h2>
+<ol><li>這節要問：如何把族群中的遺傳差異換算成數字？</li><li><strong>族群遺傳學</strong>研究親代族群與後代族群之間的遺傳關係。</li><li>1858 年，<strong>達爾文</strong>與<strong>華萊士</strong>認為，族群中較適合生存的個體占優勢，因此較有機會交配並產生後代。</li><li><strong>基因池</strong>是某生物族群內所有個體的等位基因總和。</li><li><strong>等位基因頻率</strong>是某種等位基因在族群中所占的比例。</li><li>族群遺傳學整合古生物學、分類學、生物物理學與遺傳學，成為探討生物演化的重要理論基礎。</li></ol>
+<aside class="box box-sum"><div class="box-h">整理：500 個個體的等位基因</div><table><thead><tr><th>基因型</th><th>AA</th><th>Aa</th><th>aa</th></tr></thead><tbody><tr><td>個體數</td><td>320</td><td>160</td><td>20</td></tr><tr><td>表現型</td><td colspan="2">顯性 480 個</td><td>隱性 20 個</td></tr></tbody></table></aside>
+<ol><li>等位基因總數＝500 × 2＝1000，因為每個個體在此基因座有兩個等位基因。</li><li>A 數目＝320 × 2＋160＝800，因為每個 AA 貢獻兩個 A，每個 Aa 貢獻一個 A。</li><li>A 頻率＝800 ÷ 1000＝0.8＝80%，因為頻率是 A 數目除以等位基因總數。</li><li>a 數目＝160＋20 × 2＝200，因為每個 Aa 貢獻一個 a，每個 aa 貢獻兩個 a。</li><li>a 頻率＝200 ÷ 1000＝0.2＝20%，因為頻率是 a 數目除以等位基因總數。</li></ol>
+
+<h2 class="section" id="s2">族群頻率為什麼改變</h2>
+<ol><li>這節要問：哪些因素會改變族群的遺傳組成？</li><li>理想的平衡族群中，等位基因頻率不變，所以不發生演化。</li><li><strong>基因流動</strong>來自部分個體的遷移；遷入或遷出會改變族群的等位基因組成。</li><li><strong>突變</strong>會產生遺傳變異，可能改變等位基因頻率。</li><li>有性生殖的基因重組改變等位基因的組合，單獨重組不能改變等位基因頻率。</li><li><strong>遺傳（基因）漂變</strong>是等位基因頻率因抽樣誤差而隨機改變。</li><li>大量配子中只有部分隨機結合成下一代；抽到的比例與理論值可能不同，這就是抽樣誤差。</li><li>族群越小，遺傳漂變影響越大，因為少數個體的隨機差異占整體的比例較高。</li><li><strong>創始者（拓荒者）效應</strong>：少數分散的個體建立新族群；其等位基因頻率主導新族群的基因型式。</li><li><strong>瓶頸效應</strong>：地震等不利因素使族群劇減；少數存活者形成的族群可能改變原有等位基因頻率。</li><li>一般漂變的抽樣誤差來自配子隨機選擇；創始者與瓶頸效應則來自少數個體被選出或存活。</li><li>天擇與非隨機交配也會影響族群遺傳組成；非隨機交配會改變基因型比例。</li></ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>- 創始者效應看少數個體建立新族群；瓶頸效應看原族群驟減後的存活者。<br>- 基因型比例改變不一定代表等位基因頻率改變，因為重新組合本身不增減等位基因。</p></aside>
+
+<h2 class="section" id="s3">哈溫平衡的公式與條件</h2>
+<ol><li>這節要問：什麼條件下能由等位基因頻率推算基因型頻率？</li><li>1908 年，英國數學家<strong>哈地</strong>與德國醫生<strong>溫伯格</strong>提出<strong>哈溫平衡（Hardy-Weinberg equilibrium）</strong>。</li><li>在假設條件下，族群的等位基因頻率和基因型頻率維持不變，可用來推算不演化的理想族群。</li><li>設 A 頻率為 p，a 頻率為 q；若只有這兩種等位基因，則 p＋q＝1，因為兩者涵蓋全部等位基因。</li><li>隨機結合時，AA 頻率＝p × p＝p²，因為兩個配子都要提供 A。</li><li>Aa 頻率＝p × q＋q × p＝2pq，因為 A 和 a 可分別來自任一親代。</li><li>aa 頻率＝q × q＝q²，因為兩個配子都要提供 a。</li><li>因此 p²＋2pq＋q²＝1，因為 AA、Aa、aa 涵蓋全部基因型。</li></ol>
+<aside class="box box-sum"><div class="box-h">整理：配子的隨機組合</div><table><thead><tr><th>配子</th><th>A（p）</th><th>a（q）</th></tr></thead><tbody><tr><td>A（p）</td><td>AA（p²）</td><td>Aa（pq）</td></tr><tr><td>a（q）</td><td>Aa（pq）</td><td>aa（q²）</td></tr></tbody></table></aside>
+<ol><li>理想族群假設無限大，因為這樣可排除遺傳漂變。</li><li>假設不突變、無遷移，因為這些因素會改變等位基因頻率。</li><li>假設隨機交配，因為配子按頻率隨機結合才能得到 p²、2pq、q²。</li><li>假設世代不重疊，便於依世代計算。</li><li>書上列出以上五項。另外也要沒有天擇，因為不同基因型若有不同生殖成功率，頻率可能改變。</li></ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>- p、q 是等位基因頻率；p²、2pq、q² 是個體的基因型頻率。<br>- 不能直接把顯性表現型頻率當 p，因為顯性個體可能是 AA 或 Aa。</p></aside>
+
+<h2 class="section" id="s4">應用一：野花與苯酮尿症</h2>
+<ol><li>這節要問：知道隱性表現型比例，如何估計帶因者與其他基因型？</li><li>野花紅花 A 對白花 a 為顯性；白花必為 aa。</li><li>白花占 4%，所以 q²＝0.04，因為白花是隱性同型合子。</li><li>q＝√0.04＝0.2，因為 q 是非負頻率。</li><li>p＝1－0.2＝0.8，因為 p＋q＝1。</li><li>AA 頻率＝p²＝0.8 × 0.8＝0.64，因為 AA 從兩個配子都取得 A。</li><li>Aa 頻率＝2pq＝2 × 0.8 × 0.2＝0.32，因為 A 和 a 可由兩個親代交換來源。</li><li>aa 頻率＝q²＝0.2 × 0.2＝0.04，因為兩個配子都提供 a。</li></ol>
+<figure class="fig authored-figure fig-flowers"><img class="figimg" src="img/biology-5-4-flowers.webp" width="896" height="849" loading="lazy" alt="野花族群花色的等位基因頻率及各基因型頻率" data-page="生物2 PDF第72頁"><figcaption>野花族群花色的等位基因頻率及各基因型頻率<span>原講義PDF第72頁・印刷第182頁・點圖放大</span></figcaption></figure>
+<ol><li><strong>苯酮尿症（PKU）</strong>例子：美國人族群中，每萬人有 1 人患病；設正常等位基因 A 的頻率為 p，致病等位基因 a 的頻率為 q。</li><li>q²＝1／10000，因為患者為 aa。</li><li>q＝√（1／10000）＝1／100，因為 q 為非負頻率。</li><li>p＝1－q＝99／100，因為兩種等位基因頻率之和為 1。</li><li>Aa 頻率＝2pq＝2 × 99／100 × 1／100＝0.0198，因為帶因者有一個 A 和一個 a。</li><li>帶因者約占 1.98%，所以約有 2% 的美國人是苯酮尿症基因的攜帶者。</li></ol>
+
+<h2 class="section" id="s5">應用二：ABO 血型與性聯遺傳</h2>
+<ol><li>這節要問：三種等位基因或性聯基因，如何推算各類個體比例？</li><li>ABO 例子設 I<sup>A</sup> 頻率 p＝0.4、I<sup>B</sup> 頻率 q＝0.1、i 頻率 r＝0.5；三者相加為 1。</li></ol>
+<aside class="box box-sum"><div class="box-h">整理：三種等位基因的隨機組合</div><table><thead><tr><th>配子</th><th>I<sup>A</sup>（p）</th><th>I<sup>B</sup>（q）</th><th>i（r）</th></tr></thead><tbody><tr><td>I<sup>A</sup>（p）</td><td>I<sup>A</sup>I<sup>A</sup>（p²）</td><td>I<sup>A</sup>I<sup>B</sup>（pq）</td><td>I<sup>A</sup>i（pr）</td></tr><tr><td>I<sup>B</sup>（q）</td><td>I<sup>A</sup>I<sup>B</sup>（pq）</td><td>I<sup>B</sup>I<sup>B</sup>（q²）</td><td>I<sup>B</sup>i（qr）</td></tr><tr><td>i（r）</td><td>I<sup>A</sup>i（pr）</td><td>I<sup>B</sup>i（qr）</td><td>ii（r²）</td></tr></tbody></table></aside>
+<aside class="box box-sum"><div class="box-h">整理：ABO 基因型與頻率</div><table><thead><tr><th>血型</th><th>基因型</th><th>頻率</th></tr></thead><tbody><tr><td>A 型</td><td>I<sup>A</sup>I<sup>A</sup>、I<sup>A</sup>i</td><td>p²＋2pr</td></tr><tr><td>B 型</td><td>I<sup>B</sup>I<sup>B</sup>、I<sup>B</sup>i</td><td>q²＋2qr</td></tr><tr><td>AB 型</td><td>I<sup>A</sup>I<sup>B</sup></td><td>2pq</td></tr><tr><td>O 型</td><td>ii</td><td>r²</td></tr></tbody></table></aside>
+<ol><li>A 型＝p²＋2pr＝0.4²＋2 × 0.4 × 0.5＝0.56＝56%，因為兩種 A 型基因型都要計入。</li><li>B 型＝q²＋2qr＝0.1²＋2 × 0.1 × 0.5＝0.11＝11%，因為兩種 B 型基因型都要計入。</li><li>AB 型＝2pq＝2 × 0.4 × 0.1＝0.08＝8%，因為 I<sup>A</sup> 和 I<sup>B</sup> 可分別來自任一親代。</li><li>O 型＝r²＝0.5 × 0.5＝0.25＝25%，因為兩個等位基因都必須是 i。</li><li>紅綠色盲是性聯隱性遺傳。設正常等位基因 A 頻率 p、色盲等位基因 a 頻率 q；假設男性中 8% 色盲。</li><li>q＝0.08，因為男性只有一條 X 染色體，帶 a 就表現色盲。</li><li>p＝1－0.08＝0.92，因為 A 和 a 的頻率和為 1。</li><li>女性色盲頻率＝q²＝0.08 × 0.08＝0.0064＝0.64%，因為女性兩條 X 都要帶 a。</li><li>女性正常異型合子頻率＝2pq＝2 × 0.92 × 0.08＝0.1472＝14.72%，因為 A 與 a 可來自任一親代。</li></ol>
+
+<h2 class="section sec-practice" id="s6">經典演練：海茄苳族群題組 1–4</h2>
+<ol><li>這節要由各基因型個體數，計算等位基因與比較平衡狀態。</li></ol>
+<aside class="box box-ref"><div class="box-h">題組敘述（學術探究）</div><p>關於物種的滅絕，不只是一個物種從地球上消失而已，更是這個生物所有的基因從此消失，而這些基因也許在未來對我們是很重要的（如某種抵抗疾病的基因）。因此保育工作不只是讓生物活著，以維持生物的多樣性而已，更重要的是留住這些物種所擁有的基因。在演化上，生物滅絕的因素很多，而個體間基因的變異小則是物種較容易被淘汰的主要因素之一。植物海茄苳體內的某一酵素是由一對（兩個）等位基因控制，且這對等位基因有 A1 和 A2 兩種形式，它的遺傳模式符合孟德爾遺傳法則。</p></aside>
+<figure class="fig authored-figure fig-table"><img class="figimg" src="img/biology-5-4-table.webp" width="624" height="204" loading="lazy" alt="兩個海茄苳族群的基因組合調查結果" data-page="生物2 PDF第74頁"><figcaption>兩個海茄苳族群的基因組合調查結果<span>原講義PDF第74頁・印刷第184頁・點圖放大</span></figcaption></figure>
+<article class="q q-pr" id="check-1"><header class="qh"><span class="qn">演練 1</span><span class="qtag">等位基因總數</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 1">☆</button></header><div class="qtext"><p>請計算甲與乙族群中控制 A 酵素的等位基因總數分別為多少？</p><p>(A)1200，1200　(B)1000，1000　(C)2000，2000　(D)1200，2000。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C：甲、乙各 2000。</div><div class="exp"><b class="exp-h">解</b><ol><li>甲的個體數＝365＋470＋165＝1000，因為三種基因型涵蓋全部個體。</li><li>乙的個體數＝205＋590＋205＝1000，因為同樣將三類相加。</li><li>兩族群各有 1000 × 2＝2000 個等位基因，因為每個個體有一對等位基因。</li><li>因此選 (C)。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>兩族群各有 1000 個個體，每個個體有兩個等位基因，所以各有 2000 個。</p></div></div></details></article>
+<article class="q q-pr" id="check-2"><header class="qh"><span class="qn">演練 2</span><span class="qtag">計算 A1 數目</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 2">☆</button></header><div class="qtext"><p>請分別估算估出甲與乙族群 A1 等位基因的數目。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>甲 1200 個；乙 1000 個。</div><div class="exp"><b class="exp-h">解</b><ol><li>甲族群 A1＝365 × 2＋470＝1200，因為 A1A1 每株有兩個 A1，A1A2 每株有一個。</li><li>乙族群 A1＝205 × 2＋590＝1000，因為以相同方式計數。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>A1 數目＝2 × A1A1 個體數＋A1A2 個體數。</p></div></div></details></article>
+<article class="q q-pr" id="check-3"><header class="qh"><span class="qn">演練 3</span><span class="qtag">頻率與遺傳多樣性</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 3">☆</button></header><div class="qtext"><p>如果 a＝A1 的等位基因頻率＝A1 等位基因的數目／等位基因總數，b＝A2 的等位基因頻率＝1－a，請算出甲族群及乙族群中 a－b 的絕對值，並判斷甲與乙族群何者的遺傳（基因）多樣性較大。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>甲為 0.2；乙為 0；乙族群的基因多樣性較大。</div><div class="exp"><b class="exp-h">解</b><ol><li>甲的 a＝1200／2000＝0.6，因為 A1 有 1200 個，共 2000 個等位基因。</li><li>甲的 b＝1－0.6＝0.4，因為只有 A1、A2 兩種。</li><li>甲的 |a－b|＝|0.6－0.4|＝0.2。</li><li>乙的 a＝1000／2000＝0.5，b＝1－0.5＝0.5，因為兩類頻率總和為 1。</li><li>乙的 |a－b|＝|0.5－0.5|＝0。</li><li>乙的兩種等位基因比例較均衡，因此依此指標有較大的基因多樣性。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>甲的頻率為 0.6、0.4；乙各 0.5，乙較均衡。</p></div></div></details></article>
+<article class="q q-pr" id="check-4"><header class="qh"><span class="qn">演練 4</span><span class="qtag">比較哈溫平衡</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 4">☆</button></header><div class="qtext"><p>依照表中的資料判斷甲與乙族群何者的基因型組成較接近哈溫理想族群。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>甲族群。</div><div class="exp"><b class="exp-h">解</b><ol><li>甲的 p＝0.6、q＝0.4，因為 A1 與 A2 頻率分別為 0.6、0.4。</li><li>平衡時甲的預期比例＝p²：2pq：q²＝0.36：0.48：0.16，因為三種基因型依配子隨機結合形成。</li><li>甲的實際比例＝0.365：0.470：0.165，與預期相近。</li><li>乙的 p＝q＝0.5，預期比例為 0.25：0.50：0.25，因為代入 p²、2pq、q²。</li><li>乙實際比例為 0.205：0.590：0.205，與預期相差較大，因此甲較接近。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>各族群先各自求等位基因頻率，再比較觀察比例與 p²：2pq：q²。</p></div></div></details></article>
+
+<h2 class="section sec-practice" id="s7">經典演練：島嶼鳥類題組 5–8</h2>
+<ol><li>這節要運用島嶼遷移圖與等位基因頻率圖，分析頻率與遺傳漂變。</li></ol>
+<aside class="box box-ref"><div class="box-h">題組敘述（實驗探究、學術探究；105全國模考修訂）</div><p>下圖(一)顯示太平洋某部分島嶼上，幾種鳥類的分布及演化遷徙情況。圖(二)顯示其中的 S 鳥不同族群的等位基因頻率與世代數的關係，其中 n 代表族群個體數，試回答下列問題：</p></aside>
+<figure class="fig authored-figure fig-islands"><img class="figimg" src="img/biology-5-4-islands.webp" width="544" height="362" loading="lazy" alt="圖（一）：島嶼鳥類的分布與遷移" data-page="生物2 PDF第74頁"><figcaption>圖（一）：島嶼鳥類的分布與遷移<span>原講義PDF第74頁・印刷第184頁・點圖放大</span></figcaption></figure>
+<figure class="fig authored-figure fig-drift"><img class="figimg" src="img/biology-5-4-drift.webp" width="480" height="380" loading="lazy" alt="圖（二）：S 鳥各族群的等位基因頻率與世代數" data-page="生物2 PDF第74頁"><figcaption>圖（二）：S 鳥各族群的等位基因頻率與世代數<span>原講義PDF第74頁・印刷第184頁・點圖放大</span></figcaption></figure>
+<article class="q q-pr" id="check-5"><header class="qh"><span class="qn">演練 5</span><span class="qtag">鳥類羽色與頻率</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 5">☆</button></header><div class="qtext"><p>S 鳥有黑羽（AA）、雜羽（Aa）、灰羽（aa）三種表現型，當 S 鳥遷至 Y 島後，在隨機交配產生的後代中，統計發現灰羽個體只占 1%，則 Y 島 S 鳥族群中 A 等位基因頻率為何？</p><p>(A)0.01　(B)0.1　(C)0.99　(D)0.9。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D：0.9。</div><div class="exp"><b class="exp-h">解</b><ol><li>q²＝0.01，因為灰羽 aa 占 1%。</li><li>q＝√0.01＝0.1，因為 q 是 a 的非負頻率。</li><li>p＝1－q＝1－0.1＝0.9，因為 A、a 頻率總和為 1。</li><li>A 的頻率是 p，所以選 (D)。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>灰羽 aa 占 1% → q＝0.1 → A 頻率 p＝0.9。</p></div></div></details></article>
+<article class="q q-pr" id="check-6"><header class="qh"><span class="qn">演練 6</span><span class="qtag">島嶼多樣性</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 6">☆</button></header><div class="qtext"><p>圖(一)中顯示，相對於 X 島，Y 島上的鳥之遺傳、物種及生態系多樣性層次中，哪些多樣性確定會減少？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>遺傳多樣性。</div><div class="exp"><b class="exp-h">解</b><ol><li>遺傳多樣性確定減少：只有少數個體從 X 島遷到 Y 島，只帶走原族群的一部分基因。</li><li>物種多樣性沒有減少：X、Y 兩島都有 S 鳥與 L 鳥。</li><li>生態系多樣性無法判斷：圖中沒有畫出兩島的生態系。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>少數個體遷到新島只帶走部分基因，所以遺傳多樣性減少。</p></div></div></details></article>
+<article class="q q-pr" id="check-7"><header class="qh"><span class="qn">演練 7</span><span class="qtag">族群大小與基因型</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 7">☆</button></header><div class="qtext"><p>根據圖(二)判斷，隨著繁殖代數的增加，則當族群愈大，何種基因型的個體比例會愈多？（填寫 AA、Aa 或 aa）</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>Aa。</div><div class="exp"><b class="exp-h">解</b><ol><li>圖中較大的族群（n＝200、350），a 頻率維持在 0.5 附近，因為族群大，遺傳漂變影響小。</li><li>Aa 頻率＝2pq；p、q 都接近 0.5 時，2pq 接近最大值 0.5。</li><li>小族群則不同：n＝25 的 a 頻率到 1，全是 aa；n＝50 的 a 頻率接近 0，幾乎全是 AA。兩者的 Aa 都很少。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>大族群的 p、q 都接近 0.5，所以 Aa 比例最高。</p></div></div></details></article>
+<article class="q q-pr" id="check-8"><header class="qh"><span class="qn">演練 8</span><span class="qtag">創始者效應</span><button class="mark" type="button" title="標記不會" aria-label="標記演練 8">☆</button></header><div class="qtext"><p>族群中的某部分個體因故遷移到新棲地，最後產生新族群，此新族群與原本族群的遺傳結構有所差異，這是屬於遺傳漂變中的何種效應？</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>創始者（拓荒者）效應。</div><div class="exp"><b class="exp-h">解</b><ol><li>少數個體遷到新棲地並成立新族群，符合創始者效應。</li><li>新族群的基因來自少數創始個體，因而其等位基因比例可能與原族群不同。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>少數個體建立新族群，造成頻率可能不同，是創始者效應。</p></div></div></details></article>
+
+<h2 class="section" id="s8">本篇整理</h2>
+<ol><li>這節要整理等位基因、基因型與族群變化的關係。</li></ol>
+<aside class="box box-sum"><div class="box-h">整理：看到線索，如何判讀</div><table><thead><tr><th>線索</th><th>判讀</th></tr></thead><tbody><tr><td>個體基因型數目</td><td>每個個體有兩個等位基因；同型合子計兩個，異型合子各計一個。</td></tr><tr><td>平衡族群</td><td>p＋q＝1；AA、Aa、aa 頻率依序為 p²、2pq、q²。</td></tr><tr><td>隱性表現型</td><td>先用 q² 求 q，再以 p＝1－q 求其他基因型。</td></tr><tr><td>小族群</td><td>隨機抽樣的影響較大，因而容易發生遺傳漂變。</td></tr></tbody></table></aside>
+<p>下一篇接著看樺尺蛾的探討活動與病毒。</p>
+<details class="source-originals"><summary>核對原講義全頁（生物2 PDF71–75）</summary><p class="fine-note">對應印刷181–185頁：PDF71–73為概念3，PDF74至75上半為經典演練1–8；PDF75探討活動起為下一篇。此處演練書上無附答案，依內容逐題推導。書上色盲例題把A、a的頻率標反（f(A)=q=0.08），本篇依計算寫成色盲基因a的頻率為0.08。</p><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/071.webp" alt="生物2PDF第71頁完整原稿"><figcaption>PDF第71頁／印刷第181頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/072.webp" alt="生物2PDF第72頁完整原稿"><figcaption>PDF第72頁／印刷第182頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/073.webp" alt="生物2PDF第73頁完整原稿"><figcaption>PDF第73頁／印刷第183頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/074.webp" alt="生物2PDF第74頁完整原稿"><figcaption>PDF第74頁／印刷第184頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/生物2/075.webp" alt="生物2PDF第75頁完整原稿"><figcaption>PDF第75頁／印刷第185頁</figcaption></figure></details>
+</div><div class="pager"><a href="u5-3.html">← 5-3 演化的證據與分類</a><a href="u5-5.html">5-5 樺尺蛾探討活動與病毒 →</a></div></main>
+<div class="lightbox" id="lb"><img alt=""></div>
+<script>(function(){
+  var KEY = "bio-marked";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch(e){} }
+  var page = location.pathname.split("/").pop();
+  var marked = load();
+  document.querySelectorAll(".q").forEach(function(q){
+    var k = page + "#" + q.id;
+    if (marked[k]) q.classList.add("marked"), q.querySelector(".mark").textContent = "★";
+    q.querySelector(".mark").addEventListener("click", function(){
+      var m = load();
+      if (m[k]) { delete m[k]; q.classList.remove("marked"); this.textContent = "☆"; }
+      else { m[k] = 1; q.classList.add("marked"); this.textContent = "★"; }
+      save(m);
+    });
+  });
+  function all(open){ document.querySelectorAll("details.sol").forEach(function(d){ d.open = open; }); }
+  var oa = document.getElementById("openAll"), ca = document.getElementById("closeAll"), om = document.getElementById("onlyMarked");
+  if (oa) oa.onclick = function(){ all(true); };
+  if (ca) ca.onclick = function(){ all(false); };
+  if (om) om.onclick = function(){ document.body.classList.toggle("only-marked"); this.classList.toggle("active"); };
+  var lb = document.getElementById("lb");
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.classList && (t.classList.contains("qimg") || t.classList.contains("figimg"))) {
+      lb.querySelector("img").src = t.src; lb.classList.add("on");
+    } else if (lb.classList.contains("on") && lb.contains(t)) lb.classList.remove("on");
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("on"); });
+  var menu = document.getElementById("menu"), side = document.getElementById("side");
+  menu.onclick = function(){ side.classList.toggle("open"); };
+  side.addEventListener("click", function(e){ if (e.target.tagName === "A") side.classList.remove("open"); });
+  var on = side.querySelector("a.on"); if (on) on.scrollIntoView({block:"center"});
+})();
+(function(){
+  var b = document.getElementById("togglePre"); if (!b) return;
+  if (!document.querySelector("details.pre")) { b.style.display = "none"; return; }
+  b.onclick = function(){
+    var on = document.body.classList.toggle("hide-pre");
+    b.textContent = on ? "顯示考前速記" : "隱藏考前速記（自測用）";
+  };
+})();
+</script>
+<script src="../subjects.js"></script></body></html>
