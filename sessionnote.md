@@ -260,3 +260,9 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 - 此頁沒有上游 content，直接維護此 HTML。工作檔在 scratchpad chem3q/seg，組裝腳本把物理頁的圖與詳解樣式（viz、vsvg、step 等）併入此頁 head，因為化學頁原本沒有這些樣式。
 - 導覽：所有化學頁側欄第3章最後、chemistry/index、首頁（第3章 7 篇、24 份講義）；3-綜→3題→復0 上下頁。
 - 驗證：validate_handouts 無錯誤；agent-browser 無 JS 錯誤、84 張卡、SVG 文字無超框、展開可用、390px 無橫向溢出。
+
+### 2026-11-09 地科第4單元重點顯眼化＋生物第4單元影片
+- 地科 4-1～4-4：使用者先要「精簡」，後改成「細節留下、重點更顯眼」。每節 h2 後加 `box-key`「本節重點」框（2～4 條），長段落改條列，推導/補充收進 `div.detail`（灰色降級，內容不刪）。原有整理表與考前提醒維持醒目（不放進 detail）。字數比原檔多 11～15%（只加不刪）。主筆 GPT-6.1 Terra high 四份平行；Claude 用程式檢查首行、h2、佔位符與所屬節、class，並把被收進 detail 的 box-sum/box-concept 搬回外面。
+- 生物 4-1～4-5：12 個難概念處加 `box-video` 影片卡（13 支，縮圖＋頻道＋長度＋看什麼），主要是「公鴿生物小講堂」108選生一系列，另有潘彥宏北一女課堂實錄、臺大 OCW PCR 動畫。影片都用 oEmbed 確認存在；內容未逐支觀看。插在該節第一張題卡/題組前。
+- 樣式：box-key、detail、box-video 加在 _src/units/individual-unit.css（所有逐篇單元頁共用）。
+- 驗證：validate_handouts 無錯誤；agent-browser 桌面與 390px 無橫向溢出、無 JS 錯誤、深色模式可讀。未提交。

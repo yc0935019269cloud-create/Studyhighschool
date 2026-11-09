@@ -206,6 +206,25 @@ body.hide-pre .pre{display:none}
 
 .authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
 .authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+
+/* YouTube 影片補充卡 */
+.authored-unit .box-video{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.authored-unit .box-video .box-h{color:var(--warn)}
+.authored-unit .vid{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;margin:8px 0}
+.authored-unit .vid img{width:168px;max-width:42%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.authored-unit .vid b{display:block;line-height:1.4}
+.authored-unit .vid small{display:block;opacity:.75;margin-top:2px}
+.authored-unit .vid:hover b{text-decoration:underline}
+
+/* 本節重點框（顯眼）與細節區（降級） */
+.authored-unit .box-key{background:var(--ex-soft);border:2px solid var(--ex);border-left-width:6px;padding:12px 18px}
+.authored-unit .box-key .box-h{color:var(--ex);font-size:15px}
+.authored-unit .box-key ol{margin:6px 0 2px;padding-left:1.4em}
+.authored-unit .box-key li{font-size:1.08em;font-weight:700;line-height:1.6;margin:3px 0}
+.authored-unit .detail{border-left:3px solid var(--line);margin:12px 0;padding:4px 0 4px 14px;color:var(--muted);font-size:.94em}
+.authored-unit .detail-h{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.8;margin-bottom:2px}
+.authored-unit .detail strong{color:var(--ink)}
+.authored-unit .detail ol,.authored-unit .detail ul{margin:4px 0}
 </style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
@@ -265,6 +284,7 @@ body.hide-pre .pre{display:none}
 - 不是死菌復活：活的 S 型是由活的 R 型轉形來的。<br>
 - (c) 組已經有莢膜卻不致病 → 致病要靠<strong>活菌繁殖</strong>，光有莢膜不夠。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=xGryWWtz0lA" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/xGryWWtz0lA/mqdefault.jpg" alt="" loading="lazy"><span><b>格里夫茲的實驗：R 型菌怎麼變 S 型菌</b><small>潘彥宏・4 分</small><small>看什麼：四組老鼠實驗各看到什麼、為什麼叫「轉形」</small></span></a></aside>
 <h2 class="section" id="s4">艾佛瑞：轉形物質是 DNA</h2>
 <ol>
 <li>1944年，<strong>艾佛瑞</strong>改在培養皿中做轉形：把熱殺 S 型菌的<strong>萃取液</strong>加入 R 型菌一起培養。</li>
@@ -306,6 +326,7 @@ body.hide-pre .pre{display:none}
 - 不能用 <sup>14</sup>C、<sup>3</sup>H、<sup>15</sup>N 標記：蛋白質和 DNA 都含 C、H、N，分不開。<br>
 - 口訣：<strong>「S 在上、P 在下」</strong>（硫在上清液、磷在沉澱）。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=8FK1mAm78lE" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/8FK1mAm78lE/mqdefault.jpg" alt="" loading="lazy"><span><b>108選生一 3-2 攜帶遺傳訊息的分子</b><small>公鴿生物小講堂・16 分</small><small>看什麼：格里夫茲→艾佛瑞→赫希與蔡司一條線串起來；重點看 ³²P、³⁵S 各標記什麼、最後在哪裡測到</small></span></a></aside>
 <h2 class="section" id="s6">其他證據與細菌的三種重組</h2>
 <ol>
 <li>有絲分裂前，細胞的 DNA 先<strong>加倍</strong>，分裂時再<strong>平均分配</strong>到兩個子細胞 → 符合遺傳物質「完整複製、平分給後代」的要求。</li>

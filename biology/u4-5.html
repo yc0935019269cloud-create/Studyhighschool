@@ -206,6 +206,25 @@ body.hide-pre .pre{display:none}
 
 .authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
 .authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+
+/* YouTube 影片補充卡 */
+.authored-unit .box-video{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.authored-unit .box-video .box-h{color:var(--warn)}
+.authored-unit .vid{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;margin:8px 0}
+.authored-unit .vid img{width:168px;max-width:42%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.authored-unit .vid b{display:block;line-height:1.4}
+.authored-unit .vid small{display:block;opacity:.75;margin-top:2px}
+.authored-unit .vid:hover b{text-decoration:underline}
+
+/* 本節重點框（顯眼）與細節區（降級） */
+.authored-unit .box-key{background:var(--ex-soft);border:2px solid var(--ex);border-left-width:6px;padding:12px 18px}
+.authored-unit .box-key .box-h{color:var(--ex);font-size:15px}
+.authored-unit .box-key ol{margin:6px 0 2px;padding-left:1.4em}
+.authored-unit .box-key li{font-size:1.08em;font-weight:700;line-height:1.6;margin:3px 0}
+.authored-unit .detail{border-left:3px solid var(--line);margin:12px 0;padding:4px 0 4px 14px;color:var(--muted);font-size:.94em}
+.authored-unit .detail-h{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.8;margin-bottom:2px}
+.authored-unit .detail strong{color:var(--ink)}
+.authored-unit .detail ol,.authored-unit .detail ul{margin:4px 0}
 </style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
@@ -262,6 +281,7 @@ body.hide-pre .pre{display:none}
 - 溫度高低：變性 ＞ 延伸 ＞ 黏合。口訣「<strong>90 拆、60 黏、72 長</strong>」。<br>
 - 引子決定「複製哪一段」：兩個引子夾住的那段才會被大量放大。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=EVI6aliMl-A" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/EVI6aliMl-A/mqdefault.jpg" alt="" loading="lazy"><span><b>聚合酶連鎖反應原理（動畫）</b><small>臺大開放式課程・5 分</small><small>看什麼：變性→黏合→延長三個溫度在做什麼，動畫很清楚</small></span></a><a class="vid" href="https://www.youtube.com/watch?v=p-LxuKn0aT4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/p-LxuKn0aT4/mqdefault.jpg" alt="" loading="lazy"><span><b>PCR 的原理、過程、原料</b><small>潘彥宏・4 分</small><small>看什麼：PCR 和細胞內 DNA 複製哪裡不一樣</small></span></a></aside>
 <h2 class="section" id="s4">重組 DNA：限制酶與連接酶</h2>
 <aside class="box box-sum"><div class="box-h">整理：兩把關鍵工具</div><table>
 <thead><tr><th>酵素</th><th>作用</th><th>重點</th></tr></thead>
@@ -301,6 +321,7 @@ body.hide-pre .pre{display:none}
 - 標誌基因的用途是「<strong>認出誰拿到了質體</strong>」，常見的是抗生素抗性基因或螢光基因。<br>
 - 目標基因能在細菌中表現，是因為遺傳密碼有<strong>普遍性</strong>（4-3）；但真核基因有內含子，細菌不會剪接，所以常改用人工合成或沒有內含子的版本。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=wLCp9Ql_Bb8" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/wLCp9Ql_Bb8/mqdefault.jpg" alt="" loading="lazy"><span><b>108選生一 4-5 製作重組 DNA</b><small>公鴿生物小講堂・14 分</small><small>看什麼：限制酶切、黏端配對、連接酶接起來、放回細菌篩選</small></span></a></aside>
 <h2 class="section" id="s6">基因轉殖：細菌、植物、動物</h2>
 <ol>
 <li><strong>基因轉殖技術</strong>：用基因工程把遺傳物質送進活細胞或生物體，產生基因改造。<strong>不包括</strong>傳統育種、細胞融合、原生質融合、雜交、誘變、體外受精、體細胞變異及染色體倍增（這些都沒有把特定外源基因放進去）。</li>
@@ -391,6 +412,7 @@ body.hide-pre .pre{display:none}
 - 樣本槽要放在<strong>負極</strong>那一端，DNA 才會往正極跑進膠片。<br>
 - 酒精析出、鹽溶解、界面活性劑破膜、蛋白酶去蛋白：每一種藥劑對應一個目的。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=BEbLLJfv4dk" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/BEbLLJfv4dk/mqdefault.jpg" alt="" loading="lazy"><span><b>108選生一 4-5 PCR、電泳、基因體計畫</b><small>公鴿生物小講堂・18 分</small><small>看什麼：電泳時片段往哪一極跑、為什麼小片段跑得遠</small></span></a></aside>
 <h2 class="section sec-practice" id="s12">探討活動演練 1–3</h2>
 <article class="q q-pr" id="check-12"><header class="qh"><span class="qn">探討 1</span><span class="qtag">探討活動・DNA 萃取（104指考）</span><button class="mark" type="button" title="標記不會" aria-label="標記探討 1">☆</button></header><div class="qtext"><p>下列有關 DNA 萃取的敘述，何者正確？</p><p>(A) 從洋蔥與大腸桿菌中萃取出的 DNA 由不同種類的核苷酸組成　(B) 清潔劑的作用為使細胞破裂，但洋蔥細胞具細胞壁因此清潔劑沒用　(C) 萃取洋蔥的 DNA 時，使用木瓜酵素去除細胞壁　(D) 從洋蔥葉片與莖中可萃取出具相同序列的 DNA</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>D。</div><div class="exp"><b class="exp-h">解</b><ol><li>(A) ✗：所有生物的 DNA 都由同樣 4 種去氧核糖核苷酸（A、T、G、C）組成，不同的是<strong>排列順序</strong>。</li><li>(B) ✗：清潔劑破壞的是<strong>細胞膜、核膜</strong>（脂質膜）；細胞壁可以靠搗碎、研磨打破，清潔劑仍然必要。</li><li>(C) ✗：木瓜酵素和鳳梨汁一樣是<strong>蛋白酶</strong>，用來分解蛋白質，不是去除細胞壁（細胞壁主要是纖維素）。</li><li>(D) ✓：同一株洋蔥的細胞都由同一個受精卵經有絲分裂而來，DNA 序列相同（不同部位只是表現的基因不同）。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>同一個體各部位 DNA 相同；清潔劑破膜、蛋白酶去蛋白。</p></div></div></details></article>
 <aside class="box box-ref"><div class="box-h">第 13、14 題題組敘述（109指考）</div><p>某生分離一種 RNA 病毒甲的遺傳物質，進行定序後將與其他病毒株的遺傳物質做比對。整個實驗過程繁複，①～⑦是他實驗的主要幾項步驟。依上述資訊及習得的知識，回答下列問題。<br>①打破細胞分離病毒甲　②酒精沉澱病毒 RNA　③將 RNA 轉為 DNA　④加入蛋白質分解酵素去掉蛋白殼體　⑤純化 DNA　⑥加入 DNA 聚合酶進行反應　⑦分析病毒核酸序列</p></aside>

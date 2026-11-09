@@ -205,12 +205,32 @@ body.hide-pre .pre{display:none}
 
 .authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
 .authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+
+/* YouTube 影片補充卡 */
+.authored-unit .box-video{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.authored-unit .box-video .box-h{color:var(--warn)}
+.authored-unit .vid{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;margin:8px 0}
+.authored-unit .vid img{width:168px;max-width:42%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.authored-unit .vid b{display:block;line-height:1.4}
+.authored-unit .vid small{display:block;opacity:.75;margin-top:2px}
+.authored-unit .vid:hover b{text-decoration:underline}
+
+/* 本節重點框（顯眼）與細節區（降級） */
+.authored-unit .box-key{background:var(--ex-soft);border:2px solid var(--ex);border-left-width:6px;padding:12px 18px}
+.authored-unit .box-key .box-h{color:var(--ex);font-size:15px}
+.authored-unit .box-key ol{margin:6px 0 2px;padding-left:1.4em}
+.authored-unit .box-key li{font-size:1.08em;font-weight:700;line-height:1.6;margin:3px 0}
+.authored-unit .detail{border-left:3px solid var(--line);margin:12px 0;padding:4px 0 4px 14px;color:var(--muted);font-size:.94em}
+.authored-unit .detail-h{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.8;margin-bottom:2px}
+.authored-unit .detail strong{color:var(--ink)}
+.authored-unit .detail ol,.authored-unit .detail ul{margin:4px 0}
 </style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
 <nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- integrated-nav START --><div class="nch">第4單元　大氣與天氣</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a href="u4-2.html"><span>4-2</span>雲霧的產生：露點、相對溼度與絕熱冷卻</a></li><li><a href="u4-3.html"><span>4-3</span>風向與風速：氣壓梯度力、科氏力與摩擦力</a></li><li><a class="on" href="u4-4.html"><span>4-4</span>氣象觀測與天氣圖：衛星、雷達、鋒面與臺灣季節天氣</a><ul class="subtoc"><li><a href="#s1">傳統氣象觀測</a></li><li><a href="#s2">遙測：氣象衛星與氣象雷達</a></li><li><a href="#s3">天氣圖怎麼來、怎麼讀</a></li><li><a href="#s4">天氣符號</a></li><li><a href="#s5">溫帶氣旋與熱帶氣旋</a></li><li><a href="#s6">臺灣冬季與夏季天氣圖</a></li><li><a href="#s7">小試身手1：天氣符號</a></li><li><a href="#s8">小試身手2–4：衛星雲圖</a></li><li><a href="#s9">小試身手5–6：認季節、認雨型</a></li><li><a href="#s10">本單元整理</a></li></ul></li><li><a href="u4-綜.html"><span>4-綜</span>單元 4 歷屆試題與關鍵考題</a></li><li><a href="u4-考.html"><span>4-考</span>考點教學：考試會怎麼問</a></li></ul><div class="nch">第5單元　海洋</div><ul><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li><li><a href="u5-考.html"><span>5-考</span>考點教學：考試會怎麼問</a></li></ul><div class="nch">第6單元　天然災害</div><ul><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li></ul><div class="nch">第7單元　氣候變遷與資源</div><ul><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li></ul><div class="nch">第8單元　進階探究</div><ul><li><a href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p class="source-note"><a href="../sources.html#book=地科1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
 <main class="main"><header class="uh"><div class="crumb">第4單元 大氣</div><h1><span class="uid">4-4</span>氣象觀測與天氣圖：衛星、雷達、鋒面與臺灣季節天氣</h1><div class="tools"><span class="cnt">6題・原講義小試身手1–6</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><!-- Individually authored against 地科2 PDF18–22 (主題18). Do not replace with the bulk draft. -->
 <h2 class="section" id="s1">傳統氣象觀測</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>地面看近地表</li><li>探空至約30公里</li></ol></aside>
 <figure class="fig authored-figure fig-obs"><img class="figimg" src="img/earth-4-4-obs.webp" width="1168" height="487" loading="lazy" alt="地面觀測測近地表大氣；高空觀測用雷文送（附GPS的無線電探空儀）測到約30公里高" data-page="地科2 PDF第18頁"><figcaption>地面觀測測近地表大氣；高空觀測用雷文送（附GPS的無線電探空儀）測到約30公里高<span>原講義PDF第18頁・印刷第120頁・點圖放大</span></figcaption></figure>
 <aside class="box box-sum"><div class="box-h">整理</div><table>
 <thead><tr><th></th><th>地面觀測</th><th>高空觀測</th></tr></thead>
@@ -220,7 +240,9 @@ body.hide-pre .pre{display:none}
 </tbody>
 </table></aside>
 
+
 <h2 class="section" id="s2">遙測：氣象衛星與氣象雷達</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>衛星看雲，雷達看降水</li><li>可見光看厚，紅外線看高</li></ol></aside>
 <ol>
 <li>遙測能在短時間觀測<strong>很大範圍</strong>，補足地面與高空觀測的空缺。</li>
 </ol>
@@ -233,17 +255,20 @@ body.hide-pre .pre{display:none}
 <tr><td>產品</td><td>衛星雲圖</td><td>雷達回波圖（回波愈強，雨愈大）</td></tr>
 </tbody>
 </table></aside>
-<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒：兩種雲圖怎麼讀</strong><br>
-- <strong>可見光</strong>：雲愈白 → 雲愈<strong>厚</strong>（反射陽光多）；晚上沒有陽光就看不到。<br>
-- <strong>紅外線</strong>：雲愈白 → 雲頂溫度愈低 → 雲頂愈<strong>高</strong>；日夜都能用。<br>
-- 兩張都很白 → 又厚又高 → 旺盛對流的積雨雲。<br>
-- 雲多不代表一定下雨：有雲不一定有降水，要看雷達。</p></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><div>考前提醒：兩種雲圖怎麼讀</div><ol>
+<li><strong>可見光</strong>：雲愈白 → 雲愈<strong>厚</strong>（反射陽光多）；晚上沒有陽光就看不到。</li>
+<li><strong>紅外線</strong>：雲愈白 → 雲頂溫度愈低 → 雲頂愈<strong>高</strong>；日夜都能用。</li>
+<li>兩張都很白 → 又厚又高 → 旺盛對流的積雨雲。</li>
+<li>雲多不代表一定下雨：有雲不一定有降水，要看雷達。</li>
+</ol></aside>
+
 
 <h2 class="section" id="s3">天氣圖怎麼來、怎麼讀</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>等壓線密→風強</li><li>冷鋒藍三角指移動方向</li></ol></aside>
 <figure class="fig authored-figure fig-process"><img class="figimg" src="img/earth-4-4-process.webp" width="824" height="585" loading="lazy" alt="地面站、高空站、衛星、雷達、自動站的資料匯集後，才產出天氣圖" data-page="地科2 PDF第19頁"><figcaption>地面站、高空站、衛星、雷達、自動站的資料匯集後，才產出天氣圖<span>原講義PDF第19頁・印刷第121頁・點圖放大</span></figcaption></figure>
 <ol>
 <li>各種觀測資料匯集 → 分析繪製 → 產出<strong>天氣圖</strong>。</li>
-<li>地面天氣圖上要找：<strong>高壓（H）、低壓（L）、鋒面、颱風</strong>、等壓線疏密。</li>
+<li>地面天氣圖上要找：<strong>高壓（H）、低壓（L）</strong>、鋒面、颱風、等壓線疏密。</li>
 <li>等壓線通常每 <strong>4 百帕</strong>畫一條；愈密風愈強。</li>
 </ol>
 <figure class="fig authored-figure fig-frontmap"><img class="figimg" src="img/earth-4-4-frontmap.webp" width="1200" height="612" loading="lazy" alt="地面天氣圖：溫帶氣旋伴隨冷鋒、暖鋒、囚錮鋒、滯留鋒；颱風是等壓線密集的圓；等壓線通常每 4 百帕一條" data-page="地科2 PDF第19頁"><figcaption>地面天氣圖：溫帶氣旋伴隨冷鋒、暖鋒、囚錮鋒、滯留鋒；颱風是等壓線密集的圓；等壓線通常每 4 百帕一條<span>原講義PDF第19頁・印刷第121頁・點圖放大</span></figcaption></figure>
@@ -258,18 +283,26 @@ body.hide-pre .pre{display:none}
 </table></aside>
 
 <h2 class="section" id="s4">天氣符號</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>長線指風的來向</li><li>氣溫近露點→相對溼度高</li></ol></aside>
 <figure class="fig authored-figure fig-symbol"><img class="figimg" src="img/earth-4-4-symbol.webp" width="1192" height="480" loading="lazy" alt="天氣符號：長線指向風的來向、短線表風速，圓內塗黑愈多雲愈多；136 表示 1013.6 hPa" data-page="地科2 PDF第19頁"><figcaption>天氣符號：長線指向風的來向、短線表風速，圓內塗黑愈多雲愈多；136 表示 1013.6 hPa<span>原講義PDF第19頁・印刷第121頁・點圖放大</span></figcaption></figure>
 <ol>
 <li>長線＝<strong>風的來向</strong>（指向東北 → 東北風）；短線（羽）＝風速。</li>
 <li>圓圈內塗黑愈多 → <strong>雲量</strong>愈多（全白晴、全黑陰）。</li>
 <li>左上是<strong>氣溫</strong>、左下是<strong>露點</strong>；中間符號是現在天氣（例：‧ 為雨）。</li>
+</ol>
+<aside class="box box-concept"><div class="box-h">觀念</div><div>考前提醒</div><ol>
+<li>氣溫與露點愈接近 → 相對溼度愈高（4-2）。</li>
+<li>長線「指向來的方向」，不是吹去的方向，最常讀反。</li>
+</ol></aside>
+<div class="detail"><div class="detail-h">細節</div>
+<ol>
 <li>右上的氣壓省略寫法：136 → <strong>1013.6 hPa</strong>；240 → 1024.0 hPa（只寫十位、個位與小數一位）。</li>
 </ol>
-<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
-- 氣溫與露點愈接近 → 相對溼度愈高（4-2）。<br>
-- 長線「指向來的方向」，不是吹去的方向，最常讀反。</p></aside>
+
+</div>
 
 <h2 class="section" id="s5">溫帶氣旋與熱帶氣旋</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>溫帶氣旋有鋒面</li><li>颱風無鋒面</li></ol></aside>
 <aside class="box box-sum"><div class="box-h">整理</div><table>
 <thead><tr><th></th><th>伴隨鋒面的溫帶氣旋</th><th>熱帶氣旋（颱風）</th></tr></thead>
 <tbody>
@@ -280,6 +313,7 @@ body.hide-pre .pre{display:none}
 </table></aside>
 
 <h2 class="section" id="s6">臺灣冬季與夏季天氣圖</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>冬季大陸高壓</li><li>夏季大陸低壓</li></ol></aside>
 <figure class="fig authored-figure fig-seasons"><img class="figimg" src="img/earth-4-4-seasons.webp" width="1130" height="677" loading="lazy" alt="冬季：大陸高壓 → 東北季風、冷鋒、寒流；夏季：太平洋高壓與西南季風 → 偏南風、颱風、午後雷陣雨" data-page="地科2 PDF第20頁"><figcaption>冬季：大陸高壓 → 東北季風、冷鋒、寒流；夏季：太平洋高壓與西南季風 → 偏南風、颱風、午後雷陣雨<span>原講義PDF第20頁・印刷第122頁・點圖放大</span></figcaption></figure>
 <aside class="box box-sum"><div class="box-h">整理：一眼認季節</div><table>
 <thead><tr><th>天氣圖特徵</th><th>季節</th><th>臺灣天氣</th></tr></thead>
@@ -290,24 +324,38 @@ body.hide-pre .pre{display:none}
 <tr><td>菲律賓東方海上有颱風</td><td>夏、秋（7～10月）</td><td>颱風</td></tr>
 </tbody>
 </table></aside>
-<aside class="box box-concept"><div class="box-h">觀念</div><p><strong>考前提醒</strong><br>
-- 冬季大陸冷 → 冷空氣下沉、地面<strong>高壓</strong>；夏季大陸熱 → 地面<strong>低壓</strong>（陸地比熱小，升溫快）。<br>
-- 午後雷陣雨的條件：夏天、太平洋高壓下晴朗、白天地面強烈加熱 → 熱力對流。</p></aside>
+<aside class="box box-concept"><div class="box-h">觀念</div><div>考前提醒</div><ol>
+<li>冬季大陸冷 → 冷空氣下沉、地面<strong>高壓</strong>。</li>
+<li>夏季大陸熱 → 地面<strong>低壓</strong>（陸地比熱小，升溫快）。</li>
+<li>午後雷陣雨的條件：夏天、太平洋高壓下晴朗、白天地面強烈加熱 → 熱力對流。</li>
+</ol></aside>
+
 
 <h2 class="section sec-practice" id="s7">小試身手1：天氣符號</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>長線看來向</li><li>羽看風速</li></ol></aside>
 <article class="q q-pr" id="check-1"><header class="qh"><span class="qn">小試 1</span><span class="qtag">冷鋒過境前後的天氣符號</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 1">☆</button></header><div class="qtext"><p>在地面天氣圖上常可看見如豆芽菜般的天氣符號，代表該測站某些天氣資訊，如附圖一。附圖二則為某地連續兩天地面天氣圖，請參考兩張附圖，判斷甲測站的天氣符號應為下列哪個組合？</p><div class="qimgs"><img class="qimg" src="img/earth-4-4-q1-1.webp" width="701" height="675" loading="lazy" alt="題目附圖" data-page="地科2 PDF第20頁"></div></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>C。</div><div class="exp"><b class="exp-h">解</b><ol><li><strong>第一天</strong>：甲在冷鋒前方（東南側）、低壓的南方，是暖區。附近等壓線東北—西南走向、低壓在西北 → 梯度力往西北 → 右偏後往北吹 → 吹<strong>偏南風</strong>；冷鋒還沒到，雲不多。</li><li><strong>第二天</strong>：冷鋒已經掃過甲（甲在鋒面西北側）→ 風轉成<strong>偏北風</strong>，冷空氣抬升暖空氣，天空多雲、陰雨。</li><li>看選項（長線指向風的來向，圓內黑色表雲量）：(C) 第一天長線朝下＝<strong>南風</strong>、雲量少；第二天長線朝上＝<strong>北風</strong>、圓全黑＝陰天 → 符合。</li><li>其他選項：(A)(E) 第一天是西風、西北風；(B) 第一天已全陰、第二天南風；(D) 第一天西北風，都不合。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>冷鋒過境：南風轉北風、晴轉陰雨、氣溫下降。</p></div></div></details></article>
 
 <h2 class="section sec-practice" id="s8">小試身手2–4：衛星雲圖</h2>
-<p>附圖一與二分別為 2019 年 10 月 27 日中午 12 時東亞地區的可見光衛星雲圖與紅外線衛星雲圖。臺灣北方有一帶狀雲系從日本東方海域延伸到大陸；已知可見光雲圖上雲愈白代表雲愈厚，紅外線雲圖上雲愈白代表雲頂愈高。</p>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>可見光白＝厚</li><li>紅外線白＝高</li></ol></aside>
+<ol>
+<li>已知可見光雲圖上雲愈白代表<strong>雲愈厚</strong>。</li>
+<li>紅外線雲圖上雲愈白代表<strong>雲頂愈高</strong>。</li>
+</ol>
+<div class="detail"><div class="detail-h">細節</div><ol>
+<li>附圖一與二分別為 2019 年 10 月 27 日中午 12 時東亞地區的可見光衛星雲圖與紅外線衛星雲圖。</li>
+<li>臺灣北方有一帶狀雲系從日本東方海域延伸到大陸。</li>
+</ol></div>
 <article class="q q-pr" id="check-2"><header class="qh"><span class="qn">小試 2</span><span class="qtag">混合題・可見光＋紅外線雲圖</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 2">☆</button></header><div class="qtext"><div class="qimgs"><img class="qimg" src="img/earth-4-4-q2-1.webp" width="875" height="337" loading="lazy" alt="題目附圖" data-page="地科2 PDF第21頁"></div><p>關於附圖中 A 區域與 B 區域中雲的特色敘述，何者正確？</p><p>(A) A 區域應為高壓帶，地面氣流輻合，形成雲雨天氣　(B) B 區域應該有旺盛的上升氣流，形成厚且高聳的積狀雲　(C) A 區域的雲頂比 B 區域高　(D) A、B 兩區域的雲均為薄雲　(E) 兩地的雲底一樣低</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><ol><li><strong>A</strong>：可見光偏白（厚），紅外線暗（雲頂低、溫度高）→ 又厚又低的雲（層狀雲）。</li><li><strong>B</strong>：可見光白、紅外線也白 → 又厚、雲頂又高 → 旺盛上升氣流形成的<strong>積雨雲</strong>（B 對）。</li><li>(A) 高壓是地面輻散、下沉，不會輻合成雲雨 ✗。(C) A 雲頂較低 ✗。(D) 兩區在可見光都不暗，不是薄雲 ✗。(E) 兩種雲圖都只看得到雲頂，無法判斷雲底 ✗。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>可見光看厚薄、紅外線看高低；兩張都白 → 積雨雲。</p></div></div></details></article>
 <article class="q q-pr" id="check-3"><header class="qh"><span class="qn">小試 3</span><span class="qtag">混合題・配對地面天氣圖</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 3">☆</button></header><div class="qtext"><p>與衛星雲圖同時，下列哪一張圖為當時日本區域的地面天氣圖？</p><div class="qimgs"><img class="qimg" src="img/earth-4-4-q3-1.webp" width="720" height="516" loading="lazy" alt="題目附圖" data-page="地科2 PDF第21頁"></div></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><ol><li>雲圖上，帶狀雲系從日本<strong>東南方海上</strong>一路延伸到大陸，B 框在九州、四國南方海上；日本本州上空大致無雲。</li><li>帶狀雲系＝<strong>鋒面</strong> → 選有鋒面的 (B) 或 (D)。</li><li>(D) 的鋒面橫跨本州陸地，雲帶應壓在日本上空，與雲圖不合；(B) 的鋒面在日本<strong>南方海上</strong>，與雲帶位置相符。</li><li>(A) 是颱風（應是一團圓形雲），(C)(E) 無鋒面，都不符。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>帶狀雲＝鋒面；再比對鋒面在陸上還是海上。</p></div></div></details></article>
 <article class="q q-pr" id="check-4"><header class="qh"><span class="qn">小試 4</span><span class="qtag">混合題・雲圖能畫天氣圖嗎</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 4">☆</button></header><div class="qtext"><p>利用這兩張衛星雲圖能否畫出地面天氣圖？請簡短解釋你的答案。</p></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>不能。衛星雲圖只能看出雲的分布與雲頂高低，看不出地面的氣壓數值；畫地面天氣圖需要各地測站的氣壓等觀測資料，才能畫等壓線、定出高低壓中心。</div><div class="exp"><b class="exp-h">解</b><p>地面天氣圖的核心是<strong>等壓線</strong>，而氣壓要由地面測站實際量測。衛星只能輔助判斷鋒面、颱風等雲系的位置，不能單獨畫出天氣圖。</p><div class="qsum"><span class="qsum-h">小結</span><p>雲圖看雲；天氣圖要氣壓資料。</p></div></div></details></article>
 
 <h2 class="section sec-practice" id="s9">小試身手5–6：認季節、認雨型</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>梅雨看滯留鋒</li><li>夏季午後雷雨看熱力對流</li></ol></aside>
 <article class="q q-pr" id="check-5"><header class="qh"><span class="qn">小試 5</span><span class="qtag">混合題・四張天氣圖配月份</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 5">☆</button></header><div class="qtext"><p>附圖為臺灣不同時期之地面天氣圖。關於 4 張圖的可能月份配對，下列何者正確？</p><div class="qimgs"><img class="qimg" src="img/earth-4-4-q5-1.webp" width="901" height="838" loading="lazy" alt="題目附圖" data-page="地科2 PDF第22頁"></div><table class="reading-table"><thead><tr><th>選項</th><th>(A)</th><th>(B)</th><th>(C)</th><th>(D)</th><th>(E)</th></tr></thead><tbody><tr><th>圖一</th><td>7月</td><td>11月</td><td>1月</td><td>6月</td><td>11月</td></tr><tr><th>圖二</th><td>6月</td><td>6月</td><td>5月</td><td>5月</td><td>10月</td></tr><tr><th>圖三</th><td>9月</td><td>9月</td><td>12月</td><td>9月</td><td>1月</td></tr><tr><th>圖四</th><td>12月</td><td>7月</td><td>11月</td><td>12月</td><td>7月</td></tr></tbody></table></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>B。</div><div class="exp"><b class="exp-h">解</b><ol><li>圖一：大陸上有 1032、1036 hPa 強大冷高壓 → <strong>冬季</strong>（11～1月）。</li><li>圖二：鋒面從華南經臺灣附近延伸到日本 → <strong>梅雨季</strong>（5～6月）。</li><li>圖三：菲律賓東方有颱風 → 夏、秋（9月合理；12、1 月極少）。</li><li>圖四：大陸上是 996 hPa 低壓、太平洋高壓在東 → <strong>夏季</strong>（7月）。</li><li>只有 (B) 11、6、9、7 月全部符合。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>冷高壓＝冬；帶狀鋒面＝梅雨；颱風＝夏秋；大陸低壓＝盛夏。</p></div></div></details></article>
 <article class="q q-pr" id="check-6"><header class="qh"><span class="qn">小試 6</span><span class="qtag">混合題・雷達回波配天氣圖</span><button class="mark" type="button" title="標記不會" aria-label="標記小試 6">☆</button></header><div class="qtext"><p>附圖為某時刻雷達回波圖與當日累積雨量圖，請問當日最有可能是哪一張天氣圖中臺灣的天氣情形？請解釋你的判斷依據。</p><div class="qimgs"><img class="qimg" src="img/earth-4-4-q6-1.webp" width="899" height="380" loading="lazy" alt="題目附圖" data-page="地科2 PDF第22頁"></div></div><details class="sol micro-check"><summary><span class="sum-show">看答案與詳解</span><span class="sum-hide">收起</span></summary><div class="ans"><b>答</b>圖二（梅雨季的滯留鋒）。</div><div class="exp"><b class="exp-h">解</b><ol><li>雷達回波呈<strong>西南—東北走向的長帶狀</strong>，橫跨臺灣與臺灣海峽 → 這是鋒面雨帶的形狀，不是颱風的螺旋狀，也不是零星的午後雷陣雨。</li><li>累積雨量圖顯示臺灣大範圍都有雨，中北部山區最多。</li><li>四張圖中只有圖二有鋒面（滯留鋒）通過臺灣附近 → 選<strong>圖二</strong>。</li></ol><div class="qsum"><span class="qsum-h">小結</span><p>雨帶形狀：長帶狀＝鋒面；螺旋狀＝颱風；零星點狀＝熱對流。</p></div></div></details></article>
 
 <h2 class="section" id="s10">本單元整理</h2>
+<aside class="box box-key"><div class="box-h">本節重點</div><ol><li>衛星看雲；雷達看降水</li><li>冷鋒後轉北風、降溫</li></ol></aside>
 <aside class="box box-sum"><div class="box-h">整理</div><table>
 <thead><tr><th>題目線索</th><th>先做的事</th><th>常見誤判</th></tr></thead>
 <tbody>
@@ -318,7 +366,7 @@ body.hide-pre .pre{display:none}
 <tr><td>冷鋒過境</td><td>過境前偏南風較暖，過境後轉北風、降溫、雲雨</td><td>忘了風向也會改變</td></tr>
 </tbody>
 </table></aside>
-<p>下一篇是單元 4 的歷屆試題與關鍵考題，把 4-1～4-4 全部混在一起練。</p>
+<ol><li>下一篇是單元 4 的歷屆試題與關鍵考題，把 4-1～4-4 全部混在一起練。</li></ol>
 <details class="source-originals"><summary>核對原講義全頁（地科2 PDF18–22）</summary><p class="fine-note">本節對應印刷120–124頁（主題18 氣象觀測與天氣圖，含小試身手1–6）。原頁有手寫答案與紅筆筆記；本頁答案一律重新判讀。</p><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/018.webp" alt="地科2PDF第18頁完整原稿"><figcaption>PDF第18頁／印刷第120頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/019.webp" alt="地科2PDF第19頁完整原稿"><figcaption>PDF第19頁／印刷第121頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/020.webp" alt="地科2PDF第20頁完整原稿"><figcaption>PDF第20頁／印刷第122頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/021.webp" alt="地科2PDF第21頁完整原稿"><figcaption>PDF第21頁／印刷第123頁</figcaption></figure><figure class="fig original-page"><img class="figimg" loading="lazy" src="../source-pages/地科2/022.webp" alt="地科2PDF第22頁完整原稿"><figcaption>PDF第22頁／印刷第124頁</figcaption></figure></details>
 </div><div class="pager"><a href="u4-3.html">← 4-3 風向與風速：氣壓梯度力、科氏力與摩擦力</a><a href="u4-綜.html">4-綜 單元 4 歷屆試題與關鍵考題 →</a></div></main>
 <div class="lightbox" id="lb"><img alt=""></div>

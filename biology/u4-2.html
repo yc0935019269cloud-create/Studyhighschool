@@ -206,6 +206,25 @@ body.hide-pre .pre{display:none}
 
 .authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
 .authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+
+/* YouTube 影片補充卡 */
+.authored-unit .box-video{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.authored-unit .box-video .box-h{color:var(--warn)}
+.authored-unit .vid{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;margin:8px 0}
+.authored-unit .vid img{width:168px;max-width:42%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.authored-unit .vid b{display:block;line-height:1.4}
+.authored-unit .vid small{display:block;opacity:.75;margin-top:2px}
+.authored-unit .vid:hover b{text-decoration:underline}
+
+/* 本節重點框（顯眼）與細節區（降級） */
+.authored-unit .box-key{background:var(--ex-soft);border:2px solid var(--ex);border-left-width:6px;padding:12px 18px}
+.authored-unit .box-key .box-h{color:var(--ex);font-size:15px}
+.authored-unit .box-key ol{margin:6px 0 2px;padding-left:1.4em}
+.authored-unit .box-key li{font-size:1.08em;font-weight:700;line-height:1.6;margin:3px 0}
+.authored-unit .detail{border-left:3px solid var(--line);margin:12px 0;padding:4px 0 4px 14px;color:var(--muted);font-size:.94em}
+.authored-unit .detail-h{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.8;margin-bottom:2px}
+.authored-unit .detail strong{color:var(--ink)}
+.authored-unit .detail ol,.authored-unit .detail ul{margin:4px 0}
 </style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
@@ -366,6 +385,7 @@ body.hide-pre .pre{display:none}
 - 原本的兩條舊股<strong>永遠不會消失，也不會再重新配在一起</strong> → 中帶永遠是 2 個分子；重帶第1代後就沒有了。<br>
 - 只看第1代無法排除分散複製，要看到第2代才夠。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=GFuhPwXZz18" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/GFuhPwXZz18/mqdefault.jpg" alt="" loading="lazy"><span><b>108選生一 4-1 半保留複製的發現</b><small>公鴿生物小講堂・11 分</small><small>看什麼：¹⁵N→¹⁴N 培養後離心，第 1、2 代各出現幾條帶、為什麼能排除全保留</small></span></a></aside>
 <h2 class="section" id="s7">DNA 複製的過程</h2>
 <aside class="box box-sum"><div class="box-h">整理：複製的步驟與角色</div><table>
 <thead><tr><th>順序</th><th>角色</th><th>做什麼</th></tr></thead>
@@ -404,6 +424,7 @@ body.hide-pre .pre{display:none}
 - 原料是<strong>去氧核苷三磷酸</strong>：接上時放掉兩個磷酸（焦磷酸），這就是反應的能量來源。<br>
 - 引子是 <strong>RNA</strong>，最後要被換成 DNA；兩股都要引子，延滯股需要很多個。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=0UytcWgePYU" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/0UytcWgePYU/mqdefault.jpg" alt="" loading="lazy"><span><b>108選生一 4-1 DNA 複製的過程</b><small>公鴿生物小講堂・13 分</small><small>看什麼：解旋酶、引子、DNA 聚合酶、連接酶的順序；為什麼一股連續、一股要分段</small></span></a></aside>
 <h2 class="section sec-practice" id="s8">經典演練：PNA 題組 1–5</h2>
 <aside class="box box-ref"><div class="box-h">題組敘述（104全國模考修訂）</div><p>肽核酸（PNA）的骨架是由重複排列的 N-(2-胺乙基)-甘胺酸〔N-(2-aminoethyl)-glycine〕單位，經由肽鍵聚合而成，並與含氮鹼基鍵結（如下圖）。科學家以人工合成 PNA，其具有 DNA 與 RNA 的一些特點，可以儲存資訊，比 DNA 與 RNA 使用的五碳醣－磷酸更為簡易與牢固，並且能以鹼基的互補配對和 DNA 與 RNA 連結。目前研究推斷，或許 PNA 和 DNA 一樣能儲存資訊，並如酵素一樣有催化能力，但經由 PNA、DNA 及 RNA 多方比較評估後，RNA 仍比 PNA 占優勢，因為無論是自然界或人工合成的 RNA，有許多皆具有催化能力，不過 PNA 分子目前仍未被發現能催化反應。試根據上述資料回答下列問題。</p></aside>
 <figure class="fig authored-figure fig-pna"><img class="figimg" src="img/biology-4-2-pna.webp" width="328" height="385" loading="lazy" alt="PNA 的骨架：重複的 N-(2-胺乙基)-甘胺酸單位以肽鍵相連，側邊接鹼基" data-page="生物2 PDF第10頁"><figcaption>PNA 的骨架：重複的 N-(2-胺乙基)-甘胺酸單位以肽鍵相連，側邊接鹼基<span>原講義PDF第10頁・印刷第118頁・點圖放大</span></figcaption></figure>

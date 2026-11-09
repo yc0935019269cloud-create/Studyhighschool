@@ -206,6 +206,25 @@ body.hide-pre .pre{display:none}
 
 .authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
 .authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+
+/* YouTube 影片補充卡 */
+.authored-unit .box-video{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.authored-unit .box-video .box-h{color:var(--warn)}
+.authored-unit .vid{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;margin:8px 0}
+.authored-unit .vid img{width:168px;max-width:42%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.authored-unit .vid b{display:block;line-height:1.4}
+.authored-unit .vid small{display:block;opacity:.75;margin-top:2px}
+.authored-unit .vid:hover b{text-decoration:underline}
+
+/* 本節重點框（顯眼）與細節區（降級） */
+.authored-unit .box-key{background:var(--ex-soft);border:2px solid var(--ex);border-left-width:6px;padding:12px 18px}
+.authored-unit .box-key .box-h{color:var(--ex);font-size:15px}
+.authored-unit .box-key ol{margin:6px 0 2px;padding-left:1.4em}
+.authored-unit .box-key li{font-size:1.08em;font-weight:700;line-height:1.6;margin:3px 0}
+.authored-unit .detail{border-left:3px solid var(--line);margin:12px 0;padding:4px 0 4px 14px;color:var(--muted);font-size:.94em}
+.authored-unit .detail-h{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.8;margin-bottom:2px}
+.authored-unit .detail strong{color:var(--ink)}
+.authored-unit .detail ol,.authored-unit .detail ul{margin:4px 0}
 </style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
@@ -279,6 +298,7 @@ body.hide-pre .pre{display:none}
 - 易位是「非同源」染色體交換；3-4 的「互換」是<strong>同源</strong>染色體交換，不要混在一起。<br>
 - 倒位、易位本人通常正常，但產生配子時可能出問題，使子代出現缺失或重複。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=Z9i-ZA0yp-Y" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Z9i-ZA0yp-Y/mqdefault.jpg" alt="" loading="lazy"><span><b>選修生物 I 染色體構造上的突變</b><small>潘彥宏（北一女課堂實錄）・23 分</small><small>看什麼：缺失、重複、倒位、易位怎麼畫；聯會時為什麼會出現圈環</small></span></a></aside>
 <h2 class="section" id="s4">染色體數目變異：非整倍體</h2>
 <ol>
 <li>數目變異分兩大類：
@@ -354,6 +374,7 @@ body.hide-pre .pre{display:none}
 - 插入或刪除<strong>3的倍數</strong>個鹼基不會框移，只多或少幾個胺基酸。<br>
 - 判斷題：先把 DNA 換成 mRNA、找對讀框，再逐一查表比對。</p></aside>
 
+<aside class="box box-video"><div class="box-h">▶ 看影片幫助理解</div><a class="vid" href="https://www.youtube.com/watch?v=NrOvCSpUJC8" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/NrOvCSpUJC8/mqdefault.jpg" alt="" loading="lazy"><span><b>108選生一 4-4 基因突變與遺傳疾病檢驗</b><small>公鴿生物小講堂・18 分</small><small>看什麼：取代、插入、缺失；沉默、錯義、無義、框移突變怎麼分</small></span></a></aside>
 <h2 class="section" id="s7">引起突變的因子</h2>
 <aside class="box box-sum"><div class="box-h">整理：突變的來源</div><table>
 <thead><tr><th>類型</th><th>因子</th><th>怎麼造成突變</th></tr></thead>
