@@ -85,3 +85,5 @@ build_individual("biology-5-6")
 build_individual("earth-5-考")
 build_individual("biology-4-考")
 build_individual("earth-4-考")
+import subprocess,sys
+subprocess.run([sys.executable,str(Path(__file__).with_name("build_chat_4.py"))],check=True)

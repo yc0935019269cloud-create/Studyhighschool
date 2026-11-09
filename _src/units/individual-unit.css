@@ -49,3 +49,20 @@
 .authored-unit .detail-h{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.8;margin-bottom:2px}
 .authored-unit .detail strong{color:var(--ink)}
 .authored-unit .detail ol,.authored-unit .detail ul{margin:4px 0}
+
+/* 聊天學完：對話泡泡 */
+.authored-unit .chat{display:flex;flex-direction:column;margin:10px 0 18px}
+.authored-unit .chat-topic{margin:22px 0 6px;font-size:1.05em;color:var(--accent);border-bottom:1px dashed var(--line);padding-bottom:4px}
+.authored-unit .msg{max-width:80%;padding:9px 14px;border-radius:16px;margin:5px 0;line-height:1.75;border:1px solid var(--line)}
+.authored-unit .msg.t{background:var(--accent-soft);border-top-left-radius:4px;align-self:flex-start}
+.authored-unit .msg.s{background:var(--sum-soft);border-top-right-radius:4px;align-self:flex-end}
+.authored-unit .msg::before{content:'老師';display:block;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:1px}
+.authored-unit .msg.s::before{content:'學生';color:var(--sum)}
+.authored-unit .msg.t+.msg.t::before,.authored-unit .msg.s+.msg.s::before{display:none}
+.authored-unit .msg table{margin:6px 0;font-size:.95em}
+.authored-unit .chat-fig{max-width:80%;align-self:flex-start;margin:8px 0}
+.authored-unit details.try{align-self:stretch;margin:10px 0 4px;border:2px dashed var(--ex);border-radius:12px;padding:8px 14px;background:var(--ex-soft)}
+.authored-unit details.try summary{cursor:pointer;font-weight:700;color:var(--ex)}
+.authored-unit details.try .try-a{margin-top:6px;line-height:1.75}
+.authored-unit .chat-more{text-align:right;font-size:.92em}
+@media (max-width:640px){.authored-unit .msg,.authored-unit .chat-fig{max-width:92%}}

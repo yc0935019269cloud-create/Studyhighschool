@@ -205,10 +205,46 @@ body.hide-pre .pre{display:none}
 
 .authored-unit .dominance-table td:first-child{white-space:nowrap;font-weight:600}
 .authored-unit .abo-table td:nth-child(2){white-space:nowrap}
+
+/* YouTube 影片補充卡 */
+.authored-unit .box-video{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.authored-unit .box-video .box-h{color:var(--warn)}
+.authored-unit .vid{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;margin:8px 0}
+.authored-unit .vid img{width:168px;max-width:42%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.authored-unit .vid b{display:block;line-height:1.4}
+.authored-unit .vid small{display:block;opacity:.75;margin-top:2px}
+.authored-unit .vid:hover b{text-decoration:underline}
+
+/* 本節重點框（顯眼）與細節區（降級） */
+.authored-unit .box-key{background:var(--ex-soft);border:2px solid var(--ex);border-left-width:6px;padding:12px 18px}
+.authored-unit .box-key .box-h{color:var(--ex);font-size:15px}
+.authored-unit .box-key ol{margin:6px 0 2px;padding-left:1.4em}
+.authored-unit .box-key li{font-size:1.08em;font-weight:700;line-height:1.6;margin:3px 0}
+.authored-unit .detail{border-left:3px solid var(--line);margin:12px 0;padding:4px 0 4px 14px;color:var(--muted);font-size:.94em}
+.authored-unit .detail-h{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.8;margin-bottom:2px}
+.authored-unit .detail strong{color:var(--ink)}
+.authored-unit .detail ol,.authored-unit .detail ul{margin:4px 0}
+
+/* 聊天學完：對話泡泡 */
+.authored-unit .chat{display:flex;flex-direction:column;margin:10px 0 18px}
+.authored-unit .chat-topic{margin:22px 0 6px;font-size:1.05em;color:var(--accent);border-bottom:1px dashed var(--line);padding-bottom:4px}
+.authored-unit .msg{max-width:80%;padding:9px 14px;border-radius:16px;margin:5px 0;line-height:1.75;border:1px solid var(--line)}
+.authored-unit .msg.t{background:var(--accent-soft);border-top-left-radius:4px;align-self:flex-start}
+.authored-unit .msg.s{background:var(--sum-soft);border-top-right-radius:4px;align-self:flex-end}
+.authored-unit .msg::before{content:'老師';display:block;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:1px}
+.authored-unit .msg.s::before{content:'學生';color:var(--sum)}
+.authored-unit .msg.t+.msg.t::before,.authored-unit .msg.s+.msg.s::before{display:none}
+.authored-unit .msg table{margin:6px 0;font-size:.95em}
+.authored-unit .chat-fig{max-width:80%;align-self:flex-start;margin:8px 0}
+.authored-unit details.try{align-self:stretch;margin:10px 0 4px;border:2px dashed var(--ex);border-radius:12px;padding:8px 14px;background:var(--ex-soft)}
+.authored-unit details.try summary{cursor:pointer;font-weight:700;color:var(--ex)}
+.authored-unit details.try .try-a{margin-top:6px;line-height:1.75}
+.authored-unit .chat-more{text-align:right;font-size:.92em}
+@media (max-width:640px){.authored-unit .msg,.authored-unit .chat-fig{max-width:92%}}
 </style></head>
 <body>
 <button class="menu" id="menu" aria-label="目錄">☰ 目錄</button>
-<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- integrated-nav START --><div class="nch">第4單元　大氣與天氣</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a href="u4-2.html"><span>4-2</span>雲霧的產生：露點、相對溼度與絕熱冷卻</a></li><li><a href="u4-3.html"><span>4-3</span>風向與風速：氣壓梯度力、科氏力與摩擦力</a></li><li><a href="u4-4.html"><span>4-4</span>氣象觀測與天氣圖：衛星、雷達、鋒面與臺灣季節天氣</a></li><li><a href="u4-綜.html"><span>4-綜</span>單元 4 歷屆試題與關鍵考題</a></li><li><a class="on" href="u4-考.html"><span>4-考</span>考點教學：考試會怎麼問</a><ul class="subtoc"><li><a href="#s1">考點 1：氣壓與空氣質量</a></li><li><a href="#s2">考點 2：大氣分層與溫度成因</a></li><li><a href="#s3">考點 3：露點與相對溼度</a></li><li><a href="#s4">考點 4：乾溼球溫度計</a></li><li><a href="#s5">考點 5：雲、霧、露、霜的形成</a></li><li><a href="#s6">考點 6：絕熱冷卻與空氣塊上升、翻山</a></li><li><a href="#s7">考點 7：風的三種力與判斷風向</a></li><li><a href="#s8">考點 8：冷熱與氣壓：熱力環流</a></li><li><a href="#s9">考點 9：衛星雲圖與氣象雷達</a></li><li><a href="#s10">考點 10：天氣圖、鋒面與氣旋</a></li><li><a href="#s11">考點 11：臺灣的季節天氣與雨型</a></li><li><a href="#s12">重點對比整理</a></li></ul></li></ul><div class="nch">第5單元　海洋</div><ul><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li><li><a href="u5-考.html"><span>5-考</span>考點教學：考試會怎麼問</a></li></ul><div class="nch">第6單元　天然災害</div><ul><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li></ul><div class="nch">第7單元　氣候變遷與資源</div><ul><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li></ul><div class="nch">第8單元　進階探究</div><ul><li><a href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p class="source-note"><a href="../sources.html#book=地科1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
+<nav class="side" id="side"><a class="brand" href="index.html">地球科學<small>講義電子化</small></a><div class="nch">單元 1　地球的歷史</div><ul><li><a href="u1-1.html"><span>1-1</span>主題 1　地球的起源與演化</a></li><li><a href="u1-2.html"><span>1-2</span>主題 2　相對地質年代與絕對地質年代</a></li><li><a href="u1-綜.html"><span>1-綜</span>單元 1 歷屆試題與關鍵考題</a></li></ul><div class="nch">單元 2　天文</div><ul><li><a href="u2-3.html"><span>2-3</span>主題 3　恆星的亮度、光度與顏色</a></li><li><a href="u2-4.html"><span>2-4</span>主題 4　太陽系</a></li><li><a href="u2-5.html"><span>2-5</span>主題 5　地球防護罩與適居性</a></li><li><a href="u2-6.html"><span>2-6</span>主題 6　宇宙的結構與宇宙膨脹</a></li><li><a href="u2-7.html"><span>2-7</span>主題 7　天球中的天體</a></li><li><a href="u2-8.html"><span>2-8</span>主題 8　多波段星空觀測及限制</a></li><li><a href="u2-9.html"><span>2-9</span>主題 9　周日運動與不同緯度的星空</a></li><li><a href="u2-10.html"><span>2-10</span>主題 10　周年運動</a></li><li><a href="u2-11.html"><span>2-11</span>主題 11　四季變化</a></li><li><a href="u2-綜.html"><span>2-綜</span>單元 2 歷屆試題與關鍵考題</a></li></ul><div class="nch">第一次段考復習　地球的歷史＋天文</div><ul><li><a href="u復0.html"><span>復0</span>考前地圖：範圍・脈絡・規則速查</a></li><li><a href="u復1.html"><span>復1</span>地球的歷史難題</a></li><li><a href="u復2.html"><span>復2</span>天文難題</a></li><li><a href="u復3.html"><span>復3</span>考前猜題模擬卷：地球的歷史＋天文</a></li></ul><div class="nch">單元 3　地質</div><ul><li><a href="u3-1.html"><span>3-1</span>主題 12　固體地球的結構</a></li><li><a href="u3-2.html"><span>3-2</span>主題 13　板塊運動</a></li><li><a href="u3-3.html"><span>3-3</span>主題 14　臺灣的板塊構造</a></li><li><a href="u3-綜.html"><span>3-綜</span>單元 3 歷屆試題與關鍵考題</a></li></ul><!-- integrated-nav START --><div class="nch">第4單元　大氣與天氣</div><ul><li><a href="u4-1.html"><span>4-1</span>大氣分層：氣壓、溫度與能量</a></li><li><a href="u4-2.html"><span>4-2</span>雲霧的產生：露點、相對溼度與絕熱冷卻</a></li><li><a href="u4-3.html"><span>4-3</span>風向與風速：氣壓梯度力、科氏力與摩擦力</a></li><li><a href="u4-4.html"><span>4-4</span>氣象觀測與天氣圖：衛星、雷達、鋒面與臺灣季節天氣</a></li><li><a href="u4-綜.html"><span>4-綜</span>單元 4 歷屆試題與關鍵考題</a></li><li><a class="on" href="u4-考.html"><span>4-考</span>考點教學：考試會怎麼問</a><ul class="subtoc"><li><a href="#s1">考點 1：氣壓與空氣質量</a></li><li><a href="#s2">考點 2：大氣分層與溫度成因</a></li><li><a href="#s3">考點 3：露點與相對溼度</a></li><li><a href="#s4">考點 4：乾溼球溫度計</a></li><li><a href="#s5">考點 5：雲、霧、露、霜的形成</a></li><li><a href="#s6">考點 6：絕熱冷卻與空氣塊上升、翻山</a></li><li><a href="#s7">考點 7：風的三種力與判斷風向</a></li><li><a href="#s8">考點 8：冷熱與氣壓：熱力環流</a></li><li><a href="#s9">考點 9：衛星雲圖與氣象雷達</a></li><li><a href="#s10">考點 10：天氣圖、鋒面與氣旋</a></li><li><a href="#s11">考點 11：臺灣的季節天氣與雨型</a></li><li><a href="#s12">重點對比整理</a></li></ul></li><li><a href="u4-聊.html"><span>4-聊</span>聊天學完第4單元：大氣</a></li></ul><div class="nch">第5單元　海洋</div><ul><li><a href="u5-1.html"><span>5-1</span>海水性質與波浪：表面與深處的差異</a></li><li><a href="u5-2.html"><span>5-2</span>洋流、湧升流與聖嬰現象</a></li><li><a href="u5-3.html"><span>5-3</span>潮汐：先分大潮小潮，再讀潮位圖</a></li><li><a href="u5-考.html"><span>5-考</span>考點教學：考試會怎麼問</a></li></ul><div class="nch">第6單元　天然災害</div><ul><li><a href="u6-1.html"><span>6-1</span>天然災害：颱風、地震與坡地風險</a></li></ul><div class="nch">第7單元　氣候變遷與資源</div><ul><li><a href="u7-1.html"><span>7-1</span>氣候變遷：從代用資料到回饋機制</a></li><li><a href="u7-2.html"><span>7-2</span>能量收支、全球暖化與資源選擇</a></li></ul><div class="nch">第8單元　進階探究</div><ul><li><a href="u8-1.html"><span>8-1</span>整合探究：從圖表讀出有根據的答案</a></li></ul><p class="source-note"><a href="../sources.html#book=地科1&page=1">完整原講義逐頁對照</a></p><!-- integrated-nav END --></nav>
 <main class="main"><header class="uh"><div class="crumb">第4單元 大氣</div><h1><span class="uid">4-考</span>考點教學：考試會怎麼問</h1><div class="tools"><span class="cnt">11個考點・39題・重點對比整理</span><button id="openAll">全部展開答案</button><button id="closeAll">全部收起</button><button id="onlyMarked">只看☆標記題</button></div></header><div class="content authored-unit"><h2 class="section" id="s1">考點 1：氣壓與空氣質量</h2>
 <ol><li>氣壓是單位面積上方空氣柱的重量；高度愈高，頭頂剩下的空氣愈少，所以氣壓愈低。</li><li>低空空氣較密，因此相同高度差內，低空的氣壓降幅通常比高空大。標準氣壓約 1013 hPa，也等於 76 cmHg。</li><li>某高度以上的空氣重量占比＝該高度氣壓÷地面氣壓；以下占比＝（地面氣壓－該高度氣壓）÷地面氣壓，因為氣壓差代表兩高度之間空氣的重量。</li><li>讀圖先確認高度、氣壓的座標與單位，再用同一張圖的讀值計算。</li></ol>
 <aside class="box box-concept"><div class="box-h">這樣考</div><p><strong>題目通常長這樣</strong><br>- 給氣壓高度圖，問變化率或某高度以下的空氣占比。<br>- 看到「上方空氣柱重量」就先分辨以上或以下。<br><strong>常見陷阱</strong><br>- 高空氣壓仍下降，但空氣稀薄，等高度的降幅較小；不要把以上占比當以下占比。</p></aside>
@@ -319,7 +355,7 @@ body.hide-pre .pre{display:none}
 <aside class="box box-sum"><div class="box-h">對比：臺灣冬季 vs 梅雨季 vs 夏季</div><table><thead><tr><th>比較</th><th>冬季</th><th>梅雨季</th><th>夏季</th></tr></thead><tbody><tr><td>常見系統</td><td>大陸冷高壓</td><td>滯留鋒</td><td>大陸低壓、太平洋高壓</td></tr><tr><td>天氣</td><td>東北季風、迎風面雨</td><td>鋒面帶來降雨</td><td>偏南風、午後雷雨、颱風</td></tr></tbody></table></aside>
 <p>遇到題目先辨認要比較的量，再用對應的原因或公式判斷。</p>
 
-</div><div class="pager"><a href="u4-綜.html">← 4-綜 單元 4 歷屆試題與關鍵考題</a><a href="u5-1.html">5-1 海水性質與波浪 →</a></div></main>
+</div><div class="pager"><a href="u4-綜.html">← 4-綜 單元 4 歷屆試題與關鍵考題</a><a href="u4-聊.html">4-聊 聊天學完第4單元：大氣 →</a></div></main>
 <div class="lightbox" id="lb"><img alt=""></div>
 <script>(function(){
   var KEY = "earth1-marked";

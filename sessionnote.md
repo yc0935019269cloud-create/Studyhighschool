@@ -266,3 +266,13 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 - 生物 4-1～4-5：12 個難概念處加 `box-video` 影片卡（13 支，縮圖＋頻道＋長度＋看什麼），主要是「公鴿生物小講堂」108選生一系列，另有潘彥宏北一女課堂實錄、臺大 OCW PCR 動畫。影片都用 oEmbed 確認存在；內容未逐支觀看。插在該節第一張題卡/題組前。
 - 樣式：box-key、detail、box-video 加在 _src/units/individual-unit.css（所有逐篇單元頁共用）。
 - 驗證：validate_handouts 無錯誤；agent-browser 桌面與 390px 無橫向溢出、無 JS 錯誤、深色模式可讀。未提交。
+- 已上線：提交 63ffe6a，Pages build status=built；線上地科 4-1～4-4、生物 4-1～4-5 共 9 頁與提交內容相同。
+
+### 2026-11-09 聊天學完第4單元（地科 earth/u4-聊、生物 biology/u4-聊）
+- 使用者要「像聊天一樣教完」兩單元，選了對話講義頁。各一頁，放在 4-考 之後；4-考→4-聊→5-1 上下頁已接。
+- 地科 4 段（258 則對話、37 題換你）、生物 5 段（420 則、57 題）；圖直接用各篇已裁好的 img。主筆 GPT-6.1 Terra high 九份平行（每份只依該篇正文寫，不得新增知識）；Claude 檢查格式、抽讀內容、核對工人標記的疑點。
+- 維護：改 _src/chat/<subject>-4-N.html 片段，再跑 python _src/build_chat_4.py（產生 _src/units/*-4-聊.html/.json/.questions.json 並套版）。片段只允許 chat-topic、msg t/s、[[圖:key|說明]]、details.try 四種行。樣式在 individual-unit.css。
+- 導覽：兩科所有頁側欄、目錄 chcard、首頁清單與計數（生物 37 份、地科 35 份）；integrate_navigation EXTRA 加 biology 4-聊；rebuild_layout 結尾呼叫 build_chat_4；earth/u5-1 上一頁直接改 HTML（全站重跑 rebuild_layout 會蓋掉，要重接）。
+- 順手修正 earth-4-2 兩個原有錯誤圖說：飽和曲線左上是過飽和、右下是未飽和（原寫反）；空氣塊圖成雲高度是紅線轉折黑點，不是兩線交會處。
+- 生物 4-3 qrib 原題附圖轉譯方向本身有矛盾，對話已提醒學生以 5′→3′ 規則核對。
+- 驗證：validate_handouts 無錯誤；agent-browser 桌面與 390px 無橫向溢出、無 JS 錯誤、圖片全部載入、換你可展開。未提交。
