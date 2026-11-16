@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DNA 複製｜逐步動畫</title>
+<style>
+:root{color-scheme:light dark;--theme:#177245;--bg:#f3f6f2;--panel:#fff;--ink:#202e28;--muted:#58685f;--border:#d6e1d8;--stage:#fbfdfb;--old:#515a62;--new:#177245;--rna:#8a5cc7;--A:#e35d5d;--T:#e0b52a;--U:#f08a3c;--G:#3aa66a;--C:#3d7fd6;--soft:#e7f3ea;--accent:#c48214}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;line-height:1.65}main{max-width:1120px;margin:auto;padding:22px 24px 40px}header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}a{color:var(--theme);text-underline-offset:4px}h1{margin:4px 0;font-size:clamp(24px,4vw,34px);line-height:1.3}.eyebrow{font-size:12px;letter-spacing:.12em;font-weight:700;color:var(--muted)}.badge{background:var(--soft);color:var(--theme);padding:6px 12px;border-radius:30px;font-size:13px;font-weight:700}.card{background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 8px 30px #152b1510}.stage-wrap{background:var(--stage);border-bottom:1px solid var(--border)}svg{width:100%;height:auto;display:block;touch-action:pan-y}svg text{font-family:inherit;fill:var(--ink);font-size:17px;font-weight:600}svg .small{font-size:14px}svg .tiny{font-size:13px}svg .muted{fill:var(--muted)}svg .old{stroke:var(--old)}svg .new{stroke:var(--new)}svg .rna{stroke:var(--rna)}svg .backbone{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}svg .bond{stroke:var(--muted);stroke-width:1.6;opacity:.65}svg .base-letter{fill:#14201b;font-size:15px;font-weight:800}svg .new-label{fill:var(--theme)}svg .rna-label{fill:var(--rna)}.legend{display:flex;gap:10px 18px;flex-wrap:wrap;padding:11px 22px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--border)}.legend span{display:inline-flex;align-items:center;gap:7px}.swatch{display:inline-block;width:20px;height:5px;border-radius:4px;background:var(--old)}.swatch.new{background:var(--new)}.swatch.rna{background:var(--rna)}.explanation{padding:20px 24px 12px;min-height:162px}h2{font-size:21px;margin:0 0 8px;line-height:1.5}.explanation p{margin:0;color:var(--muted);max-width:90ch}.controls{padding:10px 24px 20px}.buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}button{font:inherit;font-size:14px;font-weight:700;min-height:44px;border:1px solid var(--border);border-radius:10px;background:var(--panel);color:var(--ink);cursor:pointer;touch-action:manipulation}button:hover{background:var(--soft)}button:focus-visible,a:focus-visible{outline:3px solid var(--rna);outline-offset:3px}button:disabled{opacity:.38;cursor:default}#play{background:var(--theme);border-color:var(--theme);color:white}.progress{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}.counter{font-size:13px;font-weight:700;color:var(--muted)}.dots{display:flex;gap:2px}.dot{min-height:40px;width:28px;border:0;background:none;padding:0;display:grid;place-items:center}.dot::before{content:"";width:9px;height:9px;border:1.5px solid var(--muted);border-radius:50%}.dot[aria-current="step"]::before{background:var(--theme);border-color:var(--theme);box-shadow:0 0 0 4px var(--soft)}.hint{font-size:12px;color:var(--muted);margin:4px 0 0}.summary{margin-top:22px}.summary h2{font-size:18px}table{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);border-radius:12px;overflow:hidden}th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border)}th{background:var(--soft);font-weight:700}td:first-child{font-weight:700;white-space:nowrap}tr:last-child td{border-bottom:0}.footnote{font-size:12px;color:var(--muted);margin:10px 0 0}
+@media(prefers-color-scheme:dark){:root{--theme:#65d49a;--bg:#111914;--panel:#1b261f;--ink:#e8f2eb;--muted:#b0c2b6;--border:#35483b;--stage:#162019;--old:#909ca5;--soft:#263e2f;--accent:#edbf57}#play{background:#177245;border-color:#38895c}svg .new{stroke:#177245}svg .rna-label{fill:#be9af0}}
+@media(max-width:600px){main{padding:14px 12px 28px}header{gap:8px;margin-bottom:12px}.badge{font-size:11px;padding:4px 9px}.legend{padding:10px 12px;gap:6px 12px;font-size:11px}.explanation{padding:16px 15px 10px;min-height:210px}h2{font-size:19px}.explanation p{font-size:14px}.controls{padding:8px 12px 16px}.buttons{grid-template-columns:1fr 1fr;gap:8px}.progress{justify-content:center;gap:0 12px}.dot{width:27px}.hint{text-align:center}th,td{padding:10px;font-size:12px}td:first-child{white-space:normal;width:32%}svg text{font-size:16px}svg .small{font-size:14px}svg .tiny{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div><a href="../mindmap/bio4.html">← 回心智圖</a><div class="eyebrow">高中生物・分子遺傳</div><h1>DNA 複製</h1></div>
+    <span class="badge">看方向，理解每一步</span>
+  </header>
+  <section class="card" aria-label="DNA 複製互動演示">
+    <div class="stage-wrap"><svg id="stage" viewBox="0 0 1000 530" role="img" aria-labelledby="svg-title svg-desc"><title id="svg-title">DNA 複製動畫</title><desc id="svg-desc">雙股 DNA 的反向平行、解旋與新股合成。</desc></svg></div>
+    <div class="legend"><span><i class="swatch"></i>舊 DNA 股</span><span><i class="swatch new"></i>新 DNA 股</span><span><i class="swatch rna"></i>RNA 引子</span><span>鹼基：A 紅／T 黃／U 橙／G 綠／C 藍</span></div>
+    <div class="explanation" aria-live="polite" aria-atomic="true"><h2 id="step-title"></h2><p id="step-text"></p></div>
+    <div class="controls">
+      <div class="buttons"><button id="restart" type="button">⏮ 重來</button><button id="previous" type="button">◀ 上一步</button><button id="play" type="button" aria-pressed="false">▶ 播放</button><button id="next" type="button">下一步 ▶</button></div>
+      <div class="progress"><span class="counter" id="counter"></span><nav class="dots" id="dots" aria-label="選擇動畫步驟"></nav></div>
+      <p class="hint">← → 切換步驟・空白鍵播放／暫停・點選目前圓點可重看動畫</p>
+    </div>
+  </section>
+  <section class="summary" aria-labelledby="summary-title"><h2 id="summary-title">複製工具箱</h2><table><thead><tr><th scope="col">分子</th><th scope="col">功能</th></tr></thead><tbody>
+    <tr><td>解旋酶</td><td>打開兩股 DNA 之間的氫鍵，形成複製叉。</td></tr>
+    <tr><td>單股結合蛋白</td><td>附著在單股 DNA 上，防止兩股重新黏合。</td></tr>
+    <tr><td>引子酶</td><td>合成 RNA 引子，提供可延長的 3′-OH。</td></tr>
+    <tr><td>DNA 聚合酶</td><td>從引子的 3′ 端接上互補核苷酸，使新股沿 5′→3′ 延長；移除引子後也由 DNA 聚合酶補上 DNA。</td></tr>
+    <tr><td>DNA 連接酶</td><td>接合相鄰 DNA 片段的骨架缺口，使新股完整連續。</td></tr>
+  </tbody></table><p class="footnote">舞台放大呈現其中一個複製叉；分子大小與距離為教學示意。</p></section>
+</main>
+<script>
+(() => {
+  'use strict';
+  const steps = [
+    ['雙股螺旋與反向平行','DNA 兩股反向平行：上股由左至右是 5′→3′，下股是 3′→5′。鹼基互補配對，A–T 有 2 個氫鍵，G–C 有 3 個氫鍵；這裡把雙股螺旋拉直成梯子，方便觀察。',2800],
+    ['複製起始點','原核環狀 DNA 只有 1 個複製起始點，真核 DNA 有多個起始點。複製從起始點雙向進行；本動畫只放大其中往右前進的一個複製叉。',2300],
+    ['解旋酶打開雙股','解旋酶從左側起始點往右移動，打開兩股之間的氫鍵。經過的 DNA 兩股上下分開，形成 Y 形的複製叉。',3200],
+    ['單股結合蛋白穩定單股','單股結合蛋白附著在已分開的單股 DNA 上，讓兩股不會再黏回去。複製叉右側仍是尚未打開的雙股 DNA。',2300],
+    ['引子酶製作 RNA 引子','引子酶在兩條模版股上各合成一小段紫色 RNA 引子，RNA 使用 U 而不是 T。DNA 聚合酶不能從零開始，需要引子提供可延長的 3′-OH。',3200],
+    ['領先股：朝複製叉連續合成','下方模版股由左至右是 3′→5′；DNA 聚合酶從引子的 3′ 端出發，往右接上互補核苷酸。新股只能沿 5′→3′ 延長，這股和解旋方向相同，可以連續合成，稱為領先股。',4000],
+    ['延滯股：背離複製叉分段合成','上方模版股的方向相反，新股仍只能沿 5′→3′ 延長，因此必須往左、背離複製叉合成。解旋酶繼續往右打開，引子酶在靠近叉處反覆製作新引子，DNA 聚合酶再往左延長，形成 3 段岡崎片段。',10000],
+    ['移除 RNA 引子，再補上 DNA','紫色 RNA 引子先被移除，留下暫時的空缺；接著由 DNA 聚合酶補入綠色 DNA 核苷酸。上方相鄰片段之間還留有骨架缺口，需要下一步接合。',4000],
+    ['DNA 連接酶接合：半保留複製','DNA 連接酶接合岡崎片段之間的骨架缺口，使新股完整連續。最後形成兩個子代 DNA，每個都保留 1 條舊股（深灰），搭配 1 條新股（綠色），稱為半保留複製。',4200]
+  ];
+  const topBases = ['A','T','A','G','C','A','T','G','A','C','T','G'];
+  const complement = {A:'T',T:'A',G:'C',C:'G'};
+  const bottomBases = topBases.map(b => complement[b]);
+  const colors = {A:'#e35d5d',T:'#e0b52a',U:'#f08a3c',G:'#3aa66a',C:'#3d7fd6'};
+  const stage = document.getElementById('stage');
+  const title = document.getElementById('step-title');
+  const description = document.getElementById('step-text');
+  const playButton = document.getElementById('play');
+  const previousButton = document.getElementById('previous');
+  const nextButton = document.getElementById('next');
+  const dots = document.getElementById('dots');
+  const mobile = matchMedia('(max-width:600px)');
+  let current = 0, elapsed = 0, animating = true, playing = false;
+  let lastTime = null, frameId = 0;
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const phase = (p,a,b) => clamp((p-a)/(b-a));
+  const smooth = v => v*v*(3-2*v);
+  function text(x,y,value,cls='',anchor='middle',extra='') {
+    return `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}" ${extra}>${value}</text>`;
+  }
+  function line(x1,y1,x2,y2,cls,extra='') {
+    return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="${cls}" ${extra}/>`;
+  }
+  function chip(x,y,label,kind='',opacity=1) {
+    const w = label.length*(mobile.matches?13:15)+24;
+    return `<g opacity="${opacity}"><rect x="${x-w/2}" y="${y-20}" width="${w}" height="30" rx="10" fill="var(--panel)" stroke="var(--border)"/>${text(x,y,label,kind+' small')}</g>`;
+  }
+  function base(x,y,letter,opacity=1) {
+    return `<g opacity="${opacity}"><rect x="${x-11}" y="${y-10}" width="22" height="20" rx="5" fill="${colors[letter]}"/>${text(x,y+5,letter,'base-letter')}</g>`;
+  }
+  function arrow(x1,y,x2,label,cls='new') {
+    const sign = x2>x1?1:-1;
+    const width=mobile.matches?460:1000, margin=Math.min(width/2,label.length*7+14);
+    const labelX=Math.max(margin,Math.min(width-margin,(x1+x2)/2));
+    return line(x1,y,x2,y,cls,'stroke-width="3"')+`<path d="M ${x2-sign*8} ${y-5} L ${x2} ${y} L ${x2-sign*8} ${y+5}" fill="none" class="${cls}" stroke-width="3"/>`+text(labelX,y-10,label,'small '+(cls==='new'?'new-label':'muted'));
+  }
+  function render(s,p) {
+    const small = mobile.matches, w = small?460:1000;
+    stage.setAttribute('viewBox',`0 0 ${w} 530`);
+    const x0 = small?44:90, x1 = w-x0, dx=(x1-x0)/11;
+    const x = i => x0+dx*i;
+    const firstFork=x(3)+34, endFork=x1+44;
+    const rounds=[
+      {start:0,end:3,primerStart:1,move:[0,.08],prime:[.08,.16],grow:[.16,.29],target:x(3)+44},
+      {start:4,end:7,primerStart:6,move:[.31,.41],prime:[.41,.50],grow:[.50,.61],target:x(7)+34},
+      {start:8,end:11,primerStart:10,move:[.63,.74],prime:[.74,.83],grow:[.83,.95],target:endFork}
+    ];
+    let fork = s<2?x0-45:s===2?(x0-35+(firstFork-x0+35)*smooth(p)):firstFork;
+    if(s===6){
+      let previous=firstFork;
+      for(const round of rounds){
+        fork+=(round.target-previous)*smooth(phase(p,...round.move));
+        previous=round.target;
+      }
+    }
+    if(s>6) fork=endFork;
+    const opened = xx => s<2?0:clamp((fork-xx)/32);
+    const upperY = xx => 239-84*opened(xx);
+    const lowerY = xx => 309+81*opened(xx);
+    let out = `<title id="svg-title">第 ${s+1} 步：${steps[s][0]}</title><desc id="svg-desc">${steps[s][1]}</desc>`;
+    out += text(w/2,30,s===8?'兩個子代 DNA，各含一舊股＋一新股':'複製叉由左往右打開 →','small muted');
+    if(s===0){
+      const t=phase(p,0,.6), a=(1-smooth(t))*(small?16:27);
+      out+=text(w/2,64,t<1?'雙股螺旋 → 拉直觀察':'拉直後仍維持反向平行','small');
+      for(let strand=0;strand<2;strand++){
+        let path='';
+        for(let j=0;j<=100;j++){
+          const xx=x0+(x1-x0)*j/100;
+          const yy=(strand?309:239)+(strand?-1:1)*a*Math.sin(j/100*Math.PI*4);
+          path+=`${j?'L':'M'} ${xx} ${yy} `;
+        }
+        out+=`<path d="${path}" class="backbone old"/>`;
+      }
+      for(let i=0;i<12;i++){
+        const delta=a*Math.sin(i/11*Math.PI*4), yt=239+delta,yb=309-delta;
+        out+=line(x(i),yt,x(i),yt+10,'old')+line(x(i),yb,x(i),yb-10,'old');
+        out+=base(x(i),yt+15,topBases[i])+base(x(i),yb-15,bottomBases[i]);
+        const n=topBases[i]==='A'||topBases[i]==='T'?2:3;
+        for(let k=0;k<n;k++)out+=line(x(i)-5+k*5,(yt+yb)/2-3,x(i)-5+k*5,(yt+yb)/2+3,'bond');
+      }
+      out+=text(x0-19,223,'5′')+text(x1+19,223,'3′')+text(x0-19,338,'3′')+text(x1+19,338,'5′');
+      out+=arrow(x0+12,200,x1-12,'上股 5′ → 3′','old');
+      out+=arrow(x1-12,352,x0+12,'下股 5′ → 3′','old');
+    } else {
+      let upper='',lower='';
+      for(let j=0;j<=100;j++){
+        const xx=x0+(x1-x0)*j/100;
+        upper+=`${j?'L':'M'} ${xx} ${upperY(xx)} `;
+        lower+=`${j?'L':'M'} ${xx} ${lowerY(xx)} `;
+      }
+      out+=`<path d="${upper}" class="backbone old"/><path d="${lower}" class="backbone old"/>`;
+      for(let i=0;i<12;i++){
+        const xx=x(i),yt=upperY(xx),yb=lowerY(xx),sep=opened(xx);
+        out+=line(xx,yt,xx,yt+10,'old')+line(xx,yb,xx,yb-10,'old');
+        out+=base(xx,yt+15,topBases[i])+base(xx,yb-15,bottomBases[i]);
+        const n=topBases[i]==='A'||topBases[i]==='T'?2:3;
+        for(let k=0;k<n;k++)out+=line(xx-5+k*5,274-3-sep*9,xx-5+k*5,274+3+sep*9,'bond',`style="opacity:${(1-sep)*.65}"`);
+      }
+      out+=text(x0-17,upperY(x0)-18,'5′')+text(x1+17,upperY(x1)-18,'3′');
+      out+=text(x0-17,lowerY(x0)+29,'3′')+text(x1+17,lowerY(x1)+29,'5′');
+    }
+    if(s===0){
+      out+=chip(w/2,428,'A–T：2 個氫鍵　G–C：3 個氫鍵');
+      out+=text(w/2,461,'短線代表氫鍵；兩股骨架方向相反','small muted');
+    }
+    if(s===1){
+      const pulse=1+Math.sin(p*Math.PI*4)*.12;
+      out+=`<ellipse cx="${x0}" cy="274" rx="${20*pulse}" ry="${45*pulse}" fill="none" stroke="var(--accent)" stroke-width="3" opacity="${.4+.6*phase(p,0,.25)}"/>`;
+      out+=chip(small?112:160,177,'複製起始點','',phase(p,0,.25));
+      out+=line(x0+4,186,x0,222,'old','stroke-dasharray="3 4"');
+      out+=arrow(x0+32,365,x0+32+(x1-x0-50)*smooth(p),'本動畫觀察的方向 →','old');
+      out+=text(w/2,415,'起始點的另一側也同步複製 ←','small muted');
+      out+=text(w/2,446,'原核：1 個起始點｜真核：多個起始點','small');
+    }
+    if(s>=2 && s<=6){
+      const hx=Math.min(fork,w-20),alpha=s===6?1-phase(p,.88,1):1;
+      out+=`<g opacity="${alpha}"><path d="M ${hx-18} 252 L ${hx+15} 263 L ${hx+15} 285 L ${hx-18} 296 L ${hx-29} 274 Z" fill="#dfb453" stroke="#a37c2f" stroke-width="2"/>${text(hx-3,279,'解','tiny')}${chip(Math.min(w-55,Math.max(65,hx-9)),small?323:331,'解旋酶')}</g>`;
+      if(s===2)out+=chip(small?155:270,97,'Y 形複製叉 →');
+    }
+    if(s>=3 && s<8){
+      const amount=s===3?phase(p,0,.85):1;
+      const fade=s===7?1-phase(p,.1,.85):1;
+      for(let i=0;i<11;i++){
+        const xx=x(i)+dx*.45;
+        const appear=phase(amount,i/13,(i+2)/13)*opened(xx)*fade;
+        out+=`<g opacity="${appear}"><circle cx="${xx}" cy="${upperY(xx)-12-9*(1-appear)}" r="5" fill="#c39150"/><circle cx="${xx}" cy="${lowerY(xx)+12+9*(1-appear)}" r="5" fill="#c39150"/></g>`;
+      }
+      if(s===3)out+=chip(w/2,91,'單股結合蛋白');
+    }
+    let leadingEnd=-1;
+    if(s===4)leadingEnd=1*phase(p,.08,.46);
+    if(s===5)leadingEnd=1+2*smooth(phase(p,.08,.85));
+    if(s===6)leadingEnd=Math.min(11,Math.max(3,(fork-x0-34)/dx));
+    if(s>=7)leadingEnd=11;
+    const replacement=s===7?phase(p,.42,.9):s>7?1:0;
+    const rnaAlpha=s===7?1-phase(p,0,.32):s>7?0:1;
+    const lagPieces=[];
+    if(s===4)lagPieces.push({start:0,end:3,primerStart:2,amount:phase(p,.48,.84),grow:0});
+    if(s===5)lagPieces.push({start:0,end:3,primerStart:2,amount:1,grow:0});
+    if(s===6){
+      for(let n=0;n<rounds.length;n++){
+        const round=rounds[n];
+        lagPieces.push({...round,amount:n===0?1:phase(p,...round.prime),extension:n===0?phase(p,...round.prime):0,grow:phase(p,...round.grow)});
+      }
+    }
+    if(s>=7)for(const round of rounds)lagPieces.push({...round,amount:1,extension:1,grow:1});
+    function drawNew(i,y,isLag,isRNA,amount=1){
+      if(amount<=0)return '';
+      let letter=isLag?bottomBases[i]:topBases[i];
+      if(isRNA && letter==='T')letter='U';
+      const type=isRNA?'rna':'new';
+      const yy=y+(isLag?-10:10)*(1-amount);
+      let result=line(x(i),yy,x(i),yy+(isLag?-9:9),type,'stroke-width="2"')+base(x(i),yy+(isLag?-15:15),letter);
+      const templateY=isLag?upperY(x(i))+15:lowerY(x(i))-15;
+      const newY=yy+(isLag?-15:15),mid=(templateY+newY)/2;
+      const n=topBases[i]==='A'||topBases[i]==='T'?2:3;
+      for(let k=0;k<n;k++)result+=line(x(i)-5+k*5,mid-3,x(i)-5+k*5,mid+3,'bond');
+      return `<g data-molecule="${isRNA?'RNA':'DNA'}" opacity="${amount}">${result}</g>`;
+    }
+    if(leadingEnd>=0){
+      const y=332;
+      for(let i=0;i<12;i++){
+        const visible=i<=1?(s===4?phase(p,.08+i*.1,.26+i*.2):1):clamp(leadingEnd-i+1);
+        if(i<2){
+          out+=drawNew(i,y,false,true,visible*rnaAlpha)+drawNew(i,y,false,false,visible*replacement);
+          if(i===0){
+            if(rnaAlpha>0)out+=line(x(0),y,x(Math.min(1,leadingEnd)),y,'backbone rna',`opacity="${rnaAlpha}"`);
+            if(replacement>0)out+=line(x(0),y,x(Math.min(1,leadingEnd)),y,'backbone new',`opacity="${replacement}"`);
+          }
+        } else if(visible>0){
+          out+=drawNew(i,y,false,false,visible);
+          out+=line(x(i-1),y,x(i-1)+dx*visible,y,'backbone new');
+        }
+      }
+      out+=text(x0-16,y+5,'5′','small new-label');
+      if(s===4)out+=text(x(1)+19,y-6,'3′-OH','tiny rna-label','start');
+      else out+=text(Math.min(x1+18,x(leadingEnd)+19),y-4,'3′','small new-label');
+      if(s===4)out+=chip(small?133:220,457,'RNA 引子','rna-label',phase(p,.1,.45));
+      if(s===5){
+        const px=x(leadingEnd),py=440;
+        out+=line(px,py-25,px,354,'new','stroke-dasharray="3 4"');
+        out+=chip(Math.min(w-88,Math.max(90,px)),py,'DNA 聚合酶');
+        out+=arrow(x0+22,484,Math.max(x0+40,px),'5′ → 3′；往右連續延長');
+        out+=chip(x0+96,305,'領先股（下方）');
+        out+=line(x0+dx,315,x0+dx,327,'new','stroke-dasharray="3 3"');
+      }
+    }
+    const nickClosure=s===8?phase(p,.18,.64):0;
+    for(let n=0;n<lagPieces.length;n++){
+      const piece=lagPieces[n],a=piece.start,b=piece.end,primerStart=piece.primerStart;
+      if(piece.amount<=0)continue;
+      const y=213;
+      const seeded=s===6 && n===0;
+      const primerLeft=seeded?x(2-piece.extension):x(b-(b-primerStart)*piece.amount);
+      const tip=x(primerStart-(primerStart-a)*piece.grow);
+      for(let i=a;i<=b;i++){
+        if(i>=primerStart){
+          const k=.5/Math.max(1,b-primerStart);
+          const appear=seeded?(i>=2?1:piece.extension):phase(piece.amount,(b-i)*k,(b-i)*k+.5);
+          out+=drawNew(i,y,true,true,appear*rnaAlpha)+drawNew(i,y,true,false,appear*replacement);
+        }else{
+          const count=primerStart-a;
+          const visible=phase(piece.grow,(primerStart-1-i)/count,(primerStart-i)/count);
+          out+=drawNew(i,y,true,false,visible);
+        }
+      }
+      if(rnaAlpha>0)out+=line(primerLeft,y,x(b),y,'backbone rna',`opacity="${rnaAlpha}"`);
+      if(replacement>0)out+=line(x(primerStart),y,x(b),y,'backbone new',`opacity="${replacement}"`);
+      if(piece.grow>0)out+=line(tip,y,x(primerStart),y,'backbone new');
+      if(n>0 && piece.grow>=1){
+        const mid=(x(a-1)+x(a))/2,gap=10*(1-nickClosure);
+        out+=line(x(a-1),y,mid-gap/2,y,'backbone new')+line(mid+gap/2,y,x(a),y,'backbone new');
+        if(s>=6 && s<=8){
+          out+=`<circle cx="${mid}" cy="${y}" r="11" fill="none" stroke="var(--accent)" stroke-width="2" opacity="${1-nickClosure}"/>`;
+        }
+      }
+      if(s===6 && piece.grow>0 && piece.grow<1){
+        out+=chip(Math.max(90,Math.min(w-90,tip)),265,'DNA 聚合酶 ←');
+        out+=arrow(x(primerStart),110,tip,'5′ → 3′；往左延長');
+      }
+      if(s===6 && p>=rounds[n].prime[0] && p<=rounds[n].prime[1])out+=chip(Math.min(w-62,x(b)),265,'引子酶');
+      if(s===6){
+        out+=text(x(b)+14,205,'5′','tiny rna-label');
+        out+=text((piece.grow>0?tip:primerLeft)-14,233,'3′','tiny new-label');
+        if(piece.grow>=1)out+=text(x((a+b)/2),252,`片段 ${n+1}`,'small new-label');
+      }
+    }
+    if(s===4){
+      const atTop=p>.47,px=atTop?x(3):x(1),py=atTop?258:440;
+      out+=chip(Math.min(w-65,Math.max(65,px)),py,'引子酶','',1-phase(p,.86,1));
+      out+=chip(small?146:260,91,'RNA 使用 U，不使用 T','rna-label');
+      if(p>.55){
+        out+=text(x(3)+19,207,'5′','small rna-label')+text(x(2)-18,239,'3′-OH','tiny rna-label');
+        out+=chip(x(2.5),275,'RNA 引子','rna-label',phase(p,.55,.84));
+      }
+    }
+    if(s===5)out+=text(x(3)+17,210,'5′','small rna-label')+text(x(2)-18,241,'3′','small rna-label');
+    if(s>=6){
+      const completed=s>6 || p>.91;
+      if(completed){
+        out+=text(x0-16,219,'3′','small new-label')+text(x1+16,219,'5′','small new-label');
+      }
+      if(s===6){
+        out+=text(w/2,445,'上方：延滯股，分成 3 段岡崎片段','small');
+        out+=text(w/2,477,'下方：領先股持續跟上複製叉 →','small new-label');
+        const active=Math.min(2,rounds.findIndex(round=>p<=round.grow[1])<0?2:rounds.findIndex(round=>p<=round.grow[1]));
+        const round=rounds[active];
+        const action=p<round.move[1]?'解旋酶向右推進':p<round.prime[1]?(active===0?'延長第 5 步已備妥的 RNA 引子':'靠近複製叉製作新 RNA 引子'):'DNA 聚合酶向左合成';
+        out+=text(w/2,65,completed?'3 段岡崎片段完成，各保留 RNA 引子':`第 ${active+1} 輪：${action}`,'small');
+        if(completed)out+=arrow(x(3),110,x(0),'每一段皆往左 5′ → 3′ 延長');
+      }
+    }
+    if(s===7){
+      const caption=p<.33?'先移除紫色 RNA 引子':p<.9?'DNA 聚合酶補上綠色 DNA':'DNA 已補齊；骨架缺口尚未接合';
+      out+=chip(w/2,92,caption);
+      if(p>.32 && p<.9){
+        const xx=x(2+9*phase(p,.33,.9));
+        out+=chip(Math.min(w-90,Math.max(90,xx)),270,'DNA 聚合酶');
+      }
+      out+=text(w/2,457,'黃色圓圈：岡崎片段間的骨架缺口','small muted');
+    }
+    if(s===8){
+      const join=phase(p,.18,.64),opacity=1-phase(p,.65,.83);
+      out+=chip(w/2,270,'DNA 連接酶','',opacity);
+      const enzymeX=x(3.5+4*join);
+      out+=`<g opacity="${opacity}"><circle cx="${enzymeX}" cy="213" r="17" fill="#edcb6f" fill-opacity=".4" stroke="var(--accent)" stroke-width="3"/>${text(enzymeX,219,'接','tiny')}</g>`;
+      out+=chip(w/2,100,'子代 DNA ①：舊上股＋新股','',phase(p,.56,.88));
+      out+=chip(w/2,450,'子代 DNA ②：新股＋舊下股','',phase(p,.56,.88));
+      out+=text(w/2,493,'半保留複製','new-label','middle',`style="font-size:24px" opacity="${phase(p,.6,1)}"`);
+    }
+    stage.innerHTML=out;
+  }
+  const dotButtons=steps.map((step,i)=>{
+    const button=document.createElement('button');
+    button.className='dot';button.type='button';button.title=`第 ${i+1} 步：${step[0]}`;
+    button.setAttribute('aria-label',button.title);
+    button.addEventListener('click',()=>selectStep(i,i===current));dots.appendChild(button);return button;
+  });
+  function updateControls(){
+    title.textContent=`${current+1}. ${steps[current][0]}`;
+    description.textContent=steps[current][1];
+    document.getElementById('counter').textContent=`第 ${current+1}／${steps.length} 步`;
+    previousButton.disabled=current===0;nextButton.disabled=current===steps.length-1;
+    playButton.textContent=playing?'⏸ 暫停':'▶ 播放';
+    playButton.setAttribute('aria-pressed',String(playing));
+    dotButtons.forEach((button,i)=>{if(i===current)button.setAttribute('aria-current','step');else button.removeAttribute('aria-current');});
+  }
+  function requestTick(){if(!frameId)frameId=requestAnimationFrame(tick);}
+  function selectStep(index,animate=true,keepPlaying=false){
+    if(frameId){cancelAnimationFrame(frameId);frameId=0;}
+    current=Math.max(0,Math.min(steps.length-1,index));
+    if(!keepPlaying)playing=false;
+    elapsed=animate?0:steps[current][2];animating=animate;lastTime=null;
+    render(current,animate?0:1);updateControls();if(animating||playing)requestTick();
+  }
+  function tick(now){
+    frameId=0;
+    if(lastTime===null)lastTime=now;
+    const delta=Math.max(0,now-lastTime);lastTime=now;
+    if(animating || playing)elapsed+=delta;
+    const duration=steps[current][2];
+    if(animating){
+      render(current,clamp(elapsed/duration));
+      if(elapsed>=duration){animating=false;if(current===steps.length-1 && playing){playing=false;updateControls();}}
+    }
+    if(playing && !animating && elapsed>=duration+2500){
+      if(current<steps.length-1)selectStep(current+1,true,true);
+      else{playing=false;updateControls();}
+    }
+    if(animating || playing)requestTick();else lastTime=null;
+  }
+  function togglePlay(){
+    if(playing){
+      playing=false;animating=false;lastTime=null;
+      if(frameId){cancelAnimationFrame(frameId);frameId=0;}
+    }else{
+      if(current===steps.length-1 && elapsed>=steps[current][2])selectStep(0,true);
+      playing=true;animating=elapsed<steps[current][2];lastTime=null;requestTick();
+    }
+    updateControls();
+  }
+  document.getElementById('restart').addEventListener('click',()=>selectStep(0,true));
+  previousButton.addEventListener('click',()=>selectStep(current-1,false));
+  nextButton.addEventListener('click',()=>selectStep(current+1,true));
+  playButton.addEventListener('click',togglePlay);
+  document.addEventListener('keydown',event=>{
+    if(event.altKey||event.ctrlKey||event.metaKey||/INPUT|TEXTAREA|SELECT/.test(event.target.tagName)||event.target.isContentEditable)return;
+    if(event.key==='ArrowLeft'){event.preventDefault();if(current>0)selectStep(current-1,false);}
+    if(event.key==='ArrowRight'){event.preventDefault();if(current<steps.length-1)selectStep(current+1,true);}
+    if(event.code==='Space'){event.preventDefault();togglePlay();}
+  });
+  mobile.addEventListener('change',()=>render(current,clamp(elapsed/steps[current][2])));
+  document.addEventListener('visibilitychange',()=>{lastTime=null;});
+  selectStep(0,true);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>轉譯｜從 mRNA 到多肽</title>
+<style>
+:root{color-scheme:light dark;--bg:#f2f6f2;--panel:#fff;--ink:#22352b;--muted:#586b60;--border:#d5e1d7;--main:#177245;--soft:#e8f3ec;--rna:#8a5cc7;--trna:#237c88;--large:#dfebdf;--small:#c4dac8;--aa:#177245;--a:#e35d5d;--t:#e0b52a;--u:#f08a3c;--g:#3aa66a;--c:#3d7fd6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}main{max-width:1000px;margin:auto;padding:22px 24px 36px}header a{color:var(--main);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;font-weight:650}h1{font-size:clamp(25px,4vw,36px);line-height:1.3;margin:10px 0 6px}header p{margin:0 0 20px;color:var(--muted)}.stage,.info,.controls{background:var(--panel);border:1px solid var(--border);border-radius:18px}.stage{overflow:hidden}.stage-top{padding:12px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;min-height:56px}.badge{background:var(--main);color:#fff;border-radius:6px;padding:1px 9px;font-size:13px;flex-shrink:0}#action{font-size:15px;font-weight:650}svg{display:block;width:100%;height:auto;background:var(--panel)}svg text{font-family:inherit;fill:var(--ink);text-anchor:middle;font-weight:600}svg .muted{fill:var(--muted)}svg .base-A{fill:var(--a)}svg .base-U{fill:var(--u)}svg .base-G{fill:var(--g)}svg .base-C{fill:var(--c)}svg .aa-text{fill:#fff;font-size:17px;font-weight:750}.stage-foot{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 18px 13px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}.stage-foot b{color:var(--ink)}.info{margin-top:14px;padding:17px 20px;min-height:158px}.info h2{margin:0 0 6px;font-size:20px;line-height:1.5}.info p{margin:0;font-size:16px}#pair{margin-top:10px;color:var(--main);font-size:14px;font-weight:650;overflow-wrap:anywhere}.controls{margin-top:14px;padding:16px}.buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}button{font:inherit;font-weight:650;min-height:46px;border:1px solid var(--border);background:var(--panel);color:var(--ink);border-radius:10px;cursor:pointer;padding:7px 10px;touch-action:manipulation}button:hover:not(:disabled){border-color:var(--main);background:var(--soft)}button:focus-visible,a:focus-visible{outline:3px solid var(--main);outline-offset:3px}button:disabled{opacity:.4;cursor:default}#play{background:var(--main);border-color:var(--main);color:#fff}#play:hover{filter:brightness(1.1)}.progress{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:11px}#count{font-size:14px;font-weight:650;white-space:nowrap}.dots{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1px}.dot{width:32px;min-height:40px;padding:0;border:0;background:transparent;display:grid;place-items:center}.dot span{width:10px;height:10px;border-radius:50%;background:var(--border)}.dot[aria-current="step"] span{background:var(--main);box-shadow:0 0 0 4px var(--soft)}.hint{color:var(--muted);font-size:12px;text-align:center;margin:10px 0 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+main{padding:12px 16px 24px}header{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:18px;row-gap:3px}header a{min-height:34px}h1{margin:0;font-size:clamp(25px,4vw,32px)}header p{grid-column:1/-1;font-size:14px;line-height:1.4;margin:0 0 9px}.stage-top{min-height:42px;padding:8px 14px}#stage{height:min(55vh,440px);max-height:55vh}.stage-foot{padding:6px 14px;font-size:12px;line-height:1.4}.info{margin-top:10px;padding:12px 16px;min-height:0}
+@media(prefers-color-scheme:dark){:root{--bg:#111b16;--panel:#1b2921;--ink:#edf5ee;--muted:#b3c7b8;--border:#3d5143;--main:#62c891;--soft:#254335;--large:#304a39;--small:#43644d;--trna:#71c6d0;--aa:#177245}#play,.badge{color:#102519}}
+@media(max-width:520px){main{padding:12px 10px 24px}header p{font-size:14px;margin-bottom:14px}.stage-top{padding:10px 12px;align-items:flex-start}#action{font-size:14px}.stage-foot{padding:10px 12px;font-size:12px;gap:4px 12px}.info{padding:14px;min-height:205px}.info h2{font-size:18px}.info p{font-size:15px}.controls{padding:11px}.buttons{gap:7px;grid-template-columns:repeat(2,1fr)}.progress{flex-direction:column;gap:3px}.dots{justify-content:center}.dot{width:32px}.hint{font-size:12px}}
+@media(max-width:520px){header{display:block}header a{min-height:40px}h1{margin:5px 0 4px}#stage{height:auto;max-height:none;aspect-ratio:780/550}}
+</style>
+</head>
+<body>
+<main>
+<header><a href="../mindmap/bio4.html">← 回心智圖</a><h1>轉譯：mRNA → 多肽</h1><p>跟著核糖體，從起始、延長到終止，一步一步看見蛋白質的合成。</p></header>
+<section class="stage" aria-label="轉譯動畫舞台">
+<div class="stage-top"><span class="badge">正在發生</span><span id="action"></span></div>
+<svg id="stage" viewBox="0 0 780 550" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="svg-title svg-desc"><title id="svg-title">轉譯逐步動畫</title><desc id="svg-desc"></desc><g id="drawing" aria-hidden="true"></g></svg>
+<div class="stage-foot"><span><b>mRNA：</b>5′ → 3′（向右）</span><span><b>反密碼子：</b>3′ → 5′</span><span><b>位置：</b>由左至右 E・P・A</span></div>
+</section>
+<section class="info" aria-live="polite" aria-atomic="true"><h2 id="title"></h2><p id="description"></p><div id="pair"></div></section>
+<nav class="controls" aria-label="動畫播放控制"><div class="buttons"><button id="restart" type="button">⏮ 重來</button><button id="previous" type="button">◀ 上一步</button><button id="play" type="button">▶ 播放</button><button id="next" type="button">下一步 ▶</button></div><div class="progress"><span id="count"></span><div id="dots" class="dots" aria-label="選擇步驟"></div></div><p class="hint">← → 切換步驟 · 空白鍵播放／暫停 · 點目前步驟的圓點可重看動畫</p></nav>
+</main>
+<script>
+'use strict';
+(() => {
+const steps = [
+ {title:'轉譯需要的東西', duration:1900, text:'轉譯在細胞質的核糖體進行；mRNA 每 3 個鹼基是一個密碼子。tRNA 用反密碼子對上密碼子，把胺基酸帶來。', pair:'本段讀取：AUG → UUC → GGA → UGG → UAA。', action:'先認識 mRNA、核糖體與帶胺基酸的 tRNA'},
+ {title:'起始（1）｜找到 AUG', duration:2200, text:'小次單元結合到 mRNA，沿 5′ → 3′ 方向找到起始密碼子 AUG。接下來將由這裡開始合成多肽。', pair:'AUG 是起始密碼子，對應 Met（甲硫胺酸）。', action:'小次單元沿 mRNA 向右，找到 AUG'},
+ {title:'起始（2）｜Met-tRNA 進入 P 位', duration:2400, text:'帶 Met 的起始 tRNA 以反密碼子 UAC 對上 AUG，大次單元合上。此時 Met-tRNA 位於 P 位，A 位仍空著。', pair:'密碼子 5′-AUG-3′ ↔ 反密碼子 3′-UAC-5′；Met。', action:'起始 tRNA 配對，大小次單元組合'},
+ {title:'延長（1）｜tRNA 進入 A 位', duration:1800, text:'帶 Phe 的 tRNA 進入 A 位，以反密碼子 AAG 對上 UUC。P 位仍是帶 Met 的起始 tRNA。', pair:'密碼子 5′-UUC-3′ ↔ 反密碼子 3′-AAG-5′；Phe（苯丙胺酸）。', action:'Phe-tRNA 進入 A 位，配對 UUC'},
+ {title:'延長（2）｜形成胜肽鍵', duration:2400, text:'P 位 tRNA 上的 Met 脫離它的 tRNA，與 A 位的 Phe 形成胜肽鍵。Met-Phe 胜肽鏈轉到 A 位 tRNA 上，P 位留下不帶胺基酸的 tRNA。', pair:'Met → Phe；鏈的 C 端仍接在 A 位 tRNA 上。', action:'Met 轉接到 Phe，形成第一個胜肽鍵'},
+ {title:'延長（3）｜核糖體移位', duration:2900, text:'核糖體沿 mRNA 往 3′ 方向移動一個密碼子（3 個鹼基）。原 P 位的空 tRNA 進入 E 位後離開；帶 Met-Phe 的 tRNA 移到 P 位，A 位空出並對著 GGA。', pair:'mRNA 保持原位；核糖體向右移，原 A 位 tRNA 成為 P 位 tRNA。', action:'向 3′ 移動一個密碼子；空 tRNA 從 E 位離開'},
+ {title:'重複延長｜接上 Gly，再接 Trp', duration:9000, text:'先讓 Gly-tRNA 進入 A 位、接上 Gly、再移位；接著 Trp-tRNA 也重複一輪。每一輪都是「進 A 位 → 接胜肽鍵 → 移位」，最後形成 Met-Phe-Gly-Trp。', pair:'GGA ↔ 3′-CCU-5′：Gly（甘胺酸）；UGG ↔ 3′-ACC-5′：Trp（色胺酸）。', action:'兩輪延長：Gly → Trp'},
+ {title:'終止｜釋放因子讓多肽離開', duration:5600, text:'A 位遇到終止密碼子 UAA，沒有 tRNA 對應它，改由釋放因子進入 A 位，使多肽釋放，大小次單元分開並離開 mRNA。多肽由 N 端（Met）開始、到 C 端結束；核糖體讀取 mRNA 的方向是 5′ → 3′。', pair:'UAA＝終止；由釋放因子辨識，沒有對應的 tRNA 或胺基酸。', action:'釋放因子辨識 UAA → 多肽釋放 → 核糖體分開'},
+ {title:'聚核糖體｜同一條 mRNA，同時轉譯', duration:3700, text:'細胞需要大量蛋白質時，一條 mRNA 可同時被多個核糖體轉譯。圖中 4 個核糖體從 5′ 端依序進入；愈靠近 3′ 端，多肽鏈愈長。', pair:'同一條 mRNA → 多個核糖體 → 多條正在合成的多肽。', action:'4 個核糖體依序進入，同時向 3′ 端轉譯'}
+];
+const $ = id => document.getElementById(id);
+const drawing = $('drawing');
+const clamp = n => Math.max(0,Math.min(1,n));
+const ease = n => {n=clamp(n);return n*n*(3-2*n);};
+const mix = (a,b,t) => a+(b-a)*t;
+const seg = (time,start,end) => ease((time-start)/(end-start));
+const aaNames = ['Met','Phe','Gly','Trp'];
+const anti = ['UAC','AAG','CCU','ACC'];
+let html = '', index = 0, elapsed = 0, playing = false, animating = true, lastTime = null, frame = 0;
+let phaseText = '';
+function add(s){html+=s;}
+function label(x,y,s,size=22,cls=''){add(`<text x="${x}" y="${y}" font-size="${size}" class="${cls}">${s}</text>`);}
+function group(x=0,y=0,opacity=1,scale=1){add(`<g transform="translate(${x} ${y}) scale(${scale})" opacity="${clamp(opacity)}">`);}
+function end(){add('</g>');}
+function line(x1,y1,x2,y2,color,width=3,extra=''){add(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${width}" ${extra}/>`);}
+function bases(s,x,y,size=26,spacing=24){[...s].forEach((b,i)=>label(x+(i-(s.length-1)/2)*spacing,y,b,size,'base-'+b));}
+function mRNA(highlights=[],fade=1){
+ group(0,0,fade);
+ line(57,442,720,442,'var(--rna)',6,'stroke-linecap="round"');
+ label(29,435,'5′',25);label(750,435,'3′',25);
+ ['GCC','AUG','UUC','GGA','UGG','UAA','GC'].forEach((s,i)=>{
+  const x=95+i*100;
+  if(highlights.includes(i))add(`<rect x="${x-43}" y="400" width="86" height="48" rx="8" fill="var(--soft)" stroke="var(--main)" stroke-width="3"/>`);
+  bases(s,x,432);
+ });
+ label(78,530,'mRNA',24);label(460,530,'5′ → 3′　核糖體前進方向 →',22,'muted');
+ end();
+}
+function large(p,dy=0,opacity=1,scale=1){
+ group(p,dy,opacity,scale);
+ add('<path d="M-152 391 Q-172 375 -158 300 Q-158 191 -96 180 L96 180 Q158 191 158 300 Q172 375 152 391 Z" fill="var(--large)" fill-opacity=".83" stroke="var(--main)" stroke-width="3"/>');
+ [-50,50].forEach(x=>line(x,203,x,377,'var(--muted)',1.5,'stroke-dasharray="5 7" opacity=".35"'));
+ ['E','P','A'].forEach((s,i)=>label((i-1)*100,140,s,27));
+ label(0,98,'大次單元',24);end();
+}
+function small(p,dy=0,opacity=1){
+ group(p,dy,opacity);
+ [-125,125].forEach(x=>line(x,442,x,452,'var(--main)',4));
+ add('<path d="M-150 450 Q-167 471 -137 490 Q0 517 137 490 Q167 471 150 450 Z" fill="var(--small)" stroke="var(--main)" stroke-width="4"/>');
+ label(0,482,'小次單元',24);end();
+}
+function ribosome(p){large(p);small(p);}
+function trna(which,x,dy=0,opacity=1,empty=false,paired=true){
+ group(x,dy,opacity);
+ const color=empty?'var(--muted)':'var(--trna)';
+ add(`<path d="M0 324 V345 H-18 V366 H0 V375 M-27 379 H27" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`);
+ if(paired) [-24,0,24].forEach(dx=>line(dx,398,dx,406,'var(--muted)',1.5,'stroke-dasharray="2 3"'));
+ bases(anti[which],0,397,25,24);
+ label(40,353,'tRNA',18,'muted');end();
+}
+function chain(names,x,y=305,opacity=1){
+ group(0,0,opacity);
+ names.forEach((name,i)=>{
+  const cy=y-(names.length-1-i)*45;
+  if(i)line(x,cy-26,x,cy-18,'var(--aa)',5);
+  add(`<circle cx="${x}" cy="${cy}" r="21" fill="var(--aa)" stroke="var(--panel)" stroke-width="2"/>`);
+  label(x,cy+6,name,17,'aa-text');
+ });end();
+}
+function loaded(which,x,dy=0,opacity=1,names=[aaNames[which]],paired=true){trna(which,x,dy,opacity,false,paired);chain(names,x,305+dy,opacity);}
+function bond(p,a,names,t){
+ trna(names.length-1,p,0,1,true);trna(names.length,a);
+ const x=mix(p,a,t), y=mix(305,260,t);
+ if(t>.12)line(x,y+21,a,284,'var(--aa)',4,`opacity="${t}"`);
+ chain(names,x,y);chain([aaNames[names.length]],a);
+ label(a+81,281,'胜肽鍵',21);line(a+42,286,a+17,283,'var(--aa)',2);
+}
+function moveRibosome(p,which,names,t){
+ const shift=seg(t,0,.67), leave=seg(t,.66,1);
+ ribosome(mix(p,p+100,shift));
+ trna(which-1,p-80*leave,-65*leave,1-leave,true,leave===0);
+ loaded(which,p+100,0,1,names);
+ label(555,72,'→ 往 3′ 移動 3 個鹼基',24);
+ if(leave>0&&leave<1)label(p-70*leave,290-60*leave,'空 tRNA 離開',19,'muted');
+}
+function overview(t){
+ mRNA();
+ const f=mix(.65,1,seg(t,0,600));
+ large(602,-35,f,.69);
+ small(mix(240,220,seg(t,250,1350)),12,f);
+ [0,1,2].forEach((n)=>loaded(n,103+n*135,mix(-100,-128,seg(t,250+n*180,1400+n*180)),mix(.65,1,seg(t,250+n*180,1000+n*180)),[aaNames[n]],false));
+ label(235,78,'帶胺基酸的 tRNA',24);label(390,340,'細胞質中的轉譯材料',23,'muted');
+}
+function initiation1(t){
+ mRNA([1]);large(602,-35,1,.69);
+ const down=seg(t,0,650), scan=seg(t,750,2000);
+ small(mix(mix(220,165,down),195,scan),mix(22,0,down));
+ label(235,75,'→ 沿 5′ → 3′ 找到 AUG',25);
+ loaded(0,195,-135,1,[aaNames[0]],false);
+}
+function initiation2(t){
+ mRNA([1]);small(195);
+ const arrive=seg(t,0,1050), close=seg(t,1050,2250);
+ large(mix(602,195,close),mix(-35,0,close),1,mix(.69,1,close));
+ loaded(0,195,mix(-135,0,arrive),1,[aaNames[0]],arrive===1);
+ if(close>.9)label(322,295,'A 位空著',21,'muted');
+}
+function entry(t){
+ mRNA([1,2]);ribosome(195);loaded(0,195);
+ const a=seg(t,0,1650);loaded(1,mix(590,295,a),mix(-100,0,a),1,['Phe'],a===1);
+}
+function peptide(t){mRNA([1,2]);ribosome(195);bond(195,295,['Met'],seg(t,250,2150));}
+function translocation(t){mRNA([3]);moveRibosome(195,1,['Met','Phe'],t/2900);}
+function elongation(t){
+ if(t>=steps[6].duration){
+  mRNA([5]);ribosome(495);loaded(3,495,0,1,aaNames);
+  label(612,303,'A 位：UAA',21,'muted');
+  phaseText='兩輪完成：P 位帶 Met-Phe-Gly-Trp；A 位對著 UAA';
+  return;
+ }
+ const second=t>=4500, local=second?t-4500:t;
+ const p=second?395:295, which=second?3:2, names=aaNames.slice(0,which);
+ mRNA([which+1]);
+ const phase=local<1400?0:local<2800?1:2;
+ const amino=aaNames[which];
+ const messages=[`${amino}-tRNA 進入 A 位`,`${amino} 接上胜肽鏈（胜肽鍵）`,'核糖體往 3′ 移位；空 tRNA 從 E 位離開'];
+ phaseText=`${second?'第 2 輪：Trp':'第 1 輪：Gly'}｜${messages[phase]}`;
+ if(phase===0){
+  ribosome(p);loaded(which-1,p,0,1,names);
+  const a=seg(local,0,1250);loaded(which,mix(680,p+100,a),mix(-110,0,a),1,[amino],a===1);
+ } else if(phase===1){ribosome(p);bond(p,p+100,names,seg(local,1400,2700));}
+ else moveRibosome(p,which,[...names,amino],(local-2800)/1700);
+}
+function releaseFactor(x,y,opacity=1){
+ group(x,y,opacity);
+ add('<path d="M-35 -25 Q0 -55 35 -25 L26 29 Q0 45 -26 29 Z" fill="var(--soft)" stroke="var(--main)" stroke-width="3"/>');
+ label(0,5,'RF',24);label(0,-53,'釋放因子',22);end();
+}
+function termination(t){
+ mRNA([5]);
+ const enter=seg(t,0,1300), release=seg(t,1500,2900), split=seg(t,3100,5400);
+ phaseText=t<1500?'UAA 沒有對應 tRNA；由釋放因子進入 A 位':t<3100?'多肽從 tRNA 釋放；N 端 Met → C 端 Trp':'大小次單元分開，離開 mRNA';
+ large(mix(495,555,split),-100*split,1-.72*split);small(mix(495,445,split),48*split,1-.72*split);
+ trna(3,mix(495,370,split),-70*split,1-split,true,split===0);
+ releaseFactor(mix(710,595,enter)+65*split,mix(180,310,enter)-80*split,1-split);
+ const cy=mix(305,224,release), cx=mix(495,265,release);
+ if(release<1)chain(aaNames,cx,cy);
+ else chain(aaNames,265,224);
+ if(release>.1){label(cx-85,cy-132,'N 端',21);label(cx+85,cy+7,'C 端',21);}
+ if(split>.85)label(270,310,'Met–Phe–Gly–Trp',24);
+}
+function polysome(t){
+ const progress=seg(t,0,3500);
+ line(63,442,718,442,'var(--rna)',6,'stroke-linecap="round"');
+ label(28,441,'5′',25);label(752,441,'3′',25);
+ const sequence='GCCAUGUUCGGAUGG';
+ for(let i=0;i<33;i++){const b=sequence[i%sequence.length];label(75+i*19.5,433,b,21,'base-'+b);}
+ label(135,493,'較長的 mRNA',23);label(505,493,'→ 向 3′ 端轉譯',23,'muted');
+ [0,1,2,3].forEach(i=>{
+  const start=(3-i)*450;
+  const a=seg(t,start,start+2000), x=mix(88,128+i*168,a);
+  group(x,0,a);
+  add('<path d="M-59 390 Q-73 294 -32 277 Q0 266 32 277 Q73 294 59 390 Z" fill="var(--large)" stroke="var(--main)" stroke-width="3"/>');
+  add('<path d="M-62 450 Q-70 472 0 476 Q70 472 62 450 Z" fill="var(--small)" stroke="var(--main)" stroke-width="3"/>');
+  label(0,355,'核糖體',19);
+  for(let j=0;j<=i;j++){
+   const y=256-j*39;
+   if(j)line(0,y+18,0,y+22,'var(--aa)',4);
+   add(`<circle cx="0" cy="${y}" r="17" fill="var(--aa)"/>`);
+  }
+  end();
+ });
+ label(390,70,'同一條 mRNA，4 個核糖體同時轉譯',25);
+ if(progress>.9){label(390,113,'越靠近 3′ 端 → 多肽越長',23,'muted');}
+}
+const renderers=[overview,initiation1,initiation2,entry,peptide,translocation,elongation,termination,polysome];
+function render(){
+ html='';phaseText=steps[index].action;
+ renderers[index](Math.min(elapsed,steps[index].duration));
+ drawing.innerHTML=html;$('action').textContent=phaseText;
+}
+function sync(){
+ const s=steps[index];$('title').textContent=s.title;$('description').textContent=s.text;$('pair').textContent=s.pair;
+ $('svg-desc').textContent=s.title+'。'+s.text;
+ $('count').textContent=`第 ${index+1}／${steps.length} 步`;
+ $('previous').disabled=index===0;$('next').disabled=index===steps.length-1;
+ $('play').textContent=playing?'⏸ 暫停':'▶ 播放';$('play').setAttribute('aria-label',playing?'暫停動畫':'播放動畫');
+ [...$('dots').children].forEach((b,i)=>{if(i===index)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
+}
+function requestTick(){if(!frame)frame=requestAnimationFrame(tick);}
+function go(n,animate=false){
+ index=Math.max(0,Math.min(steps.length-1,n));elapsed=animate?0:steps[index].duration;
+ animating=animate;lastTime=performance.now();sync();render();if(animate||playing)requestTick();
+}
+function tick(now){
+ frame=0;
+ // Use elapsed wall time: a throttled frame must not slow the six phases of step 7.
+ const delta=lastTime===null?0:Math.max(0,now-lastTime);lastTime=now;
+ if(animating||playing)elapsed+=delta;
+ const s=steps[index];
+ if(animating){render();if(elapsed>=s.duration)animating=false;}
+ if(playing&&elapsed>=s.duration+2500){
+  if(index===steps.length-1){playing=false;sync();}
+  else{go(index+1,true);return;}
+ }
+ if(animating||playing)requestTick();else lastTime=null;
+}
+function toggle(){
+ if(playing){playing=false;animating=false;lastTime=null;sync();return;}
+ playing=true;
+ if(elapsed>=steps[index].duration){go(index===steps.length-1?0:index,true);}
+ else{animating=true;lastTime=performance.now();sync();requestTick();}
+}
+function manual(n,animate){playing=false;go(n,animate);}
+steps.forEach((s,i)=>{
+ const b=document.createElement('button');b.type='button';b.className='dot';b.title=`第 ${i+1} 步：${s.title}`;b.setAttribute('aria-label',b.title);
+ b.innerHTML='<span aria-hidden="true"></span>';b.addEventListener('click',()=>manual(i,i===index));$('dots').appendChild(b);
+});
+$('restart').addEventListener('click',()=>manual(0,true));
+$('previous').addEventListener('click',()=>manual(index-1,false));
+$('next').addEventListener('click',()=>manual(index+1,true));
+$('play').addEventListener('click',toggle);
+document.addEventListener('keydown',event=>{
+ if(event.altKey||event.ctrlKey||event.metaKey||event.target.matches('input,textarea,select,[contenteditable="true"]'))return;
+ if(event.code==='Space'){event.preventDefault();toggle();}
+ else if(event.key==='ArrowRight'){event.preventDefault();if(index<steps.length-1)manual(index+1,true);}
+ else if(event.key==='ArrowLeft'){event.preventDefault();if(index>0)manual(index-1,false);}
+});
+document.addEventListener('visibilitychange',()=>{lastTime=performance.now();});
+// Show all translation components immediately; restart replays their motion.
+go(0,false);
+})();
+</script>
+</body>
+</html>

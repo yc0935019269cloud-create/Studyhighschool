@@ -297,3 +297,9 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 - mindmap/index.html 加四張卡；首頁 mindmap-home 區塊改「6 張單元樹狀圖」，加生物、地科兩組連結。
 - 驗證：node 解析四頁資料（節點 70／69／50／40，講義連結皆存在）；本機瀏覽器開啟、全部展開與點節點說明正常，無 console 錯誤。尚未 commit／push。
 - 注意：earth/u5-1～5-3 本身仍是舊批次草稿，earth5 心智圖另參考 5-考 的考點補齊；地科4-4 鋒面細節為一般課綱內容。
+- 2026-11-16 發布：commit 41e5327 已推送 main；Pages build=built，線上 mindmap/index、bio4、bio5、earth4、earth5 皆 200，首頁已顯示「6 張單元樹狀圖」。
+
+### 2026-11-16 生物分子動畫（派工 GPT）
+- 開始：派 3 個 GPT 工人（lane anim-replication／anim-transcription／anim-translation）各做一支逐步動畫：animation/dna-replication.html（9 步）、transcription.html（8 步）、translation.html（9 步）。brief 在 .workers/briefs/anim-*.md，步驟內容由 Claude 定好，工人只做 SVG 動畫與控制列。待驗收。
+- 成稿與驗證：第一版三支皆 OK，瀏覽器逐步實測發現問題後派一輪修正（brief anim-*-fix1.md，同 lane 續用）：複製第5步補雙股引子、第7步改為3輪岡崎片段、第8步殘留引子；轉錄第8步標籤重疊；轉譯第7步卡在 Met-Phe-Gly、舞台過高、第1／9步顯示不全。修正後 Claude 自修一處：複製第8步引子鹼基淡入時窗超過1導致一個鹼基停在半透明。複驗：桌面逐步播放、375px 手機無水平捲動、淺色與深色模式皆可讀。
+- mindmap/bio4.html 的「複製過程」「轉錄」「轉譯」節點說明加動畫連結。尚未 commit／push。

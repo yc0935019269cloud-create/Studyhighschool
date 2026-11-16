@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>轉錄｜DNA → RNA 逐步動畫</title>
+  <style>
+    :root {
+      --primary:#177245; --primary-soft:#e9f4ed; --bg:#f4f6f3; --surface:#fff;
+      --ink:#20352a; --muted:#56685d; --line:#d8e2da; --dna:#49544f;
+      --rna:#8a5cc7; --a:#e35d5d; --t:#e0b52a; --u:#f08a3c; --g:#3aa66a; --c:#3d7fd6;
+      --enzyme:#d1e8da; --enzyme-line:#177245; --intron:#e0e3e5; --stripe:#939da2;
+      --exon1:#177245; --exon2:#327d94; --exon3:#8a5cc7; --cap:#b97821;
+    }
+    @media (prefers-color-scheme:dark) {
+      :root {
+        --primary:#74d5a2; --primary-soft:#203c2c; --bg:#121b17; --surface:#1c2821;
+        --ink:#ecf4ed; --muted:#b5c7bb; --line:#405348; --dna:#c1ccc6;
+        --enzyme:#2a5140; --enzyme-line:#74d5a2; --intron:#424a50; --stripe:#a2afb5;
+        --cap:#edbd72;
+      }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif; line-height:1.65; }
+    header,main { width:min(100% - 32px,1000px); margin-inline:auto; }
+    header { padding:22px 0 16px; display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; }
+    header a { color:var(--primary); text-decoration:none; font-weight:700; min-height:40px; display:inline-flex; align-items:center; }
+    header .heading { flex:1; }
+    h1 { margin:0; font-size:clamp(23px,4.5vw,32px); line-height:1.35; letter-spacing:.025em; }
+    .subtitle { margin:3px 0 0; color:var(--muted); font-size:14px; }
+    .stage { background:var(--surface); border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+    svg { display:block; width:100%; max-height:660px; aspect-ratio:840/620; }
+    svg text { fill:var(--ink); font-family:inherit; font-size:18px; }
+    svg .muted { fill:var(--muted); }
+    svg .strong { font-weight:750; }
+    svg .small { font-size:16px; }
+    svg .base { font-size:18px; font-weight:850; fill:#17231d; text-anchor:middle; dominant-baseline:middle; }
+    svg .light { fill:white; font-weight:700; }
+    svg .rna-label { fill:var(--rna); font-weight:750; }
+    .explanation { padding:20px 22px; margin-top:14px; background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--primary); border-radius:12px; min-height:155px; }
+    h2 { font-size:20px; line-height:1.45; margin:0 0 7px; }
+    .explanation p { margin:0; font-size:16px; }
+    .controls { padding:18px 0 24px; }
+    .buttons { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+    button { font:inherit; cursor:pointer; min-height:44px; border:1px solid var(--line); border-radius:10px; padding:9px 15px; background:var(--surface); color:var(--ink); font-weight:650; touch-action:manipulation; }
+    button:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-soft); }
+    button:focus-visible,a:focus-visible { outline:3px solid var(--primary); outline-offset:3px; }
+    button:disabled { opacity:.4; cursor:default; }
+    #play { background:#177245; color:#fff; border-color:#177245; min-width:115px; }
+    .progress { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:5px 12px; margin-top:10px; }
+    #counter { font-weight:750; white-space:nowrap; }
+    .dots { display:flex; gap:0; }
+    .dot { min-width:30px; min-height:40px; padding:0; border:0; background:transparent; display:grid; place-items:center; }
+    .dot::after { content:""; width:10px; height:10px; background:var(--line); border:1px solid var(--muted); border-radius:50%; }
+    .dot[aria-current="step"]::after { background:var(--primary); border-color:var(--primary); box-shadow:0 0 0 4px var(--primary-soft); }
+    .hint { color:var(--muted); font-size:13px; text-align:center; margin:6px 0 0; }
+    #status { color:var(--muted); min-width:7em; font-size:13px; }
+    @media (max-width:600px) {
+      header,main { width:calc(100% - 24px); }
+      header { padding-top:10px; gap:5px; }
+      header a { width:100%; font-size:14px; }
+      .subtitle { font-size:13px; }
+      svg { aspect-ratio:520/640; max-height:none; }
+      .explanation { padding:15px; min-height:200px; }
+      h2 { font-size:18px; }
+      .buttons { display:grid; grid-template-columns:1fr 1fr; }
+      button { min-height:46px; padding:8px 10px; }
+      .dot { min-height:40px; }
+      .progress { gap:0 10px; }
+      #status { width:100%; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../mindmap/bio4.html">← 回心智圖</a>
+    <div class="heading"><h1>轉錄 <span style="color:var(--rna)">DNA → RNA</span></h1><p class="subtitle">看清楚讀哪一股、往哪裡讀，以及 RNA 如何長出來。</p></div>
+  </header>
+  <main>
+    <div class="stage">
+      <svg id="scene" viewBox="0 0 840 620" role="img" aria-labelledby="scene-title scene-desc"></svg>
+    </div>
+    <section class="explanation" aria-live="polite" aria-atomic="true">
+      <h2 id="step-title"></h2><p id="step-description"></p>
+    </section>
+    <nav class="controls" aria-label="動畫控制">
+      <div class="buttons">
+        <button id="restart" type="button">⏮ 重來</button>
+        <button id="previous" type="button">◀ 上一步</button>
+        <button id="play" type="button" aria-pressed="false">▶ 播放</button>
+        <button id="next" type="button">下一步 ▶</button>
+      </div>
+      <div class="progress"><span id="counter"></span><div class="dots" id="dots" aria-label="選擇步驟"></div><span id="status" aria-live="off"></span></div>
+      <p class="hint">← → 切換步驟 · 空白鍵播放／暫停 · 點圓點可查看該步完成畫面</p>
+    </nav>
+  </main>
+  <script>
+    'use strict';
+    const steps = [
+      { title:'基因與兩股：認識轉錄的方向', duration:1400, text:'這段 DNA 上股是編碼股（5′→3′），下股是模版股（3′→5′）。轉錄時只讀模版股；不同基因可以用不同的 DNA 股當模版。' },
+      { title:'RNA 聚合酶結合啟動子', duration:1900, text:'RNA 聚合酶認得啟動子，移到這裡結合，準備開始轉錄。RNA 聚合酶可以直接開始合成 RNA，不需要引子。' },
+      { title:'局部解開雙股：形成轉錄泡', duration:1900, text:'RNA 聚合酶使所在處的一小段 DNA 雙股分開，露出模版股的鹼基。只有聚合酶附近打開，其餘 DNA 仍維持雙股。' },
+      { title:'延長：讀模版股，接上 RNA 核苷酸', duration:8800, text:'聚合酶沿下方模版股以 3′→5′ 方向往右讀，依序配對：A→U、T→A、G→C、C→G。紫色 RNA 只能以 5′→3′ 合成，新核苷酸接在聚合酶內的 3′ 端；較早形成的 5′ 端從後方垂下，走過的 DNA 重新配對。' },
+      { title:'比對：RNA 與編碼股只差 T／U', duration:2600, text:'把 RNA 與上方編碼股都以 5′→3′ 排列，序列相同，只是 DNA 的 T 換成 RNA 的 U。這是因為 RNA 是依照另一股——模版股——的鹼基互補合成。' },
+      { title:'終止：RNA 與聚合酶脫離', duration:2800, text:'RNA 聚合酶到達終止序列後，RNA 與聚合酶脫離，DNA 完全恢復雙股。原核生物這條 RNA 就是 mRNA，可馬上轉譯；因為沒有核膜，轉錄與轉譯可以同時進行。' },
+      { title:'真核：轉錄後修飾，加帽與加尾', duration:3800, text:'換到真核細胞的細胞核內：前驅 mRNA 含有外顯子與內含子。5′ 端加上「5′ 帽」，3′ 端接上「多腺苷酸尾（AAAA…）」。' },
+      { title:'真核：剪接，成熟 mRNA 出核', duration:6200, text:'內含子彎成圈後被剪除，外顯子接起來成為成熟 mRNA，再穿過核孔進入細胞質。小補充：選擇性剪接可保留不同的外顯子組合（例如外顯子 1＋3），讓一個基因做出不同蛋白質。' }
+    ];
+    const coding = 'ATGCCATTGACGTTAC';
+    const complementDNA = {A:'T',T:'A',G:'C',C:'G'};
+    const complementRNA = {A:'U',T:'A',G:'C',C:'G'};
+    const template = [...coding].map(b=>complementDNA[b]).join('');
+    const transcript = [...template].map(b=>complementRNA[b]).join('');
+    const scene = document.getElementById('scene');
+    const title = document.getElementById('step-title');
+    const description = document.getElementById('step-description');
+    const playButton = document.getElementById('play');
+    const previousButton = document.getElementById('previous');
+    const nextButton = document.getElementById('next');
+    const counter = document.getElementById('counter');
+    const status = document.getElementById('status');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0, progress = 0, isPlaying = false, moving = true, hold = 0, lastTime = null;
+    let width = window.matchMedia('(max-width:600px)').matches ? 520 : 840;
+    const clamp = (v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+    const ease = v=>{v=clamp(v);return v*v*(3-2*v);};
+    const phase = (p,a,b)=>clamp((p-a)/(b-a));
+    const fmt = n=>Number(n.toFixed(2));
+    const text = (x,y,t,cls='',anchor='start',extra='')=>`<text x="${fmt(x)}" y="${fmt(y)}" class="${cls}" text-anchor="${anchor}" ${extra}>${t}</text>`;
+    const path = (d,color='var(--dna)',stroke=4,extra='')=>`<path d="${d}" fill="none" stroke="${color}" stroke-width="${stroke}" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`;
+    const rect = (x,y,w,h,fill,extra='')=>`<rect x="${fmt(x)}" y="${fmt(y)}" width="${fmt(w)}" height="${fmt(h)}" rx="7" fill="${fill}" ${extra}/>`;
+    const base = (b,x,y,opacity=1,highlight=false)=>`<g opacity="${fmt(opacity)}">${rect(x-10.5,y-12,21,24,`var(--${b.toLowerCase()})`,highlight?'stroke="var(--primary)" stroke-width="3"':'')}${text(x,y+1,b,'base')}</g>`;
+    const dotButtons = steps.map((s,i)=>{
+      const b=document.createElement('button'); b.type='button'; b.className='dot';
+      b.setAttribute('aria-label',`第 ${i+1} 步：${s.title}`); b.title=`${i+1}. ${s.title}`;
+      b.addEventListener('click',()=>go(i,false)); document.getElementById('dots').appendChild(b); return b;
+    });
+
+    function scaffold() {
+      return `<title id="scene-title">第 ${current+1} 步：${steps[current].title}</title><desc id="scene-desc">${steps[current].text}</desc>
+        <defs>
+          <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="8" height="8" fill="var(--intron)"/><path d="M0 0V8" stroke="var(--stripe)" stroke-width="3"/></pattern>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 1L6 4L0 7" fill="none" stroke="var(--primary)" stroke-width="1.5"/></marker>
+        </defs>
+        ${rect(20,18,100,31,'var(--primary-soft)')}${text(70,40,`STEP 0${current+1}`,'small strong','middle')}
+        ${text(width-22,40,current<6?'DNA → RNA':'真核細胞・RNA 加工','muted small','end')}`;
+    }
+
+    function enzyme(x,y=253,opacity=1) {
+      const labelX=clamp(x,106,width-106);
+      return `<g opacity="${fmt(opacity)}"><ellipse cx="${fmt(x)}" cy="${fmt(y)}" rx="49" ry="87" fill="var(--enzyme)" stroke="var(--enzyme-line)" stroke-width="2.5"/>
+        ${path(`M${fmt(x)} ${fmt(y-86)}L${fmt(labelX)} ${fmt(y-109)}`,'var(--enzyme-line)',1.5)}
+        ${text(labelX,y-116,'RNA 聚合酶','strong','middle')}</g>`;
+    }
+
+    function dna(p) {
+      const x0=90,x1=width-90,dx=(x1-x0)/15;
+      const xAt=i=>x0+i*dx;
+      let center=x0,opening=0,pol='';
+      if(current===1) {
+        const travel=ease(p); pol=enzyme(43+(x0-43)*travel,107+146*travel,clamp(p*4));
+      } else if(current===2) { opening=ease(p);pol=enzyme(center); }
+      else if(current===3) { center=xAt(15*ease(p));opening=1;pol=enzyme(center); }
+      else if(current===4) {center=x1;opening=1;pol=enzyme(center);}
+      else if(current===5) {center=x1;opening=1-ease(p);pol=enzyme(center,253-110*ease(p),1-ease(p));}
+      let out=rect(24,88,69,268,'var(--primary-soft)')+rect(x1-7,88,73,268,'var(--primary-soft)');
+      out+=text(58,112,'啟動子','strong','middle')+text(x1+29,112,'終止序列','strong','middle');
+      out+=pol;
+      const offset=x=>opening*25*Math.exp(-Math.pow((x-center)/43,4));
+      let top='',bottom='';
+      for(let x=28;x<=width-27;x+=3) {
+        top+=`${x===28?'M':'L'}${x} ${fmt(220-offset(x))}`;
+        bottom+=`${x===28?'M':'L'}${x} ${fmt(290+offset(x))}`;
+      }
+      let strands=path(top)+path(bottom);
+      for(let i=0;i<16;i++) {
+        const x=xAt(i),d=offset(x);
+        if(d<12) strands+=path(`M${fmt(x)} ${234-d}V${276+d}`,'var(--line)',2);
+        strands+=base(coding[i],x,220-d)+base(template[i],x,290+d);
+      }
+      out+=`<g transform="translate(0 ${current===0?fmt(8*(1-ease(p))):0})">${strands}</g>`;
+      const labelShift=current===0?14*(1-ease(p)):0;
+      out+=`<g transform="translate(0 ${fmt(labelShift)})">
+        ${text(width/2,179,'編碼股','strong','middle')}${text(width/2,current===3?78:351,current===3?'本步讀取下方模版股':'模版股（被讀取）','strong','middle')}
+        ${text(25,203,'5′','strong')}${text(width-25,203,'3′','strong','end')}
+        ${text(25,318,'3′','strong')}${text(width-25,318,'5′','strong','end')}</g>`;
+      if(current===0) {
+        out+=text(width/2,430,'這個基因：讀下股模版股','strong','middle');
+        out+=path(`M${width/2-84} 463H${width/2+84}`,'var(--primary)',3,'marker-end="url(#arrow)"');
+        out+=text(width/2,501,'讀取方向 3′ → 5′','muted','middle');
+        out+=text(width/2,550,'換一個基因，可能改用另一股當模版。','small muted','middle');
+      }
+      if(current===1) {
+        out+=`<g opacity="${fmt(ease(phase(p,.45,1)))}">${text(width/2,438,'在啟動子結合，準備開始','strong','middle')}
+          ${rect(width/2-103,466,206,40,'var(--primary-soft)')}${text(width/2,493,'不需要引子','strong','middle')}</g>`;
+      }
+      if(current===2) {
+        out+=path(`M${x0+38} 303L${x0+76} 391`,'var(--muted)',1.5);
+        out+=text(x0+82,414,'局部打開：轉錄泡','strong');
+        out+=text(width/2,491,'露出模版股，準備互補配對','muted','middle');
+      }
+      if(current===3) {
+        const n=Math.min(16,Math.max(1,Math.ceil(ease(p)*16)));
+        out+=rnaStrand(n,center,0,p);
+        const reading=n-1;
+        out+=rect(width/2-144,510,288,43,'var(--primary-soft)');
+        out+=text(width/2,538,`模版 ${template[reading]} → RNA ${transcript[reading]}　${n}／16`,'strong','middle');
+        out+=text(width/2,587,'讀模版 3′→5′　｜　RNA 合成 5′→3′','small muted','middle');
+        const hx=xAt(reading),hy=290+offset(hx);
+        out+=path(`M${fmt(center)} 291L${fmt(hx)} ${fmt(hy-15)}`,'var(--rna)',2,'stroke-dasharray="3 4"');
+        out+=`<circle cx="${fmt(hx)}" cy="${fmt(hy)}" r="16" fill="none" stroke="var(--primary)" stroke-width="2.5"/>`;
+      }
+      if(current===4) out+=comparison(p);
+      if(current===5) {
+        out+=rnaStrand(16,x1,ease(p),1);
+        out+=`<g opacity="${fmt(ease(phase(p,.4,1)))}">${text(width/2,536,'原核：mRNA 可直接用於轉譯','strong','middle')}
+          ${text(width/2,574,'無核膜 → 轉錄與轉譯可同時進行','small muted','middle')}</g>`;
+      }
+      return out;
+    }
+
+    function rnaStrand(n,head,released,p) {
+      const spacing=Math.min(23,(width-125)/15);
+      const start=head-(n-1)*spacing;
+      const finalStart=(width-15*spacing)/2;
+      const coords=[];
+      for(let i=0;i<n;i++) {
+        const t=n===1?1:i/(n-1);
+        const x=(start+i*spacing)*(1-released)+(finalStart+i*spacing)*released;
+        const y=(447-170*t*t*t)*(1-released)+450*released;
+        coords.push([x,y]);
+      }
+      let d=coords.map(([x,y],i)=>`${i?'L':'M'}${fmt(x)} ${fmt(y)}`).join('');
+      let out=path(d,'var(--rna)',4);
+      coords.forEach(([x,y],i)=>{
+        const arriving=current===3&&i===n-1?clamp((ease(p)*16-(n-1))*3):1;
+        out+=base(transcript[i],x,y+(1-arriving)*28,arriving);
+      });
+      const first=coords[0],last=coords[n-1];
+      out+=text(first[0]-14,first[1]+34,'5′','rna-label','middle');
+      out+=text(clamp(last[0]+23,30,width-28),last[1]+7,'3′','rna-label','middle');
+      out+=text(width/2,488,current===5?'RNA 已釋放':'新 RNA（紫色）','rna-label','middle');
+      return out;
+    }
+
+    function comparison(p) {
+      const left=56,right=width-56,dx=(right-left)/15;
+      let out=text(width/2,394,'相同方向並列比對：5′ → 3′','muted','middle');
+      out+=text(30,431,'編碼股 DNA','strong')+text(30,514,'RNA','rna-label');
+      out+=path(`M${left} 456H${right}`)+path(`M${left} 540H${right}`,'var(--rna)');
+      for(let i=0;i<16;i++) {
+        const x=left+i*dx,matched=i/16<=p;
+        if(coding[i]==='T'&&matched) out+=rect(x-13,439,26,118,'var(--primary-soft)','stroke="var(--primary)" stroke-width="1.5"');
+        out+=base(coding[i],x,456);
+        out+=base(transcript[i],x,540+18*(1-ease(p)),clamp(p*3),coding[i]==='T'&&matched);
+      }
+      out+=text(25,460,'5′','strong','middle')+text(width-25,460,'3′','strong','middle');
+      out+=text(25,545,'5′','rna-label','middle')+text(width-25,545,'3′','rna-label','middle');
+      out+=text(width/2,594,'高亮處：DNA 的 T → RNA 的 U','strong','middle');
+      return out;
+    }
+
+    function exon(x,y,w,index,opacity=1) {
+      return `<g opacity="${fmt(opacity)}">${rect(x,y-26,w,52,`var(--exon${index})`)}
+        ${text(x+w/2,y-3,'外顯子','light','middle')}${text(x+w/2,y+19,String(index),'light','middle')}</g>`;
+    }
+
+    function cap(x,y,p,labelOffset=-53) {
+      return `<g opacity="${fmt(p)}" transform="translate(${fmt(-32*(1-p))} 0)">
+        ${path(`M${x-16} ${y}H${x+1}`,'var(--cap)',4)}<circle cx="${x-18}" cy="${y}" r="12" fill="var(--cap)"/>
+        ${text(x-6,y+labelOffset,'5′ 帽','strong','middle')}</g>`;
+    }
+
+    function tail(x,y,p,short=false) {
+      const len=short?32:55;
+      return `<g opacity="${fmt(p)}">${path(`M${x} ${y}Q${x+len*p} ${y} ${x+len*p} ${y+35*p}`,'var(--rna)',4)}
+        ${text(x+len*p,y+58,short?'AAA…':'AAAA…','rna-label','middle')}</g>`;
+    }
+
+    function processing(p) {
+      let out=rect(20,74,width-40,520,'var(--primary-soft)','stroke="var(--primary)" stroke-width="2"');
+      out+=text(40,113,'細胞核內','strong')+text(width/2,174,'前驅 mRNA','rna-label','middle');
+      const start=65,total=width-130,ew=total*.24,iw=total*.14,y=285;
+      out+=path(`M${start-8} ${y}H${start+total+8}`,'var(--rna)',4);
+      let x=start;
+      for(let i=1;i<=3;i++) {
+        out+=exon(x,y,ew,i);x+=ew;
+        if(i<3) {out+=rect(x,y-26,iw,52,'url(#hatch)')+text(x+iw/2,y+7,'內含子','small strong','middle');x+=iw;}
+      }
+      out+=text(start-5,y+58,'5′','rna-label','middle')+text(start+total+5,y-42,'3′','rna-label','middle');
+      out+=cap(start,y,ease(phase(p,.05,.48)));
+      out+=tail(start+total,y,ease(phase(p,.43,1)));
+      out+=`<g opacity="${fmt(ease(phase(p,.43,1)))}">${text(width-43,408,'多腺苷酸尾','strong','end')}</g>`;
+      out+=rect(44,454,30,23,'var(--exon1)')+text(85,473,'外顯子：實心色塊','small');
+      out+=rect(44,499,30,23,'url(#hatch)')+text(85,518,'內含子：灰色斜紋','small');
+      out+=text(width/2,566,'5′ 加帽　＋　3′ 加尾','strong','middle');
+      return out;
+    }
+
+    function splicing(p) {
+      const border=width*.48,exit=ease(phase(p,.58,1)),join=ease(phase(p,0,.45));
+      const start=38,ew=Math.min(100,(border-66)/3),gap=(border-54-3*ew)/2;
+      const destination=border+37;
+      const shift=(destination-start)*exit;
+      const y=287;
+      let out=rect(20,74,border-20,520,'var(--primary-soft)')+text(38,113,'細胞核','strong');
+      out+=text(width-30,113,'細胞質','strong','end');
+      out+=path(`M${border} 74V245M${border} 331V594`,'var(--primary)',7);
+      out+=rect(border-9,239,18,13,'var(--primary)')+rect(border-9,324,18,13,'var(--primary)');
+      out+=text(border+16,170,'核孔','strong');
+      out+=path(`M${border+20} 178L${border+2} 240`,'var(--muted)',1.5);
+      const positions=[0,1,2].map(i=>start+i*ew+i*gap*(1-join)+shift);
+      out+=path(`M${positions[0]-10} ${y}H${positions[2]+ew+9}`,'var(--rna)',4);
+      for(let i=0;i<3;i++) out+=exon(positions[i],y,ew,i+1);
+      out+=cap(positions[0],y,1,86)+tail(positions[2]+ew,y,1,true);
+      out+=text(positions[0],y+58,'5′','rna-label','middle')+text(positions[2]+ew,y-43,'3′','rna-label','middle');
+      // Each intron rises as a closed lariat before disappearing; exons close the gaps.
+      const removal=ease(phase(p,.05,.52));
+      for(let i=0;i<2;i++) {
+        const x=start+(i+1)*ew+i*gap+gap/2;
+        const cy=y-95*removal;
+        const radius=9+14*removal;
+        const alpha=1-ease(phase(p,.43,.58));
+        out+=`<g opacity="${fmt(alpha)}">`;
+        if(removal<.12) out+=rect(x-gap/2,y-26,Math.max(gap,12),52,'url(#hatch)');
+        else out+=`<ellipse cx="${fmt(x)}" cy="${fmt(cy)}" rx="${fmt(radius)}" ry="${fmt(radius*.8)}" fill="url(#hatch)" stroke="var(--stripe)" stroke-width="2"/>${path(`M${fmt(x+radius)} ${fmt(cy)}q18 -10 18 -25`,'var(--stripe)',3)}`;
+        out+='</g>';
+      }
+      out+=text(width/2,409,p<.55?'內含子成圈脫離 → 外顯子接合':'成熟 mRNA → 穿過核孔','strong','middle');
+      out+=text(42,465,'小補充：選擇性剪接','strong');
+      const alt=ease(phase(p,.25,.6));
+      out+=`<g opacity="${fmt(alt)}">${path('M44 511H198','var(--rna)',4)}${exon(44,511,70,1)}${exon(114,511,70,3)}
+        ${text(203,518,'1 ＋ 3','rna-label')}${text(42,574,'不同外顯子組合 → 不同蛋白質','small muted')}</g>`;
+      return out;
+    }
+
+    function render() {
+      scene.setAttribute('viewBox',`0 0 ${width} ${width===520?640:620}`);
+      scene.innerHTML=scaffold()+(current<6?dna(progress):current===6?processing(progress):splicing(progress));
+    }
+
+    function updateControls() {
+      title.textContent=`${current+1}. ${steps[current].title}`;
+      description.textContent=steps[current].text;
+      counter.textContent=`第 ${current+1}／${steps.length} 步`;
+      previousButton.disabled=current===0;
+      nextButton.disabled=current===steps.length-1;
+      playButton.textContent=isPlaying?'⏸ 暫停':'▶ 播放';
+      playButton.setAttribute('aria-pressed',String(isPlaying));
+      dotButtons.forEach((b,i)=>{if(i===current)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
+      updateStatus();
+    }
+    function updateStatus() {
+      status.textContent=moving?'本步動畫演示中':progress<1?'動畫已暫停':isPlaying?'稍停後進下一步':current===7?'8 步演示完成':'可切步或播放';
+    }
+    function go(index,animate=true) {
+      current=clamp(index,0,steps.length-1); progress=animate?0:1; moving=animate; hold=0;lastTime=null;
+      if(!animate&&current===steps.length-1)isPlaying=false;
+      updateControls();render();
+    }
+    function togglePlay() {
+      if(isPlaying) { isPlaying=false;moving=false; }
+      else {
+        isPlaying=true;
+        if(current===steps.length-1&&progress===1)go(0,true);
+        else if(progress<1)moving=true;
+        hold=0;
+      }
+      lastTime=null;updateControls();
+    }
+    document.getElementById('restart').addEventListener('click',()=>{isPlaying=false;go(0,true);});
+    previousButton.addEventListener('click',()=>{if(current>0)go(current-1,false);});
+    nextButton.addEventListener('click',()=>{if(current<steps.length-1)go(current+1,true);});
+    playButton.addEventListener('click',togglePlay);
+    document.addEventListener('keydown',e=>{
+      if(e.altKey||e.ctrlKey||e.metaKey||e.target.isContentEditable||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;
+      if(e.key==='ArrowLeft') {e.preventDefault();if(current>0)go(current-1,false);}
+      if(e.key==='ArrowRight') {e.preventDefault();if(current<7)go(current+1,true);}
+      if(e.code==='Space') {e.preventDefault();togglePlay();}
+    });
+    window.addEventListener('resize',()=>{
+      width=window.matchMedia('(max-width:600px)').matches?520:840;render();
+    });
+    document.addEventListener('visibilitychange',()=>{lastTime=null;});
+    function tick(now) {
+      if(document.hidden) {lastTime=null;requestAnimationFrame(tick);return;}
+      const delta=lastTime===null?0:Math.min(now-lastTime,100);lastTime=now;
+      if(moving) {
+        progress=clamp(progress+delta/(reducedMotion?500:steps[current].duration));
+        render();
+        if(progress===1) {moving=false;hold=0;if(current===steps.length-1)isPlaying=false;updateControls();}
+      } else if(isPlaying) {
+        hold+=delta;
+        if(hold>=2500&&current<steps.length-1)go(current+1,true);
+      }
+      requestAnimationFrame(tick);
+    }
+    updateControls();render();requestAnimationFrame(tick);
+  </script>
+</body>
+</html>
