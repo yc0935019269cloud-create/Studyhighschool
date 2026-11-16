@@ -285,3 +285,15 @@ PDF頁碼不同於印刷頁碼；例如地科2接續地科1書頁，生物PDF頁
 - 此頁沒有上游 content，直接維護此 HTML。工作檔在 scratchpad phys7q（seg/s0–s17.html、verify/、assemble.py）；組裝時把段內 id 重編成 p1…p44、t1…t42。
 - 導覽：所有物理頁側欄第7單元、physics/index（86 題）、首頁（第6、7單元計數改 2，物理 22 份講義：原本 20 是舊數字）；7→7題→8 上下頁。
 - 驗證：validate_handouts 無錯誤；瀏覽器無 JS 錯誤、84 張 SVG 文字無出框／重疊、展開／收起／☆標記與篩選可用、390px 無橫向溢出、深色模式可讀。尚未提交、尚未推送。
+- 已上線：提交 0bb44f6，Pages build status=built；線上 physics/u7題.html 與提交內容相同，首頁已出現 7題 連結。
+
+### 2026-11-15 新增「心智圖」科目（Hermes）
+- 新增 mindmap/：mindmap.js（NotebookLM 式由左往右樹狀圖，圓鈕展開／收起、點節點看說明與講義連結、拖曳平移、滾輪／雙指縮放、全部展開／收起／置中）、mindmap.css、index.html、chem3.html（化學第3章反應速率，內容依 chemistry/u3-1～3-4 重點整理）、phys6.html（物理第6單元動量與角動量，依 physics/u6）。
+- 首頁 index.html 在最後加一張「心智圖」卡（<!-- mindmap-home START/END --> 標記）。若重跑 integrate_navigation 蓋掉首頁，要補回此卡。
+- 已在瀏覽器檢查展開、全部展開、說明面板、首頁卡片；尚未提交、尚未推送。
+
+### 2026-11-16 心智圖新增生物4、5與地科4、5（Claude）
+- 新增 mindmap/bio4.html（分子生物學，依 biology/u4-1～4-5）、bio5.html（演化，依 u5-1～5-5）、earth4.html（大氣與天氣，依 earth/u4-1～4-4）、earth5.html（海洋，依 u5-1～5-3 與 u5-考）。生物用綠 #177245、地科用橙 #b3621b。
+- mindmap/index.html 加四張卡；首頁 mindmap-home 區塊改「6 張單元樹狀圖」，加生物、地科兩組連結。
+- 驗證：node 解析四頁資料（節點 70／69／50／40，講義連結皆存在）；本機瀏覽器開啟、全部展開與點節點說明正常，無 console 錯誤。尚未 commit／push。
+- 注意：earth/u5-1～5-3 本身仍是舊批次草稿，earth5 心智圖另參考 5-考 的考點補齊；地科4-4 鋒面細節為一般課綱內容。

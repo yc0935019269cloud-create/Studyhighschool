@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>心智圖｜物理第6單元 動量與角動量</title>
+<link rel="icon" href="../favicon.svg">
+<link rel="stylesheet" href="mindmap.css">
+<style>:root{--c:#2f6fd1;--node:#e9f0fc;--node-b:#bcd0f3}@media (prefers-color-scheme:dark){:root{--c:#7aa7ff;--node:#1d2940;--node-b:#33476e}}</style>
+</head><body>
+<div class="mm-top"><a class="back" href="index.html">← 心智圖</a><h1>物理 第6單元　動量與角動量</h1>
+<div class="tools"><button data-act="open">全部展開</button><button data-act="close">全部收起</button><button data-act="fit">置中</button><button data-act="in">＋</button><button data-act="out">－</button></div></div>
+<div id="stage"><div id="world"><svg id="edges" width="1" height="1"></svg></div></div>
+<div id="note"></div>
+<div class="hint">點圓鈕展開／收起；點有小圓點的節點看說明；拖曳移動、滾輪縮放</div>
+<script src="mindmap.js"></script>
+<script>
+MindMap.render({t:"第6單元 動量與角動量", href:"../physics/u6.html", n:"主線：碰撞、爆炸的力太大太短，F ＝ ma 不好用 → 改看「力作用一段時間後運動改變多少」→ 動量、衝量 → 質心 → 動量守恆 → 搬到轉動：角動量。", c:[
+ {t:"先備工具", c:[
+  {t:"牛頓第二定律", n:"ΣF ＝ ma，a ＝ Δv/Δt ⇒ 用來推出衝量 ＝ 動量變化"},
+  {t:"牛頓第三定律", n:"作用力與反作用力等大、反向、同時出現 ⇒ 內力互相抵消 ⇒ 動量守恆"},
+  {t:"向量正負號", n:"一直線上先規定正方向，反向寫負號；動量、衝量都有方向。"},
+  {t:"重心", n:"以重量為權重的平均位置；質心公式長得一樣。"},
+  {t:"力矩", n:"τ ＝ rF sinθ ＝ F × 力臂，用於焦點 3 的角動量。"}]},
+ {t:"焦點1 動量與衝量", c:[
+  {t:"動量 p ＝ mv", n:"單位 kg·m/s，方向與速度相同。<br>子彈 0.01 kg × 600 m/s ＝ 棒球 0.15 kg × 40 m/s ＝ 6 kg·m/s"},
+  {t:"衝量 J ＝ FΔt", n:"單位 N·s（＝ kg·m/s），方向與力相同。<br>衝量 ＝ <b>F–t 圖下面積</b>（t 軸下方為負）。"},
+  {t:"衝量–動量定理 ΣFΔt ＝ Δp", c:[
+   {t:"推導", n:"ΣF ＝ ma ＝ mΔv/Δt ⇒ ΣFΔt ＝ mΔv ＝ Δp<br>寫成 ΣF ＝ Δp/Δt：牛頓第二定律的原始形式。"},
+   {t:"延長時間 ⇒ 平均力變小", n:"60 kg、15 m/s 停下（Δp ＝ 900）：<ul><li>撞方向盤 0.01 s ⇒ 90000 N</li><li>安全氣囊 0.2 s ⇒ 4500 N</li></ul>接球收手、沙坑、落地彎膝同理。"},
+   {t:"反彈", n:"Δp 大小 ＝ m(v前 ＋ v後)，不是 0。<br>0.5 kg、10 m/s 撞牆原速反彈 ⇒ |Δp| ＝ 10 kg·m/s"},
+   {t:"讀圖", n:"F–t 圖面積 ＝ Δp；a–t 圖面積 ＝ Δv（再乘 m 得衝量）"},
+   {t:"常見錯誤：ΣF 是合力", n:"球落地反彈：(N − mg)Δt ＝ Δp；只有 Δt 極短時才可忽略 mg。"}]}]},
+ {t:"焦點1 質心", c:[
+  {t:"質心位置", n:"r<sub>CM</sub> ＝ (m<sub>1</sub>r<sub>1</sub> ＋ m<sub>2</sub>r<sub>2</sub> ＋ …)/M，即質量加權平均位置。", c:[
+   {t:"雙質點 m₁r₁ ＝ m₂r₂", n:"到質心距離與質量成反比（蹺蹺板）。<br>3 kg 在 0、1 kg 在 4 m ⇒ x<sub>CM</sub> ＝ 1 m"},
+   {t:"地月系統質心", n:"距地心約 4700 km，小於地球半徑 ⇒ 在地球內部。"},
+   {t:"質心不一定在物體上", n:"例：甜甜圈的質心在中間的洞。"}]},
+  {t:"質心運動", n:"v<sub>CM</sub> ＝ Σm<sub>i</sub>v<sub>i</sub>/M；p總 ＝ Mv<sub>CM</sub>；<b>ΣF外 ＝ Ma<sub>CM</sub></b>", c:[
+   {t:"內力不改變質心運動", n:"內力依第三定律成對抵消，只剩外力能讓質心加速。"},
+   {t:"砲彈空中爆炸", n:"碎片的質心仍沿原拋物線運動；碎片一落地，地面給外力，質心才離開原軌跡。"},
+   {t:"人在船上走", n:"水平無外力 ⇒ 質心不動：m(L − x) ＝ Mx ⇒ x ＝ mL/(M ＋ m)<br>M ＝ 100、m ＝ 50、L ＝ 6 m ⇒ 船退 2 m，人對岸走 4 m。<br>注意：L 是人相對船走的距離。"}]}]},
+ {t:"焦點2 動量守恆", c:[
+  {t:"條件：ΣF外 ＝ 0", n:"ΣF外 ＝ 0 ⇒ p<sub>1</sub> ＋ p<sub>2</sub> ＋ … ＝ p<sub>1</sub>′ ＋ p<sub>2</sub>′ ＋ …<br>完全不用管內力多大、怎麼變。"},
+  {t:"為什麼成立", n:"內力等大反向、作用時間相同 ⇒ 衝量等大反向 ⇒ Δp<sub>A</sub> ＝ −Δp<sub>B</sub>，總和不變。"},
+  {t:"分方向守恆", n:"哪個方向外力為零，哪個方向的動量就守恆。<br>例：光滑地面上盒內單擺，水平方向動量守恆。"},
+  {t:"碰撞與爆炸", n:"內力極大、時間極短，外力衝量可忽略 ⇒ 前後瞬間視為動量守恆。"},
+  {t:"例題", c:[
+   {t:"碰撞", n:"2 kg、3 m/s 撞靜止 1 kg，撞後 1 m/s 與 4 m/s：<br>前 6 ＝ 後 2 ＋ 4 ✔"},
+   {t:"開槍後座", n:"4 kg 槍射出 0.01 kg、400 m/s 子彈：0.01×400 ＋ 4v ＝ 0 ⇒ v ＝ −1 m/s"}]},
+  {t:"Δp 等大，質量小的 Δv 大", n:"Δv ＝ Δp/m：子彈 400 m/s，槍只有 1 m/s。"},
+  {t:"常見錯誤", n:"<ul><li>速度忘了帶正負號</li><li>系統沒選完整（互相作用的物體都要包進來）</li><li>有長時間摩擦等外力時不能直接用</li></ul>"}]},
+ {t:"焦點3 角動量", c:[
+  {t:"移動 ↔ 轉動類比", n:"動量 p ↔ 角動量 L；力 F ↔ 力矩 τ；F ＝ Δp/Δt ↔ τ ＝ ΔL/Δt"},
+  {t:"L ＝ r × p", n:"L ＝ rp sinθ ＝ p × d（d：參考點到動量作用線的垂直距離），單位 kg·m²/s。<br>作用線通過參考點 ⇒ L ＝ 0。"},
+  {t:"圓周運動 L ＝ mvr ＝ mr²ω", n:"r 與 v 垂直，再用 v ＝ rω。<br>0.5 kg、0.8 m、2 m/s ⇒ L ＝ 0.8 kg·m²/s"},
+  {t:"方向：右手定則", n:"四指沿轉動方向彎，拇指為 L 方向；逆時針 ⇒ 指出紙面。"},
+  {t:"一定要指定參考點", n:"換參考點 L 就不同。直線運動對某點也有角動量：2 kg·m/s、作用線距 O 點 3 m ⇒ L ＝ 6"}]},
+ {t:"焦點3 角動量守恆", c:[
+  {t:"τ ＝ ΔL/Δt；τ ＝ 0 ⇒ L 守恆", n:"推導：ΔL ＝ Δr × p ＋ r × Δp，其中 Δr ∥ p 第一項為 0 ⇒ τ ＝ ΔL/Δt。"},
+  {t:"連心力 ⇒ 力矩為零", n:"力的作用線恆通過參考點（繩穿小孔、太陽引力）⇒ 力臂 0 ⇒ 角動量守恆。"},
+  {t:"應用", c:[
+   {t:"繩穿小孔", n:"mvr 不變：r 減半 ⇒ v 變 2 倍、ω 變 4 倍。"},
+   {t:"溜冰選手收手", n:"r 變小 ⇒ 為保持 mr²ω，ω 變大、轉更快。"},
+   {t:"行星繞日", n:"r<sub>近</sub>v<sub>近</sub> ＝ r<sub>遠</sub>v<sub>遠</sub>：近日點快、遠日點慢。"}]},
+  {t:"面積速率與克卜勒第二定律", n:"ΔA/Δt ＝ ½r²ω ＝ L/(2m)<br>角動量守恆 ⇔ 面積速率固定 ⇔ 等面積定律。"},
+  {t:"常見錯誤", n:"<ul><li>角動量守恆 ≠ 速率不變</li><li>有力 ≠ 有力矩（連心力）</li><li>動量不守恆時，角動量仍可能守恆（繩穿小孔）</li></ul>"}]},
+ {t:"總整理：移動 vs 轉動", c:[
+  {t:"運動量", n:"p ＝ mv ↔ L ＝ rp sinθ（圓周 mr²ω）"},
+  {t:"改變它", n:"FΔt ＝ Δp ↔ τΔt ＝ ΔL"},
+  {t:"守恆條件", n:"外力和為零 ⇒ 動量守恆 ↔ 合力矩為零 ⇒ 角動量守恆"}]}
+]});
+</script>
+</body></html>
